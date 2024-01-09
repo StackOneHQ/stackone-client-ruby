@@ -45,6 +45,8 @@ module StackOne
       field :categories, T.nilable(T::Array[Shared::ConnectSessionCreateCategories]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('categories') } }
       # How long the session should be valid for in seconds
       field :expires_in, T.nilable(Float), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('expires_in') } }
+      # The label to be applied to the account associated with this connect session.
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
       # The metadata for the connection
       field :metadata, T.nilable(Shared::Metadata), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('metadata') } }
       # The origin username
@@ -53,13 +55,14 @@ module StackOne
       field :provider, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
 
 
-      sig { params(origin_owner_id: String, origin_owner_name: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(Float), metadata: T.nilable(Shared::Metadata), origin_username: T.nilable(String), provider: T.nilable(String)).void }
-      def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, metadata: nil, origin_username: nil, provider: nil)
+      sig { params(origin_owner_id: String, origin_owner_name: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(Float), label: T.nilable(String), metadata: T.nilable(Shared::Metadata), origin_username: T.nilable(String), provider: T.nilable(String)).void }
+      def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
         @origin_owner_id = origin_owner_id
         @origin_owner_name = origin_owner_name
         @account_id = account_id
         @categories = categories
         @expires_in = expires_in
+        @label = label
         @metadata = metadata
         @origin_username = origin_username
         @provider = provider

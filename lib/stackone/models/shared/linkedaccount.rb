@@ -49,13 +49,15 @@ module StackOne
 
       field :credentials, T.nilable(Shared::Credentials), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('credentials') } }
 
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+
       field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_username') } }
 
       field :setup_information, T.nilable(Shared::SetupInformation), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('setup_information') } }
 
 
-      sig { params(active: T::Boolean, created_at: DateTime, id: String, origin_owner_id: String, origin_owner_name: String, provider: String, updated_at: DateTime, credentials: T.nilable(Shared::Credentials), origin_username: T.nilable(String), setup_information: T.nilable(Shared::SetupInformation)).void }
-      def initialize(active: nil, created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, updated_at: nil, credentials: nil, origin_username: nil, setup_information: nil)
+      sig { params(active: T::Boolean, created_at: DateTime, id: String, origin_owner_id: String, origin_owner_name: String, provider: String, updated_at: DateTime, credentials: T.nilable(Shared::Credentials), label: T.nilable(String), origin_username: T.nilable(String), setup_information: T.nilable(Shared::SetupInformation)).void }
+      def initialize(active: nil, created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, setup_information: nil)
         @active = active
         @created_at = created_at
         @id = id
@@ -64,6 +66,7 @@ module StackOne
         @provider = provider
         @updated_at = updated_at
         @credentials = credentials
+        @label = label
         @origin_username = origin_username
         @setup_information = setup_information
       end

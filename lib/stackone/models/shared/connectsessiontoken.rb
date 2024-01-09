@@ -42,13 +42,17 @@ module StackOne
 
       field :token, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('token') } }
 
+      field :account_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('account_id') } }
+
       field :categories, T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('categories') } }
+
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
 
       field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_username') } }
 
 
-      sig { params(created_at: DateTime, id: String, organization_id: String, origin_owner_id: String, origin_owner_name: String, project_id: String, provider: String, token: String, categories: T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), origin_username: T.nilable(String)).void }
-      def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, provider: nil, token: nil, categories: nil, origin_username: nil)
+      sig { params(created_at: DateTime, id: String, organization_id: String, origin_owner_id: String, origin_owner_name: String, project_id: String, provider: String, token: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), label: T.nilable(String), origin_username: T.nilable(String)).void }
+      def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, provider: nil, token: nil, account_id: nil, categories: nil, label: nil, origin_username: nil)
         @created_at = created_at
         @id = id
         @organization_id = organization_id
@@ -57,7 +61,9 @@ module StackOne
         @project_id = project_id
         @provider = provider
         @token = token
+        @account_id = account_id
         @categories = categories
+        @label = label
         @origin_username = origin_username
       end
     end
