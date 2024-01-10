@@ -1,0 +1,12 @@
+# Company
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `created_at`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_minus_sign:                                                   | The created_at date                                                  | 2021-01-01T01:01:01.000Z                                             |
+| `display_name`                                                       | *T.nilable(String)*                                                  | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `id`                                                                 | *T.nilable(String)*                                                  | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `name`                                                               | *T.nilable(String)*                                                  | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `updated_at`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_minus_sign:                                                   | The updated_at date                                                  | 2021-01-01T01:01:01.000Z                                             |

@@ -1,0 +1,14 @@
+# AccountAddress
+
+
+## Fields
+
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `city`                                                                 | *T.nilable(String)*                                                    | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `country`                                                              | [T.nilable(Shared::Country)](../../models/shared/country.md)           | :heavy_minus_sign:                                                     | The country code                                                       |
+| `location_type`                                                        | [T.nilable(Shared::LocationType)](../../models/shared/locationtype.md) | :heavy_minus_sign:                                                     | The location type                                                      |
+| `state`                                                                | *T.nilable(String)*                                                    | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `street_1`                                                             | *T.nilable(String)*                                                    | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `street_2`                                                             | *T.nilable(String)*                                                    | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `zip_code`                                                             | *T.nilable(String)*                                                    | :heavy_minus_sign:                                                     | N/A                                                                    |
