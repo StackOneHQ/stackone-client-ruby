@@ -1,0 +1,12 @@
+# OfferHistory
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `created_at`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_minus_sign:                                                   | Date of creation                                                     | 2021-01-01T01:01:01.000Z                                             |
+| `currency`                                                           | *T.nilable(String)*                                                  | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `salary`                                                             | *T.nilable(Float)*                                                   | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `start_date`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_check_mark:                                                   | Start Date of the offer                                              | 2021-01-01T01:01:01.000Z                                             |
+| `updated_at`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_minus_sign:                                                   | Date of last update                                                  | 2021-01-01T01:01:01.000Z                                             |

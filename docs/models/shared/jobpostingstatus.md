@@ -1,0 +1,9 @@
+# JobPostingStatus
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 | Example                                                                                     |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `source_value`                                                                              | *String*                                                                                    | :heavy_check_mark:                                                                          | The source value of the job postings status.                                                | Live                                                                                        |
+| `value`                                                                                     | [Shared::JobPostingSchemasStatusValue](../../models/shared/jobpostingschemasstatusvalue.md) | :heavy_check_mark:                                                                          | The status of the job postings.                                                             | live                                                                                        |

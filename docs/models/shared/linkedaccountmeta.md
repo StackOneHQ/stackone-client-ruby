@@ -1,0 +1,10 @@
+# LinkedAccountMeta
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `category`                                                                            | [Shared::LinkedAccountMetaCategory](../../models/shared/linkedaccountmetacategory.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `models`                                                                              | [Shared::LinkedAccountMetaModels](../../models/shared/linkedaccountmetamodels.md)     | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `provider`                                                                            | *String*                                                                              | :heavy_check_mark:                                                                    | N/A                                                                                   |
