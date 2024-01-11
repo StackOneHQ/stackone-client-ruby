@@ -1,0 +1,10 @@
+# AtsUpdateCandidateRequest
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ats_update_candidates_request_dto`                                                           | [Shared::AtsUpdateCandidatesRequestDto](../../models/shared/atsupdatecandidatesrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *String*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `x_account_id`                                                                                | *String*                                                                                      | :heavy_check_mark:                                                                            | The account identifier                                                                        |

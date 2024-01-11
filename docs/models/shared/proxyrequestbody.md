@@ -1,0 +1,12 @@
+# ProxyRequestBody
+
+
+## Fields
+
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `body`                                                       | [T.nilable(Shared::Body)](../../models/shared/body.md)       | :heavy_minus_sign:                                           | The body of the request                                      |                                                              |
+| `headers`                                                    | [T.nilable(Shared::Headers)](../../models/shared/headers.md) | :heavy_minus_sign:                                           | The headers to send in the request                           |                                                              |
+| `method`                                                     | [T.nilable(Shared::Method)](../../models/shared/method.md)   | :heavy_minus_sign:                                           | The method of the request                                    |                                                              |
+| `path`                                                       | *T.nilable(String)*                                          | :heavy_minus_sign:                                           | The path of the request including any query paramters        | /employees/directory                                         |
+| `url`                                                        | *T.nilable(String)*                                          | :heavy_minus_sign:                                           | The base url of the request                                  | https://api.sample-integration.com/v1                        |

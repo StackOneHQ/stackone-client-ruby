@@ -1,0 +1,9 @@
+# AttachmentType
+
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          | Example                                                                              |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `source_value`                                                                       | *T.nilable(String)*                                                                  | :heavy_minus_sign:                                                                   | The source value of the attachment type.                                             | Resume                                                                               |
+| `value`                                                                              | [T.nilable(Shared::AttachmentTypeValue)](../../models/shared/attachmenttypevalue.md) | :heavy_minus_sign:                                                                   | The type of the attachment.                                                          | resume                                                                               |

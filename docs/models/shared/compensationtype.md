@@ -1,0 +1,9 @@
+# CompensationType
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 | Example                                                                                     |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `source_value`                                                                              | *String*                                                                                    | :heavy_check_mark:                                                                          | The source value of the compensation type.                                                  | Salary                                                                                      |
+| `value`                                                                                     | [Shared::CompensationSchemasTypeValue](../../models/shared/compensationschemastypevalue.md) | :heavy_check_mark:                                                                          | The type of the compensation.                                                               | salary                                                                                      |
