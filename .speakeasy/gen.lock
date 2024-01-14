@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: e953bacd8e2eeefeb3704f756f5c8d1e
+  docChecksum: a41e43fab344a28d59a0874665db2a5e
   docVersion: 1.0.0
   speakeasyVersion: internal
   generationVersion: 2.231.0
-  releaseVersion: 0.0.1
-  configChecksum: dc042e30371d028eceb3a25cb23914a3
+  releaseVersion: 0.0.2
+  configChecksum: 048c9ffda11af6dcf3904aef8136ffa4
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -134,11 +134,13 @@ generatedFiles:
   - lib/stackone/models/operations/hris_create_time_off_request.rb
   - lib/stackone/models/operations/hris_get_company.rb
   - lib/stackone/models/operations/hris_get_employee.rb
+  - lib/stackone/models/operations/hris_get_employee_document.rb
   - lib/stackone/models/operations/hris_get_employees_time_off_request.rb
   - lib/stackone/models/operations/hris_get_employment.rb
   - lib/stackone/models/operations/hris_get_location.rb
   - lib/stackone/models/operations/hris_get_time_off_request.rb
   - lib/stackone/models/operations/hris_list_companies.rb
+  - lib/stackone/models/operations/hris_list_employee_documents.rb
   - lib/stackone/models/operations/hris_list_employee_time_off_requests.rb
   - lib/stackone/models/operations/hris_list_employees.rb
   - lib/stackone/models/operations/hris_list_employments.rb
@@ -261,12 +263,17 @@ generatedFiles:
   - lib/stackone/models/shared/company.rb
   - lib/stackone/models/shared/employeeresult.rb
   - lib/stackone/models/shared/employee.rb
+  - lib/stackone/models/shared/documentresult.rb
+  - lib/stackone/models/shared/documentapimodel.rb
+  - lib/stackone/models/shared/documenttypeenum.rb
+  - lib/stackone/models/shared/content.rb
   - lib/stackone/models/shared/timeoffresult.rb
   - lib/stackone/models/shared/timeoff.rb
   - lib/stackone/models/shared/employmentresult.rb
   - lib/stackone/models/shared/hrislocationresult.rb
   - lib/stackone/models/shared/hrislocation.rb
   - lib/stackone/models/shared/companiespaginated.rb
+  - lib/stackone/models/shared/documentspaginated.rb
   - lib/stackone/models/shared/timeoffpaginated.rb
   - lib/stackone/models/shared/employeespaginated.rb
   - lib/stackone/models/shared/employmentspaginated.rb
@@ -434,6 +441,9 @@ generatedFiles:
   - docs/models/operations/hrisgetemployeequeryparamproxy.md
   - docs/models/operations/hrisgetemployeerequest.md
   - docs/models/operations/hrisgetemployeeresponse.md
+  - docs/models/operations/hrisgetemployeedocumentqueryparamproxy.md
+  - docs/models/operations/hrisgetemployeedocumentrequest.md
+  - docs/models/operations/hrisgetemployeedocumentresponse.md
   - docs/models/operations/hrisgetemployeestimeoffrequestqueryparamproxy.md
   - docs/models/operations/hrisgetemployeestimeoffrequestrequest.md
   - docs/models/operations/hrisgetemployeestimeoffrequestresponse.md
@@ -449,6 +459,9 @@ generatedFiles:
   - docs/models/operations/hrislistcompaniesqueryparamproxy.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
+  - docs/models/operations/hrislistemployeedocumentsqueryparamproxy.md
+  - docs/models/operations/hrislistemployeedocumentsrequest.md
+  - docs/models/operations/hrislistemployeedocumentsresponse.md
   - docs/models/operations/hrislistemployeetimeoffrequestsqueryparamproxy.md
   - docs/models/operations/hrislistemployeetimeoffrequestsrequest.md
   - docs/models/operations/hrislistemployeetimeoffrequestsresponse.md
@@ -585,7 +598,7 @@ generatedFiles:
   - docs/models/shared/jobstatusenum.md
   - docs/models/shared/hiringteam.md
   - docs/models/shared/jobpostingresult.md
-  - docs/models/shared/content.md
+  - docs/models/shared/jobpostingcontent.md
   - docs/models/shared/jobpostingvalue.md
   - docs/models/shared/jobpostingemploymentcontracttype.md
   - docs/models/shared/jobpostingschemasvalue.md
@@ -718,6 +731,11 @@ generatedFiles:
   - docs/models/shared/employeeschemaslocationtype.md
   - docs/models/shared/worklocation.md
   - docs/models/shared/employee.md
+  - docs/models/shared/documentresult.md
+  - docs/models/shared/documentapimodel.md
+  - docs/models/shared/documenttypeenumvalue.md
+  - docs/models/shared/documenttypeenum.md
+  - docs/models/shared/content.md
   - docs/models/shared/timeoffresult.md
   - docs/models/shared/timeoffvalue.md
   - docs/models/shared/timeoffstatus.md
@@ -732,6 +750,7 @@ generatedFiles:
   - docs/models/shared/hrislocationlocationtype.md
   - docs/models/shared/hrislocation.md
   - docs/models/shared/companiespaginated.md
+  - docs/models/shared/documentspaginated.md
   - docs/models/shared/timeoffpaginated.md
   - docs/models/shared/employeespaginated.md
   - docs/models/shared/employmentspaginated.md

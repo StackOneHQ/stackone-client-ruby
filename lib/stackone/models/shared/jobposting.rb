@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Content < StackOne::Utils::FieldAugmented
+    class JobPostingContent < StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -132,7 +132,7 @@ module StackOne
 
       field :compensation, T.nilable(T::Array[Shared::Compensation]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('compensation') } }
 
-      field :content, T.nilable(Shared::Content), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content') } }
+      field :content, T.nilable(Shared::JobPostingContent), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content') } }
       # Date of creation
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
@@ -159,7 +159,7 @@ module StackOne
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(id: String, compensation: T.nilable(T::Array[Shared::Compensation]), content: T.nilable(Shared::Content), created_at: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Shared::JobPostingEmploymentType), external_apply_url: T.nilable(String), external_url: T.nilable(String), internal: T.nilable(Shared::Internal), job_id: T.nilable(String), locations: T.nilable(T::Array[Shared::Location]), questionnaires: T.nilable(T::Array[Shared::Questionnaire]), status: T.nilable(Shared::JobPostingStatus), title: T.nilable(String), updated_at: T.nilable(DateTime)).void }
+      sig { params(id: String, compensation: T.nilable(T::Array[Shared::Compensation]), content: T.nilable(Shared::JobPostingContent), created_at: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Shared::JobPostingEmploymentType), external_apply_url: T.nilable(String), external_url: T.nilable(String), internal: T.nilable(Shared::Internal), job_id: T.nilable(String), locations: T.nilable(T::Array[Shared::Location]), questionnaires: T.nilable(T::Array[Shared::Questionnaire]), status: T.nilable(Shared::JobPostingStatus), title: T.nilable(String), updated_at: T.nilable(DateTime)).void }
       def initialize(id: nil, compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, status: nil, title: nil, updated_at: nil)
         @id = id
         @compensation = compensation
