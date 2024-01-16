@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: e953bacd8e2eeefeb3704f756f5c8d1e
+  docChecksum: 49c729761dfc1429ed6803221693aa90
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.231.0
-  releaseVersion: 0.0.1
-  configChecksum: dc042e30371d028eceb3a25cb23914a3
+  generationVersion: 2.233.6
+  releaseVersion: 0.0.2
+  configChecksum: 048c9ffda11af6dcf3904aef8136ffa4
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -134,11 +134,13 @@ generatedFiles:
   - lib/stackone/models/operations/hris_create_time_off_request.rb
   - lib/stackone/models/operations/hris_get_company.rb
   - lib/stackone/models/operations/hris_get_employee.rb
+  - lib/stackone/models/operations/hris_get_employee_document.rb
   - lib/stackone/models/operations/hris_get_employees_time_off_request.rb
   - lib/stackone/models/operations/hris_get_employment.rb
   - lib/stackone/models/operations/hris_get_location.rb
   - lib/stackone/models/operations/hris_get_time_off_request.rb
   - lib/stackone/models/operations/hris_list_companies.rb
+  - lib/stackone/models/operations/hris_list_employee_documents.rb
   - lib/stackone/models/operations/hris_list_employee_time_off_requests.rb
   - lib/stackone/models/operations/hris_list_employees.rb
   - lib/stackone/models/operations/hris_list_employments.rb
@@ -261,12 +263,17 @@ generatedFiles:
   - lib/stackone/models/shared/company.rb
   - lib/stackone/models/shared/employeeresult.rb
   - lib/stackone/models/shared/employee.rb
+  - lib/stackone/models/shared/documentresult.rb
+  - lib/stackone/models/shared/documentapimodel.rb
+  - lib/stackone/models/shared/documenttypeenum.rb
+  - lib/stackone/models/shared/content.rb
   - lib/stackone/models/shared/timeoffresult.rb
   - lib/stackone/models/shared/timeoff.rb
   - lib/stackone/models/shared/employmentresult.rb
   - lib/stackone/models/shared/hrislocationresult.rb
   - lib/stackone/models/shared/hrislocation.rb
   - lib/stackone/models/shared/companiespaginated.rb
+  - lib/stackone/models/shared/documentspaginated.rb
   - lib/stackone/models/shared/timeoffpaginated.rb
   - lib/stackone/models/shared/employeespaginated.rb
   - lib/stackone/models/shared/employmentspaginated.rb
@@ -312,88 +319,60 @@ generatedFiles:
   - docs/models/operations/atscreatecandidatenoteresponse.md
   - docs/models/operations/atscreateofferrequest.md
   - docs/models/operations/atscreateofferresponse.md
-  - docs/models/operations/proxy.md
   - docs/models/operations/atsgetapplicationrequest.md
   - docs/models/operations/atsgetapplicationresponse.md
-  - docs/models/operations/queryparamproxy.md
   - docs/models/operations/atsgetapplicationofferrequest.md
   - docs/models/operations/atsgetapplicationofferresponse.md
-  - docs/models/operations/atsgetapplicationscorecardqueryparamproxy.md
   - docs/models/operations/atsgetapplicationscorecardrequest.md
   - docs/models/operations/atsgetapplicationscorecardresponse.md
-  - docs/models/operations/atsgetcandidatequeryparamproxy.md
   - docs/models/operations/atsgetcandidaterequest.md
   - docs/models/operations/atsgetcandidateresponse.md
-  - docs/models/operations/atsgetcandidatenotequeryparamproxy.md
   - docs/models/operations/atsgetcandidatenoterequest.md
   - docs/models/operations/atsgetcandidatenoteresponse.md
-  - docs/models/operations/atsgetdepartmentqueryparamproxy.md
   - docs/models/operations/atsgetdepartmentrequest.md
   - docs/models/operations/atsgetdepartmentresponse.md
-  - docs/models/operations/atsgetinterviewqueryparamproxy.md
   - docs/models/operations/atsgetinterviewrequest.md
   - docs/models/operations/atsgetinterviewresponse.md
-  - docs/models/operations/atsgetinterviewstagequeryparamproxy.md
   - docs/models/operations/atsgetinterviewstagerequest.md
   - docs/models/operations/atsgetinterviewstageresponse.md
-  - docs/models/operations/atsgetjobqueryparamproxy.md
   - docs/models/operations/atsgetjobrequest.md
   - docs/models/operations/atsgetjobresponse.md
-  - docs/models/operations/atsgetjobpostingqueryparamproxy.md
   - docs/models/operations/atsgetjobpostingrequest.md
   - docs/models/operations/atsgetjobpostingresponse.md
-  - docs/models/operations/atsgetlocationqueryparamproxy.md
   - docs/models/operations/atsgetlocationrequest.md
   - docs/models/operations/atsgetlocationresponse.md
-  - docs/models/operations/atsgetofferqueryparamproxy.md
   - docs/models/operations/atsgetofferrequest.md
   - docs/models/operations/atsgetofferresponse.md
-  - docs/models/operations/atsgetrejectedreasonqueryparamproxy.md
   - docs/models/operations/atsgetrejectedreasonrequest.md
   - docs/models/operations/atsgetrejectedreasonresponse.md
-  - docs/models/operations/atsgetuserqueryparamproxy.md
   - docs/models/operations/atsgetuserrequest.md
   - docs/models/operations/atsgetuserresponse.md
-  - docs/models/operations/atslistapplicationscorecardsqueryparamproxy.md
   - docs/models/operations/atslistapplicationscorecardsrequest.md
   - docs/models/operations/atslistapplicationscorecardsresponse.md
-  - docs/models/operations/atslistapplicationsqueryparamproxy.md
   - docs/models/operations/atslistapplicationsrequest.md
   - docs/models/operations/atslistapplicationsresponse.md
-  - docs/models/operations/atslistapplicationsoffersqueryparamproxy.md
   - docs/models/operations/atslistapplicationsoffersrequest.md
   - docs/models/operations/atslistapplicationsoffersresponse.md
-  - docs/models/operations/atslistcandidatenotesqueryparamproxy.md
   - docs/models/operations/atslistcandidatenotesrequest.md
   - docs/models/operations/atslistcandidatenotesresponse.md
-  - docs/models/operations/atslistcandidatesqueryparamproxy.md
   - docs/models/operations/atslistcandidatesrequest.md
   - docs/models/operations/atslistcandidatesresponse.md
-  - docs/models/operations/atslistdepartmentsqueryparamproxy.md
   - docs/models/operations/atslistdepartmentsrequest.md
   - docs/models/operations/atslistdepartmentsresponse.md
-  - docs/models/operations/atslistinterviewstagesqueryparamproxy.md
   - docs/models/operations/atslistinterviewstagesrequest.md
   - docs/models/operations/atslistinterviewstagesresponse.md
-  - docs/models/operations/atslistinterviewsqueryparamproxy.md
   - docs/models/operations/atslistinterviewsrequest.md
   - docs/models/operations/atslistinterviewsresponse.md
-  - docs/models/operations/atslistjobpostingsqueryparamproxy.md
   - docs/models/operations/atslistjobpostingsrequest.md
   - docs/models/operations/atslistjobpostingsresponse.md
-  - docs/models/operations/atslistjobsqueryparamproxy.md
   - docs/models/operations/atslistjobsrequest.md
   - docs/models/operations/atslistjobsresponse.md
-  - docs/models/operations/atslistlocationsqueryparamproxy.md
   - docs/models/operations/atslistlocationsrequest.md
   - docs/models/operations/atslistlocationsresponse.md
-  - docs/models/operations/atslistoffersqueryparamproxy.md
   - docs/models/operations/atslistoffersrequest.md
   - docs/models/operations/atslistoffersresponse.md
-  - docs/models/operations/atslistrejectedreasonsqueryparamproxy.md
   - docs/models/operations/atslistrejectedreasonsrequest.md
   - docs/models/operations/atslistrejectedreasonsresponse.md
-  - docs/models/operations/atslistusersqueryparamproxy.md
   - docs/models/operations/atslistusersrequest.md
   - docs/models/operations/atslistusersresponse.md
   - docs/models/operations/atsupdateapplicationrequest.md
@@ -402,22 +381,16 @@ generatedFiles:
   - docs/models/operations/atsupdatecandidateresponse.md
   - docs/models/operations/crmcreatecontactrequest.md
   - docs/models/operations/crmcreatecontactresponse.md
-  - docs/models/operations/crmgetaccountqueryparamproxy.md
   - docs/models/operations/crmgetaccountrequest.md
   - docs/models/operations/crmgetaccountresponse.md
-  - docs/models/operations/crmgetcontactqueryparamproxy.md
   - docs/models/operations/crmgetcontactrequest.md
   - docs/models/operations/crmgetcontactresponse.md
-  - docs/models/operations/crmgetlistqueryparamproxy.md
   - docs/models/operations/crmgetlistrequest.md
   - docs/models/operations/crmgetlistresponse.md
-  - docs/models/operations/crmlistaccountsqueryparamproxy.md
   - docs/models/operations/crmlistaccountsrequest.md
   - docs/models/operations/crmlistaccountsresponse.md
-  - docs/models/operations/crmlistcontactsqueryparamproxy.md
   - docs/models/operations/crmlistcontactsrequest.md
   - docs/models/operations/crmlistcontactsresponse.md
-  - docs/models/operations/crmlistlistsqueryparamproxy.md
   - docs/models/operations/crmlistlistsrequest.md
   - docs/models/operations/crmlistlistsresponse.md
   - docs/models/operations/crmupdatecontactrequest.md
@@ -428,40 +401,32 @@ generatedFiles:
   - docs/models/operations/hriscreateemployeetimeoffrequestresponse.md
   - docs/models/operations/hriscreatetimeoffrequestrequest.md
   - docs/models/operations/hriscreatetimeoffrequestresponse.md
-  - docs/models/operations/hrisgetcompanyqueryparamproxy.md
   - docs/models/operations/hrisgetcompanyrequest.md
   - docs/models/operations/hrisgetcompanyresponse.md
-  - docs/models/operations/hrisgetemployeequeryparamproxy.md
   - docs/models/operations/hrisgetemployeerequest.md
   - docs/models/operations/hrisgetemployeeresponse.md
-  - docs/models/operations/hrisgetemployeestimeoffrequestqueryparamproxy.md
+  - docs/models/operations/hrisgetemployeedocumentrequest.md
+  - docs/models/operations/hrisgetemployeedocumentresponse.md
   - docs/models/operations/hrisgetemployeestimeoffrequestrequest.md
   - docs/models/operations/hrisgetemployeestimeoffrequestresponse.md
-  - docs/models/operations/hrisgetemploymentqueryparamproxy.md
   - docs/models/operations/hrisgetemploymentrequest.md
   - docs/models/operations/hrisgetemploymentresponse.md
-  - docs/models/operations/hrisgetlocationqueryparamproxy.md
   - docs/models/operations/hrisgetlocationrequest.md
   - docs/models/operations/hrisgetlocationresponse.md
-  - docs/models/operations/hrisgettimeoffrequestqueryparamproxy.md
   - docs/models/operations/hrisgettimeoffrequestrequest.md
   - docs/models/operations/hrisgettimeoffrequestresponse.md
-  - docs/models/operations/hrislistcompaniesqueryparamproxy.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
-  - docs/models/operations/hrislistemployeetimeoffrequestsqueryparamproxy.md
+  - docs/models/operations/hrislistemployeedocumentsrequest.md
+  - docs/models/operations/hrislistemployeedocumentsresponse.md
   - docs/models/operations/hrislistemployeetimeoffrequestsrequest.md
   - docs/models/operations/hrislistemployeetimeoffrequestsresponse.md
-  - docs/models/operations/hrislistemployeesqueryparamproxy.md
   - docs/models/operations/hrislistemployeesrequest.md
   - docs/models/operations/hrislistemployeesresponse.md
-  - docs/models/operations/hrislistemploymentsqueryparamproxy.md
   - docs/models/operations/hrislistemploymentsrequest.md
   - docs/models/operations/hrislistemploymentsresponse.md
-  - docs/models/operations/hrislistlocationsqueryparamproxy.md
   - docs/models/operations/hrislistlocationsrequest.md
   - docs/models/operations/hrislistlocationsresponse.md
-  - docs/models/operations/hrislisttimeoffrequestsqueryparamproxy.md
   - docs/models/operations/hrislisttimeoffrequestsrequest.md
   - docs/models/operations/hrislisttimeoffrequestsresponse.md
   - docs/models/operations/hrisupdateemployeerequest.md
@@ -474,28 +439,20 @@ generatedFiles:
   - docs/models/operations/marketingcreateomnichanneltemplateresponse.md
   - docs/models/operations/marketingcreatepushtemplaterequest.md
   - docs/models/operations/marketingcreatepushtemplateresponse.md
-  - docs/models/operations/marketinggetcampaignqueryparamproxy.md
   - docs/models/operations/marketinggetcampaignrequest.md
   - docs/models/operations/marketinggetcampaignresponse.md
-  - docs/models/operations/marketinggetemailtemplatequeryparamproxy.md
   - docs/models/operations/marketinggetemailtemplaterequest.md
   - docs/models/operations/marketinggetemailtemplateresponse.md
-  - docs/models/operations/marketinggetomnichanneltemplatequeryparamproxy.md
   - docs/models/operations/marketinggetomnichanneltemplaterequest.md
   - docs/models/operations/marketinggetomnichanneltemplateresponse.md
-  - docs/models/operations/marketinggetpushtemplatequeryparamproxy.md
   - docs/models/operations/marketinggetpushtemplaterequest.md
   - docs/models/operations/marketinggetpushtemplateresponse.md
-  - docs/models/operations/marketinglistcampaignsqueryparamproxy.md
   - docs/models/operations/marketinglistcampaignsrequest.md
   - docs/models/operations/marketinglistcampaignsresponse.md
-  - docs/models/operations/marketinglistemailtemplatesqueryparamproxy.md
   - docs/models/operations/marketinglistemailtemplatesrequest.md
   - docs/models/operations/marketinglistemailtemplatesresponse.md
-  - docs/models/operations/marketinglistomnichanneltemplatesqueryparamproxy.md
   - docs/models/operations/marketinglistomnichanneltemplatesrequest.md
   - docs/models/operations/marketinglistomnichanneltemplatesresponse.md
-  - docs/models/operations/marketinglistpushtemplatesqueryparamproxy.md
   - docs/models/operations/marketinglistpushtemplatesrequest.md
   - docs/models/operations/marketinglistpushtemplatesresponse.md
   - docs/models/operations/marketingupdateemailtemplaterequest.md
@@ -510,7 +467,6 @@ generatedFiles:
   - docs/models/shared/setupinformation.md
   - docs/models/shared/linkedaccount.md
   - docs/models/shared/linkedaccountmetacategory.md
-  - docs/models/shared/linkedaccountmetamodels.md
   - docs/models/shared/linkedaccountmeta.md
   - docs/models/shared/patchaccountdto.md
   - docs/models/shared/categories.md
@@ -522,8 +478,6 @@ generatedFiles:
   - docs/models/shared/metadata.md
   - docs/models/shared/connectsessioncreate.md
   - docs/models/shared/category.md
-  - docs/models/shared/models.md
-  - docs/models/shared/resources.md
   - docs/models/shared/connectorsmeta.md
   - docs/models/shared/createresult.md
   - docs/models/shared/atscreateapplicationrequestdto.md
@@ -585,7 +539,7 @@ generatedFiles:
   - docs/models/shared/jobstatusenum.md
   - docs/models/shared/hiringteam.md
   - docs/models/shared/jobpostingresult.md
-  - docs/models/shared/content.md
+  - docs/models/shared/jobpostingcontent.md
   - docs/models/shared/jobpostingvalue.md
   - docs/models/shared/jobpostingemploymentcontracttype.md
   - docs/models/shared/jobpostingschemasvalue.md
@@ -718,6 +672,11 @@ generatedFiles:
   - docs/models/shared/employeeschemaslocationtype.md
   - docs/models/shared/worklocation.md
   - docs/models/shared/employee.md
+  - docs/models/shared/documentresult.md
+  - docs/models/shared/documentapimodel.md
+  - docs/models/shared/documenttypeenumvalue.md
+  - docs/models/shared/documenttypeenum.md
+  - docs/models/shared/content.md
   - docs/models/shared/timeoffresult.md
   - docs/models/shared/timeoffvalue.md
   - docs/models/shared/timeoffstatus.md
@@ -732,6 +691,7 @@ generatedFiles:
   - docs/models/shared/hrislocationlocationtype.md
   - docs/models/shared/hrislocation.md
   - docs/models/shared/companiespaginated.md
+  - docs/models/shared/documentspaginated.md
   - docs/models/shared/timeoffpaginated.md
   - docs/models/shared/employeespaginated.md
   - docs/models/shared/employmentspaginated.md

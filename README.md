@@ -42,7 +42,9 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
+  proxy={
+    "Electronic": "string",
+  },
   x_account_id="string",
 )
     
@@ -131,11 +133,13 @@ end
 * [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
+* [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employees_time_off_request](docs/sdks/hris/README.md#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employment](docs/sdks/hris/README.md#get_employment) - Get Employment
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Location
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
+* [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employees](docs/sdks/hris/README.md#list_employees) - List Employees
 * [list_employments](docs/sdks/hris/README.md#list_employments) - List Employments

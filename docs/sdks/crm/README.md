@@ -108,7 +108,9 @@ s.config_security(
 
 req = Operations::CrmGetAccountRequest.new(
   id="<ID>",
-  proxy=Operations::CrmGetAccountQueryParamProxy.new(),
+  proxy={
+    "Bennie": "string",
+  },
   x_account_id="string",
 )
     
@@ -152,7 +154,9 @@ s.config_security(
 
 req = Operations::CrmGetContactRequest.new(
   id="<ID>",
-  proxy=Operations::CrmGetContactQueryParamProxy.new(),
+  proxy={
+    "whereas": "string",
+  },
   x_account_id="string",
 )
     
@@ -196,7 +200,9 @@ s.config_security(
 
 req = Operations::CrmGetListRequest.new(
   id="<ID>",
-  proxy=Operations::CrmGetListQueryParamProxy.new(),
+  proxy={
+    "Investment": "string",
+  },
   x_account_id="string",
 )
     
@@ -239,7 +245,9 @@ s.config_security(
 
 
 req = Operations::CrmListAccountsRequest.new(
-  proxy=Operations::CrmListAccountsQueryParamProxy.new(),
+  proxy={
+    "Iron": "string",
+  },
   x_account_id="string",
 )
     
@@ -282,7 +290,9 @@ s.config_security(
 
 
 req = Operations::CrmListContactsRequest.new(
-  proxy=Operations::CrmListContactsQueryParamProxy.new(),
+  proxy={
+    "PNG": "string",
+  },
   x_account_id="string",
 )
     
@@ -325,7 +335,9 @@ s.config_security(
 
 
 req = Operations::CrmListListsRequest.new(
-  proxy=Operations::CrmListListsQueryParamProxy.new(),
+  proxy={
+    "hacking": "string",
+  },
   x_account_id="string",
 )
     

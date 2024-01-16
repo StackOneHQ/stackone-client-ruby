@@ -8,11 +8,13 @@
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
 * [get_company](#get_company) - Get Company
 * [get_employee](#get_employee) - Get Employee
+* [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employment](#get_employment) - Get Employment
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_companies](#list_companies) - List Companies
+* [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employees](#list_employees) - List Employees
 * [list_employments](#list_employments) - List Employments
@@ -483,7 +485,9 @@ s.config_security(
 
 req = Operations::HrisGetCompanyRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetCompanyQueryParamProxy.new(),
+  proxy={
+    "incidentally": "string",
+  },
   x_account_id="string",
 )
     
@@ -527,7 +531,9 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmployeeQueryParamProxy.new(),
+  proxy={
+    "International": "string",
+  },
   x_account_id="string",
 )
     
@@ -551,6 +557,53 @@ end
 **[T.nilable(Operations::HrisGetEmployeeResponse)](../../models/operations/hrisgetemployeeresponse.md)**
 
 
+## get_employee_document
+
+Get Employee Document
+
+### Example Usage
+
+```ruby
+require_relative stackone_client
+
+
+s = StackOne::StackOne.new
+s.config_security(
+  security=Shared::Security.new(
+    password="<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = Operations::HrisGetEmployeeDocumentRequest.new(
+  id="<ID>",
+  proxy={
+    "infrastructures": "string",
+  },
+  sub_resource_id="string",
+  x_account_id="string",
+)
+    
+res = s.hris.get_employee_document(req)
+
+if ! res.document_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Operations::HrisGetEmployeeDocumentRequest](../../models/operations/hrisgetemployeedocumentrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+
+### Response
+
+**[T.nilable(Operations::HrisGetEmployeeDocumentResponse)](../../models/operations/hrisgetemployeedocumentresponse.md)**
+
+
 ## get_employees_time_off_request
 
 Get Employees Time Off Request
@@ -571,7 +624,9 @@ s.config_security(
 
 req = Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy.new(),
+  proxy={
+    "Chair": "string",
+  },
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -616,7 +671,9 @@ s.config_security(
 
 req = Operations::HrisGetEmploymentRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmploymentQueryParamProxy.new(),
+  proxy={
+    "Pants": "string",
+  },
   x_account_id="string",
 )
     
@@ -660,7 +717,9 @@ s.config_security(
 
 req = Operations::HrisGetLocationRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetLocationQueryParamProxy.new(),
+  proxy={
+    "deliver": "string",
+  },
   x_account_id="string",
 )
     
@@ -704,7 +763,9 @@ s.config_security(
 
 req = Operations::HrisGetTimeOffRequestRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetTimeOffRequestQueryParamProxy.new(),
+  proxy={
+    "dicta": "string",
+  },
   x_account_id="string",
 )
     
@@ -747,7 +808,9 @@ s.config_security(
 
 
 req = Operations::HrisListCompaniesRequest.new(
-  proxy=Operations::HrisListCompaniesQueryParamProxy.new(),
+  proxy={
+    "South": "string",
+  },
   x_account_id="string",
 )
     
@@ -771,6 +834,52 @@ end
 **[T.nilable(Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
 
 
+## list_employee_documents
+
+List Employee Documents
+
+### Example Usage
+
+```ruby
+require_relative stackone_client
+
+
+s = StackOne::StackOne.new
+s.config_security(
+  security=Shared::Security.new(
+    password="<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = Operations::HrisListEmployeeDocumentsRequest.new(
+  id="<ID>",
+  proxy={
+    "markets": "string",
+  },
+  x_account_id="string",
+)
+    
+res = s.hris.list_employee_documents(req)
+
+if ! res.documents_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Operations::HrisListEmployeeDocumentsRequest](../../models/operations/hrislistemployeedocumentsrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+
+### Response
+
+**[T.nilable(Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
+
+
 ## list_employee_time_off_requests
 
 List Employee Time Off Requests
@@ -791,7 +900,9 @@ s.config_security(
 
 req = Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   id="<ID>",
-  proxy=Operations::HrisListEmployeeTimeOffRequestsQueryParamProxy.new(),
+  proxy={
+    "seize": "string",
+  },
   x_account_id="string",
 )
     
@@ -834,7 +945,9 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
+  proxy={
+    "Electronic": "string",
+  },
   x_account_id="string",
 )
     
@@ -877,7 +990,9 @@ s.config_security(
 
 
 req = Operations::HrisListEmploymentsRequest.new(
-  proxy=Operations::HrisListEmploymentsQueryParamProxy.new(),
+  proxy={
+    "Gadolinium": "string",
+  },
   x_account_id="string",
 )
     
@@ -920,7 +1035,9 @@ s.config_security(
 
 
 req = Operations::HrisListLocationsRequest.new(
-  proxy=Operations::HrisListLocationsQueryParamProxy.new(),
+  proxy={
+    "Incredible": "string",
+  },
   x_account_id="string",
 )
     
@@ -963,7 +1080,9 @@ s.config_security(
 
 
 req = Operations::HrisListTimeOffRequestsRequest.new(
-  proxy=Operations::HrisListTimeOffRequestsQueryParamProxy.new(),
+  proxy={
+    "transmitting": "string",
+  },
   x_account_id="string",
 )
     

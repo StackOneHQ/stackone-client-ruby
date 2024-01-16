@@ -258,7 +258,9 @@ s.config_security(
 
 req = Operations::MarketingGetCampaignRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetCampaignQueryParamProxy.new(),
+  proxy={
+    "Computer": "string",
+  },
   x_account_id="string",
 )
     
@@ -302,7 +304,9 @@ s.config_security(
 
 req = Operations::MarketingGetEmailTemplateRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetEmailTemplateQueryParamProxy.new(),
+  proxy={
+    "Regional": "string",
+  },
   x_account_id="string",
 )
     
@@ -346,7 +350,9 @@ s.config_security(
 
 req = Operations::MarketingGetOmniChannelTemplateRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetOmniChannelTemplateQueryParamProxy.new(),
+  proxy={
+    "Southwest": "string",
+  },
   x_account_id="string",
 )
     
@@ -390,7 +396,9 @@ s.config_security(
 
 req = Operations::MarketingGetPushTemplateRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetPushTemplateQueryParamProxy.new(),
+  proxy={
+    "withdrawal": "string",
+  },
   x_account_id="string",
 )
     
@@ -433,7 +441,9 @@ s.config_security(
 
 
 req = Operations::MarketingListCampaignsRequest.new(
-  proxy=Operations::MarketingListCampaignsQueryParamProxy.new(),
+  proxy={
+    "West": "string",
+  },
   x_account_id="string",
 )
     
@@ -476,7 +486,9 @@ s.config_security(
 
 
 req = Operations::MarketingListEmailTemplatesRequest.new(
-  proxy=Operations::MarketingListEmailTemplatesQueryParamProxy.new(),
+  proxy={
+    "deposit": "string",
+  },
   x_account_id="string",
 )
     
@@ -519,7 +531,9 @@ s.config_security(
 
 
 req = Operations::MarketingListOmniChannelTemplatesRequest.new(
-  proxy=Operations::MarketingListOmniChannelTemplatesQueryParamProxy.new(),
+  proxy={
+    "Shoes": "string",
+  },
   x_account_id="string",
 )
     
@@ -562,7 +576,9 @@ s.config_security(
 
 
 req = Operations::MarketingListPushTemplatesRequest.new(
-  proxy=Operations::MarketingListPushTemplatesQueryParamProxy.new(),
+  proxy={
+    "considering": "string",
+  },
   x_account_id="string",
 )
     

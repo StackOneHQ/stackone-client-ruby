@@ -22,28 +22,18 @@ module StackOne
 
 
 
-    class LinkedAccountMetaModels < StackOne::Utils::FieldAugmented
-      extend T::Sig
-
-
-
-      
-      def initialize; end
-    end
-
-
     class LinkedAccountMeta < StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :category, Shared::LinkedAccountMetaCategory, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Shared::LinkedAccountMetaCategory, false) } }
 
-      field :models, Shared::LinkedAccountMetaModels, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('models') } }
+      field :models, T::Hash[Symbol, Object], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('models') } }
 
       field :provider, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
 
 
-      sig { params(category: Shared::LinkedAccountMetaCategory, models: Shared::LinkedAccountMetaModels, provider: String).void }
+      sig { params(category: Shared::LinkedAccountMetaCategory, models: T::Hash[Symbol, Object], provider: String).void }
       def initialize(category: nil, models: nil, provider: nil)
         @category = category
         @models = models

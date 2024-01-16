@@ -22,26 +22,6 @@ module StackOne
 
 
 
-    class Models < StackOne::Utils::FieldAugmented
-      extend T::Sig
-
-
-
-      
-      def initialize; end
-    end
-
-    # Resources for this provider, such as image assets
-    class Resources < StackOne::Utils::FieldAugmented
-      extend T::Sig
-
-
-
-      
-      def initialize; end
-    end
-
-
     class ConnectorsMeta < StackOne::Utils::FieldAugmented
       extend T::Sig
 
@@ -50,16 +30,16 @@ module StackOne
       # The provider service category
       field :category, Shared::Category, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Shared::Category, false) } }
 
-      field :models, Shared::Models, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('models') } }
+      field :models, T::Hash[Symbol, Object], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('models') } }
       # The provider key
       field :provider, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
       # The provider human-readable label
       field :provider_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider_name') } }
       # Resources for this provider, such as image assets
-      field :resources, T.nilable(Shared::Resources), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('resources') } }
+      field :resources, T.nilable(T::Hash[Symbol, Object]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('resources') } }
 
 
-      sig { params(active: T::Boolean, category: Shared::Category, models: Shared::Models, provider: String, provider_name: String, resources: T.nilable(Shared::Resources)).void }
+      sig { params(active: T::Boolean, category: Shared::Category, models: T::Hash[Symbol, Object], provider: String, provider_name: String, resources: T.nilable(T::Hash[Symbol, Object])).void }
       def initialize(active: nil, category: nil, models: nil, provider: nil, provider_name: nil, resources: nil)
         @active = active
         @category = category

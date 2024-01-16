@@ -49,14 +49,16 @@ module StackOne
       field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
       # The metadata for the connection
       field :metadata, T.nilable(Shared::Metadata), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('metadata') } }
+      # If set, this connect session will allow creation of multiple accounts with the same origin owner id and provider. Has no effect if account_id is set.
+      field :multiple, T.nilable(T::Boolean), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('multiple') } }
       # The origin username
       field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_username') } }
       # The provider to connect to
       field :provider, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
 
 
-      sig { params(origin_owner_id: String, origin_owner_name: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(Float), label: T.nilable(String), metadata: T.nilable(Shared::Metadata), origin_username: T.nilable(String), provider: T.nilable(String)).void }
-      def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
+      sig { params(origin_owner_id: String, origin_owner_name: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(Float), label: T.nilable(String), metadata: T.nilable(Shared::Metadata), multiple: T.nilable(T::Boolean), origin_username: T.nilable(String), provider: T.nilable(String)).void }
+      def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, label: nil, metadata: nil, multiple: nil, origin_username: nil, provider: nil)
         @origin_owner_id = origin_owner_id
         @origin_owner_name = origin_owner_name
         @account_id = account_id
@@ -64,6 +66,7 @@ module StackOne
         @expires_in = expires_in
         @label = label
         @metadata = metadata
+        @multiple = multiple
         @origin_username = origin_username
         @provider = provider
       end

@@ -9,16 +9,6 @@ require_relative '../shared/employeespaginated'
 
 module StackOne
   module Operations
-    # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with "proxy" key
-    class HrisListEmployeesQueryParamProxy < StackOne::Utils::FieldAugmented
-      extend T::Sig
-
-
-
-      
-      def initialize; end
-    end
-
 
     class HrisListEmployeesRequest < StackOne::Utils::FieldAugmented
       extend T::Sig
@@ -40,7 +30,7 @@ module StackOne
       # The number of results per page
       field :page_size, T.nilable(String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with "proxy" key
-      field :proxy, T.nilable(Operations::HrisListEmployeesQueryParamProxy), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
+      field :proxy, T.nilable(T::Hash[Symbol, Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
       # The sync token to select the only updated results
@@ -49,7 +39,7 @@ module StackOne
       field :updated_after, T.nilable(String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: String, expand: T.nilable(String), fields: T.nilable(String), include: T.nilable(String), next_: T.nilable(String), page: T.nilable(String), page_size: T.nilable(String), proxy: T.nilable(Operations::HrisListEmployeesQueryParamProxy), raw: T.nilable(T::Boolean), sync_token: T.nilable(String), updated_after: T.nilable(String)).void }
+      sig { params(x_account_id: String, expand: T.nilable(String), fields: T.nilable(String), include: T.nilable(String), next_: T.nilable(String), page: T.nilable(String), page_size: T.nilable(String), proxy: T.nilable(T::Hash[Symbol, Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(String), updated_after: T.nilable(String)).void }
       def initialize(x_account_id: nil, expand: nil, fields: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
         @x_account_id = x_account_id
         @expand = expand

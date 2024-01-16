@@ -28,9 +28,9 @@ module StackOne
 
       field :created_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, Float, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
 
-      field :organization_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('organization_id') } }
+      field :organization_id, Float, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('organization_id') } }
 
       field :origin_owner_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_owner_id') } }
 
@@ -51,7 +51,7 @@ module StackOne
       field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_username') } }
 
 
-      sig { params(created_at: DateTime, id: String, organization_id: String, origin_owner_id: String, origin_owner_name: String, project_id: String, provider: String, token: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), label: T.nilable(String), origin_username: T.nilable(String)).void }
+      sig { params(created_at: DateTime, id: Float, organization_id: Float, origin_owner_id: String, origin_owner_name: String, project_id: String, provider: String, token: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), label: T.nilable(String), origin_username: T.nilable(String)).void }
       def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, provider: nil, token: nil, account_id: nil, categories: nil, label: nil, origin_username: nil)
         @created_at = created_at
         @id = id
