@@ -21,51 +21,62 @@ module StackOne
     end
 
 
-
-    class Models < StackOne::Utils::FieldAugmented
+    # Image assets for this provider
+    class Images < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # URL of the square logo designed and used by StackOne for this provider
+      field :logo_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('logo_url') } }
+      # URL of the original provider logo (with logo and/or name aligned horizontally)
+      field :original_logo_horizontal_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('original_logo_horizontal_url') } }
 
 
-      
-      def initialize; end
+      sig { params(logo_url: T.nilable(String), original_logo_horizontal_url: T.nilable(String)).void }
+      def initialize(logo_url: nil, original_logo_horizontal_url: nil)
+        @logo_url = logo_url
+        @original_logo_horizontal_url = original_logo_horizontal_url
+      end
     end
 
     # Resources for this provider, such as image assets
-    class Resources < StackOne::Utils::FieldAugmented
+    class Resources < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # Image assets for this provider
+      field :images, T.nilable(Shared::Images), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('images') } }
 
 
-      
-      def initialize; end
+      sig { params(images: T.nilable(Shared::Images)).void }
+      def initialize(images: nil)
+        @images = images
+      end
     end
 
 
-    class ConnectorsMeta < StackOne::Utils::FieldAugmented
+    class ConnectorsMeta < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # Whether this provider has been enabled on the integrations page for the current project
-      field :active, T::Boolean, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('active') } }
       # The provider service category
-      field :category, Shared::Category, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Shared::Category, false) } }
+      field :category, Shared::Category, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Shared::Category, false) } }
 
-      field :models, Shared::Models, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('models') } }
+      field :models, T::Hash[Symbol, Object], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models') } }
       # The provider key
-      field :provider, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
+      field :provider, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
       # The provider human-readable label
-      field :provider_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider_name') } }
+      field :provider_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_name') } }
+      # Whether this provider has been enabled on the integrations page for the current project
+      field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
       # Resources for this provider, such as image assets
-      field :resources, T.nilable(Shared::Resources), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('resources') } }
+      field :resources, T.nilable(Shared::Resources), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resources') } }
 
 
-      sig { params(active: T::Boolean, category: Shared::Category, models: Shared::Models, provider: String, provider_name: String, resources: T.nilable(Shared::Resources)).void }
-      def initialize(active: nil, category: nil, models: nil, provider: nil, provider_name: nil, resources: nil)
-        @active = active
+      sig { params(category: Shared::Category, models: T::Hash[Symbol, Object], provider: String, provider_name: String, active: T.nilable(T::Boolean), resources: T.nilable(Shared::Resources)).void }
+      def initialize(category: nil, models: nil, provider: nil, provider_name: nil, active: nil, resources: nil)
         @category = category
         @models = models
         @provider = provider
         @provider_name = provider_name
+        @active = active
         @resources = resources
       end
     end

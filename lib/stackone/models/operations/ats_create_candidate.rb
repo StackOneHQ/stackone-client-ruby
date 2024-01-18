@@ -11,7 +11,7 @@ require_relative '../shared/candidateresult'
 module StackOne
   module Operations
 
-    class AtsCreateCandidateRequest < StackOne::Utils::FieldAugmented
+    class AtsCreateCandidateRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module StackOne
     end
 
 
-    class AtsCreateCandidateResponse < StackOne::Utils::FieldAugmented
+    class AtsCreateCandidateResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

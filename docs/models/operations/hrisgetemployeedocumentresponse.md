@@ -1,0 +1,11 @@
+# HrisGetEmployeeDocumentResponse
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `content_type`                                                                 | *String*                                                                       | :heavy_check_mark:                                                             | HTTP response content type for this operation                                  |
+| `document_result`                                                              | [T.nilable(Shared::DocumentResult)](../../models/shared/documentresult.md)     | :heavy_minus_sign:                                                             | The document related to the employee with the given identifiers was retrieved. |
+| `status_code`                                                                  | *Integer*                                                                      | :heavy_check_mark:                                                             | HTTP response status code for this operation                                   |
+| `raw_response`                                                                 | [Faraday::Response](https://www.rubydoc.info/gems/faraday/Faraday/Response)    | :heavy_check_mark:                                                             | Raw HTTP response; suitable for custom response parsing                        |

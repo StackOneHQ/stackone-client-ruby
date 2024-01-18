@@ -10,7 +10,7 @@ require_relative '../shared/linkedaccountmeta'
 module StackOne
   module Operations
 
-    class StackoneGetAccountMetaInfoRequest < StackOne::Utils::FieldAugmented
+    class StackoneGetAccountMetaInfoRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -24,7 +24,7 @@ module StackOne
     end
 
 
-    class StackoneGetAccountMetaInfoResponse < StackOne::Utils::FieldAugmented
+    class StackoneGetAccountMetaInfoResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

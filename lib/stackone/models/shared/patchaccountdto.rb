@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class PatchAccountDto < StackOne::Utils::FieldAugmented
+    class PatchAccountDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 

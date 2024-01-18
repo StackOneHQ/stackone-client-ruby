@@ -16,7 +16,7 @@ Authenticate Connect Session
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -58,7 +58,7 @@ Create Connect Session
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",

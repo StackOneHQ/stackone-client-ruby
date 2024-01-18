@@ -9,13 +9,13 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Questionnaire < StackOne::Utils::FieldAugmented
+    class Questionnaire < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :answers, T::Array[Shared::Answer], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('answers') } }
+      field :answers, T::Array[Shared::Answer], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
       # Unique identifier of the questionnaire
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
 
       sig { params(answers: T::Array[Shared::Answer], id: T.nilable(String)).void }

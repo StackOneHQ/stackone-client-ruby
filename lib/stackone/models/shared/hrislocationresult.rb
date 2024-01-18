@@ -10,13 +10,13 @@ require_relative '../shared/hrislocation'
 module StackOne
   module Shared
 
-    class HRISLocationResult < StackOne::Utils::FieldAugmented
+    class HRISLocationResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::HRISLocation, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::HRISLocation, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::HRISLocation, raw: T.nilable(T::Array[Shared::RawResponse])).void }

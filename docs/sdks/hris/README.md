@@ -8,11 +8,13 @@
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
 * [get_company](#get_company) - Get Company
 * [get_employee](#get_employee) - Get Employee
+* [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employment](#get_employment) - Get Employment
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_companies](#list_companies) - List Companies
+* [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employees](#list_employees) - List Employees
 * [list_employments](#list_employments) - List Employments
@@ -31,16 +33,15 @@ Creates an employee
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::HrisCreateEmployeeRequest.new(
-  hris_create_employee_request_dto=Shared::HrisCreateEmployeeRequestDto.new(
+    
+res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreateEmployeeRequestDto.new(
     avatar=Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
     avatar_url="https://example.com/avatar.png",
     birthday=DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -168,138 +169,6 @@ req = Operations::HrisCreateEmployeeRequest.new(
       zip_code="NG33 5NR",
     ),
     work_phone_number="+1234567890",
-  ),
-  x_account_id="string",
-)
-    
-res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreateEmployeeRequestDto.new(
-    avatar=Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
-    avatar_url="https://example.com/avatar.png",
-    birthday=DateTime.iso8601('2021-01-01T00:00:00Z'),
-    citizenships=[
-      Shared::CountryCodeEnum.new(
-        source_value="American",
-        value=Shared::CountryCodeEnumValue::US,
-      ),
-    ],
-    company_name="Example Corp",
-    custom_fields=[
-      Shared::EmployeeCustomFields.new(
-        description="The completion status of the employee's training.",
-        id="custom_field_123",
-        name="Training Completion Status",
-        options=[
-          "string",
-        ],
-        type=Shared::EmployeeCustomFieldsType.new(
-          source_value="string",
-          value=Shared::EmployeeCustomFieldsSchemasValue::TEXT,
-        ),
-        value=Shared::EmployeeCustomFieldsValue.new(),
-        value_id="value_456",
-      ),
-    ],
-    date_of_birth=DateTime.iso8601('1990-01-01T00:00.000Z'),
-    department="Physics",
-    display_name="Sir Issac Newton",
-    employment_contract_type=Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoValue::UNMAPPED_VALUE,
-    ),
-    employment_status=Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasValue::ACTIVE,
-    ),
-    employment_type=Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-      source_value="Permanent",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
-    ),
-    employments=[
-      Shared::Employment.new(
-        created_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        effective_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        employee_id="1687-3",
-        employment_contract_type=Shared::EmploymentEmploymentContractType.new(
-          source_value="string",
-          value=Shared::EmploymentValue::FULL_TIME,
-        ),
-        employment_type=Shared::EmploymentEmploymentType.new(
-          source_value="Permanent",
-          value=Shared::EmploymentSchemasValue::PERMANENT,
-        ),
-        id="123456",
-        job_title="Software Engineer",
-        pay_currency="USD",
-        pay_frequency=Shared::EmploymentPayFrequency.new(
-          source_value="Hourly",
-          value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
-        ),
-        pay_period=Shared::EmploymentPayPeriod.new(
-          source_value="Hour",
-          value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
-        ),
-        pay_rate="40.00",
-        updated_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      ),
-    ],
-    ethnicity=Shared::HrisCreateEmployeeRequestDtoEthnicity.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue::BLACK_OR_AFRICAN_AMERICAN,
-    ),
-    first_name="Issac",
-    gender=Shared::HrisCreateEmployeeRequestDtoGender.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue::OTHER,
-    ),
-    hire_date=DateTime.iso8601('2021-01-01T00:00.000Z'),
-    home_location=Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
-      city="Grantham",
-      country=Shared::HrisCreateEmployeeRequestDtoCountry.new(
-        source_value="American",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
-      ),
-      name="Woolsthorpe Manor",
-      phone_number="+44 1476 860 364",
-      state=Shared::State.new(
-        source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue::PT_08,
-      ),
-      street_1="Water Lane",
-      street_2="Woolsthorpe by Colsterworth",
-      zip_code="NG33 5NR",
-    ),
-    job_title="Physicist",
-    last_name="Newton",
-    manager_id="67890",
-    marital_status=Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue::WIDOWED,
-    ),
-    name="Issac Newton",
-    personal_email="isaac.newton@example.com",
-    personal_phone_number="+1234567890",
-    start_date=DateTime.iso8601('2021-01-01T00:00.000Z'),
-    tenure=2,
-    termination_date=DateTime.iso8601('2021-01-01T00:00:00Z'),
-    work_anniversary=DateTime.iso8601('2021-01-01T00:00:00Z'),
-    work_email="newton@example.com",
-    work_location=Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
-      city="Grantham",
-      country=Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-        source_value="American",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
-      ),
-      name="Woolsthorpe Manor",
-      phone_number="+44 1476 860 364",
-      state=Shared::HrisCreateEmployeeRequestDtoState.new(
-        source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue::PH_ABR,
-      ),
-      street_1="Water Lane",
-      street_2="Woolsthorpe by Colsterworth",
-      zip_code="NG33 5NR",
-    ),
-    work_phone_number="+1234567890",
   ), x_account_id="string")
 
 if ! res.create_employee_result.nil?
@@ -331,16 +200,15 @@ Create Employee Time Off Request
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::HrisCreateEmployeeTimeOffRequestRequest.new(
-  hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
+    
+res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
     approver_id="1687-4",
     employee_id="1687-3",
     end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -352,24 +220,6 @@ req = Operations::HrisCreateEmployeeTimeOffRequestRequest.new(
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
       source_value="string",
       value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
-    ),
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
-    
-res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
-    approver_id="1687-4",
-    employee_id="1687-3",
-    end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoValue::APPROVED,
-    ),
-    type=Shared::HrisCreateTimeOffRequestDtoType.new(
-      source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::SICK,
     ),
   ), id="string", x_account_id="string")
 
@@ -403,31 +253,13 @@ Creates a time off request
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::HrisCreateTimeOffRequestRequest.new(
-  hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
-    approver_id="1687-4",
-    employee_id="1687-3",
-    end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoValue::UNMAPPED_VALUE,
-    ),
-    type=Shared::HrisCreateTimeOffRequestDtoType.new(
-      source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
-    ),
-  ),
-  x_account_id="string",
-)
     
 res = s.hris.create_time_off_request(hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
     approver_id="1687-4",
@@ -440,7 +272,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=Shared::Hr
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::SICK,
+      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
     ),
   ), x_account_id="string")
 
@@ -473,7 +305,7 @@ Get Company
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -483,7 +315,9 @@ s.config_security(
 
 req = Operations::HrisGetCompanyRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetCompanyQueryParamProxy.new(),
+  proxy={
+    "incidentally": "string",
+  },
   x_account_id="string",
 )
     
@@ -517,7 +351,7 @@ Get Employee
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -527,7 +361,9 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmployeeQueryParamProxy.new(),
+  proxy={
+    "International": "string",
+  },
   x_account_id="string",
 )
     
@@ -551,6 +387,53 @@ end
 **[T.nilable(Operations::HrisGetEmployeeResponse)](../../models/operations/hrisgetemployeeresponse.md)**
 
 
+## get_employee_document
+
+Get Employee Document
+
+### Example Usage
+
+```ruby
+require_relative stackone_client
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  security=Shared::Security.new(
+    password="<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = Operations::HrisGetEmployeeDocumentRequest.new(
+  id="<ID>",
+  proxy={
+    "infrastructures": "string",
+  },
+  sub_resource_id="string",
+  x_account_id="string",
+)
+    
+res = s.hris.get_employee_document(req)
+
+if ! res.document_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Operations::HrisGetEmployeeDocumentRequest](../../models/operations/hrisgetemployeedocumentrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+
+### Response
+
+**[T.nilable(Operations::HrisGetEmployeeDocumentResponse)](../../models/operations/hrisgetemployeedocumentresponse.md)**
+
+
 ## get_employees_time_off_request
 
 Get Employees Time Off Request
@@ -561,7 +444,7 @@ Get Employees Time Off Request
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -571,7 +454,9 @@ s.config_security(
 
 req = Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy.new(),
+  proxy={
+    "Chair": "string",
+  },
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -606,7 +491,7 @@ Get Employment
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -616,7 +501,9 @@ s.config_security(
 
 req = Operations::HrisGetEmploymentRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmploymentQueryParamProxy.new(),
+  proxy={
+    "Pants": "string",
+  },
   x_account_id="string",
 )
     
@@ -650,7 +537,7 @@ Get Location
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -660,7 +547,9 @@ s.config_security(
 
 req = Operations::HrisGetLocationRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetLocationQueryParamProxy.new(),
+  proxy={
+    "deliver": "string",
+  },
   x_account_id="string",
 )
     
@@ -694,7 +583,7 @@ Get time off request
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -704,7 +593,9 @@ s.config_security(
 
 req = Operations::HrisGetTimeOffRequestRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetTimeOffRequestQueryParamProxy.new(),
+  proxy={
+    "dicta": "string",
+  },
   x_account_id="string",
 )
     
@@ -738,7 +629,7 @@ List Companies
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -747,7 +638,9 @@ s.config_security(
 
 
 req = Operations::HrisListCompaniesRequest.new(
-  proxy=Operations::HrisListCompaniesQueryParamProxy.new(),
+  proxy={
+    "South": "string",
+  },
   x_account_id="string",
 )
     
@@ -771,6 +664,52 @@ end
 **[T.nilable(Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
 
 
+## list_employee_documents
+
+List Employee Documents
+
+### Example Usage
+
+```ruby
+require_relative stackone_client
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  security=Shared::Security.new(
+    password="<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = Operations::HrisListEmployeeDocumentsRequest.new(
+  id="<ID>",
+  proxy={
+    "markets": "string",
+  },
+  x_account_id="string",
+)
+    
+res = s.hris.list_employee_documents(req)
+
+if ! res.documents_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Operations::HrisListEmployeeDocumentsRequest](../../models/operations/hrislistemployeedocumentsrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+
+### Response
+
+**[T.nilable(Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
+
+
 ## list_employee_time_off_requests
 
 List Employee Time Off Requests
@@ -781,7 +720,7 @@ List Employee Time Off Requests
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -791,7 +730,9 @@ s.config_security(
 
 req = Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   id="<ID>",
-  proxy=Operations::HrisListEmployeeTimeOffRequestsQueryParamProxy.new(),
+  proxy={
+    "seize": "string",
+  },
   x_account_id="string",
 )
     
@@ -825,7 +766,7 @@ List Employees
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -834,7 +775,9 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
+  proxy={
+    "Electronic": "string",
+  },
   x_account_id="string",
 )
     
@@ -868,7 +811,7 @@ List Employments
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -877,7 +820,9 @@ s.config_security(
 
 
 req = Operations::HrisListEmploymentsRequest.new(
-  proxy=Operations::HrisListEmploymentsQueryParamProxy.new(),
+  proxy={
+    "Gadolinium": "string",
+  },
   x_account_id="string",
 )
     
@@ -911,7 +856,7 @@ List locations
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -920,7 +865,9 @@ s.config_security(
 
 
 req = Operations::HrisListLocationsRequest.new(
-  proxy=Operations::HrisListLocationsQueryParamProxy.new(),
+  proxy={
+    "Incredible": "string",
+  },
   x_account_id="string",
 )
     
@@ -954,7 +901,7 @@ List time off requests
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -963,7 +910,9 @@ s.config_security(
 
 
 req = Operations::HrisListTimeOffRequestsRequest.new(
-  proxy=Operations::HrisListTimeOffRequestsQueryParamProxy.new(),
+  proxy={
+    "transmitting": "string",
+  },
   x_account_id="string",
 )
     
@@ -997,16 +946,15 @@ Updates an employee
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::HrisUpdateEmployeeRequest.new(
-  hris_create_employee_request_dto=Shared::HrisCreateEmployeeRequestDto.new(
+    
+res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreateEmployeeRequestDto.new(
     avatar=Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
     avatar_url="https://example.com/avatar.png",
     birthday=DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -1134,139 +1082,6 @@ req = Operations::HrisUpdateEmployeeRequest.new(
       zip_code="NG33 5NR",
     ),
     work_phone_number="+1234567890",
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
-    
-res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreateEmployeeRequestDto.new(
-    avatar=Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
-    avatar_url="https://example.com/avatar.png",
-    birthday=DateTime.iso8601('2021-01-01T00:00:00Z'),
-    citizenships=[
-      Shared::CountryCodeEnum.new(
-        source_value="American",
-        value=Shared::CountryCodeEnumValue::US,
-      ),
-    ],
-    company_name="Example Corp",
-    custom_fields=[
-      Shared::EmployeeCustomFields.new(
-        description="The completion status of the employee's training.",
-        id="custom_field_123",
-        name="Training Completion Status",
-        options=[
-          "string",
-        ],
-        type=Shared::EmployeeCustomFieldsType.new(
-          source_value="string",
-          value=Shared::EmployeeCustomFieldsSchemasValue::LIST,
-        ),
-        value=Shared::EmployeeCustomFieldsValue.new(),
-        value_id="value_456",
-      ),
-    ],
-    date_of_birth=DateTime.iso8601('1990-01-01T00:00.000Z'),
-    department="Physics",
-    display_name="Sir Issac Newton",
-    employment_contract_type=Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoValue::SHIFTS,
-    ),
-    employment_status=Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasValue::TERMINATED,
-    ),
-    employment_type=Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-      source_value="Permanent",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
-    ),
-    employments=[
-      Shared::Employment.new(
-        created_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        effective_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        employee_id="1687-3",
-        employment_contract_type=Shared::EmploymentEmploymentContractType.new(
-          source_value="string",
-          value=Shared::EmploymentValue::PART_TIME,
-        ),
-        employment_type=Shared::EmploymentEmploymentType.new(
-          source_value="Permanent",
-          value=Shared::EmploymentSchemasValue::PERMANENT,
-        ),
-        id="123456",
-        job_title="Software Engineer",
-        pay_currency="USD",
-        pay_frequency=Shared::EmploymentPayFrequency.new(
-          source_value="Hourly",
-          value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
-        ),
-        pay_period=Shared::EmploymentPayPeriod.new(
-          source_value="Hour",
-          value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
-        ),
-        pay_rate="40.00",
-        updated_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      ),
-    ],
-    ethnicity=Shared::HrisCreateEmployeeRequestDtoEthnicity.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue::AMERICAN_INDIAN_OR_ALASKA_NATIVE,
-    ),
-    first_name="Issac",
-    gender=Shared::HrisCreateEmployeeRequestDtoGender.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue::MALE,
-    ),
-    hire_date=DateTime.iso8601('2021-01-01T00:00.000Z'),
-    home_location=Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
-      city="Grantham",
-      country=Shared::HrisCreateEmployeeRequestDtoCountry.new(
-        source_value="American",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
-      ),
-      name="Woolsthorpe Manor",
-      phone_number="+44 1476 860 364",
-      state=Shared::State.new(
-        source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue::NL_UT,
-      ),
-      street_1="Water Lane",
-      street_2="Woolsthorpe by Colsterworth",
-      zip_code="NG33 5NR",
-    ),
-    job_title="Physicist",
-    last_name="Newton",
-    manager_id="67890",
-    marital_status=Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue::MARRIED,
-    ),
-    name="Issac Newton",
-    personal_email="isaac.newton@example.com",
-    personal_phone_number="+1234567890",
-    start_date=DateTime.iso8601('2021-01-01T00:00.000Z'),
-    tenure=2,
-    termination_date=DateTime.iso8601('2021-01-01T00:00:00Z'),
-    work_anniversary=DateTime.iso8601('2021-01-01T00:00:00Z'),
-    work_email="newton@example.com",
-    work_location=Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
-      city="Grantham",
-      country=Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-        source_value="American",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
-      ),
-      name="Woolsthorpe Manor",
-      phone_number="+44 1476 860 364",
-      state=Shared::HrisCreateEmployeeRequestDtoState.new(
-        source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue::LY_JI,
-      ),
-      street_1="Water Lane",
-      street_2="Woolsthorpe by Colsterworth",
-      zip_code="NG33 5NR",
-    ),
-    work_phone_number="+1234567890",
   ), id="string", x_account_id="string")
 
 if ! res.create_employee_result.nil?
@@ -1299,32 +1114,13 @@ Update time off request
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::HrisUpdateTimeOffRequestRequest.new(
-  hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
-    approver_id="1687-4",
-    employee_id="1687-3",
-    end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
-      source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoValue::APPROVED,
-    ),
-    type=Shared::HrisCreateTimeOffRequestDtoType.new(
-      source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
-    ),
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.hris.update_time_off_request(hris_create_time_off_request_dto=Shared::HrisCreateTimeOffRequestDto.new(
     approver_id="1687-4",

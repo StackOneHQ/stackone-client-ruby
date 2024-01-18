@@ -30,13 +30,13 @@ module StackOne
 
 
 
-    class PayFrequency < StackOne::Utils::FieldAugmented
+    class PayFrequency < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the pay frequency.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay frequency of the job postings.
-      field :value, Shared::CompensationValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CompensationValue, false) } }
+      field :value, Shared::CompensationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CompensationValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::CompensationValue).void }
@@ -64,13 +64,13 @@ module StackOne
 
 
 
-    class PayPeriod < StackOne::Utils::FieldAugmented
+    class PayPeriod < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the pay period.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay period of the job postings.
-      field :value, Shared::CompensationSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CompensationSchemasValue, false) } }
+      field :value, Shared::CompensationSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CompensationSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::CompensationSchemasValue).void }
@@ -95,13 +95,13 @@ module StackOne
 
 
 
-    class CompensationType < StackOne::Utils::FieldAugmented
+    class CompensationType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the compensation type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the compensation.
-      field :value, Shared::CompensationSchemasTypeValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CompensationSchemasTypeValue, false) } }
+      field :value, Shared::CompensationSchemasTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CompensationSchemasTypeValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::CompensationSchemasTypeValue).void }
@@ -112,25 +112,25 @@ module StackOne
     end
 
 
-    class Compensation < StackOne::Utils::FieldAugmented
+    class Compensation < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :currency, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('currency') } }
+      field :currency, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
 
-      field :max_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('max_value') } }
+      field :max_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max_value') } }
 
-      field :min_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('min_value') } }
+      field :min_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min_value') } }
 
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-      field :pay_frequency, T.nilable(Shared::PayFrequency), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('pay_frequency') } }
+      field :pay_frequency, T.nilable(Shared::PayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
 
-      field :pay_period, T.nilable(Shared::PayPeriod), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('pay_period') } }
+      field :pay_period, T.nilable(Shared::PayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
 
-      field :type, T.nilable(Shared::CompensationType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::CompensationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-      field :value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value') } }
+      field :value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
       sig { params(currency: T.nilable(String), max_value: T.nilable(String), min_value: T.nilable(String), name: T.nilable(String), pay_frequency: T.nilable(Shared::PayFrequency), pay_period: T.nilable(Shared::PayPeriod), type: T.nilable(Shared::CompensationType), value: T.nilable(String)).void }

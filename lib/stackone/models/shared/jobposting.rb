@@ -9,13 +9,13 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Content < StackOne::Utils::FieldAugmented
+    class JobPostingContent < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :html, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('html') } }
+      field :html, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
 
-      field :plain, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('plain') } }
+      field :plain, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
 
 
       sig { params(html: T.nilable(String), plain: T.nilable(String)).void }
@@ -37,13 +37,13 @@ module StackOne
 
 
 
-    class JobPostingEmploymentContractType < StackOne::Utils::FieldAugmented
+    class JobPostingEmploymentContractType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the employment contract type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The employment contract type.
-      field :value, Shared::JobPostingValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingValue, false) } }
+      field :value, Shared::JobPostingValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::JobPostingValue).void }
@@ -70,13 +70,13 @@ module StackOne
 
 
 
-    class JobPostingEmploymentType < StackOne::Utils::FieldAugmented
+    class JobPostingEmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::JobPostingSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasValue, false) } }
+      field :value, Shared::JobPostingSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::JobPostingSchemasValue).void }
@@ -107,13 +107,13 @@ module StackOne
 
 
 
-    class JobPostingStatus < StackOne::Utils::FieldAugmented
+    class JobPostingStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the job postings status.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the job postings.
-      field :value, Shared::JobPostingSchemasStatusValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasStatusValue, false) } }
+      field :value, Shared::JobPostingSchemasStatusValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasStatusValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::JobPostingSchemasStatusValue).void }
@@ -124,42 +124,42 @@ module StackOne
     end
 
 
-    class JobPosting < StackOne::Utils::FieldAugmented
+    class JobPosting < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :compensation, T.nilable(T::Array[Shared::Compensation]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('compensation') } }
+      field :compensation, T.nilable(T::Array[Shared::Compensation]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('compensation') } }
 
-      field :content, T.nilable(Shared::Content), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content') } }
+      field :content, T.nilable(Shared::JobPostingContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # Date of creation
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :employment_contract_type, T.nilable(Shared::JobPostingEmploymentContractType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_contract_type') } }
+      field :employment_contract_type, T.nilable(Shared::JobPostingEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
 
-      field :employment_type, T.nilable(Shared::JobPostingEmploymentType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_type') } }
+      field :employment_type, T.nilable(Shared::JobPostingEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
 
-      field :external_apply_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('external_apply_url') } }
+      field :external_apply_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_apply_url') } }
 
-      field :external_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('external_url') } }
+      field :external_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_url') } }
 
-      field :internal, T.nilable(Shared::Internal), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('internal'), 'decoder': Utils.enum_from_string(Shared::Internal, true) } }
+      field :internal, T.nilable(Shared::Internal), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal'), 'decoder': Utils.enum_from_string(Shared::Internal, true) } }
 
-      field :job_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('job_id') } }
+      field :job_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
 
-      field :locations, T.nilable(T::Array[Shared::Location]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('locations') } }
+      field :locations, T.nilable(T::Array[Shared::Location]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('locations') } }
 
-      field :questionnaires, T.nilable(T::Array[Shared::Questionnaire]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('questionnaires') } }
+      field :questionnaires, T.nilable(T::Array[Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
 
-      field :status, T.nilable(Shared::JobPostingStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status') } }
+      field :status, T.nilable(Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
-      field :title, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('title') } }
+      field :title, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
       # Date of last update
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(id: String, compensation: T.nilable(T::Array[Shared::Compensation]), content: T.nilable(Shared::Content), created_at: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Shared::JobPostingEmploymentType), external_apply_url: T.nilable(String), external_url: T.nilable(String), internal: T.nilable(Shared::Internal), job_id: T.nilable(String), locations: T.nilable(T::Array[Shared::Location]), questionnaires: T.nilable(T::Array[Shared::Questionnaire]), status: T.nilable(Shared::JobPostingStatus), title: T.nilable(String), updated_at: T.nilable(DateTime)).void }
+      sig { params(id: String, compensation: T.nilable(T::Array[Shared::Compensation]), content: T.nilable(Shared::JobPostingContent), created_at: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Shared::JobPostingEmploymentType), external_apply_url: T.nilable(String), external_url: T.nilable(String), internal: T.nilable(Shared::Internal), job_id: T.nilable(String), locations: T.nilable(T::Array[Shared::Location]), questionnaires: T.nilable(T::Array[Shared::Questionnaire]), status: T.nilable(Shared::JobPostingStatus), title: T.nilable(String), updated_at: T.nilable(DateTime)).void }
       def initialize(id: nil, compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, status: nil, title: nil, updated_at: nil)
         @id = id
         @compensation = compensation

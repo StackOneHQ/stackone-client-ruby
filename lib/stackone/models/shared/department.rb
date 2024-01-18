@@ -9,13 +9,13 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Department < StackOne::Utils::FieldAugmented
+    class Department < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
       sig { params(id: String, name: String).void }

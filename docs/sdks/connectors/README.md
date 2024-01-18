@@ -16,17 +16,13 @@ Get Connector Meta information for the given provider key
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneGetConnectorMetaRequest.new(
-  provider="string",
-)
     
 res = s.connectors.get_connector_meta(provider="string", include="string")
 
@@ -59,15 +55,13 @@ List Connectors Meta Information for all providers
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneListConnectorsMetaRequest.new()
     
 res = s.connectors.list_connectors_meta(include="string")
 

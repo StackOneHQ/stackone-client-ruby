@@ -19,31 +19,31 @@ module StackOne
 
 
 
-    class Job < StackOne::Utils::FieldAugmented
+    class Job < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :code, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('code') } }
+      field :code, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
 
-      field :company_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('company_id') } }
+      field :company_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
       # Date of creation
-      field :created_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :created_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :department_ids, T::Array[String], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('department_ids') } }
+      field :department_ids, T::Array[String], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_ids') } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :job_status, Shared::JobStatusEnum, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('job_status') } }
+      field :job_status, Shared::JobStatusEnum, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_status') } }
 
-      field :location_ids, T::Array[String], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('location_ids') } }
+      field :location_ids, T::Array[String], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
 
-      field :title, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('title') } }
+      field :title, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
       # Date of last update
-      field :updated_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :updated_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :confidential, T.nilable(Shared::Confidential), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Shared::Confidential, true) } }
+      field :confidential, T.nilable(Shared::Confidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Shared::Confidential, true) } }
 
-      field :hiring_team, T.nilable(T::Array[Shared::HiringTeam]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('hiring_team') } }
+      field :hiring_team, T.nilable(T::Array[Shared::HiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
 
 
       sig { params(code: String, company_id: String, created_at: DateTime, department_ids: T::Array[String], id: String, job_status: Shared::JobStatusEnum, location_ids: T::Array[String], title: String, updated_at: DateTime, confidential: T.nilable(Shared::Confidential), hiring_team: T.nilable(T::Array[Shared::HiringTeam])).void }

@@ -11,7 +11,7 @@ require_relative '../shared/createresult'
 module StackOne
   module Operations
 
-    class AtsCreateApplicationRequest < StackOne::Utils::FieldAugmented
+    class AtsCreateApplicationRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module StackOne
     end
 
 
-    class AtsCreateApplicationResponse < StackOne::Utils::FieldAugmented
+    class AtsCreateApplicationResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

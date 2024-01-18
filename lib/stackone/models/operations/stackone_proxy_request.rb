@@ -10,7 +10,7 @@ require_relative '../shared/proxyrequestbody'
 module StackOne
   module Operations
 
-    class StackoneProxyRequestRequest < StackOne::Utils::FieldAugmented
+    class StackoneProxyRequestRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The request body
@@ -27,7 +27,7 @@ module StackOne
     end
 
 
-    class StackoneProxyRequestResponse < StackOne::Utils::FieldAugmented
+    class StackoneProxyRequestResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

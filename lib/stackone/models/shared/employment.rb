@@ -20,13 +20,13 @@ module StackOne
 
 
     # The employment work schedule type (e.g., full-time, part-time)
-    class EmploymentEmploymentContractType < StackOne::Utils::FieldAugmented
+    class EmploymentEmploymentContractType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmploymentValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentValue, false) } }
+      field :value, Shared::EmploymentValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::EmploymentValue).void }
@@ -53,13 +53,13 @@ module StackOne
 
 
     # The type of employment (e.g., contractor, permanent)
-    class EmploymentEmploymentType < StackOne::Utils::FieldAugmented
+    class EmploymentEmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::EmploymentSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasValue, false) } }
+      field :value, Shared::EmploymentSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::EmploymentSchemasValue).void }
@@ -91,13 +91,13 @@ module StackOne
 
 
     # The pay frequency
-    class EmploymentPayFrequency < StackOne::Utils::FieldAugmented
+    class EmploymentPayFrequency < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the pay frequency.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay frequency of the job postings.
-      field :value, Shared::EmploymentSchemasPayFrequencyValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayFrequencyValue, false) } }
+      field :value, Shared::EmploymentSchemasPayFrequencyValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayFrequencyValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::EmploymentSchemasPayFrequencyValue).void }
@@ -125,13 +125,13 @@ module StackOne
 
 
     # The pay period
-    class EmploymentPayPeriod < StackOne::Utils::FieldAugmented
+    class EmploymentPayPeriod < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the pay period.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay period of the job postings.
-      field :value, Shared::EmploymentSchemasPayPeriodValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayPeriodValue, false) } }
+      field :value, Shared::EmploymentSchemasPayPeriodValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayPeriodValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::EmploymentSchemasPayPeriodValue).void }
@@ -142,33 +142,33 @@ module StackOne
     end
 
 
-    class Employment < StackOne::Utils::FieldAugmented
+    class Employment < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The employee ID associated with this employment
-      field :employee_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employee_id') } }
+      field :employee_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
       # The created_at date
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The effective date of the employment contract
-      field :effective_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :effective_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employment work schedule type (e.g., full-time, part-time)
-      field :employment_contract_type, T.nilable(Shared::EmploymentEmploymentContractType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_contract_type') } }
+      field :employment_contract_type, T.nilable(Shared::EmploymentEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
       # The type of employment (e.g., contractor, permanent)
-      field :employment_type, T.nilable(Shared::EmploymentEmploymentType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_type') } }
+      field :employment_type, T.nilable(Shared::EmploymentEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
       # The unique ID of the employment
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The job title of the employee
-      field :job_title, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('job_title') } }
+      field :job_title, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
       # The currency used for pay
-      field :pay_currency, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('pay_currency') } }
+      field :pay_currency, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
       # The pay frequency
-      field :pay_frequency, T.nilable(Shared::EmploymentPayFrequency), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('pay_frequency') } }
+      field :pay_frequency, T.nilable(Shared::EmploymentPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
       # The pay period
-      field :pay_period, T.nilable(Shared::EmploymentPayPeriod), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('pay_period') } }
+      field :pay_period, T.nilable(Shared::EmploymentPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
       # The pay rate for the employee
-      field :pay_rate, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('pay_rate') } }
+      field :pay_rate, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
       # The updated_at date
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(employee_id: String, created_at: T.nilable(DateTime), effective_date: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::EmploymentEmploymentContractType), employment_type: T.nilable(Shared::EmploymentEmploymentType), id: T.nilable(String), job_title: T.nilable(String), pay_currency: T.nilable(String), pay_frequency: T.nilable(Shared::EmploymentPayFrequency), pay_period: T.nilable(Shared::EmploymentPayPeriod), pay_rate: T.nilable(String), updated_at: T.nilable(DateTime)).void }

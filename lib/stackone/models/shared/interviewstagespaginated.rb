@@ -9,17 +9,17 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class InterviewStagesPaginated < StackOne::Utils::FieldAugmented
+    class InterviewStagesPaginated < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, T::Array[Shared::InterviewStage], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, T::Array[Shared::InterviewStage], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :next_, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('next') } }
+      field :next_, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :next_page, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('next_page') } }
+      field :next_page, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: T::Array[Shared::InterviewStage], next_: T.nilable(String), next_page: T.nilable(String), raw: T.nilable(T::Array[Shared::RawResponse])).void }

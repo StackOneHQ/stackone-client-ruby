@@ -9,19 +9,19 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class OfferHistory < StackOne::Utils::FieldAugmented
+    class OfferHistory < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Start Date of the offer
-      field :start_date, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :start_date, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # Date of creation
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :currency, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('currency') } }
+      field :currency, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
 
-      field :salary, T.nilable(Float), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('salary') } }
+      field :salary, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
       # Date of last update
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(start_date: DateTime, created_at: T.nilable(DateTime), currency: T.nilable(String), salary: T.nilable(Float), updated_at: T.nilable(DateTime)).void }

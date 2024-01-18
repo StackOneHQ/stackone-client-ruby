@@ -10,13 +10,13 @@ require_relative '../shared/interview'
 module StackOne
   module Shared
 
-    class InterviewsResult < StackOne::Utils::FieldAugmented
+    class InterviewsResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::Interview, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::Interview, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::Interview, raw: T.nilable(T::Array[Shared::RawResponse])).void }

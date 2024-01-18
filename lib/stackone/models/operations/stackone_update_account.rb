@@ -11,7 +11,7 @@ require_relative '../shared/linkedaccount'
 module StackOne
   module Operations
 
-    class StackoneUpdateAccountRequest < StackOne::Utils::FieldAugmented
+    class StackoneUpdateAccountRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module StackOne
     end
 
 
-    class StackoneUpdateAccountResponse < StackOne::Utils::FieldAugmented
+    class StackoneUpdateAccountResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

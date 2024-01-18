@@ -22,29 +22,29 @@ module StackOne
 
 
 
-    class Scorecard < StackOne::Utils::FieldAugmented
+    class Scorecard < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The application ID associated with the scorecard
-      field :application_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('application_id') } }
+      field :application_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
       # The author ID of the scorecard
-      field :author_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('author_id') } }
+      field :author_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
       # The candidate ID associated with the scorecard
-      field :candidate_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('candidate_id') } }
+      field :candidate_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
       # The creation date of the scorecard
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The scorecard ID
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The interview ID associated with the scorecard
-      field :interview_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interview_id') } }
+      field :interview_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_id') } }
       # The label of the scorecard
-      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
       # The overall recommendation
-      field :overall_recommendation, T.nilable(Shared::OverallRecommendation), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('overall_recommendation'), 'decoder': Utils.enum_from_string(Shared::OverallRecommendation, true) } }
+      field :overall_recommendation, T.nilable(Shared::OverallRecommendation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('overall_recommendation'), 'decoder': Utils.enum_from_string(Shared::OverallRecommendation, true) } }
       # The sections in the scorecard
-      field :sections, T.nilable(T::Array[Shared::ScorecardSection]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('sections') } }
+      field :sections, T.nilable(T::Array[Shared::ScorecardSection]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
       # The update date of the scorecard
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(application_id: T.nilable(String), author_id: T.nilable(String), candidate_id: T.nilable(String), created_at: T.nilable(DateTime), id: T.nilable(String), interview_id: T.nilable(String), label: T.nilable(String), overall_recommendation: T.nilable(Shared::OverallRecommendation), sections: T.nilable(T::Array[Shared::ScorecardSection]), updated_at: T.nilable(DateTime)).void }

@@ -9,19 +9,19 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Company < StackOne::Utils::FieldAugmented
+    class Company < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The created_at date
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :display_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('display_name') } }
+      field :display_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
 
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The updated_at date
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(created_at: T.nilable(DateTime), display_name: T.nilable(String), id: T.nilable(String), name: T.nilable(String), updated_at: T.nilable(DateTime)).void }

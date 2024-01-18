@@ -10,13 +10,13 @@ require_relative '../shared/company'
 module StackOne
   module Shared
 
-    class CompanyResult < StackOne::Utils::FieldAugmented
+    class CompanyResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::Company, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::Company, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::Company, raw: T.nilable(T::Array[Shared::RawResponse])).void }

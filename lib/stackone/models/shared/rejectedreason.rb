@@ -10,15 +10,15 @@ require_relative '../shared/rejectedreasontypeenum'
 module StackOne
   module Shared
 
-    class RejectedReason < StackOne::Utils::FieldAugmented
+    class RejectedReason < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The ID of the rejected reason.
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The label of the rejected reason.
-      field :label, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+      field :label, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
-      field :rejected_reason_type, Shared::RejectedReasonTypeEnum, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('rejected_reason_type') } }
+      field :rejected_reason_type, Shared::RejectedReasonTypeEnum, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_type') } }
 
 
       sig { params(id: String, label: String, rejected_reason_type: Shared::RejectedReasonTypeEnum).void }

@@ -18,13 +18,13 @@ module StackOne
 
 
     # The status of the time off request
-    class HrisCreateTimeOffRequestDtoStatus < StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestDtoStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateTimeOffRequestDtoValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoValue, false) } }
+      field :value, Shared::HrisCreateTimeOffRequestDtoValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateTimeOffRequestDtoValue).void }
@@ -45,13 +45,13 @@ module StackOne
 
 
     # The type of the time off request
-    class HrisCreateTimeOffRequestDtoType < StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestDtoType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateTimeOffRequestDtoSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoSchemasValue, false) } }
+      field :value, Shared::HrisCreateTimeOffRequestDtoSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateTimeOffRequestDtoSchemasValue).void }
@@ -62,21 +62,21 @@ module StackOne
     end
 
 
-    class HrisCreateTimeOffRequestDto < StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The approver ID
-      field :approver_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('approver_id') } }
+      field :approver_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
       # The employee ID
-      field :employee_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employee_id') } }
+      field :employee_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
       # The end date of the time off request
-      field :end_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :end_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The start date of the time off request
-      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the time off request
-      field :status, T.nilable(Shared::HrisCreateTimeOffRequestDtoStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status') } }
+      field :status, T.nilable(Shared::HrisCreateTimeOffRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
       # The type of the time off request
-      field :type, T.nilable(Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
       sig { params(approver_id: T.nilable(String), employee_id: T.nilable(String), end_date: T.nilable(DateTime), start_date: T.nilable(DateTime), status: T.nilable(Shared::HrisCreateTimeOffRequestDtoStatus), type: T.nilable(Shared::HrisCreateTimeOffRequestDtoType)).void }

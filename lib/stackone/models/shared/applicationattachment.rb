@@ -18,13 +18,13 @@ module StackOne
 
 
 
-    class ContentType < StackOne::Utils::FieldAugmented
+    class ContentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the content type.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The content type of the attachment.
-      field :value, T.nilable(Shared::ApplicationAttachmentValue), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ApplicationAttachmentValue, true) } }
+      field :value, T.nilable(Shared::ApplicationAttachmentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ApplicationAttachmentValue, true) } }
 
 
       sig { params(source_value: T.nilable(String), value: T.nilable(Shared::ApplicationAttachmentValue)).void }
@@ -35,19 +35,19 @@ module StackOne
     end
 
 
-    class ApplicationAttachment < StackOne::Utils::FieldAugmented
+    class ApplicationAttachment < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The content of the attachment.
-      field :content, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content') } }
+      field :content, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
 
-      field :content_type, T.nilable(Shared::ContentType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content_type') } }
+      field :content_type, T.nilable(Shared::ContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
       # The file name of the attachment.
-      field :file_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('file_name') } }
+      field :file_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
 
-      field :type, T.nilable(T::Array[Shared::AttachmentType]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(T::Array[Shared::AttachmentType]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The URL of the attachment.
-      field :url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('url') } }
+      field :url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
       sig { params(content: T.nilable(String), content_type: T.nilable(Shared::ContentType), file_name: T.nilable(String), type: T.nilable(T::Array[Shared::AttachmentType]), url: T.nilable(String)).void }

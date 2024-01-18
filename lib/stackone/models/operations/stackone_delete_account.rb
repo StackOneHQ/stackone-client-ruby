@@ -10,7 +10,7 @@ require_relative '../shared/linkedaccount'
 module StackOne
   module Operations
 
-    class StackoneDeleteAccountRequest < StackOne::Utils::FieldAugmented
+    class StackoneDeleteAccountRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -24,7 +24,7 @@ module StackOne
     end
 
 
-    class StackoneDeleteAccountResponse < StackOne::Utils::FieldAugmented
+    class StackoneDeleteAccountResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

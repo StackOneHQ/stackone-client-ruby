@@ -22,13 +22,13 @@ module StackOne
 
 
     # The type of the custom field.
-    class EmployeeCustomFieldsType < StackOne::Utils::FieldAugmented
+    class EmployeeCustomFieldsType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeCustomFieldsSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeCustomFieldsSchemasValue, false) } }
+      field :value, Shared::EmployeeCustomFieldsSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeCustomFieldsSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::EmployeeCustomFieldsSchemasValue).void }
@@ -39,7 +39,7 @@ module StackOne
     end
 
     # The value associated with the custom field.
-    class EmployeeCustomFieldsValue < StackOne::Utils::FieldAugmented
+    class EmployeeCustomFieldsValue < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -49,23 +49,23 @@ module StackOne
     end
 
 
-    class EmployeeCustomFields < StackOne::Utils::FieldAugmented
+    class EmployeeCustomFields < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The description of the custom field.
-      field :description, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('description') } }
+      field :description, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
       # The unique identifier for the custom field, which defaults to the name property if the ID is not accessible.
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The name of the custom field.
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # An array of possible options for the custom field.
-      field :options, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('options') } }
+      field :options, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('options') } }
       # The type of the custom field.
-      field :type, T.nilable(Shared::EmployeeCustomFieldsType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::EmployeeCustomFieldsType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The value associated with the custom field.
-      field :value, T.nilable(Shared::EmployeeCustomFieldsValue), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value') } }
+      field :value, T.nilable(Shared::EmployeeCustomFieldsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
       # The unique identifier for the value of the custom field.
-      field :value_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value_id') } }
+      field :value_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value_id') } }
 
 
       sig { params(description: T.nilable(String), id: T.nilable(String), name: T.nilable(String), options: T.nilable(T::Array[String]), type: T.nilable(Shared::EmployeeCustomFieldsType), value: T.nilable(Shared::EmployeeCustomFieldsValue), value_id: T.nilable(String)).void }

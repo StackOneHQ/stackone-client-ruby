@@ -264,13 +264,13 @@ module StackOne
 
 
     # The country code
-    class Country < StackOne::Utils::FieldAugmented
+    class Country < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the ISO 3166-1 alpha-2 code of the country.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO 3166-1 alpha-2 code of the country.
-      field :value, Shared::AccountAddressSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressSchemasValue, false) } }
+      field :value, Shared::AccountAddressSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::AccountAddressSchemasValue).void }
@@ -291,13 +291,13 @@ module StackOne
 
 
     # The location type
-    class LocationType < StackOne::Utils::FieldAugmented
+    class LocationType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the location type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the location.
-      field :value, Shared::AccountAddressValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressValue, false) } }
+      field :value, Shared::AccountAddressValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::AccountAddressValue).void }
@@ -308,23 +308,23 @@ module StackOne
     end
 
 
-    class AccountAddress < StackOne::Utils::FieldAugmented
+    class AccountAddress < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :city, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('city') } }
+      field :city, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(Shared::Country), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('country') } }
+      field :country, T.nilable(Shared::Country), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The location type
-      field :location_type, T.nilable(Shared::LocationType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('location_type') } }
+      field :location_type, T.nilable(Shared::LocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
 
-      field :state, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('state') } }
+      field :state, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
 
-      field :street_1, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('street_1') } }
+      field :street_1, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
 
-      field :street_2, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('street_2') } }
+      field :street_2, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
 
-      field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('zip_code') } }
+      field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
       sig { params(city: T.nilable(String), country: T.nilable(Shared::Country), location_type: T.nilable(Shared::LocationType), state: T.nilable(String), street_1: T.nilable(String), street_2: T.nilable(String), zip_code: T.nilable(String)).void }

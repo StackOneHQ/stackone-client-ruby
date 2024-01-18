@@ -9,11 +9,11 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class NoteContentApiModel < StackOne::Utils::FieldAugmented
+    class NoteContentApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Body of the note
-      field :body, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('body') } }
+      field :body, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
 
       sig { params(body: String).void }

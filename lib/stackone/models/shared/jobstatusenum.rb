@@ -24,13 +24,13 @@ module StackOne
 
 
 
-    class JobStatusEnum < StackOne::Utils::FieldAugmented
+    class JobStatusEnum < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the job status.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the job.
-      field :value, Shared::JobStatusEnumValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobStatusEnumValue, false) } }
+      field :value, Shared::JobStatusEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobStatusEnumValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::JobStatusEnumValue).void }

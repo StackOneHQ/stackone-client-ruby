@@ -28,19 +28,19 @@ module StackOne
 
 
 
-    class Field < StackOne::Utils::FieldAugmented
+    class Field < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The ID of the field
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The label of the field
-      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
       # Indicates if the field is required
-      field :required, T.nilable(T::Boolean), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('required') } }
+      field :required, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
       # The type of the field
-      field :type, T.nilable(Shared::FieldType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Shared::FieldType, true) } }
+      field :type, T.nilable(Shared::FieldType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Shared::FieldType, true) } }
       # The possible values for the field
-      field :values, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('values') } }
+      field :values, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 
 
       sig { params(id: T.nilable(String), label: T.nilable(String), required: T.nilable(T::Boolean), type: T.nilable(Shared::FieldType), values: T.nilable(T::Array[String])).void }

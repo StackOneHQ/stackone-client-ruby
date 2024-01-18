@@ -18,13 +18,13 @@ module StackOne
 
 
     # Visibility of the note
-    class Visibility < StackOne::Utils::FieldAugmented
+    class Visibility < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the notes visibility.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The visibility of the notes.
-      field :value, T.nilable(Shared::AtsCreateNotesRequestDtoValue), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AtsCreateNotesRequestDtoValue, true) } }
+      field :value, T.nilable(Shared::AtsCreateNotesRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AtsCreateNotesRequestDtoValue, true) } }
 
 
       sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AtsCreateNotesRequestDtoValue)).void }
@@ -35,15 +35,15 @@ module StackOne
     end
 
 
-    class AtsCreateNotesRequestDto < StackOne::Utils::FieldAugmented
+    class AtsCreateNotesRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :content, T::Array[Shared::NoteContentApiModel], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content') } }
+      field :content, T::Array[Shared::NoteContentApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # Unique identifier of the author
-      field :author_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('author_id') } }
+      field :author_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
       # Visibility of the note
-      field :visibility, T.nilable(Shared::Visibility), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('visibility') } }
+      field :visibility, T.nilable(Shared::Visibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
       sig { params(content: T::Array[Shared::NoteContentApiModel], author_id: T.nilable(String), visibility: T.nilable(Shared::Visibility)).void }

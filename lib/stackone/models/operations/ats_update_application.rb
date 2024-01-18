@@ -11,7 +11,7 @@ require_relative '../shared/updateresult'
 module StackOne
   module Operations
 
-    class AtsUpdateApplicationRequest < StackOne::Utils::FieldAugmented
+    class AtsUpdateApplicationRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -31,7 +31,7 @@ module StackOne
     end
 
 
-    class AtsUpdateApplicationResponse < StackOne::Utils::FieldAugmented
+    class AtsUpdateApplicationResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

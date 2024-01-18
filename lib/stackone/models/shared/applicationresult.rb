@@ -10,13 +10,13 @@ require_relative '../shared/application'
 module StackOne
   module Shared
 
-    class ApplicationResult < StackOne::Utils::FieldAugmented
+    class ApplicationResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::Application, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::Application, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::Application, raw: T.nilable(T::Array[Shared::RawResponse])).void }

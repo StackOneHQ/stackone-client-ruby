@@ -11,7 +11,7 @@ require_relative '../shared/createemployeeresult'
 module StackOne
   module Operations
 
-    class HrisUpdateEmployeeRequest < StackOne::Utils::FieldAugmented
+    class HrisUpdateEmployeeRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -31,7 +31,7 @@ module StackOne
     end
 
 
-    class HrisUpdateEmployeeResponse < StackOne::Utils::FieldAugmented
+    class HrisUpdateEmployeeResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

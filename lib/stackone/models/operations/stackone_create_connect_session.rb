@@ -10,7 +10,7 @@ require_relative '../shared/connectsessiontoken'
 module StackOne
   module Operations
 
-    class StackoneCreateConnectSessionResponse < StackOne::Utils::FieldAugmented
+    class StackoneCreateConnectSessionResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

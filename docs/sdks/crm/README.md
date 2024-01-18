@@ -22,34 +22,13 @@ Creates a new Contact
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::CrmCreateContactRequest.new(
-  crm_create_contact_request_dto=Shared::CrmCreateContactRequestDto.new(
-    account_ids=[
-      "string",
-    ],
-    company_name="Apple Inc.",
-    deal_ids=[
-      "string",
-    ],
-    emails=[
-      "string",
-    ],
-    first_name="Steve",
-    last_name="Wozniak",
-    phone_numbers=[
-      "string",
-    ],
-  ),
-  x_account_id="string",
-)
     
 res = s.crm.create_contact(crm_create_contact_request_dto=Shared::CrmCreateContactRequestDto.new(
     account_ids=[
@@ -98,7 +77,7 @@ Get Account
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -108,7 +87,9 @@ s.config_security(
 
 req = Operations::CrmGetAccountRequest.new(
   id="<ID>",
-  proxy=Operations::CrmGetAccountQueryParamProxy.new(),
+  proxy={
+    "Bennie": "string",
+  },
   x_account_id="string",
 )
     
@@ -142,7 +123,7 @@ Get Contact
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -152,7 +133,9 @@ s.config_security(
 
 req = Operations::CrmGetContactRequest.new(
   id="<ID>",
-  proxy=Operations::CrmGetContactQueryParamProxy.new(),
+  proxy={
+    "whereas": "string",
+  },
   x_account_id="string",
 )
     
@@ -186,7 +169,7 @@ Get List
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -196,7 +179,9 @@ s.config_security(
 
 req = Operations::CrmGetListRequest.new(
   id="<ID>",
-  proxy=Operations::CrmGetListQueryParamProxy.new(),
+  proxy={
+    "Investment": "string",
+  },
   x_account_id="string",
 )
     
@@ -230,7 +215,7 @@ List Accounts
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -239,7 +224,9 @@ s.config_security(
 
 
 req = Operations::CrmListAccountsRequest.new(
-  proxy=Operations::CrmListAccountsQueryParamProxy.new(),
+  proxy={
+    "Iron": "string",
+  },
   x_account_id="string",
 )
     
@@ -273,7 +260,7 @@ List Contacts
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -282,7 +269,9 @@ s.config_security(
 
 
 req = Operations::CrmListContactsRequest.new(
-  proxy=Operations::CrmListContactsQueryParamProxy.new(),
+  proxy={
+    "PNG": "string",
+  },
   x_account_id="string",
 )
     
@@ -316,7 +305,7 @@ Get all Lists
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -325,7 +314,9 @@ s.config_security(
 
 
 req = Operations::CrmListListsRequest.new(
-  proxy=Operations::CrmListListsQueryParamProxy.new(),
+  proxy={
+    "hacking": "string",
+  },
   x_account_id="string",
 )
     
@@ -359,35 +350,13 @@ Update Contact (early access)
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::CrmUpdateContactRequest.new(
-  crm_create_contact_request_dto=Shared::CrmCreateContactRequestDto.new(
-    account_ids=[
-      "string",
-    ],
-    company_name="Apple Inc.",
-    deal_ids=[
-      "string",
-    ],
-    emails=[
-      "string",
-    ],
-    first_name="Steve",
-    last_name="Wozniak",
-    phone_numbers=[
-      "string",
-    ],
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.crm.update_contact(crm_create_contact_request_dto=Shared::CrmCreateContactRequestDto.new(
     account_ids=[

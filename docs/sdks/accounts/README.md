@@ -19,17 +19,13 @@ Delete Account
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneDeleteAccountRequest.new(
-  id="<ID>",
-)
     
 res = s.accounts.delete_account(id="string")
 
@@ -61,17 +57,13 @@ Get Account
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneGetAccountRequest.new(
-  id="<ID>",
-)
     
 res = s.accounts.get_account(id="string")
 
@@ -103,17 +95,13 @@ Get meta information of the account
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneGetAccountMetaInfoRequest.new(
-  id="<ID>",
-)
     
 res = s.accounts.get_account_meta_info(id="string")
 
@@ -145,15 +133,13 @@ List Accounts
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneListLinkedAccountsRequest.new()
     
 res = s.accounts.list_linked_accounts(origin_owner_id="string", provider="string")
 
@@ -186,18 +172,13 @@ Update Account
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneUpdateAccountRequest.new(
-  patch_account_dto=Shared::PatchAccountDto.new(),
-  id="<ID>",
-)
     
 res = s.accounts.update_account(patch_account_dto=Shared::PatchAccountDto.new(), id="string")
 

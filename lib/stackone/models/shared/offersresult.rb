@@ -10,13 +10,13 @@ require_relative '../shared/offer'
 module StackOne
   module Shared
 
-    class OffersResult < StackOne::Utils::FieldAugmented
+    class OffersResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::Offer, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::Offer, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::Offer, raw: T.nilable(T::Array[Shared::RawResponse])).void }

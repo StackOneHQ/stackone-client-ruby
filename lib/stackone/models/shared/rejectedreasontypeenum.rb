@@ -21,13 +21,13 @@ module StackOne
 
 
 
-    class RejectedReasonTypeEnum < StackOne::Utils::FieldAugmented
+    class RejectedReasonTypeEnum < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the rejected reason type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the rejected reason.
-      field :value, Shared::RejectedReasonTypeEnumValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::RejectedReasonTypeEnumValue, false) } }
+      field :value, Shared::RejectedReasonTypeEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::RejectedReasonTypeEnumValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::RejectedReasonTypeEnumValue).void }

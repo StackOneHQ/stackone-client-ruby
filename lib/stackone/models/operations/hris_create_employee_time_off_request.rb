@@ -11,7 +11,7 @@ require_relative '../shared/createtimeoffresult'
 module StackOne
   module Operations
 
-    class HrisCreateEmployeeTimeOffRequestRequest < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeTimeOffRequestRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -31,7 +31,7 @@ module StackOne
     end
 
 
-    class HrisCreateEmployeeTimeOffRequestResponse < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeTimeOffRequestResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

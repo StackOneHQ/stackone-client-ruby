@@ -11,7 +11,7 @@ require_relative '../shared/createtemplateresult'
 module StackOne
   module Operations
 
-    class MarketingCreateOmniChannelTemplateRequest < StackOne::Utils::FieldAugmented
+    class MarketingCreateOmniChannelTemplateRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module StackOne
     end
 
 
-    class MarketingCreateOmniChannelTemplateResponse < StackOne::Utils::FieldAugmented
+    class MarketingCreateOmniChannelTemplateResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -9,23 +9,23 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class CrmCreateContactRequestDto < StackOne::Utils::FieldAugmented
+    class CrmCreateContactRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # List of associated account IDs
-      field :account_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('account_ids') } }
+      field :account_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
       # The contact company name
-      field :company_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('company_name') } }
+      field :company_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
       # List of associated deal IDs
-      field :deal_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('deal_ids') } }
+      field :deal_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
       # List of contact email addresses
-      field :emails, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('emails') } }
+      field :emails, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
       # The contact first name
-      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_name') } }
+      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # The contact last name
-      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_name') } }
+      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # List of contact phone numbers
-      field :phone_numbers, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone_numbers') } }
+      field :phone_numbers, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
 
 
       sig { params(account_ids: T.nilable(T::Array[String]), company_name: T.nilable(String), deal_ids: T.nilable(T::Array[String]), emails: T.nilable(T::Array[String]), first_name: T.nilable(String), last_name: T.nilable(String), phone_numbers: T.nilable(T::Array[String])).void }

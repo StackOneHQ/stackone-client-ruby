@@ -9,19 +9,19 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class MessageContent < StackOne::Utils::FieldAugmented
+    class MessageContent < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :body, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('body') } }
+      field :body, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-      field :from, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('from') } }
+      field :from, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('from') } }
 
-      field :subject, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('subject') } }
+      field :subject, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subject') } }
 
-      field :preheader, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('preheader') } }
+      field :preheader, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preheader') } }
 
-      field :reply_to, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('reply-to') } }
+      field :reply_to, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reply-to') } }
 
 
       sig { params(body: String, from: String, subject: String, preheader: T.nilable(String), reply_to: T.nilable(String)).void }
@@ -51,13 +51,13 @@ module StackOne
 
 
 
-    class MessageType < StackOne::Utils::FieldAugmented
+    class MessageType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmailMessagesValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmailMessagesValue, false) } }
+      field :value, Shared::EmailMessagesValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmailMessagesValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::EmailMessagesValue).void }
@@ -68,17 +68,17 @@ module StackOne
     end
 
 
-    class EmailMessages < StackOne::Utils::FieldAugmented
+    class EmailMessages < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :message_content, T.nilable(Shared::MessageContent), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message_content') } }
+      field :message_content, T.nilable(Shared::MessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
 
-      field :message_type, T.nilable(Shared::MessageType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message_type') } }
+      field :message_type, T.nilable(Shared::MessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
 
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
       sig { params(id: T.nilable(String), message_content: T.nilable(Shared::MessageContent), message_type: T.nilable(Shared::MessageType), name: T.nilable(String)).void }

@@ -9,13 +9,13 @@ require 'faraday'
 module StackOne
   module Shared
     # The employee avatar
-    class HrisCreateEmployeeRequestDtoAvatar < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoAvatar < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :base64, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('base64') } }
+      field :base64, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('base64') } }
 
-      field :url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('url') } }
+      field :url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
       sig { params(base64: T.nilable(String), url: T.nilable(String)).void }
@@ -37,13 +37,13 @@ module StackOne
 
 
     # The employment work schedule type (e.g., full-time, part-time)
-    class HrisCreateEmployeeRequestDtoEmploymentContractType < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEmploymentContractType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoValue).void }
@@ -68,13 +68,13 @@ module StackOne
 
 
     # The employee employment status
-    class HrisCreateEmployeeRequestDtoEmploymentStatus < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEmploymentStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasValue).void }
@@ -101,13 +101,13 @@ module StackOne
 
 
     # The employee employment type
-    class HrisCreateEmployeeRequestDtoEmploymentType < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue).void }
@@ -135,13 +135,13 @@ module StackOne
 
 
     # The employee ethnicity
-    class HrisCreateEmployeeRequestDtoEthnicity < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEthnicity < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue).void }
@@ -166,13 +166,13 @@ module StackOne
 
 
     # The employee gender
-    class HrisCreateEmployeeRequestDtoGender < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoGender < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue).void }
@@ -439,13 +439,13 @@ module StackOne
 
 
     # The country code
-    class HrisCreateEmployeeRequestDtoCountry < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue).void }
@@ -4287,13 +4287,13 @@ module StackOne
 
 
     # The ISO3166-2 sub division where the location is situated
-    class State < StackOne::Utils::FieldAugmented
+    class State < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue).void }
@@ -4304,25 +4304,25 @@ module StackOne
     end
 
     # The employee home location
-    class HrisCreateEmployeeRequestDtoHomeLocation < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoHomeLocation < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The city where the location is situated
-      field :city, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('city') } }
+      field :city, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(Shared::HrisCreateEmployeeRequestDtoCountry), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('country') } }
+      field :country, T.nilable(Shared::HrisCreateEmployeeRequestDtoCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The name of the location
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The phone number of the location
-      field :phone_number, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone_number') } }
+      field :phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # The ISO3166-2 sub division where the location is situated
-      field :state, T.nilable(Shared::State), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('state') } }
+      field :state, T.nilable(Shared::State), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
       # The first line of the address
-      field :street_1, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('street_1') } }
+      field :street_1, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
       # The second line of the address
-      field :street_2, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('street_2') } }
+      field :street_2, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
       # The ZIP code/Postal code of the location
-      field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('zip_code') } }
+      field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
       sig { params(city: T.nilable(String), country: T.nilable(Shared::HrisCreateEmployeeRequestDtoCountry), name: T.nilable(String), phone_number: T.nilable(String), state: T.nilable(Shared::State), street_1: T.nilable(String), street_2: T.nilable(String), zip_code: T.nilable(String)).void }
@@ -4356,13 +4356,13 @@ module StackOne
 
 
     # The employee marital status
-    class HrisCreateEmployeeRequestDtoMaritalStatus < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoMaritalStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue).void }
@@ -4629,13 +4629,13 @@ module StackOne
 
 
     # The country code
-    class HrisCreateEmployeeRequestDtoSchemasCountry < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoSchemasCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue).void }
@@ -8477,13 +8477,13 @@ module StackOne
 
 
     # The ISO3166-2 sub division where the location is situated
-    class HrisCreateEmployeeRequestDtoState < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoState < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, false) } }
+      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue).void }
@@ -8494,25 +8494,25 @@ module StackOne
     end
 
     # The employee work location
-    class HrisCreateEmployeeRequestDtoWorkLocation < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoWorkLocation < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The city where the location is situated
-      field :city, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('city') } }
+      field :city, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('country') } }
+      field :country, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The name of the location
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The phone number of the location
-      field :phone_number, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone_number') } }
+      field :phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # The ISO3166-2 sub division where the location is situated
-      field :state, T.nilable(Shared::HrisCreateEmployeeRequestDtoState), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('state') } }
+      field :state, T.nilable(Shared::HrisCreateEmployeeRequestDtoState), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
       # The first line of the address
-      field :street_1, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('street_1') } }
+      field :street_1, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
       # The second line of the address
-      field :street_2, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('street_2') } }
+      field :street_2, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
       # The ZIP code/Postal code of the location
-      field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('zip_code') } }
+      field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
       sig { params(city: T.nilable(String), country: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasCountry), name: T.nilable(String), phone_number: T.nilable(String), state: T.nilable(Shared::HrisCreateEmployeeRequestDtoState), street_1: T.nilable(String), street_2: T.nilable(String), zip_code: T.nilable(String)).void }
@@ -8529,73 +8529,73 @@ module StackOne
     end
 
 
-    class HrisCreateEmployeeRequestDto < StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The employee first name
-      field :first_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_name') } }
+      field :first_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # The employee last name
-      field :last_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_name') } }
+      field :last_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # The employee work email
-      field :work_email, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('work_email') } }
+      field :work_email, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
       # The employee avatar
-      field :avatar, T.nilable(Shared::HrisCreateEmployeeRequestDtoAvatar), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('avatar') } }
+      field :avatar, T.nilable(Shared::HrisCreateEmployeeRequestDtoAvatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
       # The employee avatar Url
-      field :avatar_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('avatar_url') } }
+      field :avatar_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar_url') } }
       # The employee birthday
-      field :birthday, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('birthday'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :birthday, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('birthday'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The citizenships of the Employee
-      field :citizenships, T.nilable(T::Array[Shared::CountryCodeEnum]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('citizenships') } }
+      field :citizenships, T.nilable(T::Array[Shared::CountryCodeEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('citizenships') } }
       # The employee company name
-      field :company_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('company_name') } }
+      field :company_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
       # The employee custom fields
-      field :custom_fields, T.nilable(T::Array[Shared::EmployeeCustomFields]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('custom_fields') } }
+      field :custom_fields, T.nilable(T::Array[Shared::EmployeeCustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
       # The employee date_of_birth
-      field :date_of_birth, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :date_of_birth, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee department
-      field :department, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('department') } }
+      field :department, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
       # The employee display name
-      field :display_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('display_name') } }
+      field :display_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
       # The employment work schedule type (e.g., full-time, part-time)
-      field :employment_contract_type, T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_contract_type') } }
+      field :employment_contract_type, T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
       # The employee employment status
-      field :employment_status, T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_status') } }
+      field :employment_status, T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_status') } }
       # The employee employment type
-      field :employment_type, T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employment_type') } }
+      field :employment_type, T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
       # The employee employments
-      field :employments, T.nilable(T::Array[Shared::Employment]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employments') } }
+      field :employments, T.nilable(T::Array[Shared::Employment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employments') } }
       # The employee ethnicity
-      field :ethnicity, T.nilable(Shared::HrisCreateEmployeeRequestDtoEthnicity), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('ethnicity') } }
+      field :ethnicity, T.nilable(Shared::HrisCreateEmployeeRequestDtoEthnicity), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ethnicity') } }
       # The employee gender
-      field :gender, T.nilable(Shared::HrisCreateEmployeeRequestDtoGender), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('gender') } }
+      field :gender, T.nilable(Shared::HrisCreateEmployeeRequestDtoGender), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('gender') } }
       # The employee hire date
-      field :hire_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('hire_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :hire_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hire_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee home location
-      field :home_location, T.nilable(Shared::HrisCreateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('home_location') } }
+      field :home_location, T.nilable(Shared::HrisCreateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
       # The employee job title
-      field :job_title, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('job_title') } }
+      field :job_title, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
       # The employee manager ID
-      field :manager_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('manager_id') } }
+      field :manager_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager_id') } }
       # The employee marital status
-      field :marital_status, T.nilable(Shared::HrisCreateEmployeeRequestDtoMaritalStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('marital_status') } }
+      field :marital_status, T.nilable(Shared::HrisCreateEmployeeRequestDtoMaritalStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('marital_status') } }
       # The employee name
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The employee personal email
-      field :personal_email, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('personal_email') } }
+      field :personal_email, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('personal_email') } }
       # The employee personal phone number
-      field :personal_phone_number, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('personal_phone_number') } }
+      field :personal_phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('personal_phone_number') } }
       # The employee start date
-      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee tenure
-      field :tenure, T.nilable(Float), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('tenure') } }
+      field :tenure, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tenure') } }
       # The employee termination date
-      field :termination_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :termination_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee work anniversary
-      field :work_anniversary, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('work_anniversary'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :work_anniversary, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_anniversary'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee work location
-      field :work_location, T.nilable(Shared::HrisCreateEmployeeRequestDtoWorkLocation), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('work_location') } }
+      field :work_location, T.nilable(Shared::HrisCreateEmployeeRequestDtoWorkLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_location') } }
       # The employee work phone number
-      field :work_phone_number, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('work_phone_number') } }
+      field :work_phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
       sig { params(first_name: String, last_name: String, work_email: String, avatar: T.nilable(Shared::HrisCreateEmployeeRequestDtoAvatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::HrisCreateEmployeeRequestDtoEthnicity), gender: T.nilable(Shared::HrisCreateEmployeeRequestDtoGender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HrisCreateEmployeeRequestDtoHomeLocation), job_title: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::HrisCreateEmployeeRequestDtoMaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_location: T.nilable(Shared::HrisCreateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(String)).void }

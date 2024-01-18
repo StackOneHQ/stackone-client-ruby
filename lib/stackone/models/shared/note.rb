@@ -18,13 +18,13 @@ module StackOne
 
 
     # Visibility of the note
-    class NoteVisibility < StackOne::Utils::FieldAugmented
+    class NoteVisibility < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the notes visibility.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The visibility of the notes.
-      field :value, T.nilable(Shared::NoteValue), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::NoteValue, true) } }
+      field :value, T.nilable(Shared::NoteValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::NoteValue, true) } }
 
 
       sig { params(source_value: T.nilable(String), value: T.nilable(Shared::NoteValue)).void }
@@ -35,23 +35,23 @@ module StackOne
     end
 
 
-    class Note < StackOne::Utils::FieldAugmented
+    class Note < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :content, T::Array[Shared::NoteContentApiModel], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('content') } }
+      field :content, T::Array[Shared::NoteContentApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Unique identifier of the author
-      field :author_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('author_id') } }
+      field :author_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
       # Date of creation
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Date of Deletion
-      field :deleted_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('deleted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :deleted_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deleted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Date of last update
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Visibility of the note
-      field :visibility, T.nilable(Shared::NoteVisibility), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('visibility') } }
+      field :visibility, T.nilable(Shared::NoteVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
       sig { params(content: T::Array[Shared::NoteContentApiModel], id: String, author_id: T.nilable(String), created_at: T.nilable(DateTime), deleted_at: T.nilable(DateTime), updated_at: T.nilable(DateTime), visibility: T.nilable(Shared::NoteVisibility)).void }

@@ -19,13 +19,13 @@ module StackOne
 
 
     # The list type
-    class ListType < StackOne::Utils::FieldAugmented
+    class ListType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the list type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the list.
-      field :value, Shared::ListValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ListValue, false) } }
+      field :value, Shared::ListValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ListValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::ListValue).void }
@@ -36,21 +36,21 @@ module StackOne
     end
 
 
-    class List < StackOne::Utils::FieldAugmented
+    class List < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Timestamp when the list was created
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :items, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('items') } }
+      field :items, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
       # The list type
-      field :type, T.nilable(Shared::ListType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::ListType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # Timestamp when the list was last updated
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(id: String, name: String, created_at: T.nilable(DateTime), items: T.nilable(T::Array[String]), type: T.nilable(Shared::ListType), updated_at: T.nilable(DateTime)).void }

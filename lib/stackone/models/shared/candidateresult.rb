@@ -10,13 +10,13 @@ require_relative '../shared/candidate'
 module StackOne
   module Shared
 
-    class CandidateResult < StackOne::Utils::FieldAugmented
+    class CandidateResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::Candidate, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::Candidate, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::Candidate, raw: T.nilable(T::Array[Shared::RawResponse])).void }

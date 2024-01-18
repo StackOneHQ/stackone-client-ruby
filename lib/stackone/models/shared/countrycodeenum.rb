@@ -265,13 +265,13 @@ module StackOne
 
 
 
-    class CountryCodeEnum < StackOne::Utils::FieldAugmented
+    class CountryCodeEnum < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::CountryCodeEnumValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CountryCodeEnumValue, false) } }
+      field :value, Shared::CountryCodeEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CountryCodeEnumValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::CountryCodeEnumValue).void }

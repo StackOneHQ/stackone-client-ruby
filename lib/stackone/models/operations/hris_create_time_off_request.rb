@@ -11,7 +11,7 @@ require_relative '../shared/createtimeoffresult'
 module StackOne
   module Operations
 
-    class HrisCreateTimeOffRequestRequest < StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module StackOne
     end
 
 
-    class HrisCreateTimeOffRequestResponse < StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

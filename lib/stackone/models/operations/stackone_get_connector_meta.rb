@@ -10,7 +10,7 @@ require_relative '../shared/connectorsmeta'
 module StackOne
   module Operations
 
-    class StackoneGetConnectorMetaRequest < StackOne::Utils::FieldAugmented
+    class StackoneGetConnectorMetaRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -27,7 +27,7 @@ module StackOne
     end
 
 
-    class StackoneGetConnectorMetaResponse < StackOne::Utils::FieldAugmented
+    class StackoneGetConnectorMetaResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

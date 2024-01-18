@@ -18,13 +18,13 @@ module StackOne
 
 
     # The status of the time off request
-    class TimeOffStatus < StackOne::Utils::FieldAugmented
+    class TimeOffStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::TimeOffValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffValue, false) } }
+      field :value, Shared::TimeOffValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::TimeOffValue).void }
@@ -45,13 +45,13 @@ module StackOne
 
 
     # The type of the time off request
-    class TimeOffType < StackOne::Utils::FieldAugmented
+    class TimeOffType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::TimeOffSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffSchemasValue, false) } }
+      field :value, Shared::TimeOffSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::TimeOffSchemasValue).void }
@@ -62,27 +62,27 @@ module StackOne
     end
 
 
-    class TimeOff < StackOne::Utils::FieldAugmented
+    class TimeOff < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The approver ID
-      field :approver_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('approver_id') } }
+      field :approver_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
       # The created date of the time off request
-      field :created_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee ID
-      field :employee_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('employee_id') } }
+      field :employee_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
       # The end date of the time off request
-      field :end_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :end_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The unique ID of the time off request
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The start date of the time off request
-      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the time off request
-      field :status, T.nilable(Shared::TimeOffStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status') } }
+      field :status, T.nilable(Shared::TimeOffStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
       # The type of the time off request
-      field :type, T.nilable(Shared::TimeOffType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::TimeOffType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The updated date of the time off request
-      field :updated_date, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(approver_id: T.nilable(String), created_date: T.nilable(DateTime), employee_id: T.nilable(String), end_date: T.nilable(DateTime), id: T.nilable(String), start_date: T.nilable(DateTime), status: T.nilable(Shared::TimeOffStatus), type: T.nilable(Shared::TimeOffType), updated_date: T.nilable(DateTime)).void }

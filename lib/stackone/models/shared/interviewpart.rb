@@ -9,21 +9,21 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class InterviewPart < StackOne::Utils::FieldAugmented
+    class InterviewPart < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Interview part created date
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :interviewer_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interviewer_ids') } }
+      field :interviewer_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewer_ids') } }
 
-      field :meeting_provider, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('meeting_provider') } }
+      field :meeting_provider, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_provider') } }
 
-      field :meeting_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('meeting_url') } }
+      field :meeting_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_url') } }
       # Interview part updated date
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(created_at: T.nilable(DateTime), id: T.nilable(String), interviewer_ids: T.nilable(T::Array[String]), meeting_provider: T.nilable(String), meeting_url: T.nilable(String), updated_at: T.nilable(DateTime)).void }

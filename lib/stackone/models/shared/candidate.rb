@@ -9,37 +9,37 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Candidate < StackOne::Utils::FieldAugmented
+    class Candidate < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Candidate created date
-      field :created_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :created_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # Candidate email
-      field :email, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('email') } }
+      field :email, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
       # List of candidate emails
-      field :emails, T::Array[Shared::CandidateEmail], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('emails') } }
+      field :emails, T::Array[Shared::CandidateEmail], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
       # Candidate first name
-      field :first_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_name') } }
+      field :first_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # Candidate ID
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Candidate last name
-      field :last_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_name') } }
+      field :last_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # Candidate name
-      field :name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # List of candidate social links
-      field :social_links, T::Array[Shared::SocialLink], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('social_links') } }
+      field :social_links, T::Array[Shared::SocialLink], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
       # Candidate title
-      field :title, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('title') } }
+      field :title, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
       # Candidate updated date
-      field :updated_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :updated_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # List of candidate application IDs
-      field :application_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('application_ids') } }
+      field :application_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_ids') } }
       # Candidate company
-      field :company, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('company') } }
+      field :company, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
       # Candidate hired date
-      field :hired_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :hired_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Candidate phone number
-      field :phone, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone') } }
+      field :phone, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
 
 
       sig { params(created_at: DateTime, email: String, emails: T::Array[Shared::CandidateEmail], first_name: String, id: String, last_name: String, name: String, social_links: T::Array[Shared::SocialLink], title: String, updated_at: DateTime, application_ids: T.nilable(T::Array[String]), company: T.nilable(String), hired_at: T.nilable(DateTime), phone: T.nilable(String)).void }

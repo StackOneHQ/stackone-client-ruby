@@ -28,35 +28,13 @@ Create email template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::MarketingCreateEmailTemplateRequest.new(
-  marketing_create_email_template_request_dto=Shared::MarketingCreateEmailTemplateRequestDto.new(
-    messages=[
-      Shared::EmailMessages.new(
-        message_content=Shared::MessageContent.new(
-          body="string",
-          from="string",
-          subject="string",
-        ),
-        message_type=Shared::MessageType.new(
-          source_value="string",
-          value=Shared::EmailMessagesValue::APP_PUSH,
-        ),
-      ),
-    ],
-    tags=[
-      "string",
-    ],
-  ),
-  x_account_id="string",
-)
     
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto=Shared::MarketingCreateEmailTemplateRequestDto.new(
     messages=[
@@ -68,7 +46,7 @@ res = s.marketing.create_email_template(marketing_create_email_template_request_
         ),
         message_type=Shared::MessageType.new(
           source_value="string",
-          value=Shared::EmailMessagesValue::UNMAPPED_VALUE,
+          value=Shared::EmailMessagesValue::APP_PUSH,
         ),
       ),
     ],
@@ -106,37 +84,20 @@ Create omni-channel template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::MarketingCreateOmniChannelTemplateRequest.new(
-  marketing_create_template_request_dto=Shared::MarketingCreateTemplateRequestDto.new(
-    messages=[
-      Shared::Message.new(
-        id="<ID>",
-        message_content="string",
-        message_type=Shared::MessageMessageType::UNKNOWN,
-        name="string",
-      ),
-    ],
-    tags=[
-      "string",
-    ],
-  ),
-  x_account_id="string",
-)
     
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=Shared::MarketingCreateTemplateRequestDto.new(
     messages=[
       Shared::Message.new(
         id="<ID>",
         message_content="string",
-        message_type=Shared::MessageMessageType::EMAIL,
+        message_type=Shared::MessageMessageType::UNKNOWN,
         name="string",
       ),
     ],
@@ -174,33 +135,13 @@ Create push template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::MarketingCreatePushTemplateRequest.new(
-  marketing_create_push_template_request_dto=Shared::MarketingCreatePushTemplateRequestDto.new(
-    messages=[
-      Shared::PushMessages.new(
-        message_content=Shared::PushMessagesMessageContent.new(
-          body="string",
-        ),
-        message_type=Shared::PushMessagesMessageType.new(
-          source_value="string",
-          value=Shared::PushMessagesValue::UNMAPPED_VALUE,
-        ),
-      ),
-    ],
-    tags=[
-      "string",
-    ],
-  ),
-  x_account_id="string",
-)
     
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto=Shared::MarketingCreatePushTemplateRequestDto.new(
     messages=[
@@ -248,7 +189,7 @@ Get campaign
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -258,7 +199,9 @@ s.config_security(
 
 req = Operations::MarketingGetCampaignRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetCampaignQueryParamProxy.new(),
+  proxy={
+    "Computer": "string",
+  },
   x_account_id="string",
 )
     
@@ -292,7 +235,7 @@ Get email template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -302,7 +245,9 @@ s.config_security(
 
 req = Operations::MarketingGetEmailTemplateRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetEmailTemplateQueryParamProxy.new(),
+  proxy={
+    "Regional": "string",
+  },
   x_account_id="string",
 )
     
@@ -336,7 +281,7 @@ Get omni-channel template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -346,7 +291,9 @@ s.config_security(
 
 req = Operations::MarketingGetOmniChannelTemplateRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetOmniChannelTemplateQueryParamProxy.new(),
+  proxy={
+    "Southwest": "string",
+  },
   x_account_id="string",
 )
     
@@ -380,7 +327,7 @@ Get push template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -390,7 +337,9 @@ s.config_security(
 
 req = Operations::MarketingGetPushTemplateRequest.new(
   id="<ID>",
-  proxy=Operations::MarketingGetPushTemplateQueryParamProxy.new(),
+  proxy={
+    "withdrawal": "string",
+  },
   x_account_id="string",
 )
     
@@ -424,7 +373,7 @@ List campaigns
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -433,7 +382,9 @@ s.config_security(
 
 
 req = Operations::MarketingListCampaignsRequest.new(
-  proxy=Operations::MarketingListCampaignsQueryParamProxy.new(),
+  proxy={
+    "West": "string",
+  },
   x_account_id="string",
 )
     
@@ -467,7 +418,7 @@ List email templates
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -476,7 +427,9 @@ s.config_security(
 
 
 req = Operations::MarketingListEmailTemplatesRequest.new(
-  proxy=Operations::MarketingListEmailTemplatesQueryParamProxy.new(),
+  proxy={
+    "deposit": "string",
+  },
   x_account_id="string",
 )
     
@@ -510,7 +463,7 @@ List omni-channel templates
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -519,7 +472,9 @@ s.config_security(
 
 
 req = Operations::MarketingListOmniChannelTemplatesRequest.new(
-  proxy=Operations::MarketingListOmniChannelTemplatesQueryParamProxy.new(),
+  proxy={
+    "Shoes": "string",
+  },
   x_account_id="string",
 )
     
@@ -553,7 +508,7 @@ List push templates
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -562,7 +517,9 @@ s.config_security(
 
 
 req = Operations::MarketingListPushTemplatesRequest.new(
-  proxy=Operations::MarketingListPushTemplatesQueryParamProxy.new(),
+  proxy={
+    "considering": "string",
+  },
   x_account_id="string",
 )
     
@@ -596,36 +553,13 @@ Update email template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::MarketingUpdateEmailTemplateRequest.new(
-  marketing_create_email_template_request_dto=Shared::MarketingCreateEmailTemplateRequestDto.new(
-    messages=[
-      Shared::EmailMessages.new(
-        message_content=Shared::MessageContent.new(
-          body="string",
-          from="string",
-          subject="string",
-        ),
-        message_type=Shared::MessageType.new(
-          source_value="string",
-          value=Shared::EmailMessagesValue::WEB_PUSH,
-        ),
-      ),
-    ],
-    tags=[
-      "string",
-    ],
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto=Shared::MarketingCreateEmailTemplateRequestDto.new(
     messages=[
@@ -637,7 +571,7 @@ res = s.marketing.update_email_template(marketing_create_email_template_request_
         ),
         message_type=Shared::MessageType.new(
           source_value="string",
-          value=Shared::EmailMessagesValue::IOS_PUSH,
+          value=Shared::EmailMessagesValue::WEB_PUSH,
         ),
       ),
     ],
@@ -676,38 +610,20 @@ Update omni-channel template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::MarketingUpdateOmniChannelTemplateRequest.new(
-  marketing_create_template_request_dto=Shared::MarketingCreateTemplateRequestDto.new(
-    messages=[
-      Shared::Message.new(
-        id="<ID>",
-        message_content="string",
-        message_type=Shared::MessageMessageType::EMAIL,
-        name="string",
-      ),
-    ],
-    tags=[
-      "string",
-    ],
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=Shared::MarketingCreateTemplateRequestDto.new(
     messages=[
       Shared::Message.new(
         id="<ID>",
         message_content="string",
-        message_type=Shared::MessageMessageType::WEB_PUSH,
+        message_type=Shared::MessageMessageType::EMAIL,
         name="string",
       ),
     ],
@@ -746,34 +662,13 @@ Update push template
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::MarketingUpdatePushTemplateRequest.new(
-  marketing_create_push_template_request_dto=Shared::MarketingCreatePushTemplateRequestDto.new(
-    messages=[
-      Shared::PushMessages.new(
-        message_content=Shared::PushMessagesMessageContent.new(
-          body="string",
-        ),
-        message_type=Shared::PushMessagesMessageType.new(
-          source_value="string",
-          value=Shared::PushMessagesValue::UNKNOWN,
-        ),
-      ),
-    ],
-    tags=[
-      "string",
-    ],
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto=Shared::MarketingCreatePushTemplateRequestDto.new(
     messages=[

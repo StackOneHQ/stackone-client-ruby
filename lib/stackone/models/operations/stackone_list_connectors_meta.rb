@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Operations
 
-    class StackoneListConnectorsMetaRequest < StackOne::Utils::FieldAugmented
+    class StackoneListConnectorsMetaRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The comma separated list of data that will be included in the response
@@ -23,7 +23,7 @@ module StackOne
     end
 
 
-    class StackoneListConnectorsMetaResponse < StackOne::Utils::FieldAugmented
+    class StackoneListConnectorsMetaResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

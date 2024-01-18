@@ -25,13 +25,13 @@ module StackOne
 
 
     # Type of the answer
-    class Type < StackOne::Utils::FieldAugmented
+    class Type < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the answer type.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the answer.
-      field :value, T.nilable(Shared::AnswerValue), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AnswerValue, true) } }
+      field :value, T.nilable(Shared::AnswerValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AnswerValue, true) } }
 
 
       sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AnswerValue)).void }
@@ -42,15 +42,15 @@ module StackOne
     end
 
 
-    class Answer < StackOne::Utils::FieldAugmented
+    class Answer < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Values of the answer
-      field :values, T::Array[String], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('values') } }
+      field :values, T::Array[String], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
       # Unique identifier of the answer
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Type of the answer
-      field :type, T.nilable(Shared::Type), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
       sig { params(values: T::Array[String], id: T.nilable(String), type: T.nilable(Shared::Type)).void }

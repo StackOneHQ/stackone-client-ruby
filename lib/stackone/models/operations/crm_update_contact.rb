@@ -11,7 +11,7 @@ require_relative '../shared/contactresult'
 module StackOne
   module Operations
 
-    class CrmUpdateContactRequest < StackOne::Utils::FieldAugmented
+    class CrmUpdateContactRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -31,7 +31,7 @@ module StackOne
     end
 
 
-    class CrmUpdateContactResponse < StackOne::Utils::FieldAugmented
+    class CrmUpdateContactResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

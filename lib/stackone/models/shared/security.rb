@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Security < StackOne::Utils::FieldAugmented
+    class Security < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 

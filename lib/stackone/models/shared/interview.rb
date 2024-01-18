@@ -22,13 +22,13 @@ module StackOne
 
 
 
-    class InterviewStatus < StackOne::Utils::FieldAugmented
+    class InterviewStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the interview status.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the interview.
-      field :value, Shared::InterviewValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::InterviewValue, false) } }
+      field :value, Shared::InterviewValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::InterviewValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::InterviewValue).void }
@@ -39,35 +39,35 @@ module StackOne
     end
 
 
-    class Interview < StackOne::Utils::FieldAugmented
+    class Interview < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :application_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('application_id') } }
+      field :application_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
       # Interview end date
-      field :end_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :end_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :interview_stage_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interview_stage_id') } }
+      field :interview_stage_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
 
-      field :interviewer_ids, T::Array[String], { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interviewer_ids') } }
+      field :interviewer_ids, T::Array[String], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewer_ids') } }
       # Interview start date
-      field :start_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :start_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
       # Interview created date
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :interview_parts, T.nilable(T::Array[Shared::InterviewPart]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interview_parts') } }
+      field :interview_parts, T.nilable(T::Array[Shared::InterviewPart]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_parts') } }
 
-      field :interview_stage, T.nilable(T::Array[Shared::InterviewStage]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interview_stage') } }
+      field :interview_stage, T.nilable(T::Array[Shared::InterviewStage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
 
-      field :interview_status, T.nilable(Shared::InterviewStatus), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interview_status') } }
+      field :interview_status, T.nilable(Shared::InterviewStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_status') } }
 
-      field :interviewers, T.nilable(T::Array[Shared::Interviewer]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('interviewers') } }
+      field :interviewers, T.nilable(T::Array[Shared::Interviewer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewers') } }
 
-      field :meeting_url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('meeting_url') } }
+      field :meeting_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_url') } }
       # Interview updated date
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(application_id: String, end_at: DateTime, id: String, interview_stage_id: String, interviewer_ids: T::Array[String], start_at: DateTime, created_at: T.nilable(DateTime), interview_parts: T.nilable(T::Array[Shared::InterviewPart]), interview_stage: T.nilable(T::Array[Shared::InterviewStage]), interview_status: T.nilable(Shared::InterviewStatus), interviewers: T.nilable(T::Array[Shared::Interviewer]), meeting_url: T.nilable(String), updated_at: T.nilable(DateTime)).void }

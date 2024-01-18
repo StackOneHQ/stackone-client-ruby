@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Credentials < StackOne::Utils::FieldAugmented
+    class Credentials < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    class SetupInformation < StackOne::Utils::FieldAugmented
+    class SetupInformation < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -29,31 +29,31 @@ module StackOne
     end
 
 
-    class LinkedAccount < StackOne::Utils::FieldAugmented
+    class LinkedAccount < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :active, T::Boolean, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('active') } }
+      field :active, T::Boolean, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
 
-      field :created_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :created_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :origin_owner_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_owner_id') } }
+      field :origin_owner_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
 
-      field :origin_owner_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_owner_name') } }
+      field :origin_owner_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
 
-      field :provider, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
+      field :provider, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
 
-      field :updated_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :updated_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :credentials, T.nilable(Shared::Credentials), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('credentials') } }
+      field :credentials, T.nilable(Shared::Credentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
 
-      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
-      field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_username') } }
+      field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
-      field :setup_information, T.nilable(Shared::SetupInformation), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('setup_information') } }
+      field :setup_information, T.nilable(Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
 
 
       sig { params(active: T::Boolean, created_at: DateTime, id: String, origin_owner_id: String, origin_owner_name: String, provider: String, updated_at: DateTime, credentials: T.nilable(Shared::Credentials), label: T.nilable(String), origin_username: T.nilable(String), setup_information: T.nilable(Shared::SetupInformation)).void }

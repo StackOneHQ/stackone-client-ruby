@@ -9,11 +9,11 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class PushMessagesMessageContent < StackOne::Utils::FieldAugmented
+    class PushMessagesMessageContent < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :body, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('body') } }
+      field :body, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
 
       sig { params(body: String).void }
@@ -39,13 +39,13 @@ module StackOne
 
 
 
-    class PushMessagesMessageType < StackOne::Utils::FieldAugmented
+    class PushMessagesMessageType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::PushMessagesValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::PushMessagesValue, false) } }
+      field :value, Shared::PushMessagesValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::PushMessagesValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::PushMessagesValue).void }
@@ -56,17 +56,17 @@ module StackOne
     end
 
 
-    class PushMessages < StackOne::Utils::FieldAugmented
+    class PushMessages < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :message_content, T.nilable(Shared::PushMessagesMessageContent), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message_content') } }
+      field :message_content, T.nilable(Shared::PushMessagesMessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
 
-      field :message_type, T.nilable(Shared::PushMessagesMessageType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message_type') } }
+      field :message_type, T.nilable(Shared::PushMessagesMessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
 
-      field :name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
       sig { params(id: T.nilable(String), message_content: T.nilable(Shared::PushMessagesMessageContent), message_type: T.nilable(Shared::PushMessagesMessageType), name: T.nilable(String)).void }

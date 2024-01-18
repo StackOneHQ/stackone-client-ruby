@@ -21,13 +21,13 @@ module StackOne
 
 
 
-    class AttachmentType < StackOne::Utils::FieldAugmented
+    class AttachmentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the attachment type.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the attachment.
-      field :value, T.nilable(Shared::AttachmentTypeValue), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AttachmentTypeValue, true) } }
+      field :value, T.nilable(Shared::AttachmentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AttachmentTypeValue, true) } }
 
 
       sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AttachmentTypeValue)).void }

@@ -9,13 +9,13 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class ResultLink < StackOne::Utils::FieldAugmented
+    class ResultLink < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The URL of the result link.
-      field :url, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('url') } }
+      field :url, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
       # The label of the result link.
-      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
 
       sig { params(url: String, label: T.nilable(String)).void }

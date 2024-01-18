@@ -24,13 +24,13 @@ module StackOne
 
 
 
-    class OfferStatusEnum < StackOne::Utils::FieldAugmented
+    class OfferStatusEnum < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the offer status.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the offer.
-      field :value, Shared::OfferStatusEnumValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::OfferStatusEnumValue, false) } }
+      field :value, Shared::OfferStatusEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::OfferStatusEnumValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::OfferStatusEnumValue).void }

@@ -31,13 +31,13 @@ module StackOne
 
 
 
-    class ApplicationStatusEnumApiModel < StackOne::Utils::FieldAugmented
+    class ApplicationStatusEnumApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the application status.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the application.
-      field :value, Shared::Value, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::Value, false) } }
+      field :value, Shared::Value, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::Value, false) } }
 
 
       sig { params(source_value: String, value: Shared::Value).void }

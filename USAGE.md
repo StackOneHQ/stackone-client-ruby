@@ -5,7 +5,7 @@
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -14,7 +14,9 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
+  proxy={
+    "Electronic": "string",
+  },
   x_account_id="string",
 )
     

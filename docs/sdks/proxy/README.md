@@ -15,23 +15,13 @@ Proxy Request
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::StackoneProxyRequestRequest.new(
-  proxy_request_body=Shared::ProxyRequestBody.new(
-    body=Shared::Body.new(),
-    headers=Shared::Headers.new(),
-    path="/employees/directory",
-    url="https://api.sample-integration.com/v1",
-  ),
-  x_account_id="string",
-)
     
 res = s.proxy.proxy_request(proxy_request_body=Shared::ProxyRequestBody.new(
     body=Shared::Body.new(),

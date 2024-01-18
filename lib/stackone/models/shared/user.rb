@@ -9,21 +9,21 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class User < StackOne::Utils::FieldAugmented
+    class User < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :email, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('email') } }
+      field :email, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
 
-      field :first_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_name') } }
+      field :first_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :last_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_name') } }
+      field :last_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
 
-      field :name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-      field :phone, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone') } }
+      field :phone, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
 
 
       sig { params(email: String, first_name: String, id: String, last_name: String, name: String, phone: String).void }

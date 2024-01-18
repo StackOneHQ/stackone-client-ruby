@@ -11,23 +11,23 @@ require_relative '../shared/applicationcandidate'
 module StackOne
   module Shared
 
-    class AtsCreateApplicationRequestDto < StackOne::Utils::FieldAugmented
+    class AtsCreateApplicationRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :application_status, Shared::ApplicationStatusEnumApiModel, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('application_status') } }
+      field :application_status, Shared::ApplicationStatusEnumApiModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
 
-      field :candidate, Shared::ApplicationCandidate, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('candidate') } }
+      field :candidate, Shared::ApplicationCandidate, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
 
-      field :attachments, T.nilable(T::Array[Shared::ApplicationAttachment]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('attachments') } }
+      field :attachments, T.nilable(T::Array[Shared::ApplicationAttachment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
       # Unique identifier of the candidate
-      field :candidate_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('candidate_id') } }
+      field :candidate_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
       # Unique identifier of the job
-      field :job_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('job_id') } }
+      field :job_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
       # Unique identifiers of the locations
-      field :location_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('location_ids') } }
+      field :location_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
       # Questionnaires associated with the application
-      field :questionnaires, T.nilable(T::Array[Shared::Questionnaire]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('questionnaires') } }
+      field :questionnaires, T.nilable(T::Array[Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
 
 
       sig { params(application_status: Shared::ApplicationStatusEnumApiModel, candidate: Shared::ApplicationCandidate, attachments: T.nilable(T::Array[Shared::ApplicationAttachment]), candidate_id: T.nilable(String), job_id: T.nilable(String), location_ids: T.nilable(T::Array[String]), questionnaires: T.nilable(T::Array[Shared::Questionnaire])).void }

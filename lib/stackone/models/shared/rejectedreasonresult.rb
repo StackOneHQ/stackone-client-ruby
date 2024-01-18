@@ -10,13 +10,13 @@ require_relative '../shared/rejectedreason'
 module StackOne
   module Shared
 
-    class RejectedReasonResult < StackOne::Utils::FieldAugmented
+    class RejectedReasonResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, Shared::RejectedReason, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('data') } }
+      field :data, Shared::RejectedReason, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
       sig { params(data: Shared::RejectedReason, raw: T.nilable(T::Array[Shared::RawResponse])).void }

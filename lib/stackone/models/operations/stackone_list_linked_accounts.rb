@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Operations
 
-    class StackoneListLinkedAccountsRequest < StackOne::Utils::FieldAugmented
+    class StackoneListLinkedAccountsRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The origin owner identifier of the results to fetch
@@ -26,7 +26,7 @@ module StackOne
     end
 
 
-    class StackoneListLinkedAccountsResponse < StackOne::Utils::FieldAugmented
+    class StackoneListLinkedAccountsResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

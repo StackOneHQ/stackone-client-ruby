@@ -11,7 +11,7 @@ require_relative '../shared/createofferresult'
 module StackOne
   module Operations
 
-    class AtsCreateOfferRequest < StackOne::Utils::FieldAugmented
+    class AtsCreateOfferRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -28,7 +28,7 @@ module StackOne
     end
 
 
-    class AtsCreateOfferResponse < StackOne::Utils::FieldAugmented
+    class AtsCreateOfferResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -9,11 +9,11 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class ConnectSessionAuthenticate < StackOne::Utils::FieldAugmented
+    class ConnectSessionAuthenticate < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The token to authenticate with
-      field :token, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('token') } }
+      field :token, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('token') } }
 
 
       sig { params(token: String).void }

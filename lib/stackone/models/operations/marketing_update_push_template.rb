@@ -11,7 +11,7 @@ require_relative '../shared/createtemplateresult'
 module StackOne
   module Operations
 
-    class MarketingUpdatePushTemplateRequest < StackOne::Utils::FieldAugmented
+    class MarketingUpdatePushTemplateRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -31,7 +31,7 @@ module StackOne
     end
 
 
-    class MarketingUpdatePushTemplateResponse < StackOne::Utils::FieldAugmented
+    class MarketingUpdatePushTemplateResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

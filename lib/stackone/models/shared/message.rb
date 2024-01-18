@@ -25,17 +25,17 @@ module StackOne
 
 
 
-    class Message < StackOne::Utils::FieldAugmented
+    class Message < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :message_type, Shared::MessageMessageType, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message_type'), 'decoder': Utils.enum_from_string(Shared::MessageMessageType, false) } }
+      field :message_type, Shared::MessageMessageType, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type'), 'decoder': Utils.enum_from_string(Shared::MessageMessageType, false) } }
 
-      field :name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-      field :message_content, T.nilable(Object), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('message_content') } }
+      field :message_content, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
 
 
       sig { params(id: String, message_type: Shared::MessageMessageType, name: String, message_content: T.nilable(Object)).void }

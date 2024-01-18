@@ -48,67 +48,13 @@ Create Application
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::AtsCreateApplicationRequest.new(
-  ats_create_application_request_dto=Shared::AtsCreateApplicationRequestDto.new(
-    application_status=Shared::ApplicationStatusEnumApiModel.new(
-      source_value="Hired",
-      value=Shared::Value::HIRED,
-    ),
-    attachments=[
-      Shared::ApplicationAttachment.new(
-        content="Base64 encoded content",
-        content_type=Shared::ContentType.new(
-          source_value="Text",
-          value=Shared::ApplicationAttachmentValue::TEXT,
-        ),
-        file_name="resume.pdf",
-        type=[
-          Shared::AttachmentType.new(
-            source_value="Resume",
-            value=Shared::AttachmentTypeValue::RESUME,
-          ),
-        ],
-        url="http://example.com/resume.pdf",
-      ),
-    ],
-    candidate=Shared::ApplicationCandidate.new(
-      email="john.doe@example.com",
-      first_name="John",
-      last_name="Doe",
-    ),
-    candidate_id="e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-    job_id="4071538b-3cac-4fbf-ac76-f78ed250ffdd",
-    location_ids=[
-      "string",
-    ],
-    questionnaires=[
-      Shared::Questionnaire.new(
-        answers=[
-          Shared::Answer.new(
-            id="answer_1",
-            type=Shared::Type.new(
-              source_value="Short Text",
-              value=Shared::AnswerValue::SHORT_TEXT,
-            ),
-            values=[
-              "string",
-            ],
-          ),
-        ],
-        id="questionnaire_1",
-      ),
-    ],
-  ),
-  x_account_id="string",
-)
     
 res = s.ats.create_application(ats_create_application_request_dto=Shared::AtsCreateApplicationRequestDto.new(
     application_status=Shared::ApplicationStatusEnumApiModel.new(
@@ -190,34 +136,13 @@ Create Candidate (early access)
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::AtsCreateCandidateRequest.new(
-  ats_create_candidate_request_dto=Shared::AtsCreateCandidateRequestDto.new(
-    application_ids=[
-      "string",
-    ],
-    company="Company Inc.",
-    emails=[
-      Shared::CandidateEmail.new(
-        type="personal",
-        value="sestier.romain123@gmail.com",
-      ),
-    ],
-    first_name="Romain",
-    last_name="Sestier",
-    name="Romain Sestier",
-    phone="+16178294093",
-    title="Software Engineer",
-  ),
-  x_account_id="string",
-)
     
 res = s.ats.create_candidate(ats_create_candidate_request_dto=Shared::AtsCreateCandidateRequestDto.new(
     application_ids=[
@@ -266,30 +191,13 @@ Create Candidate Note
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::AtsCreateCandidateNoteRequest.new(
-  ats_create_notes_request_dto=Shared::AtsCreateNotesRequestDto.new(
-    author_id="1234567890",
-    content=[
-      Shared::NoteContentApiModel.new(
-        body="This candidate seems like a good fit for the role",
-      ),
-    ],
-    visibility=Shared::Visibility.new(
-      source_value="Public",
-      value=Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
-    ),
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.ats.create_candidate_note(ats_create_notes_request_dto=Shared::AtsCreateNotesRequestDto.new(
     author_id="1234567890",
@@ -334,32 +242,13 @@ Creates an offer
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::AtsCreateOfferRequest.new(
-  ats_create_offer_request_dto=Shared::AtsCreateOfferRequestDto.new(
-    application_id="string",
-    offer_history=[
-      Shared::OfferHistory.new(
-        created_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        updated_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      ),
-    ],
-    offer_status=Shared::OfferStatusEnum.new(
-      source_value="Pending",
-      value=Shared::OfferStatusEnumValue::PENDING,
-    ),
-    start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  ),
-  x_account_id="string",
-)
     
 res = s.ats.create_offer(ats_create_offer_request_dto=Shared::AtsCreateOfferRequestDto.new(
     application_id="string",
@@ -406,7 +295,7 @@ Get Application
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -416,7 +305,9 @@ s.config_security(
 
 req = Operations::AtsGetApplicationRequest.new(
   id="<ID>",
-  proxy=Operations::Proxy.new(),
+  proxy={
+    "dreamily": "string",
+  },
   x_account_id="string",
 )
     
@@ -450,7 +341,7 @@ Get Application Offer
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -460,7 +351,9 @@ s.config_security(
 
 req = Operations::AtsGetApplicationOfferRequest.new(
   id="<ID>",
-  proxy=Operations::QueryParamProxy.new(),
+  proxy={
+    "Frozen": "string",
+  },
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -495,7 +388,7 @@ Get Application Scorecard
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -505,7 +398,9 @@ s.config_security(
 
 req = Operations::AtsGetApplicationScorecardRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetApplicationScorecardQueryParamProxy.new(),
+  proxy={
+    "voluptas": "string",
+  },
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -540,7 +435,7 @@ Get Candidate
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -550,7 +445,9 @@ s.config_security(
 
 req = Operations::AtsGetCandidateRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetCandidateQueryParamProxy.new(),
+  proxy={
+    "transmitting": "string",
+  },
   x_account_id="string",
 )
     
@@ -584,7 +481,7 @@ Get Candidate Note
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -594,7 +491,9 @@ s.config_security(
 
 req = Operations::AtsGetCandidateNoteRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetCandidateNoteQueryParamProxy.new(),
+  proxy={
+    "tuition": "string",
+  },
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -629,7 +528,7 @@ Get Department
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -639,7 +538,9 @@ s.config_security(
 
 req = Operations::AtsGetDepartmentRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetDepartmentQueryParamProxy.new(),
+  proxy={
+    "killer": "string",
+  },
   x_account_id="string",
 )
     
@@ -673,7 +574,7 @@ Get Interview
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -683,7 +584,9 @@ s.config_security(
 
 req = Operations::AtsGetInterviewRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetInterviewQueryParamProxy.new(),
+  proxy={
+    "Analyst": "string",
+  },
   x_account_id="string",
 )
     
@@ -717,7 +620,7 @@ Get Interview Stage
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -727,7 +630,9 @@ s.config_security(
 
 req = Operations::AtsGetInterviewStageRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetInterviewStageQueryParamProxy.new(),
+  proxy={
+    "Seychelles": "string",
+  },
   x_account_id="string",
 )
     
@@ -761,7 +666,7 @@ Get Job
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -771,7 +676,9 @@ s.config_security(
 
 req = Operations::AtsGetJobRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetJobQueryParamProxy.new(),
+  proxy={
+    "discrete": "string",
+  },
   x_account_id="string",
 )
     
@@ -805,7 +712,7 @@ Get Job Posting
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -815,7 +722,9 @@ s.config_security(
 
 req = Operations::AtsGetJobPostingRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetJobPostingQueryParamProxy.new(),
+  proxy={
+    "teal": "string",
+  },
   x_account_id="string",
 )
     
@@ -849,7 +758,7 @@ Get Location
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -859,7 +768,9 @@ s.config_security(
 
 req = Operations::AtsGetLocationRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetLocationQueryParamProxy.new(),
+  proxy={
+    "deliver": "string",
+  },
   x_account_id="string",
 )
     
@@ -893,7 +804,7 @@ Get Offer
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -903,7 +814,9 @@ s.config_security(
 
 req = Operations::AtsGetOfferRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetOfferQueryParamProxy.new(),
+  proxy={
+    "Northeast": "string",
+  },
   x_account_id="string",
 )
     
@@ -937,7 +850,7 @@ Get Rejected Reason
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -947,7 +860,9 @@ s.config_security(
 
 req = Operations::AtsGetRejectedReasonRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetRejectedReasonQueryParamProxy.new(),
+  proxy={
+    "illumine": "string",
+  },
   x_account_id="string",
 )
     
@@ -981,7 +896,7 @@ Get User
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -991,7 +906,9 @@ s.config_security(
 
 req = Operations::AtsGetUserRequest.new(
   id="<ID>",
-  proxy=Operations::AtsGetUserQueryParamProxy.new(),
+  proxy={
+    "Loan": "string",
+  },
   x_account_id="string",
 )
     
@@ -1025,7 +942,7 @@ List Application Scorecards
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1035,7 +952,9 @@ s.config_security(
 
 req = Operations::AtsListApplicationScorecardsRequest.new(
   id="<ID>",
-  proxy=Operations::AtsListApplicationScorecardsQueryParamProxy.new(),
+  proxy={
+    "Maserati": "string",
+  },
   x_account_id="string",
 )
     
@@ -1069,7 +988,7 @@ List Applications
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1078,7 +997,9 @@ s.config_security(
 
 
 req = Operations::AtsListApplicationsRequest.new(
-  proxy=Operations::AtsListApplicationsQueryParamProxy.new(),
+  proxy={
+    "Soft": "string",
+  },
   x_account_id="string",
 )
     
@@ -1112,7 +1033,7 @@ List Application Offers
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1122,7 +1043,9 @@ s.config_security(
 
 req = Operations::AtsListApplicationsOffersRequest.new(
   id="<ID>",
-  proxy=Operations::AtsListApplicationsOffersQueryParamProxy.new(),
+  proxy={
+    "Gasoline": "string",
+  },
   x_account_id="string",
 )
     
@@ -1156,7 +1079,7 @@ List Candidate Notes
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1166,7 +1089,9 @@ s.config_security(
 
 req = Operations::AtsListCandidateNotesRequest.new(
   id="<ID>",
-  proxy=Operations::AtsListCandidateNotesQueryParamProxy.new(),
+  proxy={
+    "Chair": "string",
+  },
   x_account_id="string",
 )
     
@@ -1200,7 +1125,7 @@ List Candidates
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1209,7 +1134,9 @@ s.config_security(
 
 
 req = Operations::AtsListCandidatesRequest.new(
-  proxy=Operations::AtsListCandidatesQueryParamProxy.new(),
+  proxy={
+    "cumque": "string",
+  },
   x_account_id="string",
 )
     
@@ -1243,7 +1170,7 @@ List Departments
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1252,7 +1179,9 @@ s.config_security(
 
 
 req = Operations::AtsListDepartmentsRequest.new(
-  proxy=Operations::AtsListDepartmentsQueryParamProxy.new(),
+  proxy={
+    "haptic": "string",
+  },
   x_account_id="string",
 )
     
@@ -1286,7 +1215,7 @@ List Interview Stages
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1295,7 +1224,9 @@ s.config_security(
 
 
 req = Operations::AtsListInterviewStagesRequest.new(
-  proxy=Operations::AtsListInterviewStagesQueryParamProxy.new(),
+  proxy={
+    "male": "string",
+  },
   x_account_id="string",
 )
     
@@ -1329,7 +1260,7 @@ List Interviews
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1338,7 +1269,9 @@ s.config_security(
 
 
 req = Operations::AtsListInterviewsRequest.new(
-  proxy=Operations::AtsListInterviewsQueryParamProxy.new(),
+  proxy={
+    "regularly": "string",
+  },
   x_account_id="string",
 )
     
@@ -1372,7 +1305,7 @@ List Job Postings
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1381,7 +1314,9 @@ s.config_security(
 
 
 req = Operations::AtsListJobPostingsRequest.new(
-  proxy=Operations::AtsListJobPostingsQueryParamProxy.new(),
+  proxy={
+    "Rock": "string",
+  },
   x_account_id="string",
 )
     
@@ -1415,7 +1350,7 @@ List Jobs
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1424,7 +1359,9 @@ s.config_security(
 
 
 req = Operations::AtsListJobsRequest.new(
-  proxy=Operations::AtsListJobsQueryParamProxy.new(),
+  proxy={
+    "Northeast": "string",
+  },
   x_account_id="string",
 )
     
@@ -1458,7 +1395,7 @@ List locations
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1467,7 +1404,9 @@ s.config_security(
 
 
 req = Operations::AtsListLocationsRequest.new(
-  proxy=Operations::AtsListLocationsQueryParamProxy.new(),
+  proxy={
+    "Incredible": "string",
+  },
   x_account_id="string",
 )
     
@@ -1501,7 +1440,7 @@ List Offers
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1510,7 +1449,9 @@ s.config_security(
 
 
 req = Operations::AtsListOffersRequest.new(
-  proxy=Operations::AtsListOffersQueryParamProxy.new(),
+  proxy={
+    "Bicycle": "string",
+  },
   x_account_id="string",
 )
     
@@ -1544,7 +1485,7 @@ List Rejected Reasons
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1553,7 +1494,9 @@ s.config_security(
 
 
 req = Operations::AtsListRejectedReasonsRequest.new(
-  proxy=Operations::AtsListRejectedReasonsQueryParamProxy.new(),
+  proxy={
+    "Bahamas": "string",
+  },
   x_account_id="string",
 )
     
@@ -1587,7 +1530,7 @@ List Users
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
@@ -1596,7 +1539,9 @@ s.config_security(
 
 
 req = Operations::AtsListUsersRequest.new(
-  proxy=Operations::AtsListUsersQueryParamProxy.new(),
+  proxy={
+    "Representative": "string",
+  },
   x_account_id="string",
 )
     
@@ -1630,69 +1575,13 @@ Update Application
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::AtsUpdateApplicationRequest.new(
-  ats_update_application_request_dto=Shared::AtsUpdateApplicationRequestDto.new(
-    application_status=Shared::ApplicationStatusEnumApiModel.new(
-      source_value="Hired",
-      value=Shared::Value::HIRED,
-    ),
-    attachments=[
-      Shared::ApplicationAttachment.new(
-        content="Base64 encoded content",
-        content_type=Shared::ContentType.new(
-          source_value="Text",
-          value=Shared::ApplicationAttachmentValue::TEXT,
-        ),
-        file_name="resume.pdf",
-        type=[
-          Shared::AttachmentType.new(
-            source_value="Resume",
-            value=Shared::AttachmentTypeValue::RESUME,
-          ),
-        ],
-        url="http://example.com/resume.pdf",
-      ),
-    ],
-    candidate=Shared::ApplicationCandidate.new(
-      email="john.doe@example.com",
-      first_name="John",
-      last_name="Doe",
-    ),
-    candidate_id="e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-    id="eebbaa75-7adf-4f7e-be4c-def6a12840f2",
-    job_id="4071538b-3cac-4fbf-ac76-f78ed250ffdd",
-    location_ids=[
-      "string",
-    ],
-    questionnaires=[
-      Shared::Questionnaire.new(
-        answers=[
-          Shared::Answer.new(
-            id="answer_1",
-            type=Shared::Type.new(
-              source_value="Short Text",
-              value=Shared::AnswerValue::SHORT_TEXT,
-            ),
-            values=[
-              "string",
-            ],
-          ),
-        ],
-        id="questionnaire_1",
-      ),
-    ],
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.ats.update_application(ats_update_application_request_dto=Shared::AtsUpdateApplicationRequestDto.new(
     application_status=Shared::ApplicationStatusEnumApiModel.new(
@@ -1776,36 +1665,13 @@ Update Candidate (early access)
 require_relative stackone_client
 
 
-s = StackOne::StackOne.new
+s = ::StackOne::StackOne.new
 s.config_security(
   security=Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
-
-req = Operations::AtsUpdateCandidateRequest.new(
-  ats_update_candidates_request_dto=Shared::AtsUpdateCandidatesRequestDto.new(
-    application_ids=[
-      "string",
-    ],
-    company="Company Inc.",
-    emails=[
-      Shared::CandidateEmail.new(
-        type="personal",
-        value="sestier.romain123@gmail.com",
-      ),
-    ],
-    first_name="Romain",
-    id="eebbaa75-7adf-4f7e-be4c-def6a12840f2",
-    last_name="Sestier",
-    name="Romain Sestier",
-    phone="+16178294093",
-    title="Software Engineer",
-  ),
-  id="<ID>",
-  x_account_id="string",
-)
     
 res = s.ats.update_candidate(ats_update_candidates_request_dto=Shared::AtsUpdateCandidatesRequestDto.new(
     application_ids=[

@@ -21,13 +21,13 @@ module StackOne
 
 
     # The schedule type
-    class ScheduleType < StackOne::Utils::FieldAugmented
+    class ScheduleType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the schedule type.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The schedule type of the campaign.
-      field :value, Shared::CampaignValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignValue, false) } }
+      field :value, Shared::CampaignValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::CampaignValue).void }
@@ -48,13 +48,13 @@ module StackOne
 
 
     # Status of the Campaign
-    class Status < StackOne::Utils::FieldAugmented
+    class Status < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the Status.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The Status of the campaign.
-      field :value, Shared::CampaignSchemasValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignSchemasValue, false) } }
+      field :value, Shared::CampaignSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignSchemasValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::CampaignSchemasValue).void }
@@ -65,37 +65,37 @@ module StackOne
     end
 
 
-    class Campaign < StackOne::Utils::FieldAugmented
+    class Campaign < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('name') } }
+      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-      field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('archived') } }
+      field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('archived') } }
       # channels of the Campaign
-      field :channels, T.nilable(T::Array[Shared::ChannelsEnum]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('channels') } }
+      field :channels, T.nilable(T::Array[Shared::ChannelsEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('channels') } }
       # The created_at date
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :description, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('description') } }
+      field :description, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
 
-      field :draft, T.nilable(T::Boolean), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('draft') } }
+      field :draft, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('draft') } }
       # The first_sent_at date
-      field :first_sent_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :first_sent_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The last_sent_at date
-      field :last_sent_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :last_sent_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-      field :messages, T.nilable(T::Array[Shared::Message]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('messages') } }
+      field :messages, T.nilable(T::Array[Shared::Message]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
       # The schedule type
-      field :schedule_type, T.nilable(Shared::ScheduleType), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('schedule_type') } }
+      field :schedule_type, T.nilable(Shared::ScheduleType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('schedule_type') } }
       # Status of the Campaign
-      field :status, T.nilable(Shared::Status), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('status') } }
+      field :status, T.nilable(Shared::Status), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
-      field :tags, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('tags') } }
+      field :tags, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
       # The updated_at date
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(name: String, archived: T.nilable(T::Boolean), channels: T.nilable(T::Array[Shared::ChannelsEnum]), created_at: T.nilable(DateTime), description: T.nilable(String), draft: T.nilable(T::Boolean), first_sent_at: T.nilable(DateTime), id: T.nilable(String), last_sent_at: T.nilable(DateTime), messages: T.nilable(T::Array[Shared::Message]), schedule_type: T.nilable(Shared::ScheduleType), status: T.nilable(Shared::Status), tags: T.nilable(T::Array[String]), updated_at: T.nilable(DateTime)).void }

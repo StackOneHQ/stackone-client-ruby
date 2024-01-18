@@ -9,19 +9,19 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class HiringTeam < StackOne::Utils::FieldAugmented
+    class HiringTeam < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :email, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('email') } }
+      field :email, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
 
-      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_name') } }
+      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
 
-      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_name') } }
+      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
 
-      field :role, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('role') } }
+      field :role, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
 
-      field :user_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('user_id') } }
+      field :user_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
       sig { params(email: T.nilable(String), first_name: T.nilable(String), last_name: T.nilable(String), role: T.nilable(String), user_id: T.nilable(String)).void }

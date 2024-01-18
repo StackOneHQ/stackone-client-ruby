@@ -9,13 +9,13 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class CandidateEmail < StackOne::Utils::FieldAugmented
+    class CandidateEmail < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Type of the email
-      field :type, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('type') } }
+      field :type, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # Email value
-      field :value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value') } }
+      field :value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
       sig { params(type: String, value: String).void }

@@ -23,13 +23,13 @@ module StackOne
 
 
 
-    class ChannelsEnum < StackOne::Utils::FieldAugmented
+    class ChannelsEnum < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the Channels.
-      field :source_value, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('source_value') } }
+      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The Channels of the campaign.
-      field :value, Shared::ChannelsEnumValue, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ChannelsEnumValue, false) } }
+      field :value, Shared::ChannelsEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ChannelsEnumValue, false) } }
 
 
       sig { params(source_value: String, value: Shared::ChannelsEnumValue).void }

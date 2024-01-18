@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Shared
     # The body of the request
-    class Body < StackOne::Utils::FieldAugmented
+    class Body < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -19,7 +19,7 @@ module StackOne
     end
 
     # The headers to send in the request
-    class Headers < StackOne::Utils::FieldAugmented
+    class Headers < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -41,19 +41,19 @@ module StackOne
 
 
 
-    class ProxyRequestBody < StackOne::Utils::FieldAugmented
+    class ProxyRequestBody < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The body of the request
-      field :body, T.nilable(Shared::Body), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('body') } }
+      field :body, T.nilable(Shared::Body), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
       # The headers to send in the request
-      field :headers, T.nilable(Shared::Headers), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('headers') } }
+      field :headers, T.nilable(Shared::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
       # The method of the request
-      field :method, T.nilable(Shared::Method), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('method'), 'decoder': Utils.enum_from_string(Shared::Method, true) } }
+      field :method, T.nilable(Shared::Method), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), 'decoder': Utils.enum_from_string(Shared::Method, true) } }
       # The path of the request including any query paramters
-      field :path, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('path') } }
+      field :path, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
       # The base url of the request
-      field :url, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('url') } }
+      field :url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
       sig { params(body: T.nilable(Shared::Body), headers: T.nilable(Shared::Headers), method: T.nilable(Shared::Method), path: T.nilable(String), url: T.nilable(String)).void }

@@ -22,36 +22,36 @@ module StackOne
 
 
 
-    class ConnectSessionToken < StackOne::Utils::FieldAugmented
+    class ConnectSessionToken < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :created_at, DateTime, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :created_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
-      field :id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :organization_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('organization_id') } }
+      field :organization_id, Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('organization_id') } }
 
-      field :origin_owner_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_owner_id') } }
+      field :origin_owner_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
 
-      field :origin_owner_name, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_owner_name') } }
+      field :origin_owner_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
 
-      field :project_id, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('project_id') } }
+      field :project_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
 
-      field :provider, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('provider') } }
+      field :provider, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
 
-      field :token, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('token') } }
+      field :token, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('token') } }
 
-      field :account_id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('account_id') } }
+      field :account_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
 
-      field :categories, T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('categories') } }
+      field :categories, T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
 
-      field :label, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('label') } }
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
-      field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('origin_username') } }
+      field :origin_username, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
 
-      sig { params(created_at: DateTime, id: String, organization_id: String, origin_owner_id: String, origin_owner_name: String, project_id: String, provider: String, token: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), label: T.nilable(String), origin_username: T.nilable(String)).void }
+      sig { params(created_at: DateTime, id: Float, organization_id: Float, origin_owner_id: String, origin_owner_name: String, project_id: String, provider: String, token: String, account_id: T.nilable(String), categories: T.nilable(T::Array[Shared::ConnectSessionTokenCategories]), label: T.nilable(String), origin_username: T.nilable(String)).void }
       def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, provider: nil, token: nil, account_id: nil, categories: nil, label: nil, origin_username: nil)
         @created_at = created_at
         @id = id

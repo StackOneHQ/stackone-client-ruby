@@ -9,7 +9,7 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Response < StackOne::Utils::FieldAugmented
+    class Response < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -19,17 +19,17 @@ module StackOne
     end
 
 
-    class RawResponse < StackOne::Utils::FieldAugmented
+    class RawResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :method, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('method') } }
+      field :method, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
 
-      field :url, String, { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('url') } }
+      field :url, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
-      field :body, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('body') } }
+      field :body, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-      field :response, T.nilable(Shared::Response), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('response') } }
+      field :response, T.nilable(Shared::Response), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
 
 
       sig { params(method: String, url: String, body: T.nilable(String), response: T.nilable(Shared::Response)).void }

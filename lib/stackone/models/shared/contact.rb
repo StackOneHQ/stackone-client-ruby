@@ -9,29 +9,29 @@ require 'faraday'
 module StackOne
   module Shared
 
-    class Contact < StackOne::Utils::FieldAugmented
+    class Contact < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # List of associated account IDs
-      field :account_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('account_ids') } }
+      field :account_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
       # The contact company name
-      field :company_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('company_name') } }
+      field :company_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
       # Timestamp when the contact was created
-      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # List of associated deal IDs
-      field :deal_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('deal_ids') } }
+      field :deal_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
       # List of contact email addresses
-      field :emails, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('emails') } }
+      field :emails, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
       # The contact first name
-      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('first_name') } }
+      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # The contact ID
-      field :id, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The contact last name
-      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('last_name') } }
+      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # List of contact phone numbers
-      field :phone_numbers, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('phone_numbers') } }
+      field :phone_numbers, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
       # Timestamp when the contact was last updated
-      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': OpenApiSDK::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
       sig { params(account_ids: T.nilable(T::Array[String]), company_name: T.nilable(String), created_at: T.nilable(DateTime), deal_ids: T.nilable(T::Array[String]), emails: T.nilable(T::Array[String]), first_name: T.nilable(String), id: T.nilable(String), last_name: T.nilable(String), phone_numbers: T.nilable(T::Array[String]), updated_at: T.nilable(DateTime)).void }
