@@ -105,12 +105,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

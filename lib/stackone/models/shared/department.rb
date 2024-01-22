@@ -13,12 +13,12 @@ module StackOne
       extend T::Sig
 
 
-      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(id: String, name: String).void }
+      sig { params(id: T.nilable(String), name: T.nilable(String)).void }
       def initialize(id: nil, name: nil)
         @id = id
         @name = name

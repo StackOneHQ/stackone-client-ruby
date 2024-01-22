@@ -41,12 +41,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the employment contract type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The employment contract type.
-      field :value, Shared::JobPostingValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingValue, false) } }
+      field :value, T.nilable(Shared::JobPostingValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::JobPostingValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::JobPostingValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -74,12 +74,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::JobPostingSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasValue, false) } }
+      field :value, T.nilable(Shared::JobPostingSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::JobPostingSchemasValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::JobPostingSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -111,12 +111,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the job postings status.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the job postings.
-      field :value, Shared::JobPostingSchemasStatusValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasStatusValue, false) } }
+      field :value, T.nilable(Shared::JobPostingSchemasStatusValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::JobPostingSchemasStatusValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::JobPostingSchemasStatusValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::JobPostingSchemasStatusValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -130,7 +130,7 @@ module StackOne
 
       field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :compensation, T.nilable(T::Array[Shared::Compensation]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('compensation') } }
+      field :compensation, T.nilable(T::Array[Shared::JobPostingCompensation]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('compensation') } }
 
       field :content, T.nilable(Shared::JobPostingContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # Date of creation
@@ -148,9 +148,9 @@ module StackOne
 
       field :job_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
 
-      field :locations, T.nilable(T::Array[Shared::Location]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('locations') } }
+      field :locations, T.nilable(T::Array[Shared::JobPostingLocation]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('locations') } }
 
-      field :questionnaires, T.nilable(T::Array[Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
+      field :questionnaires, T.nilable(T::Array[Shared::JobPostingQuestionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
 
       field :status, T.nilable(Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
@@ -159,7 +159,7 @@ module StackOne
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(id: String, compensation: T.nilable(T::Array[Shared::Compensation]), content: T.nilable(Shared::JobPostingContent), created_at: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Shared::JobPostingEmploymentType), external_apply_url: T.nilable(String), external_url: T.nilable(String), internal: T.nilable(Shared::Internal), job_id: T.nilable(String), locations: T.nilable(T::Array[Shared::Location]), questionnaires: T.nilable(T::Array[Shared::Questionnaire]), status: T.nilable(Shared::JobPostingStatus), title: T.nilable(String), updated_at: T.nilable(DateTime)).void }
+      sig { params(id: String, compensation: T.nilable(T::Array[Shared::JobPostingCompensation]), content: T.nilable(Shared::JobPostingContent), created_at: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Shared::JobPostingEmploymentType), external_apply_url: T.nilable(String), external_url: T.nilable(String), internal: T.nilable(Shared::Internal), job_id: T.nilable(String), locations: T.nilable(T::Array[Shared::JobPostingLocation]), questionnaires: T.nilable(T::Array[Shared::JobPostingQuestionnaire]), status: T.nilable(Shared::JobPostingStatus), title: T.nilable(String), updated_at: T.nilable(DateTime)).void }
       def initialize(id: nil, compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, status: nil, title: nil, updated_at: nil)
         @id = id
         @compensation = compensation

@@ -57,9 +57,9 @@ s.config_security(
 
     
 res = s.ats.create_application(ats_create_application_request_dto=Shared::AtsCreateApplicationRequestDto.new(
-    application_status=Shared::ApplicationStatusEnumApiModel.new(
+    application_status=Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
       source_value="Hired",
-      value=Shared::Value::HIRED,
+      value=Shared::AtsCreateApplicationRequestDtoValue::HIRED,
     ),
     attachments=[
       Shared::ApplicationAttachment.new(
@@ -72,13 +72,13 @@ res = s.ats.create_application(ats_create_application_request_dto=Shared::AtsCre
         type=[
           Shared::AttachmentType.new(
             source_value="Resume",
-            value=Shared::AttachmentTypeValue::RESUME,
+            value=Shared::Value::RESUME,
           ),
         ],
         url="http://example.com/resume.pdf",
       ),
     ],
-    candidate=Shared::ApplicationCandidate.new(
+    candidate=Shared::AtsCreateApplicationRequestDtoCandidate.new(
       email="john.doe@example.com",
       first_name="John",
       last_name="Doe",
@@ -251,7 +251,6 @@ s.config_security(
 
     
 res = s.ats.create_offer(ats_create_offer_request_dto=Shared::AtsCreateOfferRequestDto.new(
-    application_id="string",
     offer_history=[
       Shared::OfferHistory.new(
         created_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -259,9 +258,9 @@ res = s.ats.create_offer(ats_create_offer_request_dto=Shared::AtsCreateOfferRequ
         updated_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       ),
     ],
-    offer_status=Shared::OfferStatusEnum.new(
+    offer_status=Shared::OfferStatus.new(
       source_value="Pending",
-      value=Shared::OfferStatusEnumValue::PENDING,
+      value=Shared::AtsCreateOfferRequestDtoValue::PENDING,
     ),
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="string")
@@ -305,9 +304,7 @@ s.config_security(
 
 req = Operations::AtsGetApplicationRequest.new(
   id="<ID>",
-  proxy={
-    "dreamily": "string",
-  },
+  proxy=Operations::Proxy.new(),
   x_account_id="string",
 )
     
@@ -351,9 +348,7 @@ s.config_security(
 
 req = Operations::AtsGetApplicationOfferRequest.new(
   id="<ID>",
-  proxy={
-    "Frozen": "string",
-  },
+  proxy=Operations::QueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -398,9 +393,7 @@ s.config_security(
 
 req = Operations::AtsGetApplicationScorecardRequest.new(
   id="<ID>",
-  proxy={
-    "voluptas": "string",
-  },
+  proxy=Operations::AtsGetApplicationScorecardQueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -445,9 +438,7 @@ s.config_security(
 
 req = Operations::AtsGetCandidateRequest.new(
   id="<ID>",
-  proxy={
-    "transmitting": "string",
-  },
+  proxy=Operations::AtsGetCandidateQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -491,9 +482,7 @@ s.config_security(
 
 req = Operations::AtsGetCandidateNoteRequest.new(
   id="<ID>",
-  proxy={
-    "tuition": "string",
-  },
+  proxy=Operations::AtsGetCandidateNoteQueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -538,9 +527,7 @@ s.config_security(
 
 req = Operations::AtsGetDepartmentRequest.new(
   id="<ID>",
-  proxy={
-    "killer": "string",
-  },
+  proxy=Operations::AtsGetDepartmentQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -584,9 +571,7 @@ s.config_security(
 
 req = Operations::AtsGetInterviewRequest.new(
   id="<ID>",
-  proxy={
-    "Analyst": "string",
-  },
+  proxy=Operations::AtsGetInterviewQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -630,9 +615,7 @@ s.config_security(
 
 req = Operations::AtsGetInterviewStageRequest.new(
   id="<ID>",
-  proxy={
-    "Seychelles": "string",
-  },
+  proxy=Operations::AtsGetInterviewStageQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -676,9 +659,7 @@ s.config_security(
 
 req = Operations::AtsGetJobRequest.new(
   id="<ID>",
-  proxy={
-    "discrete": "string",
-  },
+  proxy=Operations::AtsGetJobQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -722,9 +703,7 @@ s.config_security(
 
 req = Operations::AtsGetJobPostingRequest.new(
   id="<ID>",
-  proxy={
-    "teal": "string",
-  },
+  proxy=Operations::AtsGetJobPostingQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -768,9 +747,7 @@ s.config_security(
 
 req = Operations::AtsGetLocationRequest.new(
   id="<ID>",
-  proxy={
-    "deliver": "string",
-  },
+  proxy=Operations::AtsGetLocationQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -814,9 +791,7 @@ s.config_security(
 
 req = Operations::AtsGetOfferRequest.new(
   id="<ID>",
-  proxy={
-    "Northeast": "string",
-  },
+  proxy=Operations::AtsGetOfferQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -860,9 +835,7 @@ s.config_security(
 
 req = Operations::AtsGetRejectedReasonRequest.new(
   id="<ID>",
-  proxy={
-    "illumine": "string",
-  },
+  proxy=Operations::AtsGetRejectedReasonQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -906,9 +879,7 @@ s.config_security(
 
 req = Operations::AtsGetUserRequest.new(
   id="<ID>",
-  proxy={
-    "Loan": "string",
-  },
+  proxy=Operations::AtsGetUserQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -952,9 +923,7 @@ s.config_security(
 
 req = Operations::AtsListApplicationScorecardsRequest.new(
   id="<ID>",
-  proxy={
-    "Maserati": "string",
-  },
+  proxy=Operations::AtsListApplicationScorecardsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -997,9 +966,7 @@ s.config_security(
 
 
 req = Operations::AtsListApplicationsRequest.new(
-  proxy={
-    "Soft": "string",
-  },
+  proxy=Operations::AtsListApplicationsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1043,9 +1010,7 @@ s.config_security(
 
 req = Operations::AtsListApplicationsOffersRequest.new(
   id="<ID>",
-  proxy={
-    "Gasoline": "string",
-  },
+  proxy=Operations::AtsListApplicationsOffersQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1089,9 +1054,7 @@ s.config_security(
 
 req = Operations::AtsListCandidateNotesRequest.new(
   id="<ID>",
-  proxy={
-    "Chair": "string",
-  },
+  proxy=Operations::AtsListCandidateNotesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1134,9 +1097,7 @@ s.config_security(
 
 
 req = Operations::AtsListCandidatesRequest.new(
-  proxy={
-    "cumque": "string",
-  },
+  proxy=Operations::AtsListCandidatesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1179,9 +1140,7 @@ s.config_security(
 
 
 req = Operations::AtsListDepartmentsRequest.new(
-  proxy={
-    "haptic": "string",
-  },
+  proxy=Operations::AtsListDepartmentsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1224,9 +1183,7 @@ s.config_security(
 
 
 req = Operations::AtsListInterviewStagesRequest.new(
-  proxy={
-    "male": "string",
-  },
+  proxy=Operations::AtsListInterviewStagesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1269,9 +1226,7 @@ s.config_security(
 
 
 req = Operations::AtsListInterviewsRequest.new(
-  proxy={
-    "regularly": "string",
-  },
+  proxy=Operations::AtsListInterviewsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1314,9 +1269,7 @@ s.config_security(
 
 
 req = Operations::AtsListJobPostingsRequest.new(
-  proxy={
-    "Rock": "string",
-  },
+  proxy=Operations::AtsListJobPostingsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1359,9 +1312,7 @@ s.config_security(
 
 
 req = Operations::AtsListJobsRequest.new(
-  proxy={
-    "Northeast": "string",
-  },
+  proxy=Operations::AtsListJobsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1404,9 +1355,7 @@ s.config_security(
 
 
 req = Operations::AtsListLocationsRequest.new(
-  proxy={
-    "Incredible": "string",
-  },
+  proxy=Operations::AtsListLocationsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1449,9 +1398,7 @@ s.config_security(
 
 
 req = Operations::AtsListOffersRequest.new(
-  proxy={
-    "Bicycle": "string",
-  },
+  proxy=Operations::AtsListOffersQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1494,9 +1441,7 @@ s.config_security(
 
 
 req = Operations::AtsListRejectedReasonsRequest.new(
-  proxy={
-    "Bahamas": "string",
-  },
+  proxy=Operations::AtsListRejectedReasonsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1539,9 +1484,7 @@ s.config_security(
 
 
 req = Operations::AtsListUsersRequest.new(
-  proxy={
-    "Representative": "string",
-  },
+  proxy=Operations::AtsListUsersQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1584,9 +1527,9 @@ s.config_security(
 
     
 res = s.ats.update_application(ats_update_application_request_dto=Shared::AtsUpdateApplicationRequestDto.new(
-    application_status=Shared::ApplicationStatusEnumApiModel.new(
+    application_status=Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
       source_value="Hired",
-      value=Shared::Value::HIRED,
+      value=Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
     ),
     attachments=[
       Shared::ApplicationAttachment.new(
@@ -1599,13 +1542,13 @@ res = s.ats.update_application(ats_update_application_request_dto=Shared::AtsUpd
         type=[
           Shared::AttachmentType.new(
             source_value="Resume",
-            value=Shared::AttachmentTypeValue::RESUME,
+            value=Shared::Value::RESUME,
           ),
         ],
         url="http://example.com/resume.pdf",
       ),
     ],
-    candidate=Shared::ApplicationCandidate.new(
+    candidate=Shared::AtsUpdateApplicationRequestDtoCandidate.new(
       email="john.doe@example.com",
       first_name="John",
       last_name="Doe",

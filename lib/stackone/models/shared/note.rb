@@ -39,11 +39,11 @@ module StackOne
       extend T::Sig
 
 
-      field :content, T::Array[Shared::NoteContentApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-
       field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Unique identifier of the author
       field :author_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
+
+      field :content, T.nilable(T::Array[Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # Date of creation
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Date of Deletion
@@ -54,11 +54,11 @@ module StackOne
       field :visibility, T.nilable(Shared::NoteVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(content: T::Array[Shared::NoteContentApiModel], id: String, author_id: T.nilable(String), created_at: T.nilable(DateTime), deleted_at: T.nilable(DateTime), updated_at: T.nilable(DateTime), visibility: T.nilable(Shared::NoteVisibility)).void }
-      def initialize(content: nil, id: nil, author_id: nil, created_at: nil, deleted_at: nil, updated_at: nil, visibility: nil)
-        @content = content
+      sig { params(id: String, author_id: T.nilable(String), content: T.nilable(T::Array[Shared::NoteContentApiModel]), created_at: T.nilable(DateTime), deleted_at: T.nilable(DateTime), updated_at: T.nilable(DateTime), visibility: T.nilable(Shared::NoteVisibility)).void }
+      def initialize(id: nil, author_id: nil, content: nil, created_at: nil, deleted_at: nil, updated_at: nil, visibility: nil)
         @id = id
         @author_id = author_id
+        @content = content
         @created_at = created_at
         @deleted_at = deleted_at
         @updated_at = updated_at

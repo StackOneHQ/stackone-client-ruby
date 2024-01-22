@@ -13,12 +13,12 @@ module StackOne
       extend T::Sig
 
       # Type of the email
-      field :type, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # Email value
-      field :value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+      field :value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(type: String, value: String).void }
+      sig { params(type: T.nilable(String), value: T.nilable(String)).void }
       def initialize(type: nil, value: nil)
         @type = type
         @value = value

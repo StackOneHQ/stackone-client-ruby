@@ -99,11 +99,11 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
         id="123456",
         job_title="Software Engineer",
         pay_currency="USD",
-        pay_frequency=Shared::EmploymentPayFrequency.new(
+        pay_frequency=Shared::PayFrequency.new(
           source_value="Hourly",
           value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
         ),
-        pay_period=Shared::EmploymentPayPeriod.new(
+        pay_period=Shared::PayPeriod.new(
           source_value="Hour",
           value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
         ),
@@ -315,9 +315,7 @@ s.config_security(
 
 req = Operations::HrisGetCompanyRequest.new(
   id="<ID>",
-  proxy={
-    "incidentally": "string",
-  },
+  proxy=Operations::HrisGetCompanyQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -361,9 +359,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeRequest.new(
   id="<ID>",
-  proxy={
-    "International": "string",
-  },
+  proxy=Operations::HrisGetEmployeeQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -407,9 +403,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeDocumentRequest.new(
   id="<ID>",
-  proxy={
-    "infrastructures": "string",
-  },
+  proxy=Operations::HrisGetEmployeeDocumentQueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -454,9 +448,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   id="<ID>",
-  proxy={
-    "Chair": "string",
-  },
+  proxy=Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -501,9 +493,7 @@ s.config_security(
 
 req = Operations::HrisGetEmploymentRequest.new(
   id="<ID>",
-  proxy={
-    "Pants": "string",
-  },
+  proxy=Operations::HrisGetEmploymentQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -547,9 +537,7 @@ s.config_security(
 
 req = Operations::HrisGetLocationRequest.new(
   id="<ID>",
-  proxy={
-    "deliver": "string",
-  },
+  proxy=Operations::HrisGetLocationQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -593,9 +581,7 @@ s.config_security(
 
 req = Operations::HrisGetTimeOffRequestRequest.new(
   id="<ID>",
-  proxy={
-    "dicta": "string",
-  },
+  proxy=Operations::HrisGetTimeOffRequestQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -638,9 +624,7 @@ s.config_security(
 
 
 req = Operations::HrisListCompaniesRequest.new(
-  proxy={
-    "South": "string",
-  },
+  proxy=Operations::HrisListCompaniesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -684,9 +668,7 @@ s.config_security(
 
 req = Operations::HrisListEmployeeDocumentsRequest.new(
   id="<ID>",
-  proxy={
-    "markets": "string",
-  },
+  proxy=Operations::HrisListEmployeeDocumentsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -730,9 +712,7 @@ s.config_security(
 
 req = Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   id="<ID>",
-  proxy={
-    "seize": "string",
-  },
+  proxy=Operations::HrisListEmployeeTimeOffRequestsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -775,9 +755,7 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy={
-    "Electronic": "string",
-  },
+  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -820,9 +798,7 @@ s.config_security(
 
 
 req = Operations::HrisListEmploymentsRequest.new(
-  proxy={
-    "Gadolinium": "string",
-  },
+  proxy=Operations::HrisListEmploymentsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -865,9 +841,7 @@ s.config_security(
 
 
 req = Operations::HrisListLocationsRequest.new(
-  proxy={
-    "Incredible": "string",
-  },
+  proxy=Operations::HrisListLocationsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -910,9 +884,7 @@ s.config_security(
 
 
 req = Operations::HrisListTimeOffRequestsRequest.new(
-  proxy={
-    "transmitting": "string",
-  },
+  proxy=Operations::HrisListTimeOffRequestsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -1012,11 +984,11 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
         id="123456",
         job_title="Software Engineer",
         pay_currency="USD",
-        pay_frequency=Shared::EmploymentPayFrequency.new(
+        pay_frequency=Shared::PayFrequency.new(
           source_value="Hourly",
           value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
         ),
-        pay_period=Shared::EmploymentPayPeriod.new(
+        pay_period=Shared::PayPeriod.new(
           source_value="Hour",
           value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
         ),

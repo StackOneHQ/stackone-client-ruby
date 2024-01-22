@@ -13,12 +13,12 @@ module StackOne
       extend T::Sig
 
 
-      field :answers, T::Array[Shared::Answer], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
+      field :answers, T.nilable(T::Array[Shared::Answer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
       # Unique identifier of the questionnaire
       field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
 
-      sig { params(answers: T::Array[Shared::Answer], id: T.nilable(String)).void }
+      sig { params(answers: T.nilable(T::Array[Shared::Answer]), id: T.nilable(String)).void }
       def initialize(answers: nil, id: nil)
         @answers = answers
         @id = id

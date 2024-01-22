@@ -5,5 +5,5 @@
 
 | Field                                      | Type                                       | Required                                   | Description                                | Example                                    |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `type`                                     | *String*                                   | :heavy_check_mark:                         | Type of the social link                    | LinkedIn                                   |
-| `url`                                      | *String*                                   | :heavy_check_mark:                         | URL of the social link                     | https://www.linkedin.com/in/romainsestier/ |
+| `type`                                     | *T.nilable(String)*                        | :heavy_minus_sign:                         | Type of the social link                    | LinkedIn                                   |
+| `url`                                      | *T.nilable(String)*                        | :heavy_minus_sign:                         | URL of the social link                     | https://www.linkedin.com/in/romainsestier/ |

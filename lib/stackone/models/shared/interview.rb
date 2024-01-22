@@ -8,6 +8,32 @@ require 'faraday'
 
 module StackOne
   module Shared
+
+    class InterviewInterviewStage < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+      # Interview Stage created date
+      field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+
+      field :order, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
+      # Interview Stage updated date
+      field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+      sig { params(created_at: T.nilable(DateTime), id: T.nilable(String), name: T.nilable(String), order: T.nilable(Float), updated_at: T.nilable(DateTime)).void }
+      def initialize(created_at: nil, id: nil, name: nil, order: nil, updated_at: nil)
+        @created_at = created_at
+        @id = id
+        @name = name
+        @order = order
+        @updated_at = updated_at
+      end
+    end
+
     # InterviewValue - The status of the interview.
     class InterviewValue < T::Enum
       enums do
@@ -26,12 +52,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the interview status.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The status of the interview.
-      field :value, Shared::InterviewValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::InterviewValue, false) } }
+      field :value, T.nilable(Shared::InterviewValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::InterviewValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::InterviewValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::InterviewValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -43,47 +69,47 @@ module StackOne
       extend T::Sig
 
 
-      field :application_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
-      # Interview end date
-      field :end_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
-
       field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :interview_stage_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
-
-      field :interviewer_ids, T::Array[String], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewer_ids') } }
-      # Interview start date
-      field :start_at, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :application_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
       # Interview created date
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # Interview end date
+      field :end_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
       field :interview_parts, T.nilable(T::Array[Shared::InterviewPart]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_parts') } }
 
-      field :interview_stage, T.nilable(T::Array[Shared::InterviewStage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
+      field :interview_stage, T.nilable(Shared::InterviewInterviewStage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
+
+      field :interview_stage_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
 
       field :interview_status, T.nilable(Shared::InterviewStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_status') } }
+
+      field :interviewer_ids, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewer_ids') } }
 
       field :interviewers, T.nilable(T::Array[Shared::Interviewer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewers') } }
 
       field :meeting_url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_url') } }
+      # Interview start date
+      field :start_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Interview updated date
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_id: String, end_at: DateTime, id: String, interview_stage_id: String, interviewer_ids: T::Array[String], start_at: DateTime, created_at: T.nilable(DateTime), interview_parts: T.nilable(T::Array[Shared::InterviewPart]), interview_stage: T.nilable(T::Array[Shared::InterviewStage]), interview_status: T.nilable(Shared::InterviewStatus), interviewers: T.nilable(T::Array[Shared::Interviewer]), meeting_url: T.nilable(String), updated_at: T.nilable(DateTime)).void }
-      def initialize(application_id: nil, end_at: nil, id: nil, interview_stage_id: nil, interviewer_ids: nil, start_at: nil, created_at: nil, interview_parts: nil, interview_stage: nil, interview_status: nil, interviewers: nil, meeting_url: nil, updated_at: nil)
-        @application_id = application_id
-        @end_at = end_at
+      sig { params(id: String, application_id: T.nilable(String), created_at: T.nilable(DateTime), end_at: T.nilable(DateTime), interview_parts: T.nilable(T::Array[Shared::InterviewPart]), interview_stage: T.nilable(Shared::InterviewInterviewStage), interview_stage_id: T.nilable(String), interview_status: T.nilable(Shared::InterviewStatus), interviewer_ids: T.nilable(T::Array[String]), interviewers: T.nilable(T::Array[Shared::Interviewer]), meeting_url: T.nilable(String), start_at: T.nilable(DateTime), updated_at: T.nilable(DateTime)).void }
+      def initialize(id: nil, application_id: nil, created_at: nil, end_at: nil, interview_parts: nil, interview_stage: nil, interview_stage_id: nil, interview_status: nil, interviewer_ids: nil, interviewers: nil, meeting_url: nil, start_at: nil, updated_at: nil)
         @id = id
-        @interview_stage_id = interview_stage_id
-        @interviewer_ids = interviewer_ids
-        @start_at = start_at
+        @application_id = application_id
         @created_at = created_at
+        @end_at = end_at
         @interview_parts = interview_parts
         @interview_stage = interview_stage
+        @interview_stage_id = interview_stage_id
         @interview_status = interview_status
+        @interviewer_ids = interviewer_ids
         @interviewers = interviewers
         @meeting_url = meeting_url
+        @start_at = start_at
         @updated_at = updated_at
       end
     end

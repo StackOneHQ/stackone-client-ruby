@@ -9,6 +9,16 @@ require_relative '../shared/timeoffresult'
 
 module StackOne
   module Operations
+    # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with "proxy" key
+    class HrisGetEmployeesTimeOffRequestQueryParamProxy < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+
+
+      
+      def initialize; end
+    end
+
 
     class HrisGetEmployeesTimeOffRequestRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
@@ -30,7 +40,7 @@ module StackOne
       # The number of results per page
       field :page_size, T.nilable(String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with "proxy" key
-      field :proxy, T.nilable(T::Hash[Symbol, Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
+      field :proxy, T.nilable(Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
       # The sync token to select the only updated results
@@ -39,7 +49,7 @@ module StackOne
       field :updated_after, T.nilable(String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: String, sub_resource_id: String, x_account_id: String, fields: T.nilable(String), next_: T.nilable(String), page: T.nilable(String), page_size: T.nilable(String), proxy: T.nilable(T::Hash[Symbol, Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(String), updated_after: T.nilable(String)).void }
+      sig { params(id: String, sub_resource_id: String, x_account_id: String, fields: T.nilable(String), next_: T.nilable(String), page: T.nilable(String), page_size: T.nilable(String), proxy: T.nilable(Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy), raw: T.nilable(T::Boolean), sync_token: T.nilable(String), updated_after: T.nilable(String)).void }
       def initialize(id: nil, sub_resource_id: nil, x_account_id: nil, fields: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
         @id = id
         @sub_resource_id = sub_resource_id
