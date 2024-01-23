@@ -3,7 +3,7 @@
 
 ## Fields
 
-| Field               | Type                | Required            | Description         |
-| ------------------- | ------------------- | ------------------- | ------------------- |
-| `html`              | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |
-| `plain`             | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `file_format`                                                                              | [T.nilable(Shared::DocumentFileFormatEnum)](../../models/shared/documentfileformatenum.md) | :heavy_minus_sign:                                                                         | The file format of the document                                                            |                                                                                            |
+| `url`                                                                                      | *T.nilable(String)*                                                                        | :heavy_minus_sign:                                                                         | URL where the file content is located                                                      | https://api.stackone.com/unified/hris/employees/1/documents/1/download                     |

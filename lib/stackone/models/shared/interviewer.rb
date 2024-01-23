@@ -13,18 +13,18 @@ module StackOne
       extend T::Sig
 
 
-      field :email, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+      field :email, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
 
-      field :first_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
 
-      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :last_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
 
-      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(email: String, first_name: String, id: String, last_name: String, name: String).void }
+      sig { params(email: T.nilable(String), first_name: T.nilable(String), id: T.nilable(String), last_name: T.nilable(String), name: T.nilable(String)).void }
       def initialize(email: nil, first_name: nil, id: nil, last_name: nil, name: nil)
         @email = email
         @first_name = first_name

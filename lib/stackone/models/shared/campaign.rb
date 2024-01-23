@@ -25,12 +25,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the schedule type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The schedule type of the campaign.
-      field :value, Shared::CampaignValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignValue, false) } }
+      field :value, T.nilable(Shared::CampaignValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::CampaignValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::CampaignValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -52,12 +52,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the Status.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The Status of the campaign.
-      field :value, Shared::CampaignSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignSchemasValue, false) } }
+      field :value, T.nilable(Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CampaignSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::CampaignSchemasValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::CampaignSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -68,8 +68,6 @@ module StackOne
     class Campaign < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
       field :archived, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('archived') } }
       # channels of the Campaign
@@ -88,6 +86,8 @@ module StackOne
       field :last_sent_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
       field :messages, T.nilable(T::Array[Shared::Message]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
+
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The schedule type
       field :schedule_type, T.nilable(Shared::ScheduleType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('schedule_type') } }
       # Status of the Campaign
@@ -98,9 +98,8 @@ module StackOne
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(name: String, archived: T.nilable(T::Boolean), channels: T.nilable(T::Array[Shared::ChannelsEnum]), created_at: T.nilable(DateTime), description: T.nilable(String), draft: T.nilable(T::Boolean), first_sent_at: T.nilable(DateTime), id: T.nilable(String), last_sent_at: T.nilable(DateTime), messages: T.nilable(T::Array[Shared::Message]), schedule_type: T.nilable(Shared::ScheduleType), status: T.nilable(Shared::Status), tags: T.nilable(T::Array[String]), updated_at: T.nilable(DateTime)).void }
-      def initialize(name: nil, archived: nil, channels: nil, created_at: nil, description: nil, draft: nil, first_sent_at: nil, id: nil, last_sent_at: nil, messages: nil, schedule_type: nil, status: nil, tags: nil, updated_at: nil)
-        @name = name
+      sig { params(archived: T.nilable(T::Boolean), channels: T.nilable(T::Array[Shared::ChannelsEnum]), created_at: T.nilable(DateTime), description: T.nilable(String), draft: T.nilable(T::Boolean), first_sent_at: T.nilable(DateTime), id: T.nilable(String), last_sent_at: T.nilable(DateTime), messages: T.nilable(T::Array[Shared::Message]), name: T.nilable(String), schedule_type: T.nilable(Shared::ScheduleType), status: T.nilable(Shared::Status), tags: T.nilable(T::Array[String]), updated_at: T.nilable(DateTime)).void }
+      def initialize(archived: nil, channels: nil, created_at: nil, description: nil, draft: nil, first_sent_at: nil, id: nil, last_sent_at: nil, messages: nil, name: nil, schedule_type: nil, status: nil, tags: nil, updated_at: nil)
         @archived = archived
         @channels = channels
         @created_at = created_at
@@ -110,6 +109,7 @@ module StackOne
         @id = id
         @last_sent_at = last_sent_at
         @messages = messages
+        @name = name
         @schedule_type = schedule_type
         @status = status
         @tags = tags

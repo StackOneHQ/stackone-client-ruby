@@ -13,10 +13,10 @@ module StackOne
       extend T::Sig
 
 
-      field :body, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+      field :body, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
 
-      sig { params(body: String).void }
+      sig { params(body: T.nilable(String)).void }
       def initialize(body: nil)
         @body = body
       end
@@ -43,12 +43,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::PushMessagesValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::PushMessagesValue, false) } }
+      field :value, T.nilable(Shared::PushMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::PushMessagesValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::PushMessagesValue).void }
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::PushMessagesValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

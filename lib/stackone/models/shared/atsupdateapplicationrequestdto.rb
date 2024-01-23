@@ -5,21 +5,78 @@
 
 require 'sorbet-runtime'
 require 'faraday'
-require_relative '../shared/applicationstatusenumapimodel'
-require_relative '../shared/applicationcandidate'
 
 module StackOne
   module Shared
+    # AtsUpdateApplicationRequestDtoValue - The status of the application.
+    class AtsUpdateApplicationRequestDtoValue < T::Enum
+      enums do
+        ACTIVE = new('active')
+        ASSESSMENT = new('assessment')
+        BACKGROUND_CHECK = new('background_check')
+        CONVERTED = new('converted')
+        DECLINED_BY_CANDIDATE = new('declined_by_candidate')
+        HIRED = new('hired')
+        INTERVIEW = new('interview')
+        LEAD = new('lead')
+        OFFER = new('offer')
+        REFERENCE_CHECK = new('reference_check')
+        REJECTED = new('rejected')
+        REVIEW = new('review')
+        SCREEN = new('screen')
+        NEW = new('new')
+        UNMAPPED_VALUE = new('unmapped_value')
+      end
+    end
+
+
+
+    class AtsUpdateApplicationRequestDtoApplicationStatus < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+      # The source value of the application status.
+      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The status of the application.
+      field :value, T.nilable(Shared::AtsUpdateApplicationRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AtsUpdateApplicationRequestDtoValue, true) } }
+
+
+      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AtsUpdateApplicationRequestDtoValue)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
+        @value = value
+      end
+    end
+
+
+    class AtsUpdateApplicationRequestDtoCandidate < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+      # Email of the candidate
+      field :email, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+      # First name of the candidate
+      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+      # Last name of the candidate
+      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+
+
+      sig { params(email: T.nilable(String), first_name: T.nilable(String), last_name: T.nilable(String)).void }
+      def initialize(email: nil, first_name: nil, last_name: nil)
+        @email = email
+        @first_name = first_name
+        @last_name = last_name
+      end
+    end
+
 
     class AtsUpdateApplicationRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :application_status, T.nilable(Shared::ApplicationStatusEnumApiModel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
+      field :application_status, T.nilable(Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
 
       field :attachments, T.nilable(T::Array[Shared::ApplicationAttachment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
 
-      field :candidate, T.nilable(Shared::ApplicationCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+      field :candidate, T.nilable(Shared::AtsUpdateApplicationRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
       # Unique identifier of the candidate
       field :candidate_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
       # The ID of the application to update.
@@ -32,7 +89,7 @@ module StackOne
       field :questionnaires, T.nilable(T::Array[Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
 
 
-      sig { params(application_status: T.nilable(Shared::ApplicationStatusEnumApiModel), attachments: T.nilable(T::Array[Shared::ApplicationAttachment]), candidate: T.nilable(Shared::ApplicationCandidate), candidate_id: T.nilable(String), id: T.nilable(String), job_id: T.nilable(String), location_ids: T.nilable(T::Array[String]), questionnaires: T.nilable(T::Array[Shared::Questionnaire])).void }
+      sig { params(application_status: T.nilable(Shared::AtsUpdateApplicationRequestDtoApplicationStatus), attachments: T.nilable(T::Array[Shared::ApplicationAttachment]), candidate: T.nilable(Shared::AtsUpdateApplicationRequestDtoCandidate), candidate_id: T.nilable(String), id: T.nilable(String), job_id: T.nilable(String), location_ids: T.nilable(T::Array[String]), questionnaires: T.nilable(T::Array[Shared::Questionnaire])).void }
       def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, id: nil, job_id: nil, location_ids: nil, questionnaires: nil)
         @application_status = application_status
         @attachments = attachments

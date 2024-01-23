@@ -39,15 +39,8 @@ s.config_security(
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto=Shared::MarketingCreateEmailTemplateRequestDto.new(
     messages=[
       Shared::EmailMessages.new(
-        message_content=Shared::MessageContent.new(
-          body="string",
-          from="string",
-          subject="string",
-        ),
-        message_type=Shared::MessageType.new(
-          source_value="string",
-          value=Shared::EmailMessagesValue::APP_PUSH,
-        ),
+        message_content=Shared::MessageContent.new(),
+        message_type=Shared::MessageType.new(),
       ),
     ],
     tags=[
@@ -95,10 +88,7 @@ s.config_security(
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=Shared::MarketingCreateTemplateRequestDto.new(
     messages=[
       Shared::Message.new(
-        id="<ID>",
         message_content="string",
-        message_type=Shared::MessageMessageType::UNKNOWN,
-        name="string",
       ),
     ],
     tags=[
@@ -146,13 +136,8 @@ s.config_security(
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto=Shared::MarketingCreatePushTemplateRequestDto.new(
     messages=[
       Shared::PushMessages.new(
-        message_content=Shared::PushMessagesMessageContent.new(
-          body="string",
-        ),
-        message_type=Shared::PushMessagesMessageType.new(
-          source_value="string",
-          value=Shared::PushMessagesValue::UNMAPPED_VALUE,
-        ),
+        message_content=Shared::PushMessagesMessageContent.new(),
+        message_type=Shared::PushMessagesMessageType.new(),
       ),
     ],
     tags=[
@@ -199,9 +184,7 @@ s.config_security(
 
 req = Operations::MarketingGetCampaignRequest.new(
   id="<ID>",
-  proxy={
-    "Computer": "string",
-  },
+  proxy=Operations::MarketingGetCampaignQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -245,9 +228,7 @@ s.config_security(
 
 req = Operations::MarketingGetEmailTemplateRequest.new(
   id="<ID>",
-  proxy={
-    "Regional": "string",
-  },
+  proxy=Operations::MarketingGetEmailTemplateQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -291,9 +272,7 @@ s.config_security(
 
 req = Operations::MarketingGetOmniChannelTemplateRequest.new(
   id="<ID>",
-  proxy={
-    "Southwest": "string",
-  },
+  proxy=Operations::MarketingGetOmniChannelTemplateQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -337,9 +316,7 @@ s.config_security(
 
 req = Operations::MarketingGetPushTemplateRequest.new(
   id="<ID>",
-  proxy={
-    "withdrawal": "string",
-  },
+  proxy=Operations::MarketingGetPushTemplateQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -382,9 +359,7 @@ s.config_security(
 
 
 req = Operations::MarketingListCampaignsRequest.new(
-  proxy={
-    "West": "string",
-  },
+  proxy=Operations::MarketingListCampaignsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -427,9 +402,7 @@ s.config_security(
 
 
 req = Operations::MarketingListEmailTemplatesRequest.new(
-  proxy={
-    "deposit": "string",
-  },
+  proxy=Operations::MarketingListEmailTemplatesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -472,9 +445,7 @@ s.config_security(
 
 
 req = Operations::MarketingListOmniChannelTemplatesRequest.new(
-  proxy={
-    "Shoes": "string",
-  },
+  proxy=Operations::MarketingListOmniChannelTemplatesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -517,9 +488,7 @@ s.config_security(
 
 
 req = Operations::MarketingListPushTemplatesRequest.new(
-  proxy={
-    "considering": "string",
-  },
+  proxy=Operations::MarketingListPushTemplatesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -564,15 +533,8 @@ s.config_security(
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto=Shared::MarketingCreateEmailTemplateRequestDto.new(
     messages=[
       Shared::EmailMessages.new(
-        message_content=Shared::MessageContent.new(
-          body="string",
-          from="string",
-          subject="string",
-        ),
-        message_type=Shared::MessageType.new(
-          source_value="string",
-          value=Shared::EmailMessagesValue::WEB_PUSH,
-        ),
+        message_content=Shared::MessageContent.new(),
+        message_type=Shared::MessageType.new(),
       ),
     ],
     tags=[
@@ -621,10 +583,7 @@ s.config_security(
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=Shared::MarketingCreateTemplateRequestDto.new(
     messages=[
       Shared::Message.new(
-        id="<ID>",
         message_content="string",
-        message_type=Shared::MessageMessageType::EMAIL,
-        name="string",
       ),
     ],
     tags=[
@@ -673,13 +632,8 @@ s.config_security(
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto=Shared::MarketingCreatePushTemplateRequestDto.new(
     messages=[
       Shared::PushMessages.new(
-        message_content=Shared::PushMessagesMessageContent.new(
-          body="string",
-        ),
-        message_type=Shared::PushMessagesMessageType.new(
-          source_value="string",
-          value=Shared::PushMessagesValue::UNKNOWN,
-        ),
+        message_content=Shared::PushMessagesMessageContent.new(),
+        message_type=Shared::PushMessagesMessageType.new(),
       ),
     ],
     tags=[
