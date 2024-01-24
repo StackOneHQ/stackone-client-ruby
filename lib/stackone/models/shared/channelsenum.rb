@@ -27,12 +27,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the Channels.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The Channels of the campaign.
-      field :value, Shared::ChannelsEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ChannelsEnumValue, false) } }
+      field :value, T.nilable(Shared::ChannelsEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::ChannelsEnumValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::ChannelsEnumValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::ChannelsEnumValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

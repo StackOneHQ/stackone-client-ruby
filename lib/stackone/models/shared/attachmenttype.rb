@@ -8,8 +8,8 @@ require 'faraday'
 
 module StackOne
   module Shared
-    # AttachmentTypeValue - The type of the attachment.
-    class AttachmentTypeValue < T::Enum
+    # Value - The type of the attachment.
+    class Value < T::Enum
       enums do
         RESUME = new('resume')
         GENERIC_FILE = new('generic_file')
@@ -25,12 +25,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the attachment type.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the attachment.
-      field :value, T.nilable(Shared::AttachmentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AttachmentTypeValue, true) } }
+      field :value, T.nilable(Shared::Value), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::Value, true) } }
 
 
-      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AttachmentTypeValue)).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::Value)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

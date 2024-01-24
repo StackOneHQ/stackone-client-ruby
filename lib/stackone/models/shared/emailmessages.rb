@@ -13,24 +13,24 @@ module StackOne
       extend T::Sig
 
 
-      field :body, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+      field :body, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-      field :from, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('from') } }
-
-      field :subject, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subject') } }
+      field :from, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('from') } }
 
       field :preheader, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preheader') } }
 
       field :reply_to, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reply-to') } }
 
+      field :subject, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subject') } }
 
-      sig { params(body: String, from: String, subject: String, preheader: T.nilable(String), reply_to: T.nilable(String)).void }
-      def initialize(body: nil, from: nil, subject: nil, preheader: nil, reply_to: nil)
+
+      sig { params(body: T.nilable(String), from: T.nilable(String), preheader: T.nilable(String), reply_to: T.nilable(String), subject: T.nilable(String)).void }
+      def initialize(body: nil, from: nil, preheader: nil, reply_to: nil, subject: nil)
         @body = body
         @from = from
-        @subject = subject
         @preheader = preheader
         @reply_to = reply_to
+        @subject = subject
       end
     end
 
@@ -55,12 +55,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmailMessagesValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmailMessagesValue, false) } }
+      field :value, T.nilable(Shared::EmailMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmailMessagesValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmailMessagesValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmailMessagesValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

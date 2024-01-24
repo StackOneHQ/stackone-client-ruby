@@ -22,12 +22,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::TimeOffValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffValue, false) } }
+      field :value, T.nilable(Shared::TimeOffValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::TimeOffValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::TimeOffValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -49,12 +49,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::TimeOffSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffSchemasValue, false) } }
+      field :value, T.nilable(Shared::TimeOffSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::TimeOffSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::TimeOffSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::TimeOffSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

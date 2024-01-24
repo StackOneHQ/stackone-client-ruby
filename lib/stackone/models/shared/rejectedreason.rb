@@ -5,23 +5,51 @@
 
 require 'sorbet-runtime'
 require 'faraday'
-require_relative '../shared/rejectedreasontypeenum'
 
 module StackOne
   module Shared
+    # RejectedReasonValue - The type of the rejected reason.
+    class RejectedReasonValue < T::Enum
+      enums do
+        REJECTED_BY_CANDIDATE = new('rejected_by_candidate')
+        REJECTED_BY_ORGANIZATION = new('rejected_by_organization')
+        OTHER = new('other')
+        UNKNOWN = new('unknown')
+        UNMAPPED_VALUE = new('unmapped_value')
+      end
+    end
+
+
+
+    class RejectedReasonType < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+      # The source value of the rejected reason type.
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The type of the rejected reason.
+      field :value, T.nilable(Shared::RejectedReasonValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::RejectedReasonValue, true) } }
+
+
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::RejectedReasonValue)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
+        @value = value
+      end
+    end
+
 
     class RejectedReason < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The ID of the rejected reason.
-      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The label of the rejected reason.
-      field :label, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+      field :label, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
-      field :rejected_reason_type, Shared::RejectedReasonTypeEnum, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_type') } }
+      field :rejected_reason_type, T.nilable(Shared::RejectedReasonType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_type') } }
 
 
-      sig { params(id: String, label: String, rejected_reason_type: Shared::RejectedReasonTypeEnum).void }
+      sig { params(id: T.nilable(String), label: T.nilable(String), rejected_reason_type: T.nilable(Shared::RejectedReasonType)).void }
       def initialize(id: nil, label: nil, rejected_reason_type: nil)
         @id = id
         @label = label

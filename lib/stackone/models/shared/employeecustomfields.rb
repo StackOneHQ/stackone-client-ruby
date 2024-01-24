@@ -26,12 +26,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeCustomFieldsSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeCustomFieldsSchemasValue, false) } }
+      field :value, T.nilable(Shared::EmployeeCustomFieldsSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeCustomFieldsSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeCustomFieldsSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeCustomFieldsSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

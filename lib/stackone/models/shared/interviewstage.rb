@@ -12,23 +12,23 @@ module StackOne
     class InterviewStage < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Interview Stage created date
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
       field :order, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
       # Interview Stage updated date
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(id: String, name: String, created_at: T.nilable(DateTime), order: T.nilable(Float), updated_at: T.nilable(DateTime)).void }
-      def initialize(id: nil, name: nil, created_at: nil, order: nil, updated_at: nil)
+      sig { params(created_at: T.nilable(DateTime), id: T.nilable(String), name: T.nilable(String), order: T.nilable(Float), updated_at: T.nilable(DateTime)).void }
+      def initialize(created_at: nil, id: nil, name: nil, order: nil, updated_at: nil)
+        @created_at = created_at
         @id = id
         @name = name
-        @created_at = created_at
         @order = order
         @updated_at = updated_at
       end

@@ -268,13 +268,13 @@ module StackOne
     class HRISLocationCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::HRISLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HRISLocationValue, false) } }
+      field :value, T.nilable(Shared::HRISLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HRISLocationValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HRISLocationValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HRISLocationValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -296,12 +296,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the location type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the location.
-      field :value, Shared::HRISLocationSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HRISLocationSchemasValue, false) } }
+      field :value, T.nilable(Shared::HRISLocationSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HRISLocationSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HRISLocationSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HRISLocationSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

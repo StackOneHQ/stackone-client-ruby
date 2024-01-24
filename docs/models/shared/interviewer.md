@@ -3,10 +3,10 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `email`            | *String*           | :heavy_check_mark: | N/A                |
-| `first_name`       | *String*           | :heavy_check_mark: | N/A                |
-| `id`               | *String*           | :heavy_check_mark: | N/A                |
-| `last_name`        | *String*           | :heavy_check_mark: | N/A                |
-| `name`             | *String*           | :heavy_check_mark: | N/A                |
+| Field               | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `email`             | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |
+| `first_name`        | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |
+| `id`                | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |
+| `last_name`         | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |
+| `name`              | *T.nilable(String)* | :heavy_minus_sign:  | N/A                 |

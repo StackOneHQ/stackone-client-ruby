@@ -5,5 +5,5 @@
 
 | Field                       | Type                        | Required                    | Description                 | Example                     |
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `type`                      | *String*                    | :heavy_check_mark:          | Type of the email           | personal                    |
-| `value`                     | *String*                    | :heavy_check_mark:          | Email value                 | sestier.romain123@gmail.com |
+| `type`                      | *T.nilable(String)*         | :heavy_minus_sign:          | Type of the email           | personal                    |
+| `value`                     | *T.nilable(String)*         | :heavy_minus_sign:          | Email value                 | sestier.romain123@gmail.com |

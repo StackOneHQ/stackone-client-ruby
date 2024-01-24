@@ -22,12 +22,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateTimeOffRequestDtoValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateTimeOffRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateTimeOffRequestDtoValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateTimeOffRequestDtoValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -49,12 +49,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateTimeOffRequestDtoSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoSchemasValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateTimeOffRequestDtoSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateTimeOffRequestDtoSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateTimeOffRequestDtoSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateTimeOffRequestDtoSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

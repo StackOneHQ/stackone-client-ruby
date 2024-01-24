@@ -13,12 +13,12 @@ module StackOne
       extend T::Sig
 
       # Type of the social link
-      field :type, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # URL of the social link
-      field :url, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+      field :url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(type: String, url: String).void }
+      sig { params(type: T.nilable(String), url: T.nilable(String)).void }
       def initialize(type: nil, url: nil)
         @type = type
         @url = url

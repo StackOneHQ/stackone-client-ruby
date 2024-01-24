@@ -41,12 +41,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeValue, false) } }
+      field :value, T.nilable(Shared::EmployeeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -72,12 +72,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -105,12 +105,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::EmployeeSchemasEmploymentTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasEmploymentTypeValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasEmploymentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasEmploymentTypeValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasEmploymentTypeValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasEmploymentTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -139,12 +139,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeSchemasEthnicityValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasEthnicityValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasEthnicityValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasEthnicityValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasEthnicityValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasEthnicityValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -170,12 +170,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeSchemasGenderValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasGenderValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasGenderValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasGenderValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasGenderValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasGenderValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -442,13 +442,13 @@ module StackOne
     class EmployeeCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::EmployeeSchemasHomeLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasHomeLocationValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasHomeLocationValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasHomeLocationValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasHomeLocationValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -470,12 +470,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the location type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the location.
-      field :value, Shared::EmployeeSchemasHomeLocationLocationTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasHomeLocationLocationTypeValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasHomeLocationLocationTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasHomeLocationLocationTypeValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasHomeLocationLocationTypeValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasHomeLocationLocationTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -554,12 +554,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmployeeSchemasMaritalStatusValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasMaritalStatusValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasMaritalStatusValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasMaritalStatusValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasMaritalStatusValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasMaritalStatusValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -826,13 +826,13 @@ module StackOne
     class EmployeeSchemasCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::EmployeeSchemasWorkLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasWorkLocationValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasWorkLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasWorkLocationValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasWorkLocationValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasWorkLocationValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -854,12 +854,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the location type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the location.
-      field :value, Shared::EmployeeSchemasWorkLocationLocationTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasWorkLocationLocationTypeValue, false) } }
+      field :value, T.nilable(Shared::EmployeeSchemasWorkLocationLocationTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasWorkLocationLocationTypeValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmployeeSchemasWorkLocationLocationTypeValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmployeeSchemasWorkLocationLocationTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -938,6 +938,8 @@ module StackOne
       field :citizenships, T.nilable(T::Array[Shared::CountryCodeEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('citizenships') } }
       # The employee company name
       field :company_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
+      # The employee cost centers
+      field :cost_centers, T.nilable(T::Array[Shared::CostCenters]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_centers') } }
       # The created_at date
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee custom fields
@@ -992,8 +994,8 @@ module StackOne
       field :work_phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(first_name: String, id: String, last_name: String, work_email: String, avatar: T.nilable(Shared::Avatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), created_at: T.nilable(DateTime), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::EmploymentContractType), employment_status: T.nilable(Shared::EmploymentStatus), employment_type: T.nilable(Shared::EmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::Ethnicity), gender: T.nilable(Shared::Gender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HomeLocation), job_title: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::MaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), updated_at: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_location: T.nilable(Shared::WorkLocation), work_phone_number: T.nilable(String)).void }
-      def initialize(first_name: nil, id: nil, last_name: nil, work_email: nil, avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, created_at: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, gender: nil, hire_date: nil, home_location: nil, job_title: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, updated_at: nil, work_anniversary: nil, work_location: nil, work_phone_number: nil)
+      sig { params(first_name: String, id: String, last_name: String, work_email: String, avatar: T.nilable(Shared::Avatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), cost_centers: T.nilable(T::Array[Shared::CostCenters]), created_at: T.nilable(DateTime), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::EmploymentContractType), employment_status: T.nilable(Shared::EmploymentStatus), employment_type: T.nilable(Shared::EmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::Ethnicity), gender: T.nilable(Shared::Gender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HomeLocation), job_title: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::MaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), updated_at: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_location: T.nilable(Shared::WorkLocation), work_phone_number: T.nilable(String)).void }
+      def initialize(first_name: nil, id: nil, last_name: nil, work_email: nil, avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, cost_centers: nil, created_at: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, gender: nil, hire_date: nil, home_location: nil, job_title: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, updated_at: nil, work_anniversary: nil, work_location: nil, work_phone_number: nil)
         @first_name = first_name
         @id = id
         @last_name = last_name
@@ -1003,6 +1005,7 @@ module StackOne
         @birthday = birthday
         @citizenships = citizenships
         @company_name = company_name
+        @cost_centers = cost_centers
         @created_at = created_at
         @custom_fields = custom_fields
         @date_of_birth = date_of_birth

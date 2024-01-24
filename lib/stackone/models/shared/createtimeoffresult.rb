@@ -13,14 +13,14 @@ module StackOne
       extend T::Sig
 
 
-      field :message, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+      field :message, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
 
-      field :status_code, Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
+      field :status_code, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
 
-      field :timestamp, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :timestamp, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(message: String, status_code: Float, timestamp: DateTime).void }
+      sig { params(message: T.nilable(String), status_code: T.nilable(Float), timestamp: T.nilable(DateTime)).void }
       def initialize(message: nil, status_code: nil, timestamp: nil)
         @message = message
         @status_code = status_code

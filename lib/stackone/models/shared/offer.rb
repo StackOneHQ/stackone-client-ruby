@@ -5,44 +5,75 @@
 
 require 'sorbet-runtime'
 require 'faraday'
-require_relative '../shared/offerstatusenum'
 
 module StackOne
   module Shared
+    # OfferValue - The status of the offer.
+    class OfferValue < T::Enum
+      enums do
+        PENDING = new('pending')
+        RETRACTED = new('retracted')
+        ACCEPTED = new('accepted')
+        REJECTED = new('rejected')
+        CREATED = new('created')
+        APPROVED = new('approved')
+        NOT_APPROVED = new('not_approved')
+        UNMAPPED_VALUE = new('unmapped_value')
+      end
+    end
+
+
+
+    class OfferOfferStatus < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+      # The source value of the offer status.
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The status of the offer.
+      field :value, T.nilable(Shared::OfferValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::OfferValue, true) } }
+
+
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::OfferValue)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
+        @value = value
+      end
+    end
+
 
     class Offer < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :application_id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
-
-      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :offer_status, Shared::OfferStatusEnum, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
-      # Date of creation
-      field :start_date, DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(false) } }
+      field :application_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
       # Date of creation
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
       field :currency, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
 
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
       field :offer_history, T.nilable(T::Array[Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
 
+      field :offer_status, T.nilable(Shared::OfferOfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
+
       field :salary, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
+      # Date of creation
+      field :start_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Date of last update
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_id: String, id: String, offer_status: Shared::OfferStatusEnum, start_date: DateTime, created_at: T.nilable(DateTime), currency: T.nilable(String), offer_history: T.nilable(T::Array[Shared::OfferHistory]), salary: T.nilable(Float), updated_at: T.nilable(DateTime)).void }
-      def initialize(application_id: nil, id: nil, offer_status: nil, start_date: nil, created_at: nil, currency: nil, offer_history: nil, salary: nil, updated_at: nil)
+      sig { params(application_id: T.nilable(String), created_at: T.nilable(DateTime), currency: T.nilable(String), id: T.nilable(String), offer_history: T.nilable(T::Array[Shared::OfferHistory]), offer_status: T.nilable(Shared::OfferOfferStatus), salary: T.nilable(Float), start_date: T.nilable(DateTime), updated_at: T.nilable(DateTime)).void }
+      def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, salary: nil, start_date: nil, updated_at: nil)
         @application_id = application_id
-        @id = id
-        @offer_status = offer_status
-        @start_date = start_date
         @created_at = created_at
         @currency = currency
+        @id = id
         @offer_history = offer_history
+        @offer_status = offer_status
         @salary = salary
+        @start_date = start_date
         @updated_at = updated_at
       end
     end

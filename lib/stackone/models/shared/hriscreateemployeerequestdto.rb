@@ -41,12 +41,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -72,12 +72,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -105,12 +105,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -139,12 +139,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -170,12 +170,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -442,13 +442,13 @@ module StackOne
     class HrisCreateEmployeeRequestDtoCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -4291,12 +4291,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -4360,12 +4360,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -4632,13 +4632,13 @@ module StackOne
     class HrisCreateEmployeeRequestDtoSchemasCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The name of citizenship
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -8481,12 +8481,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, false) } }
+      field :value, T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
