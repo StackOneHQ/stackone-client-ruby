@@ -25,12 +25,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::DocumentTypeEnumValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::DocumentTypeEnumValue, false) } }
+      field :value, T.nilable(Shared::DocumentTypeEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::DocumentTypeEnumValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::DocumentTypeEnumValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::DocumentTypeEnumValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

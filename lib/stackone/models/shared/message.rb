@@ -29,21 +29,21 @@ module StackOne
       extend T::Sig
 
 
-      field :id, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :message_type, Shared::MessageMessageType, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type'), 'decoder': Utils.enum_from_string(Shared::MessageMessageType, false) } }
-
-      field :name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
       field :message_content, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
 
+      field :message_type, T.nilable(Shared::MessageMessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type'), 'decoder': Utils.enum_from_string(Shared::MessageMessageType, true) } }
 
-      sig { params(id: String, message_type: Shared::MessageMessageType, name: String, message_content: T.nilable(Object)).void }
-      def initialize(id: nil, message_type: nil, name: nil, message_content: nil)
+      field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+
+
+      sig { params(id: T.nilable(String), message_content: T.nilable(Object), message_type: T.nilable(Shared::MessageMessageType), name: T.nilable(String)).void }
+      def initialize(id: nil, message_content: nil, message_type: nil, name: nil)
         @id = id
+        @message_content = message_content
         @message_type = message_type
         @name = name
-        @message_content = message_content
       end
     end
   end

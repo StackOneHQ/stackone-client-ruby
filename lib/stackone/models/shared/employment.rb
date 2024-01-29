@@ -24,12 +24,12 @@ module StackOne
       extend T::Sig
 
 
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, Shared::EmploymentValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentValue, false) } }
+      field :value, T.nilable(Shared::EmploymentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmploymentValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmploymentValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -39,14 +39,21 @@ module StackOne
     # EmploymentSchemasValue - The type of the employment.
     class EmploymentSchemasValue < T::Enum
       enums do
-        PERMANENT = new('permanent')
+        FULL_TIME = new('full_time')
+        PART_TIME = new('part_time')
         CONTRACTOR = new('contractor')
         INTERN = new('intern')
+        PERMANENT = new('permanent')
         APPRENTICE = new('apprentice')
         FREELANCE = new('freelance')
+        TERMINATED = new('terminated')
         TEMPORARY = new('temporary')
         SEASONAL = new('seasonal')
         VOLUNTEER = new('volunteer')
+        PROBATION = new('probation')
+        INTERNAL = new('internal')
+        EXTERNAL = new('external')
+        EMPLOYER_OF_RECORD = new('employer_of_record')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
@@ -57,12 +64,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the employment type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, Shared::EmploymentSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasValue, false) } }
+      field :value, T.nilable(Shared::EmploymentSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmploymentSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmploymentSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -91,16 +98,16 @@ module StackOne
 
 
     # The pay frequency
-    class EmploymentPayFrequency < ::StackOne::Utils::FieldAugmented
+    class PayFrequency < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the pay frequency.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay frequency of the job postings.
-      field :value, Shared::EmploymentSchemasPayFrequencyValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayFrequencyValue, false) } }
+      field :value, T.nilable(Shared::EmploymentSchemasPayFrequencyValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayFrequencyValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmploymentSchemasPayFrequencyValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmploymentSchemasPayFrequencyValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -125,16 +132,16 @@ module StackOne
 
 
     # The pay period
-    class EmploymentPayPeriod < ::StackOne::Utils::FieldAugmented
+    class PayPeriod < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the pay period.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay period of the job postings.
-      field :value, Shared::EmploymentSchemasPayPeriodValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayPeriodValue, false) } }
+      field :value, T.nilable(Shared::EmploymentSchemasPayPeriodValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayPeriodValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::EmploymentSchemasPayPeriodValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::EmploymentSchemasPayPeriodValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -162,16 +169,16 @@ module StackOne
       # The currency used for pay
       field :pay_currency, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
       # The pay frequency
-      field :pay_frequency, T.nilable(Shared::EmploymentPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
+      field :pay_frequency, T.nilable(Shared::PayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
       # The pay period
-      field :pay_period, T.nilable(Shared::EmploymentPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
+      field :pay_period, T.nilable(Shared::PayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
       # The pay rate for the employee
       field :pay_rate, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
       # The updated_at date
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(employee_id: String, created_at: T.nilable(DateTime), effective_date: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::EmploymentEmploymentContractType), employment_type: T.nilable(Shared::EmploymentEmploymentType), id: T.nilable(String), job_title: T.nilable(String), pay_currency: T.nilable(String), pay_frequency: T.nilable(Shared::EmploymentPayFrequency), pay_period: T.nilable(Shared::EmploymentPayPeriod), pay_rate: T.nilable(String), updated_at: T.nilable(DateTime)).void }
+      sig { params(employee_id: String, created_at: T.nilable(DateTime), effective_date: T.nilable(DateTime), employment_contract_type: T.nilable(Shared::EmploymentEmploymentContractType), employment_type: T.nilable(Shared::EmploymentEmploymentType), id: T.nilable(String), job_title: T.nilable(String), pay_currency: T.nilable(String), pay_frequency: T.nilable(Shared::PayFrequency), pay_period: T.nilable(Shared::PayPeriod), pay_rate: T.nilable(String), updated_at: T.nilable(DateTime)).void }
       def initialize(employee_id: nil, created_at: nil, effective_date: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, updated_at: nil)
         @employee_id = employee_id
         @created_at = created_at

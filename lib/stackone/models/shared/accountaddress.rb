@@ -268,12 +268,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the ISO 3166-1 alpha-2 code of the country.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO 3166-1 alpha-2 code of the country.
-      field :value, Shared::AccountAddressSchemasValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressSchemasValue, false) } }
+      field :value, T.nilable(Shared::AccountAddressSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressSchemasValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::AccountAddressSchemasValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::AccountAddressSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -295,12 +295,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the location type.
-      field :source_value, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the location.
-      field :value, Shared::AccountAddressValue, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressValue, false) } }
+      field :value, T.nilable(Shared::AccountAddressValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AccountAddressValue, true) } }
 
 
-      sig { params(source_value: String, value: Shared::AccountAddressValue).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::AccountAddressValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

@@ -47,7 +47,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
     birthday=DateTime.iso8601('2021-01-01T00:00:00Z'),
     citizenships=[
       Shared::CountryCodeEnum.new(
-        source_value="American",
+        source_value="string",
         value=Shared::CountryCodeEnumValue::US,
       ),
     ],
@@ -62,7 +62,6 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
         ],
         type=Shared::EmployeeCustomFieldsType.new(
           source_value="string",
-          value=Shared::EmployeeCustomFieldsSchemasValue::INTEGER,
         ),
         value=Shared::EmployeeCustomFieldsValue.new(),
         value_id="value_456",
@@ -73,11 +72,9 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
     display_name="Sir Issac Newton",
     employment_contract_type=Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoValue::PART_TIME,
     ),
     employment_status=Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasValue::PENDING,
     ),
     employment_type=Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
       source_value="Permanent",
@@ -90,7 +87,6 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
         employee_id="1687-3",
         employment_contract_type=Shared::EmploymentEmploymentContractType.new(
           source_value="string",
-          value=Shared::EmploymentValue::UNMAPPED_VALUE,
         ),
         employment_type=Shared::EmploymentEmploymentType.new(
           source_value="Permanent",
@@ -99,11 +95,11 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
         id="123456",
         job_title="Software Engineer",
         pay_currency="USD",
-        pay_frequency=Shared::EmploymentPayFrequency.new(
+        pay_frequency=Shared::PayFrequency.new(
           source_value="Hourly",
           value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
         ),
-        pay_period=Shared::EmploymentPayPeriod.new(
+        pay_period=Shared::PayPeriod.new(
           source_value="Hour",
           value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
         ),
@@ -113,25 +109,22 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
     ],
     ethnicity=Shared::HrisCreateEmployeeRequestDtoEthnicity.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue::OTHER,
     ),
     first_name="Issac",
     gender=Shared::HrisCreateEmployeeRequestDtoGender.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue::FEMALE,
     ),
     hire_date=DateTime.iso8601('2021-01-01T00:00.000Z'),
     home_location=Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
       city="Grantham",
       country=Shared::HrisCreateEmployeeRequestDtoCountry.new(
-        source_value="American",
+        source_value="string",
         value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
       name="Woolsthorpe Manor",
       phone_number="+44 1476 860 364",
       state=Shared::State.new(
         source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue::VN_DN,
       ),
       street_1="Water Lane",
       street_2="Woolsthorpe by Colsterworth",
@@ -142,7 +135,6 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
     manager_id="67890",
     marital_status=Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue::NOT_DISCLOSED,
     ),
     name="Issac Newton",
     personal_email="isaac.newton@example.com",
@@ -155,14 +147,13 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
     work_location=Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
       city="Grantham",
       country=Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-        source_value="American",
+        source_value="string",
         value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
       name="Woolsthorpe Manor",
       phone_number="+44 1476 860 364",
       state=Shared::HrisCreateEmployeeRequestDtoState.new(
         source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue::LT_SA,
       ),
       street_1="Water Lane",
       street_2="Woolsthorpe by Colsterworth",
@@ -215,11 +206,9 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=S
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoValue::UNMAPPED_VALUE,
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
     ),
   ), id="string", x_account_id="string")
 
@@ -268,11 +257,9 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=Shared::Hr
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoValue::UNMAPPED_VALUE,
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
     ),
   ), x_account_id="string")
 
@@ -315,9 +302,7 @@ s.config_security(
 
 req = Operations::HrisGetCompanyRequest.new(
   id="<ID>",
-  proxy={
-    "incidentally": "string",
-  },
+  proxy=Operations::HrisGetCompanyQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -361,9 +346,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeRequest.new(
   id="<ID>",
-  proxy={
-    "International": "string",
-  },
+  proxy=Operations::HrisGetEmployeeQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -407,9 +390,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeDocumentRequest.new(
   id="<ID>",
-  proxy={
-    "infrastructures": "string",
-  },
+  proxy=Operations::HrisGetEmployeeDocumentQueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -454,9 +435,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   id="<ID>",
-  proxy={
-    "Chair": "string",
-  },
+  proxy=Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy.new(),
   sub_resource_id="string",
   x_account_id="string",
 )
@@ -501,9 +480,7 @@ s.config_security(
 
 req = Operations::HrisGetEmploymentRequest.new(
   id="<ID>",
-  proxy={
-    "Pants": "string",
-  },
+  proxy=Operations::HrisGetEmploymentQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -547,9 +524,7 @@ s.config_security(
 
 req = Operations::HrisGetLocationRequest.new(
   id="<ID>",
-  proxy={
-    "deliver": "string",
-  },
+  proxy=Operations::HrisGetLocationQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -593,9 +568,7 @@ s.config_security(
 
 req = Operations::HrisGetTimeOffRequestRequest.new(
   id="<ID>",
-  proxy={
-    "dicta": "string",
-  },
+  proxy=Operations::HrisGetTimeOffRequestQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -638,9 +611,7 @@ s.config_security(
 
 
 req = Operations::HrisListCompaniesRequest.new(
-  proxy={
-    "South": "string",
-  },
+  proxy=Operations::HrisListCompaniesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -684,9 +655,7 @@ s.config_security(
 
 req = Operations::HrisListEmployeeDocumentsRequest.new(
   id="<ID>",
-  proxy={
-    "markets": "string",
-  },
+  proxy=Operations::HrisListEmployeeDocumentsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -730,9 +699,7 @@ s.config_security(
 
 req = Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   id="<ID>",
-  proxy={
-    "seize": "string",
-  },
+  proxy=Operations::HrisListEmployeeTimeOffRequestsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -775,9 +742,7 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy={
-    "Electronic": "string",
-  },
+  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -820,9 +785,7 @@ s.config_security(
 
 
 req = Operations::HrisListEmploymentsRequest.new(
-  proxy={
-    "Gadolinium": "string",
-  },
+  proxy=Operations::HrisListEmploymentsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -865,9 +828,7 @@ s.config_security(
 
 
 req = Operations::HrisListLocationsRequest.new(
-  proxy={
-    "Incredible": "string",
-  },
+  proxy=Operations::HrisListLocationsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -910,9 +871,7 @@ s.config_security(
 
 
 req = Operations::HrisListTimeOffRequestsRequest.new(
-  proxy={
-    "transmitting": "string",
-  },
+  proxy=Operations::HrisListTimeOffRequestsQueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -960,7 +919,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
     birthday=DateTime.iso8601('2021-01-01T00:00:00Z'),
     citizenships=[
       Shared::CountryCodeEnum.new(
-        source_value="American",
+        source_value="string",
         value=Shared::CountryCodeEnumValue::US,
       ),
     ],
@@ -975,7 +934,6 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
         ],
         type=Shared::EmployeeCustomFieldsType.new(
           source_value="string",
-          value=Shared::EmployeeCustomFieldsSchemasValue::FLOAT,
         ),
         value=Shared::EmployeeCustomFieldsValue.new(),
         value_id="value_456",
@@ -986,11 +944,9 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
     display_name="Sir Issac Newton",
     employment_contract_type=Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoValue::PART_TIME,
     ),
     employment_status=Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasValue::LEAVE,
     ),
     employment_type=Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
       source_value="Permanent",
@@ -1003,7 +959,6 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
         employee_id="1687-3",
         employment_contract_type=Shared::EmploymentEmploymentContractType.new(
           source_value="string",
-          value=Shared::EmploymentValue::UNMAPPED_VALUE,
         ),
         employment_type=Shared::EmploymentEmploymentType.new(
           source_value="Permanent",
@@ -1012,11 +967,11 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
         id="123456",
         job_title="Software Engineer",
         pay_currency="USD",
-        pay_frequency=Shared::EmploymentPayFrequency.new(
+        pay_frequency=Shared::PayFrequency.new(
           source_value="Hourly",
           value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
         ),
-        pay_period=Shared::EmploymentPayPeriod.new(
+        pay_period=Shared::PayPeriod.new(
           source_value="Hour",
           value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
         ),
@@ -1026,25 +981,22 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
     ],
     ethnicity=Shared::HrisCreateEmployeeRequestDtoEthnicity.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue::BLACK_OR_AFRICAN_AMERICAN,
     ),
     first_name="Issac",
     gender=Shared::HrisCreateEmployeeRequestDtoGender.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasGenderValue::MALE,
     ),
     hire_date=DateTime.iso8601('2021-01-01T00:00.000Z'),
     home_location=Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
       city="Grantham",
       country=Shared::HrisCreateEmployeeRequestDtoCountry.new(
-        source_value="American",
+        source_value="string",
         value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
       name="Woolsthorpe Manor",
       phone_number="+44 1476 860 364",
       state=Shared::State.new(
         source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationStateValue::CC_XX_1,
       ),
       street_1="Water Lane",
       street_2="Woolsthorpe by Colsterworth",
@@ -1055,7 +1007,6 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
     manager_id="67890",
     marital_status=Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(
       source_value="string",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue::SEPARATED,
     ),
     name="Issac Newton",
     personal_email="isaac.newton@example.com",
@@ -1068,14 +1019,13 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
     work_location=Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
       city="Grantham",
       country=Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-        source_value="American",
+        source_value="string",
         value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
       name="Woolsthorpe Manor",
       phone_number="+44 1476 860 364",
       state=Shared::HrisCreateEmployeeRequestDtoState.new(
         source_value="string",
-        value=Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue::PY_12,
       ),
       street_1="Water Lane",
       street_2="Woolsthorpe by Colsterworth",
@@ -1129,11 +1079,9 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=Shared::Hr
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoValue::APPROVED,
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
       source_value="string",
-      value=Shared::HrisCreateTimeOffRequestDtoSchemasValue::VACATION,
     ),
   ), id="string", x_account_id="string")
 

@@ -29,12 +29,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the answer type.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the answer.
       field :value, T.nilable(Shared::AnswerValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AnswerValue, true) } }
 
 
-      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AnswerValue)).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::AnswerValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -45,19 +45,19 @@ module StackOne
     class Answer < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # Values of the answer
-      field :values, T::Array[String], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
       # Unique identifier of the answer
       field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Type of the answer
       field :type, T.nilable(Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      # Values of the answer
+      field :values, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 
 
-      sig { params(values: T::Array[String], id: T.nilable(String), type: T.nilable(Shared::Type)).void }
-      def initialize(values: nil, id: nil, type: nil)
-        @values = values
+      sig { params(id: T.nilable(String), type: T.nilable(Shared::Type), values: T.nilable(T::Array[String])).void }
+      def initialize(id: nil, type: nil, values: nil)
         @id = id
         @type = type
+        @values = values
       end
     end
   end

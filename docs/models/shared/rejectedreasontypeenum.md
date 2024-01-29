@@ -1,9 +1,0 @@
-# RejectedReasonTypeEnum
-
-
-## Fields
-
-| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `source_value`                                                                            | *String*                                                                                  | :heavy_check_mark:                                                                        | The source value of the rejected reason type.                                             | RejectedByOrg                                                                             |
-| `value`                                                                                   | [Shared::RejectedReasonTypeEnumValue](../../models/shared/rejectedreasontypeenumvalue.md) | :heavy_check_mark:                                                                        | The type of the rejected reason.                                                          | rejected_by_organization                                                                  |

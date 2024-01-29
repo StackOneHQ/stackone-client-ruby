@@ -22,12 +22,12 @@ module StackOne
       extend T::Sig
 
       # The source value of the notes visibility.
-      field :source_value, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The visibility of the notes.
       field :value, T.nilable(Shared::AtsCreateNotesRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::AtsCreateNotesRequestDtoValue, true) } }
 
 
-      sig { params(source_value: T.nilable(String), value: T.nilable(Shared::AtsCreateNotesRequestDtoValue)).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::AtsCreateNotesRequestDtoValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
@@ -38,18 +38,18 @@ module StackOne
     class AtsCreateNotesRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :content, T::Array[Shared::NoteContentApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # Unique identifier of the author
       field :author_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
+
+      field :content, T.nilable(T::Array[Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # Visibility of the note
       field :visibility, T.nilable(Shared::Visibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(content: T::Array[Shared::NoteContentApiModel], author_id: T.nilable(String), visibility: T.nilable(Shared::Visibility)).void }
-      def initialize(content: nil, author_id: nil, visibility: nil)
-        @content = content
+      sig { params(author_id: T.nilable(String), content: T.nilable(T::Array[Shared::NoteContentApiModel]), visibility: T.nilable(Shared::Visibility)).void }
+      def initialize(author_id: nil, content: nil, visibility: nil)
         @author_id = author_id
+        @content = content
         @visibility = visibility
       end
     end

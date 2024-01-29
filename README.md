@@ -42,9 +42,7 @@ s.config_security(
 
 
 req = Operations::HrisListEmployeesRequest.new(
-  proxy={
-    "Electronic": "string",
-  },
+  proxy=Operations::HrisListEmployeesQueryParamProxy.new(),
   x_account_id="string",
 )
     
