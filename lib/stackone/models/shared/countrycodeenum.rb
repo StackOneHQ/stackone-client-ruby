@@ -8,8 +8,8 @@ require 'faraday'
 
 module StackOne
   module Shared
-    # CountryCodeEnumValue - The ISO3166-1 Alpha2 Code of the Country
-    class CountryCodeEnumValue < T::Enum
+    # Value - The ISO3166-1 Alpha2 Code of the Country
+    class Value < T::Enum
       enums do
         AF = new('AF')
         AL = new('AL')
@@ -271,10 +271,10 @@ module StackOne
 
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, T.nilable(Shared::CountryCodeEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::CountryCodeEnumValue, true) } }
+      field :value, T.nilable(Shared::Value), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::Value, true) } }
 
 
-      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::CountryCodeEnumValue)).void }
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::Value)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

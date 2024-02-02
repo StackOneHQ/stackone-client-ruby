@@ -12,7 +12,7 @@ module StackOne
   class StackOne
     extend T::Sig
 
-    attr_accessor :accounts, :connect_sessions, :connectors, :ats, :crm, :hris, :marketing, :proxy
+    attr_accessor :accounts, :connect_sessions, :connectors, :hris, :proxy
 
     attr_accessor :security, :language, :sdk_version, :gen_version
 
@@ -77,10 +77,7 @@ module StackOne
       @accounts = Accounts.new(@sdk_configuration)
       @connect_sessions = ConnectSessions.new(@sdk_configuration)
       @connectors = Connectors.new(@sdk_configuration)
-      @ats = Ats.new(@sdk_configuration)
-      @crm = Crm.new(@sdk_configuration)
       @hris = Hris.new(@sdk_configuration)
-      @marketing = Marketing.new(@sdk_configuration)
       @proxy = Proxy.new(@sdk_configuration)
     end
   end

@@ -36,7 +36,7 @@ module StackOne
       end
     end
 
-    # EmploymentSchemasValue - The type of the employment.
+
     class EmploymentSchemasValue < T::Enum
       enums do
         FULL_TIME = new('full_time')
@@ -63,9 +63,9 @@ module StackOne
     class EmploymentEmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the employment type.
+
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the employment.
+
       field :value, T.nilable(Shared::EmploymentSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasValue, true) } }
 
 
@@ -76,7 +76,7 @@ module StackOne
       end
     end
 
-    # EmploymentSchemasPayFrequencyValue - The pay frequency of the job postings.
+
     class EmploymentSchemasPayFrequencyValue < T::Enum
       enums do
         HOURLY = new('hourly')
@@ -93,6 +93,8 @@ module StackOne
         PRO_RATA = new('pro_rata')
         UNMAPPED_VALUE = new('unmapped_value')
         HALF_YEARLY = new('half_yearly')
+        DAILY = new('daily')
+        FIXED = new('fixed')
       end
     end
 
@@ -101,9 +103,9 @@ module StackOne
     class PayFrequency < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the pay frequency.
+
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The pay frequency of the job postings.
+
       field :value, T.nilable(Shared::EmploymentSchemasPayFrequencyValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayFrequencyValue, true) } }
 
 
@@ -114,7 +116,7 @@ module StackOne
       end
     end
 
-    # EmploymentSchemasPayPeriodValue - The pay period of the job postings.
+
     class EmploymentSchemasPayPeriodValue < T::Enum
       enums do
         HOUR = new('hour')
@@ -125,7 +127,6 @@ module StackOne
         QUARTER = new('quarter')
         EVERY_SIX_MONTHS = new('every_six_months')
         YEAR = new('year')
-        NONE = new('none')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
@@ -135,9 +136,9 @@ module StackOne
     class PayPeriod < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the pay period.
+
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The pay period of the job postings.
+
       field :value, T.nilable(Shared::EmploymentSchemasPayPeriodValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmploymentSchemasPayPeriodValue, true) } }
 
 

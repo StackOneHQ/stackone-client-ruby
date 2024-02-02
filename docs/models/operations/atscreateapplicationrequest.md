@@ -1,9 +1,0 @@
-# AtsCreateApplicationRequest
-
-
-## Fields
-
-| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `ats_create_application_request_dto`                                                            | [Shared::AtsCreateApplicationRequestDto](../../models/shared/atscreateapplicationrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *String*                                                                                        | :heavy_check_mark:                                                                              | The account identifier                                                                          |

@@ -1,9 +1,0 @@
-# ApplicationStatus
-
-
-## Fields
-
-| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `source_value`                                                                 | *T.nilable(Object)*                                                            | :heavy_minus_sign:                                                             | The source value of the application status.                                    | Hired                                                                          |
-| `value`                                                                        | [T.nilable(Shared::ApplicationValue)](../../models/shared/applicationvalue.md) | :heavy_minus_sign:                                                             | The status of the application.                                                 | hired                                                                          |

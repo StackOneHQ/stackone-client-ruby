@@ -1,7 +1,5 @@
 # EmployeeSchemasHomeLocationLocationTypeValue
 
-The type of the location.
-
 
 ## Values
 

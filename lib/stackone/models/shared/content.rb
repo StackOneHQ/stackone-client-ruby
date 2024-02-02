@@ -5,7 +5,7 @@
 
 require 'sorbet-runtime'
 require 'faraday'
-require_relative '../shared/documentfileformatenum'
+require_relative '../shared/fileformatenum'
 
 module StackOne
   module Shared
@@ -13,13 +13,13 @@ module StackOne
     class Content < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The file format of the document
-      field :file_format, T.nilable(Shared::DocumentFileFormatEnum), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
+      # The file format of the file
+      field :file_format, T.nilable(Shared::FileFormatEnum), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
       # URL where the file content is located
       field :url, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(file_format: T.nilable(Shared::DocumentFileFormatEnum), url: T.nilable(String)).void }
+      sig { params(file_format: T.nilable(Shared::FileFormatEnum), url: T.nilable(String)).void }
       def initialize(file_format: nil, url: nil)
         @file_format = file_format
         @url = url

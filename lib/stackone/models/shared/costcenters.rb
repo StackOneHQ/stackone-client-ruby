@@ -13,11 +13,14 @@ module StackOne
       extend T::Sig
 
 
+      field :distribution_percentage, T.nilable(Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
+
       field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(name: T.nilable(String)).void }
-      def initialize(name: nil)
+      sig { params(distribution_percentage: T.nilable(Float), name: T.nilable(String)).void }
+      def initialize(distribution_percentage: nil, name: nil)
+        @distribution_percentage = distribution_percentage
         @name = name
       end
     end

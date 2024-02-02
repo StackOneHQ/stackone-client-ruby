@@ -1,11 +1,11 @@
 # Type
 
-Type of the answer
+The type of the custom field.
 
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `source_value`                                                       | *T.nilable(Object)*                                                  | :heavy_minus_sign:                                                   | The source value of the answer type.                                 | Short Text                                                           |
-| `value`                                                              | [T.nilable(Shared::AnswerValue)](../../models/shared/answervalue.md) | :heavy_minus_sign:                                                   | The type of the answer.                                              | short_text                                                           |
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                                 | *T.nilable(Object)*                                                                                            | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `value`                                                                                                        | [T.nilable(Shared::EmployeeCustomFieldsSchemasValue)](../../models/shared/employeecustomfieldsschemasvalue.md) | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

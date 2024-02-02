@@ -1,7 +1,5 @@
 # EmploymentSchemasPayFrequencyValue
 
-The pay frequency of the job postings.
-
 
 ## Values
 
@@ -21,3 +19,5 @@ The pay frequency of the job postings.
 | `PRO_RATA`         | pro_rata           |
 | `UNMAPPED_VALUE`   | unmapped_value     |
 | `HALF_YEARLY`      | half_yearly        |
+| `DAILY`            | daily              |
+| `FIXED`            | fixed              |

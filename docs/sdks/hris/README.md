@@ -48,7 +48,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
     citizenships=[
       Shared::CountryCodeEnum.new(
         source_value="string",
-        value=Shared::CountryCodeEnumValue::US,
+        value=Shared::Value::US,
       ),
     ],
     company_name="Example Corp",
@@ -60,7 +60,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
         options=[
           "string",
         ],
-        type=Shared::EmployeeCustomFieldsType.new(
+        type=Shared::Type.new(
           source_value="string",
         ),
         value=Shared::EmployeeCustomFieldsValue.new(),
@@ -77,8 +77,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
       source_value="string",
     ),
     employment_type=Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-      source_value="Permanent",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
+      source_value="string",
     ),
     employments=[
       Shared::Employment.new(
@@ -89,19 +88,16 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
           source_value="string",
         ),
         employment_type=Shared::EmploymentEmploymentType.new(
-          source_value="Permanent",
-          value=Shared::EmploymentSchemasValue::PERMANENT,
+          source_value="string",
         ),
         id="123456",
         job_title="Software Engineer",
         pay_currency="USD",
         pay_frequency=Shared::PayFrequency.new(
-          source_value="Hourly",
-          value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
+          source_value="string",
         ),
         pay_period=Shared::PayPeriod.new(
-          source_value="Hour",
-          value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
+          source_value="string",
         ),
         pay_rate="40.00",
         updated_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -204,7 +200,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=S
     employee_id="1687-3",
     end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
+    status=Shared::Status.new(
       source_value="string",
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
@@ -255,7 +251,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=Shared::Hr
     employee_id="1687-3",
     end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
+    status=Shared::Status.new(
       source_value="string",
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(
@@ -302,7 +298,7 @@ s.config_security(
 
 req = Operations::HrisGetCompanyRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetCompanyQueryParamProxy.new(),
+  proxy=Operations::Proxy.new(),
   x_account_id="string",
 )
     
@@ -346,7 +342,7 @@ s.config_security(
 
 req = Operations::HrisGetEmployeeRequest.new(
   id="<ID>",
-  proxy=Operations::HrisGetEmployeeQueryParamProxy.new(),
+  proxy=Operations::QueryParamProxy.new(),
   x_account_id="string",
 )
     
@@ -920,7 +916,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
     citizenships=[
       Shared::CountryCodeEnum.new(
         source_value="string",
-        value=Shared::CountryCodeEnumValue::US,
+        value=Shared::Value::US,
       ),
     ],
     company_name="Example Corp",
@@ -932,7 +928,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
         options=[
           "string",
         ],
-        type=Shared::EmployeeCustomFieldsType.new(
+        type=Shared::Type.new(
           source_value="string",
         ),
         value=Shared::EmployeeCustomFieldsValue.new(),
@@ -949,8 +945,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
       source_value="string",
     ),
     employment_type=Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-      source_value="Permanent",
-      value=Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
+      source_value="string",
     ),
     employments=[
       Shared::Employment.new(
@@ -961,19 +956,16 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
           source_value="string",
         ),
         employment_type=Shared::EmploymentEmploymentType.new(
-          source_value="Permanent",
-          value=Shared::EmploymentSchemasValue::PERMANENT,
+          source_value="string",
         ),
         id="123456",
         job_title="Software Engineer",
         pay_currency="USD",
         pay_frequency=Shared::PayFrequency.new(
-          source_value="Hourly",
-          value=Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
+          source_value="string",
         ),
         pay_period=Shared::PayPeriod.new(
-          source_value="Hour",
-          value=Shared::EmploymentSchemasPayPeriodValue::HOUR,
+          source_value="string",
         ),
         pay_rate="40.00",
         updated_at=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -1077,7 +1069,7 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=Shared::Hr
     employee_id="1687-3",
     end_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     start_date=DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status=Shared::HrisCreateTimeOffRequestDtoStatus.new(
+    status=Shared::Status.new(
       source_value="string",
     ),
     type=Shared::HrisCreateTimeOffRequestDtoType.new(

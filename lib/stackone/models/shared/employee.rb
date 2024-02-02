@@ -84,7 +84,7 @@ module StackOne
       end
     end
 
-    # EmployeeSchemasEmploymentTypeValue - The type of the employment.
+
     class EmployeeSchemasEmploymentTypeValue < T::Enum
       enums do
         FULL_TIME = new('full_time')
@@ -111,9 +111,9 @@ module StackOne
     class EmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the employment type.
+
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the employment.
+
       field :value, T.nilable(Shared::EmployeeSchemasEmploymentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasEmploymentTypeValue, true) } }
 
 
@@ -446,7 +446,7 @@ module StackOne
 
 
     # The country code
-    class EmployeeCountry < ::StackOne::Utils::FieldAugmented
+    class EmployeeSchemasCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -462,7 +462,7 @@ module StackOne
       end
     end
 
-    # EmployeeSchemasHomeLocationLocationTypeValue - The type of the location.
+
     class EmployeeSchemasHomeLocationLocationTypeValue < T::Enum
       enums do
         HOME = new('home')
@@ -473,12 +473,12 @@ module StackOne
 
 
     # The location type
-    class EmployeeLocationType < ::StackOne::Utils::FieldAugmented
+    class EmployeeSchemasLocationType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the location type.
+
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the location.
+
       field :value, T.nilable(Shared::EmployeeSchemasHomeLocationLocationTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasHomeLocationLocationTypeValue, true) } }
 
 
@@ -496,7 +496,7 @@ module StackOne
       # The city where the location is situated
       field :city, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(Shared::EmployeeCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+      field :country, T.nilable(Shared::EmployeeSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The created_at date
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee ID
@@ -504,7 +504,7 @@ module StackOne
       # The unique ID of the location
       field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The location type
-      field :location_type, T.nilable(Shared::EmployeeLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
+      field :location_type, T.nilable(Shared::EmployeeSchemasLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
       # The name of the location
       field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The phone number of the location
@@ -521,7 +521,7 @@ module StackOne
       field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(String), country: T.nilable(Shared::EmployeeCountry), created_at: T.nilable(DateTime), employee_id: T.nilable(String), id: T.nilable(String), location_type: T.nilable(Shared::EmployeeLocationType), name: T.nilable(String), phone_number: T.nilable(String), state: T.nilable(String), street_1: T.nilable(String), street_2: T.nilable(String), updated_at: T.nilable(DateTime), zip_code: T.nilable(String)).void }
+      sig { params(city: T.nilable(String), country: T.nilable(Shared::EmployeeSchemasCountry), created_at: T.nilable(DateTime), employee_id: T.nilable(String), id: T.nilable(String), location_type: T.nilable(Shared::EmployeeSchemasLocationType), name: T.nilable(String), phone_number: T.nilable(String), state: T.nilable(String), street_1: T.nilable(String), street_2: T.nilable(String), updated_at: T.nilable(DateTime), zip_code: T.nilable(String)).void }
       def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, state: nil, street_1: nil, street_2: nil, updated_at: nil, zip_code: nil)
         @city = city
         @country = country
@@ -536,6 +536,20 @@ module StackOne
         @street_2 = street_2
         @updated_at = updated_at
         @zip_code = zip_code
+      end
+    end
+
+    # The employee job description
+    class JobDescription < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+
+      field :text, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
+
+
+      sig { params(text: T.nilable(String)).void }
+      def initialize(text: nil)
+        @text = text
       end
     end
 
@@ -830,7 +844,7 @@ module StackOne
 
 
     # The country code
-    class EmployeeSchemasCountry < ::StackOne::Utils::FieldAugmented
+    class EmployeeCountry < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -846,7 +860,7 @@ module StackOne
       end
     end
 
-    # EmployeeSchemasWorkLocationLocationTypeValue - The type of the location.
+
     class EmployeeSchemasWorkLocationLocationTypeValue < T::Enum
       enums do
         HOME = new('home')
@@ -857,12 +871,12 @@ module StackOne
 
 
     # The location type
-    class EmployeeSchemasLocationType < ::StackOne::Utils::FieldAugmented
+    class EmployeeLocationType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the location type.
+
       field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the location.
+
       field :value, T.nilable(Shared::EmployeeSchemasWorkLocationLocationTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::EmployeeSchemasWorkLocationLocationTypeValue, true) } }
 
 
@@ -880,7 +894,7 @@ module StackOne
       # The city where the location is situated
       field :city, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(Shared::EmployeeSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+      field :country, T.nilable(Shared::EmployeeCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The created_at date
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee ID
@@ -888,7 +902,7 @@ module StackOne
       # The unique ID of the location
       field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The location type
-      field :location_type, T.nilable(Shared::EmployeeSchemasLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
+      field :location_type, T.nilable(Shared::EmployeeLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
       # The name of the location
       field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The phone number of the location
@@ -905,7 +919,7 @@ module StackOne
       field :zip_code, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(String), country: T.nilable(Shared::EmployeeSchemasCountry), created_at: T.nilable(DateTime), employee_id: T.nilable(String), id: T.nilable(String), location_type: T.nilable(Shared::EmployeeSchemasLocationType), name: T.nilable(String), phone_number: T.nilable(String), state: T.nilable(String), street_1: T.nilable(String), street_2: T.nilable(String), updated_at: T.nilable(DateTime), zip_code: T.nilable(String)).void }
+      sig { params(city: T.nilable(String), country: T.nilable(Shared::EmployeeCountry), created_at: T.nilable(DateTime), employee_id: T.nilable(String), id: T.nilable(String), location_type: T.nilable(Shared::EmployeeLocationType), name: T.nilable(String), phone_number: T.nilable(String), state: T.nilable(String), street_1: T.nilable(String), street_2: T.nilable(String), updated_at: T.nilable(DateTime), zip_code: T.nilable(String)).void }
       def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, state: nil, street_1: nil, street_2: nil, updated_at: nil, zip_code: nil)
         @city = city
         @country = country
@@ -974,7 +988,7 @@ module StackOne
       # The employee home location
       field :home_location, T.nilable(Shared::HomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
       # The employee job description
-      field :job_description, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_description') } }
+      field :job_description, T.nilable(Shared::JobDescription), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_description') } }
       # The employee job title
       field :job_title, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
       # The employee manager ID
@@ -997,14 +1011,16 @@ module StackOne
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee work anniversary
       field :work_anniversary, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_anniversary'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The employee work eligibility
+      field :work_eligibility, T.nilable(T::Array[Shared::WorkEligibility]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_eligibility') } }
       # The employee work location
       field :work_location, T.nilable(Shared::WorkLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_location') } }
       # The employee work phone number
       field :work_phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(first_name: String, id: String, last_name: String, work_email: String, avatar: T.nilable(Shared::Avatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), cost_centers: T.nilable(T::Array[Shared::CostCenters]), created_at: T.nilable(DateTime), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::EmploymentContractType), employment_status: T.nilable(Shared::EmploymentStatus), employment_type: T.nilable(Shared::EmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::Ethnicity), gender: T.nilable(Shared::Gender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HomeLocation), job_description: T.nilable(String), job_title: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::MaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), updated_at: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_location: T.nilable(Shared::WorkLocation), work_phone_number: T.nilable(String)).void }
-      def initialize(first_name: nil, id: nil, last_name: nil, work_email: nil, avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, cost_centers: nil, created_at: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, gender: nil, hire_date: nil, home_location: nil, job_description: nil, job_title: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, updated_at: nil, work_anniversary: nil, work_location: nil, work_phone_number: nil)
+      sig { params(first_name: String, id: String, last_name: String, work_email: String, avatar: T.nilable(Shared::Avatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), cost_centers: T.nilable(T::Array[Shared::CostCenters]), created_at: T.nilable(DateTime), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::EmploymentContractType), employment_status: T.nilable(Shared::EmploymentStatus), employment_type: T.nilable(Shared::EmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::Ethnicity), gender: T.nilable(Shared::Gender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HomeLocation), job_description: T.nilable(Shared::JobDescription), job_title: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::MaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), updated_at: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_eligibility: T.nilable(T::Array[Shared::WorkEligibility]), work_location: T.nilable(Shared::WorkLocation), work_phone_number: T.nilable(String)).void }
+      def initialize(first_name: nil, id: nil, last_name: nil, work_email: nil, avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, cost_centers: nil, created_at: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, gender: nil, hire_date: nil, home_location: nil, job_description: nil, job_title: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, updated_at: nil, work_anniversary: nil, work_eligibility: nil, work_location: nil, work_phone_number: nil)
         @first_name = first_name
         @id = id
         @last_name = last_name
@@ -1040,6 +1056,7 @@ module StackOne
         @termination_date = termination_date
         @updated_at = updated_at
         @work_anniversary = work_anniversary
+        @work_eligibility = work_eligibility
         @work_location = work_location
         @work_phone_number = work_phone_number
       end

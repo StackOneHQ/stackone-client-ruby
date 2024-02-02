@@ -22,7 +22,7 @@ module StackOne
 
 
     # The type of the custom field.
-    class EmployeeCustomFieldsType < ::StackOne::Utils::FieldAugmented
+    class Type < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
@@ -61,14 +61,14 @@ module StackOne
       # An array of possible options for the custom field.
       field :options, T.nilable(T::Array[String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('options') } }
       # The type of the custom field.
-      field :type, T.nilable(Shared::EmployeeCustomFieldsType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The value associated with the custom field.
       field :value, T.nilable(Shared::EmployeeCustomFieldsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
       # The unique identifier for the value of the custom field.
       field :value_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value_id') } }
 
 
-      sig { params(description: T.nilable(String), id: T.nilable(String), name: T.nilable(String), options: T.nilable(T::Array[String]), type: T.nilable(Shared::EmployeeCustomFieldsType), value: T.nilable(Shared::EmployeeCustomFieldsValue), value_id: T.nilable(String)).void }
+      sig { params(description: T.nilable(String), id: T.nilable(String), name: T.nilable(String), options: T.nilable(T::Array[String]), type: T.nilable(Shared::Type), value: T.nilable(Shared::EmployeeCustomFieldsValue), value_id: T.nilable(String)).void }
       def initialize(description: nil, id: nil, name: nil, options: nil, type: nil, value: nil, value_id: nil)
         @description = description
         @id = id

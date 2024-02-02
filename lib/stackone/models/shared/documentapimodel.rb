@@ -13,23 +13,23 @@ module StackOne
     class DocumentApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The content of the document
-      field :contents, T::Array[Shared::Content], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
-      # The creation date of the document
+      # The content of the file
+      field :contents, T.nilable(T::Array[Shared::Content]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
+      # The creation date of the file
       field :created_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The unique ID of the document
+      # The unique ID of the file
       field :id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name of the document
+      # The name of the file
       field :name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The path where the document is stored
+      # The path where the file is stored
       field :path, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
       # The content type of the document
       field :type, T.nilable(Shared::DocumentTypeEnum), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # The update date of the document
+      # The update date of the file
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(contents: T::Array[Shared::Content], created_at: T.nilable(DateTime), id: T.nilable(String), name: T.nilable(String), path: T.nilable(String), type: T.nilable(Shared::DocumentTypeEnum), updated_at: T.nilable(DateTime)).void }
+      sig { params(contents: T.nilable(T::Array[Shared::Content]), created_at: T.nilable(DateTime), id: T.nilable(String), name: T.nilable(String), path: T.nilable(String), type: T.nilable(Shared::DocumentTypeEnum), updated_at: T.nilable(DateTime)).void }
       def initialize(contents: nil, created_at: nil, id: nil, name: nil, path: nil, type: nil, updated_at: nil)
         @contents = contents
         @created_at = created_at
