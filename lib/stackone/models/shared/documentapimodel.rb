@@ -5,10 +5,44 @@
 
 require 'sorbet-runtime'
 require 'faraday'
-require_relative '../shared/documenttypeenum'
 
 module StackOne
   module Shared
+
+    class DocumentApiModelValue < T::Enum
+      enums do
+        VISA = new('visa')
+        PASSPORT = new('passport')
+        DRIVER_LICENSE = new('driver_license')
+        RESUME = new('resume')
+        POLICY = new('policy')
+        OFFER_LETTER = new('offer_letter')
+        POLICY_AGREEMENT = new('policy_agreement')
+        HOME_ADDRESS = new('home_address')
+        NATIONAL_ID = new('national_id')
+        OTHER = new('other')
+        UNMAPPED_VALUE = new('unmapped_value')
+      end
+    end
+
+
+    # The content type of the document
+    class Type < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+
+      field :source_value, T.nilable(Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+
+      field :value, T.nilable(Shared::DocumentApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Shared::DocumentApiModelValue, true) } }
+
+
+      sig { params(source_value: T.nilable(Object), value: T.nilable(Shared::DocumentApiModelValue)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
+        @value = value
+      end
+    end
+
 
     class DocumentApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
@@ -24,12 +58,12 @@ module StackOne
       # The path where the file is stored
       field :path, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
       # The content type of the document
-      field :type, T.nilable(Shared::DocumentTypeEnum), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The update date of the file
       field :updated_at, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(contents: T.nilable(T::Array[Shared::Content]), created_at: T.nilable(DateTime), id: T.nilable(String), name: T.nilable(String), path: T.nilable(String), type: T.nilable(Shared::DocumentTypeEnum), updated_at: T.nilable(DateTime)).void }
+      sig { params(contents: T.nilable(T::Array[Shared::Content]), created_at: T.nilable(DateTime), id: T.nilable(String), name: T.nilable(String), path: T.nilable(String), type: T.nilable(Shared::Type), updated_at: T.nilable(DateTime)).void }
       def initialize(contents: nil, created_at: nil, id: nil, name: nil, path: nil, type: nil, updated_at: nil)
         @contents = contents
         @created_at = created_at

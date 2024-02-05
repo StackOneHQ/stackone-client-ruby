@@ -1,11 +1,11 @@
 # Type
 
-The type of the custom field.
+The content type of the document
 
 
 ## Fields
 
-| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `source_value`                                                                                                 | *T.nilable(Object)*                                                                                            | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
-| `value`                                                                                                        | [T.nilable(Shared::EmployeeCustomFieldsSchemasValue)](../../models/shared/employeecustomfieldsschemasvalue.md) | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `source_value`                                                                           | *T.nilable(Object)*                                                                      | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `value`                                                                                  | [T.nilable(Shared::DocumentApiModelValue)](../../models/shared/documentapimodelvalue.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |

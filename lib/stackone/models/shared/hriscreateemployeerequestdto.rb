@@ -8539,12 +8539,6 @@ module StackOne
     class HrisCreateEmployeeRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The employee first name
-      field :first_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-      # The employee last name
-      field :last_name, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-      # The employee work email
-      field :work_email, String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
       # The employee avatar
       field :avatar, T.nilable(Shared::HrisCreateEmployeeRequestDtoAvatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
       # The employee avatar Url
@@ -8573,6 +8567,8 @@ module StackOne
       field :employments, T.nilable(T::Array[Shared::Employment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employments') } }
       # The employee ethnicity
       field :ethnicity, T.nilable(Shared::HrisCreateEmployeeRequestDtoEthnicity), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ethnicity') } }
+      # The employee first name
+      field :first_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # The employee gender
       field :gender, T.nilable(Shared::HrisCreateEmployeeRequestDtoGender), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('gender') } }
       # The employee hire date
@@ -8581,6 +8577,8 @@ module StackOne
       field :home_location, T.nilable(Shared::HrisCreateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
       # The employee job title
       field :job_title, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
+      # The employee last name
+      field :last_name, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # The employee manager ID
       field :manager_id, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager_id') } }
       # The employee marital status
@@ -8599,17 +8597,16 @@ module StackOne
       field :termination_date, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee work anniversary
       field :work_anniversary, T.nilable(DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_anniversary'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The employee work email
+      field :work_email, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
       # The employee work location
       field :work_location, T.nilable(Shared::HrisCreateEmployeeRequestDtoWorkLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_location') } }
       # The employee work phone number
       field :work_phone_number, T.nilable(String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(first_name: String, last_name: String, work_email: String, avatar: T.nilable(Shared::HrisCreateEmployeeRequestDtoAvatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::HrisCreateEmployeeRequestDtoEthnicity), gender: T.nilable(Shared::HrisCreateEmployeeRequestDtoGender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HrisCreateEmployeeRequestDtoHomeLocation), job_title: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::HrisCreateEmployeeRequestDtoMaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_location: T.nilable(Shared::HrisCreateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(String)).void }
-      def initialize(first_name: nil, last_name: nil, work_email: nil, avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, gender: nil, hire_date: nil, home_location: nil, job_title: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, work_anniversary: nil, work_location: nil, work_phone_number: nil)
-        @first_name = first_name
-        @last_name = last_name
-        @work_email = work_email
+      sig { params(avatar: T.nilable(Shared::HrisCreateEmployeeRequestDtoAvatar), avatar_url: T.nilable(String), birthday: T.nilable(DateTime), citizenships: T.nilable(T::Array[Shared::CountryCodeEnum]), company_name: T.nilable(String), custom_fields: T.nilable(T::Array[Shared::EmployeeCustomFields]), date_of_birth: T.nilable(DateTime), department: T.nilable(String), display_name: T.nilable(String), employment_contract_type: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(Shared::HrisCreateEmployeeRequestDtoEmploymentType), employments: T.nilable(T::Array[Shared::Employment]), ethnicity: T.nilable(Shared::HrisCreateEmployeeRequestDtoEthnicity), first_name: T.nilable(String), gender: T.nilable(Shared::HrisCreateEmployeeRequestDtoGender), hire_date: T.nilable(DateTime), home_location: T.nilable(Shared::HrisCreateEmployeeRequestDtoHomeLocation), job_title: T.nilable(String), last_name: T.nilable(String), manager_id: T.nilable(String), marital_status: T.nilable(Shared::HrisCreateEmployeeRequestDtoMaritalStatus), name: T.nilable(String), personal_email: T.nilable(String), personal_phone_number: T.nilable(String), start_date: T.nilable(DateTime), tenure: T.nilable(Float), termination_date: T.nilable(DateTime), work_anniversary: T.nilable(DateTime), work_email: T.nilable(String), work_location: T.nilable(Shared::HrisCreateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(String)).void }
+      def initialize(avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, work_anniversary: nil, work_email: nil, work_location: nil, work_phone_number: nil)
         @avatar = avatar
         @avatar_url = avatar_url
         @birthday = birthday
@@ -8624,10 +8621,12 @@ module StackOne
         @employment_type = employment_type
         @employments = employments
         @ethnicity = ethnicity
+        @first_name = first_name
         @gender = gender
         @hire_date = hire_date
         @home_location = home_location
         @job_title = job_title
+        @last_name = last_name
         @manager_id = manager_id
         @marital_status = marital_status
         @name = name
@@ -8637,6 +8636,7 @@ module StackOne
         @tenure = tenure
         @termination_date = termination_date
         @work_anniversary = work_anniversary
+        @work_email = work_email
         @work_location = work_location
         @work_phone_number = work_phone_number
       end

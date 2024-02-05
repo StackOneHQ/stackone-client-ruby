@@ -60,7 +60,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Shared::HrisCreate
         options=[
           "string",
         ],
-        type=Shared::Type.new(
+        type=Shared::EmployeeCustomFieldsType.new(
           source_value="string",
         ),
         value=Shared::EmployeeCustomFieldsValue.new(),
@@ -928,7 +928,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=Shared::HrisCreate
         options=[
           "string",
         ],
-        type=Shared::Type.new(
+        type=Shared::EmployeeCustomFieldsType.new(
           source_value="string",
         ),
         value=Shared::EmployeeCustomFieldsValue.new(),

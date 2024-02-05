@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 7051ec76dad6a4c71b42f5fd65c3b157
+  docChecksum: 1560f6a184ac8708ff0964e3a10b1304
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.248.3
-  releaseVersion: 0.1.0
-  configChecksum: a7bb5f670f569571a8599447aa7e47fd
+  generationVersion: 2.248.6
+  releaseVersion: 0.1.1
+  configChecksum: 4b5225b7ebf0224560b4b2e47966a8ab
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -130,7 +130,6 @@ generatedFiles:
   - lib/stackone/models/shared/costcenters.rb
   - lib/stackone/models/shared/documentresult.rb
   - lib/stackone/models/shared/documentapimodel.rb
-  - lib/stackone/models/shared/documenttypeenum.rb
   - lib/stackone/models/shared/timeoffresult.rb
   - lib/stackone/models/shared/timeoff.rb
   - lib/stackone/models/shared/employmentresult.rb
@@ -268,7 +267,7 @@ generatedFiles:
   - docs/models/shared/payperiod.md
   - docs/models/shared/employment.md
   - docs/models/shared/employeecustomfieldsschemasvalue.md
-  - docs/models/shared/type.md
+  - docs/models/shared/employeecustomfieldstype.md
   - docs/models/shared/employeecustomfieldsvalue.md
   - docs/models/shared/employeecustomfields.md
   - docs/models/shared/value.md
@@ -318,9 +317,9 @@ generatedFiles:
   - docs/models/shared/fileformatenum.md
   - docs/models/shared/costcenters.md
   - docs/models/shared/documentresult.md
+  - docs/models/shared/documentapimodelvalue.md
+  - docs/models/shared/type.md
   - docs/models/shared/documentapimodel.md
-  - docs/models/shared/documenttypeenumvalue.md
-  - docs/models/shared/documenttypeenum.md
   - docs/models/shared/timeoffresult.md
   - docs/models/shared/timeoffvalue.md
   - docs/models/shared/timeoffstatus.md
