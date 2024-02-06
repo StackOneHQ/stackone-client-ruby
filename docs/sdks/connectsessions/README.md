@@ -18,13 +18,13 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
 
-req = Shared::ConnectSessionAuthenticate.new(
+req = ::StackOne::Shared::ConnectSessionAuthenticate.new(
   token="string",
 )
     
@@ -38,14 +38,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [Shared::ConnectSessionAuthenticate](../../models/shared/connectsessionauthenticate.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [::StackOne::Shared::ConnectSessionAuthenticate](../../models/shared/connectsessionauthenticate.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneAuthenticateConnectSessionResponse)](../../models/operations/stackoneauthenticateconnectsessionresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneAuthenticateConnectSessionResponse)](../../models/operations/stackoneauthenticateconnectsessionresponse.md)**
 
 
 ## create_connect_session
@@ -60,17 +60,17 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
 
-req = Shared::ConnectSessionCreate.new(
+req = ::StackOne::Shared::ConnectSessionCreate.new(
   categories=[
-    Shared::ConnectSessionCreateCategories::HRIS_LEGACY,
+    ::StackOne::Shared::ConnectSessionCreateCategories::HRIS_LEGACY,
   ],
-  metadata=Shared::Metadata.new(),
+  metadata=::StackOne::Shared::Metadata.new(),
   origin_owner_id="string",
   origin_owner_name="string",
 )
@@ -85,12 +85,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [Shared::ConnectSessionCreate](../../models/shared/connectsessioncreate.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [::StackOne::Shared::ConnectSessionCreate](../../models/shared/connectsessioncreate.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneCreateConnectSessionResponse)](../../models/operations/stackonecreateconnectsessionresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneCreateConnectSessionResponse)](../../models/operations/stackonecreateconnectsessionresponse.md)**
 

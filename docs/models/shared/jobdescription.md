@@ -7,4 +7,4 @@ The employee job description
 
 | Field                      | Type                       | Required                   | Description                | Example                    |
 | -------------------------- | -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| `text`                     | *T.nilable(String)*        | :heavy_minus_sign:         | N/A                        | Testing the laws of motion |
+| `text`                     | *T.nilable(::String)*      | :heavy_minus_sign:         | N/A                        | Testing the laws of motion |

@@ -18,7 +18,7 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
@@ -36,13 +36,13 @@ end
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `provider`                                                             | *String*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
-| `include`                                                              | *String*                                                               | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response |
+| `provider`                                                             | *::String*                                                             | :heavy_check_mark:                                                     | N/A                                                                    |
+| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneGetConnectorMetaResponse)](../../models/operations/stackonegetconnectormetaresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneGetConnectorMetaResponse)](../../models/operations/stackonegetconnectormetaresponse.md)**
 
 
 ## list_connectors_meta
@@ -57,7 +57,7 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
@@ -75,10 +75,10 @@ end
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `include`                                                              | *String*                                                               | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response |
+| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneListConnectorsMetaResponse)](../../models/operations/stackonelistconnectorsmetaresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneListConnectorsMetaResponse)](../../models/operations/stackonelistconnectorsmetaresponse.md)**
 

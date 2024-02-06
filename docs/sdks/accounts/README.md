@@ -21,7 +21,7 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
@@ -39,12 +39,12 @@ end
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *String*           | :heavy_check_mark: | N/A                |
+| `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneDeleteAccountResponse)](../../models/operations/stackonedeleteaccountresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneDeleteAccountResponse)](../../models/operations/stackonedeleteaccountresponse.md)**
 
 
 ## get_account
@@ -59,7 +59,7 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
@@ -77,12 +77,12 @@ end
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *String*           | :heavy_check_mark: | N/A                |
+| `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneGetAccountResponse)](../../models/operations/stackonegetaccountresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneGetAccountResponse)](../../models/operations/stackonegetaccountresponse.md)**
 
 
 ## get_account_meta_info
@@ -97,7 +97,7 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
@@ -115,12 +115,12 @@ end
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *String*           | :heavy_check_mark: | N/A                |
+| `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneGetAccountMetaInfoResponse)](../../models/operations/stackonegetaccountmetainforesponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneGetAccountMetaInfoResponse)](../../models/operations/stackonegetaccountmetainforesponse.md)**
 
 
 ## list_linked_accounts
@@ -135,7 +135,7 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
@@ -153,13 +153,13 @@ end
 
 | Parameter                                           | Type                                                | Required                                            | Description                                         |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `origin_owner_id`                                   | *String*                                            | :heavy_minus_sign:                                  | The origin owner identifier of the results to fetch |
-| `provider`                                          | *String*                                            | :heavy_minus_sign:                                  | The provider of the results to fetch                |
+| `origin_owner_id`                                   | *::String*                                          | :heavy_minus_sign:                                  | The origin owner identifier of the results to fetch |
+| `provider`                                          | *::String*                                          | :heavy_minus_sign:                                  | The provider of the results to fetch                |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneListLinkedAccountsResponse)](../../models/operations/stackonelistlinkedaccountsresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneListLinkedAccountsResponse)](../../models/operations/stackonelistlinkedaccountsresponse.md)**
 
 
 ## update_account
@@ -174,13 +174,13 @@ require_relative stackone_client
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=Shared::Security.new(
+  security=::StackOne::Shared::Security.new(
     password="<YOUR_PASSWORD_HERE>",
   )
 )
 
     
-res = s.accounts.update_account(patch_account_dto=Shared::PatchAccountDto.new(), id="string")
+res = s.accounts.update_account(patch_account_dto=::StackOne::Shared::PatchAccountDto.new(), id="string")
 
 if ! res.linked_account.nil?
   # handle response
@@ -190,13 +190,13 @@ end
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `patch_account_dto`                                               | [Shared::PatchAccountDto](../../models/shared/patchaccountdto.md) | :heavy_check_mark:                                                | N/A                                                               |
-| `id`                                                              | *String*                                                          | :heavy_check_mark:                                                | N/A                                                               |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `patch_account_dto`                                                           | [::StackOne::Shared::PatchAccountDto](../../models/shared/patchaccountdto.md) | :heavy_check_mark:                                                            | N/A                                                                           |
+| `id`                                                                          | *::String*                                                                    | :heavy_check_mark:                                                            | N/A                                                                           |
 
 
 ### Response
 
-**[T.nilable(Operations::StackoneUpdateAccountResponse)](../../models/operations/stackoneupdateaccountresponse.md)**
+**[T.nilable(::StackOne::Operations::StackoneUpdateAccountResponse)](../../models/operations/stackoneupdateaccountresponse.md)**
 
