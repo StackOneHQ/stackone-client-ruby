@@ -13,19 +13,19 @@ Authenticate Connect Session
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
 
 req = ::StackOne::Shared::ConnectSessionAuthenticate.new(
-  token="string",
+  token: "string",
 )
     
 res = s.connect_sessions.authenticate_connect_session(req)
@@ -55,24 +55,24 @@ Create Connect Session
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
 
 req = ::StackOne::Shared::ConnectSessionCreate.new(
-  categories=[
+  categories: [
     ::StackOne::Shared::ConnectSessionCreateCategories::HRIS_LEGACY,
   ],
-  metadata=::StackOne::Shared::Metadata.new(),
-  origin_owner_id="string",
-  origin_owner_name="string",
+  metadata: ::StackOne::Shared::Metadata.new(),
+  origin_owner_id: "string",
+  origin_owner_name: "string",
 )
     
 res = s.connect_sessions.create_connect_session(req)

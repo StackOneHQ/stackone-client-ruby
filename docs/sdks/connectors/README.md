@@ -13,13 +13,13 @@ Get Connector Meta information for the given provider key
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
@@ -52,13 +52,13 @@ List Connectors Meta Information for all providers
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 

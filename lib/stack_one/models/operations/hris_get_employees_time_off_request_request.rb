@@ -18,7 +18,7 @@ module StackOne
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
       # The comma separated list of fields to return in the response (if empty, all fields are returned)
-      field :fields, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+      field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # The unified cursor
       field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
       # The page number of the results to fetch
@@ -35,12 +35,12 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, fields: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
-      def initialize(id: nil, sub_resource_id: nil, x_account_id: nil, fields: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+      sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, fields_: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      def initialize(id: nil, sub_resource_id: nil, x_account_id: nil, fields_: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
         @id = id
         @sub_resource_id = sub_resource_id
         @x_account_id = x_account_id
-        @fields = fields
+        @fields_ = fields_
         @next_ = next_
         @page = page
         @page_size = page_size

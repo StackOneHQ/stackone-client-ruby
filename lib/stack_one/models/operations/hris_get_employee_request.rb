@@ -18,7 +18,7 @@ module StackOne
       # The comma separated list of fields that will be expanded in the response
       field :expand, T.nilable(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
       # The comma separated list of fields to return in the response (if empty, all fields are returned)
-      field :fields, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+      field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # The comma separated list of fields that will be included in the response
       field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
       # The unified cursor
@@ -37,12 +37,12 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: ::String, x_account_id: ::String, expand: T.nilable(::String), fields: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(::StackOne::Operations::QueryParamProxy), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
-      def initialize(id: nil, x_account_id: nil, expand: nil, fields: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+      sig { params(id: ::String, x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(::StackOne::Operations::QueryParamProxy), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      def initialize(id: nil, x_account_id: nil, expand: nil, fields_: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
         @id = id
         @x_account_id = x_account_id
         @expand = expand
-        @fields = fields
+        @fields_ = fields_
         @include = include
         @next_ = next_
         @page = page

@@ -19,5 +19,7 @@
 | `PROBATION`          | probation            |
 | `INTERNAL`           | internal             |
 | `EXTERNAL`           | external             |
+| `EXPATRIATE`         | expatriate           |
 | `EMPLOYER_OF_RECORD` | employer_of_record   |
+| `CASUAL`             | casual               |
 | `UNMAPPED_VALUE`     | unmapped_value       |

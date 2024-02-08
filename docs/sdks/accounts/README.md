@@ -16,13 +16,13 @@ Delete Account
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
@@ -54,13 +54,13 @@ Get Account
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
@@ -92,13 +92,13 @@ Get meta information of the account
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
@@ -130,13 +130,13 @@ List Accounts
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
@@ -169,13 +169,13 @@ Update Account
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 

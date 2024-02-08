@@ -24,7 +24,9 @@ module StackOne
         PROBATION = new('probation')
         INTERNAL = new('internal')
         EXTERNAL = new('external')
+        EXPATRIATE = new('expatriate')
         EMPLOYER_OF_RECORD = new('employer_of_record')
+        CASUAL = new('casual')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

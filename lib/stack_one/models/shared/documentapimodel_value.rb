@@ -10,9 +10,15 @@ module StackOne
 
     class DocumentApiModelValue < T::Enum
       enums do
+        APPLICATION = new('application')
+        ACADEMIC = new('academic')
+        CONTRACT = new('contract')
+        CERTIFICATES = new('certificates')
         VISA = new('visa')
         PASSPORT = new('passport')
         DRIVER_LICENSE = new('driver_license')
+        PAYROLL = new('payroll')
+        APPRAISAL = new('appraisal')
         RESUME = new('resume')
         POLICY = new('policy')
         OFFER_LETTER = new('offer_letter')

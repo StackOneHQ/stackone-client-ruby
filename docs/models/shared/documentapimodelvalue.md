@@ -5,9 +5,15 @@
 
 | Name               | Value              |
 | ------------------ | ------------------ |
+| `APPLICATION`      | application        |
+| `ACADEMIC`         | academic           |
+| `CONTRACT`         | contract           |
+| `CERTIFICATES`     | certificates       |
 | `VISA`             | visa               |
 | `PASSPORT`         | passport           |
 | `DRIVER_LICENSE`   | driver_license     |
+| `PAYROLL`          | payroll            |
+| `APPRAISAL`        | appraisal          |
 | `RESUME`           | resume             |
 | `POLICY`           | policy             |
 | `OFFER_LETTER`     | offer_letter       |

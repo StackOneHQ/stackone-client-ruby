@@ -12,25 +12,25 @@ Proxy Request
 ### Example Usage
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
     
 res = s.proxy.proxy_request(proxy_request_body=::StackOne::Shared::ProxyRequestBody.new(
-    body=::StackOne::Shared::Body.new(),
-    headers=::StackOne::Shared::Headers.new(),
-    path="/employees/directory",
-    url="https://api.sample-integration.com/v1",
+    body: ::StackOne::Shared::Body.new(),
+    headers: ::StackOne::Shared::Headers.new(),
+    path: "/employees/directory",
+    url: "https://api.sample-integration.com/v1",
   ), x_account_id="string")
 
-if res.status == 200
+if res.status_code == 200
   # handle response
 end
 

@@ -21,20 +21,20 @@ gem install stackone_client
 ### List Employees
 
 ```ruby
-require_relative stackone_client
+require 'stackone_client'
 
 
 s = ::StackOne::StackOne.new
 s.config_security(
-  security=::StackOne::Shared::Security.new(
-    password="<YOUR_PASSWORD_HERE>",
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
   )
 )
 
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  proxy=::StackOne::Operations::HrisListEmployeesQueryParamProxy.new(),
-  x_account_id="string",
+  proxy: ::StackOne::Operations::HrisListEmployeesQueryParamProxy.new(),
+  x_account_id: "string",
 )
     
 res = s.hris.list_employees(req)
