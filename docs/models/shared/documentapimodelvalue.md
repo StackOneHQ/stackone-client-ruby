@@ -12,6 +12,7 @@
 | `VISA`             | visa               |
 | `PASSPORT`         | passport           |
 | `DRIVER_LICENSE`   | driver_license     |
+| `PAYSLIP`          | payslip            |
 | `PAYROLL`          | payroll            |
 | `APPRAISAL`        | appraisal          |
 | `RESUME`           | resume             |

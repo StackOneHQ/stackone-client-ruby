@@ -17,6 +17,7 @@ module StackOne
         VISA = new('visa')
         PASSPORT = new('passport')
         DRIVER_LICENSE = new('driver_license')
+        PAYSLIP = new('payslip')
         PAYROLL = new('payroll')
         APPRAISAL = new('appraisal')
         RESUME = new('resume')
