@@ -26,6 +26,11 @@ module StackOne
         PPTX = new('pptx')
         TXT = new('txt')
         JPEG = new('jpeg')
+        HTML = new('html')
+        GIF = new('gif')
+        MSG = new('msg')
+        TIF = new('tif')
+        DOCM = new('docm')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

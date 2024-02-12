@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 109053be47a997ebf9d0f1faabd8207a
+  docChecksum: a9d2029063a848908d18ac7dd1d1d6c8
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.250.22
-  releaseVersion: 0.2.1
-  configChecksum: d7dd0d30d86f3a04cffe38fb6eb61ffe
+  generationVersion: 2.252.2
+  releaseVersion: 0.2.2
+  configChecksum: 4bca259634492f5e9e51674ae1dca52a
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -31,6 +31,7 @@ generatedFiles:
   - lib/stack_one/stackone.rb
   - .rubocop.yml
   - Gemfile
+  - Gemfile.lock
   - Rakefile
   - lib/stack_one/utils/metadata_fields.rb
   - lib/stack_one/utils/utils.rb
