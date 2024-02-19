@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # EmployeeSchemasWorkLocationLocationTypeValue - The type of the location.
     class EmployeeSchemasWorkLocationLocationTypeValue < T::Enum
       enums do
         HOME = new('home')

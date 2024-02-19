@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 109053be47a997ebf9d0f1faabd8207a
+  docChecksum: 11353968fc3af622483e10e60dae8a86
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.250.22
-  releaseVersion: 0.2.1
-  configChecksum: d7dd0d30d86f3a04cffe38fb6eb61ffe
+  generationVersion: 2.262.2
+  releaseVersion: 0.2.2
+  configChecksum: 4bca259634492f5e9e51674ae1dca52a
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.6
+    core: 3.2.8
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -26,11 +26,15 @@ generatedFiles:
   - lib/stack_one/accounts.rb
   - lib/stack_one/connect_sessions.rb
   - lib/stack_one/connectors.rb
+  - lib/stack_one/ats.rb
+  - lib/stack_one/crm.rb
   - lib/stack_one/hris.rb
+  - lib/stack_one/marketing.rb
   - lib/stack_one/proxy.rb
   - lib/stack_one/stackone.rb
   - .rubocop.yml
   - Gemfile
+  - Gemfile.lock
   - Rakefile
   - lib/stack_one/utils/metadata_fields.rb
   - lib/stack_one/utils/utils.rb
@@ -91,16 +95,143 @@ generatedFiles:
   - lib/stack_one/models/operations/stackone_get_connector_meta_response.rb
   - lib/stack_one/models/operations/stackone_list_connectors_meta_request.rb
   - lib/stack_one/models/operations/stackone_list_connectors_meta_response.rb
+  - lib/stack_one/models/operations/ats_create_application_request.rb
+  - lib/stack_one/models/operations/ats_create_application_response.rb
+  - lib/stack_one/models/operations/ats_create_candidate_request.rb
+  - lib/stack_one/models/operations/ats_create_candidate_response.rb
+  - lib/stack_one/models/operations/ats_create_candidate_note_request.rb
+  - lib/stack_one/models/operations/ats_create_candidate_note_response.rb
+  - lib/stack_one/models/operations/ats_create_offer_request.rb
+  - lib/stack_one/models/operations/ats_create_offer_response.rb
+  - lib/stack_one/models/operations/proxy.rb
+  - lib/stack_one/models/operations/ats_get_application_request.rb
+  - lib/stack_one/models/operations/ats_get_application_response.rb
+  - lib/stack_one/models/operations/queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_application_document_request.rb
+  - lib/stack_one/models/operations/ats_get_application_document_response.rb
+  - lib/stack_one/models/operations/ats_get_application_offer_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_application_offer_request.rb
+  - lib/stack_one/models/operations/ats_get_application_offer_response.rb
+  - lib/stack_one/models/operations/ats_get_application_scorecard_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_application_scorecard_request.rb
+  - lib/stack_one/models/operations/ats_get_application_scorecard_response.rb
+  - lib/stack_one/models/operations/ats_get_candidate_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_candidate_request.rb
+  - lib/stack_one/models/operations/ats_get_candidate_response.rb
+  - lib/stack_one/models/operations/ats_get_candidate_note_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_candidate_note_request.rb
+  - lib/stack_one/models/operations/ats_get_candidate_note_response.rb
+  - lib/stack_one/models/operations/ats_get_department_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_department_request.rb
+  - lib/stack_one/models/operations/ats_get_department_response.rb
+  - lib/stack_one/models/operations/ats_get_interview_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_interview_request.rb
+  - lib/stack_one/models/operations/ats_get_interview_response.rb
+  - lib/stack_one/models/operations/ats_get_interview_stage_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_interview_stage_request.rb
+  - lib/stack_one/models/operations/ats_get_interview_stage_response.rb
+  - lib/stack_one/models/operations/ats_get_job_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_job_request.rb
+  - lib/stack_one/models/operations/ats_get_job_response.rb
+  - lib/stack_one/models/operations/ats_get_job_posting_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_job_posting_request.rb
+  - lib/stack_one/models/operations/ats_get_job_posting_response.rb
+  - lib/stack_one/models/operations/ats_get_location_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_location_request.rb
+  - lib/stack_one/models/operations/ats_get_location_response.rb
+  - lib/stack_one/models/operations/ats_get_offer_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_offer_request.rb
+  - lib/stack_one/models/operations/ats_get_offer_response.rb
+  - lib/stack_one/models/operations/ats_get_rejected_reason_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_rejected_reason_request.rb
+  - lib/stack_one/models/operations/ats_get_rejected_reason_response.rb
+  - lib/stack_one/models/operations/ats_get_user_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_get_user_request.rb
+  - lib/stack_one/models/operations/ats_get_user_response.rb
+  - lib/stack_one/models/operations/ats_list_application_documents_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_application_documents_request.rb
+  - lib/stack_one/models/operations/ats_list_application_documents_response.rb
+  - lib/stack_one/models/operations/ats_list_application_scorecards_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_application_scorecards_request.rb
+  - lib/stack_one/models/operations/ats_list_application_scorecards_response.rb
+  - lib/stack_one/models/operations/ats_list_applications_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_applications_request.rb
+  - lib/stack_one/models/operations/ats_list_applications_response.rb
+  - lib/stack_one/models/operations/ats_list_applications_offers_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_applications_offers_request.rb
+  - lib/stack_one/models/operations/ats_list_applications_offers_response.rb
+  - lib/stack_one/models/operations/ats_list_candidate_notes_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_candidate_notes_request.rb
+  - lib/stack_one/models/operations/ats_list_candidate_notes_response.rb
+  - lib/stack_one/models/operations/ats_list_candidates_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_candidates_request.rb
+  - lib/stack_one/models/operations/ats_list_candidates_response.rb
+  - lib/stack_one/models/operations/ats_list_departments_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_departments_request.rb
+  - lib/stack_one/models/operations/ats_list_departments_response.rb
+  - lib/stack_one/models/operations/ats_list_interview_stages_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_interview_stages_request.rb
+  - lib/stack_one/models/operations/ats_list_interview_stages_response.rb
+  - lib/stack_one/models/operations/ats_list_interviews_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_interviews_request.rb
+  - lib/stack_one/models/operations/ats_list_interviews_response.rb
+  - lib/stack_one/models/operations/ats_list_job_postings_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_job_postings_request.rb
+  - lib/stack_one/models/operations/ats_list_job_postings_response.rb
+  - lib/stack_one/models/operations/ats_list_jobs_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_jobs_request.rb
+  - lib/stack_one/models/operations/ats_list_jobs_response.rb
+  - lib/stack_one/models/operations/ats_list_locations_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_locations_request.rb
+  - lib/stack_one/models/operations/ats_list_locations_response.rb
+  - lib/stack_one/models/operations/ats_list_offers_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_offers_request.rb
+  - lib/stack_one/models/operations/ats_list_offers_response.rb
+  - lib/stack_one/models/operations/ats_list_rejected_reasons_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_rejected_reasons_request.rb
+  - lib/stack_one/models/operations/ats_list_rejected_reasons_response.rb
+  - lib/stack_one/models/operations/ats_list_users_queryparam_proxy.rb
+  - lib/stack_one/models/operations/ats_list_users_request.rb
+  - lib/stack_one/models/operations/ats_list_users_response.rb
+  - lib/stack_one/models/operations/ats_update_application_request.rb
+  - lib/stack_one/models/operations/ats_update_application_response.rb
+  - lib/stack_one/models/operations/ats_update_candidate_request.rb
+  - lib/stack_one/models/operations/ats_update_candidate_response.rb
+  - lib/stack_one/models/operations/crm_create_contact_request.rb
+  - lib/stack_one/models/operations/crm_create_contact_response.rb
+  - lib/stack_one/models/operations/crm_get_account_queryparam_proxy.rb
+  - lib/stack_one/models/operations/crm_get_account_request.rb
+  - lib/stack_one/models/operations/crm_get_account_response.rb
+  - lib/stack_one/models/operations/crm_get_contact_queryparam_proxy.rb
+  - lib/stack_one/models/operations/crm_get_contact_request.rb
+  - lib/stack_one/models/operations/crm_get_contact_response.rb
+  - lib/stack_one/models/operations/crm_get_list_queryparam_proxy.rb
+  - lib/stack_one/models/operations/crm_get_list_request.rb
+  - lib/stack_one/models/operations/crm_get_list_response.rb
+  - lib/stack_one/models/operations/crm_list_accounts_queryparam_proxy.rb
+  - lib/stack_one/models/operations/crm_list_accounts_request.rb
+  - lib/stack_one/models/operations/crm_list_accounts_response.rb
+  - lib/stack_one/models/operations/crm_list_contacts_queryparam_proxy.rb
+  - lib/stack_one/models/operations/crm_list_contacts_request.rb
+  - lib/stack_one/models/operations/crm_list_contacts_response.rb
+  - lib/stack_one/models/operations/crm_list_lists_queryparam_proxy.rb
+  - lib/stack_one/models/operations/crm_list_lists_request.rb
+  - lib/stack_one/models/operations/crm_list_lists_response.rb
+  - lib/stack_one/models/operations/crm_update_contact_request.rb
+  - lib/stack_one/models/operations/crm_update_contact_response.rb
   - lib/stack_one/models/operations/hris_create_employee_request.rb
   - lib/stack_one/models/operations/hris_create_employee_response.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_response.rb
   - lib/stack_one/models/operations/hris_create_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_create_time_off_request_response.rb
-  - lib/stack_one/models/operations/proxy.rb
+  - lib/stack_one/models/operations/hris_get_benefit_queryparam_proxy.rb
+  - lib/stack_one/models/operations/hris_get_benefit_request.rb
+  - lib/stack_one/models/operations/hris_get_benefit_response.rb
+  - lib/stack_one/models/operations/hris_get_company_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_get_company_request.rb
   - lib/stack_one/models/operations/hris_get_company_response.rb
-  - lib/stack_one/models/operations/queryparam_proxy.rb
+  - lib/stack_one/models/operations/hris_get_employee_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_get_employee_request.rb
   - lib/stack_one/models/operations/hris_get_employee_response.rb
   - lib/stack_one/models/operations/hris_get_employee_document_queryparam_proxy.rb
@@ -118,6 +249,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_time_off_request_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_list_benefits_queryparam_proxy.rb
+  - lib/stack_one/models/operations/hris_list_benefits_request.rb
+  - lib/stack_one/models/operations/hris_list_benefits_response.rb
   - lib/stack_one/models/operations/hris_list_companies_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_list_companies_request.rb
   - lib/stack_one/models/operations/hris_list_companies_response.rb
@@ -143,6 +277,42 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_update_employee_response.rb
   - lib/stack_one/models/operations/hris_update_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_update_time_off_request_response.rb
+  - lib/stack_one/models/operations/marketing_create_email_template_request.rb
+  - lib/stack_one/models/operations/marketing_create_email_template_response.rb
+  - lib/stack_one/models/operations/marketing_create_omni_channel_template_request.rb
+  - lib/stack_one/models/operations/marketing_create_omni_channel_template_response.rb
+  - lib/stack_one/models/operations/marketing_create_push_template_request.rb
+  - lib/stack_one/models/operations/marketing_create_push_template_response.rb
+  - lib/stack_one/models/operations/marketing_get_campaign_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_get_campaign_request.rb
+  - lib/stack_one/models/operations/marketing_get_campaign_response.rb
+  - lib/stack_one/models/operations/marketing_get_email_template_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_get_email_template_request.rb
+  - lib/stack_one/models/operations/marketing_get_email_template_response.rb
+  - lib/stack_one/models/operations/marketing_get_omni_channel_template_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_get_omni_channel_template_request.rb
+  - lib/stack_one/models/operations/marketing_get_omni_channel_template_response.rb
+  - lib/stack_one/models/operations/marketing_get_push_template_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_get_push_template_request.rb
+  - lib/stack_one/models/operations/marketing_get_push_template_response.rb
+  - lib/stack_one/models/operations/marketing_list_campaigns_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_list_campaigns_request.rb
+  - lib/stack_one/models/operations/marketing_list_campaigns_response.rb
+  - lib/stack_one/models/operations/marketing_list_email_templates_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_list_email_templates_request.rb
+  - lib/stack_one/models/operations/marketing_list_email_templates_response.rb
+  - lib/stack_one/models/operations/marketing_list_omni_channel_templates_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_list_omni_channel_templates_request.rb
+  - lib/stack_one/models/operations/marketing_list_omni_channel_templates_response.rb
+  - lib/stack_one/models/operations/marketing_list_push_templates_queryparam_proxy.rb
+  - lib/stack_one/models/operations/marketing_list_push_templates_request.rb
+  - lib/stack_one/models/operations/marketing_list_push_templates_response.rb
+  - lib/stack_one/models/operations/marketing_update_email_template_request.rb
+  - lib/stack_one/models/operations/marketing_update_email_template_response.rb
+  - lib/stack_one/models/operations/marketing_update_omni_channel_template_request.rb
+  - lib/stack_one/models/operations/marketing_update_omni_channel_template_response.rb
+  - lib/stack_one/models/operations/marketing_update_push_template_request.rb
+  - lib/stack_one/models/operations/marketing_update_push_template_response.rb
   - lib/stack_one/models/operations/stackone_proxy_request_request.rb
   - lib/stack_one/models/operations/stackone_proxy_request_response.rb
   - lib/stack_one/models/shared/credentials.rb
@@ -163,6 +333,149 @@ generatedFiles:
   - lib/stack_one/models/shared/images.rb
   - lib/stack_one/models/shared/resources.rb
   - lib/stack_one/models/shared/connectorsmeta.rb
+  - lib/stack_one/models/shared/createresult.rb
+  - lib/stack_one/models/shared/atscreateapplicationrequestdto_value.rb
+  - lib/stack_one/models/shared/atscreateapplicationrequestdto_application_status.rb
+  - lib/stack_one/models/shared/atscreateapplicationrequestdto_candidate.rb
+  - lib/stack_one/models/shared/atscreateapplicationrequestdto.rb
+  - lib/stack_one/models/shared/questionnaire.rb
+  - lib/stack_one/models/shared/answer_value.rb
+  - lib/stack_one/models/shared/type.rb
+  - lib/stack_one/models/shared/answer.rb
+  - lib/stack_one/models/shared/applicationattachment_value.rb
+  - lib/stack_one/models/shared/content_type.rb
+  - lib/stack_one/models/shared/applicationattachment.rb
+  - lib/stack_one/models/shared/candidateresult.rb
+  - lib/stack_one/models/shared/response.rb
+  - lib/stack_one/models/shared/rawresponse.rb
+  - lib/stack_one/models/shared/candidate.rb
+  - lib/stack_one/models/shared/sociallink.rb
+  - lib/stack_one/models/shared/phonenumber_type.rb
+  - lib/stack_one/models/shared/phonenumber.rb
+  - lib/stack_one/models/shared/candidateemail.rb
+  - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
+  - lib/stack_one/models/shared/createcandidatenoteresult.rb
+  - lib/stack_one/models/shared/atscreatenotesrequestdto_value.rb
+  - lib/stack_one/models/shared/visibility.rb
+  - lib/stack_one/models/shared/atscreatenotesrequestdto.rb
+  - lib/stack_one/models/shared/notecontentapimodel.rb
+  - lib/stack_one/models/shared/createofferresult.rb
+  - lib/stack_one/models/shared/atscreateofferrequestdto_value.rb
+  - lib/stack_one/models/shared/offer_status.rb
+  - lib/stack_one/models/shared/atscreateofferrequestdto.rb
+  - lib/stack_one/models/shared/offerhistory.rb
+  - lib/stack_one/models/shared/applicationresult.rb
+  - lib/stack_one/models/shared/application_value.rb
+  - lib/stack_one/models/shared/application_status.rb
+  - lib/stack_one/models/shared/application_candidate.rb
+  - lib/stack_one/models/shared/application_interview_stage.rb
+  - lib/stack_one/models/shared/application.rb
+  - lib/stack_one/models/shared/resultlink.rb
+  - lib/stack_one/models/shared/rejectedreason_value.rb
+  - lib/stack_one/models/shared/rejected_reason_type.rb
+  - lib/stack_one/models/shared/rejectedreason.rb
+  - lib/stack_one/models/shared/documentapimodel_value.rb
+  - lib/stack_one/models/shared/documentapimodel_type.rb
+  - lib/stack_one/models/shared/documentapimodel.rb
+  - lib/stack_one/models/shared/content.rb
+  - lib/stack_one/models/shared/fileformatenum_value.rb
+  - lib/stack_one/models/shared/fileformatenum.rb
+  - lib/stack_one/models/shared/documentresult.rb
+  - lib/stack_one/models/shared/offersresult.rb
+  - lib/stack_one/models/shared/offer_value.rb
+  - lib/stack_one/models/shared/offer_offer_status.rb
+  - lib/stack_one/models/shared/offer.rb
+  - lib/stack_one/models/shared/noteresult.rb
+  - lib/stack_one/models/shared/note_value.rb
+  - lib/stack_one/models/shared/note_visibility.rb
+  - lib/stack_one/models/shared/note.rb
+  - lib/stack_one/models/shared/departmentresult.rb
+  - lib/stack_one/models/shared/department.rb
+  - lib/stack_one/models/shared/interviewsresult.rb
+  - lib/stack_one/models/shared/interview_interview_stage.rb
+  - lib/stack_one/models/shared/interview_value.rb
+  - lib/stack_one/models/shared/interview_status.rb
+  - lib/stack_one/models/shared/interview.rb
+  - lib/stack_one/models/shared/interviewer.rb
+  - lib/stack_one/models/shared/interviewpart.rb
+  - lib/stack_one/models/shared/interviewstageresult.rb
+  - lib/stack_one/models/shared/interviewstage.rb
+  - lib/stack_one/models/shared/jobresult.rb
+  - lib/stack_one/models/shared/confidential.rb
+  - lib/stack_one/models/shared/job_value.rb
+  - lib/stack_one/models/shared/job_status.rb
+  - lib/stack_one/models/shared/job.rb
+  - lib/stack_one/models/shared/jobhiringteam.rb
+  - lib/stack_one/models/shared/jobpostingresult.rb
+  - lib/stack_one/models/shared/jobposting_content.rb
+  - lib/stack_one/models/shared/jobposting_value.rb
+  - lib/stack_one/models/shared/jobposting_employment_contract_type.rb
+  - lib/stack_one/models/shared/jobposting_schemas_value.rb
+  - lib/stack_one/models/shared/jobposting_employment_type.rb
+  - lib/stack_one/models/shared/internal.rb
+  - lib/stack_one/models/shared/jobposting_schemas_status_value.rb
+  - lib/stack_one/models/shared/jobposting_status.rb
+  - lib/stack_one/models/shared/jobposting.rb
+  - lib/stack_one/models/shared/jobpostingquestionnaire.rb
+  - lib/stack_one/models/shared/question_value.rb
+  - lib/stack_one/models/shared/question_type.rb
+  - lib/stack_one/models/shared/question.rb
+  - lib/stack_one/models/shared/questionmultiplechoiceanswers.rb
+  - lib/stack_one/models/shared/jobpostinglocation.rb
+  - lib/stack_one/models/shared/jobpostingcompensation_value.rb
+  - lib/stack_one/models/shared/jobpostingcompensation_pay_frequency.rb
+  - lib/stack_one/models/shared/jobpostingcompensation_schemas_value.rb
+  - lib/stack_one/models/shared/jobpostingcompensation_pay_period.rb
+  - lib/stack_one/models/shared/jobpostingcompensation_schemas_type_value.rb
+  - lib/stack_one/models/shared/jobpostingcompensation_type.rb
+  - lib/stack_one/models/shared/jobpostingcompensation.rb
+  - lib/stack_one/models/shared/atslocationresult.rb
+  - lib/stack_one/models/shared/atslocation.rb
+  - lib/stack_one/models/shared/rejectedreasonresult.rb
+  - lib/stack_one/models/shared/userresult.rb
+  - lib/stack_one/models/shared/user.rb
+  - lib/stack_one/models/shared/documentspaginated.rb
+  - lib/stack_one/models/shared/scorecardspaginated.rb
+  - lib/stack_one/models/shared/overall_recommendation.rb
+  - lib/stack_one/models/shared/scorecard.rb
+  - lib/stack_one/models/shared/scorecardsection.rb
+  - lib/stack_one/models/shared/field_type.rb
+  - lib/stack_one/models/shared/field.rb
+  - lib/stack_one/models/shared/applicationspaginated.rb
+  - lib/stack_one/models/shared/offerspaginated.rb
+  - lib/stack_one/models/shared/notespaginated.rb
+  - lib/stack_one/models/shared/candidatespaginated.rb
+  - lib/stack_one/models/shared/departmentspaginated.rb
+  - lib/stack_one/models/shared/interviewstagespaginated.rb
+  - lib/stack_one/models/shared/interviewspaginated.rb
+  - lib/stack_one/models/shared/jobpostingspaginated.rb
+  - lib/stack_one/models/shared/jobspaginated.rb
+  - lib/stack_one/models/shared/atslocationspaginated.rb
+  - lib/stack_one/models/shared/rejectedreasonspaginated.rb
+  - lib/stack_one/models/shared/userspaginated.rb
+  - lib/stack_one/models/shared/updateresult.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_value.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_application_status.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_candidate.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto.rb
+  - lib/stack_one/models/shared/atsupdatecandidatesrequestdto.rb
+  - lib/stack_one/models/shared/contactresult.rb
+  - lib/stack_one/models/shared/contact.rb
+  - lib/stack_one/models/shared/crmcreatecontactrequestdto.rb
+  - lib/stack_one/models/shared/accountresult.rb
+  - lib/stack_one/models/shared/account.rb
+  - lib/stack_one/models/shared/accountaddress_schemas_value.rb
+  - lib/stack_one/models/shared/country.rb
+  - lib/stack_one/models/shared/accountaddress_value.rb
+  - lib/stack_one/models/shared/location_type.rb
+  - lib/stack_one/models/shared/accountaddress.rb
+  - lib/stack_one/models/shared/listresult.rb
+  - lib/stack_one/models/shared/list_value.rb
+  - lib/stack_one/models/shared/list_type.rb
+  - lib/stack_one/models/shared/list.rb
+  - lib/stack_one/models/shared/accountspaginated.rb
+  - lib/stack_one/models/shared/contactspaginated.rb
+  - lib/stack_one/models/shared/listspaginated.rb
   - lib/stack_one/models/shared/createemployeeresult.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_avatar.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_value.rb
@@ -201,17 +514,19 @@ generatedFiles:
   - lib/stack_one/models/shared/employeecustomfields_type.rb
   - lib/stack_one/models/shared/employeecustomfields_value.rb
   - lib/stack_one/models/shared/employeecustomfields.rb
-  - lib/stack_one/models/shared/value.rb
+  - lib/stack_one/models/shared/countrycodeenum_value.rb
   - lib/stack_one/models/shared/countrycodeenum.rb
   - lib/stack_one/models/shared/createtimeoffresult.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_value.rb
-  - lib/stack_one/models/shared/status.rb
+  - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_status.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_type.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto.rb
+  - lib/stack_one/models/shared/hrisbenefitresult.rb
+  - lib/stack_one/models/shared/hrisbenefit_value.rb
+  - lib/stack_one/models/shared/benefit_type.rb
+  - lib/stack_one/models/shared/hrisbenefit.rb
   - lib/stack_one/models/shared/companyresult.rb
-  - lib/stack_one/models/shared/response.rb
-  - lib/stack_one/models/shared/rawresponse.rb
   - lib/stack_one/models/shared/company.rb
   - lib/stack_one/models/shared/employeeresult.rb
   - lib/stack_one/models/shared/avatar.rb
@@ -226,31 +541,24 @@ generatedFiles:
   - lib/stack_one/models/shared/employee_schemas_gender_value.rb
   - lib/stack_one/models/shared/gender.rb
   - lib/stack_one/models/shared/employee_schemas_home_location_value.rb
-  - lib/stack_one/models/shared/employee_schemas_country.rb
+  - lib/stack_one/models/shared/employee_country.rb
   - lib/stack_one/models/shared/employee_schemas_home_location_location_type_value.rb
-  - lib/stack_one/models/shared/employee_schemas_location_type.rb
+  - lib/stack_one/models/shared/employee_location_type.rb
   - lib/stack_one/models/shared/home_location.rb
   - lib/stack_one/models/shared/job_description.rb
   - lib/stack_one/models/shared/employee_schemas_marital_status_value.rb
   - lib/stack_one/models/shared/marital_status.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_value.rb
-  - lib/stack_one/models/shared/employee_country.rb
+  - lib/stack_one/models/shared/employee_schemas_country.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_location_type_value.rb
-  - lib/stack_one/models/shared/employee_location_type.rb
+  - lib/stack_one/models/shared/employee_schemas_location_type.rb
   - lib/stack_one/models/shared/work_location.rb
   - lib/stack_one/models/shared/employee.rb
   - lib/stack_one/models/shared/document.rb
   - lib/stack_one/models/shared/workeligibility_value.rb
   - lib/stack_one/models/shared/workeligibility_type.rb
   - lib/stack_one/models/shared/workeligibility.rb
-  - lib/stack_one/models/shared/content.rb
-  - lib/stack_one/models/shared/fileformatenum_value.rb
-  - lib/stack_one/models/shared/fileformatenum.rb
   - lib/stack_one/models/shared/costcenters.rb
-  - lib/stack_one/models/shared/documentresult.rb
-  - lib/stack_one/models/shared/documentapimodel_value.rb
-  - lib/stack_one/models/shared/type.rb
-  - lib/stack_one/models/shared/documentapimodel.rb
   - lib/stack_one/models/shared/timeoffresult.rb
   - lib/stack_one/models/shared/timeoff_value.rb
   - lib/stack_one/models/shared/timeoff_status.rb
@@ -260,16 +568,40 @@ generatedFiles:
   - lib/stack_one/models/shared/employmentresult.rb
   - lib/stack_one/models/shared/hrislocationresult.rb
   - lib/stack_one/models/shared/hrislocation_value.rb
-  - lib/stack_one/models/shared/country.rb
+  - lib/stack_one/models/shared/hrislocation_country.rb
   - lib/stack_one/models/shared/hrislocation_schemas_value.rb
-  - lib/stack_one/models/shared/location_type.rb
+  - lib/stack_one/models/shared/hrislocation_location_type.rb
   - lib/stack_one/models/shared/hrislocation.rb
+  - lib/stack_one/models/shared/hrisbenefitspaginated.rb
   - lib/stack_one/models/shared/companiespaginated.rb
-  - lib/stack_one/models/shared/documentspaginated.rb
   - lib/stack_one/models/shared/timeoffpaginated.rb
   - lib/stack_one/models/shared/employeespaginated.rb
   - lib/stack_one/models/shared/employmentspaginated.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
+  - lib/stack_one/models/shared/createtemplateresult.rb
+  - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
+  - lib/stack_one/models/shared/message_content.rb
+  - lib/stack_one/models/shared/message_type.rb
+  - lib/stack_one/models/shared/emailmessages.rb
+  - lib/stack_one/models/shared/marketingcreatetemplaterequestdto.rb
+  - lib/stack_one/models/shared/message_message_type.rb
+  - lib/stack_one/models/shared/message.rb
+  - lib/stack_one/models/shared/marketingcreatepushtemplaterequestdto.rb
+  - lib/stack_one/models/shared/pushmessages_message_content.rb
+  - lib/stack_one/models/shared/pushmessages_message_type.rb
+  - lib/stack_one/models/shared/pushmessages.rb
+  - lib/stack_one/models/shared/campaignresult.rb
+  - lib/stack_one/models/shared/campaign_value.rb
+  - lib/stack_one/models/shared/schedule_type.rb
+  - lib/stack_one/models/shared/campaign_schemas_value.rb
+  - lib/stack_one/models/shared/status.rb
+  - lib/stack_one/models/shared/campaign.rb
+  - lib/stack_one/models/shared/value.rb
+  - lib/stack_one/models/shared/channelsenum.rb
+  - lib/stack_one/models/shared/templateresult.rb
+  - lib/stack_one/models/shared/template.rb
+  - lib/stack_one/models/shared/campaignspaginated.rb
+  - lib/stack_one/models/shared/templatespaginated.rb
   - lib/stack_one/models/shared/body.rb
   - lib/stack_one/models/shared/headers.rb
   - lib/stack_one/models/shared/method.rb
@@ -294,16 +626,143 @@ generatedFiles:
   - docs/models/operations/stackonegetconnectormetaresponse.md
   - docs/models/operations/stackonelistconnectorsmetarequest.md
   - docs/models/operations/stackonelistconnectorsmetaresponse.md
+  - docs/models/operations/atscreateapplicationrequest.md
+  - docs/models/operations/atscreateapplicationresponse.md
+  - docs/models/operations/atscreatecandidaterequest.md
+  - docs/models/operations/atscreatecandidateresponse.md
+  - docs/models/operations/atscreatecandidatenoterequest.md
+  - docs/models/operations/atscreatecandidatenoteresponse.md
+  - docs/models/operations/atscreateofferrequest.md
+  - docs/models/operations/atscreateofferresponse.md
+  - docs/models/operations/proxy.md
+  - docs/models/operations/atsgetapplicationrequest.md
+  - docs/models/operations/atsgetapplicationresponse.md
+  - docs/models/operations/queryparamproxy.md
+  - docs/models/operations/atsgetapplicationdocumentrequest.md
+  - docs/models/operations/atsgetapplicationdocumentresponse.md
+  - docs/models/operations/atsgetapplicationofferqueryparamproxy.md
+  - docs/models/operations/atsgetapplicationofferrequest.md
+  - docs/models/operations/atsgetapplicationofferresponse.md
+  - docs/models/operations/atsgetapplicationscorecardqueryparamproxy.md
+  - docs/models/operations/atsgetapplicationscorecardrequest.md
+  - docs/models/operations/atsgetapplicationscorecardresponse.md
+  - docs/models/operations/atsgetcandidatequeryparamproxy.md
+  - docs/models/operations/atsgetcandidaterequest.md
+  - docs/models/operations/atsgetcandidateresponse.md
+  - docs/models/operations/atsgetcandidatenotequeryparamproxy.md
+  - docs/models/operations/atsgetcandidatenoterequest.md
+  - docs/models/operations/atsgetcandidatenoteresponse.md
+  - docs/models/operations/atsgetdepartmentqueryparamproxy.md
+  - docs/models/operations/atsgetdepartmentrequest.md
+  - docs/models/operations/atsgetdepartmentresponse.md
+  - docs/models/operations/atsgetinterviewqueryparamproxy.md
+  - docs/models/operations/atsgetinterviewrequest.md
+  - docs/models/operations/atsgetinterviewresponse.md
+  - docs/models/operations/atsgetinterviewstagequeryparamproxy.md
+  - docs/models/operations/atsgetinterviewstagerequest.md
+  - docs/models/operations/atsgetinterviewstageresponse.md
+  - docs/models/operations/atsgetjobqueryparamproxy.md
+  - docs/models/operations/atsgetjobrequest.md
+  - docs/models/operations/atsgetjobresponse.md
+  - docs/models/operations/atsgetjobpostingqueryparamproxy.md
+  - docs/models/operations/atsgetjobpostingrequest.md
+  - docs/models/operations/atsgetjobpostingresponse.md
+  - docs/models/operations/atsgetlocationqueryparamproxy.md
+  - docs/models/operations/atsgetlocationrequest.md
+  - docs/models/operations/atsgetlocationresponse.md
+  - docs/models/operations/atsgetofferqueryparamproxy.md
+  - docs/models/operations/atsgetofferrequest.md
+  - docs/models/operations/atsgetofferresponse.md
+  - docs/models/operations/atsgetrejectedreasonqueryparamproxy.md
+  - docs/models/operations/atsgetrejectedreasonrequest.md
+  - docs/models/operations/atsgetrejectedreasonresponse.md
+  - docs/models/operations/atsgetuserqueryparamproxy.md
+  - docs/models/operations/atsgetuserrequest.md
+  - docs/models/operations/atsgetuserresponse.md
+  - docs/models/operations/atslistapplicationdocumentsqueryparamproxy.md
+  - docs/models/operations/atslistapplicationdocumentsrequest.md
+  - docs/models/operations/atslistapplicationdocumentsresponse.md
+  - docs/models/operations/atslistapplicationscorecardsqueryparamproxy.md
+  - docs/models/operations/atslistapplicationscorecardsrequest.md
+  - docs/models/operations/atslistapplicationscorecardsresponse.md
+  - docs/models/operations/atslistapplicationsqueryparamproxy.md
+  - docs/models/operations/atslistapplicationsrequest.md
+  - docs/models/operations/atslistapplicationsresponse.md
+  - docs/models/operations/atslistapplicationsoffersqueryparamproxy.md
+  - docs/models/operations/atslistapplicationsoffersrequest.md
+  - docs/models/operations/atslistapplicationsoffersresponse.md
+  - docs/models/operations/atslistcandidatenotesqueryparamproxy.md
+  - docs/models/operations/atslistcandidatenotesrequest.md
+  - docs/models/operations/atslistcandidatenotesresponse.md
+  - docs/models/operations/atslistcandidatesqueryparamproxy.md
+  - docs/models/operations/atslistcandidatesrequest.md
+  - docs/models/operations/atslistcandidatesresponse.md
+  - docs/models/operations/atslistdepartmentsqueryparamproxy.md
+  - docs/models/operations/atslistdepartmentsrequest.md
+  - docs/models/operations/atslistdepartmentsresponse.md
+  - docs/models/operations/atslistinterviewstagesqueryparamproxy.md
+  - docs/models/operations/atslistinterviewstagesrequest.md
+  - docs/models/operations/atslistinterviewstagesresponse.md
+  - docs/models/operations/atslistinterviewsqueryparamproxy.md
+  - docs/models/operations/atslistinterviewsrequest.md
+  - docs/models/operations/atslistinterviewsresponse.md
+  - docs/models/operations/atslistjobpostingsqueryparamproxy.md
+  - docs/models/operations/atslistjobpostingsrequest.md
+  - docs/models/operations/atslistjobpostingsresponse.md
+  - docs/models/operations/atslistjobsqueryparamproxy.md
+  - docs/models/operations/atslistjobsrequest.md
+  - docs/models/operations/atslistjobsresponse.md
+  - docs/models/operations/atslistlocationsqueryparamproxy.md
+  - docs/models/operations/atslistlocationsrequest.md
+  - docs/models/operations/atslistlocationsresponse.md
+  - docs/models/operations/atslistoffersqueryparamproxy.md
+  - docs/models/operations/atslistoffersrequest.md
+  - docs/models/operations/atslistoffersresponse.md
+  - docs/models/operations/atslistrejectedreasonsqueryparamproxy.md
+  - docs/models/operations/atslistrejectedreasonsrequest.md
+  - docs/models/operations/atslistrejectedreasonsresponse.md
+  - docs/models/operations/atslistusersqueryparamproxy.md
+  - docs/models/operations/atslistusersrequest.md
+  - docs/models/operations/atslistusersresponse.md
+  - docs/models/operations/atsupdateapplicationrequest.md
+  - docs/models/operations/atsupdateapplicationresponse.md
+  - docs/models/operations/atsupdatecandidaterequest.md
+  - docs/models/operations/atsupdatecandidateresponse.md
+  - docs/models/operations/crmcreatecontactrequest.md
+  - docs/models/operations/crmcreatecontactresponse.md
+  - docs/models/operations/crmgetaccountqueryparamproxy.md
+  - docs/models/operations/crmgetaccountrequest.md
+  - docs/models/operations/crmgetaccountresponse.md
+  - docs/models/operations/crmgetcontactqueryparamproxy.md
+  - docs/models/operations/crmgetcontactrequest.md
+  - docs/models/operations/crmgetcontactresponse.md
+  - docs/models/operations/crmgetlistqueryparamproxy.md
+  - docs/models/operations/crmgetlistrequest.md
+  - docs/models/operations/crmgetlistresponse.md
+  - docs/models/operations/crmlistaccountsqueryparamproxy.md
+  - docs/models/operations/crmlistaccountsrequest.md
+  - docs/models/operations/crmlistaccountsresponse.md
+  - docs/models/operations/crmlistcontactsqueryparamproxy.md
+  - docs/models/operations/crmlistcontactsrequest.md
+  - docs/models/operations/crmlistcontactsresponse.md
+  - docs/models/operations/crmlistlistsqueryparamproxy.md
+  - docs/models/operations/crmlistlistsrequest.md
+  - docs/models/operations/crmlistlistsresponse.md
+  - docs/models/operations/crmupdatecontactrequest.md
+  - docs/models/operations/crmupdatecontactresponse.md
   - docs/models/operations/hriscreateemployeerequest.md
   - docs/models/operations/hriscreateemployeeresponse.md
   - docs/models/operations/hriscreateemployeetimeoffrequestrequest.md
   - docs/models/operations/hriscreateemployeetimeoffrequestresponse.md
   - docs/models/operations/hriscreatetimeoffrequestrequest.md
   - docs/models/operations/hriscreatetimeoffrequestresponse.md
-  - docs/models/operations/proxy.md
+  - docs/models/operations/hrisgetbenefitqueryparamproxy.md
+  - docs/models/operations/hrisgetbenefitrequest.md
+  - docs/models/operations/hrisgetbenefitresponse.md
+  - docs/models/operations/hrisgetcompanyqueryparamproxy.md
   - docs/models/operations/hrisgetcompanyrequest.md
   - docs/models/operations/hrisgetcompanyresponse.md
-  - docs/models/operations/queryparamproxy.md
+  - docs/models/operations/hrisgetemployeequeryparamproxy.md
   - docs/models/operations/hrisgetemployeerequest.md
   - docs/models/operations/hrisgetemployeeresponse.md
   - docs/models/operations/hrisgetemployeedocumentqueryparamproxy.md
@@ -321,6 +780,9 @@ generatedFiles:
   - docs/models/operations/hrisgettimeoffrequestqueryparamproxy.md
   - docs/models/operations/hrisgettimeoffrequestrequest.md
   - docs/models/operations/hrisgettimeoffrequestresponse.md
+  - docs/models/operations/hrislistbenefitsqueryparamproxy.md
+  - docs/models/operations/hrislistbenefitsrequest.md
+  - docs/models/operations/hrislistbenefitsresponse.md
   - docs/models/operations/hrislistcompaniesqueryparamproxy.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
@@ -346,6 +808,42 @@ generatedFiles:
   - docs/models/operations/hrisupdateemployeeresponse.md
   - docs/models/operations/hrisupdatetimeoffrequestrequest.md
   - docs/models/operations/hrisupdatetimeoffrequestresponse.md
+  - docs/models/operations/marketingcreateemailtemplaterequest.md
+  - docs/models/operations/marketingcreateemailtemplateresponse.md
+  - docs/models/operations/marketingcreateomnichanneltemplaterequest.md
+  - docs/models/operations/marketingcreateomnichanneltemplateresponse.md
+  - docs/models/operations/marketingcreatepushtemplaterequest.md
+  - docs/models/operations/marketingcreatepushtemplateresponse.md
+  - docs/models/operations/marketinggetcampaignqueryparamproxy.md
+  - docs/models/operations/marketinggetcampaignrequest.md
+  - docs/models/operations/marketinggetcampaignresponse.md
+  - docs/models/operations/marketinggetemailtemplatequeryparamproxy.md
+  - docs/models/operations/marketinggetemailtemplaterequest.md
+  - docs/models/operations/marketinggetemailtemplateresponse.md
+  - docs/models/operations/marketinggetomnichanneltemplatequeryparamproxy.md
+  - docs/models/operations/marketinggetomnichanneltemplaterequest.md
+  - docs/models/operations/marketinggetomnichanneltemplateresponse.md
+  - docs/models/operations/marketinggetpushtemplatequeryparamproxy.md
+  - docs/models/operations/marketinggetpushtemplaterequest.md
+  - docs/models/operations/marketinggetpushtemplateresponse.md
+  - docs/models/operations/marketinglistcampaignsqueryparamproxy.md
+  - docs/models/operations/marketinglistcampaignsrequest.md
+  - docs/models/operations/marketinglistcampaignsresponse.md
+  - docs/models/operations/marketinglistemailtemplatesqueryparamproxy.md
+  - docs/models/operations/marketinglistemailtemplatesrequest.md
+  - docs/models/operations/marketinglistemailtemplatesresponse.md
+  - docs/models/operations/marketinglistomnichanneltemplatesqueryparamproxy.md
+  - docs/models/operations/marketinglistomnichanneltemplatesrequest.md
+  - docs/models/operations/marketinglistomnichanneltemplatesresponse.md
+  - docs/models/operations/marketinglistpushtemplatesqueryparamproxy.md
+  - docs/models/operations/marketinglistpushtemplatesrequest.md
+  - docs/models/operations/marketinglistpushtemplatesresponse.md
+  - docs/models/operations/marketingupdateemailtemplaterequest.md
+  - docs/models/operations/marketingupdateemailtemplateresponse.md
+  - docs/models/operations/marketingupdateomnichanneltemplaterequest.md
+  - docs/models/operations/marketingupdateomnichanneltemplateresponse.md
+  - docs/models/operations/marketingupdatepushtemplaterequest.md
+  - docs/models/operations/marketingupdatepushtemplateresponse.md
   - docs/models/operations/stackoneproxyrequestrequest.md
   - docs/models/operations/stackoneproxyrequestresponse.md
   - docs/models/shared/credentials.md
@@ -366,6 +864,149 @@ generatedFiles:
   - docs/models/shared/images.md
   - docs/models/shared/resources.md
   - docs/models/shared/connectorsmeta.md
+  - docs/models/shared/createresult.md
+  - docs/models/shared/atscreateapplicationrequestdtovalue.md
+  - docs/models/shared/atscreateapplicationrequestdtoapplicationstatus.md
+  - docs/models/shared/atscreateapplicationrequestdtocandidate.md
+  - docs/models/shared/atscreateapplicationrequestdto.md
+  - docs/models/shared/questionnaire.md
+  - docs/models/shared/answervalue.md
+  - docs/models/shared/type.md
+  - docs/models/shared/answer.md
+  - docs/models/shared/applicationattachmentvalue.md
+  - docs/models/shared/contenttype.md
+  - docs/models/shared/applicationattachment.md
+  - docs/models/shared/candidateresult.md
+  - docs/models/shared/response.md
+  - docs/models/shared/rawresponse.md
+  - docs/models/shared/candidate.md
+  - docs/models/shared/sociallink.md
+  - docs/models/shared/phonenumbertype.md
+  - docs/models/shared/phonenumber.md
+  - docs/models/shared/candidateemail.md
+  - docs/models/shared/atscreatecandidaterequestdto.md
+  - docs/models/shared/createcandidatenoteresult.md
+  - docs/models/shared/atscreatenotesrequestdtovalue.md
+  - docs/models/shared/visibility.md
+  - docs/models/shared/atscreatenotesrequestdto.md
+  - docs/models/shared/notecontentapimodel.md
+  - docs/models/shared/createofferresult.md
+  - docs/models/shared/atscreateofferrequestdtovalue.md
+  - docs/models/shared/offerstatus.md
+  - docs/models/shared/atscreateofferrequestdto.md
+  - docs/models/shared/offerhistory.md
+  - docs/models/shared/applicationresult.md
+  - docs/models/shared/applicationvalue.md
+  - docs/models/shared/applicationstatus.md
+  - docs/models/shared/applicationcandidate.md
+  - docs/models/shared/applicationinterviewstage.md
+  - docs/models/shared/application.md
+  - docs/models/shared/resultlink.md
+  - docs/models/shared/rejectedreasonvalue.md
+  - docs/models/shared/rejectedreasontype.md
+  - docs/models/shared/rejectedreason.md
+  - docs/models/shared/documentapimodelvalue.md
+  - docs/models/shared/documentapimodeltype.md
+  - docs/models/shared/documentapimodel.md
+  - docs/models/shared/content.md
+  - docs/models/shared/fileformatenumvalue.md
+  - docs/models/shared/fileformatenum.md
+  - docs/models/shared/documentresult.md
+  - docs/models/shared/offersresult.md
+  - docs/models/shared/offervalue.md
+  - docs/models/shared/offerofferstatus.md
+  - docs/models/shared/offer.md
+  - docs/models/shared/noteresult.md
+  - docs/models/shared/notevalue.md
+  - docs/models/shared/notevisibility.md
+  - docs/models/shared/note.md
+  - docs/models/shared/departmentresult.md
+  - docs/models/shared/department.md
+  - docs/models/shared/interviewsresult.md
+  - docs/models/shared/interviewinterviewstage.md
+  - docs/models/shared/interviewvalue.md
+  - docs/models/shared/interviewstatus.md
+  - docs/models/shared/interview.md
+  - docs/models/shared/interviewer.md
+  - docs/models/shared/interviewpart.md
+  - docs/models/shared/interviewstageresult.md
+  - docs/models/shared/interviewstage.md
+  - docs/models/shared/jobresult.md
+  - docs/models/shared/confidential.md
+  - docs/models/shared/jobvalue.md
+  - docs/models/shared/jobstatus.md
+  - docs/models/shared/job.md
+  - docs/models/shared/jobhiringteam.md
+  - docs/models/shared/jobpostingresult.md
+  - docs/models/shared/jobpostingcontent.md
+  - docs/models/shared/jobpostingvalue.md
+  - docs/models/shared/jobpostingemploymentcontracttype.md
+  - docs/models/shared/jobpostingschemasvalue.md
+  - docs/models/shared/jobpostingemploymenttype.md
+  - docs/models/shared/internal.md
+  - docs/models/shared/jobpostingschemasstatusvalue.md
+  - docs/models/shared/jobpostingstatus.md
+  - docs/models/shared/jobposting.md
+  - docs/models/shared/jobpostingquestionnaire.md
+  - docs/models/shared/questionvalue.md
+  - docs/models/shared/questiontype.md
+  - docs/models/shared/question.md
+  - docs/models/shared/questionmultiplechoiceanswers.md
+  - docs/models/shared/jobpostinglocation.md
+  - docs/models/shared/jobpostingcompensationvalue.md
+  - docs/models/shared/jobpostingcompensationpayfrequency.md
+  - docs/models/shared/jobpostingcompensationschemasvalue.md
+  - docs/models/shared/jobpostingcompensationpayperiod.md
+  - docs/models/shared/jobpostingcompensationschemastypevalue.md
+  - docs/models/shared/jobpostingcompensationtype.md
+  - docs/models/shared/jobpostingcompensation.md
+  - docs/models/shared/atslocationresult.md
+  - docs/models/shared/atslocation.md
+  - docs/models/shared/rejectedreasonresult.md
+  - docs/models/shared/userresult.md
+  - docs/models/shared/user.md
+  - docs/models/shared/documentspaginated.md
+  - docs/models/shared/scorecardspaginated.md
+  - docs/models/shared/overallrecommendation.md
+  - docs/models/shared/scorecard.md
+  - docs/models/shared/scorecardsection.md
+  - docs/models/shared/fieldtype.md
+  - docs/models/shared/field.md
+  - docs/models/shared/applicationspaginated.md
+  - docs/models/shared/offerspaginated.md
+  - docs/models/shared/notespaginated.md
+  - docs/models/shared/candidatespaginated.md
+  - docs/models/shared/departmentspaginated.md
+  - docs/models/shared/interviewstagespaginated.md
+  - docs/models/shared/interviewspaginated.md
+  - docs/models/shared/jobpostingspaginated.md
+  - docs/models/shared/jobspaginated.md
+  - docs/models/shared/atslocationspaginated.md
+  - docs/models/shared/rejectedreasonspaginated.md
+  - docs/models/shared/userspaginated.md
+  - docs/models/shared/updateresult.md
+  - docs/models/shared/atsupdateapplicationrequestdtovalue.md
+  - docs/models/shared/atsupdateapplicationrequestdtoapplicationstatus.md
+  - docs/models/shared/atsupdateapplicationrequestdtocandidate.md
+  - docs/models/shared/atsupdateapplicationrequestdto.md
+  - docs/models/shared/atsupdatecandidatesrequestdto.md
+  - docs/models/shared/contactresult.md
+  - docs/models/shared/contact.md
+  - docs/models/shared/crmcreatecontactrequestdto.md
+  - docs/models/shared/accountresult.md
+  - docs/models/shared/account.md
+  - docs/models/shared/accountaddressschemasvalue.md
+  - docs/models/shared/country.md
+  - docs/models/shared/accountaddressvalue.md
+  - docs/models/shared/locationtype.md
+  - docs/models/shared/accountaddress.md
+  - docs/models/shared/listresult.md
+  - docs/models/shared/listvalue.md
+  - docs/models/shared/listtype.md
+  - docs/models/shared/list.md
+  - docs/models/shared/accountspaginated.md
+  - docs/models/shared/contactspaginated.md
+  - docs/models/shared/listspaginated.md
   - docs/models/shared/createemployeeresult.md
   - docs/models/shared/hriscreateemployeerequestdtoavatar.md
   - docs/models/shared/hriscreateemployeerequestdtovalue.md
@@ -404,17 +1045,19 @@ generatedFiles:
   - docs/models/shared/employeecustomfieldstype.md
   - docs/models/shared/employeecustomfieldsvalue.md
   - docs/models/shared/employeecustomfields.md
-  - docs/models/shared/value.md
+  - docs/models/shared/countrycodeenumvalue.md
   - docs/models/shared/countrycodeenum.md
   - docs/models/shared/createtimeoffresult.md
   - docs/models/shared/hriscreatetimeoffrequestdtovalue.md
-  - docs/models/shared/status.md
+  - docs/models/shared/hriscreatetimeoffrequestdtostatus.md
   - docs/models/shared/hriscreatetimeoffrequestdtoschemasvalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtotype.md
   - docs/models/shared/hriscreatetimeoffrequestdto.md
+  - docs/models/shared/hrisbenefitresult.md
+  - docs/models/shared/hrisbenefitvalue.md
+  - docs/models/shared/benefittype.md
+  - docs/models/shared/hrisbenefit.md
   - docs/models/shared/companyresult.md
-  - docs/models/shared/response.md
-  - docs/models/shared/rawresponse.md
   - docs/models/shared/company.md
   - docs/models/shared/employeeresult.md
   - docs/models/shared/avatar.md
@@ -429,31 +1072,24 @@ generatedFiles:
   - docs/models/shared/employeeschemasgendervalue.md
   - docs/models/shared/gender.md
   - docs/models/shared/employeeschemashomelocationvalue.md
-  - docs/models/shared/employeeschemascountry.md
+  - docs/models/shared/employeecountry.md
   - docs/models/shared/employeeschemashomelocationlocationtypevalue.md
-  - docs/models/shared/employeeschemaslocationtype.md
+  - docs/models/shared/employeelocationtype.md
   - docs/models/shared/homelocation.md
   - docs/models/shared/jobdescription.md
   - docs/models/shared/employeeschemasmaritalstatusvalue.md
   - docs/models/shared/maritalstatus.md
   - docs/models/shared/employeeschemasworklocationvalue.md
-  - docs/models/shared/employeecountry.md
+  - docs/models/shared/employeeschemascountry.md
   - docs/models/shared/employeeschemasworklocationlocationtypevalue.md
-  - docs/models/shared/employeelocationtype.md
+  - docs/models/shared/employeeschemaslocationtype.md
   - docs/models/shared/worklocation.md
   - docs/models/shared/employee.md
   - docs/models/shared/document.md
   - docs/models/shared/workeligibilityvalue.md
   - docs/models/shared/workeligibilitytype.md
   - docs/models/shared/workeligibility.md
-  - docs/models/shared/content.md
-  - docs/models/shared/fileformatenumvalue.md
-  - docs/models/shared/fileformatenum.md
   - docs/models/shared/costcenters.md
-  - docs/models/shared/documentresult.md
-  - docs/models/shared/documentapimodelvalue.md
-  - docs/models/shared/type.md
-  - docs/models/shared/documentapimodel.md
   - docs/models/shared/timeoffresult.md
   - docs/models/shared/timeoffvalue.md
   - docs/models/shared/timeoffstatus.md
@@ -463,16 +1099,40 @@ generatedFiles:
   - docs/models/shared/employmentresult.md
   - docs/models/shared/hrislocationresult.md
   - docs/models/shared/hrislocationvalue.md
-  - docs/models/shared/country.md
+  - docs/models/shared/hrislocationcountry.md
   - docs/models/shared/hrislocationschemasvalue.md
-  - docs/models/shared/locationtype.md
+  - docs/models/shared/hrislocationlocationtype.md
   - docs/models/shared/hrislocation.md
+  - docs/models/shared/hrisbenefitspaginated.md
   - docs/models/shared/companiespaginated.md
-  - docs/models/shared/documentspaginated.md
   - docs/models/shared/timeoffpaginated.md
   - docs/models/shared/employeespaginated.md
   - docs/models/shared/employmentspaginated.md
   - docs/models/shared/hrislocationspaginated.md
+  - docs/models/shared/createtemplateresult.md
+  - docs/models/shared/marketingcreateemailtemplaterequestdto.md
+  - docs/models/shared/messagecontent.md
+  - docs/models/shared/messagetype.md
+  - docs/models/shared/emailmessages.md
+  - docs/models/shared/marketingcreatetemplaterequestdto.md
+  - docs/models/shared/messagemessagetype.md
+  - docs/models/shared/message.md
+  - docs/models/shared/marketingcreatepushtemplaterequestdto.md
+  - docs/models/shared/pushmessagesmessagecontent.md
+  - docs/models/shared/pushmessagesmessagetype.md
+  - docs/models/shared/pushmessages.md
+  - docs/models/shared/campaignresult.md
+  - docs/models/shared/campaignvalue.md
+  - docs/models/shared/scheduletype.md
+  - docs/models/shared/campaignschemasvalue.md
+  - docs/models/shared/status.md
+  - docs/models/shared/campaign.md
+  - docs/models/shared/value.md
+  - docs/models/shared/channelsenum.md
+  - docs/models/shared/templateresult.md
+  - docs/models/shared/template.md
+  - docs/models/shared/campaignspaginated.md
+  - docs/models/shared/templatespaginated.md
   - docs/models/shared/body.md
   - docs/models/shared/headers.md
   - docs/models/shared/method.md
@@ -482,7 +1142,10 @@ generatedFiles:
   - docs/sdks/accounts/README.md
   - docs/sdks/connectsessions/README.md
   - docs/sdks/connectors/README.md
+  - docs/sdks/ats/README.md
+  - docs/sdks/crm/README.md
   - docs/sdks/hris/README.md
+  - docs/sdks/marketing/README.md
   - docs/sdks/proxy/README.md
   - USAGE.md
   - .gitattributes

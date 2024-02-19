@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue - The type of the employment.
     class HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue < T::Enum
       enums do
         FULL_TIME = new('full_time')

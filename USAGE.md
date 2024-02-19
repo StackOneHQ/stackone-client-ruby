@@ -14,8 +14,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  proxy: ::StackOne::Operations::HrisListEmployeesQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_employees(req)

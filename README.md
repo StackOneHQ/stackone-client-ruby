@@ -33,8 +33,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  proxy: ::StackOne::Operations::HrisListEmployeesQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_employees(req)
@@ -67,11 +66,62 @@ end
 * [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta information for the given provider key
 * [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connectors Meta Information for all providers
 
+### [Ats](docs/sdks/ats/README.md)
+
+* [create_application](docs/sdks/ats/README.md#create_application) - Create Application
+* [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate (early access)
+* [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
+* [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
+* [get_application](docs/sdks/ats/README.md#get_application) - Get Application
+* [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
+* [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
+* [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
+* [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
+* [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
+* [get_department](docs/sdks/ats/README.md#get_department) - Get Department
+* [get_interview](docs/sdks/ats/README.md#get_interview) - Get Interview
+* [get_interview_stage](docs/sdks/ats/README.md#get_interview_stage) - Get Interview Stage
+* [get_job](docs/sdks/ats/README.md#get_job) - Get Job
+* [get_job_posting](docs/sdks/ats/README.md#get_job_posting) - Get Job Posting
+* [get_location](docs/sdks/ats/README.md#get_location) - Get Location
+* [get_offer](docs/sdks/ats/README.md#get_offer) - Get Offer
+* [get_rejected_reason](docs/sdks/ats/README.md#get_rejected_reason) - Get Rejected Reason
+* [get_user](docs/sdks/ats/README.md#get_user) - Get User
+* [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
+* [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
+* [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
+* [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
+* [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
+* [list_candidates](docs/sdks/ats/README.md#list_candidates) - List Candidates
+* [list_departments](docs/sdks/ats/README.md#list_departments) - List Departments
+* [list_interview_stages](docs/sdks/ats/README.md#list_interview_stages) - List Interview Stages
+* [list_interviews](docs/sdks/ats/README.md#list_interviews) - List Interviews
+* [list_job_postings](docs/sdks/ats/README.md#list_job_postings) - List Job Postings
+* [list_jobs](docs/sdks/ats/README.md#list_jobs) - List Jobs
+* [list_locations](docs/sdks/ats/README.md#list_locations) - List locations
+* [list_offers](docs/sdks/ats/README.md#list_offers) - List Offers
+* [list_rejected_reasons](docs/sdks/ats/README.md#list_rejected_reasons) - List Rejected Reasons
+* [list_users](docs/sdks/ats/README.md#list_users) - List Users
+* [update_application](docs/sdks/ats/README.md#update_application) - Update Application
+* [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate (early access)
+
+### [Crm](docs/sdks/crm/README.md)
+
+* [create_contact](docs/sdks/crm/README.md#create_contact) - Creates a new Contact
+* [get_account](docs/sdks/crm/README.md#get_account) - Get Account
+* [get_contact](docs/sdks/crm/README.md#get_contact) - Get Contact
+* [get_list](docs/sdks/crm/README.md#get_list) - Get List
+* [list_accounts](docs/sdks/crm/README.md#list_accounts) - List Accounts
+* [list_contacts](docs/sdks/crm/README.md#list_contacts) - List Contacts
+* [list_lists](docs/sdks/crm/README.md#list_lists) - Get all Lists
+* [update_contact](docs/sdks/crm/README.md#update_contact) - Update Contact (early access)
+
 ### [Hris](docs/sdks/hris/README.md)
 
 * [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
+* [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
@@ -79,6 +129,7 @@ end
 * [get_employment](docs/sdks/hris/README.md#get_employment) - Get Employment
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Location
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
+* [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -88,6 +139,23 @@ end
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
 * [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
+
+### [Marketing](docs/sdks/marketing/README.md)
+
+* [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create email template
+* [create_omni_channel_template](docs/sdks/marketing/README.md#create_omni_channel_template) - Create omni-channel template
+* [create_push_template](docs/sdks/marketing/README.md#create_push_template) - Create push template
+* [get_campaign](docs/sdks/marketing/README.md#get_campaign) - Get campaign
+* [get_email_template](docs/sdks/marketing/README.md#get_email_template) - Get email template
+* [get_omni_channel_template](docs/sdks/marketing/README.md#get_omni_channel_template) - Get omni-channel template
+* [get_push_template](docs/sdks/marketing/README.md#get_push_template) - Get push template
+* [list_campaigns](docs/sdks/marketing/README.md#list_campaigns) - List campaigns
+* [list_email_templates](docs/sdks/marketing/README.md#list_email_templates) - List email templates
+* [list_omni_channel_templates](docs/sdks/marketing/README.md#list_omni_channel_templates) - List omni-channel templates
+* [list_push_templates](docs/sdks/marketing/README.md#list_push_templates) - List push templates
+* [update_email_template](docs/sdks/marketing/README.md#update_email_template) - Update email template
+* [update_omni_channel_template](docs/sdks/marketing/README.md#update_omni_channel_template) - Update omni-channel template
+* [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update push template
 
 ### [Proxy](docs/sdks/proxy/README.md)
 

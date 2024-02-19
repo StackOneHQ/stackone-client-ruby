@@ -14,7 +14,7 @@ module StackOne
       # The city where the location is situated
       field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(::StackOne::Shared::Country), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+      field :country, T.nilable(::StackOne::Shared::HRISLocationCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The created_at date
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee ID
@@ -22,7 +22,7 @@ module StackOne
       # The unique ID of the location
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The location type
-      field :location_type, T.nilable(::StackOne::Shared::LocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
+      field :location_type, T.nilable(::StackOne::Shared::HRISLocationLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
       # The name of the location
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The phone number of the location
@@ -39,7 +39,7 @@ module StackOne
       field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::Country), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::LocationType), name: T.nilable(::String), phone_number: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
+      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::HRISLocationCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::HRISLocationLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
       def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, state: nil, street_1: nil, street_2: nil, updated_at: nil, zip_code: nil)
         @city = city
         @country = country

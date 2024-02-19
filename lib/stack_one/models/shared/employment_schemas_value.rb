@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # EmploymentSchemasValue - The type of the employment.
     class EmploymentSchemasValue < T::Enum
       enums do
         FULL_TIME = new('full_time')

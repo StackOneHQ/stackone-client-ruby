@@ -11,9 +11,9 @@ module StackOne
     class HrisCreateEmployeeRequestDtoEmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
+      # The source value of the employment type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
+      # The type of the employment.
       field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue, true) } }
 
 

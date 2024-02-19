@@ -11,13 +11,13 @@ module StackOne
     class LocationType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
+      # The source value of the location type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The type of the location.
+      field :value, T.nilable(::StackOne::Shared::AccountAddressValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AccountAddressValue, true) } }
 
-      field :value, T.nilable(::StackOne::Shared::HRISLocationSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HRISLocationSchemasValue, true) } }
 
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HRISLocationSchemasValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AccountAddressValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

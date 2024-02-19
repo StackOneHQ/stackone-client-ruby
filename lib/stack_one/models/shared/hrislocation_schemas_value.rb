@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # HRISLocationSchemasValue - The type of the location.
     class HRISLocationSchemasValue < T::Enum
       enums do
         HOME = new('home')

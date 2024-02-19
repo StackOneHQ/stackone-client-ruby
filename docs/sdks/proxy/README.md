@@ -24,11 +24,10 @@ s.config_security(
 
     
 res = s.proxy.proxy_request(proxy_request_body=::StackOne::Shared::ProxyRequestBody.new(
-    body: ::StackOne::Shared::Body.new(),
     headers: ::StackOne::Shared::Headers.new(),
     path: "/employees/directory",
     url: "https://api.sample-integration.com/v1",
-  ), x_account_id="string")
+  ), x_account_id="<value>")
 
 if res.status_code == 200
   # handle response

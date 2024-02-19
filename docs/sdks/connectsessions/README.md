@@ -25,7 +25,7 @@ s.config_security(
 
 
 req = ::StackOne::Shared::ConnectSessionAuthenticate.new(
-  token: "string",
+  token: "<value>",
 )
     
 res = s.connect_sessions.authenticate_connect_session(req)
@@ -70,9 +70,8 @@ req = ::StackOne::Shared::ConnectSessionCreate.new(
   categories: [
     ::StackOne::Shared::ConnectSessionCreateCategories::HRIS_LEGACY,
   ],
-  metadata: ::StackOne::Shared::Metadata.new(),
-  origin_owner_id: "string",
-  origin_owner_name: "string",
+  origin_owner_id: "<value>",
+  origin_owner_name: "<value>",
 )
     
 res = s.connect_sessions.create_connect_session(req)

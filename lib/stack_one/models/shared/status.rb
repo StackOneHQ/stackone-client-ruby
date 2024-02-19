@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-    # The status of the time off request
+    # Status of the Campaign
     class Status < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
+      # The source value of the Status.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The Status of the campaign.
+      field :value, T.nilable(::StackOne::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CampaignSchemasValue, true) } }
 
-      field :value, T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateTimeOffRequestDtoValue, true) } }
 
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CampaignSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

@@ -1,0 +1,11 @@
+# MessageMessageType
+
+Stackone enum identifying the type of message associated with the content.
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `source_value`                                                                | *T.nilable(::Object)*                                                         | :heavy_minus_sign:                                                            | The original value from the provider used to derive the unified message type. | Email                                                                         |
+| `value`                                                                       | *T.nilable(::String)*                                                         | :heavy_minus_sign:                                                            | The unified message type.                                                     | email                                                                         |

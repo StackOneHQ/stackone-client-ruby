@@ -24,7 +24,7 @@ s.config_security(
 )
 
     
-res = s.connectors.get_connector_meta(provider="string", include="string")
+res = s.connectors.get_connector_meta(provider="<value>", include="<value>")
 
 if ! res.connectors_meta.nil?
   # handle response
@@ -63,7 +63,7 @@ s.config_security(
 )
 
     
-res = s.connectors.list_connectors_meta(include="string")
+res = s.connectors.list_connectors_meta(include="<value>")
 
 if ! res.connectors_metas.nil?
   # handle response

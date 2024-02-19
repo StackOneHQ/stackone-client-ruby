@@ -6,6 +6,7 @@
 * [create_employee](#create_employee) - Creates an employee
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
+* [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
@@ -13,6 +14,7 @@
 * [get_employment](#get_employment) - Get Employment
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
+* [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -45,93 +47,24 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
     avatar_url: "https://example.com/avatar.png",
     birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
-    citizenships: [
-      ::StackOne::Shared::CountryCodeEnum.new(
-        source_value: "string",
-        value: ::StackOne::Shared::Value::US,
-      ),
-    ],
     company_name: "Example Corp",
-    custom_fields: [
-      ::StackOne::Shared::EmployeeCustomFields.new(
-        description: "The completion status of the employee's training.",
-        id: "custom_field_123",
-        name: "Training Completion Status",
-        options: [
-          "string",
-        ],
-        type: ::StackOne::Shared::EmployeeCustomFieldsType.new(
-          source_value: "string",
-        ),
-        value: ::StackOne::Shared::EmployeeCustomFieldsValue.new(),
-        value_id: "value_456",
-      ),
-    ],
     date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
     department: "Physics",
     display_name: "Sir Issac Newton",
-    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(
-      source_value: "string",
-    ),
-    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(
-      source_value: "string",
-    ),
+    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
+    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
     employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-      source_value: "string",
+      source_value: "Permanent",
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
     ),
-    employments: [
-      ::StackOne::Shared::Employment.new(
-        created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        employee_id: "1687-3",
-        employment_contract_type: ::StackOne::Shared::EmploymentEmploymentContractType.new(
-          source_value: "string",
-        ),
-        employment_type: ::StackOne::Shared::EmploymentEmploymentType.new(
-          source_value: "string",
-        ),
-        id: "123456",
-        job_title: "Software Engineer",
-        pay_currency: "USD",
-        pay_frequency: ::StackOne::Shared::PayFrequency.new(
-          source_value: "string",
-        ),
-        pay_period: ::StackOne::Shared::PayPeriod.new(
-          source_value: "string",
-        ),
-        pay_rate: "40.00",
-        updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      ),
-    ],
-    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(
-      source_value: "string",
-    ),
+    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
     first_name: "Issac",
-    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(
-      source_value: "string",
-    ),
+    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
     hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-    home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
-      city: "Grantham",
-      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
-        source_value: "string",
-        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
-      ),
-      name: "Woolsthorpe Manor",
-      phone_number: "+44 1476 860 364",
-      state: ::StackOne::Shared::State.new(
-        source_value: "string",
-      ),
-      street_1: "Water Lane",
-      street_2: "Woolsthorpe by Colsterworth",
-      zip_code: "NG33 5NR",
-    ),
     job_title: "Physicist",
     last_name: "Newton",
     manager_id: "67890",
-    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(
-      source_value: "string",
-    ),
+    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
     name: "Issac Newton",
     personal_email: "isaac.newton@example.com",
     personal_phone_number: "+1234567890",
@@ -140,23 +73,8 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_email: "newton@example.com",
-    work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
-      city: "Grantham",
-      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-        source_value: "string",
-        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
-      ),
-      name: "Woolsthorpe Manor",
-      phone_number: "+44 1476 860 364",
-      state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(
-        source_value: "string",
-      ),
-      street_1: "Water Lane",
-      street_2: "Woolsthorpe by Colsterworth",
-      zip_code: "NG33 5NR",
-    ),
     work_phone_number: "+1234567890",
-  ), x_account_id="string")
+  ), x_account_id="<value>")
 
 if ! res.create_employee_result.nil?
   # handle response
@@ -200,13 +118,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status: ::StackOne::Shared::Status.new(
-      source_value: "string",
-    ),
-    type: ::StackOne::Shared::HrisCreateTimeOffRequestDtoType.new(
-      source_value: "string",
-    ),
-  ), id="string", x_account_id="string")
+  ), id="<value>", x_account_id="<value>")
 
 if ! res.create_time_off_result.nil?
   # handle response
@@ -251,13 +163,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status: ::StackOne::Shared::Status.new(
-      source_value: "string",
-    ),
-    type: ::StackOne::Shared::HrisCreateTimeOffRequestDtoType.new(
-      source_value: "string",
-    ),
-  ), x_account_id="string")
+  ), x_account_id="<value>")
 
 if ! res.create_time_off_result.nil?
   # handle response
@@ -276,6 +182,49 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateTimeOffRequestResponse)](../../models/operations/hriscreatetimeoffrequestresponse.md)**
+
+
+## get_benefit
+
+Get Benefit
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetBenefitRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_benefit(req)
+
+if ! res.hris_benefit_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::StackOne::Operations::HrisGetBenefitRequest](../../models/operations/hrisgetbenefitrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetBenefitResponse)](../../models/operations/hrisgetbenefitresponse.md)**
 
 
 ## get_company
@@ -297,9 +246,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetCompanyRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::Proxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_company(req)
@@ -341,9 +289,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::QueryParamProxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_employee(req)
@@ -385,10 +332,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisGetEmployeeDocumentQueryParamProxy.new(),
-  sub_resource_id: "string",
-  x_account_id: "string",
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_employee_document(req)
@@ -430,10 +376,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisGetEmployeesTimeOffRequestQueryParamProxy.new(),
-  sub_resource_id: "string",
-  x_account_id: "string",
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_employees_time_off_request(req)
@@ -475,9 +420,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisGetEmploymentQueryParamProxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_employment(req)
@@ -519,9 +463,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetLocationRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisGetLocationQueryParamProxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_location(req)
@@ -563,9 +506,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisGetTimeOffRequestQueryParamProxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.get_time_off_request(req)
@@ -588,6 +530,48 @@ end
 **[T.nilable(::StackOne::Operations::HrisGetTimeOffRequestResponse)](../../models/operations/hrisgettimeoffrequestresponse.md)**
 
 
+## list_benefits
+
+List benefits
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListBenefitsRequest.new(
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_benefits(req)
+
+if ! res.hris_benefits_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [::StackOne::Operations::HrisListBenefitsRequest](../../models/operations/hrislistbenefitsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListBenefitsResponse)](../../models/operations/hrislistbenefitsresponse.md)**
+
+
 ## list_companies
 
 List Companies
@@ -607,8 +591,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListCompaniesRequest.new(
-  proxy: ::StackOne::Operations::HrisListCompaniesQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_companies(req)
@@ -650,9 +633,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisListEmployeeDocumentsQueryParamProxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_employee_documents(req)
@@ -694,9 +676,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
-  id: "<ID>",
-  proxy: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamProxy.new(),
-  x_account_id: "string",
+  id: "<id>",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_employee_time_off_requests(req)
@@ -738,8 +719,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  proxy: ::StackOne::Operations::HrisListEmployeesQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_employees(req)
@@ -781,8 +761,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
-  proxy: ::StackOne::Operations::HrisListEmploymentsQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_employments(req)
@@ -824,8 +803,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListLocationsRequest.new(
-  proxy: ::StackOne::Operations::HrisListLocationsQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_locations(req)
@@ -867,8 +845,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
-  proxy: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamProxy.new(),
-  x_account_id: "string",
+  x_account_id: "<value>",
 )
     
 res = s.hris.list_time_off_requests(req)
@@ -913,93 +890,24 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
     avatar_url: "https://example.com/avatar.png",
     birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
-    citizenships: [
-      ::StackOne::Shared::CountryCodeEnum.new(
-        source_value: "string",
-        value: ::StackOne::Shared::Value::US,
-      ),
-    ],
     company_name: "Example Corp",
-    custom_fields: [
-      ::StackOne::Shared::EmployeeCustomFields.new(
-        description: "The completion status of the employee's training.",
-        id: "custom_field_123",
-        name: "Training Completion Status",
-        options: [
-          "string",
-        ],
-        type: ::StackOne::Shared::EmployeeCustomFieldsType.new(
-          source_value: "string",
-        ),
-        value: ::StackOne::Shared::EmployeeCustomFieldsValue.new(),
-        value_id: "value_456",
-      ),
-    ],
     date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
     department: "Physics",
     display_name: "Sir Issac Newton",
-    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(
-      source_value: "string",
-    ),
-    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(
-      source_value: "string",
-    ),
+    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
+    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
     employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-      source_value: "string",
+      source_value: "Permanent",
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
     ),
-    employments: [
-      ::StackOne::Shared::Employment.new(
-        created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        employee_id: "1687-3",
-        employment_contract_type: ::StackOne::Shared::EmploymentEmploymentContractType.new(
-          source_value: "string",
-        ),
-        employment_type: ::StackOne::Shared::EmploymentEmploymentType.new(
-          source_value: "string",
-        ),
-        id: "123456",
-        job_title: "Software Engineer",
-        pay_currency: "USD",
-        pay_frequency: ::StackOne::Shared::PayFrequency.new(
-          source_value: "string",
-        ),
-        pay_period: ::StackOne::Shared::PayPeriod.new(
-          source_value: "string",
-        ),
-        pay_rate: "40.00",
-        updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      ),
-    ],
-    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(
-      source_value: "string",
-    ),
+    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
     first_name: "Issac",
-    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(
-      source_value: "string",
-    ),
+    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
     hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-    home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
-      city: "Grantham",
-      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
-        source_value: "string",
-        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
-      ),
-      name: "Woolsthorpe Manor",
-      phone_number: "+44 1476 860 364",
-      state: ::StackOne::Shared::State.new(
-        source_value: "string",
-      ),
-      street_1: "Water Lane",
-      street_2: "Woolsthorpe by Colsterworth",
-      zip_code: "NG33 5NR",
-    ),
     job_title: "Physicist",
     last_name: "Newton",
     manager_id: "67890",
-    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(
-      source_value: "string",
-    ),
+    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
     name: "Issac Newton",
     personal_email: "isaac.newton@example.com",
     personal_phone_number: "+1234567890",
@@ -1008,23 +916,8 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_email: "newton@example.com",
-    work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
-      city: "Grantham",
-      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-        source_value: "string",
-        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
-      ),
-      name: "Woolsthorpe Manor",
-      phone_number: "+44 1476 860 364",
-      state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(
-        source_value: "string",
-      ),
-      street_1: "Water Lane",
-      street_2: "Woolsthorpe by Colsterworth",
-      zip_code: "NG33 5NR",
-    ),
     work_phone_number: "+1234567890",
-  ), id="string", x_account_id="string")
+  ), id="<value>", x_account_id="<value>")
 
 if ! res.create_employee_result.nil?
   # handle response
@@ -1069,13 +962,7 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    status: ::StackOne::Shared::Status.new(
-      source_value: "string",
-    ),
-    type: ::StackOne::Shared::HrisCreateTimeOffRequestDtoType.new(
-      source_value: "string",
-    ),
-  ), id="string", x_account_id="string")
+  ), id="<value>", x_account_id="<value>")
 
 if ! res.create_time_off_result.nil?
   # handle response

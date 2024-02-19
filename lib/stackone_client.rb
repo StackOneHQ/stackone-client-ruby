@@ -13,6 +13,9 @@ module StackOne
   autoload :Accounts, 'stack_one/accounts'
   autoload :ConnectSessions, 'stack_one/connect_sessions'
   autoload :Connectors, 'stack_one/connectors'
+  autoload :Ats, 'stack_one/ats'
+  autoload :Crm, 'stack_one/crm'
   autoload :Hris, 'stack_one/hris'
+  autoload :Marketing, 'stack_one/marketing'
   autoload :Proxy, 'stack_one/proxy'
 end

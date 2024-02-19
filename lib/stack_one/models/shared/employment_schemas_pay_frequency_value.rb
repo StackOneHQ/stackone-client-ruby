@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # EmploymentSchemasPayFrequencyValue - The pay frequency of the job postings.
     class EmploymentSchemasPayFrequencyValue < T::Enum
       enums do
         HOURLY = new('hourly')
@@ -24,8 +24,6 @@ module StackOne
         PRO_RATA = new('pro_rata')
         UNMAPPED_VALUE = new('unmapped_value')
         HALF_YEARLY = new('half_yearly')
-        DAILY = new('daily')
-        FIXED = new('fixed')
       end
     end
 

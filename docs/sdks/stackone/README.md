@@ -3,7 +3,7 @@
 
 ## Overview
 
-HRIS: The documentation for the StackOne Unified API - HRIS
+Marketing: The documentation for the StackOne Unified API - MARKETING
 
 ### Available Operations
 

@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # EmploymentSchemasPayPeriodValue - The pay period of the job postings.
     class EmploymentSchemasPayPeriodValue < T::Enum
       enums do
         HOUR = new('hour')
@@ -18,6 +18,7 @@ module StackOne
         QUARTER = new('quarter')
         EVERY_SIX_MONTHS = new('every_six_months')
         YEAR = new('year')
+        NONE = new('none')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

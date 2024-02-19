@@ -20,12 +20,12 @@ module StackOne
       # The start date of the time off request
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The status of the time off request
-      field :status, T.nilable(::StackOne::Shared::Status), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+      field :status, T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
       # The type of the time off request
       field :type, T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(approver_id: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), start_date: T.nilable(::DateTime), status: T.nilable(::StackOne::Shared::Status), type: T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoType)).void }
+      sig { params(approver_id: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), start_date: T.nilable(::DateTime), status: T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoStatus), type: T.nilable(::StackOne::Shared::HrisCreateTimeOffRequestDtoType)).void }
       def initialize(approver_id: nil, employee_id: nil, end_date: nil, start_date: nil, status: nil, type: nil)
         @approver_id = approver_id
         @employee_id = employee_id

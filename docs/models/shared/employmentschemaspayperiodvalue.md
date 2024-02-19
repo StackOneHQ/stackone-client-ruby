@@ -1,5 +1,7 @@
 # EmploymentSchemasPayPeriodValue
 
+The pay period of the job postings.
+
 
 ## Values
 
@@ -13,4 +15,5 @@
 | `QUARTER`          | quarter            |
 | `EVERY_SIX_MONTHS` | every_six_months   |
 | `YEAR`             | year               |
+| `NONE`             | none               |
 | `UNMAPPED_VALUE`   | unmapped_value     |

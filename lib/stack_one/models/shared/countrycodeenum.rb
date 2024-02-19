@@ -14,10 +14,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The ISO3166-1 Alpha2 Code of the Country
-      field :value, T.nilable(::StackOne::Shared::Value), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::Value, true) } }
+      field :value, T.nilable(::StackOne::Shared::CountryCodeEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CountryCodeEnumValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::Value)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CountryCodeEnumValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
