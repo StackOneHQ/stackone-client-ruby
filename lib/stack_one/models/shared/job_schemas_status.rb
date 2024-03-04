@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Response < ::StackOne::Utils::FieldAugmented
+    class JobSchemasStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 

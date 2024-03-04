@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(request: ::StackOne::Shared::ConnectSessionAuthenticate).returns(Utils::FieldAugmented) }
+    sig { params(request: ::StackOne::Shared::ConnectSessionAuthenticate).returns(::StackOne::Operations::StackoneAuthenticateConnectSessionResponse) }
     def authenticate_connect_session(request)
       # authenticate_connect_session - Authenticate Connect Session
       url, params = @sdk_configuration.get_server_details
@@ -60,7 +60,7 @@ module StackOne
     end
 
 
-    sig { params(request: ::StackOne::Shared::ConnectSessionCreate).returns(Utils::FieldAugmented) }
+    sig { params(request: ::StackOne::Shared::ConnectSessionCreate).returns(::StackOne::Operations::StackoneCreateConnectSessionResponse) }
     def create_connect_session(request)
       # create_connect_session - Create Connect Session
       url, params = @sdk_configuration.get_server_details

@@ -12,9 +12,11 @@ module StackOne
       extend T::Sig
 
 
-      field :document, T.nilable(::StackOne::Shared::Document), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('document') } }
-
-      field :issued_by, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
+      field :document, T.nilable(::StackOne::Shared::WorkEligibilityDocument), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('document') } }
+      # ID of Visa
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # The country code of the issued by authority
+      field :issued_by, T.nilable(::StackOne::Shared::WorkEligibilityIssuedBy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
 
       field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
 
@@ -27,9 +29,10 @@ module StackOne
       field :valid_to, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(document: T.nilable(::StackOne::Shared::Document), issued_by: T.nilable(::String), number: T.nilable(::String), sub_type: T.nilable(::String), type: T.nilable(::StackOne::Shared::WorkEligibilityType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
-      def initialize(document: nil, issued_by: nil, number: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
+      sig { params(document: T.nilable(::StackOne::Shared::WorkEligibilityDocument), id: T.nilable(::String), issued_by: T.nilable(::StackOne::Shared::WorkEligibilityIssuedBy), number: T.nilable(::String), sub_type: T.nilable(::String), type: T.nilable(::StackOne::Shared::WorkEligibilityType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
+      def initialize(document: nil, id: nil, issued_by: nil, number: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
         @document = document
+        @id = id
         @issued_by = issued_by
         @number = number
         @sub_type = sub_type

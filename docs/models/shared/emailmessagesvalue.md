@@ -1,4 +1,6 @@
-# Response
+# EmailMessagesValue
+
+The unified message type.
 
 
 ## Fields

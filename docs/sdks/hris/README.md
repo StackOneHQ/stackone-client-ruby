@@ -4,13 +4,16 @@
 ### Available Operations
 
 * [create_employee](#create_employee) - Creates an employee
+* [create_employee_document](#create_employee_document) - Create Employee Document
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
+* [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
+* [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
@@ -18,11 +21,13 @@
 * [list_companies](#list_companies) - List Companies
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
+* [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](#list_employees) - List Employees
 * [list_employments](#list_employments) - List Employments
 * [list_locations](#list_locations) - List locations
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [update_employee](#update_employee) - Updates an employee
+* [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [update_time_off_request](#update_time_off_request) - Update time off request
 
 ## create_employee
@@ -95,6 +100,52 @@ end
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeResponse)](../../models/operations/hriscreateemployeeresponse.md)**
 
 
+## create_employee_document
+
+Create Employee Document
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.hris.create_employee_document(hris_create_document_request_dto=::StackOne::Shared::HrisCreateDocumentRequestDto.new(
+    content: ::StackOne::Shared::Content.new(
+      url: "https://example.com/file.pdf",
+    ),
+    name: "My Document",
+    path: "/path/to/file",
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.create_document_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `hris_create_document_request_dto`                                                                      | [::StackOne::Shared::HrisCreateDocumentRequestDto](../../models/shared/hriscreatedocumentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisCreateEmployeeDocumentResponse)](../../models/operations/hriscreateemployeedocumentresponse.md)**
+
+
 ## create_employee_time_off_request
 
 Create Employee Time Off Request
@@ -138,6 +189,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse)](../../models/operations/hriscreateemployeetimeoffrequestresponse.md)**
+
+
+## create_employee_work_eligibility_request
+
+Create Employee Work Eligibility Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
+    number: "1234567890",
+    sub_type: "H1B",
+    type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+    valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
+    valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.create_work_eligibility_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `hris_create_work_eligibility_request_dto`                                                                            | [::StackOne::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `id`                                                                                                                  | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hriscreateemployeeworkeligibilityrequestresponse.md)**
 
 
 ## create_time_off_request
@@ -399,6 +496,50 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse)](../../models/operations/hrisgetemployeestimeoffrequestresponse.md)**
+
+
+## get_employees_work_eligibility
+
+Get Employees Work Eligibility
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_employees_work_eligibility(req)
+
+if ! res.work_eligibility_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest](../../models/operations/hrisgetemployeesworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse)](../../models/operations/hrisgetemployeesworkeligibilityresponse.md)**
 
 
 ## get_employment
@@ -700,6 +841,49 @@ end
 **[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsResponse)](../../models/operations/hrislistemployeetimeoffrequestsresponse.md)**
 
 
+## list_employee_work_eligibility
+
+List Employee Work Eligibility
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_employee_work_eligibility(req)
+
+if ! res.work_eligibility_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest](../../models/operations/hrislistemployeeworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse)](../../models/operations/hrislistemployeeworkeligibilityresponse.md)**
+
+
 ## list_employees
 
 List Employees
@@ -937,6 +1121,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateEmployeeResponse)](../../models/operations/hrisupdateemployeeresponse.md)**
+
+
+## update_employee_work_eligibility_request
+
+Update Employee Work Eligibility Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
+    number: "1234567890",
+    sub_type: "H1B",
+    type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+    valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
+    valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  ), id="<value>", sub_resource_id="<value>", x_account_id="<value>")
+
+if res.status_code == 200
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `hris_create_work_eligibility_request_dto`                                                                            | [::StackOne::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `id`                                                                                                                  | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `sub_resource_id`                                                                                                     | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md)**
 
 
 ## update_time_off_request

@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 11353968fc3af622483e10e60dae8a86
+  docChecksum: 28fc9fad5ba5cf0bc44072b020d83b38
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.262.2
-  releaseVersion: 0.2.2
-  configChecksum: 4bca259634492f5e9e51674ae1dca52a
+  generationVersion: 2.277.0
+  releaseVersion: 0.2.3
+  configChecksum: 2b2d7e60a3b3c47bf47f8ecb143a5b57
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.8
+    core: 3.2.11
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.3
-    globalServerURLs: 2.82.1
+    globalSecurity: 2.81.5
+    globalServerURLs: 2.82.3
     groups: 2.81.2
     nameOverrides: 2.81.1
 generatedFiles:
@@ -37,6 +37,7 @@ generatedFiles:
   - Gemfile.lock
   - Rakefile
   - lib/stack_one/utils/metadata_fields.rb
+  - lib/stack_one/utils/t.rb
   - lib/stack_one/utils/utils.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes
@@ -221,8 +222,12 @@ generatedFiles:
   - lib/stack_one/models/operations/crm_update_contact_response.rb
   - lib/stack_one/models/operations/hris_create_employee_request.rb
   - lib/stack_one/models/operations/hris_create_employee_response.rb
+  - lib/stack_one/models/operations/hris_create_employee_document_request.rb
+  - lib/stack_one/models/operations/hris_create_employee_document_response.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_create_employee_work_eligibility_request_request.rb
+  - lib/stack_one/models/operations/hris_create_employee_work_eligibility_request_response.rb
   - lib/stack_one/models/operations/hris_create_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_create_time_off_request_response.rb
   - lib/stack_one/models/operations/hris_get_benefit_queryparam_proxy.rb
@@ -240,6 +245,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_employees_time_off_request_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_get_employees_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_get_employees_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_get_employees_work_eligibility_queryparam_proxy.rb
+  - lib/stack_one/models/operations/hris_get_employees_work_eligibility_request.rb
+  - lib/stack_one/models/operations/hris_get_employees_work_eligibility_response.rb
   - lib/stack_one/models/operations/hris_get_employment_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_get_employment_request.rb
   - lib/stack_one/models/operations/hris_get_employment_response.rb
@@ -261,6 +269,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_employee_time_off_requests_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_list_employee_time_off_requests_request.rb
   - lib/stack_one/models/operations/hris_list_employee_time_off_requests_response.rb
+  - lib/stack_one/models/operations/hris_list_employee_work_eligibility_queryparam_proxy.rb
+  - lib/stack_one/models/operations/hris_list_employee_work_eligibility_request.rb
+  - lib/stack_one/models/operations/hris_list_employee_work_eligibility_response.rb
   - lib/stack_one/models/operations/hris_list_employees_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_list_employees_request.rb
   - lib/stack_one/models/operations/hris_list_employees_response.rb
@@ -275,6 +286,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_time_off_requests_response.rb
   - lib/stack_one/models/operations/hris_update_employee_request.rb
   - lib/stack_one/models/operations/hris_update_employee_response.rb
+  - lib/stack_one/models/operations/hris_update_employee_work_eligibility_request_request.rb
+  - lib/stack_one/models/operations/hris_update_employee_work_eligibility_request_response.rb
   - lib/stack_one/models/operations/hris_update_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_update_time_off_request_response.rb
   - lib/stack_one/models/operations/marketing_create_email_template_request.rb
@@ -346,7 +359,6 @@ generatedFiles:
   - lib/stack_one/models/shared/content_type.rb
   - lib/stack_one/models/shared/applicationattachment.rb
   - lib/stack_one/models/shared/candidateresult.rb
-  - lib/stack_one/models/shared/response.rb
   - lib/stack_one/models/shared/rawresponse.rb
   - lib/stack_one/models/shared/candidate.rb
   - lib/stack_one/models/shared/sociallink.rb
@@ -404,6 +416,7 @@ generatedFiles:
   - lib/stack_one/models/shared/confidential.rb
   - lib/stack_one/models/shared/job_value.rb
   - lib/stack_one/models/shared/job_status.rb
+  - lib/stack_one/models/shared/job_schemas_status.rb
   - lib/stack_one/models/shared/job.rb
   - lib/stack_one/models/shared/jobhiringteam.rb
   - lib/stack_one/models/shared/jobpostingresult.rb
@@ -516,20 +529,32 @@ generatedFiles:
   - lib/stack_one/models/shared/employeecustomfields.rb
   - lib/stack_one/models/shared/countrycodeenum_value.rb
   - lib/stack_one/models/shared/countrycodeenum.rb
+  - lib/stack_one/models/shared/hrisbenefit_value.rb
+  - lib/stack_one/models/shared/benefit_type.rb
+  - lib/stack_one/models/shared/hrisbenefit.rb
+  - lib/stack_one/models/shared/createdocumentresult.rb
+  - lib/stack_one/models/shared/hriscreatedocumentrequestdto_value.rb
+  - lib/stack_one/models/shared/hriscreatedocumentrequestdto_type.rb
+  - lib/stack_one/models/shared/hriscreatedocumentrequestdto.rb
   - lib/stack_one/models/shared/createtimeoffresult.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_status.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_type.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto.rb
+  - lib/stack_one/models/shared/createworkeligibilityresult.rb
+  - lib/stack_one/models/shared/document.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_value.rb
+  - lib/stack_one/models/shared/issued_by.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_type.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto.rb
   - lib/stack_one/models/shared/hrisbenefitresult.rb
-  - lib/stack_one/models/shared/hrisbenefit_value.rb
-  - lib/stack_one/models/shared/benefit_type.rb
-  - lib/stack_one/models/shared/hrisbenefit.rb
   - lib/stack_one/models/shared/companyresult.rb
   - lib/stack_one/models/shared/company.rb
   - lib/stack_one/models/shared/employeeresult.rb
   - lib/stack_one/models/shared/avatar.rb
+  - lib/stack_one/models/shared/employee_company.rb
   - lib/stack_one/models/shared/employee_value.rb
   - lib/stack_one/models/shared/employment_contract_type.rb
   - lib/stack_one/models/shared/employee_schemas_value.rb
@@ -554,10 +579,6 @@ generatedFiles:
   - lib/stack_one/models/shared/employee_schemas_location_type.rb
   - lib/stack_one/models/shared/work_location.rb
   - lib/stack_one/models/shared/employee.rb
-  - lib/stack_one/models/shared/document.rb
-  - lib/stack_one/models/shared/workeligibility_value.rb
-  - lib/stack_one/models/shared/workeligibility_type.rb
-  - lib/stack_one/models/shared/workeligibility.rb
   - lib/stack_one/models/shared/costcenters.rb
   - lib/stack_one/models/shared/timeoffresult.rb
   - lib/stack_one/models/shared/timeoff_value.rb
@@ -565,6 +586,13 @@ generatedFiles:
   - lib/stack_one/models/shared/timeoff_schemas_value.rb
   - lib/stack_one/models/shared/timeoff_type.rb
   - lib/stack_one/models/shared/timeoff.rb
+  - lib/stack_one/models/shared/workeligibilityresult.rb
+  - lib/stack_one/models/shared/workeligibility_document.rb
+  - lib/stack_one/models/shared/workeligibility_value.rb
+  - lib/stack_one/models/shared/workeligibility_issued_by.rb
+  - lib/stack_one/models/shared/workeligibility_schemas_value.rb
+  - lib/stack_one/models/shared/workeligibility_type.rb
+  - lib/stack_one/models/shared/workeligibility.rb
   - lib/stack_one/models/shared/employmentresult.rb
   - lib/stack_one/models/shared/hrislocationresult.rb
   - lib/stack_one/models/shared/hrislocation_value.rb
@@ -575,19 +603,23 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisbenefitspaginated.rb
   - lib/stack_one/models/shared/companiespaginated.rb
   - lib/stack_one/models/shared/timeoffpaginated.rb
+  - lib/stack_one/models/shared/workeligibilitypaginated.rb
   - lib/stack_one/models/shared/employeespaginated.rb
   - lib/stack_one/models/shared/employmentspaginated.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
   - lib/stack_one/models/shared/createtemplateresult.rb
   - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
   - lib/stack_one/models/shared/message_content.rb
+  - lib/stack_one/models/shared/emailmessages_value.rb
   - lib/stack_one/models/shared/message_type.rb
   - lib/stack_one/models/shared/emailmessages.rb
   - lib/stack_one/models/shared/marketingcreatetemplaterequestdto.rb
+  - lib/stack_one/models/shared/message_value.rb
   - lib/stack_one/models/shared/message_message_type.rb
   - lib/stack_one/models/shared/message.rb
   - lib/stack_one/models/shared/marketingcreatepushtemplaterequestdto.rb
   - lib/stack_one/models/shared/pushmessages_message_content.rb
+  - lib/stack_one/models/shared/pushmessages_value.rb
   - lib/stack_one/models/shared/pushmessages_message_type.rb
   - lib/stack_one/models/shared/pushmessages.rb
   - lib/stack_one/models/shared/campaignresult.rb
@@ -752,8 +784,12 @@ generatedFiles:
   - docs/models/operations/crmupdatecontactresponse.md
   - docs/models/operations/hriscreateemployeerequest.md
   - docs/models/operations/hriscreateemployeeresponse.md
+  - docs/models/operations/hriscreateemployeedocumentrequest.md
+  - docs/models/operations/hriscreateemployeedocumentresponse.md
   - docs/models/operations/hriscreateemployeetimeoffrequestrequest.md
   - docs/models/operations/hriscreateemployeetimeoffrequestresponse.md
+  - docs/models/operations/hriscreateemployeeworkeligibilityrequestrequest.md
+  - docs/models/operations/hriscreateemployeeworkeligibilityrequestresponse.md
   - docs/models/operations/hriscreatetimeoffrequestrequest.md
   - docs/models/operations/hriscreatetimeoffrequestresponse.md
   - docs/models/operations/hrisgetbenefitqueryparamproxy.md
@@ -771,6 +807,9 @@ generatedFiles:
   - docs/models/operations/hrisgetemployeestimeoffrequestqueryparamproxy.md
   - docs/models/operations/hrisgetemployeestimeoffrequestrequest.md
   - docs/models/operations/hrisgetemployeestimeoffrequestresponse.md
+  - docs/models/operations/hrisgetemployeesworkeligibilityqueryparamproxy.md
+  - docs/models/operations/hrisgetemployeesworkeligibilityrequest.md
+  - docs/models/operations/hrisgetemployeesworkeligibilityresponse.md
   - docs/models/operations/hrisgetemploymentqueryparamproxy.md
   - docs/models/operations/hrisgetemploymentrequest.md
   - docs/models/operations/hrisgetemploymentresponse.md
@@ -792,6 +831,9 @@ generatedFiles:
   - docs/models/operations/hrislistemployeetimeoffrequestsqueryparamproxy.md
   - docs/models/operations/hrislistemployeetimeoffrequestsrequest.md
   - docs/models/operations/hrislistemployeetimeoffrequestsresponse.md
+  - docs/models/operations/hrislistemployeeworkeligibilityqueryparamproxy.md
+  - docs/models/operations/hrislistemployeeworkeligibilityrequest.md
+  - docs/models/operations/hrislistemployeeworkeligibilityresponse.md
   - docs/models/operations/hrislistemployeesqueryparamproxy.md
   - docs/models/operations/hrislistemployeesrequest.md
   - docs/models/operations/hrislistemployeesresponse.md
@@ -806,6 +848,8 @@ generatedFiles:
   - docs/models/operations/hrislisttimeoffrequestsresponse.md
   - docs/models/operations/hrisupdateemployeerequest.md
   - docs/models/operations/hrisupdateemployeeresponse.md
+  - docs/models/operations/hrisupdateemployeeworkeligibilityrequestrequest.md
+  - docs/models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md
   - docs/models/operations/hrisupdatetimeoffrequestrequest.md
   - docs/models/operations/hrisupdatetimeoffrequestresponse.md
   - docs/models/operations/marketingcreateemailtemplaterequest.md
@@ -877,7 +921,6 @@ generatedFiles:
   - docs/models/shared/contenttype.md
   - docs/models/shared/applicationattachment.md
   - docs/models/shared/candidateresult.md
-  - docs/models/shared/response.md
   - docs/models/shared/rawresponse.md
   - docs/models/shared/candidate.md
   - docs/models/shared/sociallink.md
@@ -935,6 +978,7 @@ generatedFiles:
   - docs/models/shared/confidential.md
   - docs/models/shared/jobvalue.md
   - docs/models/shared/jobstatus.md
+  - docs/models/shared/jobschemasstatus.md
   - docs/models/shared/job.md
   - docs/models/shared/jobhiringteam.md
   - docs/models/shared/jobpostingresult.md
@@ -1047,20 +1091,32 @@ generatedFiles:
   - docs/models/shared/employeecustomfields.md
   - docs/models/shared/countrycodeenumvalue.md
   - docs/models/shared/countrycodeenum.md
+  - docs/models/shared/hrisbenefitvalue.md
+  - docs/models/shared/benefittype.md
+  - docs/models/shared/hrisbenefit.md
+  - docs/models/shared/createdocumentresult.md
+  - docs/models/shared/hriscreatedocumentrequestdtovalue.md
+  - docs/models/shared/hriscreatedocumentrequestdtotype.md
+  - docs/models/shared/hriscreatedocumentrequestdto.md
   - docs/models/shared/createtimeoffresult.md
   - docs/models/shared/hriscreatetimeoffrequestdtovalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtostatus.md
   - docs/models/shared/hriscreatetimeoffrequestdtoschemasvalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtotype.md
   - docs/models/shared/hriscreatetimeoffrequestdto.md
+  - docs/models/shared/createworkeligibilityresult.md
+  - docs/models/shared/document.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdtovalue.md
+  - docs/models/shared/issuedby.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdtoschemasvalue.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdtotype.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdto.md
   - docs/models/shared/hrisbenefitresult.md
-  - docs/models/shared/hrisbenefitvalue.md
-  - docs/models/shared/benefittype.md
-  - docs/models/shared/hrisbenefit.md
   - docs/models/shared/companyresult.md
   - docs/models/shared/company.md
   - docs/models/shared/employeeresult.md
   - docs/models/shared/avatar.md
+  - docs/models/shared/employeecompany.md
   - docs/models/shared/employeevalue.md
   - docs/models/shared/employmentcontracttype.md
   - docs/models/shared/employeeschemasvalue.md
@@ -1085,10 +1141,6 @@ generatedFiles:
   - docs/models/shared/employeeschemaslocationtype.md
   - docs/models/shared/worklocation.md
   - docs/models/shared/employee.md
-  - docs/models/shared/document.md
-  - docs/models/shared/workeligibilityvalue.md
-  - docs/models/shared/workeligibilitytype.md
-  - docs/models/shared/workeligibility.md
   - docs/models/shared/costcenters.md
   - docs/models/shared/timeoffresult.md
   - docs/models/shared/timeoffvalue.md
@@ -1096,6 +1148,13 @@ generatedFiles:
   - docs/models/shared/timeoffschemasvalue.md
   - docs/models/shared/timeofftype.md
   - docs/models/shared/timeoff.md
+  - docs/models/shared/workeligibilityresult.md
+  - docs/models/shared/workeligibilitydocument.md
+  - docs/models/shared/workeligibilityvalue.md
+  - docs/models/shared/workeligibilityissuedby.md
+  - docs/models/shared/workeligibilityschemasvalue.md
+  - docs/models/shared/workeligibilitytype.md
+  - docs/models/shared/workeligibility.md
   - docs/models/shared/employmentresult.md
   - docs/models/shared/hrislocationresult.md
   - docs/models/shared/hrislocationvalue.md
@@ -1106,19 +1165,23 @@ generatedFiles:
   - docs/models/shared/hrisbenefitspaginated.md
   - docs/models/shared/companiespaginated.md
   - docs/models/shared/timeoffpaginated.md
+  - docs/models/shared/workeligibilitypaginated.md
   - docs/models/shared/employeespaginated.md
   - docs/models/shared/employmentspaginated.md
   - docs/models/shared/hrislocationspaginated.md
   - docs/models/shared/createtemplateresult.md
   - docs/models/shared/marketingcreateemailtemplaterequestdto.md
   - docs/models/shared/messagecontent.md
+  - docs/models/shared/emailmessagesvalue.md
   - docs/models/shared/messagetype.md
   - docs/models/shared/emailmessages.md
   - docs/models/shared/marketingcreatetemplaterequestdto.md
+  - docs/models/shared/messagevalue.md
   - docs/models/shared/messagemessagetype.md
   - docs/models/shared/message.md
   - docs/models/shared/marketingcreatepushtemplaterequestdto.md
   - docs/models/shared/pushmessagesmessagecontent.md
+  - docs/models/shared/pushmessagesvalue.md
   - docs/models/shared/pushmessagesmessagetype.md
   - docs/models/shared/pushmessages.md
   - docs/models/shared/campaignresult.md

@@ -23,7 +23,7 @@ module StackOne
       field :page, T.nilable(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
       # The number of results per page
       field :page_size, T.nilable(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
-      # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with "proxy" key
+      # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
       field :proxy, T.nilable(::StackOne::Operations::AtsListCandidatesQueryParamProxy), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }

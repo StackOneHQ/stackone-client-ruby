@@ -119,13 +119,16 @@ end
 ### [Hris](docs/sdks/hris/README.md)
 
 * [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
+* [create_employee_document](docs/sdks/hris/README.md#create_employee_document) - Create Employee Document
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
+* [create_employee_work_eligibility_request](docs/sdks/hris/README.md#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employees_time_off_request](docs/sdks/hris/README.md#get_employees_time_off_request) - Get Employees Time Off Request
+* [get_employees_work_eligibility](docs/sdks/hris/README.md#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](docs/sdks/hris/README.md#get_employment) - Get Employment
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Location
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
@@ -133,11 +136,13 @@ end
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
+* [list_employee_work_eligibility](docs/sdks/hris/README.md#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](docs/sdks/hris/README.md#list_employees) - List Employees
 * [list_employments](docs/sdks/hris/README.md#list_employments) - List Employments
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List locations
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
+* [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
 
 ### [Marketing](docs/sdks/marketing/README.md)

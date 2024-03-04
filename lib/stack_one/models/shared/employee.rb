@@ -15,10 +15,14 @@ module StackOne
       field :avatar, T.nilable(::StackOne::Shared::Avatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
       # The employee avatar Url
       field :avatar_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar_url') } }
+      # Current benefits of the employee
+      field :benefits, T.nilable(T::Array[::StackOne::Shared::HRISBenefit]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('benefits') } }
       # The employee birthday
       field :birthday, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('birthday'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The citizenships of the Employee
       field :citizenships, T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('citizenships') } }
+      # The employee company
+      field :company, T.nilable(::StackOne::Shared::EmployeeCompany), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
       # The employee company name
       field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
       # The employee cost centers
@@ -79,8 +83,6 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee work anniversary
       field :work_anniversary, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_anniversary'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee work eligibility
-      field :work_eligibility, T.nilable(T::Array[::StackOne::Shared::WorkEligibility]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_eligibility') } }
       # The employee work email
       field :work_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
       # The employee work location
@@ -89,12 +91,14 @@ module StackOne
       field :work_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(avatar: T.nilable(::StackOne::Shared::Avatar), avatar_url: T.nilable(::String), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company_name: T.nilable(::String), cost_centers: T.nilable(T::Array[::StackOne::Shared::CostCenters]), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[::StackOne::Shared::EmployeeCustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), display_name: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_status: T.nilable(::StackOne::Shared::EmploymentStatus), employment_type: T.nilable(::StackOne::Shared::EmploymentType), employments: T.nilable(T::Array[::StackOne::Shared::Employment]), ethnicity: T.nilable(::StackOne::Shared::Ethnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::Gender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::HomeLocation), id: T.nilable(::String), job_description: T.nilable(::StackOne::Shared::JobDescription), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::MaritalStatus), name: T.nilable(::String), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), start_date: T.nilable(::DateTime), tenure: T.nilable(::Float), termination_date: T.nilable(::DateTime), updated_at: T.nilable(::DateTime), work_anniversary: T.nilable(::DateTime), work_eligibility: T.nilable(T::Array[::StackOne::Shared::WorkEligibility]), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::WorkLocation), work_phone_number: T.nilable(::String)).void }
-      def initialize(avatar: nil, avatar_url: nil, birthday: nil, citizenships: nil, company_name: nil, cost_centers: nil, created_at: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, id: nil, job_description: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, updated_at: nil, work_anniversary: nil, work_eligibility: nil, work_email: nil, work_location: nil, work_phone_number: nil)
+      sig { params(avatar: T.nilable(::StackOne::Shared::Avatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[::StackOne::Shared::HRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company: T.nilable(::StackOne::Shared::EmployeeCompany), company_name: T.nilable(::String), cost_centers: T.nilable(T::Array[::StackOne::Shared::CostCenters]), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[::StackOne::Shared::EmployeeCustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), display_name: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_status: T.nilable(::StackOne::Shared::EmploymentStatus), employment_type: T.nilable(::StackOne::Shared::EmploymentType), employments: T.nilable(T::Array[::StackOne::Shared::Employment]), ethnicity: T.nilable(::StackOne::Shared::Ethnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::Gender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::HomeLocation), id: T.nilable(::String), job_description: T.nilable(::StackOne::Shared::JobDescription), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::MaritalStatus), name: T.nilable(::String), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), start_date: T.nilable(::DateTime), tenure: T.nilable(::Float), termination_date: T.nilable(::DateTime), updated_at: T.nilable(::DateTime), work_anniversary: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::WorkLocation), work_phone_number: T.nilable(::String)).void }
+      def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company: nil, company_name: nil, cost_centers: nil, created_at: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, id: nil, job_description: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, personal_email: nil, personal_phone_number: nil, start_date: nil, tenure: nil, termination_date: nil, updated_at: nil, work_anniversary: nil, work_email: nil, work_location: nil, work_phone_number: nil)
         @avatar = avatar
         @avatar_url = avatar_url
+        @benefits = benefits
         @birthday = birthday
         @citizenships = citizenships
+        @company = company
         @company_name = company_name
         @cost_centers = cost_centers
         @created_at = created_at
@@ -125,7 +129,6 @@ module StackOne
         @termination_date = termination_date
         @updated_at = updated_at
         @work_anniversary = work_anniversary
-        @work_eligibility = work_eligibility
         @work_email = work_email
         @work_location = work_location
         @work_phone_number = work_phone_number

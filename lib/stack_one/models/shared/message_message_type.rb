@@ -14,10 +14,10 @@ module StackOne
       # The original value from the provider used to derive the unified message type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The unified message type.
-      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+      field :value, T.nilable(::StackOne::Shared::MessageValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::String)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::MessageValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

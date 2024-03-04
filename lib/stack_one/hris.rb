@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeResponse) }
     def create_employee(hris_create_employee_request_dto, x_account_id)
       # create_employee - Creates an employee
       request = ::StackOne::Operations::HrisCreateEmployeeRequest.new(
@@ -65,7 +65,59 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(hris_create_document_request_dto: ::StackOne::Shared::HrisCreateDocumentRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeDocumentResponse) }
+    def create_employee_document(hris_create_document_request_dto, id, x_account_id)
+      # create_employee_document - Create Employee Document
+      request = ::StackOne::Operations::HrisCreateEmployeeDocumentRequest.new(
+        
+        hris_create_document_request_dto: hris_create_document_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisCreateEmployeeDocumentRequest,
+        base_url,
+        '/unified/hris/employees/{id}/documents',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_document_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisCreateEmployeeDocumentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateDocumentResult)
+          res.create_document_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
     def create_employee_time_off_request(hris_create_time_off_request_dto, id, x_account_id)
       # create_employee_time_off_request - Create Employee Time Off Request
       request = ::StackOne::Operations::HrisCreateEmployeeTimeOffRequestRequest.new(
@@ -117,7 +169,59 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
+    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto, id, x_account_id)
+      # create_employee_work_eligibility_request - Create Employee Work Eligibility Request
+      request = ::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestRequest.new(
+        
+        hris_create_work_eligibility_request_dto: hris_create_work_eligibility_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestRequest,
+        base_url,
+        '/unified/hris/employees/{id}/work_eligibility',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_work_eligibility_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateWorkEligibilityResult)
+          res.create_work_eligibility_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateTimeOffRequestResponse) }
     def create_time_off_request(hris_create_time_off_request_dto, x_account_id)
       # create_time_off_request - Creates a time off request
       request = ::StackOne::Operations::HrisCreateTimeOffRequestRequest.new(
@@ -163,7 +267,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetBenefitRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetBenefitRequest)).returns(::StackOne::Operations::HrisGetBenefitResponse) }
     def get_benefit(request)
       # get_benefit - Get Benefit
       url, params = @sdk_configuration.get_server_details
@@ -201,7 +305,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCompanyRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCompanyRequest)).returns(::StackOne::Operations::HrisGetCompanyResponse) }
     def get_company(request)
       # get_company - Get Company
       url, params = @sdk_configuration.get_server_details
@@ -239,7 +343,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeRequest)).returns(::StackOne::Operations::HrisGetEmployeeResponse) }
     def get_employee(request)
       # get_employee - Get Employee
       url, params = @sdk_configuration.get_server_details
@@ -277,7 +381,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentRequest)).returns(::StackOne::Operations::HrisGetEmployeeDocumentResponse) }
     def get_employee_document(request)
       # get_employee_document - Get Employee Document
       url, params = @sdk_configuration.get_server_details
@@ -315,7 +419,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse) }
     def get_employees_time_off_request(request)
       # get_employees_time_off_request - Get Employees Time Off Request
       url, params = @sdk_configuration.get_server_details
@@ -353,7 +457,45 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmploymentRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest)).returns(::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse) }
+    def get_employees_work_eligibility(request)
+      # get_employees_work_eligibility - Get Employees Work Eligibility
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest,
+        base_url,
+        '/unified/hris/employees/{id}/work_eligibility/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WorkEligibilityResult)
+          res.work_eligibility_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmploymentRequest)).returns(::StackOne::Operations::HrisGetEmploymentResponse) }
     def get_employment(request)
       # get_employment - Get Employment
       url, params = @sdk_configuration.get_server_details
@@ -391,7 +533,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetLocationRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetLocationRequest)).returns(::StackOne::Operations::HrisGetLocationResponse) }
     def get_location(request)
       # get_location - Get Location
       url, params = @sdk_configuration.get_server_details
@@ -429,7 +571,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffRequestRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetTimeOffRequestResponse) }
     def get_time_off_request(request)
       # get_time_off_request - Get time off request
       url, params = @sdk_configuration.get_server_details
@@ -467,7 +609,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListBenefitsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListBenefitsRequest)).returns(::StackOne::Operations::HrisListBenefitsResponse) }
     def list_benefits(request)
       # list_benefits - List benefits
       url, params = @sdk_configuration.get_server_details
@@ -500,7 +642,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListCompaniesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListCompaniesRequest)).returns(::StackOne::Operations::HrisListCompaniesResponse) }
     def list_companies(request)
       # list_companies - List Companies
       url, params = @sdk_configuration.get_server_details
@@ -533,7 +675,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsRequest)).returns(::StackOne::Operations::HrisListEmployeeDocumentsResponse) }
     def list_employee_documents(request)
       # list_employee_documents - List Employee Documents
       url, params = @sdk_configuration.get_server_details
@@ -571,7 +713,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest)).returns(::StackOne::Operations::HrisListEmployeeTimeOffRequestsResponse) }
     def list_employee_time_off_requests(request)
       # list_employee_time_off_requests - List Employee Time Off Requests
       url, params = @sdk_configuration.get_server_details
@@ -609,7 +751,45 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest)).returns(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse) }
+    def list_employee_work_eligibility(request)
+      # list_employee_work_eligibility - List Employee Work Eligibility
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest,
+        base_url,
+        '/unified/hris/employees/{id}/work_eligibility',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WorkEligibilityPaginated)
+          res.work_eligibility_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeesRequest)).returns(::StackOne::Operations::HrisListEmployeesResponse) }
     def list_employees(request)
       # list_employees - List Employees
       url, params = @sdk_configuration.get_server_details
@@ -642,7 +822,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmploymentsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmploymentsRequest)).returns(::StackOne::Operations::HrisListEmploymentsResponse) }
     def list_employments(request)
       # list_employments - List Employments
       url, params = @sdk_configuration.get_server_details
@@ -675,7 +855,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListLocationsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListLocationsRequest)).returns(::StackOne::Operations::HrisListLocationsResponse) }
     def list_locations(request)
       # list_locations - List locations
       url, params = @sdk_configuration.get_server_details
@@ -708,7 +888,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffRequestsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffRequestsRequest)).returns(::StackOne::Operations::HrisListTimeOffRequestsResponse) }
     def list_time_off_requests(request)
       # list_time_off_requests - List time off requests
       url, params = @sdk_configuration.get_server_details
@@ -741,7 +921,7 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeResponse) }
     def update_employee(hris_create_employee_request_dto, id, x_account_id)
       # update_employee - Updates an employee
       request = ::StackOne::Operations::HrisUpdateEmployeeRequest.new(
@@ -793,7 +973,54 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
+    def update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto, id, sub_resource_id, x_account_id)
+      # update_employee_work_eligibility_request - Update Employee Work Eligibility Request
+      request = ::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest.new(
+        
+        hris_create_work_eligibility_request_dto: hris_create_work_eligibility_request_dto,
+        id: id,
+        sub_resource_id: sub_resource_id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest,
+        base_url,
+        '/unified/hris/employees/{id}/work_eligibility/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_work_eligibility_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = '*/*'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.patch(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      
+      res
+    end
+
+
+    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateTimeOffRequestResponse) }
     def update_time_off_request(hris_create_time_off_request_dto, id, x_account_id)
       # update_time_off_request - Update time off request
       request = ::StackOne::Operations::HrisUpdateTimeOffRequestRequest.new(

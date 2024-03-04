@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(proxy_request_body: ::StackOne::Shared::ProxyRequestBody, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(proxy_request_body: ::StackOne::Shared::ProxyRequestBody, x_account_id: ::String).returns(::StackOne::Operations::StackoneProxyRequestResponse) }
     def proxy_request(proxy_request_body, x_account_id)
       # proxy_request - Proxy Request
       request = ::StackOne::Operations::StackoneProxyRequestRequest.new(

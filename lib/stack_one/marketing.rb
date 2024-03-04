@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateEmailTemplateResponse) }
     def create_email_template(marketing_create_email_template_request_dto, x_account_id)
       # create_email_template - Create email template
       request = ::StackOne::Operations::MarketingCreateEmailTemplateRequest.new(
@@ -65,7 +65,7 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_template_request_dto: ::StackOne::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(marketing_create_template_request_dto: ::StackOne::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateOmniChannelTemplateResponse) }
     def create_omni_channel_template(marketing_create_template_request_dto, x_account_id)
       # create_omni_channel_template - Create omni-channel template
       request = ::StackOne::Operations::MarketingCreateOmniChannelTemplateRequest.new(
@@ -111,7 +111,7 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_push_template_request_dto: ::StackOne::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(marketing_create_push_template_request_dto: ::StackOne::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreatePushTemplateResponse) }
     def create_push_template(marketing_create_push_template_request_dto, x_account_id)
       # create_push_template - Create push template
       request = ::StackOne::Operations::MarketingCreatePushTemplateRequest.new(
@@ -157,7 +157,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetCampaignRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetCampaignRequest)).returns(::StackOne::Operations::MarketingGetCampaignResponse) }
     def get_campaign(request)
       # get_campaign - Get campaign
       url, params = @sdk_configuration.get_server_details
@@ -189,13 +189,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CampaignResult)
           res.campaign_result = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetEmailTemplateRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetEmailTemplateRequest)).returns(::StackOne::Operations::MarketingGetEmailTemplateResponse) }
     def get_email_template(request)
       # get_email_template - Get email template
       url, params = @sdk_configuration.get_server_details
@@ -233,7 +233,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetOmniChannelTemplateRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetOmniChannelTemplateRequest)).returns(::StackOne::Operations::MarketingGetOmniChannelTemplateResponse) }
     def get_omni_channel_template(request)
       # get_omni_channel_template - Get omni-channel template
       url, params = @sdk_configuration.get_server_details
@@ -271,7 +271,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetPushTemplateRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetPushTemplateRequest)).returns(::StackOne::Operations::MarketingGetPushTemplateResponse) }
     def get_push_template(request)
       # get_push_template - Get push template
       url, params = @sdk_configuration.get_server_details
@@ -309,7 +309,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingListCampaignsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingListCampaignsRequest)).returns(::StackOne::Operations::MarketingListCampaignsResponse) }
     def list_campaigns(request)
       # list_campaigns - List campaigns
       url, params = @sdk_configuration.get_server_details
@@ -336,13 +336,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CampaignsPaginated)
           res.campaigns_paginated = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingListEmailTemplatesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingListEmailTemplatesRequest)).returns(::StackOne::Operations::MarketingListEmailTemplatesResponse) }
     def list_email_templates(request)
       # list_email_templates - List email templates
       url, params = @sdk_configuration.get_server_details
@@ -375,7 +375,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingListOmniChannelTemplatesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingListOmniChannelTemplatesRequest)).returns(::StackOne::Operations::MarketingListOmniChannelTemplatesResponse) }
     def list_omni_channel_templates(request)
       # list_omni_channel_templates - List omni-channel templates
       url, params = @sdk_configuration.get_server_details
@@ -408,7 +408,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::MarketingListPushTemplatesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingListPushTemplatesRequest)).returns(::StackOne::Operations::MarketingListPushTemplatesResponse) }
     def list_push_templates(request)
       # list_push_templates - List push templates
       url, params = @sdk_configuration.get_server_details
@@ -441,7 +441,7 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateEmailTemplateResponse) }
     def update_email_template(marketing_create_email_template_request_dto, id, x_account_id)
       # update_email_template - Update email template
       request = ::StackOne::Operations::MarketingUpdateEmailTemplateRequest.new(
@@ -493,7 +493,7 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_template_request_dto: ::StackOne::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(marketing_create_template_request_dto: ::StackOne::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateOmniChannelTemplateResponse) }
     def update_omni_channel_template(marketing_create_template_request_dto, id, x_account_id)
       # update_omni_channel_template - Update omni-channel template
       request = ::StackOne::Operations::MarketingUpdateOmniChannelTemplateRequest.new(
@@ -545,7 +545,7 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_push_template_request_dto: ::StackOne::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(marketing_create_push_template_request_dto: ::StackOne::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdatePushTemplateResponse) }
     def update_push_template(marketing_create_push_template_request_dto, id, x_account_id)
       # update_push_template - Update push template
       request = ::StackOne::Operations::MarketingUpdatePushTemplateRequest.new(

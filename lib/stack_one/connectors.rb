@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(provider: ::String, include: T.nilable(::String)).returns(Utils::FieldAugmented) }
+    sig { params(provider: ::String, include: T.nilable(::String)).returns(::StackOne::Operations::StackoneGetConnectorMetaResponse) }
     def get_connector_meta(provider, include = nil)
       # get_connector_meta - Get Connector Meta information for the given provider key
       request = ::StackOne::Operations::StackoneGetConnectorMetaRequest.new(
@@ -62,7 +62,7 @@ module StackOne
     end
 
 
-    sig { params(include: T.nilable(::String)).returns(Utils::FieldAugmented) }
+    sig { params(include: T.nilable(::String)).returns(::StackOne::Operations::StackoneListConnectorsMetaResponse) }
     def list_connectors_meta(include = nil)
       # list_connectors_meta - List Connectors Meta Information for all providers
       request = ::StackOne::Operations::StackoneListConnectorsMetaRequest.new(

@@ -13,6 +13,7 @@ module StackOne
         LIVE = new('live')
         DRAFT = new('draft')
         CLOSED = new('closed')
+        ARCHIVED = new('archived')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

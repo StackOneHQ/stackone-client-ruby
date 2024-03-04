@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, x_account_id: ::String).returns(::StackOne::Operations::CrmCreateContactResponse) }
     def create_contact(crm_create_contact_request_dto, x_account_id)
       # create_contact - Creates a new Contact
       request = ::StackOne::Operations::CrmCreateContactRequest.new(
@@ -65,7 +65,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetAccountRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetAccountRequest)).returns(::StackOne::Operations::CrmGetAccountResponse) }
     def get_account(request)
       # get_account - Get Account
       url, params = @sdk_configuration.get_server_details
@@ -97,13 +97,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AccountResult)
           res.account_result = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactRequest)).returns(::StackOne::Operations::CrmGetContactResponse) }
     def get_contact(request)
       # get_contact - Get Contact
       url, params = @sdk_configuration.get_server_details
@@ -141,7 +141,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetListRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetListRequest)).returns(::StackOne::Operations::CrmGetListResponse) }
     def get_list(request)
       # get_list - Get List
       url, params = @sdk_configuration.get_server_details
@@ -179,7 +179,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListAccountsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListAccountsRequest)).returns(::StackOne::Operations::CrmListAccountsResponse) }
     def list_accounts(request)
       # list_accounts - List Accounts
       url, params = @sdk_configuration.get_server_details
@@ -206,13 +206,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AccountsPaginated)
           res.accounts_paginated = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactsRequest)).returns(::StackOne::Operations::CrmListContactsResponse) }
     def list_contacts(request)
       # list_contacts - List Contacts
       url, params = @sdk_configuration.get_server_details
@@ -239,13 +239,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContactsPaginated)
           res.contacts_paginated = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListListsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListListsRequest)).returns(::StackOne::Operations::CrmListListsResponse) }
     def list_lists(request)
       # list_lists - Get all Lists
       url, params = @sdk_configuration.get_server_details
@@ -272,13 +272,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ListsPaginated)
           res.lists_paginated = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::CrmUpdateContactResponse) }
     def update_contact(crm_create_contact_request_dto, id, x_account_id)
       # update_contact - Update Contact (early access)
       request = ::StackOne::Operations::CrmUpdateContactRequest.new(

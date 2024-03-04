@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stackone_client (0.2.2)
+    stackone_client (0.2.3)
       faraday
       faraday-multipart
       rack

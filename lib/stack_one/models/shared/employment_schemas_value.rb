@@ -10,8 +10,6 @@ module StackOne
     # EmploymentSchemasValue - The type of the employment.
     class EmploymentSchemasValue < T::Enum
       enums do
-        FULL_TIME = new('full_time')
-        PART_TIME = new('part_time')
         CONTRACTOR = new('contractor')
         INTERN = new('intern')
         PERMANENT = new('permanent')

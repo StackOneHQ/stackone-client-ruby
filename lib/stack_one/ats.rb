@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(ats_create_application_request_dto: ::StackOne::Shared::AtsCreateApplicationRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(ats_create_application_request_dto: ::StackOne::Shared::AtsCreateApplicationRequestDto, x_account_id: ::String).returns(::StackOne::Operations::AtsCreateApplicationResponse) }
     def create_application(ats_create_application_request_dto, x_account_id)
       # create_application - Create Application
       request = ::StackOne::Operations::AtsCreateApplicationRequest.new(
@@ -65,7 +65,7 @@ module StackOne
     end
 
 
-    sig { params(ats_create_candidate_request_dto: ::StackOne::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(ats_create_candidate_request_dto: ::StackOne::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::AtsCreateCandidateResponse) }
     def create_candidate(ats_create_candidate_request_dto, x_account_id)
       # create_candidate - Create Candidate (early access)
       request = ::StackOne::Operations::AtsCreateCandidateRequest.new(
@@ -111,7 +111,7 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: ::StackOne::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(ats_create_notes_request_dto: ::StackOne::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsCreateCandidateNoteResponse) }
     def create_candidate_note(ats_create_notes_request_dto, id, x_account_id)
       # create_candidate_note - Create Candidate Note
       request = ::StackOne::Operations::AtsCreateCandidateNoteRequest.new(
@@ -163,7 +163,7 @@ module StackOne
     end
 
 
-    sig { params(ats_create_offer_request_dto: ::StackOne::Shared::AtsCreateOfferRequestDto, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(ats_create_offer_request_dto: ::StackOne::Shared::AtsCreateOfferRequestDto, x_account_id: ::String).returns(::StackOne::Operations::AtsCreateOfferResponse) }
     def create_offer(ats_create_offer_request_dto, x_account_id)
       # create_offer - Creates an offer
       request = ::StackOne::Operations::AtsCreateOfferRequest.new(
@@ -209,7 +209,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationRequest)).returns(::StackOne::Operations::AtsGetApplicationResponse) }
     def get_application(request)
       # get_application - Get Application
       url, params = @sdk_configuration.get_server_details
@@ -247,7 +247,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationDocumentRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationDocumentRequest)).returns(::StackOne::Operations::AtsGetApplicationDocumentResponse) }
     def get_application_document(request)
       # get_application_document - Get Application Document
       url, params = @sdk_configuration.get_server_details
@@ -285,7 +285,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationOfferRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationOfferRequest)).returns(::StackOne::Operations::AtsGetApplicationOfferResponse) }
     def get_application_offer(request)
       # get_application_offer - Get Application Offer
       url, params = @sdk_configuration.get_server_details
@@ -323,7 +323,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationScorecardRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationScorecardRequest)).returns(::StackOne::Operations::AtsGetApplicationScorecardResponse) }
     def get_application_scorecard(request)
       # get_application_scorecard - Get Application Scorecard
       url, params = @sdk_configuration.get_server_details
@@ -361,7 +361,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetCandidateRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetCandidateRequest)).returns(::StackOne::Operations::AtsGetCandidateResponse) }
     def get_candidate(request)
       # get_candidate - Get Candidate
       url, params = @sdk_configuration.get_server_details
@@ -399,7 +399,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetCandidateNoteRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetCandidateNoteRequest)).returns(::StackOne::Operations::AtsGetCandidateNoteResponse) }
     def get_candidate_note(request)
       # get_candidate_note - Get Candidate Note
       url, params = @sdk_configuration.get_server_details
@@ -431,13 +431,13 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::NoteResult)
           res.note_result = out
         end
-      elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetDepartmentRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetDepartmentRequest)).returns(::StackOne::Operations::AtsGetDepartmentResponse) }
     def get_department(request)
       # get_department - Get Department
       url, params = @sdk_configuration.get_server_details
@@ -475,7 +475,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetInterviewRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetInterviewRequest)).returns(::StackOne::Operations::AtsGetInterviewResponse) }
     def get_interview(request)
       # get_interview - Get Interview
       url, params = @sdk_configuration.get_server_details
@@ -513,7 +513,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetInterviewStageRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetInterviewStageRequest)).returns(::StackOne::Operations::AtsGetInterviewStageResponse) }
     def get_interview_stage(request)
       # get_interview_stage - Get Interview Stage
       url, params = @sdk_configuration.get_server_details
@@ -551,7 +551,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetJobRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetJobRequest)).returns(::StackOne::Operations::AtsGetJobResponse) }
     def get_job(request)
       # get_job - Get Job
       url, params = @sdk_configuration.get_server_details
@@ -589,7 +589,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetJobPostingRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetJobPostingRequest)).returns(::StackOne::Operations::AtsGetJobPostingResponse) }
     def get_job_posting(request)
       # get_job_posting - Get Job Posting
       url, params = @sdk_configuration.get_server_details
@@ -627,7 +627,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetLocationRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetLocationRequest)).returns(::StackOne::Operations::AtsGetLocationResponse) }
     def get_location(request)
       # get_location - Get Location
       url, params = @sdk_configuration.get_server_details
@@ -665,7 +665,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetOfferRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetOfferRequest)).returns(::StackOne::Operations::AtsGetOfferResponse) }
     def get_offer(request)
       # get_offer - Get Offer
       url, params = @sdk_configuration.get_server_details
@@ -703,7 +703,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetRejectedReasonRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetRejectedReasonRequest)).returns(::StackOne::Operations::AtsGetRejectedReasonResponse) }
     def get_rejected_reason(request)
       # get_rejected_reason - Get Rejected Reason
       url, params = @sdk_configuration.get_server_details
@@ -741,7 +741,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsGetUserRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetUserRequest)).returns(::StackOne::Operations::AtsGetUserResponse) }
     def get_user(request)
       # get_user - Get User
       url, params = @sdk_configuration.get_server_details
@@ -779,7 +779,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationDocumentsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationDocumentsRequest)).returns(::StackOne::Operations::AtsListApplicationDocumentsResponse) }
     def list_application_documents(request)
       # list_application_documents - List Application Documents
       url, params = @sdk_configuration.get_server_details
@@ -817,7 +817,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationScorecardsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationScorecardsRequest)).returns(::StackOne::Operations::AtsListApplicationScorecardsResponse) }
     def list_application_scorecards(request)
       # list_application_scorecards - List Application Scorecards
       url, params = @sdk_configuration.get_server_details
@@ -855,7 +855,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationsRequest)).returns(::StackOne::Operations::AtsListApplicationsResponse) }
     def list_applications(request)
       # list_applications - List Applications
       url, params = @sdk_configuration.get_server_details
@@ -888,7 +888,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationsOffersRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationsOffersRequest)).returns(::StackOne::Operations::AtsListApplicationsOffersResponse) }
     def list_applications_offers(request)
       # list_applications_offers - List Application Offers
       url, params = @sdk_configuration.get_server_details
@@ -926,7 +926,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListCandidateNotesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListCandidateNotesRequest)).returns(::StackOne::Operations::AtsListCandidateNotesResponse) }
     def list_candidate_notes(request)
       # list_candidate_notes - List Candidate Notes
       url, params = @sdk_configuration.get_server_details
@@ -964,7 +964,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListCandidatesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListCandidatesRequest)).returns(::StackOne::Operations::AtsListCandidatesResponse) }
     def list_candidates(request)
       # list_candidates - List Candidates
       url, params = @sdk_configuration.get_server_details
@@ -997,7 +997,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListDepartmentsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListDepartmentsRequest)).returns(::StackOne::Operations::AtsListDepartmentsResponse) }
     def list_departments(request)
       # list_departments - List Departments
       url, params = @sdk_configuration.get_server_details
@@ -1030,7 +1030,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListInterviewStagesRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListInterviewStagesRequest)).returns(::StackOne::Operations::AtsListInterviewStagesResponse) }
     def list_interview_stages(request)
       # list_interview_stages - List Interview Stages
       url, params = @sdk_configuration.get_server_details
@@ -1063,7 +1063,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListInterviewsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListInterviewsRequest)).returns(::StackOne::Operations::AtsListInterviewsResponse) }
     def list_interviews(request)
       # list_interviews - List Interviews
       url, params = @sdk_configuration.get_server_details
@@ -1096,7 +1096,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListJobPostingsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListJobPostingsRequest)).returns(::StackOne::Operations::AtsListJobPostingsResponse) }
     def list_job_postings(request)
       # list_job_postings - List Job Postings
       url, params = @sdk_configuration.get_server_details
@@ -1129,7 +1129,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListJobsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListJobsRequest)).returns(::StackOne::Operations::AtsListJobsResponse) }
     def list_jobs(request)
       # list_jobs - List Jobs
       url, params = @sdk_configuration.get_server_details
@@ -1162,7 +1162,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListLocationsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListLocationsRequest)).returns(::StackOne::Operations::AtsListLocationsResponse) }
     def list_locations(request)
       # list_locations - List locations
       url, params = @sdk_configuration.get_server_details
@@ -1195,7 +1195,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListOffersRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListOffersRequest)).returns(::StackOne::Operations::AtsListOffersResponse) }
     def list_offers(request)
       # list_offers - List Offers
       url, params = @sdk_configuration.get_server_details
@@ -1228,7 +1228,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListRejectedReasonsRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListRejectedReasonsRequest)).returns(::StackOne::Operations::AtsListRejectedReasonsResponse) }
     def list_rejected_reasons(request)
       # list_rejected_reasons - List Rejected Reasons
       url, params = @sdk_configuration.get_server_details
@@ -1261,7 +1261,7 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::AtsListUsersRequest)).returns(Utils::FieldAugmented) }
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListUsersRequest)).returns(::StackOne::Operations::AtsListUsersResponse) }
     def list_users(request)
       # list_users - List Users
       url, params = @sdk_configuration.get_server_details
@@ -1294,7 +1294,7 @@ module StackOne
     end
 
 
-    sig { params(ats_update_application_request_dto: ::StackOne::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(ats_update_application_request_dto: ::StackOne::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateApplicationResponse) }
     def update_application(ats_update_application_request_dto, id, x_account_id)
       # update_application - Update Application
       request = ::StackOne::Operations::AtsUpdateApplicationRequest.new(
@@ -1346,7 +1346,7 @@ module StackOne
     end
 
 
-    sig { params(ats_update_candidates_request_dto: ::StackOne::Shared::AtsUpdateCandidatesRequestDto, id: ::String, x_account_id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(ats_update_candidates_request_dto: ::StackOne::Shared::AtsUpdateCandidatesRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateCandidateResponse) }
     def update_candidate(ats_update_candidates_request_dto, id, x_account_id)
       # update_candidate - Update Candidate (early access)
       request = ::StackOne::Operations::AtsUpdateCandidateRequest.new(

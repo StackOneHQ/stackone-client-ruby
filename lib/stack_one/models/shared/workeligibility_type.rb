@@ -14,10 +14,10 @@ module StackOne
 
       field :source_type, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_type') } }
 
-      field :value, T.nilable(::StackOne::Shared::WorkEligibilityValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::WorkEligibilityValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::WorkEligibilitySchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::WorkEligibilitySchemasValue, true) } }
 
 
-      sig { params(source_type: T.nilable(::Object), value: T.nilable(::StackOne::Shared::WorkEligibilityValue)).void }
+      sig { params(source_type: T.nilable(::Object), value: T.nilable(::StackOne::Shared::WorkEligibilitySchemasValue)).void }
       def initialize(source_type: nil, value: nil)
         @source_type = source_type
         @value = value

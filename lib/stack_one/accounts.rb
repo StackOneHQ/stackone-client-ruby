@@ -19,7 +19,7 @@ module StackOne
     end
 
 
-    sig { params(id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(id: ::String).returns(::StackOne::Operations::StackoneDeleteAccountResponse) }
     def delete_account(id)
       # delete_account - Delete Account
       request = ::StackOne::Operations::StackoneDeleteAccountRequest.new(
@@ -59,7 +59,7 @@ module StackOne
     end
 
 
-    sig { params(id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(id: ::String).returns(::StackOne::Operations::StackoneGetAccountResponse) }
     def get_account(id)
       # get_account - Get Account
       request = ::StackOne::Operations::StackoneGetAccountRequest.new(
@@ -99,7 +99,7 @@ module StackOne
     end
 
 
-    sig { params(id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(id: ::String).returns(::StackOne::Operations::StackoneGetAccountMetaInfoResponse) }
     def get_account_meta_info(id)
       # get_account_meta_info - Get meta information of the account
       request = ::StackOne::Operations::StackoneGetAccountMetaInfoRequest.new(
@@ -139,7 +139,7 @@ module StackOne
     end
 
 
-    sig { params(origin_owner_id: T.nilable(::String), provider: T.nilable(::String)).returns(Utils::FieldAugmented) }
+    sig { params(origin_owner_id: T.nilable(::String), provider: T.nilable(::String)).returns(::StackOne::Operations::StackoneListLinkedAccountsResponse) }
     def list_linked_accounts(origin_owner_id = nil, provider = nil)
       # list_linked_accounts - List Accounts
       request = ::StackOne::Operations::StackoneListLinkedAccountsRequest.new(
@@ -177,7 +177,7 @@ module StackOne
     end
 
 
-    sig { params(patch_account_dto: ::StackOne::Shared::PatchAccountDto, id: ::String).returns(Utils::FieldAugmented) }
+    sig { params(patch_account_dto: ::StackOne::Shared::PatchAccountDto, id: ::String).returns(::StackOne::Operations::StackoneUpdateAccountResponse) }
     def update_account(patch_account_dto, id)
       # update_account - Update Account
       request = ::StackOne::Operations::StackoneUpdateAccountRequest.new(

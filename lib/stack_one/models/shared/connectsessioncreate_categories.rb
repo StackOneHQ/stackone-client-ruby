@@ -14,6 +14,7 @@ module StackOne
         HRIS = new('hris')
         HRIS_LEGACY = new('hris-legacy')
         CRM = new('crm')
+        IAM = new('iam')
         MARKETING = new('marketing')
         STACKONE = new('stackone')
       end

@@ -7,7 +7,7 @@
 module StackOne
   module Operations
   
-    # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with "proxy" key
+    # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
     class AtsGetDepartmentQueryParamProxy < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 

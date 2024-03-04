@@ -13,6 +13,14 @@ module StackOne
         SICK = new('sick')
         UNMAPPED_VALUE = new('unmapped_value')
         VACATION = new('vacation')
+        LONG_TERM_DISABILITY = new('long_term_disability')
+        SHORT_TERM_DISABILITY = new('short_term_disability')
+        ABSENT = new('absent')
+        COMP_TIME = new('comp_time')
+        TRAINING = new('training')
+        ANNUAL_LEAVE = new('annual_leave')
+        LEAVE_OF_ABSENCE = new('leave_of_absence')
+        CHILD_CARE_LEAVE = new('child_care_leave')
       end
     end
 

@@ -11,6 +11,9 @@ module StackOne
     class HrisCreateTimeOffRequestDtoValue < T::Enum
       enums do
         APPROVED = new('approved')
+        CANCELLED = new('cancelled')
+        REJECTED = new('rejected')
+        PENDING = new('pending')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
