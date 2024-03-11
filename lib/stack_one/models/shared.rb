@@ -311,8 +311,6 @@ module StackOne
     autoload :Template, 'stack_one/models/shared/template.rb'
     autoload :CampaignsPaginated, 'stack_one/models/shared/campaignspaginated.rb'
     autoload :TemplatesPaginated, 'stack_one/models/shared/templatespaginated.rb'
-    autoload :Body, 'stack_one/models/shared/body.rb'
-    autoload :Headers, 'stack_one/models/shared/headers.rb'
     autoload :Method, 'stack_one/models/shared/method.rb'
     autoload :ProxyRequestBody, 'stack_one/models/shared/proxyrequestbody.rb'
     autoload :Security, 'stack_one/models/shared/security.rb'

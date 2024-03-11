@@ -12,6 +12,9 @@ module StackOne
       enums do
         LIVE = new('live')
         DRAFT = new('draft')
+        PENDING = new('pending')
+        INTERNAL = new('internal')
+        REJECTED = new('rejected')
         CLOSED = new('closed')
         ARCHIVED = new('archived')
         UNMAPPED_VALUE = new('unmapped_value')

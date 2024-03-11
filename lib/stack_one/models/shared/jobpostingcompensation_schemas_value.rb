@@ -15,9 +15,12 @@ module StackOne
         WEEK = new('week')
         EVERY_TWO_WEEKS = new('every_two_weeks')
         MONTH = new('month')
+        TWICE_A_MONTH = new('twice_a_month')
+        EVERY_TWO_MONTHS = new('every_two_months')
         QUARTER = new('quarter')
         EVERY_SIX_MONTHS = new('every_six_months')
         YEAR = new('year')
+        ONE_OFF = new('one_off')
         NONE = new('none')
         UNMAPPED_VALUE = new('unmapped_value')
       end

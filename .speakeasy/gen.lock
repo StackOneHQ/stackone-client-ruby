@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 28fc9fad5ba5cf0bc44072b020d83b38
+  docChecksum: a87c4dfe124417049298704616aad23a
   docVersion: 1.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.277.0
-  releaseVersion: 0.2.3
-  configChecksum: 2b2d7e60a3b3c47bf47f8ecb143a5b57
+  speakeasyVersion: 1.205.0
+  generationVersion: 2.279.1
+  releaseVersion: 0.2.4
+  configChecksum: d00323d87e0831c2d6b8cc1b8f725ace
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -634,8 +634,6 @@ generatedFiles:
   - lib/stack_one/models/shared/template.rb
   - lib/stack_one/models/shared/campaignspaginated.rb
   - lib/stack_one/models/shared/templatespaginated.rb
-  - lib/stack_one/models/shared/body.rb
-  - lib/stack_one/models/shared/headers.rb
   - lib/stack_one/models/shared/method.rb
   - lib/stack_one/models/shared/proxyrequestbody.rb
   - lib/stack_one/models/shared/security.rb
@@ -1196,8 +1194,6 @@ generatedFiles:
   - docs/models/shared/template.md
   - docs/models/shared/campaignspaginated.md
   - docs/models/shared/templatespaginated.md
-  - docs/models/shared/body.md
-  - docs/models/shared/headers.md
   - docs/models/shared/method.md
   - docs/models/shared/proxyrequestbody.md
   - docs/models/shared/security.md

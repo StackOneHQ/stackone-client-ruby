@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stackone_client (0.2.3)
+    stackone_client (0.2.4)
       faraday
       faraday-multipart
       rack
@@ -91,9 +91,9 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
-  stackone_client!
   rubocop
   sorbet-runtime
+  stackone_client!
   tapioca
 
 BUNDLED WITH

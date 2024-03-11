@@ -13,13 +13,19 @@ module StackOne
 
       # The origin owner identifier of the results to fetch
       field :origin_owner_id, T.nilable(::String), { 'query_param': { 'field_name': 'origin_owner_id', 'style': 'form', 'explode': true } }
+      # The page number of the results to fetch
+      field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+      # The number of results per page
+      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # The provider of the results to fetch
       field :provider, T.nilable(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
 
 
-      sig { params(origin_owner_id: T.nilable(::String), provider: T.nilable(::String)).void }
-      def initialize(origin_owner_id: nil, provider: nil)
+      sig { params(origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String)).void }
+      def initialize(origin_owner_id: nil, page: nil, page_size: nil, provider: nil)
         @origin_owner_id = origin_owner_id
+        @page = page
+        @page_size = page_size
         @provider = provider
       end
     end
