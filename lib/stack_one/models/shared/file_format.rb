@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-
-    class FileFormatEnum < ::StackOne::Utils::FieldAugmented
+    # The file format of the file
+    class FileFormat < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::FileFormatEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::FileFormatEnumValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::ContentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::ContentValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::FileFormatEnumValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::ContentValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

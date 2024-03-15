@@ -5,9 +5,9 @@
 
 | Field                 | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
-| `email`               | *::String*            | :heavy_check_mark:    | N/A                   |
+| `email`               | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `first_name`          | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
-| `id`                  | *::String*            | :heavy_check_mark:    | N/A                   |
+| `id`                  | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `last_name`           | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `name`                | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `phone`               | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |

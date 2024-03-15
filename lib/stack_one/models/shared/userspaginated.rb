@@ -14,19 +14,19 @@ module StackOne
 
       field :data, T::Array[::StackOne::Shared::User], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T::Array[::StackOne::Shared::RawResponse], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
-
       field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :next_page, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
 
+      field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
-      sig { params(data: T::Array[::StackOne::Shared::User], raw: T::Array[::StackOne::Shared::RawResponse], next_: T.nilable(::String), next_page: T.nilable(::String)).void }
-      def initialize(data: nil, raw: nil, next_: nil, next_page: nil)
+
+      sig { params(data: T::Array[::StackOne::Shared::User], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
+      def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
         @data = data
-        @raw = raw
         @next_ = next_
         @next_page = next_page
+        @raw = raw
       end
     end
   end

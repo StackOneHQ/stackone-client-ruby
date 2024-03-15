@@ -72,6 +72,7 @@ end
 * [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate (early access)
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
 * [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
+* [download_application_document](docs/sdks/ats/README.md#download_application_document) - Download Application Document
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
 * [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
@@ -123,6 +124,7 @@ end
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](docs/sdks/hris/README.md#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
+* [download_employee_document](docs/sdks/hris/README.md#download_employee_document) - Download Employee Document
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee

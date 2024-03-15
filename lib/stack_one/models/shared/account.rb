@@ -14,10 +14,6 @@ module StackOne
 
       field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-
-      field :owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
-
       field :addresses, T.nilable(T::Array[::StackOne::Shared::AccountAddress]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('addresses') } }
 
       field :annual_revenue, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('annual_revenue') } }
@@ -27,6 +23,10 @@ module StackOne
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
       # Values of the industries
       field :industries, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('industries') } }
+
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+
+      field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
       # List of account phone numbers
       field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
       # Timestamp when the account was last updated
@@ -35,16 +35,16 @@ module StackOne
       field :website, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('website') } }
 
 
-      sig { params(id: ::String, name: ::String, owner_id: ::String, addresses: T.nilable(T::Array[::StackOne::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), industries: T.nilable(T::Array[::String]), phone_numbers: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
-      def initialize(id: nil, name: nil, owner_id: nil, addresses: nil, annual_revenue: nil, created_at: nil, description: nil, industries: nil, phone_numbers: nil, updated_at: nil, website: nil)
+      sig { params(id: ::String, addresses: T.nilable(T::Array[::StackOne::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), industries: T.nilable(T::Array[::String]), name: T.nilable(::String), owner_id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
+      def initialize(id: nil, addresses: nil, annual_revenue: nil, created_at: nil, description: nil, industries: nil, name: nil, owner_id: nil, phone_numbers: nil, updated_at: nil, website: nil)
         @id = id
-        @name = name
-        @owner_id = owner_id
         @addresses = addresses
         @annual_revenue = annual_revenue
         @created_at = created_at
         @description = description
         @industries = industries
+        @name = name
+        @owner_id = owner_id
         @phone_numbers = phone_numbers
         @updated_at = updated_at
         @website = website

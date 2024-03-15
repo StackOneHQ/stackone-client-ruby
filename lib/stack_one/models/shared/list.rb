@@ -11,26 +11,26 @@ module StackOne
     class List < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Timestamp when the list was created
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
       field :items, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
+
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The list type
       field :type, T.nilable(::StackOne::Shared::ListType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # Timestamp when the list was last updated
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(id: ::String, name: ::String, created_at: T.nilable(::DateTime), items: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::ListType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(id: nil, name: nil, created_at: nil, items: nil, type: nil, updated_at: nil)
-        @id = id
-        @name = name
+      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[::String]), name: T.nilable(::String), type: T.nilable(::StackOne::Shared::ListType), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, id: nil, items: nil, name: nil, type: nil, updated_at: nil)
         @created_at = created_at
+        @id = id
         @items = items
+        @name = name
         @type = type
         @updated_at = updated_at
       end

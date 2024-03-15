@@ -12,10 +12,10 @@ module StackOne
       extend T::Sig
 
       # Body of the note
-      field :body, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+      field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
 
-      sig { params(body: ::String).void }
+      sig { params(body: T.nilable(::String)).void }
       def initialize(body: nil)
         @body = body
       end

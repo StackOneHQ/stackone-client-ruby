@@ -7,6 +7,7 @@
 * [create_candidate](#create_candidate) - Create Candidate (early access)
 * [create_candidate_note](#create_candidate_note) - Create Candidate Note
 * [create_offer](#create_offer) - Creates an offer
+* [download_application_document](#download_application_document) - Download Application Document
 * [get_application](#get_application) - Get Application
 * [get_application_document](#get_application_document) - Get Application Document
 * [get_application_offer](#get_application_offer) - Get Application Offer
@@ -224,6 +225,47 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateOfferResponse)](../../models/operations/atscreateofferresponse.md)**
+
+
+## download_application_document
+
+Download Application Document
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.ats.download_application_document(id="<value>", sub_resource_id="<value>", x_account_id="<value>", format="<value>")
+
+if ! res.bytes.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                          | Type                               | Required                           | Description                        |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |
+| `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |
+| `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |
+| `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsDownloadApplicationDocumentResponse)](../../models/operations/atsdownloadapplicationdocumentresponse.md)**
 
 
 ## get_application

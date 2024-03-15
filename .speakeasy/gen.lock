@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: a87c4dfe124417049298704616aad23a
+  docChecksum: 58a67f5f4116444058bb009dd727087f
   docVersion: 1.0.0
-  speakeasyVersion: 1.205.0
-  generationVersion: 2.279.1
-  releaseVersion: 0.2.4
-  configChecksum: d00323d87e0831c2d6b8cc1b8f725ace
+  speakeasyVersion: 1.209.3
+  generationVersion: 2.281.2
+  releaseVersion: 0.2.5
+  configChecksum: 3e2480cfbae09056701799c5d0e3afa1
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -104,6 +104,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_create_candidate_note_response.rb
   - lib/stack_one/models/operations/ats_create_offer_request.rb
   - lib/stack_one/models/operations/ats_create_offer_response.rb
+  - lib/stack_one/models/operations/ats_download_application_document_request.rb
+  - lib/stack_one/models/operations/ats_download_application_document_response.rb
   - lib/stack_one/models/operations/proxy.rb
   - lib/stack_one/models/operations/ats_get_application_request.rb
   - lib/stack_one/models/operations/ats_get_application_response.rb
@@ -230,6 +232,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_create_employee_work_eligibility_request_response.rb
   - lib/stack_one/models/operations/hris_create_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_create_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_download_employee_document_request.rb
+  - lib/stack_one/models/operations/hris_download_employee_document_response.rb
   - lib/stack_one/models/operations/hris_get_benefit_queryparam_proxy.rb
   - lib/stack_one/models/operations/hris_get_benefit_request.rb
   - lib/stack_one/models/operations/hris_get_benefit_response.rb
@@ -389,9 +393,9 @@ generatedFiles:
   - lib/stack_one/models/shared/documentapimodel_value.rb
   - lib/stack_one/models/shared/documentapimodel_type.rb
   - lib/stack_one/models/shared/documentapimodel.rb
+  - lib/stack_one/models/shared/content_value.rb
+  - lib/stack_one/models/shared/file_format.rb
   - lib/stack_one/models/shared/content.rb
-  - lib/stack_one/models/shared/fileformatenum_value.rb
-  - lib/stack_one/models/shared/fileformatenum.rb
   - lib/stack_one/models/shared/documentresult.rb
   - lib/stack_one/models/shared/offersresult.rb
   - lib/stack_one/models/shared/offer_value.rb
@@ -416,7 +420,6 @@ generatedFiles:
   - lib/stack_one/models/shared/confidential.rb
   - lib/stack_one/models/shared/job_value.rb
   - lib/stack_one/models/shared/job_status.rb
-  - lib/stack_one/models/shared/job_schemas_status.rb
   - lib/stack_one/models/shared/job.rb
   - lib/stack_one/models/shared/jobhiringteam.rb
   - lib/stack_one/models/shared/jobpostingresult.rb
@@ -664,6 +667,8 @@ generatedFiles:
   - docs/models/operations/atscreatecandidatenoteresponse.md
   - docs/models/operations/atscreateofferrequest.md
   - docs/models/operations/atscreateofferresponse.md
+  - docs/models/operations/atsdownloadapplicationdocumentrequest.md
+  - docs/models/operations/atsdownloadapplicationdocumentresponse.md
   - docs/models/operations/proxy.md
   - docs/models/operations/atsgetapplicationrequest.md
   - docs/models/operations/atsgetapplicationresponse.md
@@ -790,6 +795,8 @@ generatedFiles:
   - docs/models/operations/hriscreateemployeeworkeligibilityrequestresponse.md
   - docs/models/operations/hriscreatetimeoffrequestrequest.md
   - docs/models/operations/hriscreatetimeoffrequestresponse.md
+  - docs/models/operations/hrisdownloademployeedocumentrequest.md
+  - docs/models/operations/hrisdownloademployeedocumentresponse.md
   - docs/models/operations/hrisgetbenefitqueryparamproxy.md
   - docs/models/operations/hrisgetbenefitrequest.md
   - docs/models/operations/hrisgetbenefitresponse.md
@@ -949,9 +956,9 @@ generatedFiles:
   - docs/models/shared/documentapimodelvalue.md
   - docs/models/shared/documentapimodeltype.md
   - docs/models/shared/documentapimodel.md
+  - docs/models/shared/contentvalue.md
+  - docs/models/shared/fileformat.md
   - docs/models/shared/content.md
-  - docs/models/shared/fileformatenumvalue.md
-  - docs/models/shared/fileformatenum.md
   - docs/models/shared/documentresult.md
   - docs/models/shared/offersresult.md
   - docs/models/shared/offervalue.md
@@ -976,7 +983,6 @@ generatedFiles:
   - docs/models/shared/confidential.md
   - docs/models/shared/jobvalue.md
   - docs/models/shared/jobstatus.md
-  - docs/models/shared/jobschemasstatus.md
   - docs/models/shared/job.md
   - docs/models/shared/jobhiringteam.md
   - docs/models/shared/jobpostingresult.md

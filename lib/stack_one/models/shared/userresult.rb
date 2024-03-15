@@ -14,10 +14,10 @@ module StackOne
 
       field :data, ::StackOne::Shared::User, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-      field :raw, T::Array[::StackOne::Shared::RawResponse], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
-      sig { params(data: ::StackOne::Shared::User, raw: T::Array[::StackOne::Shared::RawResponse]).void }
+      sig { params(data: ::StackOne::Shared::User, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
       def initialize(data: nil, raw: nil)
         @data = data
         @raw = raw

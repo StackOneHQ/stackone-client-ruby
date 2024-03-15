@@ -11,16 +11,16 @@ module StackOne
     class ResultLink < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The URL of the result link.
-      field :url, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
       # The label of the result link.
       field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+      # The URL of the result link.
+      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(url: ::String, label: T.nilable(::String)).void }
-      def initialize(url: nil, label: nil)
-        @url = url
+      sig { params(label: T.nilable(::String), url: T.nilable(::String)).void }
+      def initialize(label: nil, url: nil)
         @label = label
+        @url = url
       end
     end
   end

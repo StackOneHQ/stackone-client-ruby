@@ -8,6 +8,7 @@
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
+* [download_employee_document](#download_employee_document) - Download Employee Document
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
 * [get_employee](#get_employee) - Get Employee
@@ -279,6 +280,47 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateTimeOffRequestResponse)](../../models/operations/hriscreatetimeoffrequestresponse.md)**
+
+
+## download_employee_document
+
+Download Employee Document
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.hris.download_employee_document(id="<value>", sub_resource_id="<value>", x_account_id="<value>", format="<value>")
+
+if ! res.bytes.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                          | Type                               | Required                           | Description                        |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |
+| `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |
+| `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |
+| `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse)](../../models/operations/hrisdownloademployeedocumentresponse.md)**
 
 
 ## get_benefit

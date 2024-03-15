@@ -267,6 +267,49 @@ module StackOne
     end
 
 
+    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, format: T.nilable(::String)).returns(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse) }
+    def download_employee_document(id, sub_resource_id, x_account_id, format = nil)
+      # download_employee_document - Download Employee Document
+      request = ::StackOne::Operations::HrisDownloadEmployeeDocumentRequest.new(
+        
+        id: id,
+        sub_resource_id: sub_resource_id,
+        x_account_id: x_account_id,
+        format: format
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisDownloadEmployeeDocumentRequest,
+        base_url,
+        '/unified/hris/employees/{id}/documents/{subResourceId}/download',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisDownloadEmployeeDocumentRequest, request)
+      headers['Accept'] = 'application/octet-stream'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisDownloadEmployeeDocumentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        res.bytes = r.env.response_body if Utils.match_content_type(content_type, 'application/octet-stream')
+      
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetBenefitRequest)).returns(::StackOne::Operations::HrisGetBenefitResponse) }
     def get_benefit(request)
       # get_benefit - Get Benefit

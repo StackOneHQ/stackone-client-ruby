@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class FileFormatEnumValue < T::Enum
+    class ContentValue < T::Enum
       enums do
         UNMAPPED_VALUE = new('unmapped_value')
         EZ = new('ez')
