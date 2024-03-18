@@ -140,8 +140,10 @@ s.config_security(
   )
 )
 
+
+req = ::StackOne::Operations::StackoneListLinkedAccountsRequest.new()
     
-res = s.accounts.list_linked_accounts(origin_owner_id="<value>", page=7927.25, page_size=1893.1, provider="<value>")
+res = s.accounts.list_linked_accounts(req)
 
 if ! res.linked_accounts.nil?
   # handle response
@@ -151,12 +153,9 @@ end
 
 ### Parameters
 
-| Parameter                                           | Type                                                | Required                                            | Description                                         |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `origin_owner_id`                                   | *::String*                                          | :heavy_minus_sign:                                  | The origin owner identifier of the results to fetch |
-| `page`                                              | *::Float*                                           | :heavy_minus_sign:                                  | The page number of the results to fetch             |
-| `page_size`                                         | *::Float*                                           | :heavy_minus_sign:                                  | The number of results per page                      |
-| `provider`                                          | *::String*                                          | :heavy_minus_sign:                                  | The provider of the results to fetch                |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [::StackOne::Operations::StackoneListLinkedAccountsRequest](../../models/operations/stackonelistlinkedaccountsrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 
 ### Response

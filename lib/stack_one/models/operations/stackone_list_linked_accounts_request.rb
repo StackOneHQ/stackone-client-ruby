@@ -11,6 +11,8 @@ module StackOne
     class StackoneListLinkedAccountsRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # The providers list of the results to fetch
+      field :account_ids, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'account_ids', 'style': 'form', 'explode': true } }
       # The origin owner identifier of the results to fetch
       field :origin_owner_id, T.nilable(::String), { 'query_param': { 'field_name': 'origin_owner_id', 'style': 'form', 'explode': true } }
       # The page number of the results to fetch
@@ -19,14 +21,18 @@ module StackOne
       field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # The provider of the results to fetch
       field :provider, T.nilable(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
+      # The providers list of the results to fetch
+      field :providers, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'providers', 'style': 'form', 'explode': true } }
 
 
-      sig { params(origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String)).void }
-      def initialize(origin_owner_id: nil, page: nil, page_size: nil, provider: nil)
+      sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String), providers: T.nilable(T::Array[::String])).void }
+      def initialize(account_ids: nil, origin_owner_id: nil, page: nil, page_size: nil, provider: nil, providers: nil)
+        @account_ids = account_ids
         @origin_owner_id = origin_owner_id
         @page = page
         @page_size = page_size
         @provider = provider
+        @providers = providers
       end
     end
   end

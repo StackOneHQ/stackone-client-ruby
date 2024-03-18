@@ -139,16 +139,9 @@ module StackOne
     end
 
 
-    sig { params(origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String)).returns(::StackOne::Operations::StackoneListLinkedAccountsResponse) }
-    def list_linked_accounts(origin_owner_id = nil, page = nil, page_size = nil, provider = nil)
+    sig { params(request: T.nilable(::StackOne::Operations::StackoneListLinkedAccountsRequest)).returns(::StackOne::Operations::StackoneListLinkedAccountsResponse) }
+    def list_linked_accounts(request)
       # list_linked_accounts - List Accounts
-      request = ::StackOne::Operations::StackoneListLinkedAccountsRequest.new(
-        
-        origin_owner_id: origin_owner_id,
-        page: page,
-        page_size: page_size,
-        provider: provider
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/accounts"
