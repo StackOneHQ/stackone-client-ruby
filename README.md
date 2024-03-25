@@ -103,7 +103,7 @@ end
 * [list_offers](docs/sdks/ats/README.md#list_offers) - List Offers
 * [list_rejected_reasons](docs/sdks/ats/README.md#list_rejected_reasons) - List Rejected Reasons
 * [list_users](docs/sdks/ats/README.md#list_users) - List Users
-* [update_application](docs/sdks/ats/README.md#update_application) - Update Application
+* [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
 * [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate (early access)
 
 ### [Crm](docs/sdks/crm/README.md)
@@ -146,6 +146,7 @@ end
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
+* [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
 
 ### [Marketing](docs/sdks/marketing/README.md)
 

@@ -1339,7 +1339,7 @@ module StackOne
 
     sig { params(ats_update_application_request_dto: ::StackOne::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateApplicationResponse) }
     def update_application(ats_update_application_request_dto, id, x_account_id)
-      # update_application - Update Application
+      # update_application - Update an Application
       request = ::StackOne::Operations::AtsUpdateApplicationRequest.new(
         
         ats_update_application_request_dto: ats_update_application_request_dto,

@@ -165,6 +165,8 @@ module StackOne
     autoload :HrisUpdateEmployeeWorkEligibilityRequestResponse, 'stack_one/models/operations/hris_update_employee_work_eligibility_request_response.rb'
     autoload :HrisUpdateTimeOffRequestRequest, 'stack_one/models/operations/hris_update_time_off_request_request.rb'
     autoload :HrisUpdateTimeOffRequestResponse, 'stack_one/models/operations/hris_update_time_off_request_response.rb'
+    autoload :HrisUploadEmployeeDocumentRequest, 'stack_one/models/operations/hris_upload_employee_document_request.rb'
+    autoload :HrisUploadEmployeeDocumentResponse, 'stack_one/models/operations/hris_upload_employee_document_response.rb'
     autoload :MarketingCreateEmailTemplateRequest, 'stack_one/models/operations/marketing_create_email_template_request.rb'
     autoload :MarketingCreateEmailTemplateResponse, 'stack_one/models/operations/marketing_create_email_template_response.rb'
     autoload :MarketingCreateOmniChannelTemplateRequest, 'stack_one/models/operations/marketing_create_omni_channel_template_request.rb'

@@ -11,36 +11,13 @@ module StackOne
     class AtsUpdateApplicationRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
-      field :application_status, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
-      # Use `documents` expand instead
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :attachments, T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
-
-      field :candidate, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
-      # Unique identifier of the candidate
-      field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
-      # The ID of the application to update.
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Unique identifier of the job
-      field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
-      # Unique identifiers of the locations
-      field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
-      # Questionnaires associated with the application
-      field :questionnaires, T.nilable(T::Array[::StackOne::Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
+      # Unique identifier of the rejection reason
+      field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), attachments: T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), candidate: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), id: T.nilable(::String), job_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire])).void }
-      def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, id: nil, job_id: nil, location_ids: nil, questionnaires: nil)
-        @application_status = application_status
-        @attachments = attachments
-        @candidate = candidate
-        @candidate_id = candidate_id
-        @id = id
-        @job_id = job_id
-        @location_ids = location_ids
-        @questionnaires = questionnaires
+      sig { params(rejected_reason_id: T.nilable(::String)).void }
+      def initialize(rejected_reason_id: nil)
+        @rejected_reason_id = rejected_reason_id
       end
     end
   end

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: dc95ef51f76eaa8e9d7c8263a9137b14
+  docChecksum: 5e28982ee356efe75c16534d0c9c13e1
   docVersion: 1.0.0
-  speakeasyVersion: 1.209.3
-  generationVersion: 2.281.2
-  releaseVersion: 0.2.6
-  configChecksum: 272cc34d01b186f4aab5df8a2fce8ffe
+  speakeasyVersion: 1.221.0
+  generationVersion: 2.287.0
+  releaseVersion: 0.2.7
+  configChecksum: 825088e7cfbf682ed273806df7b2449e
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -17,7 +17,7 @@ features:
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.5
+    globalSecurity: 2.81.6
     globalServerURLs: 2.82.3
     groups: 2.81.2
     nameOverrides: 2.81.1
@@ -240,6 +240,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_update_employee_work_eligibility_request_response.rb
   - lib/stack_one/models/operations/hris_update_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_update_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_upload_employee_document_request.rb
+  - lib/stack_one/models/operations/hris_upload_employee_document_response.rb
   - lib/stack_one/models/operations/marketing_create_email_template_request.rb
   - lib/stack_one/models/operations/marketing_create_email_template_response.rb
   - lib/stack_one/models/operations/marketing_create_omni_channel_template_request.rb
@@ -297,9 +299,6 @@ generatedFiles:
   - lib/stack_one/models/shared/answer_value.rb
   - lib/stack_one/models/shared/type.rb
   - lib/stack_one/models/shared/answer.rb
-  - lib/stack_one/models/shared/applicationattachment_value.rb
-  - lib/stack_one/models/shared/content_type.rb
-  - lib/stack_one/models/shared/applicationattachment.rb
   - lib/stack_one/models/shared/candidateresult.rb
   - lib/stack_one/models/shared/rawresponse.rb
   - lib/stack_one/models/shared/candidate.rb
@@ -334,6 +333,9 @@ generatedFiles:
   - lib/stack_one/models/shared/content_value.rb
   - lib/stack_one/models/shared/file_format.rb
   - lib/stack_one/models/shared/content.rb
+  - lib/stack_one/models/shared/applicationattachment_value.rb
+  - lib/stack_one/models/shared/content_type.rb
+  - lib/stack_one/models/shared/applicationattachment.rb
   - lib/stack_one/models/shared/documentresult.rb
   - lib/stack_one/models/shared/offersresult.rb
   - lib/stack_one/models/shared/offer_value.rb
@@ -408,9 +410,6 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreasonspaginated.rb
   - lib/stack_one/models/shared/userspaginated.rb
   - lib/stack_one/models/shared/updateresult.rb
-  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_value.rb
-  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_application_status.rb
-  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_candidate.rb
   - lib/stack_one/models/shared/atsupdateapplicationrequestdto.rb
   - lib/stack_one/models/shared/atsupdatecandidatesrequestdto.rb
   - lib/stack_one/models/shared/contactresult.rb
@@ -449,6 +448,8 @@ generatedFiles:
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_home_location.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_marital_status_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_marital_status.rb
+  - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_preferred_language_value.rb
+  - lib/stack_one/models/shared/hriscreateemployeerequestdto_preferred_language.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_work_location_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_country.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_work_location_state_value.rb
@@ -514,6 +515,8 @@ generatedFiles:
   - lib/stack_one/models/shared/job_description.rb
   - lib/stack_one/models/shared/employee_schemas_marital_status_value.rb
   - lib/stack_one/models/shared/marital_status.rb
+  - lib/stack_one/models/shared/employee_schemas_preferred_language_value.rb
+  - lib/stack_one/models/shared/preferred_language.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_value.rb
   - lib/stack_one/models/shared/employee_schemas_country.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_location_type_value.rb
@@ -548,6 +551,11 @@ generatedFiles:
   - lib/stack_one/models/shared/employeespaginated.rb
   - lib/stack_one/models/shared/employmentspaginated.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_value.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_confidential.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_file_format.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto.rb
   - lib/stack_one/models/shared/createtemplateresult.rb
   - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
   - lib/stack_one/models/shared/message_content.rb
@@ -741,6 +749,8 @@ generatedFiles:
   - docs/models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md
   - docs/models/operations/hrisupdatetimeoffrequestrequest.md
   - docs/models/operations/hrisupdatetimeoffrequestresponse.md
+  - docs/models/operations/hrisuploademployeedocumentrequest.md
+  - docs/models/operations/hrisuploademployeedocumentresponse.md
   - docs/models/operations/marketingcreateemailtemplaterequest.md
   - docs/models/operations/marketingcreateemailtemplateresponse.md
   - docs/models/operations/marketingcreateomnichanneltemplaterequest.md
@@ -798,9 +808,6 @@ generatedFiles:
   - docs/models/shared/answervalue.md
   - docs/models/shared/type.md
   - docs/models/shared/answer.md
-  - docs/models/shared/applicationattachmentvalue.md
-  - docs/models/shared/contenttype.md
-  - docs/models/shared/applicationattachment.md
   - docs/models/shared/candidateresult.md
   - docs/models/shared/rawresponse.md
   - docs/models/shared/candidate.md
@@ -835,6 +842,9 @@ generatedFiles:
   - docs/models/shared/contentvalue.md
   - docs/models/shared/fileformat.md
   - docs/models/shared/content.md
+  - docs/models/shared/applicationattachmentvalue.md
+  - docs/models/shared/contenttype.md
+  - docs/models/shared/applicationattachment.md
   - docs/models/shared/documentresult.md
   - docs/models/shared/offersresult.md
   - docs/models/shared/offervalue.md
@@ -909,9 +919,6 @@ generatedFiles:
   - docs/models/shared/rejectedreasonspaginated.md
   - docs/models/shared/userspaginated.md
   - docs/models/shared/updateresult.md
-  - docs/models/shared/atsupdateapplicationrequestdtovalue.md
-  - docs/models/shared/atsupdateapplicationrequestdtoapplicationstatus.md
-  - docs/models/shared/atsupdateapplicationrequestdtocandidate.md
   - docs/models/shared/atsupdateapplicationrequestdto.md
   - docs/models/shared/atsupdatecandidatesrequestdto.md
   - docs/models/shared/contactresult.md
@@ -950,6 +957,8 @@ generatedFiles:
   - docs/models/shared/hriscreateemployeerequestdtohomelocation.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasmaritalstatusvalue.md
   - docs/models/shared/hriscreateemployeerequestdtomaritalstatus.md
+  - docs/models/shared/hriscreateemployeerequestdtoschemaspreferredlanguagevalue.md
+  - docs/models/shared/hriscreateemployeerequestdtopreferredlanguage.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasworklocationvalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemascountry.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasworklocationstatevalue.md
@@ -1015,6 +1024,8 @@ generatedFiles:
   - docs/models/shared/jobdescription.md
   - docs/models/shared/employeeschemasmaritalstatusvalue.md
   - docs/models/shared/maritalstatus.md
+  - docs/models/shared/employeeschemaspreferredlanguagevalue.md
+  - docs/models/shared/preferredlanguage.md
   - docs/models/shared/employeeschemasworklocationvalue.md
   - docs/models/shared/employeeschemascountry.md
   - docs/models/shared/employeeschemasworklocationlocationtypevalue.md
@@ -1049,6 +1060,11 @@ generatedFiles:
   - docs/models/shared/employeespaginated.md
   - docs/models/shared/employmentspaginated.md
   - docs/models/shared/hrislocationspaginated.md
+  - docs/models/shared/unifieduploadrequestdtovalue.md
+  - docs/models/shared/unifieduploadrequestdtoconfidential.md
+  - docs/models/shared/unifieduploadrequestdtoschemasvalue.md
+  - docs/models/shared/unifieduploadrequestdtofileformat.md
+  - docs/models/shared/unifieduploadrequestdto.md
   - docs/models/shared/createtemplateresult.md
   - docs/models/shared/marketingcreateemailtemplaterequestdto.md
   - docs/models/shared/messagecontent.md

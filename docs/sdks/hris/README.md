@@ -30,6 +30,7 @@
 * [update_employee](#update_employee) - Updates an employee
 * [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [update_time_off_request](#update_time_off_request) - Update time off request
+* [upload_employee_document](#upload_employee_document) - Upload Employee Document
 
 ## create_employee
 
@@ -74,6 +75,9 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     name: "Issac Newton",
     personal_email: "isaac.newton@example.com",
     personal_phone_number: "+1234567890",
+    preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG,
+    ),
     start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
     tenure: 2.0,
     termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -121,6 +125,7 @@ s.config_security(
     
 res = s.hris.create_employee_document(hris_create_document_request_dto=::StackOne::Shared::HrisCreateDocumentRequestDto.new(
     content: ::StackOne::Shared::Content.new(
+      unified_url: "/unified/hris/employees/16022323/documents/79715678/download",
       url: "https://example.com/file.pdf",
     ),
     name: "My Document",
@@ -1137,6 +1142,9 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     name: "Issac Newton",
     personal_email: "isaac.newton@example.com",
     personal_phone_number: "+1234567890",
+    preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG,
+    ),
     start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
     tenure: 2.0,
     termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -1255,4 +1263,49 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateTimeOffRequestResponse)](../../models/operations/hrisupdatetimeoffrequestresponse.md)**
+
+
+## upload_employee_document
+
+Upload Employee Document
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.hris.upload_employee_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
+    content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+    name: "weather-forecast",
+    path: "reports or /path/to/file",
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.bytes.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `unified_upload_request_dto`                                                                  | [::StackOne::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisUploadEmployeeDocumentResponse)](../../models/operations/hrisuploademployeedocumentresponse.md)**
 

@@ -38,7 +38,7 @@
 * [list_offers](#list_offers) - List Offers
 * [list_rejected_reasons](#list_rejected_reasons) - List Rejected Reasons
 * [list_users](#list_users) - List Users
-* [update_application](#update_application) - Update Application
+* [update_application](#update_application) - Update an Application
 * [update_candidate](#update_candidate) - Update Candidate (early access)
 
 ## create_application
@@ -62,14 +62,7 @@ s.config_security(
 res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(
     candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
     job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
-    location_ids: [
-      "<value>",
-    ],
-    questionnaires: [
-      ::StackOne::Shared::Questionnaire.new(
-        id: "questionnaire_1",
-      ),
-    ],
+    location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -1553,7 +1546,7 @@ end
 
 ## update_application
 
-Update Application
+Update an Application
 
 ### Example Usage
 
@@ -1570,17 +1563,7 @@ s.config_security(
 
     
 res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(
-    candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-    id: "eebbaa75-7adf-4f7e-be4c-def6a12840f2",
-    job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
-    location_ids: [
-      "<value>",
-    ],
-    questionnaires: [
-      ::StackOne::Shared::Questionnaire.new(
-        id: "questionnaire_1",
-      ),
-    ],
+    rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
   ), id="<value>", x_account_id="<value>")
 
 if ! res.update_result.nil?
