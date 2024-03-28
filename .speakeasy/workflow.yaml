@@ -11,6 +11,8 @@ targets:
     StackOneRubyClient:
         target: ruby
         source: my-source
+        codeSamples:
+            output: codeSamples.yaml
         publish:
             rubygems:
                 token: $RUBYGEMS_AUTH_TOKEN
