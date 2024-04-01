@@ -1,9 +1,0 @@
-# JobPostingEmploymentContractType
-
-
-## Fields
-
-| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              | Example                                                                                  |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `source_value`                                                                           | *T.nilable(::Object)*                                                                    | :heavy_minus_sign:                                                                       | The source value of the employment contract type.                                        | FullTime                                                                                 |
-| `value`                                                                                  | [T.nilable(::StackOne::Shared::JobPostingValue)](../../models/shared/jobpostingvalue.md) | :heavy_minus_sign:                                                                       | The employment contract type.                                                            | full_time                                                                                |
