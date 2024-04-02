@@ -1,0 +1,10 @@
+# CreateResult
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `message`                                                            | *::String*                                                           | :heavy_check_mark:                                                   | N/A                                                                  | Record created successfully.                                         |
+| `status_code`                                                        | *::Float*                                                            | :heavy_check_mark:                                                   | N/A                                                                  | 200                                                                  |
+| `timestamp`                                                          | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_check_mark:                                                   | N/A                                                                  | 2021-01-01T01:01:01.000Z                                             |

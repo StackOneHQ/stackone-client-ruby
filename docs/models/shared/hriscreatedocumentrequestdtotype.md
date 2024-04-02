@@ -1,0 +1,11 @@
+# HrisCreateDocumentRequestDtoType
+
+The content type of the document
+
+
+## Fields
+
+| Field                                                                                                                        | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                                               | *T.nilable(::Object)*                                                                                                        | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `value`                                                                                                                      | [T.nilable(::StackOne::Shared::HrisCreateDocumentRequestDtoValue)](../../models/shared/hriscreatedocumentrequestdtovalue.md) | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |

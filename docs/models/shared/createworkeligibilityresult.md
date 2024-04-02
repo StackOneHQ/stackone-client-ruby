@@ -1,0 +1,10 @@
+# CreateWorkEligibilityResult
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `message`                                                            | *T.nilable(::String)*                                                | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `status_code`                                                        | *T.nilable(::Float)*                                                 | :heavy_minus_sign:                                                   | N/A                                                                  |                                                                      |
+| `timestamp`                                                          | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_minus_sign:                                                   | N/A                                                                  | 2021-01-01T01:01:01.000Z                                             |

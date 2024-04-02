@@ -1,0 +1,11 @@
+# Status
+
+Status of the Campaign
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        | Example                                                                                            |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                     | *T.nilable(::Object)*                                                                              | :heavy_minus_sign:                                                                                 | The source value of the Status.                                                                    | Email                                                                                              |
+| `value`                                                                                            | [T.nilable(::StackOne::Shared::CampaignSchemasValue)](../../models/shared/campaignschemasvalue.md) | :heavy_minus_sign:                                                                                 | The Status of the campaign.                                                                        | email                                                                                              |
