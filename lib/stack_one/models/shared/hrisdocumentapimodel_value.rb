@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisCreateDocumentRequestDtoValue < T::Enum
+    class HrisDocumentApiModelValue < T::Enum
       enums do
         RESUME = new('resume')
         AVATAR = new('avatar')

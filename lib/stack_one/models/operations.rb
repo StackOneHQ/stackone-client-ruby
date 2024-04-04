@@ -113,8 +113,6 @@ module StackOne
     autoload :CrmUpdateContactResponse, 'stack_one/models/operations/crm_update_contact_response.rb'
     autoload :HrisCreateEmployeeRequest, 'stack_one/models/operations/hris_create_employee_request.rb'
     autoload :HrisCreateEmployeeResponse, 'stack_one/models/operations/hris_create_employee_response.rb'
-    autoload :HrisCreateEmployeeDocumentRequest, 'stack_one/models/operations/hris_create_employee_document_request.rb'
-    autoload :HrisCreateEmployeeDocumentResponse, 'stack_one/models/operations/hris_create_employee_document_response.rb'
     autoload :HrisCreateEmployeeTimeOffRequestRequest, 'stack_one/models/operations/hris_create_employee_time_off_request_request.rb'
     autoload :HrisCreateEmployeeTimeOffRequestResponse, 'stack_one/models/operations/hris_create_employee_time_off_request_response.rb'
     autoload :HrisCreateEmployeeWorkEligibilityRequestRequest, 'stack_one/models/operations/hris_create_employee_work_eligibility_request_request.rb'

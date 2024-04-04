@@ -8,16 +8,16 @@ module StackOne
   module Shared
   
     # The content type of the document
-    class DocumentApiModelType < ::StackOne::Utils::FieldAugmented
+    class AtsDocumentApiModelType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::DocumentApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::DocumentApiModelValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::AtsDocumentApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AtsDocumentApiModelValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::DocumentApiModelValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AtsDocumentApiModelValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

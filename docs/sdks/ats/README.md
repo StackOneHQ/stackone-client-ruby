@@ -330,7 +330,7 @@ req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
     
 res = s.ats.get_application_document(req)
 
-if ! res.document_result.nil?
+if ! res.hris_document_result.nil?
   # handle response
 end
 
@@ -935,7 +935,7 @@ req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
     
 res = s.ats.list_application_documents(req)
 
-if ! res.documents_paginated.nil?
+if ! res.hris_documents_paginated.nil?
   # handle response
 end
 

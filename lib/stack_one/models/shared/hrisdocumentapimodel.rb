@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class DocumentApiModel < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The content of the file
@@ -24,12 +24,12 @@ module StackOne
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The content type of the document
-      field :type, T.nilable(::StackOne::Shared::DocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(::StackOne::Shared::HrisDocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The update date of the file
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::DocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
+      sig { params(contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisDocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
       def initialize(contents: nil, created_at: nil, id: nil, name: nil, path: nil, remote_id: nil, type: nil, updated_at: nil)
         @contents = contents
         @created_at = created_at

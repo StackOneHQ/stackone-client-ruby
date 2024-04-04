@@ -319,8 +319,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::DocumentResult)
-          res.document_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentResult)
+          res.hris_document_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -851,8 +851,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::DocumentsPaginated)
-          res.documents_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentsPaginated)
+          res.hris_documents_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

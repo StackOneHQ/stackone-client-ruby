@@ -8,16 +8,16 @@ module StackOne
   module Shared
   
 
-    class DocumentResult < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentResult < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, ::StackOne::Shared::DocumentApiModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+      field :data, ::StackOne::Shared::HrisDocumentApiModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
       field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
-      sig { params(data: ::StackOne::Shared::DocumentApiModel, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
+      sig { params(data: ::StackOne::Shared::HrisDocumentApiModel, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
       def initialize(data: nil, raw: nil)
         @data = data
         @raw = raw

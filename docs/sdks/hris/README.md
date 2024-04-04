@@ -4,7 +4,6 @@
 ### Available Operations
 
 * [create_employee](#create_employee) - Creates an employee
-* [create_employee_document](#create_employee_document) - Create Employee Document
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
@@ -103,53 +102,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeResponse)](../../models/operations/hriscreateemployeeresponse.md)**
-
-
-## create_employee_document
-
-Create Employee Document
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
-  )
-)
-
-    
-res = s.hris.create_employee_document(hris_create_document_request_dto=::StackOne::Shared::HrisCreateDocumentRequestDto.new(
-    content: ::StackOne::Shared::Content.new(
-      unified_url: "/unified/hris/employees/16022323/documents/79715678/download",
-      url: "https://example.com/file.pdf",
-    ),
-    name: "My Document",
-    path: "/path/to/file",
-  ), id="<value>", x_account_id="<value>")
-
-if ! res.create_document_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_create_document_request_dto`                                                                      | [::StackOne::Shared::HrisCreateDocumentRequestDto](../../models/shared/hriscreatedocumentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
-
-
-### Response
-
-**[T.nilable(::StackOne::Operations::HrisCreateEmployeeDocumentResponse)](../../models/operations/hriscreateemployeedocumentresponse.md)**
 
 
 ## create_employee_time_off_request
@@ -483,7 +435,7 @@ req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
     
 res = s.hris.get_employee_document(req)
 
-if ! res.document_result.nil?
+if ! res.hris_document_result.nil?
   # handle response
 end
 
@@ -827,7 +779,7 @@ req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
     
 res = s.hris.list_employee_documents(req)
 
-if ! res.documents_paginated.nil?
+if ! res.hris_documents_paginated.nil?
   # handle response
 end
 
@@ -1287,10 +1239,9 @@ res = s.hris.upload_employee_document(unified_upload_request_dto=::StackOne::Sha
     content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
     name: "weather-forecast",
     path: "reports or /path/to/file",
-    updated_after: "2020-01-01T00:00:00.000Z",
   ), id="<value>", x_account_id="<value>")
 
-if ! res.bytes.nil?
+if ! res.write_result_api_model.nil?
   # handle response
 end
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: e347d2112bdbe2db4ae92d1a28c985d9
+  docChecksum: ac068eaa2fb23054ec332258204cd6f9
   docVersion: 1.0.0
-  speakeasyVersion: 1.233.0
-  generationVersion: 2.296.0
-  releaseVersion: 0.2.9
-  configChecksum: 4bcd240b43a1778236e5d656574dcc47
+  speakeasyVersion: 1.237.0
+  generationVersion: 2.298.2
+  releaseVersion: 0.2.10
+  configChecksum: 7aa8f35aeacd7cf9f78eb1cccef03297
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -20,7 +20,7 @@ features:
     globalSecurity: 2.81.6
     globalServerURLs: 2.82.3
     groups: 2.81.2
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
 generatedFiles:
   - lib/stack_one/sdkconfiguration.rb
   - lib/stack_one/accounts.rb
@@ -188,8 +188,6 @@ generatedFiles:
   - lib/stack_one/models/operations/crm_update_contact_response.rb
   - lib/stack_one/models/operations/hris_create_employee_request.rb
   - lib/stack_one/models/operations/hris_create_employee_response.rb
-  - lib/stack_one/models/operations/hris_create_employee_document_request.rb
-  - lib/stack_one/models/operations/hris_create_employee_document_response.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_response.rb
   - lib/stack_one/models/operations/hris_create_employee_work_eligibility_request_request.rb
@@ -327,16 +325,19 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreason_value.rb
   - lib/stack_one/models/shared/rejected_reason_type.rb
   - lib/stack_one/models/shared/rejectedreason.rb
-  - lib/stack_one/models/shared/documentapimodel_value.rb
-  - lib/stack_one/models/shared/documentapimodel_type.rb
-  - lib/stack_one/models/shared/documentapimodel.rb
+  - lib/stack_one/models/shared/atsdocumentapimodel_value.rb
+  - lib/stack_one/models/shared/atsdocumentapimodel_type.rb
+  - lib/stack_one/models/shared/atsdocumentapimodel.rb
   - lib/stack_one/models/shared/content_value.rb
   - lib/stack_one/models/shared/file_format.rb
   - lib/stack_one/models/shared/content.rb
   - lib/stack_one/models/shared/applicationattachment_value.rb
   - lib/stack_one/models/shared/content_type.rb
   - lib/stack_one/models/shared/applicationattachment.rb
-  - lib/stack_one/models/shared/documentresult.rb
+  - lib/stack_one/models/shared/hrisdocumentresult.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel_value.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel_type.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel.rb
   - lib/stack_one/models/shared/offersresult.rb
   - lib/stack_one/models/shared/offer_value.rb
   - lib/stack_one/models/shared/offer_offer_status.rb
@@ -390,7 +391,7 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreasonresult.rb
   - lib/stack_one/models/shared/userresult.rb
   - lib/stack_one/models/shared/user.rb
-  - lib/stack_one/models/shared/documentspaginated.rb
+  - lib/stack_one/models/shared/hrisdocumentspaginated.rb
   - lib/stack_one/models/shared/scorecardspaginated.rb
   - lib/stack_one/models/shared/overall_recommendation.rb
   - lib/stack_one/models/shared/scorecard.rb
@@ -474,10 +475,6 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisbenefit_value.rb
   - lib/stack_one/models/shared/benefit_type.rb
   - lib/stack_one/models/shared/hrisbenefit.rb
-  - lib/stack_one/models/shared/createdocumentresult.rb
-  - lib/stack_one/models/shared/hriscreatedocumentrequestdto_value.rb
-  - lib/stack_one/models/shared/hriscreatedocumentrequestdto_type.rb
-  - lib/stack_one/models/shared/hriscreatedocumentrequestdto.rb
   - lib/stack_one/models/shared/createtimeoffresult.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_status.rb
@@ -551,6 +548,10 @@ generatedFiles:
   - lib/stack_one/models/shared/employeespaginated.rb
   - lib/stack_one/models/shared/employmentspaginated.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
+  - lib/stack_one/models/shared/writeresultapimodel.rb
+  - lib/stack_one/models/shared/headers.rb
+  - lib/stack_one/models/shared/raw.rb
+  - lib/stack_one/models/shared/providererrorapimodel.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_value.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_confidential.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
@@ -697,8 +698,6 @@ generatedFiles:
   - docs/models/operations/crmupdatecontactresponse.md
   - docs/models/operations/hriscreateemployeerequest.md
   - docs/models/operations/hriscreateemployeeresponse.md
-  - docs/models/operations/hriscreateemployeedocumentrequest.md
-  - docs/models/operations/hriscreateemployeedocumentresponse.md
   - docs/models/operations/hriscreateemployeetimeoffrequestrequest.md
   - docs/models/operations/hriscreateemployeetimeoffrequestresponse.md
   - docs/models/operations/hriscreateemployeeworkeligibilityrequestrequest.md
@@ -836,16 +835,19 @@ generatedFiles:
   - docs/models/shared/rejectedreasonvalue.md
   - docs/models/shared/rejectedreasontype.md
   - docs/models/shared/rejectedreason.md
-  - docs/models/shared/documentapimodelvalue.md
-  - docs/models/shared/documentapimodeltype.md
-  - docs/models/shared/documentapimodel.md
+  - docs/models/shared/atsdocumentapimodelvalue.md
+  - docs/models/shared/atsdocumentapimodeltype.md
+  - docs/models/shared/atsdocumentapimodel.md
   - docs/models/shared/contentvalue.md
   - docs/models/shared/fileformat.md
   - docs/models/shared/content.md
   - docs/models/shared/applicationattachmentvalue.md
   - docs/models/shared/contenttype.md
   - docs/models/shared/applicationattachment.md
-  - docs/models/shared/documentresult.md
+  - docs/models/shared/hrisdocumentresult.md
+  - docs/models/shared/hrisdocumentapimodelvalue.md
+  - docs/models/shared/hrisdocumentapimodeltype.md
+  - docs/models/shared/hrisdocumentapimodel.md
   - docs/models/shared/offersresult.md
   - docs/models/shared/offervalue.md
   - docs/models/shared/offerofferstatus.md
@@ -899,7 +901,7 @@ generatedFiles:
   - docs/models/shared/rejectedreasonresult.md
   - docs/models/shared/userresult.md
   - docs/models/shared/user.md
-  - docs/models/shared/documentspaginated.md
+  - docs/models/shared/hrisdocumentspaginated.md
   - docs/models/shared/scorecardspaginated.md
   - docs/models/shared/overallrecommendation.md
   - docs/models/shared/scorecard.md
@@ -983,10 +985,6 @@ generatedFiles:
   - docs/models/shared/hrisbenefitvalue.md
   - docs/models/shared/benefittype.md
   - docs/models/shared/hrisbenefit.md
-  - docs/models/shared/createdocumentresult.md
-  - docs/models/shared/hriscreatedocumentrequestdtovalue.md
-  - docs/models/shared/hriscreatedocumentrequestdtotype.md
-  - docs/models/shared/hriscreatedocumentrequestdto.md
   - docs/models/shared/createtimeoffresult.md
   - docs/models/shared/hriscreatetimeoffrequestdtovalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtostatus.md
@@ -1060,6 +1058,10 @@ generatedFiles:
   - docs/models/shared/employeespaginated.md
   - docs/models/shared/employmentspaginated.md
   - docs/models/shared/hrislocationspaginated.md
+  - docs/models/shared/writeresultapimodel.md
+  - docs/models/shared/headers.md
+  - docs/models/shared/raw.md
+  - docs/models/shared/providererrorapimodel.md
   - docs/models/shared/unifieduploadrequestdtovalue.md
   - docs/models/shared/unifieduploadrequestdtoconfidential.md
   - docs/models/shared/unifieduploadrequestdtoschemasvalue.md

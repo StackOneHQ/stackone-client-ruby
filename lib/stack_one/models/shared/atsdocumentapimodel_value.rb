@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class DocumentApiModelValue < T::Enum
+    class AtsDocumentApiModelValue < T::Enum
       enums do
         RESUME = new('resume')
         AVATAR = new('avatar')

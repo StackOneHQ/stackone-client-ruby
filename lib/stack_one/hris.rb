@@ -65,58 +65,6 @@ module StackOne
     end
 
 
-    sig { params(hris_create_document_request_dto: ::StackOne::Shared::HrisCreateDocumentRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeDocumentResponse) }
-    def create_employee_document(hris_create_document_request_dto, id, x_account_id)
-      # create_employee_document - Create Employee Document
-      request = ::StackOne::Operations::HrisCreateEmployeeDocumentRequest.new(
-        
-        hris_create_document_request_dto: hris_create_document_request_dto,
-        id: id,
-        x_account_id: x_account_id
-      )
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = Utils.generate_url(
-        ::StackOne::Operations::HrisCreateEmployeeDocumentRequest,
-        base_url,
-        '/unified/hris/employees/{id}/documents',
-        request
-      )
-      headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_document_request_dto, :json)
-      headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
-      headers['Accept'] = 'application/json'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.post(url) do |req|
-        req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-        if form
-          req.body = Utils.encode_form(form)
-        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-          req.body = URI.encode_www_form(data)
-        else
-          req.body = data
-        end
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::StackOne::Operations::HrisCreateEmployeeDocumentResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 201
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateDocumentResult)
-          res.create_document_result = out
-        end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
-      end
-      res
-    end
-
-
     sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
     def create_employee_time_off_request(hris_create_time_off_request_dto, id, x_account_id)
       # create_employee_time_off_request - Create Employee Time Off Request
@@ -453,8 +401,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::DocumentResult)
-          res.document_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentResult)
+          res.hris_document_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -747,8 +695,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::DocumentsPaginated)
-          res.documents_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentsPaginated)
+          res.hris_documents_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -1157,8 +1105,10 @@ module StackOne
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
-        res.bytes = r.env.response_body if Utils.match_content_type(content_type, 'application/json')
-      
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WriteResultApiModel)
+          res.write_result_api_model = out
+        end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
       res

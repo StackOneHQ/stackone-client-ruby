@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The documents related to the employee with the given identifier were retrieved.
-      field :documents_paginated, T.nilable(::StackOne::Shared::DocumentsPaginated)
+      field :hris_documents_paginated, T.nilable(::StackOne::Shared::HrisDocumentsPaginated)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, documents_paginated: T.nilable(::StackOne::Shared::DocumentsPaginated)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, documents_paginated: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, hris_documents_paginated: T.nilable(::StackOne::Shared::HrisDocumentsPaginated)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, hris_documents_paginated: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @documents_paginated = documents_paginated
+        @hris_documents_paginated = hris_documents_paginated
       end
     end
   end

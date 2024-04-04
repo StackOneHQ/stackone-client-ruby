@@ -8,11 +8,11 @@ module StackOne
   module Shared
   
 
-    class DocumentsPaginated < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentsPaginated < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
-      field :data, T::Array[::StackOne::Shared::DocumentApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+      field :data, T::Array[::StackOne::Shared::HrisDocumentApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
       field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -21,7 +21,7 @@ module StackOne
       field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
-      sig { params(data: T::Array[::StackOne::Shared::DocumentApiModel], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
+      sig { params(data: T::Array[::StackOne::Shared::HrisDocumentApiModel], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
       def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
         @data = data
         @next_ = next_

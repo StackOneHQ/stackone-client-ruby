@@ -24,7 +24,7 @@ module StackOne
       # Date of creation
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The documents attached to this application (eg. resume, cover letter etc.)
-      field :documents, T.nilable(T::Array[::StackOne::Shared::DocumentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
+      field :documents, T.nilable(T::Array[::StackOne::Shared::AtsDocumentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
@@ -53,7 +53,7 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::ApplicationStatus), attachments: T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), candidate: T.nilable(::StackOne::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), documents: T.nilable(T::Array[::StackOne::Shared::DocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(::StackOne::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[::StackOne::Shared::RejectedReason]), remote_id: T.nilable(::String), result_links: T.nilable(T::Array[::StackOne::Shared::ResultLink]), updated_at: T.nilable(::DateTime)).void }
+      sig { params(application_status: T.nilable(::StackOne::Shared::ApplicationStatus), attachments: T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), candidate: T.nilable(::StackOne::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), documents: T.nilable(T::Array[::StackOne::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(::StackOne::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[::StackOne::Shared::RejectedReason]), remote_id: T.nilable(::String), result_links: T.nilable(T::Array[::StackOne::Shared::ResultLink]), updated_at: T.nilable(::DateTime)).void }
       def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_id: nil, result_links: nil, updated_at: nil)
         @application_status = application_status
         @attachments = attachments

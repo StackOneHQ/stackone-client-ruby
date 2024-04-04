@@ -120,7 +120,6 @@ end
 ### [Hris](docs/sdks/hris/README.md)
 
 * [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
-* [create_employee_document](docs/sdks/hris/README.md#create_employee_document) - Create Employee Document
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](docs/sdks/hris/README.md#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
