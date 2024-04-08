@@ -7,6 +7,7 @@ module StackOne
   module Shared
     autoload :Credentials, 'stack_one/models/shared/credentials.rb'
     autoload :SetupInformation, 'stack_one/models/shared/setup_information.rb'
+    autoload :LinkedAccountStatus, 'stack_one/models/shared/linkedaccount_status.rb'
     autoload :LinkedAccount, 'stack_one/models/shared/linkedaccount.rb'
     autoload :LinkedAccountMetaCategory, 'stack_one/models/shared/linkedaccountmeta_category.rb'
     autoload :LinkedAccountMeta, 'stack_one/models/shared/linkedaccountmeta.rb'

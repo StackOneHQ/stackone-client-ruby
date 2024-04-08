@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: ac068eaa2fb23054ec332258204cd6f9
+  docChecksum: 8581fff02ed3ca1eff9b2441a400bee8
   docVersion: 1.0.0
-  speakeasyVersion: 1.237.0
-  generationVersion: 2.298.2
-  releaseVersion: 0.2.10
-  configChecksum: 7aa8f35aeacd7cf9f78eb1cccef03297
+  speakeasyVersion: 1.241.0
+  generationVersion: 2.300.0
+  releaseVersion: 0.2.11
+  configChecksum: 908b4f6ce7eaa3a455b790997178f42a
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -272,6 +272,7 @@ generatedFiles:
   - lib/stack_one/models/operations/stackone_proxy_request_response.rb
   - lib/stack_one/models/shared/credentials.rb
   - lib/stack_one/models/shared/setup_information.rb
+  - lib/stack_one/models/shared/linkedaccount_status.rb
   - lib/stack_one/models/shared/linkedaccount.rb
   - lib/stack_one/models/shared/linkedaccountmeta_category.rb
   - lib/stack_one/models/shared/linkedaccountmeta.rb
@@ -782,6 +783,7 @@ generatedFiles:
   - docs/models/operations/stackoneproxyrequestresponse.md
   - docs/models/shared/credentials.md
   - docs/models/shared/setupinformation.md
+  - docs/models/shared/linkedaccountstatus.md
   - docs/models/shared/linkedaccount.md
   - docs/models/shared/linkedaccountmetacategory.md
   - docs/models/shared/linkedaccountmeta.md
