@@ -3,90 +3,144 @@ info:
   title: CodeSamples overlay for ruby target
   version: 0.0.0
 actions:
-  - target: $["paths"]["/unified/hris/employees/{id}"]["get"]
+  - target: $["paths"]["/unified/ats/candidates/{id}/notes"]["post"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_get_employee
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeeRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employee(req)\n\nif ! res.employee_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/benefits"]["get"]
+          label: ats_create_candidate_note
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_candidate_note(id=\"<value>\", x_account_id=\"<value>\", ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(\n    author_id: \"1234567890\",\n    visibility: ::StackOne::Shared::AtsCreateNotesRequestDtoVisibility.new(\n      value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,\n      source_value: \"Public\",\n    ),\n  ))\n\nif ! res.create_candidate_note_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/departments/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_list_benefits
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListBenefitsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_benefits(req)\n\nif ! res.hris_benefits_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications"]["post"]
+          label: ats_get_department
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetDepartmentRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_department(req)\n\nif ! res.department_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/contacts/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_create_application
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_application(x_account_id=\"<value>\", ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(\n    job_id: \"4071538b-3cac-4fbf-ac76-f78ed250ffdd\",\n    candidate_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n    location_id: \"dd8d41d1-5eb8-4408-9c87-9ba44604eae4\",\n  ))\n\nif ! res.create_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/departments"]["get"]
+          label: crm_get_contact
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmGetContactRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_contact(req)\n\nif ! res.contact_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounts/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_list_departments
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListDepartmentsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_departments(req)\n\nif ! res.departments_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/locations"]["get"]
+          label: stackone_get_account
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.get_account(id=\"<value>\", expand_info=\"<value>\")\n\nif ! res.linked_account.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connectors/meta/{provider}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_list_locations
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListLocationsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_locations(req)\n\nif ! res.ats_locations_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/contacts/{id}"]["patch"]
+          label: stackone_get_connector_meta
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.get_connector_meta(provider=\"<value>\", include=\"<value>\")\n\nif ! res.connectors_meta.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/documents"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: crm_update_contact
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_contact(id=\"<value>\", x_account_id=\"<value>\", crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(\n    first_name: \"Steve\",\n    last_name: \"Wozniak\",\n    company_name: \"Apple Inc.\",\n    emails: [\n      \"<value>\",\n    ],\n    phone_numbers: [\n      \"<value>\",\n    ],\n    deal_ids: [\n      \"<value>\",\n    ],\n    account_ids: [\n      \"<value>\",\n    ],\n  ))\n\nif ! res.contact_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/proxy"]["post"]
+          label: hris_list_employee_documents
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employee_documents(req)\n\nif ! res.hris_documents_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/email/{id}"]["patch"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: stackone_proxy_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.proxy_request(x_account_id=\"<value>\", proxy_request_body=::StackOne::Shared::ProxyRequestBody.new(\n    url: \"https://api.sample-integration.com/v1\",\n    path: \"/employees/directory\",\n    headers: {\n      \"Car\": \"<value>\",\n    },\n  ))\n\nif res.status_code == 200\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/companies/{id}"]["get"]
+          label: marketing_update_email_template
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_email_template(id=\"<value>\", x_account_id=\"<value>\", marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/omni_channel/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_get_company
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetCompanyRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_company(req)\n\nif ! res.company_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/email/{id}"]["get"]
+          label: marketing_get_omni_channel_template
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingGetOmniChannelTemplateRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_omni_channel_template(req)\n\nif ! res.template_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/push"]["post"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: marketing_get_email_template
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_email_template(req)\n\nif ! res.template_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_list_employee_work_eligibility
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employee_work_eligibility(req)\n\nif ! res.work_eligibility_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_create_employee_work_eligibility_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_employee_work_eligibility_request(id=\"<value>\", x_account_id=\"<value>\", hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(\n    type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),\n    sub_type: \"H1B\",\n    valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    number: \"1234567890\",\n  ))\n\nif ! res.create_work_eligibility_result.nil?\n  # handle response\nend"
+          label: marketing_create_push_template
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_push_template(x_account_id=\"<value>\", marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility/{subResourceId}"]["patch"]
     update:
       x-codeSamples:
         - lang: ruby
           label: hris_update_employee_work_eligibility_request
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_employee_work_eligibility_request(id=\"<value>\", sub_resource_id=\"<value>\", x_account_id=\"<value>\", hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(\n    type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),\n    sub_type: \"H1B\",\n    valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    number: \"1234567890\",\n  ))\n\nif res.status_code == 200\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates"]["post"]
+  - target: $["paths"]["/unified/ats/jobs/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_create_candidate
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_candidate(x_account_id=\"<value>\", ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(\n    name: \"Romain Sestier\",\n    first_name: \"Romain\",\n    last_name: \"Sestier\",\n    phone: \"+16178294093\",\n    company: \"Company Inc.\",\n    title: \"Software Engineer\",\n    application_ids: [\n      \"<value>\",\n    ],\n  ))\n\nif ! res.candidate_result.nil?\n  # handle response\nend"
+          label: ats_get_job
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetJobRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_job(req)\n\nif ! res.job_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/offers/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_offer
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetOfferRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_offer(req)\n\nif ! res.offers_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/candidates/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_candidate
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetCandidateRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_candidate(req)\n\nif ! res.candidate_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/jobs"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_jobs
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListJobsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_jobs(req)\n\nif ! res.jobs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/users/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
           label: ats_get_user
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetUserRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_user(req)\n\nif ! res.user_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_create_employee
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_employee(x_account_id=\"<value>\", hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(\n    first_name: \"Issac\",\n    last_name: \"Newton\",\n    name: \"Issac Newton\",\n    display_name: \"Sir Issac Newton\",\n    avatar_url: \"https://example.com/avatar.png\",\n    personal_email: \"isaac.newton@example.com\",\n    personal_phone_number: \"+1234567890\",\n    work_email: \"newton@example.com\",\n    work_phone_number: \"+1234567890\",\n    job_title: \"Physicist\",\n    department: \"Physics\",\n    manager_id: \"67890\",\n    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),\n    preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasValue::ENG,\n    ),\n    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),\n    date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),\n    birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),\n    avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),\n    hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    tenure: 2.0,\n    work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,\n      source_value: \"Permanent\",\n    ),\n    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),\n    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),\n    termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    company_name: \"Example Corp\",\n  ))\n\nif ! res.create_employee_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_list_employee_work_eligibility
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employee_work_eligibility(req)\n\nif ! res.work_eligibility_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/time_off"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_create_time_off_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_time_off_request(x_account_id=\"<value>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n    employee_id: \"1687-3\",\n    approver_id: \"1687-4\",\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_time_off_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/offers"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_offers
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListOffersRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/time_off/{subResourceId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_get_employees_time_off_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employees_time_off_request(req)\n\nif ! res.time_off_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/time_off/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_update_time_off_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_time_off_request(id=\"<value>\", x_account_id=\"<value>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n    employee_id: \"1687-3\",\n    approver_id: \"1687-4\",\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_time_off_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/offers/{subResourceId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_application_offer
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationOfferRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application_offer(req)\n\nif ! res.offers_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/interview_stages/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_interview_stage
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetInterviewStageRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_interview_stage(req)\n\nif ! res.interview_stage_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/push/{id}"]["get"]
     update:
       x-codeSamples:
@@ -99,240 +153,30 @@ actions:
         - lang: ruby
           label: stackone_list_connectors_meta
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.list_connectors_meta(include=\"<value>\")\n\nif ! res.connectors_metas.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/time_off"]["get"]
+  - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["post"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_list_employee_time_off_requests
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employee_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility/{subResourceId}"]["get"]
+          label: hris_create_employee_work_eligibility_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_employee_work_eligibility_request(id=\"<value>\", x_account_id=\"<value>\", hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(\n    type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),\n    sub_type: \"H1B\",\n    valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    number: \"1234567890\",\n  ))\n\nif ! res.create_work_eligibility_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/benefits/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_get_employees_work_eligibility
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employees_work_eligibility(req)\n\nif ! res.work_eligibility_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/time_off"]["post"]
+          label: hris_get_benefit
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetBenefitRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_benefit(req)\n\nif ! res.hris_benefit_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/rejected_reasons/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_create_time_off_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_time_off_request(x_account_id=\"<value>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n    employee_id: \"1687-3\",\n    approver_id: \"1687-4\",\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_time_off_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/accounts/{id}/meta"]["get"]
+          label: ats_get_rejected_reason
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetRejectedReasonRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_rejected_reason(req)\n\nif ! res.rejected_reason_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/contacts/{id}"]["patch"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: stackone_get_account_meta_info
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.get_account_meta_info(id=\"<value>\")\n\nif ! res.linked_account_meta.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/documents/{subResourceId}/download"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_download_employee_document
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.download_employee_document(id=\"<value>\", sub_resource_id=\"<value>\", x_account_id=\"<value>\", format=\"<value>\")\n\nif ! res.bytes.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/scorecards"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_application_scorecards
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_application_scorecards(req)\n\nif ! res.scorecards_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/documents"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_application_documents
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_application_documents(req)\n\nif ! res.hris_documents_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_update_candidate
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_candidate(id=\"<value>\", x_account_id=\"<value>\", ats_update_candidates_request_dto=::StackOne::Shared::AtsUpdateCandidatesRequestDto.new(\n    name: \"Romain Sestier\",\n    first_name: \"Romain\",\n    last_name: \"Sestier\",\n    phone: \"+16178294093\",\n    company: \"Company Inc.\",\n    title: \"Software Engineer\",\n    application_ids: [\n      \"<value>\",\n    ],\n    id: \"eebbaa75-7adf-4f7e-be4c-def6a12840f2\",\n  ))\n\nif ! res.candidate_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/departments/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_department
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetDepartmentRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_department(req)\n\nif ! res.department_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/job_postings"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_job_postings
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListJobPostingsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_job_postings(req)\n\nif ! res.job_postings_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/offers/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_offer
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetOfferRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_offer(req)\n\nif ! res.offers_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/accounts"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: stackone_list_linked_accounts
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::StackoneListLinkedAccountsRequest.new()\n    \nres = s.list_linked_accounts(req)\n\nif ! res.linked_accounts.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/time_off/{subResourceId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_get_employees_time_off_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employees_time_off_request(req)\n\nif ! res.time_off_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/campaigns"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_list_campaigns
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListCampaignsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_campaigns(req)\n\nif ! res.campaigns_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/lists"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_list_lists
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmListListsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_lists(req)\n\nif ! res.lists_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/push/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_update_push_template
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_push_template(id=\"<value>\", x_account_id=\"<value>\", marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/interview_stages"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_interview_stages
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListInterviewStagesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_interview_stages(req)\n\nif ! res.interview_stages_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/interviews/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_interview
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetInterviewRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_interview(req)\n\nif ! res.interviews_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/jobs/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_job
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetJobRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_job(req)\n\nif ! res.job_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/locations/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_location
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetLocationRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_location(req)\n\nif ! res.ats_location_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/accounts"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_list_accounts
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmListAccountsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_accounts(req)\n\nif ! res.accounts_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_update_employee
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_employee(id=\"<value>\", x_account_id=\"<value>\", hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(\n    first_name: \"Issac\",\n    last_name: \"Newton\",\n    name: \"Issac Newton\",\n    display_name: \"Sir Issac Newton\",\n    avatar_url: \"https://example.com/avatar.png\",\n    personal_email: \"isaac.newton@example.com\",\n    personal_phone_number: \"+1234567890\",\n    work_email: \"newton@example.com\",\n    work_phone_number: \"+1234567890\",\n    job_title: \"Physicist\",\n    department: \"Physics\",\n    manager_id: \"67890\",\n    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),\n    preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasValue::ENG,\n    ),\n    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),\n    date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),\n    birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),\n    avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),\n    hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    tenure: 2.0,\n    work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,\n      source_value: \"Permanent\",\n    ),\n    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),\n    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),\n    termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    company_name: \"Example Corp\",\n  ))\n\nif ! res.create_employee_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/documents/upload"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_upload_employee_document
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.upload_employee_document(id=\"<value>\", x_account_id=\"<value>\", unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(\n    name: \"weather-forecast\",\n    content: \"VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE\",\n    path: \"reports or /path/to/file\",\n  ))\n\nif ! res.write_result_api_model.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_create_employee
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_employee(x_account_id=\"<value>\", hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(\n    first_name: \"Issac\",\n    last_name: \"Newton\",\n    name: \"Issac Newton\",\n    display_name: \"Sir Issac Newton\",\n    avatar_url: \"https://example.com/avatar.png\",\n    personal_email: \"isaac.newton@example.com\",\n    personal_phone_number: \"+1234567890\",\n    work_email: \"newton@example.com\",\n    work_phone_number: \"+1234567890\",\n    job_title: \"Physicist\",\n    department: \"Physics\",\n    manager_id: \"67890\",\n    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),\n    preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasValue::ENG,\n    ),\n    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),\n    date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),\n    birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),\n    avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),\n    hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    tenure: 2.0,\n    work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,\n      source_value: \"Permanent\",\n    ),\n    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),\n    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),\n    termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    company_name: \"Example Corp\",\n  ))\n\nif ! res.create_employee_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/locations"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_list_locations
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListLocationsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_locations(req)\n\nif ! res.hris_locations_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_update_application
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_application(id=\"<value>\", x_account_id=\"<value>\", ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(\n    rejected_reason_id: \"f223d7f6-908b-48f0-9237-b201c307f609\",\n    interview_stage_id: \"18bcbb1b-3cbc-4198-a999-460861d19480\",\n  ))\n\nif ! res.update_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/offers/{subResourceId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_application_offer
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationOfferRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application_offer(req)\n\nif ! res.offers_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/documents/{subResourceId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_application_document
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application_document(req)\n\nif ! res.hris_document_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/offers"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_offers
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListOffersRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/accounts/{id}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: stackone_delete_account
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.delete_account(id=\"<value>\")\n\nif ! res.linked_account.nil?\n  # handle response\nend"
-  - target: $["paths"]["/connectors/meta/{provider}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: stackone_get_connector_meta
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.get_connector_meta(provider=\"<value>\", include=\"<value>\")\n\nif ! res.connectors_meta.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/email/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_update_email_template
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_email_template(id=\"<value>\", x_account_id=\"<value>\", marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/push"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_create_push_template
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_push_template(x_account_id=\"<value>\", marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/contacts"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_list_contacts
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmListContactsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_contacts(req)\n\nif ! res.contacts_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/email"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_list_email_templates
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_email_templates(req)\n\nif ! res.templates_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/offers"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_applications_offers
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_applications_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_candidates
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListCandidatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_candidates(req)\n\nif ! res.candidates_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/contacts"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_create_contact
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_contact(x_account_id=\"<value>\", crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(\n    first_name: \"Steve\",\n    last_name: \"Wozniak\",\n    company_name: \"Apple Inc.\",\n    emails: [\n      \"<value>\",\n    ],\n    phone_numbers: [\n      \"<value>\",\n    ],\n    deal_ids: [\n      \"<value>\",\n    ],\n    account_ids: [\n      \"<value>\",\n    ],\n  ))\n\nif ! res.contact_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/email"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_create_email_template
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_email_template(x_account_id=\"<value>\", marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
+          label: crm_update_contact
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_contact(id=\"<value>\", x_account_id=\"<value>\", crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(\n    first_name: \"Steve\",\n    last_name: \"Wozniak\",\n    company_name: \"Apple Inc.\",\n    emails: [\n      \"<value>\",\n    ],\n    phone_numbers: [\n      \"<value>\",\n    ],\n    deal_ids: [\n      \"<value>\",\n    ],\n    account_ids: [\n      \"<value>\",\n    ],\n  ))\n\nif ! res.contact_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/omni_channel"]["post"]
     update:
       x-codeSamples:
@@ -345,114 +189,246 @@ actions:
         - lang: ruby
           label: hris_list_companies
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListCompaniesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_companies(req)\n\nif ! res.companies_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employments"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_list_employments
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmploymentsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employments(req)\n\nif ! res.employments_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/scorecards/{subResourceId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_application_scorecard
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application_scorecard(req)\n\nif ! res.offers_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates/{id}/notes"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_create_candidate_note
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_candidate_note(id=\"<value>\", x_account_id=\"<value>\", ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(\n    author_id: \"1234567890\",\n    visibility: ::StackOne::Shared::AtsCreateNotesRequestDtoVisibility.new(\n      value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,\n      source_value: \"Public\",\n    ),\n  ))\n\nif ! res.create_candidate_note_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employments/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_get_employment
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmploymentRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employment(req)\n\nif ! res.employment_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/time_off"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_list_time_off_requests
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/time_off/{id}"]["patch"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_update_time_off_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_time_off_request(id=\"<value>\", x_account_id=\"<value>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n    employee_id: \"1687-3\",\n    approver_id: \"1687-4\",\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_time_off_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_candidate
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetCandidateRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_candidate(req)\n\nif ! res.candidate_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/omni_channel/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_get_omni_channel_template
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingGetOmniChannelTemplateRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_omni_channel_template(req)\n\nif ! res.template_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/time_off"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_create_employee_time_off_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_employee_time_off_request(id=\"<value>\", x_account_id=\"<value>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n    employee_id: \"1687-3\",\n    approver_id: \"1687-4\",\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_time_off_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/documents/{subResourceId}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
           label: hris_get_employee_document
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employee_document(req)\n\nif ! res.hris_document_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees/{id}/documents"]["get"]
+  - target: $["paths"]["/unified/ats/departments"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_list_employee_documents
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employee_documents(req)\n\nif ! res.hris_documents_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/employees"]["get"]
+          label: ats_list_departments
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListDepartmentsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_departments(req)\n\nif ! res.departments_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_list_employees
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employees(req)\n\nif ! res.employees_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/accounts/{id}"]["patch"]
+          label: ats_list_applications
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_applications(req)\n\nif ! res.applications_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}"]["patch"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: stackone_update_account
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_account(id=\"<value>\", patch_account_dto=::StackOne::Shared::PatchAccountDto.new())\n\nif ! res.linked_account.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates/{id}/notes"]["get"]
+          label: ats_update_application
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_application(id=\"<value>\", x_account_id=\"<value>\", ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(\n    rejected_reason_id: \"f223d7f6-908b-48f0-9237-b201c307f609\",\n    interview_stage_id: \"18bcbb1b-3cbc-4198-a999-460861d19480\",\n  ))\n\nif ! res.update_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/interviews"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_list_candidate_notes
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListCandidateNotesRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_candidate_notes(req)\n\nif ! res.notes_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/jobs"]["get"]
+          label: ats_list_interviews
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListInterviewsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_interviews(req)\n\nif ! res.interviews_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/rejected_reasons"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_list_jobs
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListJobsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_jobs(req)\n\nif ! res.jobs_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/job_postings/{id}"]["get"]
+          label: ats_list_rejected_reasons
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_rejected_reasons(req)\n\nif ! res.rejected_reasons_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/documents/upload"]["post"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_get_job_posting
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetJobPostingRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_job_posting(req)\n\nif ! res.job_posting_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/offers"]["post"]
+          label: hris_upload_employee_document
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.upload_employee_document(id=\"<value>\", x_account_id=\"<value>\", unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(\n    name: \"weather-forecast\",\n    content: \"VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE\",\n    path: \"reports or /path/to/file\",\n  ))\n\nif ! res.write_result_api_model.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility/{subResourceId}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: ats_create_offer
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_offer(x_account_id=\"<value>\", ats_create_offer_request_dto=::StackOne::Shared::AtsCreateOfferRequestDto.new(\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_offer_result.nil?\n  # handle response\nend"
+          label: hris_get_employees_work_eligibility
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employees_work_eligibility(req)\n\nif ! res.work_eligibility_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employments/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_get_employment
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmploymentRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employment(req)\n\nif ! res.employment_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/campaigns"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_list_campaigns
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListCampaignsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_campaigns(req)\n\nif ! res.campaigns_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounts/{id}/meta"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: stackone_get_account_meta_info
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.get_account_meta_info(id=\"<value>\")\n\nif ! res.linked_account_meta.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/contacts"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: crm_create_contact
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_contact(x_account_id=\"<value>\", crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(\n    first_name: \"Steve\",\n    last_name: \"Wozniak\",\n    company_name: \"Apple Inc.\",\n    emails: [\n      \"<value>\",\n    ],\n    phone_numbers: [\n      \"<value>\",\n    ],\n    deal_ids: [\n      \"<value>\",\n    ],\n    account_ids: [\n      \"<value>\",\n    ],\n  ))\n\nif ! res.contact_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/email"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_list_email_templates
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_email_templates(req)\n\nif ! res.templates_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/campaigns/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
           label: marketing_get_campaign
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingGetCampaignRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_campaign(req)\n\nif ! res.campaign_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_list_employees
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employees(req)\n\nif ! res.employees_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/documents/{subResourceId}/download"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_download_employee_document
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.download_employee_document(id=\"<value>\", sub_resource_id=\"<value>\", x_account_id=\"<value>\", format=\"<value>\")\n\nif ! res.bytes.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/interview_stages"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_interview_stages
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListInterviewStagesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_interview_stages(req)\n\nif ! res.interview_stages_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/locations/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_location
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetLocationRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_location(req)\n\nif ! res.ats_location_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/push"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_list_push_templates
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_push_templates(req)\n\nif ! res.templates_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/time_off"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_create_employee_time_off_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_employee_time_off_request(id=\"<value>\", x_account_id=\"<value>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n    employee_id: \"1687-3\",\n    approver_id: \"1687-4\",\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_time_off_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/time_off"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_list_time_off_requests
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/scorecards/{subResourceId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_application_scorecard
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application_scorecard(req)\n\nif ! res.scorecards_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/lists/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: crm_get_list
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmGetListRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_list(req)\n\nif ! res.list_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/companies/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_get_company
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetCompanyRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_company(req)\n\nif ! res.company_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/time_off/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_get_time_off_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_time_off_request(req)\n\nif ! res.time_off_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/job_postings/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_job_posting
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetJobPostingRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_job_posting(req)\n\nif ! res.job_posting_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/documents/{subResourceId}/download"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_download_application_document
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.download_application_document(id=\"<value>\", sub_resource_id=\"<value>\", x_account_id=\"<value>\", format=\"<value>\")\n\nif ! res.bytes.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/candidates/{id}/notes"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_candidate_notes
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListCandidateNotesRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_candidate_notes(req)\n\nif ! res.notes_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/users"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_users
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListUsersRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/job_postings"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_job_postings
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListJobPostingsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_job_postings(req)\n\nif ! res.job_postings_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/email"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_create_email_template
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_email_template(x_account_id=\"<value>\", marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_update_employee
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_employee(id=\"<value>\", x_account_id=\"<value>\", hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(\n    first_name: \"Issac\",\n    last_name: \"Newton\",\n    name: \"Issac Newton\",\n    display_name: \"Sir Issac Newton\",\n    avatar_url: \"https://example.com/avatar.png\",\n    personal_email: \"isaac.newton@example.com\",\n    personal_phone_number: \"+1234567890\",\n    work_email: \"newton@example.com\",\n    work_phone_number: \"+1234567890\",\n    job_title: \"Physicist\",\n    department: \"Physics\",\n    manager_id: \"67890\",\n    gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),\n    preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasValue::ENG,\n    ),\n    ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),\n    date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),\n    birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),\n    avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),\n    hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),\n    tenure: 2.0,\n    work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(\n      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,\n      source_value: \"Permanent\",\n    ),\n    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),\n    employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),\n    termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),\n    company_name: \"Example Corp\",\n  ))\n\nif ! res.create_employee_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/locations"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_list_locations
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListLocationsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_locations(req)\n\nif ! res.hris_locations_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_create_application
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_application(x_account_id=\"<value>\", ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(\n    job_id: \"4071538b-3cac-4fbf-ac76-f78ed250ffdd\",\n    candidate_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n    location_id: \"dd8d41d1-5eb8-4408-9c87-9ba44604eae4\",\n  ))\n\nif ! res.create_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/documents"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_application_documents
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_application_documents(req)\n\nif ! res.hris_documents_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/candidates"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_candidates
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListCandidatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_candidates(req)\n\nif ! res.candidates_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/candidates"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_create_candidate
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_candidate(x_account_id=\"<value>\", ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(\n    name: \"Romain Sestier\",\n    first_name: \"Romain\",\n    last_name: \"Sestier\",\n    phone: \"+16178294093\",\n    company: \"Company Inc.\",\n    title: \"Software Engineer\",\n    application_ids: [\n      \"<value>\",\n    ],\n  ))\n\nif ! res.candidate_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/interviews/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_interview
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetInterviewRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_interview(req)\n\nif ! res.interviews_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/accounts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: crm_get_account
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmGetAccountRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_account(req)\n\nif ! res.account_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounts/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: stackone_update_account
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_account(id=\"<value>\", patch_account_dto=::StackOne::Shared::PatchAccountDto.new())\n\nif ! res.linked_account.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/locations/{id}"]["get"]
     update:
       x-codeSamples:
@@ -465,117 +441,141 @@ actions:
         - lang: ruby
           label: ats_get_application
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application(req)\n\nif ! res.application_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/omni_channel"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_list_omni_channel_templates
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_omni_channel_templates(req)\n\nif ! res.templates_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/marketing/templates/push"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: marketing_list_push_templates
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_push_templates(req)\n\nif ! res.templates_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_applications
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_applications(req)\n\nif ! res.applications_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/rejected_reasons"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_rejected_reasons
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_rejected_reasons(req)\n\nif ! res.rejected_reasons_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/applications/{id}/documents/{subResourceId}/download"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_download_application_document
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.download_application_document(id=\"<value>\", sub_resource_id=\"<value>\", x_account_id=\"<value>\", format=\"<value>\")\n\nif ! res.bytes.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/accounts/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_get_account
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmGetAccountRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_account(req)\n\nif ! res.account_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/time_off/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: hris_get_time_off_request
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_time_off_request(req)\n\nif ! res.time_off_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/candidates/{id}/notes/{subResourceId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_candidate_note
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetCandidateNoteRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_candidate_note(req)\n\nif ! res.note_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/interviews"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_interviews
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListInterviewsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_interviews(req)\n\nif ! res.interviews_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/users"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_list_users
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListUsersRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/contacts/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_get_contact
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmGetContactRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_contact(req)\n\nif ! res.contact_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/crm/lists/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: crm_get_list
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmGetListRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_list(req)\n\nif ! res.list_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/connect_sessions"]["post"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: stackone_create_connect_session
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Shared::ConnectSessionCreate.new(\n  categories: [\n    ::StackOne::Shared::Categories::HRIS_LEGACY,\n  ],\n  origin_owner_id: \"<value>\",\n  origin_owner_name: \"<value>\",\n)\n    \nres = s.create_connect_session(req)\n\nif ! res.connect_session_token.nil?\n  # handle response\nend"
-  - target: $["paths"]["/accounts/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: stackone_get_account
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.get_account(id=\"<value>\", expand_info=\"<value>\")\n\nif ! res.linked_account.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/interview_stages/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_interview_stage
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetInterviewStageRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_interview_stage(req)\n\nif ! res.interview_stage_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/ats/rejected_reasons/{id}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: ruby
-          label: ats_get_rejected_reason
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetRejectedReasonRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_rejected_reason(req)\n\nif ! res.rejected_reason_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/omni_channel/{id}"]["patch"]
     update:
       x-codeSamples:
         - lang: ruby
           label: marketing_update_omni_channel_template
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_omni_channel_template(id=\"<value>\", x_account_id=\"<value>\", marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/proxy"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: stackone_proxy_request
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.proxy_request(x_account_id=\"<value>\", proxy_request_body=::StackOne::Shared::ProxyRequestBody.new(\n    url: \"https://api.sample-integration.com/v1\",\n    path: \"/employees/directory\",\n    headers: {\n      \"Car\": \"<value>\",\n    },\n  ))\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_get_employee
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeeRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_employee(req)\n\nif ! res.employee_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/time_off"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_list_employee_time_off_requests
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employee_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/contacts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: crm_list_contacts
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmListContactsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_contacts(req)\n\nif ! res.contacts_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/email/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_get_email_template
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_email_template(req)\n\nif ! res.template_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connect_sessions"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: stackone_create_connect_session
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Shared::ConnectSessionCreate.new(\n  categories: [\n    ::StackOne::Shared::Categories::HRIS_LEGACY,\n  ],\n  origin_owner_id: \"<value>\",\n  origin_owner_name: \"<value>\",\n)\n    \nres = s.create_connect_session(req)\n\nif ! res.connect_session_token.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: stackone_list_linked_accounts
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::StackoneListLinkedAccountsRequest.new()\n    \nres = s.list_linked_accounts(req)\n\nif ! res.linked_accounts.nil?\n  # handle response\nend"
+  - target: $["paths"]["/accounts/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: stackone_delete_account
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.delete_account(id=\"<value>\")\n\nif ! res.linked_account.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/push/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_update_push_template
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_push_template(id=\"<value>\", x_account_id=\"<value>\", marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(\n    id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n    remote_id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  ))\n\nif ! res.create_template_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/connect_sessions/authenticate"]["post"]
     update:
       x-codeSamples:
         - lang: ruby
           label: stackone_authenticate_connect_session
           source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Shared::ConnectSessionAuthenticate.new(\n  token: \"<value>\",\n)\n    \nres = s.authenticate_connect_session(req)\n\nif ! res.connect_session.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/hris/benefits/{id}"]["get"]
+  - target: $["paths"]["/unified/hris/employments"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
-          label: hris_get_benefit
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetBenefitRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_benefit(req)\n\nif ! res.hris_benefit_result.nil?\n  # handle response\nend"
+          label: hris_list_employments
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmploymentsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_employments(req)\n\nif ! res.employments_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/candidates/{id}/notes/{subResourceId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_candidate_note
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetCandidateNoteRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_candidate_note(req)\n\nif ! res.note_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/documents/{subResourceId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_get_application_document
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<value>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.get_application_document(req)\n\nif ! res.hris_document_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/candidates/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_update_candidate
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.update_candidate(id=\"<value>\", x_account_id=\"<value>\", ats_update_candidates_request_dto=::StackOne::Shared::AtsUpdateCandidatesRequestDto.new(\n    name: \"Romain Sestier\",\n    first_name: \"Romain\",\n    last_name: \"Sestier\",\n    phone: \"+16178294093\",\n    company: \"Company Inc.\",\n    title: \"Software Engineer\",\n    application_ids: [\n      \"<value>\",\n    ],\n    id: \"eebbaa75-7adf-4f7e-be4c-def6a12840f2\",\n  ))\n\nif ! res.candidate_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/locations"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_locations
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListLocationsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_locations(req)\n\nif ! res.ats_locations_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/offers"]["post"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_create_offer
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n    \nres = s.create_offer(x_account_id=\"<value>\", ats_create_offer_request_dto=::StackOne::Shared::AtsCreateOfferRequestDto.new(\n    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  ))\n\nif ! res.create_offer_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/accounts"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: crm_list_accounts
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmListAccountsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_accounts(req)\n\nif ! res.accounts_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/benefits"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: hris_list_benefits
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListBenefitsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_benefits(req)\n\nif ! res.hris_benefits_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/offers"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_applications_offers
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_applications_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/applications/{id}/scorecards"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: ats_list_application_scorecards
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_application_scorecards(req)\n\nif ! res.scorecards_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/crm/lists"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: crm_list_lists
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::CrmListListsRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_lists(req)\n\nif ! res.lists_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/marketing/templates/omni_channel"]["get"]
+    update:
+      x-codeSamples:
+        - lang: ruby
+          label: marketing_list_omni_channel_templates
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"<YOUR_USERNAME_HERE>\",\n  )\n)\n\n\nreq = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(\n  x_account_id: \"<value>\",\n)\n    \nres = s.list_omni_channel_templates(req)\n\nif ! res.templates_paginated.nil?\n  # handle response\nend"

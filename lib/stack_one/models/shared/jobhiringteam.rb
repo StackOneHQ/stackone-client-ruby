@@ -11,15 +11,15 @@ module StackOne
     class JobHiringTeam < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
+      # Email of the hiring team member.
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
-
+      # First name of the hiring team member.
       field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-
+      # Last name of the hiring team member.
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-
+      # Role of the hiring team member.
       field :role, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
-
+      # User ID of the hiring team member.
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 8581fff02ed3ca1eff9b2441a400bee8
+  docChecksum: e4472564ce24d05d2e5be5abb4a43d60
   docVersion: 1.0.0
-  speakeasyVersion: 1.241.0
-  generationVersion: 2.300.0
-  releaseVersion: 0.2.11
-  configChecksum: 908b4f6ce7eaa3a455b790997178f42a
+  speakeasyVersion: 1.252.0
+  generationVersion: 2.306.0
+  releaseVersion: 0.2.12
+  configChecksum: ecfcc15b718480800b3817102c9f0450
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -343,6 +343,12 @@ generatedFiles:
   - lib/stack_one/models/shared/offer_value.rb
   - lib/stack_one/models/shared/offer_offer_status.rb
   - lib/stack_one/models/shared/offer.rb
+  - lib/stack_one/models/shared/scorecardsresult.rb
+  - lib/stack_one/models/shared/overall_recommendation.rb
+  - lib/stack_one/models/shared/scorecard.rb
+  - lib/stack_one/models/shared/scorecardsection.rb
+  - lib/stack_one/models/shared/field_type.rb
+  - lib/stack_one/models/shared/field.rb
   - lib/stack_one/models/shared/noteresult.rb
   - lib/stack_one/models/shared/note_value.rb
   - lib/stack_one/models/shared/note_visibility.rb
@@ -394,11 +400,6 @@ generatedFiles:
   - lib/stack_one/models/shared/user.rb
   - lib/stack_one/models/shared/hrisdocumentspaginated.rb
   - lib/stack_one/models/shared/scorecardspaginated.rb
-  - lib/stack_one/models/shared/overall_recommendation.rb
-  - lib/stack_one/models/shared/scorecard.rb
-  - lib/stack_one/models/shared/scorecardsection.rb
-  - lib/stack_one/models/shared/field_type.rb
-  - lib/stack_one/models/shared/field.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
   - lib/stack_one/models/shared/offerspaginated.rb
   - lib/stack_one/models/shared/notespaginated.rb
@@ -854,6 +855,12 @@ generatedFiles:
   - docs/models/shared/offervalue.md
   - docs/models/shared/offerofferstatus.md
   - docs/models/shared/offer.md
+  - docs/models/shared/scorecardsresult.md
+  - docs/models/shared/overallrecommendation.md
+  - docs/models/shared/scorecard.md
+  - docs/models/shared/scorecardsection.md
+  - docs/models/shared/fieldtype.md
+  - docs/models/shared/field.md
   - docs/models/shared/noteresult.md
   - docs/models/shared/notevalue.md
   - docs/models/shared/notevisibility.md
@@ -905,11 +912,6 @@ generatedFiles:
   - docs/models/shared/user.md
   - docs/models/shared/hrisdocumentspaginated.md
   - docs/models/shared/scorecardspaginated.md
-  - docs/models/shared/overallrecommendation.md
-  - docs/models/shared/scorecard.md
-  - docs/models/shared/scorecardsection.md
-  - docs/models/shared/fieldtype.md
-  - docs/models/shared/field.md
   - docs/models/shared/applicationspaginated.md
   - docs/models/shared/offerspaginated.md
   - docs/models/shared/notespaginated.md

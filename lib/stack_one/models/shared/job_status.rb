@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # Status of the job
     class JobStatus < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 

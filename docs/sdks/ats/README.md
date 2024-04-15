@@ -418,7 +418,7 @@ req = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(
     
 res = s.ats.get_application_scorecard(req)
 
-if ! res.offers_result.nil?
+if ! res.scorecards_result.nil?
   # handle response
 end
 

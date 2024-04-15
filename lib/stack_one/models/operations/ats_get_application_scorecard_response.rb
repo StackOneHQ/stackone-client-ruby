@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The scorecard related to the application with the given identifiers was retrieved.
-      field :offers_result, T.nilable(::StackOne::Shared::OffersResult)
+      field :scorecards_result, T.nilable(::StackOne::Shared::ScorecardsResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, offers_result: T.nilable(::StackOne::Shared::OffersResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, offers_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, scorecards_result: T.nilable(::StackOne::Shared::ScorecardsResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, scorecards_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @offers_result = offers_result
+        @scorecards_result = scorecards_result
       end
     end
   end
