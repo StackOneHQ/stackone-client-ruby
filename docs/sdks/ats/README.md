@@ -107,11 +107,17 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared
       "<value>",
     ],
     company: "Company Inc.",
+    created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    email: "sestier.romain123@gmail.com",
     first_name: "Romain",
+    hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     last_name: "Sestier",
     name: "Romain Sestier",
     phone: "+16178294093",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     title: "Software Engineer",
+    updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
 if ! res.candidate_result.nil?
@@ -1610,12 +1616,17 @@ res = s.ats.update_candidate(ats_update_candidates_request_dto=::StackOne::Share
       "<value>",
     ],
     company: "Company Inc.",
+    created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    email: "sestier.romain123@gmail.com",
     first_name: "Romain",
+    hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     id: "eebbaa75-7adf-4f7e-be4c-def6a12840f2",
     last_name: "Sestier",
     name: "Romain Sestier",
     phone: "+16178294093",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     title: "Software Engineer",
+    updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
 if ! res.candidate_result.nil?

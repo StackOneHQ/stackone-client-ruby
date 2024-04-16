@@ -10,9 +10,9 @@ module StackOne
 
     class LinkedAccountStatus < T::Enum
       enums do
-        ACTIVE = new('Active')
-        INACTIVE = new('Inactive')
-        ERROR = new('Error')
+        ACTIVE = new('active')
+        INACTIVE = new('inactive')
+        ERROR = new('error')
       end
     end
 
