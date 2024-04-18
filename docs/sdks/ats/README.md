@@ -165,7 +165,7 @@ res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Share
     ),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_candidate_note_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -207,7 +207,7 @@ res = s.ats.create_offer(ats_create_offer_request_dto=::StackOne::Shared::AtsCre
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
-if ! res.create_offer_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 

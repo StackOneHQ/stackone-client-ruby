@@ -85,7 +85,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     work_phone_number: "+1234567890",
   ), x_account_id="<value>")
 
-if ! res.create_employee_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -129,7 +129,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_time_off_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -175,7 +175,7 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
     valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_work_eligibility_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -220,7 +220,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
-if ! res.create_time_off_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -1105,7 +1105,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     work_phone_number: "+1234567890",
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_employee_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -1197,7 +1197,7 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_time_off_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 

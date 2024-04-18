@@ -41,7 +41,7 @@ res = s.marketing.create_email_template(marketing_create_email_template_request_
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), x_account_id="<value>")
 
-if ! res.create_template_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -83,7 +83,7 @@ res = s.marketing.create_omni_channel_template(marketing_create_template_request
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), x_account_id="<value>")
 
-if ! res.create_template_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -125,7 +125,7 @@ res = s.marketing.create_push_template(marketing_create_push_template_request_dt
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), x_account_id="<value>")
 
-if ! res.create_template_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -507,7 +507,7 @@ res = s.marketing.update_email_template(marketing_create_email_template_request_
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_template_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -550,7 +550,7 @@ res = s.marketing.update_omni_channel_template(marketing_create_template_request
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_template_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -593,7 +593,7 @@ res = s.marketing.update_push_template(marketing_create_push_template_request_dt
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_template_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 

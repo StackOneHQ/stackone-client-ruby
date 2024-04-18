@@ -12,6 +12,8 @@ module StackOne
       extend T::Sig
 
 
+      field :data, ::StackOne::Shared::CreateResultDataApiModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+
       field :message, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
 
       field :status_code, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
@@ -19,8 +21,9 @@ module StackOne
       field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
 
-      sig { params(message: ::String, status_code: ::Float, timestamp: ::DateTime).void }
-      def initialize(message: nil, status_code: nil, timestamp: nil)
+      sig { params(data: ::StackOne::Shared::CreateResultDataApiModel, message: ::String, status_code: ::Float, timestamp: ::DateTime).void }
+      def initialize(data: nil, message: nil, status_code: nil, timestamp: nil)
+        @data = data
         @message = message
         @status_code = status_code
         @timestamp = timestamp

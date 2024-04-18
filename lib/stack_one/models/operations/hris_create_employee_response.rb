@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The employee was created successfully.
-      field :create_employee_result, T.nilable(::StackOne::Shared::CreateEmployeeResult)
+      field :create_result, T.nilable(::StackOne::Shared::CreateResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, create_employee_result: T.nilable(::StackOne::Shared::CreateEmployeeResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, create_employee_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, create_result: T.nilable(::StackOne::Shared::CreateResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, create_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @create_employee_result = create_employee_result
+        @create_result = create_result
       end
     end
   end

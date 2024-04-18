@@ -12,8 +12,6 @@ module StackOne
       extend T::Sig
 
 
-      field :active, T::Boolean, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-
       field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
 
       field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
@@ -39,9 +37,8 @@ module StackOne
       field :status_reasons, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
 
 
-      sig { params(active: T::Boolean, created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: ::StackOne::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(::StackOne::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), setup_information: T.nilable(::StackOne::Shared::SetupInformation), status_reasons: T.nilable(T::Array[::String])).void }
-      def initialize(active: nil, created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, status: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, setup_information: nil, status_reasons: nil)
-        @active = active
+      sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: ::StackOne::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(::StackOne::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), setup_information: T.nilable(::StackOne::Shared::SetupInformation), status_reasons: T.nilable(T::Array[::String])).void }
+      def initialize(created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, status: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, setup_information: nil, status_reasons: nil)
         @created_at = created_at
         @id = id
         @origin_owner_id = origin_owner_id

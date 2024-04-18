@@ -1,4 +1,5 @@
 workflowVersion: 1.0.0
+speakeasyVersion: latest
 sources:
     my-source:
         inputs:
@@ -11,8 +12,8 @@ targets:
     StackOneRubyClient:
         target: ruby
         source: my-source
-        codeSamples:
-            output: codeSamples.yaml
         publish:
             rubygems:
                 token: $RUBYGEMS_AUTH_TOKEN
+        codeSamples:
+            output: codeSamples.yaml

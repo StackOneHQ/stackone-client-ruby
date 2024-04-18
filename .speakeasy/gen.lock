@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 4d6a7568381815243028810181b1a77c
+  docChecksum: 039d72429ea6df5354e8675613aecabf
   docVersion: 1.0.0
-  speakeasyVersion: 1.253.3
-  generationVersion: 2.306.3
-  releaseVersion: 0.2.13
-  configChecksum: de494f27d5645c5cb7e734e720e672df
+  speakeasyVersion: 1.258.2
+  generationVersion: 2.309.2
+  releaseVersion: 0.2.14
+  configChecksum: 473101446c3c397f79d9ad195a331585
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -290,6 +290,7 @@ generatedFiles:
   - lib/stack_one/models/shared/resources.rb
   - lib/stack_one/models/shared/connectorsmeta.rb
   - lib/stack_one/models/shared/createresult.rb
+  - lib/stack_one/models/shared/createresultdataapimodel.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_value.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_application_status.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_candidate.rb
@@ -306,12 +307,10 @@ generatedFiles:
   - lib/stack_one/models/shared/phonenumber.rb
   - lib/stack_one/models/shared/candidateemail.rb
   - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
-  - lib/stack_one/models/shared/createcandidatenoteresult.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto_value.rb
   - lib/stack_one/models/shared/visibility.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto.rb
   - lib/stack_one/models/shared/notecontentapimodel.rb
-  - lib/stack_one/models/shared/createofferresult.rb
   - lib/stack_one/models/shared/atscreateofferrequestdto_value.rb
   - lib/stack_one/models/shared/offer_status.rb
   - lib/stack_one/models/shared/atscreateofferrequestdto.rb
@@ -432,7 +431,6 @@ generatedFiles:
   - lib/stack_one/models/shared/accountspaginated.rb
   - lib/stack_one/models/shared/contactspaginated.rb
   - lib/stack_one/models/shared/listspaginated.rb
-  - lib/stack_one/models/shared/createemployeeresult.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_avatar.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_employment_contract_type.rb
@@ -477,13 +475,11 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisbenefit_value.rb
   - lib/stack_one/models/shared/benefit_type.rb
   - lib/stack_one/models/shared/hrisbenefit.rb
-  - lib/stack_one/models/shared/createtimeoffresult.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_status.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_type.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto.rb
-  - lib/stack_one/models/shared/createworkeligibilityresult.rb
   - lib/stack_one/models/shared/document.rb
   - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_value.rb
   - lib/stack_one/models/shared/issued_by.rb
@@ -559,7 +555,6 @@ generatedFiles:
   - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_file_format.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto.rb
-  - lib/stack_one/models/shared/createtemplateresult.rb
   - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
   - lib/stack_one/models/shared/message_content.rb
   - lib/stack_one/models/shared/emailmessages_value.rb
@@ -802,6 +797,7 @@ generatedFiles:
   - docs/models/shared/resources.md
   - docs/models/shared/connectorsmeta.md
   - docs/models/shared/createresult.md
+  - docs/models/shared/createresultdataapimodel.md
   - docs/models/shared/atscreateapplicationrequestdtovalue.md
   - docs/models/shared/atscreateapplicationrequestdtoapplicationstatus.md
   - docs/models/shared/atscreateapplicationrequestdtocandidate.md
@@ -818,12 +814,10 @@ generatedFiles:
   - docs/models/shared/phonenumber.md
   - docs/models/shared/candidateemail.md
   - docs/models/shared/atscreatecandidaterequestdto.md
-  - docs/models/shared/createcandidatenoteresult.md
   - docs/models/shared/atscreatenotesrequestdtovalue.md
   - docs/models/shared/visibility.md
   - docs/models/shared/atscreatenotesrequestdto.md
   - docs/models/shared/notecontentapimodel.md
-  - docs/models/shared/createofferresult.md
   - docs/models/shared/atscreateofferrequestdtovalue.md
   - docs/models/shared/offerstatus.md
   - docs/models/shared/atscreateofferrequestdto.md
@@ -944,7 +938,6 @@ generatedFiles:
   - docs/models/shared/accountspaginated.md
   - docs/models/shared/contactspaginated.md
   - docs/models/shared/listspaginated.md
-  - docs/models/shared/createemployeeresult.md
   - docs/models/shared/hriscreateemployeerequestdtoavatar.md
   - docs/models/shared/hriscreateemployeerequestdtovalue.md
   - docs/models/shared/hriscreateemployeerequestdtoemploymentcontracttype.md
@@ -989,13 +982,11 @@ generatedFiles:
   - docs/models/shared/hrisbenefitvalue.md
   - docs/models/shared/benefittype.md
   - docs/models/shared/hrisbenefit.md
-  - docs/models/shared/createtimeoffresult.md
   - docs/models/shared/hriscreatetimeoffrequestdtovalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtostatus.md
   - docs/models/shared/hriscreatetimeoffrequestdtoschemasvalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtotype.md
   - docs/models/shared/hriscreatetimeoffrequestdto.md
-  - docs/models/shared/createworkeligibilityresult.md
   - docs/models/shared/document.md
   - docs/models/shared/hriscreateworkeligibilityrequestdtovalue.md
   - docs/models/shared/issuedby.md
@@ -1071,7 +1062,6 @@ generatedFiles:
   - docs/models/shared/unifieduploadrequestdtoschemasvalue.md
   - docs/models/shared/unifieduploadrequestdtofileformat.md
   - docs/models/shared/unifieduploadrequestdto.md
-  - docs/models/shared/createtemplateresult.md
   - docs/models/shared/marketingcreateemailtemplaterequestdto.md
   - docs/models/shared/messagecontent.md
   - docs/models/shared/emailmessagesvalue.md
