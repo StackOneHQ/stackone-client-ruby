@@ -15,6 +15,8 @@ module StackOne
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+      # Use a string with a date to only select results updated after that given date
+      field :filter_updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'filter[updated_after]', 'style': 'form', 'explode': true } }
       # The comma separated list of fields that will be included in the response
       field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
       # The unified cursor
@@ -26,7 +28,7 @@ module StackOne
       # The number of results per page
       field :page_size, T.nilable(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-      field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
+      field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
       # The sync token to select the only updated results
@@ -34,13 +36,16 @@ module StackOne
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :sync_token, T.nilable(::String), { 'query_param': { 'field_name': 'sync_token', 'style': 'form', 'explode': true } }
       # Use a string with a date to only select results updated after that given date
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: ::String, fields_: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(x_account_id: nil, fields_: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
+      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter_updated_after: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(x_account_id: nil, fields_: nil, filter_updated_after: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
         @x_account_id = x_account_id
         @fields_ = fields_
+        @filter_updated_after = filter_updated_after
         @include = include
         @next_ = next_
         @page = page

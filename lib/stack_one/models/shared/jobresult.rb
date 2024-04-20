@@ -12,14 +12,14 @@ module StackOne
       extend T::Sig
 
 
-      field :job, ::StackOne::Shared::Job, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
+      field :data, ::StackOne::Shared::Job, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
       field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
-      sig { params(job: ::StackOne::Shared::Job, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
-      def initialize(job: nil, raw: nil)
-        @job = job
+      sig { params(data: ::StackOne::Shared::Job, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
+      def initialize(data: nil, raw: nil)
+        @data = data
         @raw = raw
       end
     end

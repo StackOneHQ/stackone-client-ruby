@@ -56,8 +56,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTemplateResult)
-          res.create_template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -102,8 +102,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTemplateResult)
-          res.create_template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -148,8 +148,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTemplateResult)
-          res.create_template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -484,8 +484,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTemplateResult)
-          res.create_template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -536,8 +536,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTemplateResult)
-          res.create_template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -588,8 +588,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTemplateResult)
-          res.create_template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

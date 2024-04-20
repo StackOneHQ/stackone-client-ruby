@@ -24,6 +24,11 @@ module StackOne
         REVIEW = new('review')
         SCREEN = new('screen')
         NEW = new('new')
+        ONBOARDING = new('onboarding')
+        CREATED = new('created')
+        ACCEPTED = new('accepted')
+        SHORT_LIST = new('short_list')
+        APPROVED = new('approved')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

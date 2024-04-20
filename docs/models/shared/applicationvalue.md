@@ -21,4 +21,9 @@ The status of the application.
 | `REVIEW`                | review                  |
 | `SCREEN`                | screen                  |
 | `NEW`                   | new                     |
+| `ONBOARDING`            | onboarding              |
+| `CREATED`               | created                 |
+| `ACCEPTED`              | accepted                |
+| `SHORT_LIST`            | short_list              |
+| `APPROVED`              | approved                |
 | `UNMAPPED_VALUE`        | unmapped_value          |

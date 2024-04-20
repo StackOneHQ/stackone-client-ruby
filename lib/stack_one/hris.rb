@@ -56,8 +56,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateEmployeeResult)
-          res.create_employee_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -108,8 +108,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTimeOffResult)
-          res.create_time_off_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -160,8 +160,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateWorkEligibilityResult)
-          res.create_work_eligibility_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -206,8 +206,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTimeOffResult)
-          res.create_time_off_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -517,6 +517,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetGroupRequest)).returns(::StackOne::Operations::HrisGetGroupResponse) }
+    def get_group(request)
+      # get_group - Get Group
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetGroupRequest,
+        base_url,
+        '/unified/hris/groups/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetGroupRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetGroupResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsResult)
+          res.hris_groups_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -846,6 +884,39 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListGroupsRequest)).returns(::StackOne::Operations::HrisListGroupsResponse) }
+    def list_groups(request)
+      # list_groups - List Groups
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/groups"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListGroupsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListGroupsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsPaginated)
+          res.hris_groups_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisListLocationsRequest)).returns(::StackOne::Operations::HrisListLocationsResponse) }
     def list_locations(request)
       # list_locations - List locations
@@ -955,8 +1026,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateEmployeeResult)
-          res.create_employee_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -1054,8 +1125,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateTimeOffResult)
-          res.create_time_off_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

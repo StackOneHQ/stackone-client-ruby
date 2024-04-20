@@ -15,6 +15,7 @@
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
+* [get_group](#get_group) - Get Group
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_benefits](#list_benefits) - List benefits
@@ -24,6 +25,7 @@
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](#list_employees) - List Employees
 * [list_employments](#list_employments) - List Employments
+* [list_groups](#list_groups) - List Groups
 * [list_locations](#list_locations) - List locations
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [update_employee](#update_employee) - Updates an employee
@@ -85,7 +87,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     work_phone_number: "+1234567890",
   ), x_account_id="<value>")
 
-if ! res.create_employee_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -129,7 +131,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_time_off_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -175,7 +177,7 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
     valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_work_eligibility_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -220,7 +222,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
-if ! res.create_time_off_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -582,6 +584,49 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmploymentResponse)](../../models/operations/hrisgetemploymentresponse.md)**
+
+
+## get_group
+
+Get Group
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetGroupRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_group(req)
+
+if ! res.hris_groups_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::StackOne::Operations::HrisGetGroupRequest](../../models/operations/hrisgetgrouprequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetGroupResponse)](../../models/operations/hrisgetgroupresponse.md)**
 
 
 ## get_location
@@ -967,6 +1012,48 @@ end
 **[T.nilable(::StackOne::Operations::HrisListEmploymentsResponse)](../../models/operations/hrislistemploymentsresponse.md)**
 
 
+## list_groups
+
+List Groups
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListGroupsRequest.new(
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_groups(req)
+
+if ! res.hris_groups_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::StackOne::Operations::HrisListGroupsRequest](../../models/operations/hrislistgroupsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListGroupsResponse)](../../models/operations/hrislistgroupsresponse.md)**
+
+
 ## list_locations
 
 List locations
@@ -1105,7 +1192,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     work_phone_number: "+1234567890",
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_employee_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -1197,7 +1284,7 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.create_time_off_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 

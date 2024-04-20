@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # Record created successfully.
-      field :create_template_result, T.nilable(::StackOne::Shared::CreateTemplateResult)
+      field :create_result, T.nilable(::StackOne::Shared::CreateResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, create_template_result: T.nilable(::StackOne::Shared::CreateTemplateResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, create_template_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, create_result: T.nilable(::StackOne::Shared::CreateResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, create_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @create_template_result = create_template_result
+        @create_result = create_result
       end
     end
   end
