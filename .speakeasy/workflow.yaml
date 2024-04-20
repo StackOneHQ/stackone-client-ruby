@@ -8,6 +8,7 @@ sources:
             - location: https://api2.eu1.stackone.com/oas/ats.json
             - location: https://api2.eu1.stackone.com/oas/crm.json
             - location: https://api2.eu1.stackone.com/oas/marketing.json
+            - location: https://api2.eu1.stackone.com/oas/iam.json
 targets:
     StackOneRubyClient:
         target: ruby
