@@ -1,9 +1,13 @@
 # EmployeeCustomFieldsValue
 
-The value associated with the custom field.
 
+## Values
 
-## Fields
-
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+| Name             | Value            |
+| ---------------- | ---------------- |
+| `DATE`           | date             |
+| `FLOAT`          | float            |
+| `INTEGER`        | integer          |
+| `LIST`           | list             |
+| `TEXT`           | text             |
+| `UNMAPPED_VALUE` | unmapped_value   |

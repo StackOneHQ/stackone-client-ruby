@@ -7,14 +7,17 @@
 module StackOne
   module Shared
   
-    # The value associated with the custom field.
-    class EmployeeCustomFieldsValue < ::StackOne::Utils::FieldAugmented
-      extend T::Sig
 
-
-
-      
-      def initialize; end
+    class EmployeeCustomFieldsValue < T::Enum
+      enums do
+        DATE = new('date')
+        FLOAT = new('float')
+        INTEGER = new('integer')
+        LIST = new('list')
+        TEXT = new('text')
+        UNMAPPED_VALUE = new('unmapped_value')
+      end
     end
+
   end
 end

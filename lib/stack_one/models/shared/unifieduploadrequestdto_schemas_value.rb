@@ -507,6 +507,7 @@ module StackOne
         FE_LAUNCH = new('fe_launch')
         DNA = new('dna')
         MLP = new('mlp')
+        MLE = new('mle')
         DPG = new('dpg')
         DFAC = new('dfac')
         KPXX = new('kpxx')

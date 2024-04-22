@@ -10,16 +10,25 @@ module StackOne
 
     class HrisDocumentApiModelValue < T::Enum
       enums do
-        RESUME = new('resume')
-        AVATAR = new('avatar')
-        COVER_LETTER = new('cover_letter')
-        PROFILE_PICTURE = new('profile_picture')
+        APPLICATION = new('application')
+        ACADEMIC = new('academic')
+        CONTRACT = new('contract')
+        CERTIFICATES = new('certificates')
+        VISA = new('visa')
         PASSPORT = new('passport')
-        TAKE_HOME_TEST = new('take_home_test')
+        DRIVER_LICENSE = new('driver_license')
+        PAYSLIP = new('payslip')
+        PAYROLL = new('payroll')
+        APPRAISAL = new('appraisal')
+        RESUME = new('resume')
+        POLICY = new('policy')
         OFFER_LETTER = new('offer_letter')
-        SIGNED_OFFER_LETTER = new('signed_offer_letter')
-        OFFER_PACKET = new('offer_packet')
+        POLICY_AGREEMENT = new('policy_agreement')
+        HOME_ADDRESS = new('home_address')
+        NATIONAL_ID = new('national_id')
         OTHER = new('other')
+        BENEFIT = new('benefit')
+        ID_VERIFICATION = new('id_verification')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

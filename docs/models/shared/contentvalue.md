@@ -502,6 +502,7 @@
 | `FE_LAUNCH`                | fe_launch                  |
 | `DNA`                      | dna                        |
 | `MLP`                      | mlp                        |
+| `MLE`                      | mle                        |
 | `DPG`                      | dpg                        |
 | `DFAC`                     | dfac                       |
 | `KPXX`                     | kpxx                       |

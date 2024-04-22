@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: eae49732f89a5945d80b1eb782691b23
+  docChecksum: 6b77f9c93570900d710f2344477c4a53
   docVersion: 1.0.0
-  speakeasyVersion: 1.267.0
-  generationVersion: 2.312.0
-  releaseVersion: 0.2.14
-  configChecksum: 473101446c3c397f79d9ad195a331585
+  speakeasyVersion: 1.267.1
+  generationVersion: 2.312.1
+  releaseVersion: 0.2.15
+  configChecksum: d67d5ad67910158090380cf36b226de8
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -467,9 +467,8 @@ generatedFiles:
   - lib/stack_one/models/shared/employment_schemas_pay_period_value.rb
   - lib/stack_one/models/shared/pay_period.rb
   - lib/stack_one/models/shared/employment.rb
-  - lib/stack_one/models/shared/employeecustomfields_schemas_value.rb
-  - lib/stack_one/models/shared/employeecustomfields_type.rb
   - lib/stack_one/models/shared/employeecustomfields_value.rb
+  - lib/stack_one/models/shared/employeecustomfields_type.rb
   - lib/stack_one/models/shared/employeecustomfields.rb
   - lib/stack_one/models/shared/countrycodeenum_value.rb
   - lib/stack_one/models/shared/countrycodeenum.rb
@@ -985,9 +984,8 @@ generatedFiles:
   - docs/models/shared/employmentschemaspayperiodvalue.md
   - docs/models/shared/payperiod.md
   - docs/models/shared/employment.md
-  - docs/models/shared/employeecustomfieldsschemasvalue.md
-  - docs/models/shared/employeecustomfieldstype.md
   - docs/models/shared/employeecustomfieldsvalue.md
+  - docs/models/shared/employeecustomfieldstype.md
   - docs/models/shared/employeecustomfields.md
   - docs/models/shared/countrycodeenumvalue.md
   - docs/models/shared/countrycodeenum.md
