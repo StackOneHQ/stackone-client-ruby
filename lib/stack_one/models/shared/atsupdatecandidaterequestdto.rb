@@ -8,15 +8,13 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateCandidatesRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateCandidateRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # List of candidate application IDs
       field :application_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_ids') } }
       # Candidate company
       field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
-      # Candidate created date
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Candidate email
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
       # List of candidate emails
@@ -25,7 +23,7 @@ module StackOne
       field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # Candidate hired date
       field :hired_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The ID of the candidate to update.
+      # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Candidate last name
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
@@ -43,15 +41,12 @@ module StackOne
       field :social_links, T.nilable(T::Array[::StackOne::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
       # Candidate title
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-      # Candidate updated date
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), created_at: T.nilable(::DateTime), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-      def initialize(application_ids: nil, company: nil, created_at: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_id: nil, social_links: nil, title: nil, updated_at: nil)
+      sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
+      def initialize(application_ids: nil, company: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_id: nil, social_links: nil, title: nil)
         @application_ids = application_ids
         @company = company
-        @created_at = created_at
         @email = email
         @emails = emails
         @first_name = first_name
@@ -64,7 +59,6 @@ module StackOne
         @remote_id = remote_id
         @social_links = social_links
         @title = title
-        @updated_at = updated_at
       end
     end
   end

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 6b77f9c93570900d710f2344477c4a53
+  docChecksum: b3c7d36fe827a2d13a5e3e23257476b4
   docVersion: 1.0.0
-  speakeasyVersion: 1.267.1
+  speakeasyVersion: 1.269.1
   generationVersion: 2.312.1
-  releaseVersion: 0.2.15
-  configChecksum: d67d5ad67910158090380cf36b226de8
+  releaseVersion: 0.2.16
+  configChecksum: ec9da4f3ff41c3338fe73af32b99f4f4
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -303,14 +303,11 @@ generatedFiles:
   - lib/stack_one/models/shared/answer_value.rb
   - lib/stack_one/models/shared/type.rb
   - lib/stack_one/models/shared/answer.rb
-  - lib/stack_one/models/shared/candidateresult.rb
-  - lib/stack_one/models/shared/rawresponse.rb
-  - lib/stack_one/models/shared/candidate.rb
+  - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
   - lib/stack_one/models/shared/sociallink.rb
   - lib/stack_one/models/shared/phonenumber_type.rb
   - lib/stack_one/models/shared/phonenumber.rb
   - lib/stack_one/models/shared/candidateemail.rb
-  - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto_value.rb
   - lib/stack_one/models/shared/visibility.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto.rb
@@ -320,6 +317,7 @@ generatedFiles:
   - lib/stack_one/models/shared/atscreateofferrequestdto.rb
   - lib/stack_one/models/shared/offerhistory.rb
   - lib/stack_one/models/shared/applicationresult.rb
+  - lib/stack_one/models/shared/rawresponse.rb
   - lib/stack_one/models/shared/application_value.rb
   - lib/stack_one/models/shared/application_status.rb
   - lib/stack_one/models/shared/application_candidate.rb
@@ -349,6 +347,8 @@ generatedFiles:
   - lib/stack_one/models/shared/scorecardsection.rb
   - lib/stack_one/models/shared/field_type.rb
   - lib/stack_one/models/shared/field.rb
+  - lib/stack_one/models/shared/candidateresult.rb
+  - lib/stack_one/models/shared/candidate.rb
   - lib/stack_one/models/shared/noteresult.rb
   - lib/stack_one/models/shared/note_value.rb
   - lib/stack_one/models/shared/note_visibility.rb
@@ -414,7 +414,7 @@ generatedFiles:
   - lib/stack_one/models/shared/userspaginated.rb
   - lib/stack_one/models/shared/updateresult.rb
   - lib/stack_one/models/shared/atsupdateapplicationrequestdto.rb
-  - lib/stack_one/models/shared/atsupdatecandidatesrequestdto.rb
+  - lib/stack_one/models/shared/atsupdatecandidaterequestdto.rb
   - lib/stack_one/models/shared/contactresult.rb
   - lib/stack_one/models/shared/contact.rb
   - lib/stack_one/models/shared/crmcreatecontactrequestdto.rb
@@ -820,14 +820,11 @@ generatedFiles:
   - docs/models/shared/answervalue.md
   - docs/models/shared/type.md
   - docs/models/shared/answer.md
-  - docs/models/shared/candidateresult.md
-  - docs/models/shared/rawresponse.md
-  - docs/models/shared/candidate.md
+  - docs/models/shared/atscreatecandidaterequestdto.md
   - docs/models/shared/sociallink.md
   - docs/models/shared/phonenumbertype.md
   - docs/models/shared/phonenumber.md
   - docs/models/shared/candidateemail.md
-  - docs/models/shared/atscreatecandidaterequestdto.md
   - docs/models/shared/atscreatenotesrequestdtovalue.md
   - docs/models/shared/visibility.md
   - docs/models/shared/atscreatenotesrequestdto.md
@@ -837,6 +834,7 @@ generatedFiles:
   - docs/models/shared/atscreateofferrequestdto.md
   - docs/models/shared/offerhistory.md
   - docs/models/shared/applicationresult.md
+  - docs/models/shared/rawresponse.md
   - docs/models/shared/applicationvalue.md
   - docs/models/shared/applicationstatus.md
   - docs/models/shared/applicationcandidate.md
@@ -866,6 +864,8 @@ generatedFiles:
   - docs/models/shared/scorecardsection.md
   - docs/models/shared/fieldtype.md
   - docs/models/shared/field.md
+  - docs/models/shared/candidateresult.md
+  - docs/models/shared/candidate.md
   - docs/models/shared/noteresult.md
   - docs/models/shared/notevalue.md
   - docs/models/shared/notevisibility.md
@@ -931,7 +931,7 @@ generatedFiles:
   - docs/models/shared/userspaginated.md
   - docs/models/shared/updateresult.md
   - docs/models/shared/atsupdateapplicationrequestdto.md
-  - docs/models/shared/atsupdatecandidatesrequestdto.md
+  - docs/models/shared/atsupdatecandidaterequestdto.md
   - docs/models/shared/contactresult.md
   - docs/models/shared/contact.md
   - docs/models/shared/crmcreatecontactrequestdto.md

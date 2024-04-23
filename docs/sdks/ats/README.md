@@ -4,7 +4,7 @@
 ### Available Operations
 
 * [create_application](#create_application) - Create Application
-* [create_candidate](#create_candidate) - Create Candidate (early access)
+* [create_candidate](#create_candidate) - Create Candidate
 * [create_candidate_note](#create_candidate_note) - Create Candidate Note
 * [create_offer](#create_offer) - Creates an offer
 * [download_application_document](#download_application_document) - Download Application Document
@@ -39,7 +39,7 @@
 * [list_rejected_reasons](#list_rejected_reasons) - List Rejected Reasons
 * [list_users](#list_users) - List Users
 * [update_application](#update_application) - Update an Application
-* [update_candidate](#update_candidate) - Update Candidate (early access)
+* [update_candidate](#update_candidate) - Update Candidate
 
 ## create_application
 
@@ -86,7 +86,7 @@ end
 
 ## create_candidate
 
-Create Candidate (early access)
+Create Candidate
 
 ### Example Usage
 
@@ -103,24 +103,18 @@ s.config_security(
 
     
 res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(
-    application_ids: [
-      "<value>",
-    ],
     company: "Company Inc.",
-    created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     email: "sestier.romain123@gmail.com",
     first_name: "Romain",
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     last_name: "Sestier",
     name: "Romain Sestier",
     phone: "+16178294093",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     title: "Software Engineer",
-    updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
-if ! res.candidate_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -1595,7 +1589,7 @@ end
 
 ## update_candidate
 
-Update Candidate (early access)
+Update Candidate
 
 ### Example Usage
 
@@ -1611,25 +1605,23 @@ s.config_security(
 )
 
     
-res = s.ats.update_candidate(ats_update_candidates_request_dto=::StackOne::Shared::AtsUpdateCandidatesRequestDto.new(
+res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared::AtsUpdateCandidateRequestDto.new(
     application_ids: [
       "<value>",
     ],
     company: "Company Inc.",
-    created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     email: "sestier.romain123@gmail.com",
     first_name: "Romain",
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    id: "eebbaa75-7adf-4f7e-be4c-def6a12840f2",
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     last_name: "Sestier",
     name: "Romain Sestier",
     phone: "+16178294093",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     title: "Software Engineer",
-    updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
-if ! res.candidate_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -1637,11 +1629,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `ats_update_candidates_request_dto`                                                                       | [::StackOne::Shared::AtsUpdateCandidatesRequestDto](../../models/shared/atsupdatecandidatesrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ats_update_candidate_request_dto`                                                                      | [::StackOne::Shared::AtsUpdateCandidateRequestDto](../../models/shared/atsupdatecandidaterequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 
 ### Response
