@@ -59,12 +59,11 @@ module StackOne
     end
 
 
-    sig { params(expand_info: ::String, id: ::String).returns(::StackOne::Operations::StackoneGetAccountResponse) }
-    def get_account(expand_info, id)
+    sig { params(id: ::String).returns(::StackOne::Operations::StackoneGetAccountResponse) }
+    def get_account(id)
       # get_account - Get Account
       request = ::StackOne::Operations::StackoneGetAccountRequest.new(
         
-        expand_info: expand_info,
         id: id
       )
       url, params = @sdk_configuration.get_server_details
@@ -76,13 +75,11 @@ module StackOne
         request
       )
       headers = {}
-      query_params = Utils.get_query_params(::StackOne::Operations::StackoneGetAccountRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
       r = @sdk_configuration.client.get(url) do |req|
         req.headers = headers
-        req.params = query_params
         Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
       end
 

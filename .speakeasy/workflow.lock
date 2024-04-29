@@ -1,6 +1,18 @@
-speakeasyVersion: 1.267.1
-sources: {}
-targets: {}
+speakeasyVersion: 1.276.0
+sources:
+    my-source:
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:5e9e63e3376b4b72e41314da3de2bd5243562fa825d896d80cae348cece4b499
+        sourceBlobDigest: sha256:f4e2a27654f2d4ee1ce4c7a2996ad2bc8007a5591697eecb567b4b2b953ffc3a
+        tags:
+            - latest
+targets:
+    StackOneRubyClient:
+        source: my-source
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:5e9e63e3376b4b72e41314da3de2bd5243562fa825d896d80cae348cece4b499
+        sourceBlobDigest: sha256:f4e2a27654f2d4ee1ce4c7a2996ad2bc8007a5591697eecb567b4b2b953ffc3a
+        outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -12,6 +24,8 @@ workflow:
                 - location: https://api2.eu1.stackone.com/oas/ats.json
                 - location: https://api2.eu1.stackone.com/oas/crm.json
                 - location: https://api2.eu1.stackone.com/oas/marketing.json
+            registry:
+                location: registry.speakeasyapi.dev/stackone/stackone/my-source
     targets:
         StackOneRubyClient:
             target: ruby

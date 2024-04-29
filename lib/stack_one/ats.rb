@@ -67,7 +67,7 @@ module StackOne
 
     sig { params(ats_create_candidate_request_dto: ::StackOne::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::AtsCreateCandidateResponse) }
     def create_candidate(ats_create_candidate_request_dto, x_account_id)
-      # create_candidate - Create Candidate (early access)
+      # create_candidate - Create Candidate
       request = ::StackOne::Operations::AtsCreateCandidateRequest.new(
         
         ats_create_candidate_request_dto: ats_create_candidate_request_dto,
@@ -102,8 +102,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CandidateResult)
-          res.candidate_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -1389,12 +1389,12 @@ module StackOne
     end
 
 
-    sig { params(ats_update_candidates_request_dto: ::StackOne::Shared::AtsUpdateCandidatesRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateCandidateResponse) }
-    def update_candidate(ats_update_candidates_request_dto, id, x_account_id)
-      # update_candidate - Update Candidate (early access)
+    sig { params(ats_update_candidate_request_dto: ::StackOne::Shared::AtsUpdateCandidateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateCandidateResponse) }
+    def update_candidate(ats_update_candidate_request_dto, id, x_account_id)
+      # update_candidate - Update Candidate
       request = ::StackOne::Operations::AtsUpdateCandidateRequest.new(
         
-        ats_update_candidates_request_dto: ats_update_candidates_request_dto,
+        ats_update_candidate_request_dto: ats_update_candidate_request_dto,
         id: id,
         x_account_id: x_account_id
       )
@@ -1407,7 +1407,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :ats_update_candidates_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :ats_update_candidate_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
@@ -1432,8 +1432,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CandidateResult)
-          res.candidate_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

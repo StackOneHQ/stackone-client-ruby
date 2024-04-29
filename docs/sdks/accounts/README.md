@@ -65,7 +65,7 @@ s.config_security(
 )
 
     
-res = s.accounts.get_account(expand_info="<value>", id="<value>")
+res = s.accounts.get_account(id="<value>")
 
 if ! res.linked_account.nil?
   # handle response
@@ -77,7 +77,6 @@ end
 
 | Parameter          | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `expand_info`      | *::String*         | :heavy_check_mark: | N/A                |
 | `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
 

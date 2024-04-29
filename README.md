@@ -69,7 +69,7 @@ end
 ### [Ats](docs/sdks/ats/README.md)
 
 * [create_application](docs/sdks/ats/README.md#create_application) - Create Application
-* [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate (early access)
+* [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
 * [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
 * [download_application_document](docs/sdks/ats/README.md#download_application_document) - Download Application Document
@@ -104,7 +104,7 @@ end
 * [list_rejected_reasons](docs/sdks/ats/README.md#list_rejected_reasons) - List Rejected Reasons
 * [list_users](docs/sdks/ats/README.md#list_users) - List Users
 * [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
-* [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate (early access)
+* [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate
 
 ### [Crm](docs/sdks/crm/README.md)
 

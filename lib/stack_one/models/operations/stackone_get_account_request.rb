@@ -12,14 +12,11 @@ module StackOne
       extend T::Sig
 
 
-      field :expand_info, ::String, { 'query_param': { 'field_name': 'expand_info', 'style': 'form', 'explode': true } }
-
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(expand_info: ::String, id: ::String).void }
-      def initialize(expand_info: nil, id: nil)
-        @expand_info = expand_info
+      sig { params(id: ::String).void }
+      def initialize(id: nil)
         @id = id
       end
     end
