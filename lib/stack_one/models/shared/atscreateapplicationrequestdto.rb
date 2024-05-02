@@ -13,9 +13,9 @@ module StackOne
 
 
       field :application_status, T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
-
+      # Candidate Properties. Provide this OR candidate_id, but not both. Providing this attempts to create a new candidate with the application.
       field :candidate, T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
-      # Unique identifier of the candidate
+      # Unique identifier of the candidate. Provide this OR candidate, but not both.
       field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
       # Unique identifier of the job
       field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }

@@ -60,9 +60,50 @@ s.config_security(
 
     
 res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(
+    application_status: ::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
+      source_value: "Hired",
+      value: ::StackOne::Shared::AtsCreateApplicationRequestDtoValue::HIRED,
+    ),
+    candidate: ::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate.new(
+      company: "Company Inc.",
+      country: "United States",
+      email: "sestier.romain123@gmail.com",
+      first_name: "Romain",
+      hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      last_name: "Sestier",
+      name: "Romain Sestier",
+      phone: "+16178294093",
+      phone_number: "+1234567890",
+      social_links: [
+        ::StackOne::Shared::SocialLink.new(
+          type: "linkedin",
+          url: "https://www.linkedin.com/in/romainsestier/",
+        ),
+      ],
+      title: "Software Engineer",
+    ),
     candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
     job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
     location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",
+    questionnaires: [
+      ::StackOne::Shared::Questionnaire.new(
+        answers: [
+          ::StackOne::Shared::Answer.new(
+            id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+            remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+            type: ::StackOne::Shared::Type.new(
+              source_value: "Short Text",
+              value: ::StackOne::Shared::AnswerValue::SHORT_TEXT,
+            ),
+            values: [
+              "<value>",
+            ],
+          ),
+        ],
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -104,13 +145,20 @@ s.config_security(
     
 res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(
     company: "Company Inc.",
+    country: "United States",
     email: "sestier.romain123@gmail.com",
     first_name: "Romain",
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     last_name: "Sestier",
     name: "Romain Sestier",
     phone: "+16178294093",
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    phone_number: "+1234567890",
+    social_links: [
+      ::StackOne::Shared::SocialLink.new(
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/romainsestier/",
+      ),
+    ],
     title: "Software Engineer",
   ), x_account_id="<value>")
 
@@ -153,6 +201,11 @@ s.config_security(
     
 res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
     author_id: "1234567890",
+    content: [
+      ::StackOne::Shared::NoteContentApiModel.new(
+        body: "This candidate seems like a good fit for the role",
+      ),
+    ],
     visibility: ::StackOne::Shared::Visibility.new(
       source_value: "Public",
       value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
@@ -198,6 +251,17 @@ s.config_security(
 
     
 res = s.ats.create_offer(ats_create_offer_request_dto=::StackOne::Shared::AtsCreateOfferRequestDto.new(
+    offer_history: [
+      ::StackOne::Shared::OfferHistory.new(
+        created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+        start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+        updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      ),
+    ],
+    offer_status: ::StackOne::Shared::OfferStatus.new(
+      source_value: "Pending",
+      value: ::StackOne::Shared::AtsCreateOfferRequestDtoValue::PENDING,
+    ),
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
@@ -1610,14 +1674,32 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
       "<value>",
     ],
     company: "Company Inc.",
+    country: "United States",
     email: "sestier.romain123@gmail.com",
+    emails: [
+      ::StackOne::Shared::CandidateEmail.new(
+        type: "personal",
+        value: "sestier.romain123@gmail.com",
+      ),
+    ],
     first_name: "Romain",
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     last_name: "Sestier",
     name: "Romain Sestier",
     phone: "+16178294093",
+    phone_numbers: [
+      ::StackOne::Shared::PhoneNumber.new(
+        phone: "+447700112233",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    social_links: [
+      ::StackOne::Shared::SocialLink.new(
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/romainsestier/",
+      ),
+    ],
     title: "Software Engineer",
   ), id="<value>", x_account_id="<value>")
 

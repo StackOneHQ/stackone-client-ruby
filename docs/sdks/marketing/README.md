@@ -38,6 +38,15 @@ s.config_security(
     
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    messages: [
+      ::StackOne::Shared::EmailMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::MessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), x_account_id="<value>")
 
@@ -80,6 +89,15 @@ s.config_security(
     
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    messages: [
+      ::StackOne::Shared::Message.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::MessageMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), x_account_id="<value>")
 
@@ -122,6 +140,15 @@ s.config_security(
     
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    messages: [
+      ::StackOne::Shared::PushMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::PushMessagesMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), x_account_id="<value>")
 
@@ -504,6 +531,15 @@ s.config_security(
     
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    messages: [
+      ::StackOne::Shared::EmailMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::MessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), id="<value>", x_account_id="<value>")
 
@@ -547,6 +583,15 @@ s.config_security(
     
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    messages: [
+      ::StackOne::Shared::Message.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::MessageMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), id="<value>", x_account_id="<value>")
 
@@ -590,6 +635,15 @@ s.config_security(
     
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    messages: [
+      ::StackOne::Shared::PushMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::PushMessagesMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ), id="<value>", x_account_id="<value>")
 

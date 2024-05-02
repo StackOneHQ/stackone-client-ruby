@@ -11,19 +11,37 @@ module StackOne
     class ApplicationCandidate < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # Candidate company
+      field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
       # Email of the candidate
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+      # List of candidate emails
+      field :emails, T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
       # First name of the candidate
       field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # Last name of the candidate
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+      # Candidate name
+      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      # List of candidate phone numbers including the type of the number when available
+      field :phone_numbers, T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+      # List of candidate social links
+      field :social_links, T.nilable(T::Array[::StackOne::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
+      # Candidate title
+      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(email: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String)).void }
-      def initialize(email: nil, first_name: nil, last_name: nil)
+      sig { params(company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
+      def initialize(company: nil, email: nil, emails: nil, first_name: nil, last_name: nil, name: nil, phone_numbers: nil, social_links: nil, title: nil)
+        @company = company
         @email = email
+        @emails = emails
         @first_name = first_name
         @last_name = last_name
+        @name = name
+        @phone_numbers = phone_numbers
+        @social_links = social_links
+        @title = title
       end
     end
   end

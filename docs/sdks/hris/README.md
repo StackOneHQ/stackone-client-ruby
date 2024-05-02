@@ -54,8 +54,38 @@ s.config_security(
 res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(
     avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
     avatar_url: "https://example.com/avatar.png",
+    benefits: [
+      ::StackOne::Shared::HRISBenefit.new(
+        created_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
+        description: "Health insurance for employees",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Health Insurance",
+        provider: "Aetna",
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        updated_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
+      ),
+    ],
     birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
+    citizenships: [
+      ::StackOne::Shared::CountryCodeEnum.new(
+        value: ::StackOne::Shared::CountryCodeEnumValue::US,
+      ),
+    ],
     company_name: "Example Corp",
+    custom_fields: [
+      ::StackOne::Shared::EmployeeCustomFields.new(
+        description: "The completion status of the employee's training.",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Training Completion Status",
+        options: [
+          "<value>",
+        ],
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        type: ::StackOne::Shared::EmployeeCustomFieldsType.new(),
+        value: "Completed",
+        value_id: "value_456",
+      ),
+    ],
     date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
     department: "Physics",
     display_name: "Sir Issac Newton",
@@ -65,10 +95,48 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       source_value: "Permanent",
       value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
     ),
+    employments: [
+      ::StackOne::Shared::Employment.new(
+        created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+        effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+        employee_id: "1687-3",
+        employment_contract_type: ::StackOne::Shared::EmploymentEmploymentContractType.new(),
+        employment_type: ::StackOne::Shared::EmploymentEmploymentType.new(
+          source_value: "Permanent",
+          value: ::StackOne::Shared::EmploymentSchemasValue::PERMANENT,
+        ),
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        job_title: "Software Engineer",
+        pay_currency: "USD",
+        pay_frequency: ::StackOne::Shared::PayFrequency.new(
+          source_value: "Hourly",
+          value: ::StackOne::Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
+        ),
+        pay_period: ::StackOne::Shared::PayPeriod.new(
+          source_value: "Hour",
+          value: ::StackOne::Shared::EmploymentSchemasPayPeriodValue::HOUR,
+        ),
+        pay_rate: "40.00",
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      ),
+    ],
     ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
     first_name: "Issac",
     gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
     hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
+    home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
+      city: "Grantham",
+      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
+        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
+      ),
+      name: "Woolsthorpe Manor",
+      phone_number: "+44 1476 860 364",
+      state: ::StackOne::Shared::State.new(),
+      street_1: "Water Lane",
+      street_2: "Woolsthorpe by Colsterworth",
+      zip_code: "NG33 5NR",
+    ),
     job_title: "Physicist",
     last_name: "Newton",
     manager_id: "67890",
@@ -84,6 +152,18 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_email: "newton@example.com",
+    work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
+      city: "Grantham",
+      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
+        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
+      ),
+      name: "Woolsthorpe Manor",
+      phone_number: "+44 1476 860 364",
+      state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(),
+      street_1: "Water Lane",
+      street_2: "Woolsthorpe by Colsterworth",
+      zip_code: "NG33 5NR",
+    ),
     work_phone_number: "+1234567890",
   ), x_account_id="<value>")
 
@@ -170,6 +250,28 @@ s.config_security(
 
     
 res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
+    document: ::StackOne::Shared::Document.new(
+      category: "templates, forms, backups, etc.",
+      contents: [
+        ::StackOne::Shared::Content.new(
+          file_format: ::StackOne::Shared::FileFormat.new(
+            source_value: "abc",
+            value: ::StackOne::Shared::ContentValue::PDF,
+          ),
+          unified_url: "https://api.stackone.com/unified/hris/employees/12345/documents/67890/download",
+          url: "https://example.com/file.pdf",
+        ),
+      ],
+      created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      name: "My Document",
+      path: "/path/to/file",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
+    ),
+    issued_by: ::StackOne::Shared::IssuedBy.new(
+      value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+    ),
     number: "1234567890",
     sub_type: "H1B",
     type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
@@ -1159,8 +1261,38 @@ s.config_security(
 res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(
     avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
     avatar_url: "https://example.com/avatar.png",
+    benefits: [
+      ::StackOne::Shared::HRISBenefit.new(
+        created_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
+        description: "Health insurance for employees",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Health Insurance",
+        provider: "Aetna",
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        updated_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
+      ),
+    ],
     birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
+    citizenships: [
+      ::StackOne::Shared::CountryCodeEnum.new(
+        value: ::StackOne::Shared::CountryCodeEnumValue::US,
+      ),
+    ],
     company_name: "Example Corp",
+    custom_fields: [
+      ::StackOne::Shared::EmployeeCustomFields.new(
+        description: "The completion status of the employee's training.",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Training Completion Status",
+        options: [
+          "<value>",
+        ],
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        type: ::StackOne::Shared::EmployeeCustomFieldsType.new(),
+        value: "Completed",
+        value_id: "value_456",
+      ),
+    ],
     date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
     department: "Physics",
     display_name: "Sir Issac Newton",
@@ -1170,10 +1302,48 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       source_value: "Permanent",
       value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
     ),
+    employments: [
+      ::StackOne::Shared::Employment.new(
+        created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+        effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+        employee_id: "1687-3",
+        employment_contract_type: ::StackOne::Shared::EmploymentEmploymentContractType.new(),
+        employment_type: ::StackOne::Shared::EmploymentEmploymentType.new(
+          source_value: "Permanent",
+          value: ::StackOne::Shared::EmploymentSchemasValue::PERMANENT,
+        ),
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        job_title: "Software Engineer",
+        pay_currency: "USD",
+        pay_frequency: ::StackOne::Shared::PayFrequency.new(
+          source_value: "Hourly",
+          value: ::StackOne::Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
+        ),
+        pay_period: ::StackOne::Shared::PayPeriod.new(
+          source_value: "Hour",
+          value: ::StackOne::Shared::EmploymentSchemasPayPeriodValue::HOUR,
+        ),
+        pay_rate: "40.00",
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      ),
+    ],
     ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
     first_name: "Issac",
     gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
     hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
+    home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
+      city: "Grantham",
+      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
+        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
+      ),
+      name: "Woolsthorpe Manor",
+      phone_number: "+44 1476 860 364",
+      state: ::StackOne::Shared::State.new(),
+      street_1: "Water Lane",
+      street_2: "Woolsthorpe by Colsterworth",
+      zip_code: "NG33 5NR",
+    ),
     job_title: "Physicist",
     last_name: "Newton",
     manager_id: "67890",
@@ -1189,6 +1359,18 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
     work_email: "newton@example.com",
+    work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
+      city: "Grantham",
+      country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
+        value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
+      ),
+      name: "Woolsthorpe Manor",
+      phone_number: "+44 1476 860 364",
+      state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(),
+      street_1: "Water Lane",
+      street_2: "Woolsthorpe by Colsterworth",
+      zip_code: "NG33 5NR",
+    ),
     work_phone_number: "+1234567890",
   ), id="<value>", x_account_id="<value>")
 
@@ -1231,6 +1413,28 @@ s.config_security(
 
     
 res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
+    document: ::StackOne::Shared::Document.new(
+      category: "templates, forms, backups, etc.",
+      contents: [
+        ::StackOne::Shared::Content.new(
+          file_format: ::StackOne::Shared::FileFormat.new(
+            source_value: "abc",
+            value: ::StackOne::Shared::ContentValue::PDF,
+          ),
+          unified_url: "https://api.stackone.com/unified/hris/employees/12345/documents/67890/download",
+          url: "https://example.com/file.pdf",
+        ),
+      ],
+      created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      name: "My Document",
+      path: "/path/to/file",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
+    ),
+    issued_by: ::StackOne::Shared::IssuedBy.new(
+      value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+    ),
     number: "1234567890",
     sub_type: "H1B",
     type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
@@ -1323,7 +1527,15 @@ s.config_security(
 
     
 res = s.hris.upload_employee_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
+    confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
+      source_value: "public",
+      value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
+    ),
     content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+    file_format: ::StackOne::Shared::UnifiedUploadRequestDtoFileFormat.new(
+      source_value: "abc",
+      value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+    ),
     name: "weather-forecast",
     path: "reports or /path/to/file",
   ), id="<value>", x_account_id="<value>")

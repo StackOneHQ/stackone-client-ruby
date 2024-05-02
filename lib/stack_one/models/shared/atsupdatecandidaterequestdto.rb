@@ -15,6 +15,8 @@ module StackOne
       field :application_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_ids') } }
       # Candidate company
       field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
+      # Candidate country
+      field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # Candidate email
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
       # List of candidate emails
@@ -43,10 +45,11 @@ module StackOne
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
-      def initialize(application_ids: nil, company: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_id: nil, social_links: nil, title: nil)
+      sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
+      def initialize(application_ids: nil, company: nil, country: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_id: nil, social_links: nil, title: nil)
         @application_ids = application_ids
         @company = company
+        @country = country
         @email = email
         @emails = emails
         @first_name = first_name

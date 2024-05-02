@@ -13,10 +13,10 @@ module StackOne
 
       # Candidate company
       field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
+      # Candidate country
+      field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # Candidate email
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
-      # List of candidate emails
-      field :emails, T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
       # Candidate first name
       field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
       # Candidate hired date
@@ -29,28 +29,25 @@ module StackOne
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :phone, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
-      # List of candidate phone numbers including the type of the number when available
-      field :phone_numbers, T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # The candidate personal phone number
+      field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # List of candidate social links
       field :social_links, T.nilable(T::Array[::StackOne::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
       # Candidate title
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
-      def initialize(company: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_id: nil, social_links: nil, title: nil)
+      sig { params(company: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
+      def initialize(company: nil, country: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, phone: nil, phone_number: nil, social_links: nil, title: nil)
         @company = company
+        @country = country
         @email = email
-        @emails = emails
         @first_name = first_name
         @hired_at = hired_at
         @last_name = last_name
         @name = name
         @phone = phone
-        @phone_numbers = phone_numbers
-        @remote_id = remote_id
+        @phone_number = phone_number
         @social_links = social_links
         @title = title
       end

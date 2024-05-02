@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 71a8de8415967f2a3c1c443ed580dd7a
+  docChecksum: 93e8a8462519696812a5bfd80e5b7c2b
   docVersion: 1.0.0
-  speakeasyVersion: 1.276.0
-  generationVersion: 2.314.0
-  releaseVersion: 0.2.16
-  configChecksum: ec9da4f3ff41c3338fe73af32b99f4f4
+  speakeasyVersion: 1.277.6
+  generationVersion: 2.319.7
+  releaseVersion: 0.2.17
+  configChecksum: 4b966dfb02e4fd95e4be096a2e5d1cf3
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.11
+    core: 3.2.12
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -303,11 +303,8 @@ generatedFiles:
   - lib/stack_one/models/shared/answer_value.rb
   - lib/stack_one/models/shared/type.rb
   - lib/stack_one/models/shared/answer.rb
-  - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
   - lib/stack_one/models/shared/sociallink.rb
-  - lib/stack_one/models/shared/phonenumber_type.rb
-  - lib/stack_one/models/shared/phonenumber.rb
-  - lib/stack_one/models/shared/candidateemail.rb
+  - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto_value.rb
   - lib/stack_one/models/shared/visibility.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto.rb
@@ -333,6 +330,9 @@ generatedFiles:
   - lib/stack_one/models/shared/content_value.rb
   - lib/stack_one/models/shared/file_format.rb
   - lib/stack_one/models/shared/content.rb
+  - lib/stack_one/models/shared/phonenumber_type.rb
+  - lib/stack_one/models/shared/phonenumber.rb
+  - lib/stack_one/models/shared/candidateemail.rb
   - lib/stack_one/models/shared/applicationattachment_value.rb
   - lib/stack_one/models/shared/content_type.rb
   - lib/stack_one/models/shared/applicationattachment.rb
@@ -820,11 +820,8 @@ generatedFiles:
   - docs/models/shared/answervalue.md
   - docs/models/shared/type.md
   - docs/models/shared/answer.md
-  - docs/models/shared/atscreatecandidaterequestdto.md
   - docs/models/shared/sociallink.md
-  - docs/models/shared/phonenumbertype.md
-  - docs/models/shared/phonenumber.md
-  - docs/models/shared/candidateemail.md
+  - docs/models/shared/atscreatecandidaterequestdto.md
   - docs/models/shared/atscreatenotesrequestdtovalue.md
   - docs/models/shared/visibility.md
   - docs/models/shared/atscreatenotesrequestdto.md
@@ -850,6 +847,9 @@ generatedFiles:
   - docs/models/shared/contentvalue.md
   - docs/models/shared/fileformat.md
   - docs/models/shared/content.md
+  - docs/models/shared/phonenumbertype.md
+  - docs/models/shared/phonenumber.md
+  - docs/models/shared/candidateemail.md
   - docs/models/shared/applicationattachmentvalue.md
   - docs/models/shared/contenttype.md
   - docs/models/shared/applicationattachment.md

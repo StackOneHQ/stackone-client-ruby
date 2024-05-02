@@ -17,6 +17,7 @@ module StackOne
         ARCHIVED = new('archived')
         CLOSED = new('closed')
         OPEN = new('open')
+        DELETED = new('deleted')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
