@@ -24,7 +24,7 @@ s.config_security(
 )
 
     
-res = s.connectors.get_connector_meta(provider="<value>", include="<value>")
+res = s.connectors.get_connector_meta(provider="<value>", include="field_path,unmapped_fields,resources,inactive")
 
 if ! res.connectors_meta.nil?
   # handle response
@@ -34,10 +34,10 @@ end
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `provider`                                                             | *::String*                                                             | :heavy_check_mark:                                                     | N/A                                                                    |
-| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `provider`                                                             | *::String*                                                             | :heavy_check_mark:                                                     | N/A                                                                    |                                                                        |
+| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive                          |
 
 
 ### Response
@@ -63,7 +63,7 @@ s.config_security(
 )
 
     
-res = s.connectors.list_connectors_meta(include="<value>")
+res = s.connectors.list_connectors_meta(include="field_path,unmapped_fields,resources,inactive")
 
 if ! res.connectors_metas.nil?
   # handle response
@@ -73,9 +73,9 @@ end
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive                          |
 
 
 ### Response

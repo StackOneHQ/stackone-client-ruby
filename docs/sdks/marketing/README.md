@@ -190,6 +190,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingGetCampaignRequest.new(
+  fields_: "id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -233,6 +234,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(
+  fields_: "id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -276,6 +278,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingGetOmniChannelTemplateRequest.new(
+  fields_: "id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -319,6 +322,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingGetPushTemplateRequest.new(
+  fields_: "id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -362,6 +366,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingListCampaignsRequest.new(
+  fields_: "id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -404,6 +411,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
+  fields_: "id,name,messages,created_at,updated_at,tags",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -446,6 +456,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(
+  fields_: "id,name,messages,created_at,updated_at,tags",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -488,6 +501,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
+  fields_: "id,name,messages,created_at,updated_at,tags",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     

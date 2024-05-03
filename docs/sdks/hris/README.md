@@ -361,7 +361,7 @@ s.config_security(
 )
 
     
-res = s.hris.download_employee_document(id="<value>", sub_resource_id="<value>", x_account_id="<value>", format="<value>")
+res = s.hris.download_employee_document(id="<value>", sub_resource_id="<value>", x_account_id="<value>", format="base64")
 
 if ! res.bytes.nil?
   # handle response
@@ -371,12 +371,12 @@ end
 
 ### Parameters
 
-| Parameter                          | Type                               | Required                           | Description                        |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |
-| `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |
-| `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |
-| `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in |
+| Parameter                          | Type                               | Required                           | Description                        | Example                            |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
+| `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
+| `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
+| `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in | base64                             |
 
 
 ### Response
@@ -403,6 +403,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetBenefitRequest.new(
+  fields_: "id,name,benefit_type,provider,description,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -446,6 +447,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetCompanyRequest.new(
+  fields_: "id,name,full_name,display_name,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -489,7 +491,10 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
+  expand: "company,employments,work_location,home_location,custom_fields,groups",
+  fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
   id: "<id>",
+  include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<value>",
 )
     
@@ -532,6 +537,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
+  fields_: "id,name,path,type,contents,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -576,6 +582,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -620,6 +627,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
+  fields_: "id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -664,6 +672,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
+  fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -707,6 +716,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetGroupRequest.new(
+  fields_: "id,name,type,parent_ids",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -750,6 +760,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetLocationRequest.new(
+  fields_: "id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -793,6 +804,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -836,6 +848,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListBenefitsRequest.new(
+  fields_: "id,name,benefit_type,provider,description,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -878,6 +893,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListCompaniesRequest.new(
+  fields_: "id,name,full_name,display_name,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -920,7 +938,10 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
+  fields_: "id,name,path,type,contents,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -963,7 +984,10 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1006,7 +1030,10 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
+  fields_: "id,type,sub_type,document,valid_from,valid_to,issued_by,number",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1049,6 +1076,11 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
+  expand: "company,employments,work_location,home_location,custom_fields,groups",
+  fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  include: "avatar_url,avatar,custom_fields,job_description,benefits",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1091,6 +1123,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
+  fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1133,6 +1168,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListGroupsRequest.new(
+  fields_: "id,name,type,parent_ids",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1175,6 +1213,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListLocationsRequest.new(
+  fields_: "id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1217,6 +1258,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
+  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1527,6 +1571,7 @@ s.config_security(
 
     
 res = s.hris.upload_employee_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
+    category: "reports, resumes",
     confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
       source_value: "public",
       value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
@@ -1537,7 +1582,7 @@ res = s.hris.upload_employee_document(unified_upload_request_dto=::StackOne::Sha
       value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
     ),
     name: "weather-forecast",
-    path: "reports or /path/to/file",
+    path: "/path/to/file",
   ), id="<value>", x_account_id="<value>")
 
 if ! res.write_result_api_model.nil?

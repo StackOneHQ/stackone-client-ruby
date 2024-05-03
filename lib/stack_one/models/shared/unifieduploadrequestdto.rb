@@ -11,6 +11,8 @@ module StackOne
     class UnifiedUploadRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # The category name or Id of the category to be associated with
+      field :category, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
       # The confidentiality level of the file to be uploaded
       field :confidential, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential') } }
       # The base64 encoded content of the file to upload
@@ -19,12 +21,13 @@ module StackOne
       field :file_format, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
       # The filename of the file to upload
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The location, category or path for the file to be uploaded to
+      # The path for the file to be uploaded to
       field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
 
 
-      sig { params(confidential: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
-      def initialize(confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
+      sig { params(category: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
+      def initialize(category: nil, confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
+        @category = category
         @confidential = confidential
         @content = content
         @file_format = file_format

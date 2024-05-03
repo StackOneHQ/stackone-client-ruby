@@ -25,10 +25,6 @@ module StackOne
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # Candidate name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Candidate phone number
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :phone, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
       # The candidate personal phone number
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # List of candidate social links
@@ -37,8 +33,8 @@ module StackOne
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(company: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
-      def initialize(company: nil, country: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, phone: nil, phone_number: nil, social_links: nil, title: nil)
+      sig { params(company: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
+      def initialize(company: nil, country: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, phone_number: nil, social_links: nil, title: nil)
         @company = company
         @country = country
         @email = email
@@ -46,7 +42,6 @@ module StackOne
         @hired_at = hired_at
         @last_name = last_name
         @name = name
-        @phone = phone
         @phone_number = phone_number
         @social_links = social_links
         @title = title
