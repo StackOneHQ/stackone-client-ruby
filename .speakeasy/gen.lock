@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: df0cb8c474b45fb25ccef4fc9c9b7fe6
+  docChecksum: 8bd8f3693348bd524e30e8e83736c64a
   docVersion: 1.0.0
   speakeasyVersion: 1.279.0
   generationVersion: 2.322.5
-  releaseVersion: 0.2.18
-  configChecksum: 3e23a8c9287db76726cd3c22ef0fdbeb
+  releaseVersion: 0.2.19
+  configChecksum: fdbbd58bc12ba644d199b79cc1b06e60
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -361,6 +361,8 @@ generatedFiles:
   - lib/stack_one/models/shared/interview_status.rb
   - lib/stack_one/models/shared/interview.rb
   - lib/stack_one/models/shared/interviewer.rb
+  - lib/stack_one/models/shared/interviewpart_value.rb
+  - lib/stack_one/models/shared/interviewpart_type.rb
   - lib/stack_one/models/shared/interviewpart.rb
   - lib/stack_one/models/shared/interviewstageresult.rb
   - lib/stack_one/models/shared/interviewstage.rb
@@ -878,6 +880,8 @@ generatedFiles:
   - docs/models/shared/interviewstatus.md
   - docs/models/shared/interview.md
   - docs/models/shared/interviewer.md
+  - docs/models/shared/interviewpartvalue.md
+  - docs/models/shared/interviewparttype.md
   - docs/models/shared/interviewpart.md
   - docs/models/shared/interviewstageresult.md
   - docs/models/shared/interviewstage.md

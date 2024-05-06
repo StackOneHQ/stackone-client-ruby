@@ -92,6 +92,8 @@ module StackOne
     autoload :InterviewStatus, 'stack_one/models/shared/interview_status.rb'
     autoload :Interview, 'stack_one/models/shared/interview.rb'
     autoload :Interviewer, 'stack_one/models/shared/interviewer.rb'
+    autoload :InterviewPartValue, 'stack_one/models/shared/interviewpart_value.rb'
+    autoload :InterviewPartType, 'stack_one/models/shared/interviewpart_type.rb'
     autoload :InterviewPart, 'stack_one/models/shared/interviewpart.rb'
     autoload :InterviewStageResult, 'stack_one/models/shared/interviewstageresult.rb'
     autoload :InterviewStage, 'stack_one/models/shared/interviewstage.rb'
