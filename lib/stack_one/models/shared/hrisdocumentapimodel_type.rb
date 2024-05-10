@@ -8,16 +8,18 @@ module StackOne
   module Shared
   
     # The content type of the document
+    # 
+    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
     class HrisDocumentApiModelType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The category of the file
+      field :value, T.nilable(::StackOne::Shared::HrisDocumentApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisDocumentApiModelSchemasValue, true) } }
 
-      field :value, T.nilable(::StackOne::Shared::HrisDocumentApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisDocumentApiModelValue, true) } }
 
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisDocumentApiModelValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisDocumentApiModelSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # UnifiedUploadRequestDtoSchemasValue - The file format of the file, expressed as a file extension
     class UnifiedUploadRequestDtoSchemasValue < T::Enum
       enums do
         UNMAPPED_VALUE = new('unmapped_value')

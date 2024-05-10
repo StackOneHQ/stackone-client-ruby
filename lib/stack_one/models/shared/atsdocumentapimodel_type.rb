@@ -8,12 +8,14 @@ module StackOne
   module Shared
   
     # The content type of the document
+    # 
+    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
     class AtsDocumentApiModelType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
+      # The category of the file
       field :value, T.nilable(::StackOne::Shared::AtsDocumentApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AtsDocumentApiModelValue, true) } }
 
 

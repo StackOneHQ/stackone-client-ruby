@@ -13,7 +13,7 @@ module StackOne
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
+      # The file format of the file, expressed as a file extension
       field :value, T.nilable(::StackOne::Shared::ContentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::ContentValue, true) } }
 
 

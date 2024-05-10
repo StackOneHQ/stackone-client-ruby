@@ -13,7 +13,7 @@ module StackOne
 
       # The file format of the file
       field :file_format, T.nilable(::StackOne::Shared::FileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
-      # Unified URL where the file content is located
+      # Unified download URL for retrieving file content.
       field :unified_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_url') } }
       # URL where the file content is located
       field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }

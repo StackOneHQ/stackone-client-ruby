@@ -37,7 +37,6 @@ req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -110,6 +109,7 @@ end
 * [list_users](docs/sdks/ats/README.md#list_users) - List Users
 * [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
 * [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate
+* [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
 ### [Crm](docs/sdks/crm/README.md)
 

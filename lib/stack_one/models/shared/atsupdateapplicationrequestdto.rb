@@ -11,16 +11,22 @@ module StackOne
     class AtsUpdateApplicationRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+
+      field :application_status, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
       # Unique identifier of the interview stage
       field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
       # Unique identifier of the rejection reason
       field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
+      # Source of the application
+      field :source, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
 
-      sig { params(interview_stage_id: T.nilable(::String), rejected_reason_id: T.nilable(::String)).void }
-      def initialize(interview_stage_id: nil, rejected_reason_id: nil)
+      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), interview_stage_id: T.nilable(::String), rejected_reason_id: T.nilable(::String), source: T.nilable(::String)).void }
+      def initialize(application_status: nil, interview_stage_id: nil, rejected_reason_id: nil, source: nil)
+        @application_status = application_status
         @interview_stage_id = interview_stage_id
         @rejected_reason_id = rejected_reason_id
+        @source = source
       end
     end
   end

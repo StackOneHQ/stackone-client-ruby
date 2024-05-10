@@ -1134,12 +1134,12 @@ module StackOne
     end
 
 
-    sig { params(unified_upload_request_dto: ::StackOne::Shared::UnifiedUploadRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUploadEmployeeDocumentResponse) }
-    def upload_employee_document(unified_upload_request_dto, id, x_account_id)
+    sig { params(hris_documents_upload_request_dto: ::StackOne::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUploadEmployeeDocumentResponse) }
+    def upload_employee_document(hris_documents_upload_request_dto, id, x_account_id)
       # upload_employee_document - Upload Employee Document
       request = ::StackOne::Operations::HrisUploadEmployeeDocumentRequest.new(
         
-        unified_upload_request_dto: unified_upload_request_dto,
+        hris_documents_upload_request_dto: hris_documents_upload_request_dto,
         id: id,
         x_account_id: x_account_id
       )
@@ -1152,7 +1152,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :unified_upload_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_documents_upload_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'

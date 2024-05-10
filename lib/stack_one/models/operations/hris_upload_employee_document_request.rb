@@ -12,17 +12,17 @@ module StackOne
       extend T::Sig
 
 
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+      field :hris_documents_upload_request_dto, ::StackOne::Shared::HrisDocumentsUploadRequestDto, { 'request': { 'media_type': 'application/json' } }
 
-      field :unified_upload_request_dto, ::StackOne::Shared::UnifiedUploadRequestDto, { 'request': { 'media_type': 'application/json' } }
+      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(id: ::String, unified_upload_request_dto: ::StackOne::Shared::UnifiedUploadRequestDto, x_account_id: ::String).void }
-      def initialize(id: nil, unified_upload_request_dto: nil, x_account_id: nil)
+      sig { params(hris_documents_upload_request_dto: ::StackOne::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String).void }
+      def initialize(hris_documents_upload_request_dto: nil, id: nil, x_account_id: nil)
+        @hris_documents_upload_request_dto = hris_documents_upload_request_dto
         @id = id
-        @unified_upload_request_dto = unified_upload_request_dto
         @x_account_id = x_account_id
       end
     end

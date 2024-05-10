@@ -12,7 +12,7 @@ module StackOne
       extend T::Sig
 
       # The provider service category
-      field :category, ::StackOne::Shared::Category, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(::StackOne::Shared::Category, false) } }
+      field :category, ::StackOne::Shared::ConnectorsMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(::StackOne::Shared::ConnectorsMetaCategory, false) } }
 
       field :models, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models') } }
       # The provider key
@@ -25,7 +25,7 @@ module StackOne
       field :resources, T.nilable(::StackOne::Shared::Resources), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resources') } }
 
 
-      sig { params(category: ::StackOne::Shared::Category, models: T::Hash[Symbol, ::Object], provider: ::String, provider_name: ::String, active: T.nilable(T::Boolean), resources: T.nilable(::StackOne::Shared::Resources)).void }
+      sig { params(category: ::StackOne::Shared::ConnectorsMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String, provider_name: ::String, active: T.nilable(T::Boolean), resources: T.nilable(::StackOne::Shared::Resources)).void }
       def initialize(category: nil, models: nil, provider: nil, provider_name: nil, active: nil, resources: nil)
         @category = category
         @models = models

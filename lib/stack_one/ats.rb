@@ -1439,5 +1439,57 @@ module StackOne
       end
       res
     end
+
+
+    sig { params(unified_upload_request_dto: ::StackOne::Shared::UnifiedUploadRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUploadApplicationDocumentResponse) }
+    def upload_application_document(unified_upload_request_dto, id, x_account_id)
+      # upload_application_document - Upload Application Document
+      request = ::StackOne::Operations::AtsUploadApplicationDocumentRequest.new(
+        
+        unified_upload_request_dto: unified_upload_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsUploadApplicationDocumentRequest,
+        base_url,
+        '/unified/ats/applications/{id}/documents/upload',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :unified_upload_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsUploadApplicationDocumentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WriteResultApiModel)
+          res.write_result_api_model = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
   end
 end

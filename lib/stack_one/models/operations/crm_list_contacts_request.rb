@@ -17,6 +17,8 @@ module StackOne
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # Use a string with a date to only select results updated after that given date
       field :filter_updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'filter[updated_after]', 'style': 'form', 'explode': true } }
+      # The comma separated list of fields that will be included in the response
+      field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
       # The unified cursor
       field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
       # The page number of the results to fetch
@@ -35,11 +37,12 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter_updated_after: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
-      def initialize(x_account_id: nil, fields_: nil, filter_updated_after: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter_updated_after: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      def initialize(x_account_id: nil, fields_: nil, filter_updated_after: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
         @x_account_id = x_account_id
         @fields_ = fields_
         @filter_updated_after = filter_updated_after
+        @include = include
         @next_ = next_
         @page = page
         @page_size = page_size

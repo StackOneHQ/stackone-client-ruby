@@ -130,8 +130,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::CrmGetContactRequest.new(
-  fields_: "id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,account_ids,created_at,updated_at",
+  fields_: "id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,account_ids,custom_fields,created_at,updated_at",
   id: "<id>",
+  include: "custom_fields",
   x_account_id: "<value>",
 )
     
@@ -220,7 +221,6 @@ s.config_security(
 req = ::StackOne::Operations::CrmListAccountsRequest.new(
   fields_: "id,owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -263,9 +263,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::CrmListContactsRequest.new(
-  fields_: "id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,account_ids,created_at,updated_at",
+  fields_: "id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,account_ids,custom_fields,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
+  include: "custom_fields",
   x_account_id: "<value>",
 )
     
@@ -310,7 +310,6 @@ s.config_security(
 req = ::StackOne::Operations::CrmListListsRequest.new(
   fields_: "id,name,created_at,updated_at,items,type",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     

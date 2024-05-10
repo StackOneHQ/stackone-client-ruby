@@ -95,6 +95,8 @@ module StackOne
     autoload :AtsUpdateApplicationResponse, 'stack_one/models/operations/ats_update_application_response.rb'
     autoload :AtsUpdateCandidateRequest, 'stack_one/models/operations/ats_update_candidate_request.rb'
     autoload :AtsUpdateCandidateResponse, 'stack_one/models/operations/ats_update_candidate_response.rb'
+    autoload :AtsUploadApplicationDocumentRequest, 'stack_one/models/operations/ats_upload_application_document_request.rb'
+    autoload :AtsUploadApplicationDocumentResponse, 'stack_one/models/operations/ats_upload_application_document_response.rb'
     autoload :CrmCreateContactRequest, 'stack_one/models/operations/crm_create_contact_request.rb'
     autoload :CrmCreateContactResponse, 'stack_one/models/operations/crm_create_contact_response.rb'
     autoload :CrmGetAccountRequest, 'stack_one/models/operations/crm_get_account_request.rb'

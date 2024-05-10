@@ -1,16 +1,11 @@
 # Category
 
-The provider service category
+The category of the the document
 
 
-## Values
+## Fields
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `ATS`         | ats           |
-| `HRIS`        | hris          |
-| `HRIS_LEGACY` | hris-legacy   |
-| `CRM`         | crm           |
-| `IAM`         | iam           |
-| `MARKETING`   | marketing     |
-| `STACKONE`    | stackone      |
+| Field                    | Type                     | Required                 | Description              |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `source_value`           | *T.nilable(::Object)*    | :heavy_minus_sign:       | N/A                      |
+| `value`                  | *T.nilable(::String)*    | :heavy_minus_sign:       | The category of the file |

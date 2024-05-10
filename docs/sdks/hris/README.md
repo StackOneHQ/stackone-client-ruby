@@ -251,7 +251,7 @@ s.config_security(
     
 res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: ::StackOne::Shared::Document.new(
-      category: "templates, forms, backups, etc.",
+      category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
       contents: [
         ::StackOne::Shared::Content.new(
           file_format: ::StackOne::Shared::FileFormat.new(
@@ -537,7 +537,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
-  fields_: "id,name,path,type,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -850,7 +850,6 @@ s.config_security(
 req = ::StackOne::Operations::HrisListBenefitsRequest.new(
   fields_: "id,name,benefit_type,provider,description,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -895,7 +894,6 @@ s.config_security(
 req = ::StackOne::Operations::HrisListCompaniesRequest.new(
   fields_: "id,name,full_name,display_name,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -938,10 +936,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
-  fields_: "id,name,path,type,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -987,7 +984,6 @@ req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1033,7 +1029,6 @@ req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   fields_: "id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1080,7 +1075,6 @@ req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1125,7 +1119,6 @@ s.config_security(
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1170,7 +1163,6 @@ s.config_security(
 req = ::StackOne::Operations::HrisListGroupsRequest.new(
   fields_: "id,name,type,parent_ids",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1215,7 +1207,6 @@ s.config_security(
 req = ::StackOne::Operations::HrisListLocationsRequest.new(
   fields_: "id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1260,7 +1251,6 @@ s.config_security(
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
   fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1458,7 +1448,7 @@ s.config_security(
     
 res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: ::StackOne::Shared::Document.new(
-      category: "templates, forms, backups, etc.",
+      category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
       contents: [
         ::StackOne::Shared::Content.new(
           file_format: ::StackOne::Shared::FileFormat.new(
@@ -1570,16 +1560,19 @@ s.config_security(
 )
 
     
-res = s.hris.upload_employee_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
-    category: "reports, resumes",
-    confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
+res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
+    category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(
+      source_value: "550e8400-e29b-41d4-a716-446655440000",
+      value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoValue::UNMAPPED_VALUE,
+    ),
+    confidential: ::StackOne::Shared::Confidential.new(
       source_value: "public",
-      value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
+      value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
     ),
     content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
-    file_format: ::StackOne::Shared::UnifiedUploadRequestDtoFileFormat.new(
+    file_format: ::StackOne::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
       source_value: "abc",
-      value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+      value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
     ),
     name: "weather-forecast",
     path: "/path/to/file",
@@ -1593,11 +1586,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `unified_upload_request_dto`                                                                  | [::StackOne::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `hris_documents_upload_request_dto`                                                                       | [::StackOne::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
 
 
 ### Response

@@ -1,5 +1,7 @@
 # HrisDocumentApiModelValue
 
+The category of the file
+
 
 ## Values
 
@@ -21,6 +23,9 @@
 | `POLICY_AGREEMENT` | policy_agreement   |
 | `HOME_ADDRESS`     | home_address       |
 | `NATIONAL_ID`      | national_id        |
+| `CONFIDENTIAL`     | confidential       |
+| `SIGNED`           | signed             |
+| `SHARED`           | shared             |
 | `OTHER`            | other              |
 | `BENEFIT`          | benefit            |
 | `ID_VERIFICATION`  | id_verification    |

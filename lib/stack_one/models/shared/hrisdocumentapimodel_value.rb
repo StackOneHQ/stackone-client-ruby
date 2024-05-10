@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # HrisDocumentApiModelValue - The category of the file
     class HrisDocumentApiModelValue < T::Enum
       enums do
         APPLICATION = new('application')
@@ -26,6 +26,9 @@ module StackOne
         POLICY_AGREEMENT = new('policy_agreement')
         HOME_ADDRESS = new('home_address')
         NATIONAL_ID = new('national_id')
+        CONFIDENTIAL = new('confidential')
+        SIGNED = new('signed')
+        SHARED = new('shared')
         OTHER = new('other')
         BENEFIT = new('benefit')
         ID_VERIFICATION = new('id_verification')

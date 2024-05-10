@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # ContentValue - The file format of the file, expressed as a file extension
     class ContentValue < T::Enum
       enums do
         UNMAPPED_VALUE = new('unmapped_value')

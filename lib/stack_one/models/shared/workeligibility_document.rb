@@ -12,7 +12,7 @@ module StackOne
       extend T::Sig
 
       # The category of the file
-      field :category, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+      field :category, T.nilable(::StackOne::Shared::WorkEligibilityCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
       # The content of the file
       field :contents, T.nilable(T::Array[::StackOne::Shared::Content]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
       # The creation date of the file
@@ -29,7 +29,7 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(category: T.nilable(::String), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
+      sig { params(category: T.nilable(::StackOne::Shared::WorkEligibilityCategory), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
       def initialize(category: nil, contents: nil, created_at: nil, id: nil, name: nil, path: nil, remote_id: nil, updated_at: nil)
         @category = category
         @contents = contents

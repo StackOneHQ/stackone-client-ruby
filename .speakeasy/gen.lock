@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 8bd8f3693348bd524e30e8e83736c64a
+  docChecksum: adec2a785a6135d0bd397842905fd691
   docVersion: 1.0.0
-  speakeasyVersion: 1.279.0
-  generationVersion: 2.322.5
-  releaseVersion: 0.2.19
-  configChecksum: fdbbd58bc12ba644d199b79cc1b06e60
+  speakeasyVersion: 1.285.6
+  generationVersion: 2.326.3
+  releaseVersion: 0.2.20
+  configChecksum: 16b0db2c9df3ca351101b55bb52fad29
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -170,6 +170,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_update_application_response.rb
   - lib/stack_one/models/operations/ats_update_candidate_request.rb
   - lib/stack_one/models/operations/ats_update_candidate_response.rb
+  - lib/stack_one/models/operations/ats_upload_application_document_request.rb
+  - lib/stack_one/models/operations/ats_upload_application_document_response.rb
   - lib/stack_one/models/operations/crm_create_contact_request.rb
   - lib/stack_one/models/operations/crm_create_contact_response.rb
   - lib/stack_one/models/operations/crm_get_account_request.rb
@@ -289,7 +291,7 @@ generatedFiles:
   - lib/stack_one/models/shared/connectsessioncreate_categories.rb
   - lib/stack_one/models/shared/metadata.rb
   - lib/stack_one/models/shared/connectsessioncreate.rb
-  - lib/stack_one/models/shared/category.rb
+  - lib/stack_one/models/shared/connectorsmeta_category.rb
   - lib/stack_one/models/shared/images.rb
   - lib/stack_one/models/shared/resources.rb
   - lib/stack_one/models/shared/connectorsmeta.rb
@@ -324,6 +326,7 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreason_value.rb
   - lib/stack_one/models/shared/rejected_reason_type.rb
   - lib/stack_one/models/shared/rejectedreason.rb
+  - lib/stack_one/models/shared/category.rb
   - lib/stack_one/models/shared/atsdocumentapimodel_value.rb
   - lib/stack_one/models/shared/atsdocumentapimodel_type.rb
   - lib/stack_one/models/shared/atsdocumentapimodel.rb
@@ -367,7 +370,7 @@ generatedFiles:
   - lib/stack_one/models/shared/interviewstageresult.rb
   - lib/stack_one/models/shared/interviewstage.rb
   - lib/stack_one/models/shared/jobresult.rb
-  - lib/stack_one/models/shared/confidential.rb
+  - lib/stack_one/models/shared/job_confidential.rb
   - lib/stack_one/models/shared/job_value.rb
   - lib/stack_one/models/shared/job_status.rb
   - lib/stack_one/models/shared/job.rb
@@ -415,10 +418,25 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreasonspaginated.rb
   - lib/stack_one/models/shared/userspaginated.rb
   - lib/stack_one/models/shared/updateresult.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_value.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_application_status.rb
   - lib/stack_one/models/shared/atsupdateapplicationrequestdto.rb
   - lib/stack_one/models/shared/atsupdatecandidaterequestdto.rb
+  - lib/stack_one/models/shared/writeresultapimodel.rb
+  - lib/stack_one/models/shared/headers.rb
+  - lib/stack_one/models/shared/raw.rb
+  - lib/stack_one/models/shared/providererrorapimodel.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_category.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_value.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_confidential.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto_file_format.rb
+  - lib/stack_one/models/shared/unifieduploadrequestdto.rb
   - lib/stack_one/models/shared/contactresult.rb
   - lib/stack_one/models/shared/contact.rb
+  - lib/stack_one/models/shared/contactscustomfields_value.rb
+  - lib/stack_one/models/shared/contactscustomfields_type.rb
+  - lib/stack_one/models/shared/contactscustomfields.rb
   - lib/stack_one/models/shared/crmcreatecontactrequestdto.rb
   - lib/stack_one/models/shared/accountresult.rb
   - lib/stack_one/models/shared/account.rb
@@ -482,6 +500,7 @@ generatedFiles:
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_type.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_category.rb
   - lib/stack_one/models/shared/document.rb
   - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_value.rb
   - lib/stack_one/models/shared/issued_by.rb
@@ -523,6 +542,8 @@ generatedFiles:
   - lib/stack_one/models/shared/costcenters.rb
   - lib/stack_one/models/shared/hrisdocumentresult.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_value.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel_category.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel_schemas_value.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_type.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel.rb
   - lib/stack_one/models/shared/timeoffresult.rb
@@ -532,6 +553,7 @@ generatedFiles:
   - lib/stack_one/models/shared/timeoff_type.rb
   - lib/stack_one/models/shared/timeoff.rb
   - lib/stack_one/models/shared/workeligibilityresult.rb
+  - lib/stack_one/models/shared/workeligibility_category.rb
   - lib/stack_one/models/shared/workeligibility_document.rb
   - lib/stack_one/models/shared/workeligibility_value.rb
   - lib/stack_one/models/shared/workeligibility_issued_by.rb
@@ -558,15 +580,13 @@ generatedFiles:
   - lib/stack_one/models/shared/employmentspaginated.rb
   - lib/stack_one/models/shared/hrisgroupspaginated.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
-  - lib/stack_one/models/shared/writeresultapimodel.rb
-  - lib/stack_one/models/shared/headers.rb
-  - lib/stack_one/models/shared/raw.rb
-  - lib/stack_one/models/shared/providererrorapimodel.rb
-  - lib/stack_one/models/shared/unifieduploadrequestdto_value.rb
-  - lib/stack_one/models/shared/unifieduploadrequestdto_confidential.rb
-  - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
-  - lib/stack_one/models/shared/unifieduploadrequestdto_file_format.rb
-  - lib/stack_one/models/shared/unifieduploadrequestdto.rb
+  - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_value.rb
+  - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_category.rb
+  - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/confidential.rb
+  - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_schemas_file_format_value.rb
+  - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_file_format.rb
+  - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto.rb
   - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
   - lib/stack_one/models/shared/message_content.rb
   - lib/stack_one/models/shared/emailmessages_value.rb
@@ -689,6 +709,8 @@ generatedFiles:
   - docs/models/operations/atsupdateapplicationresponse.md
   - docs/models/operations/atsupdatecandidaterequest.md
   - docs/models/operations/atsupdatecandidateresponse.md
+  - docs/models/operations/atsuploadapplicationdocumentrequest.md
+  - docs/models/operations/atsuploadapplicationdocumentresponse.md
   - docs/models/operations/crmcreatecontactrequest.md
   - docs/models/operations/crmcreatecontactresponse.md
   - docs/models/operations/crmgetaccountrequest.md
@@ -808,7 +830,7 @@ generatedFiles:
   - docs/models/shared/connectsessioncreatecategories.md
   - docs/models/shared/metadata.md
   - docs/models/shared/connectsessioncreate.md
-  - docs/models/shared/category.md
+  - docs/models/shared/connectorsmetacategory.md
   - docs/models/shared/images.md
   - docs/models/shared/resources.md
   - docs/models/shared/connectorsmeta.md
@@ -843,6 +865,7 @@ generatedFiles:
   - docs/models/shared/rejectedreasonvalue.md
   - docs/models/shared/rejectedreasontype.md
   - docs/models/shared/rejectedreason.md
+  - docs/models/shared/category.md
   - docs/models/shared/atsdocumentapimodelvalue.md
   - docs/models/shared/atsdocumentapimodeltype.md
   - docs/models/shared/atsdocumentapimodel.md
@@ -886,7 +909,7 @@ generatedFiles:
   - docs/models/shared/interviewstageresult.md
   - docs/models/shared/interviewstage.md
   - docs/models/shared/jobresult.md
-  - docs/models/shared/confidential.md
+  - docs/models/shared/jobconfidential.md
   - docs/models/shared/jobvalue.md
   - docs/models/shared/jobstatus.md
   - docs/models/shared/job.md
@@ -934,10 +957,25 @@ generatedFiles:
   - docs/models/shared/rejectedreasonspaginated.md
   - docs/models/shared/userspaginated.md
   - docs/models/shared/updateresult.md
+  - docs/models/shared/atsupdateapplicationrequestdtovalue.md
+  - docs/models/shared/atsupdateapplicationrequestdtoapplicationstatus.md
   - docs/models/shared/atsupdateapplicationrequestdto.md
   - docs/models/shared/atsupdatecandidaterequestdto.md
+  - docs/models/shared/writeresultapimodel.md
+  - docs/models/shared/headers.md
+  - docs/models/shared/raw.md
+  - docs/models/shared/providererrorapimodel.md
+  - docs/models/shared/unifieduploadrequestdtocategory.md
+  - docs/models/shared/unifieduploadrequestdtovalue.md
+  - docs/models/shared/unifieduploadrequestdtoconfidential.md
+  - docs/models/shared/unifieduploadrequestdtoschemasvalue.md
+  - docs/models/shared/unifieduploadrequestdtofileformat.md
+  - docs/models/shared/unifieduploadrequestdto.md
   - docs/models/shared/contactresult.md
   - docs/models/shared/contact.md
+  - docs/models/shared/contactscustomfieldsvalue.md
+  - docs/models/shared/contactscustomfieldstype.md
+  - docs/models/shared/contactscustomfields.md
   - docs/models/shared/crmcreatecontactrequestdto.md
   - docs/models/shared/accountresult.md
   - docs/models/shared/account.md
@@ -1001,6 +1039,7 @@ generatedFiles:
   - docs/models/shared/hriscreatetimeoffrequestdtoschemasvalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtotype.md
   - docs/models/shared/hriscreatetimeoffrequestdto.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdtocategory.md
   - docs/models/shared/document.md
   - docs/models/shared/hriscreateworkeligibilityrequestdtovalue.md
   - docs/models/shared/issuedby.md
@@ -1042,6 +1081,8 @@ generatedFiles:
   - docs/models/shared/costcenters.md
   - docs/models/shared/hrisdocumentresult.md
   - docs/models/shared/hrisdocumentapimodelvalue.md
+  - docs/models/shared/hrisdocumentapimodelcategory.md
+  - docs/models/shared/hrisdocumentapimodelschemasvalue.md
   - docs/models/shared/hrisdocumentapimodeltype.md
   - docs/models/shared/hrisdocumentapimodel.md
   - docs/models/shared/timeoffresult.md
@@ -1051,6 +1092,7 @@ generatedFiles:
   - docs/models/shared/timeofftype.md
   - docs/models/shared/timeoff.md
   - docs/models/shared/workeligibilityresult.md
+  - docs/models/shared/workeligibilitycategory.md
   - docs/models/shared/workeligibilitydocument.md
   - docs/models/shared/workeligibilityvalue.md
   - docs/models/shared/workeligibilityissuedby.md
@@ -1077,15 +1119,13 @@ generatedFiles:
   - docs/models/shared/employmentspaginated.md
   - docs/models/shared/hrisgroupspaginated.md
   - docs/models/shared/hrislocationspaginated.md
-  - docs/models/shared/writeresultapimodel.md
-  - docs/models/shared/headers.md
-  - docs/models/shared/raw.md
-  - docs/models/shared/providererrorapimodel.md
-  - docs/models/shared/unifieduploadrequestdtovalue.md
-  - docs/models/shared/unifieduploadrequestdtoconfidential.md
-  - docs/models/shared/unifieduploadrequestdtoschemasvalue.md
-  - docs/models/shared/unifieduploadrequestdtofileformat.md
-  - docs/models/shared/unifieduploadrequestdto.md
+  - docs/models/shared/hrisdocumentsuploadrequestdtovalue.md
+  - docs/models/shared/hrisdocumentsuploadrequestdtocategory.md
+  - docs/models/shared/hrisdocumentsuploadrequestdtoschemasvalue.md
+  - docs/models/shared/confidential.md
+  - docs/models/shared/hrisdocumentsuploadrequestdtoschemasfileformatvalue.md
+  - docs/models/shared/hrisdocumentsuploadrequestdtofileformat.md
+  - docs/models/shared/hrisdocumentsuploadrequestdto.md
   - docs/models/shared/marketingcreateemailtemplaterequestdto.md
   - docs/models/shared/messagecontent.md
   - docs/models/shared/emailmessagesvalue.md

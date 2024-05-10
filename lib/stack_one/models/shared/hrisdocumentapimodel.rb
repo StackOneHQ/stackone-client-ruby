@@ -11,8 +11,8 @@ module StackOne
     class HrisDocumentApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The category of the file
-      field :category, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+      # The category of the the document
+      field :category, T.nilable(::StackOne::Shared::HrisDocumentApiModelCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
       # The content of the file
       field :contents, T.nilable(T::Array[::StackOne::Shared::Content]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
       # The creation date of the file
@@ -26,12 +26,14 @@ module StackOne
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The content type of the document
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :type, T.nilable(::StackOne::Shared::HrisDocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The update date of the file
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(category: T.nilable(::String), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisDocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
+      sig { params(category: T.nilable(::StackOne::Shared::HrisDocumentApiModelCategory), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisDocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
       def initialize(category: nil, contents: nil, created_at: nil, id: nil, name: nil, path: nil, remote_id: nil, type: nil, updated_at: nil)
         @category = category
         @contents = contents

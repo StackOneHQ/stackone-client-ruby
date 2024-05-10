@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # AtsDocumentApiModelValue - The category of the file
     class AtsDocumentApiModelValue < T::Enum
       enums do
         RESUME = new('resume')

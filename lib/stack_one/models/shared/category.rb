@@ -7,18 +7,21 @@
 module StackOne
   module Shared
   
-    # Category - The provider service category
-    class Category < T::Enum
-      enums do
-        ATS = new('ats')
-        HRIS = new('hris')
-        HRIS_LEGACY = new('hris-legacy')
-        CRM = new('crm')
-        IAM = new('iam')
-        MARKETING = new('marketing')
-        STACKONE = new('stackone')
+    # The category of the the document
+    class Category < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+
+      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The category of the file
+      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+
+
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::String)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
+        @value = value
       end
     end
-
   end
 end

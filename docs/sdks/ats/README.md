@@ -40,6 +40,7 @@
 * [list_users](#list_users) - List Users
 * [update_application](#update_application) - Update an Application
 * [update_candidate](#update_candidate) - Update Candidate
+* [upload_application_document](#upload_application_document) - Upload Application Document
 
 ## create_application
 
@@ -103,6 +104,7 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
+    source: "LinkedIn",
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -387,7 +389,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
-  fields_: "id,name,path,type,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -1009,10 +1011,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
-  fields_: "id,name,path,type,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1058,7 +1059,6 @@ req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
   fields_: "id,sections,label,candidate_id,application_id,interview_id,author_id,overall_recommendation,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1104,8 +1104,6 @@ req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
   fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,created_at,updated_at,documents,candidate",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  job_id: "cxQiyiuasdFKfdsYfer",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1151,7 +1149,6 @@ req = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(
   fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1197,7 +1194,6 @@ req = ::StackOne::Operations::AtsListCandidateNotesRequest.new(
   fields_: "id,content,author_id,visibility,created_at,updated_at,deleted_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   id: "<id>",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1242,7 +1238,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListCandidatesRequest.new(
   fields_: "id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,hired_at,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1287,7 +1282,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListDepartmentsRequest.new(
   fields_: "id,name",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1332,7 +1326,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListInterviewStagesRequest.new(
   fields_: "id,name,order,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1377,7 +1370,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListInterviewsRequest.new(
   fields_: "id,application_id,interview_stage_id,interview_stage,status,interview_status,interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1423,7 +1415,6 @@ req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
   fields_: "id,title,locations,internal,status,job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   include: "questionnaires",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1469,7 +1460,6 @@ req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
   fields_: "id,code,title,status,job_status,department_ids,location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1514,7 +1504,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListLocationsRequest.new(
   fields_: "id,name",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1559,7 +1548,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListOffersRequest.new(
   fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1604,7 +1592,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(
   fields_: "id,label,type,rejected_reason_type",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1649,7 +1636,6 @@ s.config_security(
 req = ::StackOne::Operations::AtsListUsersRequest.new(
   fields_: "id,first_name,last_name,name,email",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
-  updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )
     
@@ -1692,8 +1678,13 @@ s.config_security(
 
     
 res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(
+    application_status: ::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
+      source_value: "Hired",
+      value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
+    ),
     interview_stage_id: "18bcbb1b-3cbc-4198-a999-460861d19480",
     rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
+    source: "LinkedIn",
   ), id="<value>", x_account_id="<value>")
 
 if ! res.update_result.nil?
@@ -1752,7 +1743,6 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     last_name: "Sestier",
     name: "Romain Sestier",
-    phone: "+16178294093",
     phone_numbers: [
       ::StackOne::Shared::PhoneNumber.new(
         phone: "+447700112233",
@@ -1786,4 +1776,60 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateCandidateResponse)](../../models/operations/atsupdatecandidateresponse.md)**
+
+
+## upload_application_document
+
+Upload Application Document
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.ats.upload_application_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
+    category: ::StackOne::Shared::UnifiedUploadRequestDtoCategory.new(
+      source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
+      value: "reports, resumes",
+    ),
+    confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
+      source_value: "public",
+      value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
+    ),
+    content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+    file_format: ::StackOne::Shared::UnifiedUploadRequestDtoFileFormat.new(
+      source_value: "abc",
+      value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+    ),
+    name: "weather-forecast",
+    path: "/path/to/file",
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.write_result_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `unified_upload_request_dto`                                                                  | [::StackOne::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsUploadApplicationDocumentResponse)](../../models/operations/atsuploadapplicationdocumentresponse.md)**
 
