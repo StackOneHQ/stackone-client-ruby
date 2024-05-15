@@ -672,6 +672,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
+  expand: "groups",
   fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
@@ -716,7 +717,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetGroupRequest.new(
-  fields_: "id,name,type,parent_ids",
+  fields_: "id,name,type,parent_ids,owner_ids",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1117,6 +1118,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
+  expand: "groups",
   fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
@@ -1161,7 +1163,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListGroupsRequest.new(
-  fields_: "id,name,type,parent_ids",
+  fields_: "id,name,type,parent_ids,owner_ids",
   filter_updated_after: "2020-01-01T00:00:00.000Z",
   x_account_id: "<value>",
 )

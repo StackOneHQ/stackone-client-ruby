@@ -16,6 +16,7 @@ module StackOne
         CRM = new('crm')
         IAM = new('iam')
         MARKETING = new('marketing')
+        LMS = new('lms')
         STACKONE = new('stackone')
       end
     end

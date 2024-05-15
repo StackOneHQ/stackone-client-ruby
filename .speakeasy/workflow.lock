@@ -1,9 +1,9 @@
-speakeasyVersion: 1.286.3
+speakeasyVersion: 1.291.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:5d79fc2366f32e0aec81dcdcb92f0dce3183ae47517b659c1c97d9f7e27bcb40
-        sourceBlobDigest: sha256:df6a83102beacd8203e7b8f51f8686eab9906f8a6447c871f4ca2e405e557130
+        sourceRevisionDigest: sha256:c9927a9283ec35f24344e36dac8ad0c7f72d515166e703d94addebb44e35ff06
+        sourceBlobDigest: sha256:c6c9282d82ec7b0a4f656e3a493889f03b05c2a1a21245b3eb65d2d6b928d333
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     StackOneRubyClient:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:5d79fc2366f32e0aec81dcdcb92f0dce3183ae47517b659c1c97d9f7e27bcb40
-        sourceBlobDigest: sha256:df6a83102beacd8203e7b8f51f8686eab9906f8a6447c871f4ca2e405e557130
+        sourceRevisionDigest: sha256:c9927a9283ec35f24344e36dac8ad0c7f72d515166e703d94addebb44e35ff06
+        sourceBlobDigest: sha256:c6c9282d82ec7b0a4f656e3a493889f03b05c2a1a21245b3eb65d2d6b928d333
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0

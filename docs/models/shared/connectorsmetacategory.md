@@ -13,4 +13,5 @@ The provider service category
 | `CRM`         | crm           |
 | `IAM`         | iam           |
 | `MARKETING`   | marketing     |
+| `LMS`         | lms           |
 | `STACKONE`    | stackone      |
