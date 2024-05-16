@@ -131,6 +131,9 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
       name: "Woolsthorpe Manor",
+      passthrough: {
+        "Cheese": "<value>",
+      },
       phone_number: "+44 1476 860 364",
       state: ::StackOne::Shared::State.new(),
       street_1: "Water Lane",
@@ -142,6 +145,9 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     manager_id: "67890",
     marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
     name: "Issac Newton",
+    passthrough: {
+      "Bugatti": "<value>",
+    },
     personal_email: "isaac.newton@example.com",
     personal_phone_number: "+1234567890",
     preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
@@ -158,6 +164,9 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
       name: "Woolsthorpe Manor",
+      passthrough: {
+        "underneath": "<value>",
+      },
       phone_number: "+44 1476 860 364",
       state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(),
       street_1: "Water Lane",
@@ -208,6 +217,9 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
     approver_id: "1687-4",
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    passthrough: {
+      "Passenger": "<value>",
+    },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 
@@ -273,6 +285,9 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
       value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
     ),
     number: "1234567890",
+    passthrough: {
+      "green": "<value>",
+    },
     sub_type: "H1B",
     type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
     valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
@@ -321,6 +336,9 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
     approver_id: "1687-4",
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    passthrough: {
+      "Bicycle": "<value>",
+    },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
@@ -850,7 +868,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListBenefitsRequest.new(
   fields_: "id,name,benefit_type,provider,description,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListBenefitsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -894,7 +914,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListCompaniesRequest.new(
   fields_: "id,name,full_name,display_name,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListCompaniesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -938,7 +960,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
   fields_: "id,name,path,type,category,contents,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -983,7 +1007,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1028,7 +1054,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   fields_: "id,type,sub_type,document,valid_from,valid_to,issued_by,number",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1074,7 +1102,9 @@ s.config_security(
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
   fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<value>",
 )
@@ -1120,7 +1150,9 @@ s.config_security(
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
   fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1164,7 +1196,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListGroupsRequest.new(
   fields_: "id,name,type,parent_ids,owner_ids",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListGroupsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1208,7 +1242,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListLocationsRequest.new(
   fields_: "id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListLocationsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1252,7 +1288,9 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
   fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1374,6 +1412,9 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
       name: "Woolsthorpe Manor",
+      passthrough: {
+        "solid": "<value>",
+      },
       phone_number: "+44 1476 860 364",
       state: ::StackOne::Shared::State.new(),
       street_1: "Water Lane",
@@ -1385,6 +1426,9 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     manager_id: "67890",
     marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
     name: "Issac Newton",
+    passthrough: {
+      "Northeast": "<value>",
+    },
     personal_email: "isaac.newton@example.com",
     personal_phone_number: "+1234567890",
     preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
@@ -1401,6 +1445,9 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
       name: "Woolsthorpe Manor",
+      passthrough: {
+        "International": "<value>",
+      },
       phone_number: "+44 1476 860 364",
       state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(),
       street_1: "Water Lane",
@@ -1472,6 +1519,9 @@ res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibili
       value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
     ),
     number: "1234567890",
+    passthrough: {
+      "evolve": "<value>",
+    },
     sub_type: "H1B",
     type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
     valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
@@ -1521,6 +1571,9 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
     approver_id: "1687-4",
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    passthrough: {
+      "Sports": "<value>",
+    },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), id="<value>", x_account_id="<value>")
 

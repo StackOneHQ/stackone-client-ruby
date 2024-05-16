@@ -15,14 +15,17 @@ module StackOne
       field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
 
       field :content, T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+      # Value to pass through to the provider
+      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # Visibility of the note
       field :visibility, T.nilable(::StackOne::Shared::Visibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), visibility: T.nilable(::StackOne::Shared::Visibility)).void }
-      def initialize(author_id: nil, content: nil, visibility: nil)
+      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), visibility: T.nilable(::StackOne::Shared::Visibility)).void }
+      def initialize(author_id: nil, content: nil, passthrough: nil, visibility: nil)
         @author_id = author_id
         @content = content
+        @passthrough = passthrough
         @visibility = visibility
       end
     end

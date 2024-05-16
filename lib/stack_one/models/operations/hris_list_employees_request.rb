@@ -17,10 +17,8 @@ module StackOne
       field :expand, T.nilable(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-      # Filter to select employees by employee_number
-      field :filter_employee_number, T.nilable(::String), { 'query_param': { 'field_name': 'filter[employee_number]', 'style': 'form', 'explode': true } }
-      # Use a string with a date to only select results updated after that given date
-      field :filter_updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'filter[updated_after]', 'style': 'form', 'explode': true } }
+      # HRIS Employees filters
+      field :filter, T.nilable(::StackOne::Operations::HrisListEmployeesQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
       # The comma separated list of fields that will be included in the response
       field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
       # The unified cursor
@@ -41,13 +39,12 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), filter_employee_number: T.nilable(::String), filter_updated_after: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
-      def initialize(x_account_id: nil, expand: nil, fields_: nil, filter_employee_number: nil, filter_updated_after: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+      sig { params(x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::HrisListEmployeesQueryParamFilter), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      def initialize(x_account_id: nil, expand: nil, fields_: nil, filter: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
         @x_account_id = x_account_id
         @expand = expand
         @fields_ = fields_
-        @filter_employee_number = filter_employee_number
-        @filter_updated_after = filter_updated_after
+        @filter = filter
         @include = include
         @next_ = next_
         @page = page

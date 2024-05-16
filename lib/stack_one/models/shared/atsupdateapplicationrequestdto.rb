@@ -15,16 +15,21 @@ module StackOne
       field :application_status, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
       # Unique identifier of the interview stage
       field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
-      # Unique identifier of the rejection reason
+      # Value to pass through to the provider
+      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+      # Unique identifier of the rejection reason, used only for write operations
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
       # Source of the application
       field :source, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), interview_stage_id: T.nilable(::String), rejected_reason_id: T.nilable(::String), source: T.nilable(::String)).void }
-      def initialize(application_status: nil, interview_stage_id: nil, rejected_reason_id: nil, source: nil)
+      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), interview_stage_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), rejected_reason_id: T.nilable(::String), source: T.nilable(::String)).void }
+      def initialize(application_status: nil, interview_stage_id: nil, passthrough: nil, rejected_reason_id: nil, source: nil)
         @application_status = application_status
         @interview_stage_id = interview_stage_id
+        @passthrough = passthrough
         @rejected_reason_id = rejected_reason_id
         @source = source
       end

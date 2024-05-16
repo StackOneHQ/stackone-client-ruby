@@ -73,6 +73,9 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
       hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       last_name: "Sestier",
       name: "Romain Sestier",
+      passthrough: {
+        "synthesize": "<value>",
+      },
       phone_number: "+1234567890",
       social_links: [
         ::StackOne::Shared::SocialLink.new(
@@ -85,6 +88,9 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
     candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
     job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
     location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",
+    passthrough: {
+      "Global": "<value>",
+    },
     questionnaires: [
       ::StackOne::Shared::Questionnaire.new(
         answers: [
@@ -152,6 +158,9 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     last_name: "Sestier",
     name: "Romain Sestier",
+    passthrough: {
+      "discrete": "<value>",
+    },
     phone_number: "+1234567890",
     social_links: [
       ::StackOne::Shared::SocialLink.new(
@@ -206,6 +215,9 @@ res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Share
         body: "This candidate seems like a good fit for the role",
       ),
     ],
+    passthrough: {
+      "Freeway": "<value>",
+    },
     visibility: ::StackOne::Shared::Visibility.new(
       source_value: "Public",
       value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
@@ -262,6 +274,9 @@ res = s.ats.create_offer(ats_create_offer_request_dto=::StackOne::Shared::AtsCre
       source_value: "Pending",
       value: ::StackOne::Shared::AtsCreateOfferRequestDtoValue::PENDING,
     ),
+    passthrough: {
+      "quas": "<value>",
+    },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   ), x_account_id="<value>")
 
@@ -1012,7 +1027,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
   fields_: "id,name,path,type,category,contents,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::Filter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1057,7 +1074,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
   fields_: "id,sections,label,candidate_id,application_id,interview_id,author_id,overall_recommendation,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::QueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1103,7 +1122,9 @@ s.config_security(
 req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
   fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,created_at,updated_at,documents,candidate",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1147,7 +1168,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(
   fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListApplicationsOffersQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1192,7 +1215,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListCandidateNotesRequest.new(
   fields_: "id,content,author_id,visibility,created_at,updated_at,deleted_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListCandidateNotesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1237,7 +1262,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListCandidatesRequest.new(
   fields_: "id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,hired_at,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListCandidatesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1281,7 +1308,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListDepartmentsRequest.new(
   fields_: "id,name",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListDepartmentsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1325,7 +1354,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListInterviewStagesRequest.new(
   fields_: "id,name,order,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListInterviewStagesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1369,7 +1400,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListInterviewsRequest.new(
   fields_: "id,application_id,interview_stage_id,interview_stage,status,interview_status,interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListInterviewsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1413,7 +1446,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
   fields_: "id,title,locations,internal,status,job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListJobPostingsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   include: "questionnaires",
   x_account_id: "<value>",
 )
@@ -1459,7 +1494,9 @@ s.config_security(
 req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
   fields_: "id,code,title,status,job_status,department_ids,location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListJobsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1503,7 +1540,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListLocationsRequest.new(
   fields_: "id,name",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListLocationsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1547,7 +1586,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListOffersRequest.new(
   fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListOffersQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1591,7 +1632,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(
   fields_: "id,label,type,rejected_reason_type",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListRejectedReasonsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1635,7 +1678,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListUsersRequest.new(
   fields_: "id,first_name,last_name,name,email",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::AtsListUsersQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -1683,7 +1728,9 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
       value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
     ),
     interview_stage_id: "18bcbb1b-3cbc-4198-a999-460861d19480",
-    rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
+    passthrough: {
+      "Licensed": "<value>",
+    },
     source: "LinkedIn",
   ), id="<value>", x_account_id="<value>")
 
@@ -1740,15 +1787,16 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
     ],
     first_name: "Romain",
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     last_name: "Sestier",
     name: "Romain Sestier",
+    passthrough: {
+      "Extended": "<value>",
+    },
     phone_numbers: [
       ::StackOne::Shared::PhoneNumber.new(
         phone: "+447700112233",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     social_links: [
       ::StackOne::Shared::SocialLink.new(
         type: "linkedin",

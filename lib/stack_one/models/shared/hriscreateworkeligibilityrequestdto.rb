@@ -17,6 +17,8 @@ module StackOne
       field :issued_by, T.nilable(::StackOne::Shared::IssuedBy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
 
       field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
+      # Value to pass through to the provider
+      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
       field :sub_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_type') } }
 
@@ -27,11 +29,12 @@ module StackOne
       field :valid_to, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(document: T.nilable(::StackOne::Shared::Document), issued_by: T.nilable(::StackOne::Shared::IssuedBy), number: T.nilable(::String), sub_type: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
-      def initialize(document: nil, issued_by: nil, number: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
+      sig { params(document: T.nilable(::StackOne::Shared::Document), issued_by: T.nilable(::StackOne::Shared::IssuedBy), number: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), sub_type: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
+      def initialize(document: nil, issued_by: nil, number: nil, passthrough: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
         @document = document
         @issued_by = issued_by
         @number = number
+        @passthrough = passthrough
         @sub_type = sub_type
         @type = type
         @valid_from = valid_from

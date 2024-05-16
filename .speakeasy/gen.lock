@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 42d860ed3ffce136a76fb3a21aedb586
+  docChecksum: 6ce08d391f4a149959ac2bb51b967564
   docVersion: 1.0.0
   speakeasyVersion: 1.291.0
   generationVersion: 2.332.4
-  releaseVersion: 0.2.21
-  configChecksum: 73b31578940cc1f6ae29f26a563f05b1
+  releaseVersion: 0.2.22
+  configChecksum: f9ed470ea16aac46e6ddbef2dc33defe
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -136,34 +136,49 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_rejected_reason_response.rb
   - lib/stack_one/models/operations/ats_get_user_request.rb
   - lib/stack_one/models/operations/ats_get_user_response.rb
+  - lib/stack_one/models/operations/filter.rb
   - lib/stack_one/models/operations/ats_list_application_documents_request.rb
   - lib/stack_one/models/operations/ats_list_application_documents_response.rb
+  - lib/stack_one/models/operations/queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_application_scorecards_request.rb
   - lib/stack_one/models/operations/ats_list_application_scorecards_response.rb
+  - lib/stack_one/models/operations/ats_list_applications_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_applications_request.rb
   - lib/stack_one/models/operations/ats_list_applications_response.rb
+  - lib/stack_one/models/operations/ats_list_applications_offers_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_applications_offers_request.rb
   - lib/stack_one/models/operations/ats_list_applications_offers_response.rb
+  - lib/stack_one/models/operations/ats_list_candidate_notes_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_request.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_response.rb
+  - lib/stack_one/models/operations/ats_list_candidates_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_candidates_request.rb
   - lib/stack_one/models/operations/ats_list_candidates_response.rb
+  - lib/stack_one/models/operations/ats_list_departments_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_departments_request.rb
   - lib/stack_one/models/operations/ats_list_departments_response.rb
+  - lib/stack_one/models/operations/ats_list_interview_stages_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_interview_stages_request.rb
   - lib/stack_one/models/operations/ats_list_interview_stages_response.rb
+  - lib/stack_one/models/operations/ats_list_interviews_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_interviews_request.rb
   - lib/stack_one/models/operations/ats_list_interviews_response.rb
+  - lib/stack_one/models/operations/ats_list_job_postings_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_job_postings_request.rb
   - lib/stack_one/models/operations/ats_list_job_postings_response.rb
+  - lib/stack_one/models/operations/ats_list_jobs_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_jobs_request.rb
   - lib/stack_one/models/operations/ats_list_jobs_response.rb
+  - lib/stack_one/models/operations/ats_list_locations_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_locations_request.rb
   - lib/stack_one/models/operations/ats_list_locations_response.rb
+  - lib/stack_one/models/operations/ats_list_offers_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_offers_request.rb
   - lib/stack_one/models/operations/ats_list_offers_response.rb
+  - lib/stack_one/models/operations/ats_list_rejected_reasons_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_rejected_reasons_request.rb
   - lib/stack_one/models/operations/ats_list_rejected_reasons_response.rb
+  - lib/stack_one/models/operations/ats_list_users_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_users_request.rb
   - lib/stack_one/models/operations/ats_list_users_response.rb
   - lib/stack_one/models/operations/ats_update_application_request.rb
@@ -180,10 +195,13 @@ generatedFiles:
   - lib/stack_one/models/operations/crm_get_contact_response.rb
   - lib/stack_one/models/operations/crm_get_list_request.rb
   - lib/stack_one/models/operations/crm_get_list_response.rb
+  - lib/stack_one/models/operations/crm_list_accounts_queryparam_filter.rb
   - lib/stack_one/models/operations/crm_list_accounts_request.rb
   - lib/stack_one/models/operations/crm_list_accounts_response.rb
+  - lib/stack_one/models/operations/crm_list_contacts_queryparam_filter.rb
   - lib/stack_one/models/operations/crm_list_contacts_request.rb
   - lib/stack_one/models/operations/crm_list_contacts_response.rb
+  - lib/stack_one/models/operations/crm_list_lists_queryparam_filter.rb
   - lib/stack_one/models/operations/crm_list_lists_request.rb
   - lib/stack_one/models/operations/crm_list_lists_response.rb
   - lib/stack_one/models/operations/crm_update_contact_request.rb
@@ -218,24 +236,34 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_location_response.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_list_benefits_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_benefits_request.rb
   - lib/stack_one/models/operations/hris_list_benefits_response.rb
+  - lib/stack_one/models/operations/hris_list_companies_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_companies_request.rb
   - lib/stack_one/models/operations/hris_list_companies_response.rb
+  - lib/stack_one/models/operations/hris_list_employee_documents_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_request.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_response.rb
+  - lib/stack_one/models/operations/hris_list_employee_time_off_requests_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_time_off_requests_request.rb
   - lib/stack_one/models/operations/hris_list_employee_time_off_requests_response.rb
+  - lib/stack_one/models/operations/hris_list_employee_work_eligibility_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_work_eligibility_request.rb
   - lib/stack_one/models/operations/hris_list_employee_work_eligibility_response.rb
+  - lib/stack_one/models/operations/hris_list_employees_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employees_request.rb
   - lib/stack_one/models/operations/hris_list_employees_response.rb
+  - lib/stack_one/models/operations/hris_list_employments_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employments_request.rb
   - lib/stack_one/models/operations/hris_list_employments_response.rb
+  - lib/stack_one/models/operations/hris_list_groups_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_groups_request.rb
   - lib/stack_one/models/operations/hris_list_groups_response.rb
+  - lib/stack_one/models/operations/hris_list_locations_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_locations_request.rb
   - lib/stack_one/models/operations/hris_list_locations_response.rb
+  - lib/stack_one/models/operations/hris_list_time_off_requests_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_time_off_requests_request.rb
   - lib/stack_one/models/operations/hris_list_time_off_requests_response.rb
   - lib/stack_one/models/operations/hris_update_employee_request.rb
@@ -260,12 +288,16 @@ generatedFiles:
   - lib/stack_one/models/operations/marketing_get_omni_channel_template_response.rb
   - lib/stack_one/models/operations/marketing_get_push_template_request.rb
   - lib/stack_one/models/operations/marketing_get_push_template_response.rb
+  - lib/stack_one/models/operations/marketing_list_campaigns_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_request.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_response.rb
+  - lib/stack_one/models/operations/marketing_list_email_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_response.rb
+  - lib/stack_one/models/operations/marketing_list_omni_channel_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_omni_channel_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_omni_channel_templates_response.rb
+  - lib/stack_one/models/operations/marketing_list_push_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_response.rb
   - lib/stack_one/models/operations/marketing_update_email_template_request.rb
@@ -675,34 +707,49 @@ generatedFiles:
   - docs/models/operations/atsgetrejectedreasonresponse.md
   - docs/models/operations/atsgetuserrequest.md
   - docs/models/operations/atsgetuserresponse.md
+  - docs/models/operations/filter.md
   - docs/models/operations/atslistapplicationdocumentsrequest.md
   - docs/models/operations/atslistapplicationdocumentsresponse.md
+  - docs/models/operations/queryparamfilter.md
   - docs/models/operations/atslistapplicationscorecardsrequest.md
   - docs/models/operations/atslistapplicationscorecardsresponse.md
+  - docs/models/operations/atslistapplicationsqueryparamfilter.md
   - docs/models/operations/atslistapplicationsrequest.md
   - docs/models/operations/atslistapplicationsresponse.md
+  - docs/models/operations/atslistapplicationsoffersqueryparamfilter.md
   - docs/models/operations/atslistapplicationsoffersrequest.md
   - docs/models/operations/atslistapplicationsoffersresponse.md
+  - docs/models/operations/atslistcandidatenotesqueryparamfilter.md
   - docs/models/operations/atslistcandidatenotesrequest.md
   - docs/models/operations/atslistcandidatenotesresponse.md
+  - docs/models/operations/atslistcandidatesqueryparamfilter.md
   - docs/models/operations/atslistcandidatesrequest.md
   - docs/models/operations/atslistcandidatesresponse.md
+  - docs/models/operations/atslistdepartmentsqueryparamfilter.md
   - docs/models/operations/atslistdepartmentsrequest.md
   - docs/models/operations/atslistdepartmentsresponse.md
+  - docs/models/operations/atslistinterviewstagesqueryparamfilter.md
   - docs/models/operations/atslistinterviewstagesrequest.md
   - docs/models/operations/atslistinterviewstagesresponse.md
+  - docs/models/operations/atslistinterviewsqueryparamfilter.md
   - docs/models/operations/atslistinterviewsrequest.md
   - docs/models/operations/atslistinterviewsresponse.md
+  - docs/models/operations/atslistjobpostingsqueryparamfilter.md
   - docs/models/operations/atslistjobpostingsrequest.md
   - docs/models/operations/atslistjobpostingsresponse.md
+  - docs/models/operations/atslistjobsqueryparamfilter.md
   - docs/models/operations/atslistjobsrequest.md
   - docs/models/operations/atslistjobsresponse.md
+  - docs/models/operations/atslistlocationsqueryparamfilter.md
   - docs/models/operations/atslistlocationsrequest.md
   - docs/models/operations/atslistlocationsresponse.md
+  - docs/models/operations/atslistoffersqueryparamfilter.md
   - docs/models/operations/atslistoffersrequest.md
   - docs/models/operations/atslistoffersresponse.md
+  - docs/models/operations/atslistrejectedreasonsqueryparamfilter.md
   - docs/models/operations/atslistrejectedreasonsrequest.md
   - docs/models/operations/atslistrejectedreasonsresponse.md
+  - docs/models/operations/atslistusersqueryparamfilter.md
   - docs/models/operations/atslistusersrequest.md
   - docs/models/operations/atslistusersresponse.md
   - docs/models/operations/atsupdateapplicationrequest.md
@@ -719,10 +766,13 @@ generatedFiles:
   - docs/models/operations/crmgetcontactresponse.md
   - docs/models/operations/crmgetlistrequest.md
   - docs/models/operations/crmgetlistresponse.md
+  - docs/models/operations/crmlistaccountsqueryparamfilter.md
   - docs/models/operations/crmlistaccountsrequest.md
   - docs/models/operations/crmlistaccountsresponse.md
+  - docs/models/operations/crmlistcontactsqueryparamfilter.md
   - docs/models/operations/crmlistcontactsrequest.md
   - docs/models/operations/crmlistcontactsresponse.md
+  - docs/models/operations/crmlistlistsqueryparamfilter.md
   - docs/models/operations/crmlistlistsrequest.md
   - docs/models/operations/crmlistlistsresponse.md
   - docs/models/operations/crmupdatecontactrequest.md
@@ -757,24 +807,34 @@ generatedFiles:
   - docs/models/operations/hrisgetlocationresponse.md
   - docs/models/operations/hrisgettimeoffrequestrequest.md
   - docs/models/operations/hrisgettimeoffrequestresponse.md
+  - docs/models/operations/hrislistbenefitsqueryparamfilter.md
   - docs/models/operations/hrislistbenefitsrequest.md
   - docs/models/operations/hrislistbenefitsresponse.md
+  - docs/models/operations/hrislistcompaniesqueryparamfilter.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
+  - docs/models/operations/hrislistemployeedocumentsqueryparamfilter.md
   - docs/models/operations/hrislistemployeedocumentsrequest.md
   - docs/models/operations/hrislistemployeedocumentsresponse.md
+  - docs/models/operations/hrislistemployeetimeoffrequestsqueryparamfilter.md
   - docs/models/operations/hrislistemployeetimeoffrequestsrequest.md
   - docs/models/operations/hrislistemployeetimeoffrequestsresponse.md
+  - docs/models/operations/hrislistemployeeworkeligibilityqueryparamfilter.md
   - docs/models/operations/hrislistemployeeworkeligibilityrequest.md
   - docs/models/operations/hrislistemployeeworkeligibilityresponse.md
+  - docs/models/operations/hrislistemployeesqueryparamfilter.md
   - docs/models/operations/hrislistemployeesrequest.md
   - docs/models/operations/hrislistemployeesresponse.md
+  - docs/models/operations/hrislistemploymentsqueryparamfilter.md
   - docs/models/operations/hrislistemploymentsrequest.md
   - docs/models/operations/hrislistemploymentsresponse.md
+  - docs/models/operations/hrislistgroupsqueryparamfilter.md
   - docs/models/operations/hrislistgroupsrequest.md
   - docs/models/operations/hrislistgroupsresponse.md
+  - docs/models/operations/hrislistlocationsqueryparamfilter.md
   - docs/models/operations/hrislistlocationsrequest.md
   - docs/models/operations/hrislistlocationsresponse.md
+  - docs/models/operations/hrislisttimeoffrequestsqueryparamfilter.md
   - docs/models/operations/hrislisttimeoffrequestsrequest.md
   - docs/models/operations/hrislisttimeoffrequestsresponse.md
   - docs/models/operations/hrisupdateemployeerequest.md
@@ -799,12 +859,16 @@ generatedFiles:
   - docs/models/operations/marketinggetomnichanneltemplateresponse.md
   - docs/models/operations/marketinggetpushtemplaterequest.md
   - docs/models/operations/marketinggetpushtemplateresponse.md
+  - docs/models/operations/marketinglistcampaignsqueryparamfilter.md
   - docs/models/operations/marketinglistcampaignsrequest.md
   - docs/models/operations/marketinglistcampaignsresponse.md
+  - docs/models/operations/marketinglistemailtemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistemailtemplatesrequest.md
   - docs/models/operations/marketinglistemailtemplatesresponse.md
+  - docs/models/operations/marketinglistomnichanneltemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistomnichanneltemplatesrequest.md
   - docs/models/operations/marketinglistomnichanneltemplatesresponse.md
+  - docs/models/operations/marketinglistpushtemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistpushtemplatesrequest.md
   - docs/models/operations/marketinglistpushtemplatesresponse.md
   - docs/models/operations/marketingupdateemailtemplaterequest.md

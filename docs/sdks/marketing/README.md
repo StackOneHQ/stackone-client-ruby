@@ -37,7 +37,6 @@ s.config_security(
 
     
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     messages: [
       ::StackOne::Shared::EmailMessages.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -47,7 +46,9 @@ res = s.marketing.create_email_template(marketing_create_email_template_request_
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "Non": "<value>",
+    },
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -88,7 +89,6 @@ s.config_security(
 
     
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     messages: [
       ::StackOne::Shared::Message.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -98,7 +98,9 @@ res = s.marketing.create_omni_channel_template(marketing_create_template_request
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "Cargo": "<value>",
+    },
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -139,7 +141,6 @@ s.config_security(
 
     
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     messages: [
       ::StackOne::Shared::PushMessages.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -149,7 +150,9 @@ res = s.marketing.create_push_template(marketing_create_push_template_request_dt
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "turban": "<value>",
+    },
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -367,7 +370,9 @@ s.config_security(
 
 req = ::StackOne::Operations::MarketingListCampaignsRequest.new(
   fields_: "id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::MarketingListCampaignsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -411,7 +416,9 @@ s.config_security(
 
 req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
   fields_: "id,name,messages,created_at,updated_at,tags",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -455,7 +462,9 @@ s.config_security(
 
 req = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(
   fields_: "id,name,messages,created_at,updated_at,tags",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -499,7 +508,9 @@ s.config_security(
 
 req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
   fields_: "id,name,messages,created_at,updated_at,tags",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::MarketingListPushTemplatesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -542,7 +553,6 @@ s.config_security(
 
     
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     messages: [
       ::StackOne::Shared::EmailMessages.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -552,7 +562,9 @@ res = s.marketing.update_email_template(marketing_create_email_template_request_
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "strategize": "<value>",
+    },
   ), id="<value>", x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -594,7 +606,6 @@ s.config_security(
 
     
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     messages: [
       ::StackOne::Shared::Message.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -604,7 +615,9 @@ res = s.marketing.update_omni_channel_template(marketing_create_template_request
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "Edina": "<value>",
+    },
   ), id="<value>", x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -646,7 +659,6 @@ s.config_security(
 
     
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     messages: [
       ::StackOne::Shared::PushMessages.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -656,7 +668,9 @@ res = s.marketing.update_push_template(marketing_create_push_template_request_dt
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "tightly": "<value>",
+    },
   ), id="<value>", x_account_id="<value>")
 
 if ! res.create_result.nil?

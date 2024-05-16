@@ -43,6 +43,9 @@ res = s.crm.create_contact(crm_create_contact_request_dto=::StackOne::Shared::Cr
     ],
     first_name: "Steve",
     last_name: "Wozniak",
+    passthrough: {
+      "Electric": "<value>",
+    },
     phone_numbers: [
       "<value>",
     ],
@@ -220,7 +223,9 @@ s.config_security(
 
 req = ::StackOne::Operations::CrmListAccountsRequest.new(
   fields_: "id,owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::CrmListAccountsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -264,7 +269,9 @@ s.config_security(
 
 req = ::StackOne::Operations::CrmListContactsRequest.new(
   fields_: "id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,account_ids,custom_fields,created_at,updated_at",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::CrmListContactsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   include: "custom_fields",
   x_account_id: "<value>",
 )
@@ -309,7 +316,9 @@ s.config_security(
 
 req = ::StackOne::Operations::CrmListListsRequest.new(
   fields_: "id,name,created_at,updated_at,items,type",
-  filter_updated_after: "2020-01-01T00:00:00.000Z",
+  filter: ::StackOne::Operations::CrmListListsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   x_account_id: "<value>",
 )
     
@@ -364,6 +373,9 @@ res = s.crm.update_contact(crm_create_contact_request_dto=::StackOne::Shared::Cr
     ],
     first_name: "Steve",
     last_name: "Wozniak",
+    passthrough: {
+      "West": "<value>",
+    },
     phone_numbers: [
       "<value>",
     ],

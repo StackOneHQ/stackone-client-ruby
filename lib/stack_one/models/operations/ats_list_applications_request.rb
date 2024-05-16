@@ -17,10 +17,8 @@ module StackOne
       field :expand, T.nilable(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-      # Filter to select applications by job_id
-      field :filter_job_id, T.nilable(::String), { 'query_param': { 'field_name': 'filter[job_id]', 'style': 'form', 'explode': true } }
-      # Use a string with a date to only select results updated after that given date
-      field :filter_updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'filter[updated_after]', 'style': 'form', 'explode': true } }
+      # ATS Application Filter
+      field :filter, T.nilable(::StackOne::Operations::AtsListApplicationsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
       # Filter for job ID to retrieve a list of applications related to this job
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -47,13 +45,12 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), filter_job_id: T.nilable(::String), filter_updated_after: T.nilable(::String), job_id: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(x_account_id: nil, expand: nil, fields_: nil, filter_job_id: nil, filter_updated_after: nil, job_id: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
+      sig { params(x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::AtsListApplicationsQueryParamFilter), job_id: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(x_account_id: nil, expand: nil, fields_: nil, filter: nil, job_id: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
         @x_account_id = x_account_id
         @expand = expand
         @fields_ = fields_
-        @filter_job_id = filter_job_id
-        @filter_updated_after = filter_updated_after
+        @filter = filter
         @job_id = job_id
         @next_ = next_
         @page = page

@@ -25,6 +25,8 @@ module StackOne
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # Candidate name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      # Value to pass through to the provider
+      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # The candidate personal phone number
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # List of candidate social links
@@ -33,8 +35,8 @@ module StackOne
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(company: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
-      def initialize(company: nil, country: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, phone_number: nil, social_links: nil, title: nil)
+      sig { params(company: T.nilable(::String), country: T.nilable(::String), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
+      def initialize(company: nil, country: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, passthrough: nil, phone_number: nil, social_links: nil, title: nil)
         @company = company
         @country = country
         @email = email
@@ -42,6 +44,7 @@ module StackOne
         @hired_at = hired_at
         @last_name = last_name
         @name = name
+        @passthrough = passthrough
         @phone_number = phone_number
         @social_links = social_links
         @title = title

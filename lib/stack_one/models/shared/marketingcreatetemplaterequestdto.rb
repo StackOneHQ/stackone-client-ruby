@@ -11,24 +11,21 @@ module StackOne
     class MarketingCreateTemplateRequestDto < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
       field :messages, T.nilable(T::Array[::StackOne::Shared::Message]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Value to pass through to the provider
+      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
       field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
 
-      sig { params(id: T.nilable(::String), messages: T.nilable(T::Array[::StackOne::Shared::Message]), name: T.nilable(::String), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String])).void }
-      def initialize(id: nil, messages: nil, name: nil, remote_id: nil, tags: nil)
-        @id = id
+      sig { params(messages: T.nilable(T::Array[::StackOne::Shared::Message]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
+      def initialize(messages: nil, name: nil, passthrough: nil, tags: nil)
         @messages = messages
         @name = name
-        @remote_id = remote_id
+        @passthrough = passthrough
         @tags = tags
       end
     end
