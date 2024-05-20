@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 6ce08d391f4a149959ac2bb51b967564
+  docChecksum: ca6dd75e69ef0d39cc821c8ea9a220b9
   docVersion: 1.0.0
-  speakeasyVersion: 1.291.0
-  generationVersion: 2.332.4
-  releaseVersion: 0.2.22
-  configChecksum: f9ed470ea16aac46e6ddbef2dc33defe
+  speakeasyVersion: 1.293.1
+  generationVersion: 2.333.3
+  releaseVersion: 0.2.23
+  configChecksum: 436c5213377603f20e158adfb46549b4
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -555,6 +555,9 @@ generatedFiles:
   - lib/stack_one/models/shared/ethnicity.rb
   - lib/stack_one/models/shared/employee_schemas_gender_value.rb
   - lib/stack_one/models/shared/gender.rb
+  - lib/stack_one/models/shared/employee_schemas_groups_value.rb
+  - lib/stack_one/models/shared/employee_type.rb
+  - lib/stack_one/models/shared/groups.rb
   - lib/stack_one/models/shared/employee_schemas_home_location_value.rb
   - lib/stack_one/models/shared/employee_country.rb
   - lib/stack_one/models/shared/employee_schemas_home_location_location_type_value.rb
@@ -1126,6 +1129,9 @@ generatedFiles:
   - docs/models/shared/ethnicity.md
   - docs/models/shared/employeeschemasgendervalue.md
   - docs/models/shared/gender.md
+  - docs/models/shared/employeeschemasgroupsvalue.md
+  - docs/models/shared/employeetype.md
+  - docs/models/shared/groups.md
   - docs/models/shared/employeeschemashomelocationvalue.md
   - docs/models/shared/employeecountry.md
   - docs/models/shared/employeeschemashomelocationlocationtypevalue.md

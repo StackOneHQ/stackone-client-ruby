@@ -217,10 +217,12 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
     approver_id: "1687-4",
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    end_half_day: true,
     passthrough: {
       "Passenger": "<value>",
     },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    start_half_day: true,
   ), id="<value>", x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -336,10 +338,12 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
     approver_id: "1687-4",
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    end_half_day: true,
     passthrough: {
       "Bicycle": "<value>",
     },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    start_half_day: true,
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -600,7 +604,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -823,7 +827,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1006,7 +1010,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1287,7 +1291,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1571,10 +1575,12 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
     approver_id: "1687-4",
     employee_id: "1687-3",
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    end_half_day: true,
     passthrough: {
       "Sports": "<value>",
     },
     start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    start_half_day: true,
   ), id="<value>", x_account_id="<value>")
 
 if ! res.create_result.nil?
