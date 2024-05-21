@@ -25,11 +25,11 @@ module StackOne
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # Questionnaires associated with the application
       field :questionnaires, T.nilable(T::Array[::StackOne::Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
-      # Source of the application
-      field :source, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
+
+      field :source, T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), source: T.nilable(::String)).void }
+      sig { params(application_status: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), source: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoSource)).void }
       def initialize(application_status: nil, candidate: nil, candidate_id: nil, job_id: nil, location_id: nil, passthrough: nil, questionnaires: nil, source: nil)
         @application_status = application_status
         @candidate = candidate

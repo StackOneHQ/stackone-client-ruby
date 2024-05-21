@@ -21,11 +21,11 @@ module StackOne
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
-      # Source of the application
-      field :source, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
+
+      field :source, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), interview_stage_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), rejected_reason_id: T.nilable(::String), source: T.nilable(::String)).void }
+      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), interview_stage_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), rejected_reason_id: T.nilable(::String), source: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoSource)).void }
       def initialize(application_status: nil, interview_stage_id: nil, passthrough: nil, rejected_reason_id: nil, source: nil)
         @application_status = application_status
         @interview_stage_id = interview_stage_id

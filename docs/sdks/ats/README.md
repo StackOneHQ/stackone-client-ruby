@@ -110,7 +110,11 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       ),
     ],
-    source: "LinkedIn",
+    source: ::StackOne::Shared::AtsCreateApplicationRequestDtoSource.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      name: "LinkedIn",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
   ), x_account_id="<value>")
 
 if ! res.create_result.nil?
@@ -360,7 +364,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsGetApplicationRequest.new(
   expand: "documents",
-  fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,created_at,updated_at,documents,candidate",
+  fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1121,7 +1125,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
-  fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,created_at,updated_at,documents,candidate",
+  fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
   filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1731,7 +1735,11 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
     passthrough: {
       "Licensed": "<value>",
     },
-    source: "LinkedIn",
+    source: ::StackOne::Shared::AtsUpdateApplicationRequestDtoSource.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      name: "LinkedIn",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
   ), id="<value>", x_account_id="<value>")
 
 if ! res.update_result.nil?

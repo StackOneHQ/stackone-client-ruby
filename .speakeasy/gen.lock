@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: ca6dd75e69ef0d39cc821c8ea9a220b9
+  docChecksum: d74cfaf7ff7be56a55316eed19741630
   docVersion: 1.0.0
-  speakeasyVersion: 1.293.1
+  speakeasyVersion: 1.294.0
   generationVersion: 2.333.3
-  releaseVersion: 0.2.23
-  configChecksum: 436c5213377603f20e158adfb46549b4
+  releaseVersion: 0.2.24
+  configChecksum: d3d9a9742465c0db7a401c3f1d02e34f
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -332,6 +332,7 @@ generatedFiles:
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_value.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_application_status.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_candidate.rb
+  - lib/stack_one/models/shared/atscreateapplicationrequestdto_source.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto.rb
   - lib/stack_one/models/shared/questionnaire.rb
   - lib/stack_one/models/shared/answer_value.rb
@@ -353,6 +354,7 @@ generatedFiles:
   - lib/stack_one/models/shared/application_status.rb
   - lib/stack_one/models/shared/application_candidate.rb
   - lib/stack_one/models/shared/application_interview_stage.rb
+  - lib/stack_one/models/shared/source.rb
   - lib/stack_one/models/shared/application.rb
   - lib/stack_one/models/shared/resultlink.rb
   - lib/stack_one/models/shared/rejectedreason_value.rb
@@ -452,6 +454,7 @@ generatedFiles:
   - lib/stack_one/models/shared/updateresult.rb
   - lib/stack_one/models/shared/atsupdateapplicationrequestdto_value.rb
   - lib/stack_one/models/shared/atsupdateapplicationrequestdto_application_status.rb
+  - lib/stack_one/models/shared/atsupdateapplicationrequestdto_source.rb
   - lib/stack_one/models/shared/atsupdateapplicationrequestdto.rb
   - lib/stack_one/models/shared/atsupdatecandidaterequestdto.rb
   - lib/stack_one/models/shared/writeresultapimodel.rb
@@ -906,6 +909,7 @@ generatedFiles:
   - docs/models/shared/atscreateapplicationrequestdtovalue.md
   - docs/models/shared/atscreateapplicationrequestdtoapplicationstatus.md
   - docs/models/shared/atscreateapplicationrequestdtocandidate.md
+  - docs/models/shared/atscreateapplicationrequestdtosource.md
   - docs/models/shared/atscreateapplicationrequestdto.md
   - docs/models/shared/questionnaire.md
   - docs/models/shared/answervalue.md
@@ -927,6 +931,7 @@ generatedFiles:
   - docs/models/shared/applicationstatus.md
   - docs/models/shared/applicationcandidate.md
   - docs/models/shared/applicationinterviewstage.md
+  - docs/models/shared/source.md
   - docs/models/shared/application.md
   - docs/models/shared/resultlink.md
   - docs/models/shared/rejectedreasonvalue.md
@@ -1026,6 +1031,7 @@ generatedFiles:
   - docs/models/shared/updateresult.md
   - docs/models/shared/atsupdateapplicationrequestdtovalue.md
   - docs/models/shared/atsupdateapplicationrequestdtoapplicationstatus.md
+  - docs/models/shared/atsupdateapplicationrequestdtosource.md
   - docs/models/shared/atsupdateapplicationrequestdto.md
   - docs/models/shared/atsupdatecandidaterequestdto.md
   - docs/models/shared/writeresultapimodel.md

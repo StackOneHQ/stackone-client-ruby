@@ -15,6 +15,8 @@ module StackOne
       field :approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
       # The created date of the time off request
       field :created_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The duration of the time off request (in days)
+      field :duration, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
       # The employee ID
       field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
       # The end date of the time off request
@@ -37,10 +39,11 @@ module StackOne
       field :updated_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(T::Boolean), id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(T::Boolean), status: T.nilable(::StackOne::Shared::TimeOffStatus), type: T.nilable(::StackOne::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
-      def initialize(approver_id: nil, created_date: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, remote_id: nil, start_date: nil, start_half_day: nil, status: nil, type: nil, updated_date: nil)
+      sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::Float), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(T::Boolean), id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(T::Boolean), status: T.nilable(::StackOne::Shared::TimeOffStatus), type: T.nilable(::StackOne::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
+      def initialize(approver_id: nil, created_date: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, remote_id: nil, start_date: nil, start_half_day: nil, status: nil, type: nil, updated_date: nil)
         @approver_id = approver_id
         @created_date = created_date
+        @duration = duration
         @employee_id = employee_id
         @end_date = end_date
         @end_half_day = end_half_day

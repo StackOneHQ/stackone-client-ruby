@@ -604,7 +604,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -827,7 +827,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1010,7 +1010,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1291,7 +1291,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,created_at,updated_at",
+  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
