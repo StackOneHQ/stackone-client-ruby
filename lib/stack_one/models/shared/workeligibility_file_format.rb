@@ -8,16 +8,16 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class FileFormat < ::StackOne::Utils::FieldAugmented
+    class WorkEligibilityFileFormat < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The file format of the file, expressed as a file extension
-      field :value, T.nilable(::StackOne::Shared::AtsDocumentApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AtsDocumentApiModelValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::WorkEligibilitySchemasDocumentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::WorkEligibilitySchemasDocumentValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AtsDocumentApiModelValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::WorkEligibilitySchemasDocumentValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

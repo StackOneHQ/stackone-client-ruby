@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: d74cfaf7ff7be56a55316eed19741630
+  docChecksum: 883ee58e6a10b624eb7d93e8e8babe35
   docVersion: 1.0.0
-  speakeasyVersion: 1.294.0
-  generationVersion: 2.333.3
-  releaseVersion: 0.2.24
-  configChecksum: d3d9a9742465c0db7a401c3f1d02e34f
+  speakeasyVersion: 1.296.1
+  generationVersion: 2.338.1
+  releaseVersion: 0.2.25
+  configChecksum: 4c70a5bcbe2e3ac9cb0c23af8c65c48f
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -362,10 +362,12 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreason.rb
   - lib/stack_one/models/shared/category.rb
   - lib/stack_one/models/shared/atsdocumentapimodel_value.rb
+  - lib/stack_one/models/shared/file_format.rb
+  - lib/stack_one/models/shared/atsdocumentapimodel_schemas_value.rb
   - lib/stack_one/models/shared/atsdocumentapimodel_type.rb
   - lib/stack_one/models/shared/atsdocumentapimodel.rb
   - lib/stack_one/models/shared/content_value.rb
-  - lib/stack_one/models/shared/file_format.rb
+  - lib/stack_one/models/shared/content_file_format.rb
   - lib/stack_one/models/shared/content.rb
   - lib/stack_one/models/shared/phonenumber_type.rb
   - lib/stack_one/models/shared/phonenumber.rb
@@ -536,6 +538,8 @@ generatedFiles:
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_type.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto.rb
   - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_category.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_schemas_document_value.rb
+  - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_file_format.rb
   - lib/stack_one/models/shared/document.rb
   - lib/stack_one/models/shared/hriscreateworkeligibilityrequestdto_value.rb
   - lib/stack_one/models/shared/issued_by.rb
@@ -582,6 +586,8 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisdocumentapimodel_value.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_category.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_schemas_value.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel_file_format.rb
+  - lib/stack_one/models/shared/hrisdocumentapimodel_schemas_type_value.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_type.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel.rb
   - lib/stack_one/models/shared/timeoffresult.rb
@@ -592,6 +598,8 @@ generatedFiles:
   - lib/stack_one/models/shared/timeoff.rb
   - lib/stack_one/models/shared/workeligibilityresult.rb
   - lib/stack_one/models/shared/workeligibility_category.rb
+  - lib/stack_one/models/shared/workeligibility_schemas_document_value.rb
+  - lib/stack_one/models/shared/workeligibility_file_format.rb
   - lib/stack_one/models/shared/workeligibility_document.rb
   - lib/stack_one/models/shared/workeligibility_value.rb
   - lib/stack_one/models/shared/workeligibility_issued_by.rb
@@ -939,10 +947,12 @@ generatedFiles:
   - docs/models/shared/rejectedreason.md
   - docs/models/shared/category.md
   - docs/models/shared/atsdocumentapimodelvalue.md
+  - docs/models/shared/fileformat.md
+  - docs/models/shared/atsdocumentapimodelschemasvalue.md
   - docs/models/shared/atsdocumentapimodeltype.md
   - docs/models/shared/atsdocumentapimodel.md
   - docs/models/shared/contentvalue.md
-  - docs/models/shared/fileformat.md
+  - docs/models/shared/contentfileformat.md
   - docs/models/shared/content.md
   - docs/models/shared/phonenumbertype.md
   - docs/models/shared/phonenumber.md
@@ -1113,6 +1123,8 @@ generatedFiles:
   - docs/models/shared/hriscreatetimeoffrequestdtotype.md
   - docs/models/shared/hriscreatetimeoffrequestdto.md
   - docs/models/shared/hriscreateworkeligibilityrequestdtocategory.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdtoschemasdocumentvalue.md
+  - docs/models/shared/hriscreateworkeligibilityrequestdtofileformat.md
   - docs/models/shared/document.md
   - docs/models/shared/hriscreateworkeligibilityrequestdtovalue.md
   - docs/models/shared/issuedby.md
@@ -1159,6 +1171,8 @@ generatedFiles:
   - docs/models/shared/hrisdocumentapimodelvalue.md
   - docs/models/shared/hrisdocumentapimodelcategory.md
   - docs/models/shared/hrisdocumentapimodelschemasvalue.md
+  - docs/models/shared/hrisdocumentapimodelfileformat.md
+  - docs/models/shared/hrisdocumentapimodelschemastypevalue.md
   - docs/models/shared/hrisdocumentapimodeltype.md
   - docs/models/shared/hrisdocumentapimodel.md
   - docs/models/shared/timeoffresult.md
@@ -1169,6 +1183,8 @@ generatedFiles:
   - docs/models/shared/timeoff.md
   - docs/models/shared/workeligibilityresult.md
   - docs/models/shared/workeligibilitycategory.md
+  - docs/models/shared/workeligibilityschemasdocumentvalue.md
+  - docs/models/shared/workeligibilityfileformat.md
   - docs/models/shared/workeligibilitydocument.md
   - docs/models/shared/workeligibilityvalue.md
   - docs/models/shared/workeligibilityissuedby.md

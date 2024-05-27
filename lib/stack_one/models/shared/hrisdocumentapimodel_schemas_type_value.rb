@@ -7,8 +7,8 @@
 module StackOne
   module Shared
   
-    # HrisDocumentApiModelValue - The category of the file
-    class HrisDocumentApiModelValue < T::Enum
+    # HrisDocumentApiModelSchemasTypeValue - The category of the file
+    class HrisDocumentApiModelSchemasTypeValue < T::Enum
       enums do
         APPLICATION = new('application')
         ACADEMIC = new('academic')

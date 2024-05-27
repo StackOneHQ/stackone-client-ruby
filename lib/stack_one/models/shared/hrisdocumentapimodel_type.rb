@@ -16,10 +16,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The category of the file
-      field :value, T.nilable(::StackOne::Shared::HrisDocumentApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisDocumentApiModelSchemasValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::HrisDocumentApiModelSchemasTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisDocumentApiModelSchemasTypeValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisDocumentApiModelSchemasValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisDocumentApiModelSchemasTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

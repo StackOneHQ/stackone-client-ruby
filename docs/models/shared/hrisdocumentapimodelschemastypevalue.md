@@ -1,6 +1,6 @@
-# HrisDocumentsUploadRequestDtoValue
+# HrisDocumentApiModelSchemasTypeValue
 
-The category name to associate with the file
+The category of the file
 
 
 ## Values

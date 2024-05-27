@@ -266,21 +266,16 @@ s.config_security(
 res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: ::StackOne::Shared::Document.new(
       category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
-      contents: [
-        ::StackOne::Shared::Content.new(
-          file_format: ::StackOne::Shared::FileFormat.new(
-            source_value: "abc",
-            value: ::StackOne::Shared::ContentValue::PDF,
-          ),
-          unified_url: "https://api.stackone.com/unified/hris/employees/12345/documents/67890/download",
-          url: "https://example.com/file.pdf",
-        ),
-      ],
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      file_format: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
+        source_value: "abc",
+        value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+      ),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "My Document",
       path: "/path/to/file",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      remote_url: "https://example.com/file.pdf",
       updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
     ),
     issued_by: ::StackOne::Shared::IssuedBy.new(
@@ -559,7 +554,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -963,7 +958,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   filter: ::StackOne::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1502,21 +1497,16 @@ s.config_security(
 res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: ::StackOne::Shared::Document.new(
       category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
-      contents: [
-        ::StackOne::Shared::Content.new(
-          file_format: ::StackOne::Shared::FileFormat.new(
-            source_value: "abc",
-            value: ::StackOne::Shared::ContentValue::PDF,
-          ),
-          unified_url: "https://api.stackone.com/unified/hris/employees/12345/documents/67890/download",
-          url: "https://example.com/file.pdf",
-        ),
-      ],
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      file_format: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
+        source_value: "abc",
+        value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+      ),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "My Document",
       path: "/path/to/file",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      remote_url: "https://example.com/file.pdf",
       updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
     ),
     issued_by: ::StackOne::Shared::IssuedBy.new(

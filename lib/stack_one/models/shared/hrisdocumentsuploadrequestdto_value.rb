@@ -22,6 +22,7 @@ module StackOne
         APPRAISAL = new('appraisal')
         RESUME = new('resume')
         POLICY = new('policy')
+        COVER_LETTER = new('cover_letter')
         OFFER_LETTER = new('offer_letter')
         POLICY_AGREEMENT = new('policy_agreement')
         HOME_ADDRESS = new('home_address')

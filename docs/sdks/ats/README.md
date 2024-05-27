@@ -408,7 +408,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -1030,7 +1030,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at",
+  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   filter: ::StackOne::Operations::Filter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),

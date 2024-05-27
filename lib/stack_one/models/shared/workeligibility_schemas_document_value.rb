@@ -7,8 +7,8 @@
 module StackOne
   module Shared
   
-    # HrisDocumentApiModelSchemasValue - The file format of the file, expressed as a file extension
-    class HrisDocumentApiModelSchemasValue < T::Enum
+    # WorkEligibilitySchemasDocumentValue - The file format of the file, expressed as a file extension
+    class WorkEligibilitySchemasDocumentValue < T::Enum
       enums do
         UNMAPPED_VALUE = new('unmapped_value')
         EZ = new('ez')
