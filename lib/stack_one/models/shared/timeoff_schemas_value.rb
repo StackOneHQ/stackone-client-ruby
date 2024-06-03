@@ -20,6 +20,7 @@ module StackOne
         TRAINING = new('training')
         ANNUAL_LEAVE = new('annual_leave')
         LEAVE_OF_ABSENCE = new('leave_of_absence')
+        BREAK = new('break')
         CHILD_CARE_LEAVE = new('child_care_leave')
       end
     end

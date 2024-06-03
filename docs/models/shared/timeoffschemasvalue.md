@@ -15,4 +15,5 @@
 | `TRAINING`              | training                |
 | `ANNUAL_LEAVE`          | annual_leave            |
 | `LEAVE_OF_ABSENCE`      | leave_of_absence        |
+| `BREAK`                 | break                   |
 | `CHILD_CARE_LEAVE`      | child_care_leave        |

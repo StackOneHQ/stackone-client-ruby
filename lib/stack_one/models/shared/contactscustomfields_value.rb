@@ -15,6 +15,10 @@ module StackOne
         INTEGER = new('integer')
         LIST = new('list')
         TEXT = new('text')
+        FILE = new('file')
+        BOOLEAN = new('boolean')
+        CHECKBOX = new('checkbox')
+        RADIO = new('radio')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
