@@ -45,8 +45,20 @@ module StackOne
       field :rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
 
       field :rejected_reasons, T.nilable(T::Array[::StackOne::Shared::RejectedReason]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reasons') } }
+      # Provider's unique identifier of the candidate
+      field :remote_candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_candidate_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Provider's unique identifier of the interview stage
+      field :remote_interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_stage_id') } }
+      # Provider's unique identifier of the job
+      field :remote_job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
+      # Provider's unique identifier of the location
+      field :remote_location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_id') } }
+      # Remote's unique identifiers of the locations
+      field :remote_location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_ids') } }
+      # Provider's unique identifiers of the rejection reasons
+      field :remote_rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_rejected_reason_ids') } }
 
       field :result_links, T.nilable(T::Array[::StackOne::Shared::ResultLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_links') } }
 
@@ -55,8 +67,8 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::ApplicationStatus), attachments: T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), candidate: T.nilable(::StackOne::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), documents: T.nilable(T::Array[::StackOne::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(::StackOne::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[::StackOne::Shared::RejectedReason]), remote_id: T.nilable(::String), result_links: T.nilable(T::Array[::StackOne::Shared::ResultLink]), source: T.nilable(::StackOne::Shared::Source), updated_at: T.nilable(::DateTime)).void }
-      def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_id: nil, result_links: nil, source: nil, updated_at: nil)
+      sig { params(application_status: T.nilable(::StackOne::Shared::ApplicationStatus), attachments: T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), candidate: T.nilable(::StackOne::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), documents: T.nilable(T::Array[::StackOne::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(::StackOne::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[::StackOne::Shared::RejectedReason]), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_job_id: T.nilable(::String), remote_location_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), remote_rejected_reason_ids: T.nilable(T::Array[::String]), result_links: T.nilable(T::Array[::StackOne::Shared::ResultLink]), source: T.nilable(::StackOne::Shared::Source), updated_at: T.nilable(::DateTime)).void }
+      def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_job_id: nil, remote_location_id: nil, remote_location_ids: nil, remote_rejected_reason_ids: nil, result_links: nil, source: nil, updated_at: nil)
         @application_status = application_status
         @attachments = attachments
         @candidate = candidate
@@ -73,7 +85,13 @@ module StackOne
         @rejected_at = rejected_at
         @rejected_reason_ids = rejected_reason_ids
         @rejected_reasons = rejected_reasons
+        @remote_candidate_id = remote_candidate_id
         @remote_id = remote_id
+        @remote_interview_stage_id = remote_interview_stage_id
+        @remote_job_id = remote_job_id
+        @remote_location_id = remote_location_id
+        @remote_location_ids = remote_location_ids
+        @remote_rejected_reason_ids = remote_rejected_reason_ids
         @result_links = result_links
         @source = source
         @updated_at = updated_at

@@ -34,7 +34,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
-  fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -90,6 +90,7 @@ end
 * [get_interview_stage](docs/sdks/ats/README.md#get_interview_stage) - Get Interview Stage
 * [get_job](docs/sdks/ats/README.md#get_job) - Get Job
 * [get_job_posting](docs/sdks/ats/README.md#get_job_posting) - Get Job Posting
+* [get_list](docs/sdks/ats/README.md#get_list) - Get List
 * [get_location](docs/sdks/ats/README.md#get_location) - Get Location
 * [get_offer](docs/sdks/ats/README.md#get_offer) - Get Offer
 * [get_rejected_reason](docs/sdks/ats/README.md#get_rejected_reason) - Get Rejected Reason
@@ -105,6 +106,7 @@ end
 * [list_interviews](docs/sdks/ats/README.md#list_interviews) - List Interviews
 * [list_job_postings](docs/sdks/ats/README.md#list_job_postings) - List Job Postings
 * [list_jobs](docs/sdks/ats/README.md#list_jobs) - List Jobs
+* [list_lists](docs/sdks/ats/README.md#list_lists) - Get all Lists
 * [list_locations](docs/sdks/ats/README.md#list_locations) - List locations
 * [list_offers](docs/sdks/ats/README.md#list_offers) - List Offers
 * [list_rejected_reasons](docs/sdks/ats/README.md#list_rejected_reasons) - List Rejected Reasons

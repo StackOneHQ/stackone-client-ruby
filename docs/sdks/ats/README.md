@@ -19,6 +19,7 @@
 * [get_interview_stage](#get_interview_stage) - Get Interview Stage
 * [get_job](#get_job) - Get Job
 * [get_job_posting](#get_job_posting) - Get Job Posting
+* [get_list](#get_list) - Get List
 * [get_location](#get_location) - Get Location
 * [get_offer](#get_offer) - Get Offer
 * [get_rejected_reason](#get_rejected_reason) - Get Rejected Reason
@@ -34,6 +35,7 @@
 * [list_interviews](#list_interviews) - List Interviews
 * [list_job_postings](#list_job_postings) - List Job Postings
 * [list_jobs](#list_jobs) - List Jobs
+* [list_lists](#list_lists) - Get all Lists
 * [list_locations](#list_locations) - List locations
 * [list_offers](#list_offers) - List Offers
 * [list_rejected_reasons](#list_rejected_reasons) - List Rejected Reasons
@@ -364,7 +366,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsGetApplicationRequest.new(
   expand: "documents",
-  fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -408,7 +410,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -453,7 +455,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationOfferRequest.new(
-  fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
+  fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -498,7 +500,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(
-  fields_: "id,sections,label,candidate_id,application_id,interview_id,author_id,overall_recommendation,created_at,updated_at",
+  fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -543,7 +545,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetCandidateRequest.new(
-  fields_: "id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,hired_at,created_at,updated_at",
+  fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -587,7 +589,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetCandidateNoteRequest.new(
-  fields_: "id,content,author_id,visibility,created_at,updated_at,deleted_at",
+  fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -632,7 +634,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetDepartmentRequest.new(
-  fields_: "id,name",
+  fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -676,7 +678,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetInterviewRequest.new(
-  fields_: "id,application_id,interview_stage_id,interview_stage,status,interview_status,interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
+  fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -720,7 +722,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetInterviewStageRequest.new(
-  fields_: "id,name,order,created_at,updated_at",
+  fields_: "id,remote_id,name,order,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -765,7 +767,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsGetJobRequest.new(
   expand: "job_postings,interview_stages",
-  fields_: "id,code,title,status,job_status,department_ids,location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
+  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -809,7 +811,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetJobPostingRequest.new(
-  fields_: "id,title,locations,internal,status,job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
+  fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
   id: "<id>",
   include: "questionnaires",
   x_account_id: "<value>",
@@ -835,6 +837,50 @@ end
 **[T.nilable(::StackOne::Operations::AtsGetJobPostingResponse)](../../models/operations/atsgetjobpostingresponse.md)**
 
 
+## get_list
+
+Get List
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetListRequest.new(
+  fields_: "id,remote_id,name,created_at,updated_at,items,type",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_list(req)
+
+if ! res.list_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [::StackOne::Operations::AtsGetListRequest](../../models/operations/atsgetlistrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetListResponse)](../../models/operations/atsgetlistresponse.md)**
+
+
 ## get_location
 
 Get Location
@@ -854,7 +900,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetLocationRequest.new(
-  fields_: "id,name",
+  fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -898,7 +944,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetOfferRequest.new(
-  fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
+  fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -942,7 +988,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetRejectedReasonRequest.new(
-  fields_: "id,label,type,rejected_reason_type",
+  fields_: "id,remote_id,label,type,rejected_reason_type",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -986,7 +1032,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetUserRequest.new(
-  fields_: "id,first_name,last_name,name,email",
+  fields_: "id,remote_id,first_name,last_name,name,email",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1030,7 +1076,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   filter: ::StackOne::Operations::Filter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1077,7 +1123,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
-  fields_: "id,sections,label,candidate_id,application_id,interview_id,author_id,overall_recommendation,created_at,updated_at",
+  fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
   filter: ::StackOne::Operations::QueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1125,7 +1171,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
-  fields_: "id,candidate_id,job_id,interview_stage,interview_stage_id,rejected_reason,rejected_reason_id,rejected_reason_ids,rejected_reasons,rejected_at,location_id,location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
   filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1171,7 +1217,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(
-  fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
+  fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   filter: ::StackOne::Operations::AtsListApplicationsOffersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1218,7 +1264,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListCandidateNotesRequest.new(
-  fields_: "id,content,author_id,visibility,created_at,updated_at,deleted_at",
+  fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
   filter: ::StackOne::Operations::AtsListCandidateNotesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1265,7 +1311,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListCandidatesRequest.new(
-  fields_: "id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,hired_at,created_at,updated_at",
+  fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListCandidatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1311,7 +1357,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListDepartmentsRequest.new(
-  fields_: "id,name",
+  fields_: "id,remote_id,name",
   filter: ::StackOne::Operations::AtsListDepartmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1357,7 +1403,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListInterviewStagesRequest.new(
-  fields_: "id,name,order,created_at,updated_at",
+  fields_: "id,remote_id,name,order,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListInterviewStagesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1403,7 +1449,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListInterviewsRequest.new(
-  fields_: "id,application_id,interview_stage_id,interview_stage,status,interview_status,interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
+  fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListInterviewsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1449,7 +1495,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
-  fields_: "id,title,locations,internal,status,job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
+  fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
   filter: ::StackOne::Operations::AtsListJobPostingsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1497,7 +1543,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
-  fields_: "id,code,title,status,job_status,department_ids,location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
+  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListJobsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1524,6 +1570,52 @@ end
 **[T.nilable(::StackOne::Operations::AtsListJobsResponse)](../../models/operations/atslistjobsresponse.md)**
 
 
+## list_lists
+
+Get all Lists
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListListsRequest.new(
+  fields_: "id,remote_id,name,created_at,updated_at,items,type",
+  filter: ::StackOne::Operations::AtsListListsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.ats.list_lists(req)
+
+if ! res.lists_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::StackOne::Operations::AtsListListsRequest](../../models/operations/atslistlistsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListListsResponse)](../../models/operations/atslistlistsresponse.md)**
+
+
 ## list_locations
 
 List locations
@@ -1543,7 +1635,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListLocationsRequest.new(
-  fields_: "id,name",
+  fields_: "id,remote_id,name",
   filter: ::StackOne::Operations::AtsListLocationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1589,7 +1681,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListOffersRequest.new(
-  fields_: "id,application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
+  fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   filter: ::StackOne::Operations::AtsListOffersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1635,7 +1727,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(
-  fields_: "id,label,type,rejected_reason_type",
+  fields_: "id,remote_id,label,type,rejected_reason_type",
   filter: ::StackOne::Operations::AtsListRejectedReasonsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1681,7 +1773,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListUsersRequest.new(
-  fields_: "id,first_name,last_name,name,email",
+  fields_: "id,remote_id,first_name,last_name,name,email",
   filter: ::StackOne::Operations::AtsListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),

@@ -25,6 +25,8 @@ module StackOne
       field :meeting_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_url') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Provider's user (interviewer) IDs taking part in this specific interview.
+      field :remote_interviewer_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interviewer_ids') } }
       # The specific interview part's start date
       field :start_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The title of interview, usually corresponding to the title of an associated calendar event
@@ -35,8 +37,8 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), id: T.nilable(::String), interviewer_ids: T.nilable(T::Array[::String]), meeting_provider: T.nilable(::String), meeting_url: T.nilable(::String), remote_id: T.nilable(::String), start_at: T.nilable(::DateTime), title: T.nilable(::String), type: T.nilable(::StackOne::Shared::InterviewPartType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, end_at: nil, id: nil, interviewer_ids: nil, meeting_provider: nil, meeting_url: nil, remote_id: nil, start_at: nil, title: nil, type: nil, updated_at: nil)
+      sig { params(created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), id: T.nilable(::String), interviewer_ids: T.nilable(T::Array[::String]), meeting_provider: T.nilable(::String), meeting_url: T.nilable(::String), remote_id: T.nilable(::String), remote_interviewer_ids: T.nilable(T::Array[::String]), start_at: T.nilable(::DateTime), title: T.nilable(::String), type: T.nilable(::StackOne::Shared::InterviewPartType), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, end_at: nil, id: nil, interviewer_ids: nil, meeting_provider: nil, meeting_url: nil, remote_id: nil, remote_interviewer_ids: nil, start_at: nil, title: nil, type: nil, updated_at: nil)
         @created_at = created_at
         @end_at = end_at
         @id = id
@@ -44,6 +46,7 @@ module StackOne
         @meeting_provider = meeting_provider
         @meeting_url = meeting_url
         @remote_id = remote_id
+        @remote_interviewer_ids = remote_interviewer_ids
         @start_at = start_at
         @title = title
         @type = type

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 93a92719b56a3537ceccef104f41b4d1
+  docChecksum: 6c56266edf4b57ababf8c0d40163ba31
   docVersion: 1.0.0
-  speakeasyVersion: 1.299.4
-  generationVersion: 2.338.7
-  releaseVersion: 0.2.26
-  configChecksum: faaa956beb80d0a4216c04c13fb6d71a
+  speakeasyVersion: 1.300.1
+  generationVersion: 2.339.1
+  releaseVersion: 0.2.27
+  configChecksum: 2c9e062df2b7dd770c82013cf70bf221
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.12
+    core: 3.2.13
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -128,6 +128,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_job_response.rb
   - lib/stack_one/models/operations/ats_get_job_posting_request.rb
   - lib/stack_one/models/operations/ats_get_job_posting_response.rb
+  - lib/stack_one/models/operations/ats_get_list_request.rb
+  - lib/stack_one/models/operations/ats_get_list_response.rb
   - lib/stack_one/models/operations/ats_get_location_request.rb
   - lib/stack_one/models/operations/ats_get_location_response.rb
   - lib/stack_one/models/operations/ats_get_offer_request.rb
@@ -169,6 +171,9 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_list_jobs_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_jobs_request.rb
   - lib/stack_one/models/operations/ats_list_jobs_response.rb
+  - lib/stack_one/models/operations/ats_list_lists_queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_lists_request.rb
+  - lib/stack_one/models/operations/ats_list_lists_response.rb
   - lib/stack_one/models/operations/ats_list_locations_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_locations_request.rb
   - lib/stack_one/models/operations/ats_list_locations_response.rb
@@ -434,6 +439,10 @@ generatedFiles:
   - lib/stack_one/models/shared/jobpostingcompensation_schemas_type_value.rb
   - lib/stack_one/models/shared/jobpostingcompensation_type.rb
   - lib/stack_one/models/shared/jobpostingcompensation.rb
+  - lib/stack_one/models/shared/listresult.rb
+  - lib/stack_one/models/shared/list_value.rb
+  - lib/stack_one/models/shared/list_type.rb
+  - lib/stack_one/models/shared/list.rb
   - lib/stack_one/models/shared/atslocationresult.rb
   - lib/stack_one/models/shared/atslocation.rb
   - lib/stack_one/models/shared/rejectedreasonresult.rb
@@ -450,6 +459,7 @@ generatedFiles:
   - lib/stack_one/models/shared/interviewspaginated.rb
   - lib/stack_one/models/shared/jobpostingspaginated.rb
   - lib/stack_one/models/shared/jobspaginated.rb
+  - lib/stack_one/models/shared/listspaginated.rb
   - lib/stack_one/models/shared/atslocationspaginated.rb
   - lib/stack_one/models/shared/rejectedreasonspaginated.rb
   - lib/stack_one/models/shared/userspaginated.rb
@@ -482,13 +492,8 @@ generatedFiles:
   - lib/stack_one/models/shared/accountaddress_value.rb
   - lib/stack_one/models/shared/location_type.rb
   - lib/stack_one/models/shared/accountaddress.rb
-  - lib/stack_one/models/shared/listresult.rb
-  - lib/stack_one/models/shared/list_value.rb
-  - lib/stack_one/models/shared/list_type.rb
-  - lib/stack_one/models/shared/list.rb
   - lib/stack_one/models/shared/accountspaginated.rb
   - lib/stack_one/models/shared/contactspaginated.rb
-  - lib/stack_one/models/shared/listspaginated.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_avatar.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_employment_contract_type.rb
@@ -713,6 +718,8 @@ generatedFiles:
   - docs/models/operations/atsgetjobresponse.md
   - docs/models/operations/atsgetjobpostingrequest.md
   - docs/models/operations/atsgetjobpostingresponse.md
+  - docs/models/operations/atsgetlistrequest.md
+  - docs/models/operations/atsgetlistresponse.md
   - docs/models/operations/atsgetlocationrequest.md
   - docs/models/operations/atsgetlocationresponse.md
   - docs/models/operations/atsgetofferrequest.md
@@ -754,6 +761,9 @@ generatedFiles:
   - docs/models/operations/atslistjobsqueryparamfilter.md
   - docs/models/operations/atslistjobsrequest.md
   - docs/models/operations/atslistjobsresponse.md
+  - docs/models/operations/atslistlistsqueryparamfilter.md
+  - docs/models/operations/atslistlistsrequest.md
+  - docs/models/operations/atslistlistsresponse.md
   - docs/models/operations/atslistlocationsqueryparamfilter.md
   - docs/models/operations/atslistlocationsrequest.md
   - docs/models/operations/atslistlocationsresponse.md
@@ -1019,6 +1029,10 @@ generatedFiles:
   - docs/models/shared/jobpostingcompensationschemastypevalue.md
   - docs/models/shared/jobpostingcompensationtype.md
   - docs/models/shared/jobpostingcompensation.md
+  - docs/models/shared/listresult.md
+  - docs/models/shared/listvalue.md
+  - docs/models/shared/listtype.md
+  - docs/models/shared/list.md
   - docs/models/shared/atslocationresult.md
   - docs/models/shared/atslocation.md
   - docs/models/shared/rejectedreasonresult.md
@@ -1035,6 +1049,7 @@ generatedFiles:
   - docs/models/shared/interviewspaginated.md
   - docs/models/shared/jobpostingspaginated.md
   - docs/models/shared/jobspaginated.md
+  - docs/models/shared/listspaginated.md
   - docs/models/shared/atslocationspaginated.md
   - docs/models/shared/rejectedreasonspaginated.md
   - docs/models/shared/userspaginated.md
@@ -1067,13 +1082,8 @@ generatedFiles:
   - docs/models/shared/accountaddressvalue.md
   - docs/models/shared/locationtype.md
   - docs/models/shared/accountaddress.md
-  - docs/models/shared/listresult.md
-  - docs/models/shared/listvalue.md
-  - docs/models/shared/listtype.md
-  - docs/models/shared/list.md
   - docs/models/shared/accountspaginated.md
   - docs/models/shared/contactspaginated.md
-  - docs/models/shared/listspaginated.md
   - docs/models/shared/hriscreateemployeerequestdtoavatar.md
   - docs/models/shared/hriscreateemployeerequestdtovalue.md
   - docs/models/shared/hriscreateemployeerequestdtoemploymentcontracttype.md

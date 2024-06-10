@@ -23,6 +23,8 @@ module StackOne
       field :offer_history, T.nilable(T::Array[::StackOne::Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
 
       field :offer_status, T.nilable(::StackOne::Shared::OfferOfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
+      # Provider's unique identifier of the application
+      field :remote_application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
@@ -33,14 +35,15 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), id: T.nilable(::String), offer_history: T.nilable(T::Array[::StackOne::Shared::OfferHistory]), offer_status: T.nilable(::StackOne::Shared::OfferOfferStatus), remote_id: T.nilable(::String), salary: T.nilable(::Float), start_date: T.nilable(::DateTime), updated_at: T.nilable(::DateTime)).void }
-      def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, remote_id: nil, salary: nil, start_date: nil, updated_at: nil)
+      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), id: T.nilable(::String), offer_history: T.nilable(T::Array[::StackOne::Shared::OfferHistory]), offer_status: T.nilable(::StackOne::Shared::OfferOfferStatus), remote_application_id: T.nilable(::String), remote_id: T.nilable(::String), salary: T.nilable(::Float), start_date: T.nilable(::DateTime), updated_at: T.nilable(::DateTime)).void }
+      def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, remote_application_id: nil, remote_id: nil, salary: nil, start_date: nil, updated_at: nil)
         @application_id = application_id
         @created_at = created_at
         @currency = currency
         @id = id
         @offer_history = offer_history
         @offer_status = offer_status
+        @remote_application_id = remote_application_id
         @remote_id = remote_id
         @salary = salary
         @start_date = start_date

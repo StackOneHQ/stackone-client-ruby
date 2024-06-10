@@ -27,6 +27,8 @@ module StackOne
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # The phone number of the location
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
+      # Provider's unique identifier of the employee
+      field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The state where the location is situated
@@ -41,8 +43,8 @@ module StackOne
       field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::HRISLocationCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::HRISLocationLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
-      def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, updated_at: nil, zip_code: nil)
+      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::HRISLocationCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::HRISLocationLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
+      def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, remote_employee_id: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, updated_at: nil, zip_code: nil)
         @city = city
         @country = country
         @created_at = created_at
@@ -51,6 +53,7 @@ module StackOne
         @location_type = location_type
         @name = name
         @phone_number = phone_number
+        @remote_employee_id = remote_employee_id
         @remote_id = remote_id
         @state = state
         @street_1 = street_1

@@ -21,6 +21,8 @@ module StackOne
       field :deleted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deleted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # Provider's unique identifier of the author
+      field :remote_author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_author_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # Date of last update
@@ -29,13 +31,14 @@ module StackOne
       field :visibility, T.nilable(::StackOne::Shared::NoteVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), created_at: T.nilable(::DateTime), deleted_at: T.nilable(::DateTime), id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime), visibility: T.nilable(::StackOne::Shared::NoteVisibility)).void }
-      def initialize(author_id: nil, content: nil, created_at: nil, deleted_at: nil, id: nil, remote_id: nil, updated_at: nil, visibility: nil)
+      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), created_at: T.nilable(::DateTime), deleted_at: T.nilable(::DateTime), id: T.nilable(::String), remote_author_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime), visibility: T.nilable(::StackOne::Shared::NoteVisibility)).void }
+      def initialize(author_id: nil, content: nil, created_at: nil, deleted_at: nil, id: nil, remote_author_id: nil, remote_id: nil, updated_at: nil, visibility: nil)
         @author_id = author_id
         @content = content
         @created_at = created_at
         @deleted_at = deleted_at
         @id = id
+        @remote_author_id = remote_author_id
         @remote_id = remote_id
         @updated_at = updated_at
         @visibility = visibility

@@ -81,6 +81,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
           "<value>",
         ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
         type: ::StackOne::Shared::EmployeeCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
@@ -117,6 +118,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
           value: ::StackOne::Shared::EmploymentSchemasPayPeriodValue::HOUR,
         ),
         pay_rate: "40.00",
+        remote_employee_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       ),
@@ -420,7 +422,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetBenefitRequest.new(
-  fields_: "id,name,benefit_type,provider,description,created_at,updated_at",
+  fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -464,7 +466,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetCompanyRequest.new(
-  fields_: "id,name,full_name,display_name,created_at,updated_at",
+  fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -509,7 +511,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
-  fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<value>",
@@ -554,7 +556,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -599,7 +601,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -644,7 +646,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
-  fields_: "id,type,sub_type,document,valid_from,valid_to,issued_by,number",
+  fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -690,7 +692,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -734,7 +736,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetGroupRequest.new(
-  fields_: "id,name,type,parent_ids,owner_ids",
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -778,7 +780,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetLocationRequest.new(
-  fields_: "id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -822,7 +824,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -866,7 +868,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListBenefitsRequest.new(
-  fields_: "id,name,benefit_type,provider,description,created_at,updated_at",
+  fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListBenefitsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -912,7 +914,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListCompaniesRequest.new(
-  fields_: "id,name,full_name,display_name,created_at,updated_at",
+  fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListCompaniesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -958,7 +960,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
-  fields_: "id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
   filter: ::StackOne::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1005,7 +1007,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1052,7 +1054,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
-  fields_: "id,type,sub_type,document,valid_from,valid_to,issued_by,number",
+  fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   filter: ::StackOne::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1100,7 +1102,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
-  fields_: "id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1148,7 +1150,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1194,7 +1196,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListGroupsRequest.new(
-  fields_: "id,name,type,parent_ids,owner_ids",
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   filter: ::StackOne::Operations::HrisListGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1240,7 +1242,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListLocationsRequest.new(
-  fields_: "id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListLocationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1286,7 +1288,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
-  fields_: "id,employee_id,approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1361,6 +1363,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
           "<value>",
         ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
         type: ::StackOne::Shared::EmployeeCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
@@ -1397,6 +1400,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
           value: ::StackOne::Shared::EmploymentSchemasPayPeriodValue::HOUR,
         ),
         pay_rate: "40.00",
+        remote_employee_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       ),
