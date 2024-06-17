@@ -16,7 +16,7 @@ module StackOne
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :items, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
+      field :items, T.nilable(T::Array[::StackOne::Shared::ListItem]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Provider's unique identifier
@@ -27,7 +27,7 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[::String]), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::ListType), updated_at: T.nilable(::DateTime)).void }
+      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[::StackOne::Shared::ListItem]), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::ListType), updated_at: T.nilable(::DateTime)).void }
       def initialize(created_at: nil, id: nil, items: nil, name: nil, remote_id: nil, type: nil, updated_at: nil)
         @created_at = created_at
         @id = id

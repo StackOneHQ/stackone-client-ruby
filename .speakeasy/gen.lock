@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 6c56266edf4b57ababf8c0d40163ba31
+  docChecksum: 3f37d12db4e2ab0488e5942feec1c1c4
   docVersion: 1.0.0
-  speakeasyVersion: 1.300.1
-  generationVersion: 2.339.1
-  releaseVersion: 0.2.27
-  configChecksum: 2c9e062df2b7dd770c82013cf70bf221
+  speakeasyVersion: 1.308.1
+  generationVersion: 2.342.6
+  releaseVersion: 0.2.28
+  configChecksum: bbaff534aa2f618f70223f730265e899
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -229,6 +229,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_employee_response.rb
   - lib/stack_one/models/operations/hris_get_employee_document_request.rb
   - lib/stack_one/models/operations/hris_get_employee_document_response.rb
+  - lib/stack_one/models/operations/hris_get_employee_document_category_request.rb
+  - lib/stack_one/models/operations/hris_get_employee_document_category_response.rb
   - lib/stack_one/models/operations/hris_get_employees_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_get_employees_time_off_request_response.rb
   - lib/stack_one/models/operations/hris_get_employees_work_eligibility_request.rb
@@ -247,6 +249,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_companies_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_companies_request.rb
   - lib/stack_one/models/operations/hris_list_companies_response.rb
+  - lib/stack_one/models/operations/hris_list_employee_categories_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_employee_categories_request.rb
+  - lib/stack_one/models/operations/hris_list_employee_categories_response.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_request.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_response.rb
@@ -443,6 +448,7 @@ generatedFiles:
   - lib/stack_one/models/shared/list_value.rb
   - lib/stack_one/models/shared/list_type.rb
   - lib/stack_one/models/shared/list.rb
+  - lib/stack_one/models/shared/listitem.rb
   - lib/stack_one/models/shared/atslocationresult.rb
   - lib/stack_one/models/shared/atslocation.rb
   - lib/stack_one/models/shared/rejectedreasonresult.rb
@@ -595,6 +601,8 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisdocumentapimodel_schemas_type_value.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_type.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel.rb
+  - lib/stack_one/models/shared/referenceresult.rb
+  - lib/stack_one/models/shared/reference.rb
   - lib/stack_one/models/shared/timeoffresult.rb
   - lib/stack_one/models/shared/timeoff_value.rb
   - lib/stack_one/models/shared/timeoff_status.rb
@@ -624,6 +632,7 @@ generatedFiles:
   - lib/stack_one/models/shared/hrislocation.rb
   - lib/stack_one/models/shared/hrisbenefitspaginated.rb
   - lib/stack_one/models/shared/companiespaginated.rb
+  - lib/stack_one/models/shared/referencepaginated.rb
   - lib/stack_one/models/shared/hrisdocumentspaginated.rb
   - lib/stack_one/models/shared/timeoffpaginated.rb
   - lib/stack_one/models/shared/workeligibilitypaginated.rb
@@ -819,6 +828,8 @@ generatedFiles:
   - docs/models/operations/hrisgetemployeeresponse.md
   - docs/models/operations/hrisgetemployeedocumentrequest.md
   - docs/models/operations/hrisgetemployeedocumentresponse.md
+  - docs/models/operations/hrisgetemployeedocumentcategoryrequest.md
+  - docs/models/operations/hrisgetemployeedocumentcategoryresponse.md
   - docs/models/operations/hrisgetemployeestimeoffrequestrequest.md
   - docs/models/operations/hrisgetemployeestimeoffrequestresponse.md
   - docs/models/operations/hrisgetemployeesworkeligibilityrequest.md
@@ -837,6 +848,9 @@ generatedFiles:
   - docs/models/operations/hrislistcompaniesqueryparamfilter.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
+  - docs/models/operations/hrislistemployeecategoriesqueryparamfilter.md
+  - docs/models/operations/hrislistemployeecategoriesrequest.md
+  - docs/models/operations/hrislistemployeecategoriesresponse.md
   - docs/models/operations/hrislistemployeedocumentsqueryparamfilter.md
   - docs/models/operations/hrislistemployeedocumentsrequest.md
   - docs/models/operations/hrislistemployeedocumentsresponse.md
@@ -1033,6 +1047,7 @@ generatedFiles:
   - docs/models/shared/listvalue.md
   - docs/models/shared/listtype.md
   - docs/models/shared/list.md
+  - docs/models/shared/listitem.md
   - docs/models/shared/atslocationresult.md
   - docs/models/shared/atslocation.md
   - docs/models/shared/rejectedreasonresult.md
@@ -1185,6 +1200,8 @@ generatedFiles:
   - docs/models/shared/hrisdocumentapimodelschemastypevalue.md
   - docs/models/shared/hrisdocumentapimodeltype.md
   - docs/models/shared/hrisdocumentapimodel.md
+  - docs/models/shared/referenceresult.md
+  - docs/models/shared/reference.md
   - docs/models/shared/timeoffresult.md
   - docs/models/shared/timeoffvalue.md
   - docs/models/shared/timeoffstatus.md
@@ -1214,6 +1231,7 @@ generatedFiles:
   - docs/models/shared/hrislocation.md
   - docs/models/shared/hrisbenefitspaginated.md
   - docs/models/shared/companiespaginated.md
+  - docs/models/shared/referencepaginated.md
   - docs/models/shared/hrisdocumentspaginated.md
   - docs/models/shared/timeoffpaginated.md
   - docs/models/shared/workeligibilitypaginated.md

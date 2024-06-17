@@ -12,6 +12,7 @@
 * [get_company](#get_company) - Get Company
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
+* [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
@@ -20,6 +21,7 @@
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
+* [list_employee_categories](#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
@@ -142,6 +144,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       street_2: "Woolsthorpe by Colsterworth",
       zip_code: "NG33 5NR",
     ),
+    job_id: "R-6789",
     job_title: "Physicist",
     last_name: "Newton",
     manager_id: "67890",
@@ -582,6 +585,50 @@ end
 **[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentResponse)](../../models/operations/hrisgetemployeedocumentresponse.md)**
 
 
+## get_employee_document_category
+
+Get Employee Document Category
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
+  fields_: "id,remote_id,name",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_employee_document_category(req)
+
+if ! res.reference_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest](../../models/operations/hrisgetemployeedocumentcategoryrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse)](../../models/operations/hrisgetemployeedocumentcategoryresponse.md)**
+
+
 ## get_employees_time_off_request
 
 Get Employees Time Off Request
@@ -939,6 +986,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
+
+
+## list_employee_categories
+
+List Employee Document Categories
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListEmployeeCategoriesRequest.new(
+  fields_: "id,remote_id,name",
+  filter: ::StackOne::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_employee_categories(req)
+
+if ! res.reference_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [::StackOne::Operations::HrisListEmployeeCategoriesRequest](../../models/operations/hrislistemployeecategoriesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesResponse)](../../models/operations/hrislistemployeecategoriesresponse.md)**
 
 
 ## list_employee_documents
@@ -1424,6 +1517,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       street_2: "Woolsthorpe by Colsterworth",
       zip_code: "NG33 5NR",
     ),
+    job_id: "R-6789",
     job_title: "Physicist",
     last_name: "Newton",
     manager_id: "67890",

@@ -410,6 +410,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest)).returns(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse) }
+    def get_employee_document_category(request)
+      # get_employee_document_category - Get Employee Document Category
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest,
+        base_url,
+        '/unified/hris/documents/employee_categories/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferenceResult)
+          res.reference_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse) }
     def get_employees_time_off_request(request)
       # get_employees_time_off_request - Get Employees Time Off Request
@@ -697,6 +735,39 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompaniesPaginated)
           res.companies_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesRequest)).returns(::StackOne::Operations::HrisListEmployeeCategoriesResponse) }
+    def list_employee_categories(request)
+      # list_employee_categories - List Employee Document Categories
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/documents/employee_categories"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeCategoriesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListEmployeeCategoriesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferencePaginated)
+          res.reference_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

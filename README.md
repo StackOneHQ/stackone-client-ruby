@@ -137,6 +137,7 @@ end
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
+* [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
 * [get_employees_time_off_request](docs/sdks/hris/README.md#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](docs/sdks/hris/README.md#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](docs/sdks/hris/README.md#get_employment) - Get Employment
@@ -145,6 +146,7 @@ end
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
+* [list_employee_categories](docs/sdks/hris/README.md#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](docs/sdks/hris/README.md#list_employee_work_eligibility) - List Employee Work Eligibility
