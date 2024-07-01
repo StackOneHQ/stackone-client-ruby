@@ -14,7 +14,7 @@ module StackOne
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :internal, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal') } }
+      field :internal, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
@@ -23,7 +23,7 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), internal: T.nilable(T::Boolean), name: T.nilable(::String), questions: T.nilable(T::Array[::StackOne::Shared::Question]), remote_id: T.nilable(::String)).void }
+      sig { params(id: T.nilable(::String), internal: T.nilable(::Object), name: T.nilable(::String), questions: T.nilable(T::Array[::StackOne::Shared::Question]), remote_id: T.nilable(::String)).void }
       def initialize(id: nil, internal: nil, name: nil, questions: nil, remote_id: nil)
         @id = id
         @internal = internal

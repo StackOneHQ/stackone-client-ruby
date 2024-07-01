@@ -404,6 +404,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageRequest)).returns(::StackOne::Operations::AtsGetAssessmentsPackageResponse) }
+    def get_assessments_package(request)
+      # get_assessments_package - Get Assessments Package
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsGetAssessmentsPackageRequest,
+        base_url,
+        '/unified/ats/assessments/packages/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsGetAssessmentsPackageRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsGetAssessmentsPackageResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsPackagesResult)
+          res.assessments_packages_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::AtsGetCandidateRequest)).returns(::StackOne::Operations::AtsGetCandidateResponse) }
     def get_candidate(request)
       # get_candidate - Get Candidate
@@ -1000,6 +1038,39 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::OffersPaginated)
           res.offers_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListAssessmentsPackagesRequest)).returns(::StackOne::Operations::AtsListAssessmentsPackagesResponse) }
+    def list_assessments_packages(request)
+      # list_assessments_packages - List Assessments Packages
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/ats/assessments/packages"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsListAssessmentsPackagesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsListAssessmentsPackagesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsPackagesPaginated)
+          res.assessments_packages_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

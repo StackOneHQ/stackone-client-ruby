@@ -25,6 +25,7 @@ module StackOne
         EXPATRIATE = new('expatriate')
         EMPLOYER_OF_RECORD = new('employer_of_record')
         CASUAL = new('casual')
+        PROGRAMME = new('Programme')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

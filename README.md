@@ -34,7 +34,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,job_description,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -83,6 +83,7 @@ end
 * [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
+* [get_assessments_package](docs/sdks/ats/README.md#get_assessments_package) - Get Assessments Package
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
 * [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
 * [get_department](docs/sdks/ats/README.md#get_department) - Get Department
@@ -99,6 +100,7 @@ end
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
 * [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
 * [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
+* [list_assessments_packages](docs/sdks/ats/README.md#list_assessments_packages) - List Assessments Packages
 * [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
 * [list_candidates](docs/sdks/ats/README.md#list_candidates) - List Candidates
 * [list_departments](docs/sdks/ats/README.md#list_departments) - List Departments

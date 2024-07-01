@@ -22,7 +22,7 @@ module StackOne
       # The end date of the time off request
       field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # True if the end of the time off request ends half way through the day
-      field :end_half_day, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
+      field :end_half_day, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Provider's unique identifier of the approver
@@ -34,7 +34,7 @@ module StackOne
       # The start date of the time off request
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # True if the start of the time off request begins half way through the day
-      field :start_half_day, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
+      field :start_half_day, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
       # The status of the time off request
       field :status, T.nilable(::StackOne::Shared::TimeOffStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
       # The type of the time off request
@@ -43,7 +43,7 @@ module StackOne
       field :updated_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(T::Boolean), id: T.nilable(::String), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(T::Boolean), status: T.nilable(::StackOne::Shared::TimeOffStatus), type: T.nilable(::StackOne::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
+      sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(::Object), id: T.nilable(::String), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(::Object), status: T.nilable(::StackOne::Shared::TimeOffStatus), type: T.nilable(::StackOne::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
       def initialize(approver_id: nil, created_date: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, start_half_day: nil, status: nil, type: nil, updated_date: nil)
         @approver_id = approver_id
         @created_date = created_date

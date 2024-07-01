@@ -24,6 +24,7 @@ module StackOne
         PRO_RATA = new('pro_rata')
         UNMAPPED_VALUE = new('unmapped_value')
         HALF_YEARLY = new('half_yearly')
+        DAILY = new('daily')
       end
     end
 

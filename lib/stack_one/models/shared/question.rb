@@ -20,14 +20,14 @@ module StackOne
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-      field :required, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
+      field :required, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
 
       field :text, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
 
       field :type, T.nilable(::StackOne::Shared::QuestionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(id: T.nilable(::String), multiple_choice_answers: T.nilable(T::Array[::StackOne::Shared::QuestionMultipleChoiceAnswers]), name: T.nilable(::String), remote_id: T.nilable(::String), required: T.nilable(T::Boolean), text: T.nilable(::String), type: T.nilable(::StackOne::Shared::QuestionType)).void }
+      sig { params(id: T.nilable(::String), multiple_choice_answers: T.nilable(T::Array[::StackOne::Shared::QuestionMultipleChoiceAnswers]), name: T.nilable(::String), remote_id: T.nilable(::String), required: T.nilable(::Object), text: T.nilable(::String), type: T.nilable(::StackOne::Shared::QuestionType)).void }
       def initialize(id: nil, multiple_choice_answers: nil, name: nil, remote_id: nil, required: nil, text: nil, type: nil)
         @id = id
         @multiple_choice_answers = multiple_choice_answers

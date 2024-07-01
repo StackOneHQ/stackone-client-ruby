@@ -7,16 +7,19 @@
 module StackOne
   module Operations
   
-    # Filter parameters that allow greater customisation of the list response
+    # ATS Candidate Filter
     class AtsListCandidatesQueryParamFilter < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # Filter to select candidates by email
+      field :email, T.nilable(::String), { 'query_param': { 'field_name': 'email' } }
       # Use a string with a date to only select results updated after that given date
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
+      sig { params(email: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(email: nil, updated_after: nil)
+        @email = email
         @updated_after = updated_after
       end
     end

@@ -12,6 +12,7 @@
 * [get_application_document](#get_application_document) - Get Application Document
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scorecard](#get_application_scorecard) - Get Application Scorecard
+* [get_assessments_package](#get_assessments_package) - Get Assessments Package
 * [get_candidate](#get_candidate) - Get Candidate
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
 * [get_department](#get_department) - Get Department
@@ -28,6 +29,7 @@
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
+* [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
 * [list_departments](#list_departments) - List Departments
@@ -524,6 +526,49 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationScorecardResponse)](../../models/operations/atsgetapplicationscorecardresponse.md)**
+
+
+## get_assessments_package
+
+Get Assessments Package
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetAssessmentsPackageRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_assessments_package(req)
+
+if ! res.assessments_packages_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [::StackOne::Operations::AtsGetAssessmentsPackageRequest](../../models/operations/atsgetassessmentspackagerequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
 
 
 ## get_candidate
@@ -1245,6 +1290,51 @@ end
 **[T.nilable(::StackOne::Operations::AtsListApplicationsOffersResponse)](../../models/operations/atslistapplicationsoffersresponse.md)**
 
 
+## list_assessments_packages
+
+List Assessments Packages
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListAssessmentsPackagesRequest.new(
+  filter: ::StackOne::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.ats.list_assessments_packages(req)
+
+if ! res.assessments_packages_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [::StackOne::Operations::AtsListAssessmentsPackagesRequest](../../models/operations/atslistassessmentspackagesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListAssessmentsPackagesResponse)](../../models/operations/atslistassessmentspackagesresponse.md)**
+
+
 ## list_candidate_notes
 
 List Candidate Notes
@@ -1827,6 +1917,7 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
     passthrough: {
       "Licensed": "<value>",
     },
+    rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
     source: ::StackOne::Shared::AtsUpdateApplicationRequestDtoSource.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "LinkedIn",

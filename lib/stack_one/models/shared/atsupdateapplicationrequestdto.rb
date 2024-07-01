@@ -17,9 +17,7 @@ module StackOne
       field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Unique identifier of the rejection reason, used only for write operations
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+      # Unique identifier of the rejection reason
       field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
 
       field :source, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }

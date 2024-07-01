@@ -11,6 +11,8 @@ module StackOne
     class Reference < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # The reference status
+      field :active, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
       # The reference id
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The reference name
@@ -19,8 +21,9 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(id: nil, name: nil, remote_id: nil)
+      sig { params(active: T.nilable(::Object), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+      def initialize(active: nil, id: nil, name: nil, remote_id: nil)
+        @active = active
         @id = id
         @name = name
         @remote_id = remote_id

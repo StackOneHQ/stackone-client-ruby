@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 0eee2c06a398332360d91ad5a31b26cc
+  docChecksum: 61eddfb2d5fee94940ca9d7e99867db6
   docVersion: 1.0.0
-  speakeasyVersion: 1.314.2
-  generationVersion: 2.349.6
-  releaseVersion: 0.2.29
-  configChecksum: 4404daead7b413e01b17f2d211db4c2a
+  speakeasyVersion: 1.322.3
+  generationVersion: 2.354.2
+  releaseVersion: 0.2.30
+  configChecksum: bee5fe578a6ca2ff8d03e0821224bdc6
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -114,6 +114,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_application_offer_response.rb
   - lib/stack_one/models/operations/ats_get_application_scorecard_request.rb
   - lib/stack_one/models/operations/ats_get_application_scorecard_response.rb
+  - lib/stack_one/models/operations/ats_get_assessments_package_request.rb
+  - lib/stack_one/models/operations/ats_get_assessments_package_response.rb
   - lib/stack_one/models/operations/ats_get_candidate_request.rb
   - lib/stack_one/models/operations/ats_get_candidate_response.rb
   - lib/stack_one/models/operations/ats_get_candidate_note_request.rb
@@ -150,6 +152,9 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_list_applications_offers_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_applications_offers_request.rb
   - lib/stack_one/models/operations/ats_list_applications_offers_response.rb
+  - lib/stack_one/models/operations/ats_list_assessments_packages_queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_assessments_packages_request.rb
+  - lib/stack_one/models/operations/ats_list_assessments_packages_response.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_request.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_response.rb
@@ -396,6 +401,10 @@ generatedFiles:
   - lib/stack_one/models/shared/scorecardsection.rb
   - lib/stack_one/models/shared/field_type.rb
   - lib/stack_one/models/shared/field.rb
+  - lib/stack_one/models/shared/assessmentspackagesresult.rb
+  - lib/stack_one/models/shared/assessmentspackages_value.rb
+  - lib/stack_one/models/shared/assessmentspackages_type.rb
+  - lib/stack_one/models/shared/assessmentspackages.rb
   - lib/stack_one/models/shared/candidateresult.rb
   - lib/stack_one/models/shared/candidate.rb
   - lib/stack_one/models/shared/noteresult.rb
@@ -458,6 +467,7 @@ generatedFiles:
   - lib/stack_one/models/shared/scorecardspaginated.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
   - lib/stack_one/models/shared/offerspaginated.rb
+  - lib/stack_one/models/shared/assessmentspackagespaginated.rb
   - lib/stack_one/models/shared/notespaginated.rb
   - lib/stack_one/models/shared/candidatespaginated.rb
   - lib/stack_one/models/shared/departmentspaginated.rb
@@ -584,6 +594,9 @@ generatedFiles:
   - lib/stack_one/models/shared/job_description.rb
   - lib/stack_one/models/shared/employee_schemas_marital_status_value.rb
   - lib/stack_one/models/shared/marital_status.rb
+  - lib/stack_one/models/shared/employee_schemas_national_identity_number_value.rb
+  - lib/stack_one/models/shared/employee_schemas_type.rb
+  - lib/stack_one/models/shared/national_identity_number.rb
   - lib/stack_one/models/shared/employee_schemas_preferred_language_value.rb
   - lib/stack_one/models/shared/preferred_language.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_value.rb
@@ -713,6 +726,8 @@ generatedFiles:
   - docs/models/operations/atsgetapplicationofferresponse.md
   - docs/models/operations/atsgetapplicationscorecardrequest.md
   - docs/models/operations/atsgetapplicationscorecardresponse.md
+  - docs/models/operations/atsgetassessmentspackagerequest.md
+  - docs/models/operations/atsgetassessmentspackageresponse.md
   - docs/models/operations/atsgetcandidaterequest.md
   - docs/models/operations/atsgetcandidateresponse.md
   - docs/models/operations/atsgetcandidatenoterequest.md
@@ -749,6 +764,9 @@ generatedFiles:
   - docs/models/operations/atslistapplicationsoffersqueryparamfilter.md
   - docs/models/operations/atslistapplicationsoffersrequest.md
   - docs/models/operations/atslistapplicationsoffersresponse.md
+  - docs/models/operations/atslistassessmentspackagesqueryparamfilter.md
+  - docs/models/operations/atslistassessmentspackagesrequest.md
+  - docs/models/operations/atslistassessmentspackagesresponse.md
   - docs/models/operations/atslistcandidatenotesqueryparamfilter.md
   - docs/models/operations/atslistcandidatenotesrequest.md
   - docs/models/operations/atslistcandidatenotesresponse.md
@@ -995,6 +1013,10 @@ generatedFiles:
   - docs/models/shared/scorecardsection.md
   - docs/models/shared/fieldtype.md
   - docs/models/shared/field.md
+  - docs/models/shared/assessmentspackagesresult.md
+  - docs/models/shared/assessmentspackagesvalue.md
+  - docs/models/shared/assessmentspackagestype.md
+  - docs/models/shared/assessmentspackages.md
   - docs/models/shared/candidateresult.md
   - docs/models/shared/candidate.md
   - docs/models/shared/noteresult.md
@@ -1057,6 +1079,7 @@ generatedFiles:
   - docs/models/shared/scorecardspaginated.md
   - docs/models/shared/applicationspaginated.md
   - docs/models/shared/offerspaginated.md
+  - docs/models/shared/assessmentspackagespaginated.md
   - docs/models/shared/notespaginated.md
   - docs/models/shared/candidatespaginated.md
   - docs/models/shared/departmentspaginated.md
@@ -1183,6 +1206,9 @@ generatedFiles:
   - docs/models/shared/jobdescription.md
   - docs/models/shared/employeeschemasmaritalstatusvalue.md
   - docs/models/shared/maritalstatus.md
+  - docs/models/shared/employeeschemasnationalidentitynumbervalue.md
+  - docs/models/shared/employeeschemastype.md
+  - docs/models/shared/nationalidentitynumber.md
   - docs/models/shared/employeeschemaspreferredlanguagevalue.md
   - docs/models/shared/preferredlanguage.md
   - docs/models/shared/employeeschemasworklocationvalue.md
