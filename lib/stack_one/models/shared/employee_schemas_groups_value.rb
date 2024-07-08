@@ -14,6 +14,7 @@ module StackOne
         TEAM = new('team')
         DEPARTMENT = new('department')
         GROUP = new('group')
+        ORGANIZATION = new('organization')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

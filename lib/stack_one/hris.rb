@@ -600,6 +600,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetJobRequest)).returns(::StackOne::Operations::HrisGetJobResponse) }
+    def get_job(request)
+      # get_job - Get Job
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetJobRequest,
+        base_url,
+        '/unified/hris/jobs/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetJobRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetJobResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::JobResult)
+          res.job_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetLocationRequest)).returns(::StackOne::Operations::HrisGetLocationResponse) }
     def get_location(request)
       # get_location - Get Location
@@ -981,6 +1019,39 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsPaginated)
           res.hris_groups_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListJobsRequest)).returns(::StackOne::Operations::HrisListJobsResponse) }
+    def list_jobs(request)
+      # list_jobs - List Jobs
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/jobs"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListJobsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListJobsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::JobsPaginated)
+          res.jobs_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

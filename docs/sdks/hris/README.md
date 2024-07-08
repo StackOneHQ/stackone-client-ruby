@@ -17,6 +17,7 @@
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
 * [get_group](#get_group) - Get Group
+* [get_job](#get_job) - Get Job
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_benefits](#list_benefits) - List benefits
@@ -28,6 +29,7 @@
 * [list_employees](#list_employees) - List Employees
 * [list_employments](#list_employments) - List Employments
 * [list_groups](#list_groups) - List Groups
+* [list_jobs](#list_jobs) - List Jobs
 * [list_locations](#list_locations) - List locations
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [update_employee](#update_employee) - Updates an employee
@@ -808,6 +810,50 @@ end
 **[T.nilable(::StackOne::Operations::HrisGetGroupResponse)](../../models/operations/hrisgetgroupresponse.md)**
 
 
+## get_job
+
+Get Job
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetJobRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_job(req)
+
+if ! res.job_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [::StackOne::Operations::HrisGetJobRequest](../../models/operations/hrisgetjobrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetJobResponse)](../../models/operations/hrisgetjobresponse.md)**
+
+
 ## get_location
 
 Get Location
@@ -1314,6 +1360,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListGroupsResponse)](../../models/operations/hrislistgroupsresponse.md)**
+
+
+## list_jobs
+
+List Jobs
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListJobsRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  filter: ::StackOne::Operations::HrisListJobsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_jobs(req)
+
+if ! res.jobs_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::StackOne::Operations::HrisListJobsRequest](../../models/operations/hrislistjobsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListJobsResponse)](../../models/operations/hrislistjobsresponse.md)**
 
 
 ## list_locations

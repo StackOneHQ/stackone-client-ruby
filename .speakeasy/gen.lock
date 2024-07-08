@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 61eddfb2d5fee94940ca9d7e99867db6
+  docChecksum: 6fd725f14e12f22d84170d20c6afa644
   docVersion: 1.0.0
-  speakeasyVersion: 1.322.3
-  generationVersion: 2.354.2
-  releaseVersion: 0.2.30
-  configChecksum: bee5fe578a6ca2ff8d03e0821224bdc6
+  speakeasyVersion: 1.327.0
+  generationVersion: 2.359.6
+  releaseVersion: 0.2.31
+  configChecksum: 84fb3d0c81e0bdd57b3caab4b06e287d
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -244,6 +244,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_employment_response.rb
   - lib/stack_one/models/operations/hris_get_group_request.rb
   - lib/stack_one/models/operations/hris_get_group_response.rb
+  - lib/stack_one/models/operations/hris_get_job_request.rb
+  - lib/stack_one/models/operations/hris_get_job_response.rb
   - lib/stack_one/models/operations/hris_get_location_request.rb
   - lib/stack_one/models/operations/hris_get_location_response.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_request.rb
@@ -275,6 +277,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_groups_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_groups_request.rb
   - lib/stack_one/models/operations/hris_list_groups_response.rb
+  - lib/stack_one/models/operations/hris_list_jobs_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_jobs_request.rb
+  - lib/stack_one/models/operations/hris_list_jobs_response.rb
   - lib/stack_one/models/operations/hris_list_locations_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_locations_request.rb
   - lib/stack_one/models/operations/hris_list_locations_response.rb
@@ -856,6 +861,8 @@ generatedFiles:
   - docs/models/operations/hrisgetemploymentresponse.md
   - docs/models/operations/hrisgetgrouprequest.md
   - docs/models/operations/hrisgetgroupresponse.md
+  - docs/models/operations/hrisgetjobrequest.md
+  - docs/models/operations/hrisgetjobresponse.md
   - docs/models/operations/hrisgetlocationrequest.md
   - docs/models/operations/hrisgetlocationresponse.md
   - docs/models/operations/hrisgettimeoffrequestrequest.md
@@ -887,6 +894,9 @@ generatedFiles:
   - docs/models/operations/hrislistgroupsqueryparamfilter.md
   - docs/models/operations/hrislistgroupsrequest.md
   - docs/models/operations/hrislistgroupsresponse.md
+  - docs/models/operations/hrislistjobsqueryparamfilter.md
+  - docs/models/operations/hrislistjobsrequest.md
+  - docs/models/operations/hrislistjobsresponse.md
   - docs/models/operations/hrislistlocationsqueryparamfilter.md
   - docs/models/operations/hrislistlocationsrequest.md
   - docs/models/operations/hrislistlocationsresponse.md
