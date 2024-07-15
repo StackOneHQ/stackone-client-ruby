@@ -33,6 +33,7 @@ module StackOne
         OTHER = new('other')
         BENEFIT = new('benefit')
         ID_VERIFICATION = new('id_verification')
+        BACKGROUND_CHECK = new('background_check')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
