@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-    # The type of the group
+
     class EmployeeType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The type of the national identity number
+      field :value, T.nilable(::StackOne::Shared::EmployeeSchemasNationalIdentityNumberValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EmployeeSchemasNationalIdentityNumberValue, true) } }
 
-      field :value, T.nilable(::StackOne::Shared::EmployeeSchemasGroupsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EmployeeSchemasGroupsValue, true) } }
 
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EmployeeSchemasGroupsValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EmployeeSchemasNationalIdentityNumberValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

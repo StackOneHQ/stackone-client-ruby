@@ -8,14 +8,9 @@ module StackOne
   module Shared
   
 
-    class EmployeeSchemasGroupsValue < T::Enum
+    class HRISDepartmentValue < T::Enum
       enums do
-        WORKSPACE = new('workspace')
-        TEAM = new('team')
         DEPARTMENT = new('department')
-        GROUP = new('group')
-        ORGANIZATION = new('organization')
-        UNMAPPED_VALUE = new('unmapped_value')
       end
     end
 

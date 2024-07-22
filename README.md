@@ -137,6 +137,7 @@ end
 * [download_employee_document](docs/sdks/hris/README.md#download_employee_document) - Download Employee Document
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
+* [get_department_group](docs/sdks/hris/README.md#get_department_group) - Get Department Group
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
@@ -149,6 +150,7 @@ end
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
+* [list_department_groups](docs/sdks/hris/README.md#list_department_groups) - List Department Groups
 * [list_employee_categories](docs/sdks/hris/README.md#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -166,17 +168,21 @@ end
 
 ### [Marketing](docs/sdks/marketing/README.md)
 
+* [create_content_block](docs/sdks/marketing/README.md#create_content_block) - Create Content Block
 * [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create email template
 * [create_omni_channel_template](docs/sdks/marketing/README.md#create_omni_channel_template) - Create omni-channel template
 * [create_push_template](docs/sdks/marketing/README.md#create_push_template) - Create push template
 * [get_campaign](docs/sdks/marketing/README.md#get_campaign) - Get campaign
+* [get_content_block](docs/sdks/marketing/README.md#get_content_block) - Get Content Blocks
 * [get_email_template](docs/sdks/marketing/README.md#get_email_template) - Get email template
 * [get_omni_channel_template](docs/sdks/marketing/README.md#get_omni_channel_template) - Get omni-channel template
 * [get_push_template](docs/sdks/marketing/README.md#get_push_template) - Get push template
 * [list_campaigns](docs/sdks/marketing/README.md#list_campaigns) - List campaigns
+* [list_content_blocks](docs/sdks/marketing/README.md#list_content_blocks) - List Content Blocks
 * [list_email_templates](docs/sdks/marketing/README.md#list_email_templates) - List email templates
 * [list_omni_channel_templates](docs/sdks/marketing/README.md#list_omni_channel_templates) - List omni-channel templates
 * [list_push_templates](docs/sdks/marketing/README.md#list_push_templates) - List push templates
+* [update_content_block](docs/sdks/marketing/README.md#update_content_block) - Update email template
 * [update_email_template](docs/sdks/marketing/README.md#update_email_template) - Update email template
 * [update_omni_channel_template](docs/sdks/marketing/README.md#update_omni_channel_template) - Update omni-channel template
 * [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update push template

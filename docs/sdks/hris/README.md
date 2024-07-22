@@ -10,6 +10,7 @@
 * [download_employee_document](#download_employee_document) - Download Employee Document
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
+* [get_department_group](#get_department_group) - Get Department Group
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
@@ -22,6 +23,7 @@
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
+* [list_department_groups](#list_department_groups) - List Department Groups
 * [list_employee_categories](#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -494,6 +496,50 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetCompanyResponse)](../../models/operations/hrisgetcompanyresponse.md)**
+
+
+## get_department_group
+
+Get Department Group
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetDepartmentGroupRequest.new(
+  fields_: "id,remote_id,name",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_department_group(req)
+
+if ! res.hris_departments_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [::StackOne::Operations::HrisGetDepartmentGroupRequest](../../models/operations/hrisgetdepartmentgrouprequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetDepartmentGroupResponse)](../../models/operations/hrisgetdepartmentgroupresponse.md)**
 
 
 ## get_employee
@@ -1032,6 +1078,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
+
+
+## list_department_groups
+
+List Department Groups
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListDepartmentGroupsRequest.new(
+  fields_: "id,remote_id,name",
+  filter: ::StackOne::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_department_groups(req)
+
+if ! res.hris_departments_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [::StackOne::Operations::HrisListDepartmentGroupsRequest](../../models/operations/hrislistdepartmentgroupsrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListDepartmentGroupsResponse)](../../models/operations/hrislistdepartmentgroupsresponse.md)**
 
 
 ## list_employee_categories

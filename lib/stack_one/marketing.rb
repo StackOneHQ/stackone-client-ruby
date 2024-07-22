@@ -19,6 +19,52 @@ module StackOne
     end
 
 
+    sig { params(marketing_create_content_blocks_request_dto: ::StackOne::Shared::MarketingCreateContentBlocksRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateContentBlockResponse) }
+    def create_content_block(marketing_create_content_blocks_request_dto, x_account_id)
+      # create_content_block - Create Content Block
+      request = ::StackOne::Operations::MarketingCreateContentBlockRequest.new(
+        
+        marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/marketing/content_blocks"
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :marketing_create_content_blocks_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::MarketingCreateContentBlockResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateEmailTemplateResponse) }
     def create_email_template(marketing_create_email_template_request_dto, x_account_id)
       # create_email_template - Create email template
@@ -195,6 +241,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingGetContentBlockRequest)).returns(::StackOne::Operations::MarketingGetContentBlockResponse) }
+    def get_content_block(request)
+      # get_content_block - Get Content Blocks
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::MarketingGetContentBlockRequest,
+        base_url,
+        '/unified/marketing/content_blocks/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::MarketingGetContentBlockRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::MarketingGetContentBlockResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentBlocksPaginated)
+          res.content_blocks_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::MarketingGetEmailTemplateRequest)).returns(::StackOne::Operations::MarketingGetEmailTemplateResponse) }
     def get_email_template(request)
       # get_email_template - Get email template
@@ -342,6 +426,39 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::MarketingListContentBlocksRequest)).returns(::StackOne::Operations::MarketingListContentBlocksResponse) }
+    def list_content_blocks(request)
+      # list_content_blocks - List Content Blocks
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/marketing/content_blocks"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::MarketingListContentBlocksRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::MarketingListContentBlocksResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentBlocksPaginated)
+          res.content_blocks_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::MarketingListEmailTemplatesRequest)).returns(::StackOne::Operations::MarketingListEmailTemplatesResponse) }
     def list_email_templates(request)
       # list_email_templates - List email templates
@@ -434,6 +551,58 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplatesPaginated)
           res.templates_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(marketing_create_content_blocks_request_dto: ::StackOne::Shared::MarketingCreateContentBlocksRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateContentBlockResponse) }
+    def update_content_block(marketing_create_content_blocks_request_dto, id, x_account_id)
+      # update_content_block - Update email template
+      request = ::StackOne::Operations::MarketingUpdateContentBlockRequest.new(
+        
+        marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::MarketingUpdateContentBlockRequest,
+        base_url,
+        '/unified/marketing/content_blocks/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :marketing_create_content_blocks_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.patch(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::MarketingUpdateContentBlockResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

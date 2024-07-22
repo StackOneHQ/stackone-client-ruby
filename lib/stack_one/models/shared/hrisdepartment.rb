@@ -7,8 +7,8 @@
 module StackOne
   module Shared
   
-    # The employee groups
-    class Groups < ::StackOne::Utils::FieldAugmented
+
+    class HRISDepartment < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # Unique identifier
@@ -23,11 +23,11 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # Provider's list of parent group ids of the given group
       field :remote_parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_ids') } }
-      # The type of the group
-      field :type, T.nilable(::StackOne::Shared::EmployeeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      # The type of the department group
+      field :type, T.nilable(::StackOne::Shared::HRISDepartmentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::EmployeeType)).void }
+      sig { params(id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::HRISDepartmentType)).void }
       def initialize(id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_id: nil, remote_parent_ids: nil, type: nil)
         @id = id
         @name = name

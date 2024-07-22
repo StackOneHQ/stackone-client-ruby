@@ -3,20 +3,67 @@
 
 ### Available Operations
 
+* [create_content_block](#create_content_block) - Create Content Block
 * [create_email_template](#create_email_template) - Create email template
 * [create_omni_channel_template](#create_omni_channel_template) - Create omni-channel template
 * [create_push_template](#create_push_template) - Create push template
 * [get_campaign](#get_campaign) - Get campaign
+* [get_content_block](#get_content_block) - Get Content Blocks
 * [get_email_template](#get_email_template) - Get email template
 * [get_omni_channel_template](#get_omni_channel_template) - Get omni-channel template
 * [get_push_template](#get_push_template) - Get push template
 * [list_campaigns](#list_campaigns) - List campaigns
+* [list_content_blocks](#list_content_blocks) - List Content Blocks
 * [list_email_templates](#list_email_templates) - List email templates
 * [list_omni_channel_templates](#list_omni_channel_templates) - List omni-channel templates
 * [list_push_templates](#list_push_templates) - List push templates
+* [update_content_block](#update_content_block) - Update email template
 * [update_email_template](#update_email_template) - Update email template
 * [update_omni_channel_template](#update_omni_channel_template) - Update omni-channel template
 * [update_push_template](#update_push_template) - Update push template
+
+## create_content_block
+
+Create Content Block
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.marketing.create_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
+    passthrough: {
+      "Bike": "<value>",
+    },
+  ), x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_content_blocks_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingCreateContentBlockResponse)](../../models/operations/marketingcreatecontentblockresponse.md)**
+
 
 ## create_email_template
 
@@ -218,6 +265,50 @@ end
 **[T.nilable(::StackOne::Operations::MarketingGetCampaignResponse)](../../models/operations/marketinggetcampaignresponse.md)**
 
 
+## get_content_block
+
+Get Content Blocks
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::MarketingGetContentBlockRequest.new(
+  fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.marketing.get_content_block(req)
+
+if ! res.content_blocks_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [::StackOne::Operations::MarketingGetContentBlockRequest](../../models/operations/marketinggetcontentblockrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingGetContentBlockResponse)](../../models/operations/marketinggetcontentblockresponse.md)**
+
+
 ## get_email_template
 
 Get email template
@@ -396,6 +487,52 @@ end
 **[T.nilable(::StackOne::Operations::MarketingListCampaignsResponse)](../../models/operations/marketinglistcampaignsresponse.md)**
 
 
+## list_content_blocks
+
+List Content Blocks
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::MarketingListContentBlocksRequest.new(
+  fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
+  filter: ::StackOne::Operations::MarketingListContentBlocksQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.marketing.list_content_blocks(req)
+
+if ! res.content_blocks_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [::StackOne::Operations::MarketingListContentBlocksRequest](../../models/operations/marketinglistcontentblocksrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingListContentBlocksResponse)](../../models/operations/marketinglistcontentblocksresponse.md)**
+
+
 ## list_email_templates
 
 List email templates
@@ -532,6 +669,50 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListPushTemplatesResponse)](../../models/operations/marketinglistpushtemplatesresponse.md)**
+
+
+## update_content_block
+
+Update email template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.marketing.update_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
+    passthrough: {
+      "Pickup": "<value>",
+    },
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_content_blocks_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingUpdateContentBlockResponse)](../../models/operations/marketingupdatecontentblockresponse.md)**
 
 
 ## update_email_template

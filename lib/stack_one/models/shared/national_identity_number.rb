@@ -12,12 +12,12 @@ module StackOne
       extend T::Sig
 
 
-      field :type, T.nilable(::StackOne::Shared::EmployeeSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(::StackOne::Shared::EmployeeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
       field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(type: T.nilable(::StackOne::Shared::EmployeeSchemasType), value: T.nilable(::String)).void }
+      sig { params(type: T.nilable(::StackOne::Shared::EmployeeType), value: T.nilable(::String)).void }
       def initialize(type: nil, value: nil)
         @type = type
         @value = value

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 7008ab8ac4c9d19a3813db55cfb133a4
+  docChecksum: f723abfef6ced9ebac6cfe25af55fcfe
   docVersion: 1.0.0
-  speakeasyVersion: 1.335.0
-  generationVersion: 2.370.2
-  releaseVersion: 0.2.32
-  configChecksum: 1ba23aeb5a18c32bcb546833ef116b35
+  speakeasyVersion: 1.344.1
+  generationVersion: 2.376.2
+  releaseVersion: 0.2.33
+  configChecksum: 3fa7301aca41bfb7d61e594d336ff33e
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.15
+    core: 3.2.16
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -230,6 +230,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_benefit_response.rb
   - lib/stack_one/models/operations/hris_get_company_request.rb
   - lib/stack_one/models/operations/hris_get_company_response.rb
+  - lib/stack_one/models/operations/hris_get_department_group_request.rb
+  - lib/stack_one/models/operations/hris_get_department_group_response.rb
   - lib/stack_one/models/operations/hris_get_employee_request.rb
   - lib/stack_one/models/operations/hris_get_employee_response.rb
   - lib/stack_one/models/operations/hris_get_employee_document_request.rb
@@ -256,6 +258,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_companies_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_companies_request.rb
   - lib/stack_one/models/operations/hris_list_companies_response.rb
+  - lib/stack_one/models/operations/hris_list_department_groups_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_department_groups_request.rb
+  - lib/stack_one/models/operations/hris_list_department_groups_response.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_request.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_response.rb
@@ -294,6 +299,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_update_time_off_request_response.rb
   - lib/stack_one/models/operations/hris_upload_employee_document_request.rb
   - lib/stack_one/models/operations/hris_upload_employee_document_response.rb
+  - lib/stack_one/models/operations/marketing_create_content_block_request.rb
+  - lib/stack_one/models/operations/marketing_create_content_block_response.rb
   - lib/stack_one/models/operations/marketing_create_email_template_request.rb
   - lib/stack_one/models/operations/marketing_create_email_template_response.rb
   - lib/stack_one/models/operations/marketing_create_omni_channel_template_request.rb
@@ -302,6 +309,8 @@ generatedFiles:
   - lib/stack_one/models/operations/marketing_create_push_template_response.rb
   - lib/stack_one/models/operations/marketing_get_campaign_request.rb
   - lib/stack_one/models/operations/marketing_get_campaign_response.rb
+  - lib/stack_one/models/operations/marketing_get_content_block_request.rb
+  - lib/stack_one/models/operations/marketing_get_content_block_response.rb
   - lib/stack_one/models/operations/marketing_get_email_template_request.rb
   - lib/stack_one/models/operations/marketing_get_email_template_response.rb
   - lib/stack_one/models/operations/marketing_get_omni_channel_template_request.rb
@@ -311,6 +320,9 @@ generatedFiles:
   - lib/stack_one/models/operations/marketing_list_campaigns_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_request.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_response.rb
+  - lib/stack_one/models/operations/marketing_list_content_blocks_queryparam_filter.rb
+  - lib/stack_one/models/operations/marketing_list_content_blocks_request.rb
+  - lib/stack_one/models/operations/marketing_list_content_blocks_response.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_response.rb
@@ -320,6 +332,8 @@ generatedFiles:
   - lib/stack_one/models/operations/marketing_list_push_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_response.rb
+  - lib/stack_one/models/operations/marketing_update_content_block_request.rb
+  - lib/stack_one/models/operations/marketing_update_content_block_response.rb
   - lib/stack_one/models/operations/marketing_update_email_template_request.rb
   - lib/stack_one/models/operations/marketing_update_email_template_response.rb
   - lib/stack_one/models/operations/marketing_update_omni_channel_template_request.rb
@@ -412,6 +426,9 @@ generatedFiles:
   - lib/stack_one/models/shared/assessmentspackages.rb
   - lib/stack_one/models/shared/candidateresult.rb
   - lib/stack_one/models/shared/candidate.rb
+  - lib/stack_one/models/shared/candidatecustomfields_value.rb
+  - lib/stack_one/models/shared/candidatecustomfields_type.rb
+  - lib/stack_one/models/shared/candidatecustomfields.rb
   - lib/stack_one/models/shared/noteresult.rb
   - lib/stack_one/models/shared/note_value.rb
   - lib/stack_one/models/shared/note_visibility.rb
@@ -575,6 +592,10 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisbenefitresult.rb
   - lib/stack_one/models/shared/companyresult.rb
   - lib/stack_one/models/shared/company.rb
+  - lib/stack_one/models/shared/hrisdepartmentsresult.rb
+  - lib/stack_one/models/shared/hrisdepartment_value.rb
+  - lib/stack_one/models/shared/hrisdepartment_type.rb
+  - lib/stack_one/models/shared/hrisdepartment.rb
   - lib/stack_one/models/shared/employeeresult.rb
   - lib/stack_one/models/shared/avatar.rb
   - lib/stack_one/models/shared/employee_company.rb
@@ -588,9 +609,6 @@ generatedFiles:
   - lib/stack_one/models/shared/ethnicity.rb
   - lib/stack_one/models/shared/employee_schemas_gender_value.rb
   - lib/stack_one/models/shared/gender.rb
-  - lib/stack_one/models/shared/employee_schemas_groups_value.rb
-  - lib/stack_one/models/shared/employee_type.rb
-  - lib/stack_one/models/shared/groups.rb
   - lib/stack_one/models/shared/employee_schemas_home_location_value.rb
   - lib/stack_one/models/shared/employee_country.rb
   - lib/stack_one/models/shared/employee_schemas_home_location_location_type_value.rb
@@ -600,7 +618,7 @@ generatedFiles:
   - lib/stack_one/models/shared/employee_schemas_marital_status_value.rb
   - lib/stack_one/models/shared/marital_status.rb
   - lib/stack_one/models/shared/employee_schemas_national_identity_number_value.rb
-  - lib/stack_one/models/shared/employee_schemas_type.rb
+  - lib/stack_one/models/shared/employee_type.rb
   - lib/stack_one/models/shared/national_identity_number.rb
   - lib/stack_one/models/shared/employee_schemas_preferred_language_value.rb
   - lib/stack_one/models/shared/preferred_language.rb
@@ -610,6 +628,9 @@ generatedFiles:
   - lib/stack_one/models/shared/employee_schemas_location_type.rb
   - lib/stack_one/models/shared/work_location.rb
   - lib/stack_one/models/shared/employee.rb
+  - lib/stack_one/models/shared/hrisgroup_value.rb
+  - lib/stack_one/models/shared/hrisgroup_type.rb
+  - lib/stack_one/models/shared/hrisgroup.rb
   - lib/stack_one/models/shared/costcenters.rb
   - lib/stack_one/models/shared/hrisdocumentresult.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_value.rb
@@ -639,9 +660,6 @@ generatedFiles:
   - lib/stack_one/models/shared/workeligibility.rb
   - lib/stack_one/models/shared/employmentresult.rb
   - lib/stack_one/models/shared/hrisgroupsresult.rb
-  - lib/stack_one/models/shared/hrisgroup_value.rb
-  - lib/stack_one/models/shared/hrisgroup_type.rb
-  - lib/stack_one/models/shared/hrisgroup.rb
   - lib/stack_one/models/shared/hrislocationresult.rb
   - lib/stack_one/models/shared/hrislocation_value.rb
   - lib/stack_one/models/shared/hrislocation_country.rb
@@ -650,6 +668,7 @@ generatedFiles:
   - lib/stack_one/models/shared/hrislocation.rb
   - lib/stack_one/models/shared/hrisbenefitspaginated.rb
   - lib/stack_one/models/shared/companiespaginated.rb
+  - lib/stack_one/models/shared/hrisdepartmentspaginated.rb
   - lib/stack_one/models/shared/referencepaginated.rb
   - lib/stack_one/models/shared/hrisdocumentspaginated.rb
   - lib/stack_one/models/shared/timeoffpaginated.rb
@@ -665,6 +684,7 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_schemas_file_format_value.rb
   - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_file_format.rb
   - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto.rb
+  - lib/stack_one/models/shared/marketingcreatecontentblocksrequestdto.rb
   - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
   - lib/stack_one/models/shared/message_content.rb
   - lib/stack_one/models/shared/emailmessages_value.rb
@@ -687,6 +707,12 @@ generatedFiles:
   - lib/stack_one/models/shared/campaign.rb
   - lib/stack_one/models/shared/value.rb
   - lib/stack_one/models/shared/channelsenum.rb
+  - lib/stack_one/models/shared/contentblockspaginated.rb
+  - lib/stack_one/models/shared/contentblock_value.rb
+  - lib/stack_one/models/shared/contentblock_status.rb
+  - lib/stack_one/models/shared/contentblock_schemas_value.rb
+  - lib/stack_one/models/shared/contentblock_type.rb
+  - lib/stack_one/models/shared/contentblock.rb
   - lib/stack_one/models/shared/templateresult.rb
   - lib/stack_one/models/shared/template.rb
   - lib/stack_one/models/shared/campaignspaginated.rb
@@ -847,6 +873,8 @@ generatedFiles:
   - docs/models/operations/hrisgetbenefitresponse.md
   - docs/models/operations/hrisgetcompanyrequest.md
   - docs/models/operations/hrisgetcompanyresponse.md
+  - docs/models/operations/hrisgetdepartmentgrouprequest.md
+  - docs/models/operations/hrisgetdepartmentgroupresponse.md
   - docs/models/operations/hrisgetemployeerequest.md
   - docs/models/operations/hrisgetemployeeresponse.md
   - docs/models/operations/hrisgetemployeedocumentrequest.md
@@ -873,6 +901,9 @@ generatedFiles:
   - docs/models/operations/hrislistcompaniesqueryparamfilter.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
+  - docs/models/operations/hrislistdepartmentgroupsqueryparamfilter.md
+  - docs/models/operations/hrislistdepartmentgroupsrequest.md
+  - docs/models/operations/hrislistdepartmentgroupsresponse.md
   - docs/models/operations/hrislistemployeecategoriesqueryparamfilter.md
   - docs/models/operations/hrislistemployeecategoriesrequest.md
   - docs/models/operations/hrislistemployeecategoriesresponse.md
@@ -911,6 +942,8 @@ generatedFiles:
   - docs/models/operations/hrisupdatetimeoffrequestresponse.md
   - docs/models/operations/hrisuploademployeedocumentrequest.md
   - docs/models/operations/hrisuploademployeedocumentresponse.md
+  - docs/models/operations/marketingcreatecontentblockrequest.md
+  - docs/models/operations/marketingcreatecontentblockresponse.md
   - docs/models/operations/marketingcreateemailtemplaterequest.md
   - docs/models/operations/marketingcreateemailtemplateresponse.md
   - docs/models/operations/marketingcreateomnichanneltemplaterequest.md
@@ -919,6 +952,8 @@ generatedFiles:
   - docs/models/operations/marketingcreatepushtemplateresponse.md
   - docs/models/operations/marketinggetcampaignrequest.md
   - docs/models/operations/marketinggetcampaignresponse.md
+  - docs/models/operations/marketinggetcontentblockrequest.md
+  - docs/models/operations/marketinggetcontentblockresponse.md
   - docs/models/operations/marketinggetemailtemplaterequest.md
   - docs/models/operations/marketinggetemailtemplateresponse.md
   - docs/models/operations/marketinggetomnichanneltemplaterequest.md
@@ -928,6 +963,9 @@ generatedFiles:
   - docs/models/operations/marketinglistcampaignsqueryparamfilter.md
   - docs/models/operations/marketinglistcampaignsrequest.md
   - docs/models/operations/marketinglistcampaignsresponse.md
+  - docs/models/operations/marketinglistcontentblocksqueryparamfilter.md
+  - docs/models/operations/marketinglistcontentblocksrequest.md
+  - docs/models/operations/marketinglistcontentblocksresponse.md
   - docs/models/operations/marketinglistemailtemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistemailtemplatesrequest.md
   - docs/models/operations/marketinglistemailtemplatesresponse.md
@@ -937,6 +975,8 @@ generatedFiles:
   - docs/models/operations/marketinglistpushtemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistpushtemplatesrequest.md
   - docs/models/operations/marketinglistpushtemplatesresponse.md
+  - docs/models/operations/marketingupdatecontentblockrequest.md
+  - docs/models/operations/marketingupdatecontentblockresponse.md
   - docs/models/operations/marketingupdateemailtemplaterequest.md
   - docs/models/operations/marketingupdateemailtemplateresponse.md
   - docs/models/operations/marketingupdateomnichanneltemplaterequest.md
@@ -1029,6 +1069,9 @@ generatedFiles:
   - docs/models/shared/assessmentspackages.md
   - docs/models/shared/candidateresult.md
   - docs/models/shared/candidate.md
+  - docs/models/shared/candidatecustomfieldsvalue.md
+  - docs/models/shared/candidatecustomfieldstype.md
+  - docs/models/shared/candidatecustomfields.md
   - docs/models/shared/noteresult.md
   - docs/models/shared/notevalue.md
   - docs/models/shared/notevisibility.md
@@ -1192,6 +1235,10 @@ generatedFiles:
   - docs/models/shared/hrisbenefitresult.md
   - docs/models/shared/companyresult.md
   - docs/models/shared/company.md
+  - docs/models/shared/hrisdepartmentsresult.md
+  - docs/models/shared/hrisdepartmentvalue.md
+  - docs/models/shared/hrisdepartmenttype.md
+  - docs/models/shared/hrisdepartment.md
   - docs/models/shared/employeeresult.md
   - docs/models/shared/avatar.md
   - docs/models/shared/employeecompany.md
@@ -1205,9 +1252,6 @@ generatedFiles:
   - docs/models/shared/ethnicity.md
   - docs/models/shared/employeeschemasgendervalue.md
   - docs/models/shared/gender.md
-  - docs/models/shared/employeeschemasgroupsvalue.md
-  - docs/models/shared/employeetype.md
-  - docs/models/shared/groups.md
   - docs/models/shared/employeeschemashomelocationvalue.md
   - docs/models/shared/employeecountry.md
   - docs/models/shared/employeeschemashomelocationlocationtypevalue.md
@@ -1217,7 +1261,7 @@ generatedFiles:
   - docs/models/shared/employeeschemasmaritalstatusvalue.md
   - docs/models/shared/maritalstatus.md
   - docs/models/shared/employeeschemasnationalidentitynumbervalue.md
-  - docs/models/shared/employeeschemastype.md
+  - docs/models/shared/employeetype.md
   - docs/models/shared/nationalidentitynumber.md
   - docs/models/shared/employeeschemaspreferredlanguagevalue.md
   - docs/models/shared/preferredlanguage.md
@@ -1227,6 +1271,9 @@ generatedFiles:
   - docs/models/shared/employeeschemaslocationtype.md
   - docs/models/shared/worklocation.md
   - docs/models/shared/employee.md
+  - docs/models/shared/hrisgroupvalue.md
+  - docs/models/shared/hrisgrouptype.md
+  - docs/models/shared/hrisgroup.md
   - docs/models/shared/costcenters.md
   - docs/models/shared/hrisdocumentresult.md
   - docs/models/shared/hrisdocumentapimodelvalue.md
@@ -1256,9 +1303,6 @@ generatedFiles:
   - docs/models/shared/workeligibility.md
   - docs/models/shared/employmentresult.md
   - docs/models/shared/hrisgroupsresult.md
-  - docs/models/shared/hrisgroupvalue.md
-  - docs/models/shared/hrisgrouptype.md
-  - docs/models/shared/hrisgroup.md
   - docs/models/shared/hrislocationresult.md
   - docs/models/shared/hrislocationvalue.md
   - docs/models/shared/hrislocationcountry.md
@@ -1267,6 +1311,7 @@ generatedFiles:
   - docs/models/shared/hrislocation.md
   - docs/models/shared/hrisbenefitspaginated.md
   - docs/models/shared/companiespaginated.md
+  - docs/models/shared/hrisdepartmentspaginated.md
   - docs/models/shared/referencepaginated.md
   - docs/models/shared/hrisdocumentspaginated.md
   - docs/models/shared/timeoffpaginated.md
@@ -1282,6 +1327,7 @@ generatedFiles:
   - docs/models/shared/hrisdocumentsuploadrequestdtoschemasfileformatvalue.md
   - docs/models/shared/hrisdocumentsuploadrequestdtofileformat.md
   - docs/models/shared/hrisdocumentsuploadrequestdto.md
+  - docs/models/shared/marketingcreatecontentblocksrequestdto.md
   - docs/models/shared/marketingcreateemailtemplaterequestdto.md
   - docs/models/shared/messagecontent.md
   - docs/models/shared/emailmessagesvalue.md
@@ -1304,6 +1350,12 @@ generatedFiles:
   - docs/models/shared/campaign.md
   - docs/models/shared/value.md
   - docs/models/shared/channelsenum.md
+  - docs/models/shared/contentblockspaginated.md
+  - docs/models/shared/contentblockvalue.md
+  - docs/models/shared/contentblockstatus.md
+  - docs/models/shared/contentblockschemasvalue.md
+  - docs/models/shared/contentblocktype.md
+  - docs/models/shared/contentblock.md
   - docs/models/shared/templateresult.md
   - docs/models/shared/template.md
   - docs/models/shared/campaignspaginated.md
@@ -1322,3 +1374,4 @@ generatedFiles:
   - docs/sdks/proxy/README.md
   - USAGE.md
   - .gitattributes
+  - CONTRIBUTING.md

@@ -1,0 +1,11 @@
+# ContentBlockType
+
+Stackone enum identifying the type of content block.
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                | Example                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                             | *T.nilable(::Object)*                                                                                      | :heavy_minus_sign:                                                                                         | The source value of the type.                                                                              | text                                                                                                       |
+| `value`                                                                                                    | [T.nilable(::StackOne::Shared::ContentBlockSchemasValue)](../../models/shared/contentblockschemasvalue.md) | :heavy_minus_sign:                                                                                         | The type of the content blocks.                                                                            | email                                                                                                      |

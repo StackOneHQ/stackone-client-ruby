@@ -17,6 +17,8 @@ module StackOne
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # ATS Candidate Filter
       field :filter, T.nilable(::StackOne::Operations::AtsListCandidatesQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+      # The comma separated list of fields that will be included in the response
+      field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
       # The unified cursor
       field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
       # The page number of the results to fetch
@@ -39,11 +41,12 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::AtsListCandidatesQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(x_account_id: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
+      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::AtsListCandidatesQueryParamFilter), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(x_account_id: nil, fields_: nil, filter: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
         @x_account_id = x_account_id
         @fields_ = fields_
         @filter = filter
+        @include = include
         @next_ = next_
         @page = page
         @page_size = page_size

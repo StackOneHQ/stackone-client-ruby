@@ -334,6 +334,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetDepartmentGroupRequest)).returns(::StackOne::Operations::HrisGetDepartmentGroupResponse) }
+    def get_department_group(request)
+      # get_department_group - Get Department Group
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetDepartmentGroupRequest,
+        base_url,
+        '/unified/hris/groups/departments/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetDepartmentGroupRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetDepartmentGroupResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISDepartmentsResult)
+          res.hris_departments_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeRequest)).returns(::StackOne::Operations::HrisGetEmployeeResponse) }
     def get_employee(request)
       # get_employee - Get Employee
@@ -773,6 +811,39 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompaniesPaginated)
           res.companies_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListDepartmentGroupsRequest)).returns(::StackOne::Operations::HrisListDepartmentGroupsResponse) }
+    def list_department_groups(request)
+      # list_department_groups - List Department Groups
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/groups/departments"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListDepartmentGroupsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListDepartmentGroupsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISDepartmentsPaginated)
+          res.hris_departments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
