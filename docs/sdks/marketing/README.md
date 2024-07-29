@@ -5,22 +5,30 @@
 
 * [create_content_block](#create_content_block) - Create Content Block
 * [create_email_template](#create_email_template) - Create email template
-* [create_omni_channel_template](#create_omni_channel_template) - Create omni-channel template
+* [create_in_app_template](#create_in_app_template) - Create in_app template
+* [~~create_omni_channel_template~~](#create_omni_channel_template) - Create omni-channel template :warning: **Deprecated**
 * [create_push_template](#create_push_template) - Create push template
+* [create_sms_template](#create_sms_template) - Create sms template
 * [get_campaign](#get_campaign) - Get campaign
 * [get_content_block](#get_content_block) - Get Content Blocks
 * [get_email_template](#get_email_template) - Get email template
-* [get_omni_channel_template](#get_omni_channel_template) - Get omni-channel template
+* [get_in_app_template](#get_in_app_template) - Get in_app template
+* [~~get_omni_channel_template~~](#get_omni_channel_template) - Get omni-channel template :warning: **Deprecated**
 * [get_push_template](#get_push_template) - Get push template
+* [get_sms_template](#get_sms_template) - Get sms template
 * [list_campaigns](#list_campaigns) - List campaigns
 * [list_content_blocks](#list_content_blocks) - List Content Blocks
 * [list_email_templates](#list_email_templates) - List email templates
-* [list_omni_channel_templates](#list_omni_channel_templates) - List omni-channel templates
+* [list_in_app_templates](#list_in_app_templates) - List in_app templates
+* [~~list_omni_channel_templates~~](#list_omni_channel_templates) - List omni-channel templates :warning: **Deprecated**
 * [list_push_templates](#list_push_templates) - List push templates
+* [list_sms_templates](#list_sms_templates) - List sms templates
 * [update_content_block](#update_content_block) - Update email template
 * [update_email_template](#update_email_template) - Update email template
-* [update_omni_channel_template](#update_omni_channel_template) - Update omni-channel template
+* [update_in_app_template](#update_in_app_template) - Update in_app template
+* [~~update_omni_channel_template~~](#update_omni_channel_template) - Update omni-channel template :warning: **Deprecated**
 * [update_push_template](#update_push_template) - Update push template
+* [update_sms_template](#update_sms_template) - Update sms template
 
 ## create_content_block
 
@@ -117,9 +125,63 @@ end
 **[T.nilable(::StackOne::Operations::MarketingCreateEmailTemplateResponse)](../../models/operations/marketingcreateemailtemplateresponse.md)**
 
 
-## create_omni_channel_template
+## create_in_app_template
+
+Create in_app template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.marketing.create_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
+    messages: [
+      ::StackOne::Shared::InAppMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
+    passthrough: {
+      "Qatar": "<value>",
+    },
+  ), x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_in_app_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingCreateInAppTemplateResponse)](../../models/operations/marketingcreateinapptemplateresponse.md)**
+
+
+## ~~create_omni_channel_template~~
 
 Create omni-channel template
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -219,6 +281,58 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreatePushTemplateResponse)](../../models/operations/marketingcreatepushtemplateresponse.md)**
+
+
+## create_sms_template
+
+Create sms template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
+    messages: [
+      ::StackOne::Shared::SmsMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
+    passthrough: {
+      "City": "<value>",
+    },
+  ), x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_sms_template_request_dto`                                                                             | [::StackOne::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingCreateSmsTemplateResponse)](../../models/operations/marketingcreatesmstemplateresponse.md)**
 
 
 ## get_campaign
@@ -353,9 +467,55 @@ end
 **[T.nilable(::StackOne::Operations::MarketingGetEmailTemplateResponse)](../../models/operations/marketinggetemailtemplateresponse.md)**
 
 
-## get_omni_channel_template
+## get_in_app_template
+
+Get in_app template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::MarketingGetInAppTemplateRequest.new(
+  fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.marketing.get_in_app_template(req)
+
+if ! res.template_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [::StackOne::Operations::MarketingGetInAppTemplateRequest](../../models/operations/marketinggetinapptemplaterequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingGetInAppTemplateResponse)](../../models/operations/marketinggetinapptemplateresponse.md)**
+
+
+## ~~get_omni_channel_template~~
 
 Get omni-channel template
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -439,6 +599,50 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetPushTemplateResponse)](../../models/operations/marketinggetpushtemplateresponse.md)**
+
+
+## get_sms_template
+
+Get sms template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::MarketingGetSmsTemplateRequest.new(
+  fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.marketing.get_sms_template(req)
+
+if ! res.template_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [::StackOne::Operations::MarketingGetSmsTemplateRequest](../../models/operations/marketinggetsmstemplaterequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingGetSmsTemplateResponse)](../../models/operations/marketinggetsmstemplateresponse.md)**
 
 
 ## list_campaigns
@@ -579,9 +783,57 @@ end
 **[T.nilable(::StackOne::Operations::MarketingListEmailTemplatesResponse)](../../models/operations/marketinglistemailtemplatesresponse.md)**
 
 
-## list_omni_channel_templates
+## list_in_app_templates
+
+List in_app templates
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::MarketingListInAppTemplatesRequest.new(
+  fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
+  filter: ::StackOne::Operations::MarketingListInAppTemplatesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.marketing.list_in_app_templates(req)
+
+if ! res.templates_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [::StackOne::Operations::MarketingListInAppTemplatesRequest](../../models/operations/marketinglistinapptemplatesrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingListInAppTemplatesResponse)](../../models/operations/marketinglistinapptemplatesresponse.md)**
+
+
+## ~~list_omni_channel_templates~~
 
 List omni-channel templates
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -669,6 +921,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListPushTemplatesResponse)](../../models/operations/marketinglistpushtemplatesresponse.md)**
+
+
+## list_sms_templates
+
+List sms templates
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::MarketingListSmsTemplatesRequest.new(
+  fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
+  filter: ::StackOne::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.marketing.list_sms_templates(req)
+
+if ! res.templates_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [::StackOne::Operations::MarketingListSmsTemplatesRequest](../../models/operations/marketinglistsmstemplatesrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingListSmsTemplatesResponse)](../../models/operations/marketinglistsmstemplatesresponse.md)**
 
 
 ## update_content_block
@@ -768,9 +1066,64 @@ end
 **[T.nilable(::StackOne::Operations::MarketingUpdateEmailTemplateResponse)](../../models/operations/marketingupdateemailtemplateresponse.md)**
 
 
-## update_omni_channel_template
+## update_in_app_template
+
+Update in_app template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.marketing.update_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
+    messages: [
+      ::StackOne::Shared::InAppMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
+    passthrough: {
+      "Operative": "<value>",
+    },
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_in_app_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingUpdateInAppTemplateResponse)](../../models/operations/marketingupdateinapptemplateresponse.md)**
+
+
+## ~~update_omni_channel_template~~
 
 Update omni-channel template
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -872,4 +1225,57 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdatePushTemplateResponse)](../../models/operations/marketingupdatepushtemplateresponse.md)**
+
+
+## update_sms_template
+
+Update sms template
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
+    messages: [
+      ::StackOne::Shared::SmsMessages.new(
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
+          source_value: "Email",
+        ),
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
+    passthrough: {
+      "Bronze": "<value>",
+    },
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_sms_template_request_dto`                                                                             | [::StackOne::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::MarketingUpdateSmsTemplateResponse)](../../models/operations/marketingupdatesmstemplateresponse.md)**
 
