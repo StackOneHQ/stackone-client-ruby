@@ -13,6 +13,7 @@
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scorecard](#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](#get_assessments_package) - Get Assessments Package
+* [get_assessments_result](#get_assessments_result) - Get Assessments Results
 * [get_candidate](#get_candidate) - Get Candidate
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
 * [get_department](#get_department) - Get Department
@@ -25,11 +26,13 @@
 * [get_offer](#get_offer) - Get Offer
 * [get_rejected_reason](#get_rejected_reason) - Get Rejected Reason
 * [get_user](#get_user) - Get User
+* [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List application custom field definitions
 * [list_application_documents](#list_application_documents) - List Application Documents
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
 * [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
+* [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List candidate custom field definitions
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
 * [list_departments](#list_departments) - List Departments
@@ -72,6 +75,21 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
     candidate: ::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate.new(
       company: "Company Inc.",
       country: "United States",
+      custom_fields: [
+        ::StackOne::Shared::CandidateCustomFields.new(
+          description: "The completion status of the employee's training.",
+          id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+          name: "Training Completion Status",
+          options: [
+            "<value>",
+          ],
+          remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+          remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+          type: ::StackOne::Shared::CandidateCustomFieldsType.new(),
+          value: "Completed",
+          value_id: "value_456",
+        ),
+      ],
       email: "sestier.romain123@gmail.com",
       first_name: "Romain",
       hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -161,6 +179,21 @@ s.config_security(
 res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(
     company: "Company Inc.",
     country: "United States",
+    custom_fields: [
+      ::StackOne::Shared::CandidateCustomFields.new(
+        description: "The completion status of the employee's training.",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Training Completion Status",
+        options: [
+          "<value>",
+        ],
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+        type: ::StackOne::Shared::CandidateCustomFieldsType.new(),
+        value: "Completed",
+        value_id: "value_456",
+      ),
+    ],
     email: "sestier.romain123@gmail.com",
     first_name: "Romain",
     hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -368,8 +401,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsGetApplicationRequest.new(
   expand: "documents",
-  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   id: "<id>",
+  include: "attachments,custom_fields",
   x_account_id: "<value>",
 )
     
@@ -569,6 +603,49 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
+
+
+## get_assessments_result
+
+Get Assessments Results
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetAssessmentsResultRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_assessments_result(req)
+
+if ! res.assessments_results_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [::StackOne::Operations::AtsGetAssessmentsResultRequest](../../models/operations/atsgetassessmentsresultrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetAssessmentsResultResponse)](../../models/operations/atsgetassessmentsresultresponse.md)**
 
 
 ## get_candidate
@@ -1103,6 +1180,52 @@ end
 **[T.nilable(::StackOne::Operations::AtsGetUserResponse)](../../models/operations/atsgetuserresponse.md)**
 
 
+## list_application_custom_field_definitions
+
+List application custom field definitions
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::Filter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.ats.list_application_custom_field_definitions(req)
+
+if ! res.custom_field_definitions_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                             | [::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest](../../models/operations/atslistapplicationcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                    | The request object to use for the request.                                                                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsResponse)](../../models/operations/atslistapplicationcustomfielddefinitionsresponse.md)**
+
+
 ## list_application_documents
 
 List Application Documents
@@ -1123,7 +1246,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
-  filter: ::StackOne::Operations::Filter.new(
+  filter: ::StackOne::Operations::QueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1170,7 +1293,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
   fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
-  filter: ::StackOne::Operations::QueryParamFilter.new(
+  filter: ::StackOne::Operations::AtsListApplicationScorecardsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1217,10 +1340,11 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
-  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
+  include: "attachments,custom_fields",
   x_account_id: "<value>",
 )
     
@@ -1334,6 +1458,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListAssessmentsPackagesResponse)](../../models/operations/atslistassessmentspackagesresponse.md)**
+
+
+## list_candidate_custom_field_definitions
+
+List candidate custom field definitions
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.ats.list_candidate_custom_field_definitions(req)
+
+if ! res.custom_field_definitions_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest](../../models/operations/atslistcandidatecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsResponse)](../../models/operations/atslistcandidatecustomfielddefinitionsresponse.md)**
 
 
 ## list_candidate_notes
@@ -1971,6 +2141,21 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
     ],
     company: "Company Inc.",
     country: "United States",
+    custom_fields: [
+      ::StackOne::Shared::CandidateCustomFields.new(
+        description: "The completion status of the employee's training.",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Training Completion Status",
+        options: [
+          "<value>",
+        ],
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+        type: ::StackOne::Shared::CandidateCustomFieldsType.new(),
+        value: "Completed",
+        value_id: "value_456",
+      ),
+    ],
     email: "sestier.romain123@gmail.com",
     emails: [
       ::StackOne::Shared::CandidateEmail.new(

@@ -1,0 +1,481 @@
+# Lms
+
+
+### Available Operations
+
+* [create_completion](#create_completion) - Create Completion
+* [create_content](#create_content) - Create Content
+* [get_category](#get_category) - Get Category
+* [get_completion](#get_completion) - Get Completion
+* [get_content](#get_content) - Get Content
+* [list_categories](#list_categories) - List Categories
+* [list_content](#list_content) - List Content
+* [update_content](#update_content) - Update Content
+* [upsert_content](#upsert_content) - Upsert Content
+
+## create_completion
+
+Create Completion
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.lms.create_completion(lms_create_completion_request_dto=::StackOne::Shared::LmsCreateCompletionRequestDto.new(
+    completed_at: "2021-07-21T14:00:00.000Z",
+    content_id: "16873-ENG-VIDEO-1",
+    expand: "user",
+    external_id: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION",
+    passthrough: {
+      "driver": "<value>",
+    },
+    user: ::StackOne::Shared::LmsCreateCompletionRequestDtoUser.new(
+      created_at: "2021-07-21T14:00:00.000Z",
+      email: "john.doe@company.com",
+      id: "16873",
+      name: "John Doe",
+      phone_number: "0123456789",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      updated_at: "2021-07-21T14:00:00.000Z",
+    ),
+    user_id: "746359",
+  ), x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `lms_create_completion_request_dto`                                                                       | [::StackOne::Shared::LmsCreateCompletionRequestDto](../../models/shared/lmscreatecompletionrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsCreateCompletionResponse)](../../models/operations/lmscreatecompletionresponse.md)**
+
+
+## create_content
+
+Create Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::LmsCreateContentRequestDto.new(
+    active: true,
+    categories: [
+      ::StackOne::Shared::CreateCategoriesApiModel.new(
+        active: true,
+        name: "Information-Technology",
+      ),
+    ],
+    content_url: "https://www.youtube.com/watch?v=16873",
+    course_ids: [
+      "<value>",
+    ],
+    cover_url: "https://www.googledrive.com/?v=16873",
+    description: "This video acts as learning content for software engineers.",
+    duration: "P3Y6M4DT12H30M5S",
+    external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+    languages: [
+      ::StackOne::Shared::ContentLanguageEnum.new(
+        value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+      ),
+    ],
+    order: 1.0,
+    title: "Software Engineer Lv 1",
+  ), x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `lms_create_content_request_dto`                                                                    | [::StackOne::Shared::LmsCreateContentRequestDto](../../models/shared/lmscreatecontentrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsCreateContentResponse)](../../models/operations/lmscreatecontentresponse.md)**
+
+
+## get_category
+
+Get Category
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsGetCategoryRequest.new(
+  fields_: "id,remote_id,name,active",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.get_category(req)
+
+if ! res.category_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::StackOne::Operations::LmsGetCategoryRequest](../../models/operations/lmsgetcategoryrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsGetCategoryResponse)](../../models/operations/lmsgetcategoryresponse.md)**
+
+
+## get_completion
+
+Get Completion
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsGetCompletionRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.get_completion(req)
+
+if ! res.completion_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [::StackOne::Operations::LmsGetCompletionRequest](../../models/operations/lmsgetcompletionrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsGetCompletionResponse)](../../models/operations/lmsgetcompletionresponse.md)**
+
+
+## get_content
+
+Get Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsGetContentRequest.new(
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.get_content(req)
+
+if ! res.content_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [::StackOne::Operations::LmsGetContentRequest](../../models/operations/lmsgetcontentrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsGetContentResponse)](../../models/operations/lmsgetcontentresponse.md)**
+
+
+## list_categories
+
+List Categories
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsListCategoriesRequest.new(
+  fields_: "id,remote_id,name,active",
+  filter: ::StackOne::Operations::LmsListCategoriesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.lms.list_categories(req)
+
+if ! res.categories_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [::StackOne::Operations::LmsListCategoriesRequest](../../models/operations/lmslistcategoriesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsListCategoriesResponse)](../../models/operations/lmslistcategoriesresponse.md)**
+
+
+## list_content
+
+List Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsListContentRequest.new(
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order",
+  filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.lms.list_content(req)
+
+if ! res.content_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::StackOne::Operations::LmsListContentRequest](../../models/operations/lmslistcontentrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsListContentResponse)](../../models/operations/lmslistcontentresponse.md)**
+
+
+## update_content
+
+Update Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::LmsCreateContentRequestDto.new(
+    active: true,
+    categories: [
+      ::StackOne::Shared::CreateCategoriesApiModel.new(
+        active: true,
+        name: "Information-Technology",
+      ),
+    ],
+    content_url: "https://www.youtube.com/watch?v=16873",
+    course_ids: [
+      "<value>",
+    ],
+    cover_url: "https://www.googledrive.com/?v=16873",
+    description: "This video acts as learning content for software engineers.",
+    duration: "P3Y6M4DT12H30M5S",
+    external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+    languages: [
+      ::StackOne::Shared::ContentLanguageEnum.new(
+        value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+      ),
+    ],
+    order: 1.0,
+    title: "Software Engineer Lv 1",
+  ), id="<value>", x_account_id="<value>")
+
+if ! res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `lms_create_content_request_dto`                                                                    | [::StackOne::Shared::LmsCreateContentRequestDto](../../models/shared/lmscreatecontentrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsUpdateContentResponse)](../../models/operations/lmsupdatecontentresponse.md)**
+
+
+## upsert_content
+
+Upsert Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "<YOUR_PASSWORD_HERE>",
+  )
+)
+
+    
+res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::LmsUpsertContentRequestDto.new(
+    active: true,
+    categories: [
+      ::StackOne::Shared::CreateCategoriesApiModel.new(
+        active: true,
+        name: "Information-Technology",
+      ),
+    ],
+    content_url: "https://www.youtube.com/watch?v=16873",
+    course_ids: [
+      "<value>",
+    ],
+    cover_url: "https://www.googledrive.com/?v=16873",
+    description: "This video acts as learning content for software engineers.",
+    duration: "P3Y6M4DT12H30M5S",
+    external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+    languages: [
+      ::StackOne::Shared::ContentLanguageEnum.new(
+        value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+      ),
+    ],
+    order: 1.0,
+    title: "Software Engineer Lv 1",
+  ), x_account_id="<value>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `lms_upsert_content_request_dto`                                                                    | [::StackOne::Shared::LmsUpsertContentRequestDto](../../models/shared/lmsupsertcontentrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsUpsertContentResponse)](../../models/operations/lmsupsertcontentresponse.md)**
+

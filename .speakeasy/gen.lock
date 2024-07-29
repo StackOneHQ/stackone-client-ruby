@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: f723abfef6ced9ebac6cfe25af55fcfe
+  docChecksum: 3f3b7208c29f2ce4a8233d7939f3ff2f
   docVersion: 1.0.0
-  speakeasyVersion: 1.344.1
-  generationVersion: 2.376.2
-  releaseVersion: 0.2.33
-  configChecksum: 3fa7301aca41bfb7d61e594d336ff33e
+  speakeasyVersion: 1.346.3
+  generationVersion: 2.379.6
+  releaseVersion: 0.2.34
+  configChecksum: 84cb85669455290384a55f9ce4a40e3d
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.16
+    core: 3.2.18
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -29,6 +29,8 @@ generatedFiles:
   - lib/stack_one/ats.rb
   - lib/stack_one/crm.rb
   - lib/stack_one/hris.rb
+  - lib/stack_one/iam.rb
+  - lib/stack_one/lms.rb
   - lib/stack_one/marketing.rb
   - lib/stack_one/proxy.rb
   - lib/stack_one/stackone.rb
@@ -116,6 +118,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_application_scorecard_response.rb
   - lib/stack_one/models/operations/ats_get_assessments_package_request.rb
   - lib/stack_one/models/operations/ats_get_assessments_package_response.rb
+  - lib/stack_one/models/operations/ats_get_assessments_result_request.rb
+  - lib/stack_one/models/operations/ats_get_assessments_result_response.rb
   - lib/stack_one/models/operations/ats_get_candidate_request.rb
   - lib/stack_one/models/operations/ats_get_candidate_response.rb
   - lib/stack_one/models/operations/ats_get_candidate_note_request.rb
@@ -141,9 +145,12 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_user_request.rb
   - lib/stack_one/models/operations/ats_get_user_response.rb
   - lib/stack_one/models/operations/filter.rb
+  - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_request.rb
+  - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_response.rb
+  - lib/stack_one/models/operations/queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_application_documents_request.rb
   - lib/stack_one/models/operations/ats_list_application_documents_response.rb
-  - lib/stack_one/models/operations/queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_application_scorecards_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_application_scorecards_request.rb
   - lib/stack_one/models/operations/ats_list_application_scorecards_response.rb
   - lib/stack_one/models/operations/ats_list_applications_queryparam_filter.rb
@@ -155,6 +162,9 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_list_assessments_packages_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_assessments_packages_request.rb
   - lib/stack_one/models/operations/ats_list_assessments_packages_response.rb
+  - lib/stack_one/models/operations/ats_list_candidate_custom_field_definitions_queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_candidate_custom_field_definitions_request.rb
+  - lib/stack_one/models/operations/ats_list_candidate_custom_field_definitions_response.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_request.rb
   - lib/stack_one/models/operations/ats_list_candidate_notes_response.rb
@@ -299,24 +309,72 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_update_time_off_request_response.rb
   - lib/stack_one/models/operations/hris_upload_employee_document_request.rb
   - lib/stack_one/models/operations/hris_upload_employee_document_response.rb
+  - lib/stack_one/models/operations/iam_get_group_request.rb
+  - lib/stack_one/models/operations/iam_get_group_response.rb
+  - lib/stack_one/models/operations/iam_get_policy_request.rb
+  - lib/stack_one/models/operations/iam_get_policy_response.rb
+  - lib/stack_one/models/operations/iam_get_role_request.rb
+  - lib/stack_one/models/operations/iam_get_role_response.rb
+  - lib/stack_one/models/operations/iam_get_user_request.rb
+  - lib/stack_one/models/operations/iam_get_user_response.rb
+  - lib/stack_one/models/operations/iam_list_groups_queryparam_filter.rb
+  - lib/stack_one/models/operations/iam_list_groups_request.rb
+  - lib/stack_one/models/operations/iam_list_groups_response.rb
+  - lib/stack_one/models/operations/iam_list_policies_queryparam_filter.rb
+  - lib/stack_one/models/operations/iam_list_policies_request.rb
+  - lib/stack_one/models/operations/iam_list_policies_response.rb
+  - lib/stack_one/models/operations/iam_list_roles_queryparam_filter.rb
+  - lib/stack_one/models/operations/iam_list_roles_request.rb
+  - lib/stack_one/models/operations/iam_list_roles_response.rb
+  - lib/stack_one/models/operations/iam_list_users_queryparam_filter.rb
+  - lib/stack_one/models/operations/iam_list_users_request.rb
+  - lib/stack_one/models/operations/iam_list_users_response.rb
+  - lib/stack_one/models/operations/lms_create_completion_request.rb
+  - lib/stack_one/models/operations/lms_create_completion_response.rb
+  - lib/stack_one/models/operations/lms_create_content_request.rb
+  - lib/stack_one/models/operations/lms_create_content_response.rb
+  - lib/stack_one/models/operations/lms_get_category_request.rb
+  - lib/stack_one/models/operations/lms_get_category_response.rb
+  - lib/stack_one/models/operations/lms_get_completion_request.rb
+  - lib/stack_one/models/operations/lms_get_completion_response.rb
+  - lib/stack_one/models/operations/lms_get_content_request.rb
+  - lib/stack_one/models/operations/lms_get_content_response.rb
+  - lib/stack_one/models/operations/lms_list_categories_queryparam_filter.rb
+  - lib/stack_one/models/operations/lms_list_categories_request.rb
+  - lib/stack_one/models/operations/lms_list_categories_response.rb
+  - lib/stack_one/models/operations/lms_list_content_queryparam_filter.rb
+  - lib/stack_one/models/operations/lms_list_content_request.rb
+  - lib/stack_one/models/operations/lms_list_content_response.rb
+  - lib/stack_one/models/operations/lms_update_content_request.rb
+  - lib/stack_one/models/operations/lms_update_content_response.rb
+  - lib/stack_one/models/operations/lms_upsert_content_request.rb
+  - lib/stack_one/models/operations/lms_upsert_content_response.rb
   - lib/stack_one/models/operations/marketing_create_content_block_request.rb
   - lib/stack_one/models/operations/marketing_create_content_block_response.rb
   - lib/stack_one/models/operations/marketing_create_email_template_request.rb
   - lib/stack_one/models/operations/marketing_create_email_template_response.rb
+  - lib/stack_one/models/operations/marketing_create_in_app_template_request.rb
+  - lib/stack_one/models/operations/marketing_create_in_app_template_response.rb
   - lib/stack_one/models/operations/marketing_create_omni_channel_template_request.rb
   - lib/stack_one/models/operations/marketing_create_omni_channel_template_response.rb
   - lib/stack_one/models/operations/marketing_create_push_template_request.rb
   - lib/stack_one/models/operations/marketing_create_push_template_response.rb
+  - lib/stack_one/models/operations/marketing_create_sms_template_request.rb
+  - lib/stack_one/models/operations/marketing_create_sms_template_response.rb
   - lib/stack_one/models/operations/marketing_get_campaign_request.rb
   - lib/stack_one/models/operations/marketing_get_campaign_response.rb
   - lib/stack_one/models/operations/marketing_get_content_block_request.rb
   - lib/stack_one/models/operations/marketing_get_content_block_response.rb
   - lib/stack_one/models/operations/marketing_get_email_template_request.rb
   - lib/stack_one/models/operations/marketing_get_email_template_response.rb
+  - lib/stack_one/models/operations/marketing_get_in_app_template_request.rb
+  - lib/stack_one/models/operations/marketing_get_in_app_template_response.rb
   - lib/stack_one/models/operations/marketing_get_omni_channel_template_request.rb
   - lib/stack_one/models/operations/marketing_get_omni_channel_template_response.rb
   - lib/stack_one/models/operations/marketing_get_push_template_request.rb
   - lib/stack_one/models/operations/marketing_get_push_template_response.rb
+  - lib/stack_one/models/operations/marketing_get_sms_template_request.rb
+  - lib/stack_one/models/operations/marketing_get_sms_template_response.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_request.rb
   - lib/stack_one/models/operations/marketing_list_campaigns_response.rb
@@ -326,20 +384,30 @@ generatedFiles:
   - lib/stack_one/models/operations/marketing_list_email_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_email_templates_response.rb
+  - lib/stack_one/models/operations/marketing_list_in_app_templates_queryparam_filter.rb
+  - lib/stack_one/models/operations/marketing_list_in_app_templates_request.rb
+  - lib/stack_one/models/operations/marketing_list_in_app_templates_response.rb
   - lib/stack_one/models/operations/marketing_list_omni_channel_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_omni_channel_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_omni_channel_templates_response.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_queryparam_filter.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_request.rb
   - lib/stack_one/models/operations/marketing_list_push_templates_response.rb
+  - lib/stack_one/models/operations/marketing_list_sms_templates_queryparam_filter.rb
+  - lib/stack_one/models/operations/marketing_list_sms_templates_request.rb
+  - lib/stack_one/models/operations/marketing_list_sms_templates_response.rb
   - lib/stack_one/models/operations/marketing_update_content_block_request.rb
   - lib/stack_one/models/operations/marketing_update_content_block_response.rb
   - lib/stack_one/models/operations/marketing_update_email_template_request.rb
   - lib/stack_one/models/operations/marketing_update_email_template_response.rb
+  - lib/stack_one/models/operations/marketing_update_in_app_template_request.rb
+  - lib/stack_one/models/operations/marketing_update_in_app_template_response.rb
   - lib/stack_one/models/operations/marketing_update_omni_channel_template_request.rb
   - lib/stack_one/models/operations/marketing_update_omni_channel_template_response.rb
   - lib/stack_one/models/operations/marketing_update_push_template_request.rb
   - lib/stack_one/models/operations/marketing_update_push_template_response.rb
+  - lib/stack_one/models/operations/marketing_update_sms_template_request.rb
+  - lib/stack_one/models/operations/marketing_update_sms_template_response.rb
   - lib/stack_one/models/operations/stackone_proxy_request_request.rb
   - lib/stack_one/models/operations/stackone_proxy_request_response.rb
   - lib/stack_one/models/shared/credentials.rb
@@ -373,6 +441,9 @@ generatedFiles:
   - lib/stack_one/models/shared/type.rb
   - lib/stack_one/models/shared/answer.rb
   - lib/stack_one/models/shared/sociallink.rb
+  - lib/stack_one/models/shared/candidatecustomfields_value.rb
+  - lib/stack_one/models/shared/candidatecustomfields_type.rb
+  - lib/stack_one/models/shared/candidatecustomfields.rb
   - lib/stack_one/models/shared/atscreatecandidaterequestdto.rb
   - lib/stack_one/models/shared/atscreatenotesrequestdto_value.rb
   - lib/stack_one/models/shared/visibility.rb
@@ -394,7 +465,7 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreason_value.rb
   - lib/stack_one/models/shared/rejected_reason_type.rb
   - lib/stack_one/models/shared/rejectedreason.rb
-  - lib/stack_one/models/shared/category.rb
+  - lib/stack_one/models/shared/atsdocumentapimodel_category.rb
   - lib/stack_one/models/shared/atsdocumentapimodel_value.rb
   - lib/stack_one/models/shared/file_format.rb
   - lib/stack_one/models/shared/atsdocumentapimodel_schemas_value.rb
@@ -403,6 +474,9 @@ generatedFiles:
   - lib/stack_one/models/shared/content_value.rb
   - lib/stack_one/models/shared/content_file_format.rb
   - lib/stack_one/models/shared/content.rb
+  - lib/stack_one/models/shared/applicationcustomfields_value.rb
+  - lib/stack_one/models/shared/applicationcustomfields_type.rb
+  - lib/stack_one/models/shared/applicationcustomfields.rb
   - lib/stack_one/models/shared/phonenumber_type.rb
   - lib/stack_one/models/shared/phonenumber.rb
   - lib/stack_one/models/shared/candidateemail.rb
@@ -424,11 +498,16 @@ generatedFiles:
   - lib/stack_one/models/shared/assessmentspackages_value.rb
   - lib/stack_one/models/shared/assessmentspackages_type.rb
   - lib/stack_one/models/shared/assessmentspackages.rb
+  - lib/stack_one/models/shared/assessmentsresultsresult.rb
+  - lib/stack_one/models/shared/assessmentsresults_value.rb
+  - lib/stack_one/models/shared/assessmentsresults_content_type.rb
+  - lib/stack_one/models/shared/attachments.rb
+  - lib/stack_one/models/shared/assessmentsresults_candidate.rb
+  - lib/stack_one/models/shared/score.rb
+  - lib/stack_one/models/shared/status.rb
+  - lib/stack_one/models/shared/assessmentsresults.rb
   - lib/stack_one/models/shared/candidateresult.rb
   - lib/stack_one/models/shared/candidate.rb
-  - lib/stack_one/models/shared/candidatecustomfields_value.rb
-  - lib/stack_one/models/shared/candidatecustomfields_type.rb
-  - lib/stack_one/models/shared/candidatecustomfields.rb
   - lib/stack_one/models/shared/noteresult.rb
   - lib/stack_one/models/shared/note_value.rb
   - lib/stack_one/models/shared/note_visibility.rb
@@ -485,6 +564,10 @@ generatedFiles:
   - lib/stack_one/models/shared/rejectedreasonresult.rb
   - lib/stack_one/models/shared/userresult.rb
   - lib/stack_one/models/shared/user.rb
+  - lib/stack_one/models/shared/customfielddefinitionspaginated.rb
+  - lib/stack_one/models/shared/customfielddefinition_value.rb
+  - lib/stack_one/models/shared/customfielddefinition_type.rb
+  - lib/stack_one/models/shared/customfielddefinition.rb
   - lib/stack_one/models/shared/atsdocumentspaginated.rb
   - lib/stack_one/models/shared/scorecardspaginated.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
@@ -684,12 +767,69 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_schemas_file_format_value.rb
   - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto_file_format.rb
   - lib/stack_one/models/shared/hrisdocumentsuploadrequestdto.rb
+  - lib/stack_one/models/shared/iamgroupresult.rb
+  - lib/stack_one/models/shared/iamgroup_value.rb
+  - lib/stack_one/models/shared/iamgroup_type.rb
+  - lib/stack_one/models/shared/iamgroup.rb
+  - lib/stack_one/models/shared/iamrole_value.rb
+  - lib/stack_one/models/shared/iamrole_type.rb
+  - lib/stack_one/models/shared/iamrole.rb
+  - lib/stack_one/models/shared/iampolicy.rb
+  - lib/stack_one/models/shared/iampermission_value.rb
+  - lib/stack_one/models/shared/iampermission_type.rb
+  - lib/stack_one/models/shared/iampermission.rb
+  - lib/stack_one/models/shared/iamresource_value.rb
+  - lib/stack_one/models/shared/iamresource_type.rb
+  - lib/stack_one/models/shared/iamresource.rb
+  - lib/stack_one/models/shared/iampolicyresult.rb
+  - lib/stack_one/models/shared/iamroleresult.rb
+  - lib/stack_one/models/shared/iamuserresult.rb
+  - lib/stack_one/models/shared/iamuser_category.rb
+  - lib/stack_one/models/shared/iamuser_schemas_value.rb
+  - lib/stack_one/models/shared/iamuser_file_format.rb
+  - lib/stack_one/models/shared/iamuser_avatar.rb
+  - lib/stack_one/models/shared/iamuser_value.rb
+  - lib/stack_one/models/shared/iamuser_status.rb
+  - lib/stack_one/models/shared/iamuser.rb
+  - lib/stack_one/models/shared/iammfatypeenum_value.rb
+  - lib/stack_one/models/shared/iammfatypeenum.rb
+  - lib/stack_one/models/shared/iamgroupspaginated.rb
+  - lib/stack_one/models/shared/iampoliciespaginated.rb
+  - lib/stack_one/models/shared/iamrolespaginated.rb
+  - lib/stack_one/models/shared/iamuserspaginated.rb
+  - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
+  - lib/stack_one/models/shared/lmscreatecompletionrequestdto_result.rb
+  - lib/stack_one/models/shared/lmscreatecompletionrequestdto_user.rb
+  - lib/stack_one/models/shared/lmscreatecompletionrequestdto.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_value.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_content_type.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto.rb
+  - lib/stack_one/models/shared/contentlanguageenum_value.rb
+  - lib/stack_one/models/shared/contentlanguageenum.rb
+  - lib/stack_one/models/shared/createcategoriesapimodel.rb
+  - lib/stack_one/models/shared/categoryresult.rb
+  - lib/stack_one/models/shared/category.rb
+  - lib/stack_one/models/shared/completionresult.rb
+  - lib/stack_one/models/shared/completion_value.rb
+  - lib/stack_one/models/shared/result.rb
+  - lib/stack_one/models/shared/completion.rb
+  - lib/stack_one/models/shared/contentresult.rb
+  - lib/stack_one/models/shared/categoriespaginated.rb
+  - lib/stack_one/models/shared/contentpaginated.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_value.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_type.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto.rb
   - lib/stack_one/models/shared/marketingcreatecontentblocksrequestdto.rb
   - lib/stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb
   - lib/stack_one/models/shared/message_content.rb
   - lib/stack_one/models/shared/emailmessages_value.rb
   - lib/stack_one/models/shared/message_type.rb
   - lib/stack_one/models/shared/emailmessages.rb
+  - lib/stack_one/models/shared/marketingcreateinapptemplaterequestdto.rb
+  - lib/stack_one/models/shared/inappmessages_message_content.rb
+  - lib/stack_one/models/shared/inappmessages_value.rb
+  - lib/stack_one/models/shared/inappmessages_message_type.rb
+  - lib/stack_one/models/shared/inappmessages.rb
   - lib/stack_one/models/shared/marketingcreatetemplaterequestdto.rb
   - lib/stack_one/models/shared/message_value.rb
   - lib/stack_one/models/shared/message_message_type.rb
@@ -699,11 +839,16 @@ generatedFiles:
   - lib/stack_one/models/shared/pushmessages_value.rb
   - lib/stack_one/models/shared/pushmessages_message_type.rb
   - lib/stack_one/models/shared/pushmessages.rb
+  - lib/stack_one/models/shared/marketingcreatesmstemplaterequestdto.rb
+  - lib/stack_one/models/shared/smsmessages_message_content.rb
+  - lib/stack_one/models/shared/smsmessages_value.rb
+  - lib/stack_one/models/shared/smsmessages_message_type.rb
+  - lib/stack_one/models/shared/smsmessages.rb
   - lib/stack_one/models/shared/campaignresult.rb
   - lib/stack_one/models/shared/campaign_value.rb
   - lib/stack_one/models/shared/schedule_type.rb
   - lib/stack_one/models/shared/campaign_schemas_value.rb
-  - lib/stack_one/models/shared/status.rb
+  - lib/stack_one/models/shared/campaign_status.rb
   - lib/stack_one/models/shared/campaign.rb
   - lib/stack_one/models/shared/value.rb
   - lib/stack_one/models/shared/channelsenum.rb
@@ -759,6 +904,8 @@ generatedFiles:
   - docs/models/operations/atsgetapplicationscorecardresponse.md
   - docs/models/operations/atsgetassessmentspackagerequest.md
   - docs/models/operations/atsgetassessmentspackageresponse.md
+  - docs/models/operations/atsgetassessmentsresultrequest.md
+  - docs/models/operations/atsgetassessmentsresultresponse.md
   - docs/models/operations/atsgetcandidaterequest.md
   - docs/models/operations/atsgetcandidateresponse.md
   - docs/models/operations/atsgetcandidatenoterequest.md
@@ -784,9 +931,12 @@ generatedFiles:
   - docs/models/operations/atsgetuserrequest.md
   - docs/models/operations/atsgetuserresponse.md
   - docs/models/operations/filter.md
+  - docs/models/operations/atslistapplicationcustomfielddefinitionsrequest.md
+  - docs/models/operations/atslistapplicationcustomfielddefinitionsresponse.md
+  - docs/models/operations/queryparamfilter.md
   - docs/models/operations/atslistapplicationdocumentsrequest.md
   - docs/models/operations/atslistapplicationdocumentsresponse.md
-  - docs/models/operations/queryparamfilter.md
+  - docs/models/operations/atslistapplicationscorecardsqueryparamfilter.md
   - docs/models/operations/atslistapplicationscorecardsrequest.md
   - docs/models/operations/atslistapplicationscorecardsresponse.md
   - docs/models/operations/atslistapplicationsqueryparamfilter.md
@@ -798,6 +948,9 @@ generatedFiles:
   - docs/models/operations/atslistassessmentspackagesqueryparamfilter.md
   - docs/models/operations/atslistassessmentspackagesrequest.md
   - docs/models/operations/atslistassessmentspackagesresponse.md
+  - docs/models/operations/atslistcandidatecustomfielddefinitionsqueryparamfilter.md
+  - docs/models/operations/atslistcandidatecustomfielddefinitionsrequest.md
+  - docs/models/operations/atslistcandidatecustomfielddefinitionsresponse.md
   - docs/models/operations/atslistcandidatenotesqueryparamfilter.md
   - docs/models/operations/atslistcandidatenotesrequest.md
   - docs/models/operations/atslistcandidatenotesresponse.md
@@ -942,24 +1095,72 @@ generatedFiles:
   - docs/models/operations/hrisupdatetimeoffrequestresponse.md
   - docs/models/operations/hrisuploademployeedocumentrequest.md
   - docs/models/operations/hrisuploademployeedocumentresponse.md
+  - docs/models/operations/iamgetgrouprequest.md
+  - docs/models/operations/iamgetgroupresponse.md
+  - docs/models/operations/iamgetpolicyrequest.md
+  - docs/models/operations/iamgetpolicyresponse.md
+  - docs/models/operations/iamgetrolerequest.md
+  - docs/models/operations/iamgetroleresponse.md
+  - docs/models/operations/iamgetuserrequest.md
+  - docs/models/operations/iamgetuserresponse.md
+  - docs/models/operations/iamlistgroupsqueryparamfilter.md
+  - docs/models/operations/iamlistgroupsrequest.md
+  - docs/models/operations/iamlistgroupsresponse.md
+  - docs/models/operations/iamlistpoliciesqueryparamfilter.md
+  - docs/models/operations/iamlistpoliciesrequest.md
+  - docs/models/operations/iamlistpoliciesresponse.md
+  - docs/models/operations/iamlistrolesqueryparamfilter.md
+  - docs/models/operations/iamlistrolesrequest.md
+  - docs/models/operations/iamlistrolesresponse.md
+  - docs/models/operations/iamlistusersqueryparamfilter.md
+  - docs/models/operations/iamlistusersrequest.md
+  - docs/models/operations/iamlistusersresponse.md
+  - docs/models/operations/lmscreatecompletionrequest.md
+  - docs/models/operations/lmscreatecompletionresponse.md
+  - docs/models/operations/lmscreatecontentrequest.md
+  - docs/models/operations/lmscreatecontentresponse.md
+  - docs/models/operations/lmsgetcategoryrequest.md
+  - docs/models/operations/lmsgetcategoryresponse.md
+  - docs/models/operations/lmsgetcompletionrequest.md
+  - docs/models/operations/lmsgetcompletionresponse.md
+  - docs/models/operations/lmsgetcontentrequest.md
+  - docs/models/operations/lmsgetcontentresponse.md
+  - docs/models/operations/lmslistcategoriesqueryparamfilter.md
+  - docs/models/operations/lmslistcategoriesrequest.md
+  - docs/models/operations/lmslistcategoriesresponse.md
+  - docs/models/operations/lmslistcontentqueryparamfilter.md
+  - docs/models/operations/lmslistcontentrequest.md
+  - docs/models/operations/lmslistcontentresponse.md
+  - docs/models/operations/lmsupdatecontentrequest.md
+  - docs/models/operations/lmsupdatecontentresponse.md
+  - docs/models/operations/lmsupsertcontentrequest.md
+  - docs/models/operations/lmsupsertcontentresponse.md
   - docs/models/operations/marketingcreatecontentblockrequest.md
   - docs/models/operations/marketingcreatecontentblockresponse.md
   - docs/models/operations/marketingcreateemailtemplaterequest.md
   - docs/models/operations/marketingcreateemailtemplateresponse.md
+  - docs/models/operations/marketingcreateinapptemplaterequest.md
+  - docs/models/operations/marketingcreateinapptemplateresponse.md
   - docs/models/operations/marketingcreateomnichanneltemplaterequest.md
   - docs/models/operations/marketingcreateomnichanneltemplateresponse.md
   - docs/models/operations/marketingcreatepushtemplaterequest.md
   - docs/models/operations/marketingcreatepushtemplateresponse.md
+  - docs/models/operations/marketingcreatesmstemplaterequest.md
+  - docs/models/operations/marketingcreatesmstemplateresponse.md
   - docs/models/operations/marketinggetcampaignrequest.md
   - docs/models/operations/marketinggetcampaignresponse.md
   - docs/models/operations/marketinggetcontentblockrequest.md
   - docs/models/operations/marketinggetcontentblockresponse.md
   - docs/models/operations/marketinggetemailtemplaterequest.md
   - docs/models/operations/marketinggetemailtemplateresponse.md
+  - docs/models/operations/marketinggetinapptemplaterequest.md
+  - docs/models/operations/marketinggetinapptemplateresponse.md
   - docs/models/operations/marketinggetomnichanneltemplaterequest.md
   - docs/models/operations/marketinggetomnichanneltemplateresponse.md
   - docs/models/operations/marketinggetpushtemplaterequest.md
   - docs/models/operations/marketinggetpushtemplateresponse.md
+  - docs/models/operations/marketinggetsmstemplaterequest.md
+  - docs/models/operations/marketinggetsmstemplateresponse.md
   - docs/models/operations/marketinglistcampaignsqueryparamfilter.md
   - docs/models/operations/marketinglistcampaignsrequest.md
   - docs/models/operations/marketinglistcampaignsresponse.md
@@ -969,20 +1170,30 @@ generatedFiles:
   - docs/models/operations/marketinglistemailtemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistemailtemplatesrequest.md
   - docs/models/operations/marketinglistemailtemplatesresponse.md
+  - docs/models/operations/marketinglistinapptemplatesqueryparamfilter.md
+  - docs/models/operations/marketinglistinapptemplatesrequest.md
+  - docs/models/operations/marketinglistinapptemplatesresponse.md
   - docs/models/operations/marketinglistomnichanneltemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistomnichanneltemplatesrequest.md
   - docs/models/operations/marketinglistomnichanneltemplatesresponse.md
   - docs/models/operations/marketinglistpushtemplatesqueryparamfilter.md
   - docs/models/operations/marketinglistpushtemplatesrequest.md
   - docs/models/operations/marketinglistpushtemplatesresponse.md
+  - docs/models/operations/marketinglistsmstemplatesqueryparamfilter.md
+  - docs/models/operations/marketinglistsmstemplatesrequest.md
+  - docs/models/operations/marketinglistsmstemplatesresponse.md
   - docs/models/operations/marketingupdatecontentblockrequest.md
   - docs/models/operations/marketingupdatecontentblockresponse.md
   - docs/models/operations/marketingupdateemailtemplaterequest.md
   - docs/models/operations/marketingupdateemailtemplateresponse.md
+  - docs/models/operations/marketingupdateinapptemplaterequest.md
+  - docs/models/operations/marketingupdateinapptemplateresponse.md
   - docs/models/operations/marketingupdateomnichanneltemplaterequest.md
   - docs/models/operations/marketingupdateomnichanneltemplateresponse.md
   - docs/models/operations/marketingupdatepushtemplaterequest.md
   - docs/models/operations/marketingupdatepushtemplateresponse.md
+  - docs/models/operations/marketingupdatesmstemplaterequest.md
+  - docs/models/operations/marketingupdatesmstemplateresponse.md
   - docs/models/operations/stackoneproxyrequestrequest.md
   - docs/models/operations/stackoneproxyrequestresponse.md
   - docs/models/shared/credentials.md
@@ -1016,6 +1227,9 @@ generatedFiles:
   - docs/models/shared/type.md
   - docs/models/shared/answer.md
   - docs/models/shared/sociallink.md
+  - docs/models/shared/candidatecustomfieldsvalue.md
+  - docs/models/shared/candidatecustomfieldstype.md
+  - docs/models/shared/candidatecustomfields.md
   - docs/models/shared/atscreatecandidaterequestdto.md
   - docs/models/shared/atscreatenotesrequestdtovalue.md
   - docs/models/shared/visibility.md
@@ -1037,7 +1251,7 @@ generatedFiles:
   - docs/models/shared/rejectedreasonvalue.md
   - docs/models/shared/rejectedreasontype.md
   - docs/models/shared/rejectedreason.md
-  - docs/models/shared/category.md
+  - docs/models/shared/atsdocumentapimodelcategory.md
   - docs/models/shared/atsdocumentapimodelvalue.md
   - docs/models/shared/fileformat.md
   - docs/models/shared/atsdocumentapimodelschemasvalue.md
@@ -1046,6 +1260,9 @@ generatedFiles:
   - docs/models/shared/contentvalue.md
   - docs/models/shared/contentfileformat.md
   - docs/models/shared/content.md
+  - docs/models/shared/applicationcustomfieldsvalue.md
+  - docs/models/shared/applicationcustomfieldstype.md
+  - docs/models/shared/applicationcustomfields.md
   - docs/models/shared/phonenumbertype.md
   - docs/models/shared/phonenumber.md
   - docs/models/shared/candidateemail.md
@@ -1067,11 +1284,16 @@ generatedFiles:
   - docs/models/shared/assessmentspackagesvalue.md
   - docs/models/shared/assessmentspackagestype.md
   - docs/models/shared/assessmentspackages.md
+  - docs/models/shared/assessmentsresultsresult.md
+  - docs/models/shared/assessmentsresultsvalue.md
+  - docs/models/shared/assessmentsresultscontenttype.md
+  - docs/models/shared/attachments.md
+  - docs/models/shared/assessmentsresultscandidate.md
+  - docs/models/shared/score.md
+  - docs/models/shared/status.md
+  - docs/models/shared/assessmentsresults.md
   - docs/models/shared/candidateresult.md
   - docs/models/shared/candidate.md
-  - docs/models/shared/candidatecustomfieldsvalue.md
-  - docs/models/shared/candidatecustomfieldstype.md
-  - docs/models/shared/candidatecustomfields.md
   - docs/models/shared/noteresult.md
   - docs/models/shared/notevalue.md
   - docs/models/shared/notevisibility.md
@@ -1128,6 +1350,10 @@ generatedFiles:
   - docs/models/shared/rejectedreasonresult.md
   - docs/models/shared/userresult.md
   - docs/models/shared/user.md
+  - docs/models/shared/customfielddefinitionspaginated.md
+  - docs/models/shared/customfielddefinitionvalue.md
+  - docs/models/shared/customfielddefinitiontype.md
+  - docs/models/shared/customfielddefinition.md
   - docs/models/shared/atsdocumentspaginated.md
   - docs/models/shared/scorecardspaginated.md
   - docs/models/shared/applicationspaginated.md
@@ -1327,12 +1553,69 @@ generatedFiles:
   - docs/models/shared/hrisdocumentsuploadrequestdtoschemasfileformatvalue.md
   - docs/models/shared/hrisdocumentsuploadrequestdtofileformat.md
   - docs/models/shared/hrisdocumentsuploadrequestdto.md
+  - docs/models/shared/iamgroupresult.md
+  - docs/models/shared/iamgroupvalue.md
+  - docs/models/shared/iamgrouptype.md
+  - docs/models/shared/iamgroup.md
+  - docs/models/shared/iamrolevalue.md
+  - docs/models/shared/iamroletype.md
+  - docs/models/shared/iamrole.md
+  - docs/models/shared/iampolicy.md
+  - docs/models/shared/iampermissionvalue.md
+  - docs/models/shared/iampermissiontype.md
+  - docs/models/shared/iampermission.md
+  - docs/models/shared/iamresourcevalue.md
+  - docs/models/shared/iamresourcetype.md
+  - docs/models/shared/iamresource.md
+  - docs/models/shared/iampolicyresult.md
+  - docs/models/shared/iamroleresult.md
+  - docs/models/shared/iamuserresult.md
+  - docs/models/shared/iamusercategory.md
+  - docs/models/shared/iamuserschemasvalue.md
+  - docs/models/shared/iamuserfileformat.md
+  - docs/models/shared/iamuseravatar.md
+  - docs/models/shared/iamuservalue.md
+  - docs/models/shared/iamuserstatus.md
+  - docs/models/shared/iamuser.md
+  - docs/models/shared/iammfatypeenumvalue.md
+  - docs/models/shared/iammfatypeenum.md
+  - docs/models/shared/iamgroupspaginated.md
+  - docs/models/shared/iampoliciespaginated.md
+  - docs/models/shared/iamrolespaginated.md
+  - docs/models/shared/iamuserspaginated.md
+  - docs/models/shared/lmscreatecompletionrequestdtovalue.md
+  - docs/models/shared/lmscreatecompletionrequestdtoresult.md
+  - docs/models/shared/lmscreatecompletionrequestdtouser.md
+  - docs/models/shared/lmscreatecompletionrequestdto.md
+  - docs/models/shared/lmscreatecontentrequestdtovalue.md
+  - docs/models/shared/lmscreatecontentrequestdtocontenttype.md
+  - docs/models/shared/lmscreatecontentrequestdto.md
+  - docs/models/shared/contentlanguageenumvalue.md
+  - docs/models/shared/contentlanguageenum.md
+  - docs/models/shared/createcategoriesapimodel.md
+  - docs/models/shared/categoryresult.md
+  - docs/models/shared/category.md
+  - docs/models/shared/completionresult.md
+  - docs/models/shared/completionvalue.md
+  - docs/models/shared/result.md
+  - docs/models/shared/completion.md
+  - docs/models/shared/contentresult.md
+  - docs/models/shared/categoriespaginated.md
+  - docs/models/shared/contentpaginated.md
+  - docs/models/shared/lmsupsertcontentrequestdtovalue.md
+  - docs/models/shared/lmsupsertcontentrequestdtocontenttype.md
+  - docs/models/shared/lmsupsertcontentrequestdto.md
   - docs/models/shared/marketingcreatecontentblocksrequestdto.md
   - docs/models/shared/marketingcreateemailtemplaterequestdto.md
   - docs/models/shared/messagecontent.md
   - docs/models/shared/emailmessagesvalue.md
   - docs/models/shared/messagetype.md
   - docs/models/shared/emailmessages.md
+  - docs/models/shared/marketingcreateinapptemplaterequestdto.md
+  - docs/models/shared/inappmessagesmessagecontent.md
+  - docs/models/shared/inappmessagesvalue.md
+  - docs/models/shared/inappmessagesmessagetype.md
+  - docs/models/shared/inappmessages.md
   - docs/models/shared/marketingcreatetemplaterequestdto.md
   - docs/models/shared/messagevalue.md
   - docs/models/shared/messagemessagetype.md
@@ -1342,11 +1625,16 @@ generatedFiles:
   - docs/models/shared/pushmessagesvalue.md
   - docs/models/shared/pushmessagesmessagetype.md
   - docs/models/shared/pushmessages.md
+  - docs/models/shared/marketingcreatesmstemplaterequestdto.md
+  - docs/models/shared/smsmessagesmessagecontent.md
+  - docs/models/shared/smsmessagesvalue.md
+  - docs/models/shared/smsmessagesmessagetype.md
+  - docs/models/shared/smsmessages.md
   - docs/models/shared/campaignresult.md
   - docs/models/shared/campaignvalue.md
   - docs/models/shared/scheduletype.md
   - docs/models/shared/campaignschemasvalue.md
-  - docs/models/shared/status.md
+  - docs/models/shared/campaignstatus.md
   - docs/models/shared/campaign.md
   - docs/models/shared/value.md
   - docs/models/shared/channelsenum.md
@@ -1370,6 +1658,8 @@ generatedFiles:
   - docs/sdks/ats/README.md
   - docs/sdks/crm/README.md
   - docs/sdks/hris/README.md
+  - docs/sdks/iam/README.md
+  - docs/sdks/lms/README.md
   - docs/sdks/marketing/README.md
   - docs/sdks/proxy/README.md
   - USAGE.md

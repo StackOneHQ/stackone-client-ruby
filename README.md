@@ -84,6 +84,7 @@ end
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](docs/sdks/ats/README.md#get_assessments_package) - Get Assessments Package
+* [get_assessments_result](docs/sdks/ats/README.md#get_assessments_result) - Get Assessments Results
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
 * [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
 * [get_department](docs/sdks/ats/README.md#get_department) - Get Department
@@ -96,11 +97,13 @@ end
 * [get_offer](docs/sdks/ats/README.md#get_offer) - Get Offer
 * [get_rejected_reason](docs/sdks/ats/README.md#get_rejected_reason) - Get Rejected Reason
 * [get_user](docs/sdks/ats/README.md#get_user) - Get User
+* [list_application_custom_field_definitions](docs/sdks/ats/README.md#list_application_custom_field_definitions) - List application custom field definitions
 * [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
 * [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
 * [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
 * [list_assessments_packages](docs/sdks/ats/README.md#list_assessments_packages) - List Assessments Packages
+* [list_candidate_custom_field_definitions](docs/sdks/ats/README.md#list_candidate_custom_field_definitions) - List candidate custom field definitions
 * [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
 * [list_candidates](docs/sdks/ats/README.md#list_candidates) - List Candidates
 * [list_departments](docs/sdks/ats/README.md#list_departments) - List Departments
@@ -166,26 +169,57 @@ end
 * [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
 
+### [Iam](docs/sdks/iam/README.md)
+
+* [get_group](docs/sdks/iam/README.md#get_group) - Get Group
+* [get_policy](docs/sdks/iam/README.md#get_policy) - Get Policy
+* [get_role](docs/sdks/iam/README.md#get_role) - Get Role
+* [get_user](docs/sdks/iam/README.md#get_user) - Get User
+* [list_groups](docs/sdks/iam/README.md#list_groups) - List Groups
+* [list_policies](docs/sdks/iam/README.md#list_policies) - List Policies
+* [list_roles](docs/sdks/iam/README.md#list_roles) - List Roles
+* [list_users](docs/sdks/iam/README.md#list_users) - List Users
+
+### [Lms](docs/sdks/lms/README.md)
+
+* [create_completion](docs/sdks/lms/README.md#create_completion) - Create Completion
+* [create_content](docs/sdks/lms/README.md#create_content) - Create Content
+* [get_category](docs/sdks/lms/README.md#get_category) - Get Category
+* [get_completion](docs/sdks/lms/README.md#get_completion) - Get Completion
+* [get_content](docs/sdks/lms/README.md#get_content) - Get Content
+* [list_categories](docs/sdks/lms/README.md#list_categories) - List Categories
+* [list_content](docs/sdks/lms/README.md#list_content) - List Content
+* [update_content](docs/sdks/lms/README.md#update_content) - Update Content
+* [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
+
 ### [Marketing](docs/sdks/marketing/README.md)
 
 * [create_content_block](docs/sdks/marketing/README.md#create_content_block) - Create Content Block
 * [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create email template
-* [create_omni_channel_template](docs/sdks/marketing/README.md#create_omni_channel_template) - Create omni-channel template
+* [create_in_app_template](docs/sdks/marketing/README.md#create_in_app_template) - Create in_app template
+* [~~create_omni_channel_template~~](docs/sdks/marketing/README.md#create_omni_channel_template) - Create omni-channel template :warning: **Deprecated**
 * [create_push_template](docs/sdks/marketing/README.md#create_push_template) - Create push template
+* [create_sms_template](docs/sdks/marketing/README.md#create_sms_template) - Create sms template
 * [get_campaign](docs/sdks/marketing/README.md#get_campaign) - Get campaign
 * [get_content_block](docs/sdks/marketing/README.md#get_content_block) - Get Content Blocks
 * [get_email_template](docs/sdks/marketing/README.md#get_email_template) - Get email template
-* [get_omni_channel_template](docs/sdks/marketing/README.md#get_omni_channel_template) - Get omni-channel template
+* [get_in_app_template](docs/sdks/marketing/README.md#get_in_app_template) - Get in_app template
+* [~~get_omni_channel_template~~](docs/sdks/marketing/README.md#get_omni_channel_template) - Get omni-channel template :warning: **Deprecated**
 * [get_push_template](docs/sdks/marketing/README.md#get_push_template) - Get push template
+* [get_sms_template](docs/sdks/marketing/README.md#get_sms_template) - Get sms template
 * [list_campaigns](docs/sdks/marketing/README.md#list_campaigns) - List campaigns
 * [list_content_blocks](docs/sdks/marketing/README.md#list_content_blocks) - List Content Blocks
 * [list_email_templates](docs/sdks/marketing/README.md#list_email_templates) - List email templates
-* [list_omni_channel_templates](docs/sdks/marketing/README.md#list_omni_channel_templates) - List omni-channel templates
+* [list_in_app_templates](docs/sdks/marketing/README.md#list_in_app_templates) - List in_app templates
+* [~~list_omni_channel_templates~~](docs/sdks/marketing/README.md#list_omni_channel_templates) - List omni-channel templates :warning: **Deprecated**
 * [list_push_templates](docs/sdks/marketing/README.md#list_push_templates) - List push templates
+* [list_sms_templates](docs/sdks/marketing/README.md#list_sms_templates) - List sms templates
 * [update_content_block](docs/sdks/marketing/README.md#update_content_block) - Update email template
 * [update_email_template](docs/sdks/marketing/README.md#update_email_template) - Update email template
-* [update_omni_channel_template](docs/sdks/marketing/README.md#update_omni_channel_template) - Update omni-channel template
+* [update_in_app_template](docs/sdks/marketing/README.md#update_in_app_template) - Update in_app template
+* [~~update_omni_channel_template~~](docs/sdks/marketing/README.md#update_omni_channel_template) - Update omni-channel template :warning: **Deprecated**
 * [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update push template
+* [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update sms template
 
 ### [Proxy](docs/sdks/proxy/README.md)
 
