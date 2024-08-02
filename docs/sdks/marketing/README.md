@@ -4,31 +4,31 @@
 ### Available Operations
 
 * [create_content_block](#create_content_block) - Create Content Block
-* [create_email_template](#create_email_template) - Create email template
-* [create_in_app_template](#create_in_app_template) - Create in_app template
-* [~~create_omni_channel_template~~](#create_omni_channel_template) - Create omni-channel template :warning: **Deprecated**
-* [create_push_template](#create_push_template) - Create push template
-* [create_sms_template](#create_sms_template) - Create sms template
+* [create_email_template](#create_email_template) - Create Email Templates
+* [create_in_app_template](#create_in_app_template) - Create In-App Template
+* [~~create_omni_channel_template~~](#create_omni_channel_template) - Create Omni-Channel Template :warning: **Deprecated**
+* [create_push_template](#create_push_template) - Create Push Template
+* [create_sms_template](#create_sms_template) - Create SMS Template
 * [get_campaign](#get_campaign) - Get campaign
 * [get_content_block](#get_content_block) - Get Content Blocks
-* [get_email_template](#get_email_template) - Get email template
-* [get_in_app_template](#get_in_app_template) - Get in_app template
-* [~~get_omni_channel_template~~](#get_omni_channel_template) - Get omni-channel template :warning: **Deprecated**
-* [get_push_template](#get_push_template) - Get push template
-* [get_sms_template](#get_sms_template) - Get sms template
+* [get_email_template](#get_email_template) - Get Email Templates
+* [get_in_app_template](#get_in_app_template) - Get In-App Template
+* [~~get_omni_channel_template~~](#get_omni_channel_template) - Get Omni-Channel Template :warning: **Deprecated**
+* [get_push_template](#get_push_template) - Get Push Template
+* [get_sms_template](#get_sms_template) - Get SMS Template
 * [list_campaigns](#list_campaigns) - List campaigns
 * [list_content_blocks](#list_content_blocks) - List Content Blocks
-* [list_email_templates](#list_email_templates) - List email templates
-* [list_in_app_templates](#list_in_app_templates) - List in_app templates
-* [~~list_omni_channel_templates~~](#list_omni_channel_templates) - List omni-channel templates :warning: **Deprecated**
-* [list_push_templates](#list_push_templates) - List push templates
-* [list_sms_templates](#list_sms_templates) - List sms templates
-* [update_content_block](#update_content_block) - Update email template
-* [update_email_template](#update_email_template) - Update email template
-* [update_in_app_template](#update_in_app_template) - Update in_app template
-* [~~update_omni_channel_template~~](#update_omni_channel_template) - Update omni-channel template :warning: **Deprecated**
-* [update_push_template](#update_push_template) - Update push template
-* [update_sms_template](#update_sms_template) - Update sms template
+* [list_email_templates](#list_email_templates) - List Email Templates
+* [list_in_app_templates](#list_in_app_templates) - List In-App Templates
+* [~~list_omni_channel_templates~~](#list_omni_channel_templates) - List Omni-Channel Templates :warning: **Deprecated**
+* [list_push_templates](#list_push_templates) - List Push Templates
+* [list_sms_templates](#list_sms_templates) - List SMS Templates
+* [update_content_block](#update_content_block) - Update Content Block
+* [update_email_template](#update_email_template) - Update Email Templates
+* [update_in_app_template](#update_in_app_template) - Update In-App Template
+* [~~update_omni_channel_template~~](#update_omni_channel_template) - Update Omni-Channel Template :warning: **Deprecated**
+* [update_push_template](#update_push_template) - Update Push Template
+* [update_sms_template](#update_sms_template) - Update SMS Template
 
 ## create_content_block
 
@@ -43,7 +43,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -75,7 +76,7 @@ end
 
 ## create_email_template
 
-Create email template
+Create Email Templates
 
 ### Example Usage
 
@@ -86,7 +87,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -127,7 +129,7 @@ end
 
 ## create_in_app_template
 
-Create in_app template
+Create In-App Template
 
 ### Example Usage
 
@@ -138,7 +140,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -179,7 +182,7 @@ end
 
 ## ~~create_omni_channel_template~~
 
-Create omni-channel template
+Create Omni-Channel Template
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -192,7 +195,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -233,7 +237,7 @@ end
 
 ## create_push_template
 
-Create push template
+Create Push Template
 
 ### Example Usage
 
@@ -244,7 +248,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -285,7 +290,7 @@ end
 
 ## create_sms_template
 
-Create sms template
+Create SMS Template
 
 ### Example Usage
 
@@ -296,7 +301,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -348,7 +354,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -392,7 +399,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -425,7 +433,7 @@ end
 
 ## get_email_template
 
-Get email template
+Get Email Templates
 
 ### Example Usage
 
@@ -436,7 +444,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -469,7 +478,7 @@ end
 
 ## get_in_app_template
 
-Get in_app template
+Get In-App Template
 
 ### Example Usage
 
@@ -480,7 +489,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -513,7 +523,7 @@ end
 
 ## ~~get_omni_channel_template~~
 
-Get omni-channel template
+Get Omni-Channel Template
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -526,7 +536,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -559,7 +570,7 @@ end
 
 ## get_push_template
 
-Get push template
+Get Push Template
 
 ### Example Usage
 
@@ -570,7 +581,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -603,7 +615,7 @@ end
 
 ## get_sms_template
 
-Get sms template
+Get SMS Template
 
 ### Example Usage
 
@@ -614,7 +626,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -658,7 +671,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -704,7 +718,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -739,7 +754,7 @@ end
 
 ## list_email_templates
 
-List email templates
+List Email Templates
 
 ### Example Usage
 
@@ -750,7 +765,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -785,7 +801,7 @@ end
 
 ## list_in_app_templates
 
-List in_app templates
+List In-App Templates
 
 ### Example Usage
 
@@ -796,7 +812,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -831,7 +848,7 @@ end
 
 ## ~~list_omni_channel_templates~~
 
-List omni-channel templates
+List Omni-Channel Templates
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -844,7 +861,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -879,7 +897,7 @@ end
 
 ## list_push_templates
 
-List push templates
+List Push Templates
 
 ### Example Usage
 
@@ -890,7 +908,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -925,7 +944,7 @@ end
 
 ## list_sms_templates
 
-List sms templates
+List SMS Templates
 
 ### Example Usage
 
@@ -936,7 +955,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -971,7 +991,7 @@ end
 
 ## update_content_block
 
-Update email template
+Update Content Block
 
 ### Example Usage
 
@@ -982,7 +1002,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1015,7 +1036,7 @@ end
 
 ## update_email_template
 
-Update email template
+Update Email Templates
 
 ### Example Usage
 
@@ -1026,7 +1047,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1068,7 +1090,7 @@ end
 
 ## update_in_app_template
 
-Update in_app template
+Update In-App Template
 
 ### Example Usage
 
@@ -1079,7 +1101,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1121,7 +1144,7 @@ end
 
 ## ~~update_omni_channel_template~~
 
-Update omni-channel template
+Update Omni-Channel Template
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -1134,7 +1157,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1176,7 +1200,7 @@ end
 
 ## update_push_template
 
-Update push template
+Update Push Template
 
 ### Example Usage
 
@@ -1187,7 +1211,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1229,7 +1254,7 @@ end
 
 ## update_sms_template
 
-Update sms template
+Update SMS Template
 
 ### Example Usage
 
@@ -1240,7 +1265,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 

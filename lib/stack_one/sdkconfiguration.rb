@@ -11,7 +11,7 @@ module StackOne
   extend T::Sig
 
   SERVERS = [
-    'https://api-beta.stackone.com', 
+    'https://api.stackone.com', 
   ].freeze
   # Contains the list of servers available to the SDK
 
@@ -38,9 +38,9 @@ module StackOne
       @security = security
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.2.34'
-      @gen_version = '2.379.6'
-      @user_agent = 'speakeasy-sdk/ruby 0.2.34 2.379.6 1.0.0 stackone_client'
+      @sdk_version = '0.2.35'
+      @gen_version = '2.384.4'
+      @user_agent = 'speakeasy-sdk/ruby 0.2.35 2.384.4 1.0.0 stackone_client'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

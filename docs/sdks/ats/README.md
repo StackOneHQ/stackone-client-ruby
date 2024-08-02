@@ -11,8 +11,10 @@
 * [get_application](#get_application) - Get Application
 * [get_application_document](#get_application_document) - Get Application Document
 * [get_application_offer](#get_application_offer) - Get Application Offer
+* [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](#get_assessments_package) - Get Assessments Package
+* [get_assessments_request](#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](#get_assessments_result) - Get Assessments Results
 * [get_candidate](#get_candidate) - Get Candidate
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
@@ -31,6 +33,7 @@
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
+* [list_applications_scheduled_interviews](#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
 * [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List candidate custom field definitions
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
@@ -62,7 +65,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -171,7 +175,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -244,7 +249,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -298,7 +304,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -353,7 +360,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -394,7 +402,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -440,7 +449,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -485,7 +495,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -517,6 +528,52 @@ end
 **[T.nilable(::StackOne::Operations::AtsGetApplicationOfferResponse)](../../models/operations/atsgetapplicationofferresponse.md)**
 
 
+## get_application_scheduled_interview
+
+Get Applications scheduled interview
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest.new(
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_application_scheduled_interview(req)
+
+if ! res.scheduled_interviews_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                   | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                   | [::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest](../../models/operations/atsgetapplicationscheduledinterviewrequest.md) | :heavy_check_mark:                                                                                                                          | The request object to use for the request.                                                                                                  |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetApplicationScheduledInterviewResponse)](../../models/operations/atsgetapplicationscheduledinterviewresponse.md)**
+
+
 ## get_application_scorecard
 
 Get Application Scorecard
@@ -530,7 +587,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -575,7 +633,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -605,6 +664,50 @@ end
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
 
 
+## get_assessments_request
+
+Get Assessments Requests
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetAssessmentsRequestRequest.new(
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_assessments_request(req)
+
+if ! res.assessments_results_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [::StackOne::Operations::AtsGetAssessmentsRequestRequest](../../models/operations/atsgetassessmentsrequestrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetAssessmentsRequestResponse)](../../models/operations/atsgetassessmentsrequestresponse.md)**
+
+
 ## get_assessments_result
 
 Get Assessments Results
@@ -618,7 +721,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -661,7 +765,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -706,7 +811,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -751,7 +857,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -795,7 +902,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -839,7 +947,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -883,7 +992,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -928,7 +1038,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -973,7 +1084,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1017,7 +1129,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1061,7 +1174,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1105,7 +1219,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1149,7 +1264,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1193,7 +1309,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1239,7 +1356,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1286,7 +1404,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1333,7 +1452,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1381,7 +1501,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1415,6 +1536,54 @@ end
 **[T.nilable(::StackOne::Operations::AtsListApplicationsOffersResponse)](../../models/operations/atslistapplicationsoffersresponse.md)**
 
 
+## list_applications_scheduled_interviews
+
+List Applications scheduled interviews
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
+  fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
+  filter: ::StackOne::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.list_applications_scheduled_interviews(req)
+
+if ! res.scheduled_interviews_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest](../../models/operations/atslistapplicationsscheduledinterviewsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListApplicationsScheduledInterviewsResponse)](../../models/operations/atslistapplicationsscheduledinterviewsresponse.md)**
+
+
 ## list_assessments_packages
 
 List Assessments Packages
@@ -1428,7 +1597,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1473,7 +1643,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1519,7 +1690,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1566,7 +1738,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1613,7 +1786,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1659,7 +1833,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1705,7 +1880,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1751,7 +1927,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1798,7 +1975,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1845,7 +2023,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1891,7 +2070,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1937,7 +2117,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -1983,7 +2164,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -2029,7 +2211,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -2075,7 +2258,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -2085,6 +2269,21 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
       source_value: "Hired",
       value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
     ),
+    custom_fields: [
+      ::StackOne::Shared::ApplicationCustomFields.new(
+        description: "The completion status of the employee's training.",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Training Completion Status",
+        options: [
+          "<value>",
+        ],
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+        type: ::StackOne::Shared::ApplicationCustomFieldsType.new(),
+        value: "Completed",
+        value_id: "value_456",
+      ),
+    ],
     interview_stage_id: "18bcbb1b-3cbc-4198-a999-460861d19480",
     passthrough: {
       "Licensed": "<value>",
@@ -2130,7 +2329,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -2217,7 +2417,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 

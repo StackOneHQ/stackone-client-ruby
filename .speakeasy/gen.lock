@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: e6deb807cab5d06c6c87e3a15f3b28e5
+  docChecksum: 9601b3e27145e46798c42f8d87dae1bc
   docVersion: 1.0.0
-  speakeasyVersion: 1.346.3
-  generationVersion: 2.379.6
-  releaseVersion: 0.2.34
-  configChecksum: 84cb85669455290384a55f9ce4a40e3d
+  speakeasyVersion: 1.351.3
+  generationVersion: 2.384.4
+  releaseVersion: 0.2.35
+  configChecksum: a945ee5e811d365bbac82230bf416d16
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -114,10 +114,14 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_application_document_response.rb
   - lib/stack_one/models/operations/ats_get_application_offer_request.rb
   - lib/stack_one/models/operations/ats_get_application_offer_response.rb
+  - lib/stack_one/models/operations/ats_get_application_scheduled_interview_request.rb
+  - lib/stack_one/models/operations/ats_get_application_scheduled_interview_response.rb
   - lib/stack_one/models/operations/ats_get_application_scorecard_request.rb
   - lib/stack_one/models/operations/ats_get_application_scorecard_response.rb
   - lib/stack_one/models/operations/ats_get_assessments_package_request.rb
   - lib/stack_one/models/operations/ats_get_assessments_package_response.rb
+  - lib/stack_one/models/operations/ats_get_assessments_request_request.rb
+  - lib/stack_one/models/operations/ats_get_assessments_request_response.rb
   - lib/stack_one/models/operations/ats_get_assessments_result_request.rb
   - lib/stack_one/models/operations/ats_get_assessments_result_response.rb
   - lib/stack_one/models/operations/ats_get_candidate_request.rb
@@ -159,6 +163,9 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_list_applications_offers_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_applications_offers_request.rb
   - lib/stack_one/models/operations/ats_list_applications_offers_response.rb
+  - lib/stack_one/models/operations/ats_list_applications_scheduled_interviews_queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_applications_scheduled_interviews_request.rb
+  - lib/stack_one/models/operations/ats_list_applications_scheduled_interviews_response.rb
   - lib/stack_one/models/operations/ats_list_assessments_packages_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_assessments_packages_request.rb
   - lib/stack_one/models/operations/ats_list_assessments_packages_response.rb
@@ -488,6 +495,15 @@ generatedFiles:
   - lib/stack_one/models/shared/offer_value.rb
   - lib/stack_one/models/shared/offer_offer_status.rb
   - lib/stack_one/models/shared/offer.rb
+  - lib/stack_one/models/shared/scheduledinterviewsresult.rb
+  - lib/stack_one/models/shared/scheduledinterview_interview_stage.rb
+  - lib/stack_one/models/shared/scheduledinterview_value.rb
+  - lib/stack_one/models/shared/scheduledinterview_interview_status.rb
+  - lib/stack_one/models/shared/scheduledinterview.rb
+  - lib/stack_one/models/shared/interviewer.rb
+  - lib/stack_one/models/shared/interviewpart_value.rb
+  - lib/stack_one/models/shared/interviewpart_type.rb
+  - lib/stack_one/models/shared/interviewpart.rb
   - lib/stack_one/models/shared/scorecardsresult.rb
   - lib/stack_one/models/shared/overall_recommendation.rb
   - lib/stack_one/models/shared/scorecard.rb
@@ -519,10 +535,6 @@ generatedFiles:
   - lib/stack_one/models/shared/interview_value.rb
   - lib/stack_one/models/shared/interview_status.rb
   - lib/stack_one/models/shared/interview.rb
-  - lib/stack_one/models/shared/interviewer.rb
-  - lib/stack_one/models/shared/interviewpart_value.rb
-  - lib/stack_one/models/shared/interviewpart_type.rb
-  - lib/stack_one/models/shared/interviewpart.rb
   - lib/stack_one/models/shared/interviewstageresult.rb
   - lib/stack_one/models/shared/interviewstage.rb
   - lib/stack_one/models/shared/jobresult.rb
@@ -572,6 +584,7 @@ generatedFiles:
   - lib/stack_one/models/shared/scorecardspaginated.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
   - lib/stack_one/models/shared/offerspaginated.rb
+  - lib/stack_one/models/shared/scheduledinterviewspaginated.rb
   - lib/stack_one/models/shared/assessmentspackagespaginated.rb
   - lib/stack_one/models/shared/notespaginated.rb
   - lib/stack_one/models/shared/candidatespaginated.rb
@@ -900,10 +913,14 @@ generatedFiles:
   - docs/models/operations/atsgetapplicationdocumentresponse.md
   - docs/models/operations/atsgetapplicationofferrequest.md
   - docs/models/operations/atsgetapplicationofferresponse.md
+  - docs/models/operations/atsgetapplicationscheduledinterviewrequest.md
+  - docs/models/operations/atsgetapplicationscheduledinterviewresponse.md
   - docs/models/operations/atsgetapplicationscorecardrequest.md
   - docs/models/operations/atsgetapplicationscorecardresponse.md
   - docs/models/operations/atsgetassessmentspackagerequest.md
   - docs/models/operations/atsgetassessmentspackageresponse.md
+  - docs/models/operations/atsgetassessmentsrequestrequest.md
+  - docs/models/operations/atsgetassessmentsrequestresponse.md
   - docs/models/operations/atsgetassessmentsresultrequest.md
   - docs/models/operations/atsgetassessmentsresultresponse.md
   - docs/models/operations/atsgetcandidaterequest.md
@@ -945,6 +962,9 @@ generatedFiles:
   - docs/models/operations/atslistapplicationsoffersqueryparamfilter.md
   - docs/models/operations/atslistapplicationsoffersrequest.md
   - docs/models/operations/atslistapplicationsoffersresponse.md
+  - docs/models/operations/atslistapplicationsscheduledinterviewsqueryparamfilter.md
+  - docs/models/operations/atslistapplicationsscheduledinterviewsrequest.md
+  - docs/models/operations/atslistapplicationsscheduledinterviewsresponse.md
   - docs/models/operations/atslistassessmentspackagesqueryparamfilter.md
   - docs/models/operations/atslistassessmentspackagesrequest.md
   - docs/models/operations/atslistassessmentspackagesresponse.md
@@ -1274,6 +1294,15 @@ generatedFiles:
   - docs/models/shared/offervalue.md
   - docs/models/shared/offerofferstatus.md
   - docs/models/shared/offer.md
+  - docs/models/shared/scheduledinterviewsresult.md
+  - docs/models/shared/scheduledinterviewinterviewstage.md
+  - docs/models/shared/scheduledinterviewvalue.md
+  - docs/models/shared/scheduledinterviewinterviewstatus.md
+  - docs/models/shared/scheduledinterview.md
+  - docs/models/shared/interviewer.md
+  - docs/models/shared/interviewpartvalue.md
+  - docs/models/shared/interviewparttype.md
+  - docs/models/shared/interviewpart.md
   - docs/models/shared/scorecardsresult.md
   - docs/models/shared/overallrecommendation.md
   - docs/models/shared/scorecard.md
@@ -1305,10 +1334,6 @@ generatedFiles:
   - docs/models/shared/interviewvalue.md
   - docs/models/shared/interviewstatus.md
   - docs/models/shared/interview.md
-  - docs/models/shared/interviewer.md
-  - docs/models/shared/interviewpartvalue.md
-  - docs/models/shared/interviewparttype.md
-  - docs/models/shared/interviewpart.md
   - docs/models/shared/interviewstageresult.md
   - docs/models/shared/interviewstage.md
   - docs/models/shared/jobresult.md
@@ -1358,6 +1383,7 @@ generatedFiles:
   - docs/models/shared/scorecardspaginated.md
   - docs/models/shared/applicationspaginated.md
   - docs/models/shared/offerspaginated.md
+  - docs/models/shared/scheduledinterviewspaginated.md
   - docs/models/shared/assessmentspackagespaginated.md
   - docs/models/shared/notespaginated.md
   - docs/models/shared/candidatespaginated.md

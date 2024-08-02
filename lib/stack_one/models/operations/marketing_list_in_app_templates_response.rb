@@ -17,7 +17,7 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The list of in_app templates was retrieved.
+      # The list of in-app templates was retrieved.
       field :templates_paginated, T.nilable(::StackOne::Shared::TemplatesPaginated)
 
 

@@ -8,7 +8,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 

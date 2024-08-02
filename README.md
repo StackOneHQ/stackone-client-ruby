@@ -27,7 +27,8 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
@@ -82,8 +83,10 @@ end
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
 * [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
+* [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](docs/sdks/ats/README.md#get_assessments_package) - Get Assessments Package
+* [get_assessments_request](docs/sdks/ats/README.md#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](docs/sdks/ats/README.md#get_assessments_result) - Get Assessments Results
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
 * [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
@@ -102,6 +105,7 @@ end
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
 * [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
 * [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
+* [list_applications_scheduled_interviews](docs/sdks/ats/README.md#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](docs/sdks/ats/README.md#list_assessments_packages) - List Assessments Packages
 * [list_candidate_custom_field_definitions](docs/sdks/ats/README.md#list_candidate_custom_field_definitions) - List candidate custom field definitions
 * [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
@@ -195,31 +199,31 @@ end
 ### [Marketing](docs/sdks/marketing/README.md)
 
 * [create_content_block](docs/sdks/marketing/README.md#create_content_block) - Create Content Block
-* [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create email template
-* [create_in_app_template](docs/sdks/marketing/README.md#create_in_app_template) - Create in_app template
-* [~~create_omni_channel_template~~](docs/sdks/marketing/README.md#create_omni_channel_template) - Create omni-channel template :warning: **Deprecated**
-* [create_push_template](docs/sdks/marketing/README.md#create_push_template) - Create push template
-* [create_sms_template](docs/sdks/marketing/README.md#create_sms_template) - Create sms template
+* [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create Email Templates
+* [create_in_app_template](docs/sdks/marketing/README.md#create_in_app_template) - Create In-App Template
+* [~~create_omni_channel_template~~](docs/sdks/marketing/README.md#create_omni_channel_template) - Create Omni-Channel Template :warning: **Deprecated**
+* [create_push_template](docs/sdks/marketing/README.md#create_push_template) - Create Push Template
+* [create_sms_template](docs/sdks/marketing/README.md#create_sms_template) - Create SMS Template
 * [get_campaign](docs/sdks/marketing/README.md#get_campaign) - Get campaign
 * [get_content_block](docs/sdks/marketing/README.md#get_content_block) - Get Content Blocks
-* [get_email_template](docs/sdks/marketing/README.md#get_email_template) - Get email template
-* [get_in_app_template](docs/sdks/marketing/README.md#get_in_app_template) - Get in_app template
-* [~~get_omni_channel_template~~](docs/sdks/marketing/README.md#get_omni_channel_template) - Get omni-channel template :warning: **Deprecated**
-* [get_push_template](docs/sdks/marketing/README.md#get_push_template) - Get push template
-* [get_sms_template](docs/sdks/marketing/README.md#get_sms_template) - Get sms template
+* [get_email_template](docs/sdks/marketing/README.md#get_email_template) - Get Email Templates
+* [get_in_app_template](docs/sdks/marketing/README.md#get_in_app_template) - Get In-App Template
+* [~~get_omni_channel_template~~](docs/sdks/marketing/README.md#get_omni_channel_template) - Get Omni-Channel Template :warning: **Deprecated**
+* [get_push_template](docs/sdks/marketing/README.md#get_push_template) - Get Push Template
+* [get_sms_template](docs/sdks/marketing/README.md#get_sms_template) - Get SMS Template
 * [list_campaigns](docs/sdks/marketing/README.md#list_campaigns) - List campaigns
 * [list_content_blocks](docs/sdks/marketing/README.md#list_content_blocks) - List Content Blocks
-* [list_email_templates](docs/sdks/marketing/README.md#list_email_templates) - List email templates
-* [list_in_app_templates](docs/sdks/marketing/README.md#list_in_app_templates) - List in_app templates
-* [~~list_omni_channel_templates~~](docs/sdks/marketing/README.md#list_omni_channel_templates) - List omni-channel templates :warning: **Deprecated**
-* [list_push_templates](docs/sdks/marketing/README.md#list_push_templates) - List push templates
-* [list_sms_templates](docs/sdks/marketing/README.md#list_sms_templates) - List sms templates
-* [update_content_block](docs/sdks/marketing/README.md#update_content_block) - Update email template
-* [update_email_template](docs/sdks/marketing/README.md#update_email_template) - Update email template
-* [update_in_app_template](docs/sdks/marketing/README.md#update_in_app_template) - Update in_app template
-* [~~update_omni_channel_template~~](docs/sdks/marketing/README.md#update_omni_channel_template) - Update omni-channel template :warning: **Deprecated**
-* [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update push template
-* [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update sms template
+* [list_email_templates](docs/sdks/marketing/README.md#list_email_templates) - List Email Templates
+* [list_in_app_templates](docs/sdks/marketing/README.md#list_in_app_templates) - List In-App Templates
+* [~~list_omni_channel_templates~~](docs/sdks/marketing/README.md#list_omni_channel_templates) - List Omni-Channel Templates :warning: **Deprecated**
+* [list_push_templates](docs/sdks/marketing/README.md#list_push_templates) - List Push Templates
+* [list_sms_templates](docs/sdks/marketing/README.md#list_sms_templates) - List SMS Templates
+* [update_content_block](docs/sdks/marketing/README.md#update_content_block) - Update Content Block
+* [update_email_template](docs/sdks/marketing/README.md#update_email_template) - Update Email Templates
+* [update_in_app_template](docs/sdks/marketing/README.md#update_in_app_template) - Update In-App Template
+* [~~update_omni_channel_template~~](docs/sdks/marketing/README.md#update_omni_channel_template) - Update Omni-Channel Template :warning: **Deprecated**
+* [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update Push Template
+* [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update SMS Template
 
 ### [Proxy](docs/sdks/proxy/README.md)
 
@@ -237,7 +241,7 @@ You can override the default server globally by passing a server index to the `s
 
 | # | Server | Variables |
 | - | ------ | --------- |
-| 0 | `https://api-beta.stackone.com` | None |
+| 0 | `https://api.stackone.com` | None |
 
 
 

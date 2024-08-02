@@ -67,7 +67,7 @@ module StackOne
 
     sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateEmailTemplateResponse) }
     def create_email_template(marketing_create_email_template_request_dto, x_account_id)
-      # create_email_template - Create email template
+      # create_email_template - Create Email Templates
       request = ::StackOne::Operations::MarketingCreateEmailTemplateRequest.new(
         
         marketing_create_email_template_request_dto: marketing_create_email_template_request_dto,
@@ -113,7 +113,7 @@ module StackOne
 
     sig { params(marketing_create_in_app_template_request_dto: ::StackOne::Shared::MarketingCreateInAppTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateInAppTemplateResponse) }
     def create_in_app_template(marketing_create_in_app_template_request_dto, x_account_id)
-      # create_in_app_template - Create in_app template
+      # create_in_app_template - Create In-App Template
       request = ::StackOne::Operations::MarketingCreateInAppTemplateRequest.new(
         
         marketing_create_in_app_template_request_dto: marketing_create_in_app_template_request_dto,
@@ -159,7 +159,7 @@ module StackOne
 
     sig { params(marketing_create_template_request_dto: ::StackOne::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateOmniChannelTemplateResponse) }
     def create_omni_channel_template(marketing_create_template_request_dto, x_account_id)
-      # create_omni_channel_template - Create omni-channel template
+      # create_omni_channel_template - Create Omni-Channel Template
       # 
       # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = ::StackOne::Operations::MarketingCreateOmniChannelTemplateRequest.new(
@@ -207,7 +207,7 @@ module StackOne
 
     sig { params(marketing_create_push_template_request_dto: ::StackOne::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreatePushTemplateResponse) }
     def create_push_template(marketing_create_push_template_request_dto, x_account_id)
-      # create_push_template - Create push template
+      # create_push_template - Create Push Template
       request = ::StackOne::Operations::MarketingCreatePushTemplateRequest.new(
         
         marketing_create_push_template_request_dto: marketing_create_push_template_request_dto,
@@ -253,7 +253,7 @@ module StackOne
 
     sig { params(marketing_create_sms_template_request_dto: ::StackOne::Shared::MarketingCreateSmsTemplateRequestDto, x_account_id: ::String).returns(::StackOne::Operations::MarketingCreateSmsTemplateResponse) }
     def create_sms_template(marketing_create_sms_template_request_dto, x_account_id)
-      # create_sms_template - Create sms template
+      # create_sms_template - Create SMS Template
       request = ::StackOne::Operations::MarketingCreateSmsTemplateRequest.new(
         
         marketing_create_sms_template_request_dto: marketing_create_sms_template_request_dto,
@@ -375,7 +375,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingGetEmailTemplateRequest)).returns(::StackOne::Operations::MarketingGetEmailTemplateResponse) }
     def get_email_template(request)
-      # get_email_template - Get email template
+      # get_email_template - Get Email Templates
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -413,7 +413,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingGetInAppTemplateRequest)).returns(::StackOne::Operations::MarketingGetInAppTemplateResponse) }
     def get_in_app_template(request)
-      # get_in_app_template - Get in_app template
+      # get_in_app_template - Get In-App Template
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -451,7 +451,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingGetOmniChannelTemplateRequest)).returns(::StackOne::Operations::MarketingGetOmniChannelTemplateResponse) }
     def get_omni_channel_template(request)
-      # get_omni_channel_template - Get omni-channel template
+      # get_omni_channel_template - Get Omni-Channel Template
       # 
       # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
@@ -491,7 +491,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingGetPushTemplateRequest)).returns(::StackOne::Operations::MarketingGetPushTemplateResponse) }
     def get_push_template(request)
-      # get_push_template - Get push template
+      # get_push_template - Get Push Template
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -529,7 +529,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingGetSmsTemplateRequest)).returns(::StackOne::Operations::MarketingGetSmsTemplateResponse) }
     def get_sms_template(request)
-      # get_sms_template - Get sms template
+      # get_sms_template - Get SMS Template
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -633,7 +633,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingListEmailTemplatesRequest)).returns(::StackOne::Operations::MarketingListEmailTemplatesResponse) }
     def list_email_templates(request)
-      # list_email_templates - List email templates
+      # list_email_templates - List Email Templates
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/email"
@@ -666,7 +666,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingListInAppTemplatesRequest)).returns(::StackOne::Operations::MarketingListInAppTemplatesResponse) }
     def list_in_app_templates(request)
-      # list_in_app_templates - List in_app templates
+      # list_in_app_templates - List In-App Templates
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/in_app"
@@ -699,7 +699,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingListOmniChannelTemplatesRequest)).returns(::StackOne::Operations::MarketingListOmniChannelTemplatesResponse) }
     def list_omni_channel_templates(request)
-      # list_omni_channel_templates - List omni-channel templates
+      # list_omni_channel_templates - List Omni-Channel Templates
       # 
       # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
@@ -734,7 +734,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingListPushTemplatesRequest)).returns(::StackOne::Operations::MarketingListPushTemplatesResponse) }
     def list_push_templates(request)
-      # list_push_templates - List push templates
+      # list_push_templates - List Push Templates
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/push"
@@ -767,7 +767,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::MarketingListSmsTemplatesRequest)).returns(::StackOne::Operations::MarketingListSmsTemplatesResponse) }
     def list_sms_templates(request)
-      # list_sms_templates - List sms templates
+      # list_sms_templates - List SMS Templates
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/sms"
@@ -800,7 +800,7 @@ module StackOne
 
     sig { params(marketing_create_content_blocks_request_dto: ::StackOne::Shared::MarketingCreateContentBlocksRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateContentBlockResponse) }
     def update_content_block(marketing_create_content_blocks_request_dto, id, x_account_id)
-      # update_content_block - Update email template
+      # update_content_block - Update Content Block
       request = ::StackOne::Operations::MarketingUpdateContentBlockRequest.new(
         
         marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
@@ -852,7 +852,7 @@ module StackOne
 
     sig { params(marketing_create_email_template_request_dto: ::StackOne::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateEmailTemplateResponse) }
     def update_email_template(marketing_create_email_template_request_dto, id, x_account_id)
-      # update_email_template - Update email template
+      # update_email_template - Update Email Templates
       request = ::StackOne::Operations::MarketingUpdateEmailTemplateRequest.new(
         
         marketing_create_email_template_request_dto: marketing_create_email_template_request_dto,
@@ -904,7 +904,7 @@ module StackOne
 
     sig { params(marketing_create_in_app_template_request_dto: ::StackOne::Shared::MarketingCreateInAppTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateInAppTemplateResponse) }
     def update_in_app_template(marketing_create_in_app_template_request_dto, id, x_account_id)
-      # update_in_app_template - Update in_app template
+      # update_in_app_template - Update In-App Template
       request = ::StackOne::Operations::MarketingUpdateInAppTemplateRequest.new(
         
         marketing_create_in_app_template_request_dto: marketing_create_in_app_template_request_dto,
@@ -956,7 +956,7 @@ module StackOne
 
     sig { params(marketing_create_template_request_dto: ::StackOne::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateOmniChannelTemplateResponse) }
     def update_omni_channel_template(marketing_create_template_request_dto, id, x_account_id)
-      # update_omni_channel_template - Update omni-channel template
+      # update_omni_channel_template - Update Omni-Channel Template
       # 
       # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = ::StackOne::Operations::MarketingUpdateOmniChannelTemplateRequest.new(
@@ -1010,7 +1010,7 @@ module StackOne
 
     sig { params(marketing_create_push_template_request_dto: ::StackOne::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdatePushTemplateResponse) }
     def update_push_template(marketing_create_push_template_request_dto, id, x_account_id)
-      # update_push_template - Update push template
+      # update_push_template - Update Push Template
       request = ::StackOne::Operations::MarketingUpdatePushTemplateRequest.new(
         
         marketing_create_push_template_request_dto: marketing_create_push_template_request_dto,
@@ -1062,7 +1062,7 @@ module StackOne
 
     sig { params(marketing_create_sms_template_request_dto: ::StackOne::Shared::MarketingCreateSmsTemplateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::MarketingUpdateSmsTemplateResponse) }
     def update_sms_template(marketing_create_sms_template_request_dto, id, x_account_id)
-      # update_sms_template - Update sms template
+      # update_sms_template - Update SMS Template
       request = ::StackOne::Operations::MarketingUpdateSmsTemplateRequest.new(
         
         marketing_create_sms_template_request_dto: marketing_create_sms_template_request_dto,

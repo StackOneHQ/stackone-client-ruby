@@ -12,12 +12,12 @@ module StackOne
       extend T::Sig
 
 
-      field :password, T.nilable(::String), { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'password' } }
+      field :password, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'password' } }
 
-      field :username, T.nilable(::String), { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
+      field :username, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
 
 
-      sig { params(password: T.nilable(::String), username: T.nilable(::String)).void }
+      sig { params(password: ::String, username: ::String).void }
       def initialize(password: nil, username: nil)
         @password = password
         @username = username

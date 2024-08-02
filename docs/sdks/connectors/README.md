@@ -19,12 +19,13 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
     
-res = s.connectors.get_connector_meta(provider="<value>", include="field_path,unmapped_fields,resources,inactive")
+res = s.connectors.get_connector_meta(provider="<value>", include="field_path,unmapped_fields,resources,inactive,webhooks")
 
 if ! res.connectors_meta.nil?
   # handle response
@@ -37,7 +38,7 @@ end
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `provider`                                                             | *::String*                                                             | :heavy_check_mark:                                                     | N/A                                                                    |                                                                        |
-| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive                          |
+| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive,webhooks                 |
 
 
 ### Response
@@ -58,12 +59,13 @@ require 'stackone_client'
 s = ::StackOne::StackOne.new
 s.config_security(
   ::StackOne::Shared::Security.new(
-    password: "<YOUR_PASSWORD_HERE>",
+    password: "",
+    username: "",
   )
 )
 
     
-res = s.connectors.list_connectors_meta(include="field_path,unmapped_fields,resources,inactive")
+res = s.connectors.list_connectors_meta(include="field_path,unmapped_fields,resources,inactive,webhooks")
 
 if ! res.connectors_metas.nil?
   # handle response
@@ -75,7 +77,7 @@ end
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive                          |
+| `include`                                                              | *::String*                                                             | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive,webhooks                 |
 
 
 ### Response

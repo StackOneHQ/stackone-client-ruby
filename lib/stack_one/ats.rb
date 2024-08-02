@@ -366,6 +366,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest)).returns(::StackOne::Operations::AtsGetApplicationScheduledInterviewResponse) }
+    def get_application_scheduled_interview(request)
+      # get_application_scheduled_interview - Get Applications scheduled interview
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest,
+        base_url,
+        '/unified/ats/applications/{id}/scheduled_interviews/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsGetApplicationScheduledInterviewResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ScheduledInterviewsResult)
+          res.scheduled_interviews_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationScorecardRequest)).returns(::StackOne::Operations::AtsGetApplicationScorecardResponse) }
     def get_application_scorecard(request)
       # get_application_scorecard - Get Application Scorecard
@@ -435,6 +473,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsPackagesResult)
           res.assessments_packages_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetAssessmentsRequestRequest)).returns(::StackOne::Operations::AtsGetAssessmentsRequestResponse) }
+    def get_assessments_request(request)
+      # get_assessments_request - Get Assessments Requests
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsGetAssessmentsRequestRequest,
+        base_url,
+        '/unified/ats/assessments/orders/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsGetAssessmentsRequestRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsGetAssessmentsRequestResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsResultsResult)
+          res.assessments_results_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -1109,6 +1185,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::OffersPaginated)
           res.offers_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest)).returns(::StackOne::Operations::AtsListApplicationsScheduledInterviewsResponse) }
+    def list_applications_scheduled_interviews(request)
+      # list_applications_scheduled_interviews - List Applications scheduled interviews
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest,
+        base_url,
+        '/unified/ats/applications/{id}/scheduled_interviews',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsListApplicationsScheduledInterviewsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ScheduledInterviewsPaginated)
+          res.scheduled_interviews_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

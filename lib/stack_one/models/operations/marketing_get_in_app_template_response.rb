@@ -17,7 +17,7 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The in_app template with the given identifier was retrieved.
+      # The in-app template with the given identifier was retrieved.
       field :template_result, T.nilable(::StackOne::Shared::TemplateResult)
 
 
