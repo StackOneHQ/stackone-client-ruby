@@ -12,12 +12,12 @@ module StackOne
       extend T::Sig
 
 
-      field :data, ::StackOne::Shared::User, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+      field :data, ::StackOne::Shared::LmsUser, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
       field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
-      sig { params(data: ::StackOne::Shared::User, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
+      sig { params(data: ::StackOne::Shared::LmsUser, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
       def initialize(data: nil, raw: nil)
         @data = data
         @raw = raw

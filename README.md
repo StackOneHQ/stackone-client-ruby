@@ -191,8 +191,10 @@ end
 * [get_category](docs/sdks/lms/README.md#get_category) - Get Category
 * [get_completion](docs/sdks/lms/README.md#get_completion) - Get Completion
 * [get_content](docs/sdks/lms/README.md#get_content) - Get Content
+* [get_user](docs/sdks/lms/README.md#get_user) - Get User
 * [list_categories](docs/sdks/lms/README.md#list_categories) - List Categories
 * [list_content](docs/sdks/lms/README.md#list_content) - List Content
+* [list_users](docs/sdks/lms/README.md#list_users) - List Users
 * [update_content](docs/sdks/lms/README.md#update_content) - Update Content
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
 

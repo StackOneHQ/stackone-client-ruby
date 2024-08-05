@@ -8,8 +8,10 @@
 * [get_category](#get_category) - Get Category
 * [get_completion](#get_completion) - Get Completion
 * [get_content](#get_content) - Get Content
+* [get_user](#get_user) - Get User
 * [list_categories](#list_categories) - List Categories
 * [list_content](#list_content) - List Content
+* [list_users](#list_users) - List Users
 * [update_content](#update_content) - Update Content
 * [upsert_content](#upsert_content) - Upsert Content
 
@@ -40,7 +42,7 @@ res = s.lms.create_completion(lms_create_completion_request_dto=::StackOne::Shar
     passthrough: {
       "driver": "<value>",
     },
-    user: ::StackOne::Shared::LmsCreateCompletionRequestDtoUser.new(
+    user: ::StackOne::Shared::User.new(
       created_at: "2021-07-21T14:00:00.000Z",
       email: "john.doe@company.com",
       id: "16873",
@@ -268,6 +270,51 @@ end
 **[T.nilable(::StackOne::Operations::LmsGetContentResponse)](../../models/operations/lmsgetcontentresponse.md)**
 
 
+## get_user
+
+Get User
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsGetUserRequest.new(
+  fields_: "id,remote_id,email,phone_number,created_at,updated_at,name",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.get_user(req)
+
+if ! res.user_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [::StackOne::Operations::LmsGetUserRequest](../../models/operations/lmsgetuserrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsGetUserResponse)](../../models/operations/lmsgetuserresponse.md)**
+
+
 ## list_categories
 
 List Categories
@@ -360,6 +407,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsListContentResponse)](../../models/operations/lmslistcontentresponse.md)**
+
+
+## list_users
+
+List Users
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsListUsersRequest.new(
+  fields_: "id,remote_id,email,phone_number,created_at,updated_at,name",
+  filter: ::StackOne::Operations::LmsListUsersQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.lms.list_users(req)
+
+if ! res.users_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::StackOne::Operations::LmsListUsersRequest](../../models/operations/lmslistusersrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsListUsersResponse)](../../models/operations/lmslistusersresponse.md)**
 
 
 ## update_content

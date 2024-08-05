@@ -7,27 +7,27 @@
 module StackOne
   module Shared
   
-    # The user associated with this completion
-    class LmsCreateCompletionRequestDtoUser < ::StackOne::Utils::FieldAugmented
+
+    class LmsUser < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The date the user was created
-      field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
-      # The email of the user
+      # The created_at date
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # The user email
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
-      # The user ID
+      # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name of the user
+      # The user name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The phone number of the user
+      # The user phone number
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The date the user was last updated
-      field :updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at') } }
+      # The updated_at date
+      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::String), email: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::String)).void }
+      sig { params(created_at: T.nilable(::DateTime), email: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
       def initialize(created_at: nil, email: nil, id: nil, name: nil, phone_number: nil, remote_id: nil, updated_at: nil)
         @created_at = created_at
         @email = email

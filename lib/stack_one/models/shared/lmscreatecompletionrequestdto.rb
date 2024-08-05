@@ -24,12 +24,12 @@ module StackOne
       # The result of the completion
       field :result, T.nilable(::StackOne::Shared::LmsCreateCompletionRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
       # The user associated with this completion
-      field :user, T.nilable(::StackOne::Shared::LmsCreateCompletionRequestDtoUser), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user') } }
+      field :user, T.nilable(::StackOne::Shared::User), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user') } }
       # The user ID associated with this completion
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-      sig { params(completed_at: T.nilable(::String), content_id: T.nilable(::String), expand: T.nilable(::String), external_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(::StackOne::Shared::LmsCreateCompletionRequestDtoResult), user: T.nilable(::StackOne::Shared::LmsCreateCompletionRequestDtoUser), user_id: T.nilable(::String)).void }
+      sig { params(completed_at: T.nilable(::String), content_id: T.nilable(::String), expand: T.nilable(::String), external_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(::StackOne::Shared::LmsCreateCompletionRequestDtoResult), user: T.nilable(::StackOne::Shared::User), user_id: T.nilable(::String)).void }
       def initialize(completed_at: nil, content_id: nil, expand: nil, external_id: nil, passthrough: nil, result: nil, user: nil, user_id: nil)
         @completed_at = completed_at
         @content_id = content_id

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 9601b3e27145e46798c42f8d87dae1bc
+  docChecksum: 131ca61db5d0bee000b0139e9ebe1305
   docVersion: 1.0.0
-  speakeasyVersion: 1.351.3
-  generationVersion: 2.384.4
-  releaseVersion: 0.2.35
-  configChecksum: a945ee5e811d365bbac82230bf416d16
+  speakeasyVersion: 1.352.1
+  generationVersion: 2.385.1
+  releaseVersion: 0.2.36
+  configChecksum: b24374786cce0f890e06060aae5860b4
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -346,12 +346,17 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_get_completion_response.rb
   - lib/stack_one/models/operations/lms_get_content_request.rb
   - lib/stack_one/models/operations/lms_get_content_response.rb
+  - lib/stack_one/models/operations/lms_get_user_request.rb
+  - lib/stack_one/models/operations/lms_get_user_response.rb
   - lib/stack_one/models/operations/lms_list_categories_queryparam_filter.rb
   - lib/stack_one/models/operations/lms_list_categories_request.rb
   - lib/stack_one/models/operations/lms_list_categories_response.rb
   - lib/stack_one/models/operations/lms_list_content_queryparam_filter.rb
   - lib/stack_one/models/operations/lms_list_content_request.rb
   - lib/stack_one/models/operations/lms_list_content_response.rb
+  - lib/stack_one/models/operations/lms_list_users_queryparam_filter.rb
+  - lib/stack_one/models/operations/lms_list_users_request.rb
+  - lib/stack_one/models/operations/lms_list_users_response.rb
   - lib/stack_one/models/operations/lms_update_content_request.rb
   - lib/stack_one/models/operations/lms_update_content_response.rb
   - lib/stack_one/models/operations/lms_upsert_content_request.rb
@@ -575,7 +580,7 @@ generatedFiles:
   - lib/stack_one/models/shared/atslocation.rb
   - lib/stack_one/models/shared/rejectedreasonresult.rb
   - lib/stack_one/models/shared/userresult.rb
-  - lib/stack_one/models/shared/user.rb
+  - lib/stack_one/models/shared/lmsuser.rb
   - lib/stack_one/models/shared/customfielddefinitionspaginated.rb
   - lib/stack_one/models/shared/customfielddefinition_value.rb
   - lib/stack_one/models/shared/customfielddefinition_type.rb
@@ -812,7 +817,7 @@ generatedFiles:
   - lib/stack_one/models/shared/iamuserspaginated.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_result.rb
-  - lib/stack_one/models/shared/lmscreatecompletionrequestdto_user.rb
+  - lib/stack_one/models/shared/user.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_content_type.rb
@@ -1145,12 +1150,17 @@ generatedFiles:
   - docs/models/operations/lmsgetcompletionresponse.md
   - docs/models/operations/lmsgetcontentrequest.md
   - docs/models/operations/lmsgetcontentresponse.md
+  - docs/models/operations/lmsgetuserrequest.md
+  - docs/models/operations/lmsgetuserresponse.md
   - docs/models/operations/lmslistcategoriesqueryparamfilter.md
   - docs/models/operations/lmslistcategoriesrequest.md
   - docs/models/operations/lmslistcategoriesresponse.md
   - docs/models/operations/lmslistcontentqueryparamfilter.md
   - docs/models/operations/lmslistcontentrequest.md
   - docs/models/operations/lmslistcontentresponse.md
+  - docs/models/operations/lmslistusersqueryparamfilter.md
+  - docs/models/operations/lmslistusersrequest.md
+  - docs/models/operations/lmslistusersresponse.md
   - docs/models/operations/lmsupdatecontentrequest.md
   - docs/models/operations/lmsupdatecontentresponse.md
   - docs/models/operations/lmsupsertcontentrequest.md
@@ -1374,7 +1384,7 @@ generatedFiles:
   - docs/models/shared/atslocation.md
   - docs/models/shared/rejectedreasonresult.md
   - docs/models/shared/userresult.md
-  - docs/models/shared/user.md
+  - docs/models/shared/lmsuser.md
   - docs/models/shared/customfielddefinitionspaginated.md
   - docs/models/shared/customfielddefinitionvalue.md
   - docs/models/shared/customfielddefinitiontype.md
@@ -1611,7 +1621,7 @@ generatedFiles:
   - docs/models/shared/iamuserspaginated.md
   - docs/models/shared/lmscreatecompletionrequestdtovalue.md
   - docs/models/shared/lmscreatecompletionrequestdtoresult.md
-  - docs/models/shared/lmscreatecompletionrequestdtouser.md
+  - docs/models/shared/user.md
   - docs/models/shared/lmscreatecompletionrequestdto.md
   - docs/models/shared/lmscreatecontentrequestdtovalue.md
   - docs/models/shared/lmscreatecontentrequestdtocontenttype.md

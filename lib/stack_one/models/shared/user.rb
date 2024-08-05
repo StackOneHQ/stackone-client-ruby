@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # The user associated with this completion
     class User < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
