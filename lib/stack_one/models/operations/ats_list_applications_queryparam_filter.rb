@@ -13,13 +13,16 @@ module StackOne
 
       # Filter to select applications by job_id
       field :job_id, T.nilable(::String), { 'query_param': { 'field_name': 'job_id' } }
+      # Filter to select applications by stage and sub-stage
+      field :stage, T.nilable(::String), { 'query_param': { 'field_name': 'stage' } }
       # Use a string with a date to only select results updated after that given date
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(job_id: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(job_id: nil, updated_after: nil)
+      sig { params(job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(job_id: nil, stage: nil, updated_after: nil)
         @job_id = job_id
+        @stage = stage
         @updated_after = updated_after
       end
     end

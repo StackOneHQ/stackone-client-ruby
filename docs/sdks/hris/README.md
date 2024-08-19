@@ -14,6 +14,7 @@
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
+* [get_employee_employment](#get_employee_employment) - Get Employee Employment
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
@@ -26,6 +27,7 @@
 * [list_department_groups](#list_department_groups) - List Department Groups
 * [list_employee_categories](#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
+* [list_employee_employments](#list_employee_employments) - List Employee Employments
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](#list_employees) - List Employees
@@ -139,6 +141,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "Cheese": "<value>",
@@ -173,6 +176,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "underneath": "<value>",
@@ -191,6 +195,8 @@ if ! res.create_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -241,6 +247,8 @@ if ! res.create_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -309,6 +317,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
@@ -360,6 +370,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
@@ -399,6 +411,8 @@ if ! res.bytes.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -448,6 +462,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
@@ -493,6 +509,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
@@ -537,6 +555,8 @@ if ! res.hris_departments_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -585,6 +605,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -631,6 +653,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
@@ -676,6 +700,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
@@ -686,6 +712,55 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse)](../../models/operations/hrisgetemployeedocumentcategoryresponse.md)**
+
+
+## get_employee_employment
+
+Get Employee Employment
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
+  expand: "groups",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_employee_employment(req)
+
+if ! res.employment_result.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [::StackOne::Operations::HrisGetEmployeeEmploymentRequest](../../models/operations/hrisgetemployeeemploymentrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeeEmploymentResponse)](../../models/operations/hrisgetemployeeemploymentresponse.md)**
 
 
 ## get_employees_time_off_request
@@ -721,6 +796,8 @@ if ! res.time_off_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -768,6 +845,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
@@ -814,6 +893,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -858,6 +939,8 @@ if ! res.hris_groups_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -904,6 +987,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
@@ -949,6 +1034,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -993,6 +1080,8 @@ if ! res.time_off_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1041,6 +1130,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
@@ -1087,6 +1178,8 @@ if ! res.companies_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1135,6 +1228,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
@@ -1181,6 +1276,8 @@ if ! res.reference_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1230,6 +1327,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
@@ -1240,6 +1339,57 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
+
+
+## list_employee_employments
+
+List Employee Employments
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
+  expand: "groups",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  filter: ::StackOne::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_employee_employments(req)
+
+if ! res.employments_paginated.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [::StackOne::Operations::HrisListEmployeeEmploymentsRequest](../../models/operations/hrislistemployeeemploymentsrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsResponse)](../../models/operations/hrislistemployeeemploymentsresponse.md)**
 
 
 ## list_employee_time_off_requests
@@ -1277,6 +1427,8 @@ if ! res.time_off_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1325,6 +1477,8 @@ if ! res.work_eligibility_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1375,6 +1529,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -1423,6 +1579,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
@@ -1469,6 +1627,8 @@ if ! res.hris_groups_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1517,6 +1677,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
@@ -1564,6 +1726,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -1610,6 +1774,8 @@ if ! res.time_off_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1723,6 +1889,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "solid": "<value>",
@@ -1757,6 +1924,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "International": "<value>",
@@ -1775,6 +1943,8 @@ if ! res.create_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1843,6 +2013,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
@@ -1894,6 +2066,8 @@ if ! res.create_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1951,6 +2125,8 @@ if ! res.write_result_api_model.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

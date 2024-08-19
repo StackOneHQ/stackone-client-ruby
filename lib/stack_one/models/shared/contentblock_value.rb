@@ -10,7 +10,9 @@ module StackOne
     # ContentBlockValue - The Status of the content blocks.
     class ContentBlockValue < T::Enum
       enums do
-        TEXT = new('text')
+        DRAFT = new('draft')
+        LIVE = new('live')
+        ARCHIVED = new('archived')
       end
     end
 

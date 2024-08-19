@@ -19,17 +19,23 @@ module StackOne
     end
 
 
-    sig { params(lms_create_completion_request_dto: ::StackOne::Shared::LmsCreateCompletionRequestDto, x_account_id: ::String).returns(::StackOne::Operations::LmsCreateCompletionResponse) }
-    def create_completion(lms_create_completion_request_dto, x_account_id)
-      # create_completion - Create Completion
+    sig { params(lms_create_completion_request_dto: ::StackOne::Shared::LmsCreateCompletionRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::LmsCreateCompletionResponse) }
+    def create_completion(lms_create_completion_request_dto, id, x_account_id)
+      # create_completion - Create User Completion
       request = ::StackOne::Operations::LmsCreateCompletionRequest.new(
         
         lms_create_completion_request_dto: lms_create_completion_request_dto,
+        id: id,
         x_account_id: x_account_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/unified/lms/completions"
+      url = Utils.generate_url(
+        ::StackOne::Operations::LmsCreateCompletionRequest,
+        base_url,
+        '/unified/lms/users/{id}/completions',
+        request
+      )
       headers = Utils.get_headers(request)
       req_content_type, data, form = Utils.serialize_request_body(request, :lms_create_completion_request_dto, :json)
       headers['content-type'] = req_content_type
@@ -111,6 +117,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::LmsGetAssignmentRequest)).returns(::StackOne::Operations::LmsGetAssignmentResponse) }
+    def get_assignment(request)
+      # get_assignment - Get User Assignment
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::LmsGetAssignmentRequest,
+        base_url,
+        '/unified/lms/users/{id}/assignments/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::LmsGetAssignmentRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::LmsGetAssignmentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssignmentResult)
+          res.assignment_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::LmsGetCategoryRequest)).returns(::StackOne::Operations::LmsGetCategoryResponse) }
     def get_category(request)
       # get_category - Get Category
@@ -151,13 +195,13 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::LmsGetCompletionRequest)).returns(::StackOne::Operations::LmsGetCompletionResponse) }
     def get_completion(request)
-      # get_completion - Get Completion
+      # get_completion - Get User Completion
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
         ::StackOne::Operations::LmsGetCompletionRequest,
         base_url,
-        '/unified/lms/completions/{id}',
+        '/unified/lms/users/{id}/completions',
         request
       )
       headers = Utils.get_headers(request)
@@ -225,6 +269,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::LmsGetCourseRequest)).returns(::StackOne::Operations::LmsGetCourseResponse) }
+    def get_course(request)
+      # get_course - Get Course
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::LmsGetCourseRequest,
+        base_url,
+        '/unified/lms/courses/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::LmsGetCourseRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::LmsGetCourseResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CourseResult)
+          res.course_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::LmsGetUserRequest)).returns(::StackOne::Operations::LmsGetUserResponse) }
     def get_user(request)
       # get_user - Get User
@@ -256,6 +338,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UserResult)
           res.user_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::LmsListAssignmentsRequest)).returns(::StackOne::Operations::LmsListAssignmentsResponse) }
+    def list_assignments(request)
+      # list_assignments - List User Assignments
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::LmsListAssignmentsRequest,
+        base_url,
+        '/unified/lms/users/{id}/assignments',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::LmsListAssignmentsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::LmsListAssignmentsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssignmentsPaginated)
+          res.assignments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -322,6 +442,39 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentPaginated)
           res.content_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::LmsListCoursesRequest)).returns(::StackOne::Operations::LmsListCoursesResponse) }
+    def list_courses(request)
+      # list_courses - List Courses
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/lms/courses"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::LmsListCoursesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::LmsListCoursesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CoursePaginated)
+          res.course_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

@@ -3,11 +3,16 @@
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `DATE`     | date       |
-| `FLOAT`    | float      |
-| `INTEGER`  | integer    |
-| `LIST`     | list       |
-| `CHECKBOX` | checkbox   |
-| `TEXT`     | text       |
+| Name            | Value           |
+| --------------- | --------------- |
+| `DATE`          | date            |
+| `FLOAT`         | float           |
+| `INTEGER`       | integer         |
+| `LIST`          | list            |
+| `CHECKBOX`      | checkbox        |
+| `TEXT`          | text            |
+| `BOOLEAN`       | boolean         |
+| `SINGLE_SELECT` | single_select   |
+| `MULTI_SELECT`  | multi_select    |
+| `URL`           | url             |
+| `OTHER`         | other           |

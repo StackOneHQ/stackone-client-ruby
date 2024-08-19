@@ -37,6 +37,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -83,6 +85,8 @@ if ! res.connect_session_token.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

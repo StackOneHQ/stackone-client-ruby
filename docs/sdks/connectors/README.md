@@ -33,6 +33,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
@@ -72,6 +74,8 @@ if ! res.connectors_metas.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

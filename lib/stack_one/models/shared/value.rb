@@ -7,16 +7,12 @@
 module StackOne
   module Shared
   
-    # Value - The Channels of the campaign.
+
     class Value < T::Enum
       enums do
-        EMAIL = new('email')
-        SMS = new('sms')
-        WEB_PUSH = new('web_push')
-        IOS_PUSH = new('ios_push')
-        ANDROID_PUSH = new('android_push')
-        UNKNOWN = new('unknown')
-        UNMAPPED_VALUE = new('unmapped_value')
+        PENDING = new('pending')
+        IN_PROGRESS = new('in_progress')
+        COMPLETED = new('completed')
       end
     end
 

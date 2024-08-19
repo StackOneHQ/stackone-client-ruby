@@ -21,22 +21,18 @@ module StackOne
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Provider's unique identifier of the content
+      # Provider's unique identifier of the completion
       field :remote_content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_content_id') } }
       # Provider's unique identifier of the content
       field :remote_external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_external_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the user
-      field :remote_user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
       # The result of the completion
       field :result, T.nilable(::StackOne::Shared::Result), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
-      # The user ID associated with this completion
-      field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-      sig { params(completed_at: T.nilable(::String), content_id: T.nilable(::String), external_id: T.nilable(::String), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_content_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::Result), user_id: T.nilable(::String)).void }
-      def initialize(completed_at: nil, content_id: nil, external_id: nil, id: nil, passthrough: nil, remote_content_id: nil, remote_external_id: nil, remote_id: nil, remote_user_id: nil, result: nil, user_id: nil)
+      sig { params(completed_at: T.nilable(::String), content_id: T.nilable(::String), external_id: T.nilable(::String), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_content_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::Result)).void }
+      def initialize(completed_at: nil, content_id: nil, external_id: nil, id: nil, passthrough: nil, remote_content_id: nil, remote_external_id: nil, remote_id: nil, result: nil)
         @completed_at = completed_at
         @content_id = content_id
         @external_id = external_id
@@ -45,9 +41,7 @@ module StackOne
         @remote_content_id = remote_content_id
         @remote_external_id = remote_external_id
         @remote_id = remote_id
-        @remote_user_id = remote_user_id
         @result = result
-        @user_id = user_id
       end
     end
   end

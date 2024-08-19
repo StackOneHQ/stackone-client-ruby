@@ -81,6 +81,7 @@ end
 * [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
 * [download_application_document](docs/sdks/ats/README.md#download_application_document) - Download Application Document
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
+* [get_application_custom_field_definition](docs/sdks/ats/README.md#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
@@ -89,6 +90,7 @@ end
 * [get_assessments_request](docs/sdks/ats/README.md#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](docs/sdks/ats/README.md#get_assessments_result) - Get Assessments Results
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
+* [get_candidate_custom_field_definition](docs/sdks/ats/README.md#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
 * [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
 * [get_department](docs/sdks/ats/README.md#get_department) - Get Department
 * [get_interview](docs/sdks/ats/README.md#get_interview) - Get Interview
@@ -100,14 +102,14 @@ end
 * [get_offer](docs/sdks/ats/README.md#get_offer) - Get Offer
 * [get_rejected_reason](docs/sdks/ats/README.md#get_rejected_reason) - Get Rejected Reason
 * [get_user](docs/sdks/ats/README.md#get_user) - Get User
-* [list_application_custom_field_definitions](docs/sdks/ats/README.md#list_application_custom_field_definitions) - List application custom field definitions
+* [list_application_custom_field_definitions](docs/sdks/ats/README.md#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
 * [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
 * [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
 * [list_applications_scheduled_interviews](docs/sdks/ats/README.md#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](docs/sdks/ats/README.md#list_assessments_packages) - List Assessments Packages
-* [list_candidate_custom_field_definitions](docs/sdks/ats/README.md#list_candidate_custom_field_definitions) - List candidate custom field definitions
+* [list_candidate_custom_field_definitions](docs/sdks/ats/README.md#list_candidate_custom_field_definitions) - List Candidate Custom Field Definitions
 * [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
 * [list_candidates](docs/sdks/ats/README.md#list_candidates) - List Candidates
 * [list_departments](docs/sdks/ats/README.md#list_departments) - List Departments
@@ -148,6 +150,7 @@ end
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
+* [get_employee_employment](docs/sdks/hris/README.md#get_employee_employment) - Get Employee Employment
 * [get_employees_time_off_request](docs/sdks/hris/README.md#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](docs/sdks/hris/README.md#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](docs/sdks/hris/README.md#get_employment) - Get Employment
@@ -160,6 +163,7 @@ end
 * [list_department_groups](docs/sdks/hris/README.md#list_department_groups) - List Department Groups
 * [list_employee_categories](docs/sdks/hris/README.md#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
+* [list_employee_employments](docs/sdks/hris/README.md#list_employee_employments) - List Employee Employments
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](docs/sdks/hris/README.md#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](docs/sdks/hris/README.md#list_employees) - List Employees
@@ -186,14 +190,18 @@ end
 
 ### [Lms](docs/sdks/lms/README.md)
 
-* [create_completion](docs/sdks/lms/README.md#create_completion) - Create Completion
+* [create_completion](docs/sdks/lms/README.md#create_completion) - Create User Completion
 * [create_content](docs/sdks/lms/README.md#create_content) - Create Content
+* [get_assignment](docs/sdks/lms/README.md#get_assignment) - Get User Assignment
 * [get_category](docs/sdks/lms/README.md#get_category) - Get Category
-* [get_completion](docs/sdks/lms/README.md#get_completion) - Get Completion
+* [get_completion](docs/sdks/lms/README.md#get_completion) - Get User Completion
 * [get_content](docs/sdks/lms/README.md#get_content) - Get Content
+* [get_course](docs/sdks/lms/README.md#get_course) - Get Course
 * [get_user](docs/sdks/lms/README.md#get_user) - Get User
+* [list_assignments](docs/sdks/lms/README.md#list_assignments) - List User Assignments
 * [list_categories](docs/sdks/lms/README.md#list_categories) - List Categories
 * [list_content](docs/sdks/lms/README.md#list_content) - List Content
+* [list_courses](docs/sdks/lms/README.md#list_courses) - List Courses
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
 * [update_content](docs/sdks/lms/README.md#update_content) - Update Content
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content

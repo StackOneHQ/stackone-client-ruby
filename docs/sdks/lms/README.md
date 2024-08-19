@@ -3,21 +3,25 @@
 
 ### Available Operations
 
-* [create_completion](#create_completion) - Create Completion
+* [create_completion](#create_completion) - Create User Completion
 * [create_content](#create_content) - Create Content
+* [get_assignment](#get_assignment) - Get User Assignment
 * [get_category](#get_category) - Get Category
-* [get_completion](#get_completion) - Get Completion
+* [get_completion](#get_completion) - Get User Completion
 * [get_content](#get_content) - Get Content
+* [get_course](#get_course) - Get Course
 * [get_user](#get_user) - Get User
+* [list_assignments](#list_assignments) - List User Assignments
 * [list_categories](#list_categories) - List Categories
 * [list_content](#list_content) - List Content
+* [list_courses](#list_courses) - List Courses
 * [list_users](#list_users) - List Users
 * [update_content](#update_content) - Update Content
 * [upsert_content](#upsert_content) - Upsert Content
 
 ## create_completion
 
-Create Completion
+Create User Completion
 
 ### Example Usage
 
@@ -37,22 +41,11 @@ s.config_security(
 res = s.lms.create_completion(lms_create_completion_request_dto=::StackOne::Shared::LmsCreateCompletionRequestDto.new(
     completed_at: "2021-07-21T14:00:00.000Z",
     content_id: "16873-ENG-VIDEO-1",
-    expand: "user",
     external_id: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION",
     passthrough: {
       "driver": "<value>",
     },
-    user: ::StackOne::Shared::User.new(
-      created_at: "2021-07-21T14:00:00.000Z",
-      email: "john.doe@company.com",
-      id: "16873",
-      name: "John Doe",
-      phone_number: "0123456789",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      updated_at: "2021-07-21T14:00:00.000Z",
-    ),
-    user_id: "746359",
-  ), x_account_id="<value>")
+  ), id="<value>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -60,11 +53,14 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `lms_create_completion_request_dto`                                                                       | [::StackOne::Shared::LmsCreateCompletionRequestDto](../../models/shared/lmscreatecompletionrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
 
 
@@ -123,6 +119,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -134,6 +132,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsCreateContentResponse)](../../models/operations/lmscreatecontentresponse.md)**
+
+
+## get_assignment
+
+Get User Assignment
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsGetAssignmentRequest.new(
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.get_assignment(req)
+
+if ! res.assignment_result.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [::StackOne::Operations::LmsGetAssignmentRequest](../../models/operations/lmsgetassignmentrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsGetAssignmentResponse)](../../models/operations/lmsgetassignmentresponse.md)**
 
 
 ## get_category
@@ -169,6 +214,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
@@ -183,7 +230,7 @@ end
 
 ## get_completion
 
-Get Completion
+Get User Completion
 
 ### Example Usage
 
@@ -201,6 +248,10 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCompletionRequest.new(
+  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,user_id,remote_user_id,completed_at,updated_at,created_at,result",
+  filter: ::StackOne::Operations::LmsGetCompletionQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -212,6 +263,8 @@ if ! res.completion_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -258,6 +311,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
@@ -268,6 +323,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetContentResponse)](../../models/operations/lmsgetcontentresponse.md)**
+
+
+## get_course
+
+Get Course
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsGetCourseRequest.new(
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,active,duration,categories,skills,updated_at,created_at",
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.get_course(req)
+
+if ! res.course_result.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [::StackOne::Operations::LmsGetCourseRequest](../../models/operations/lmsgetcourserequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsGetCourseResponse)](../../models/operations/lmsgetcourseresponse.md)**
 
 
 ## get_user
@@ -303,6 +405,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
@@ -313,6 +417,56 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetUserResponse)](../../models/operations/lmsgetuserresponse.md)**
+
+
+## list_assignments
+
+List User Assignments
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
+  fields_: "id,remote_id,external_id,remote_external_id,course_id,remote_course_id,updated_at,created_at,due_date,status",
+  filter: ::StackOne::Operations::LmsListAssignmentsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.lms.list_assignments(req)
+
+if ! res.assignments_paginated.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [::StackOne::Operations::LmsListAssignmentsRequest](../../models/operations/lmslistassignmentsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsListAssignmentsResponse)](../../models/operations/lmslistassignmentsresponse.md)**
 
 
 ## list_categories
@@ -349,6 +503,8 @@ if ! res.categories_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -397,6 +553,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
@@ -407,6 +565,55 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsListContentResponse)](../../models/operations/lmslistcontentresponse.md)**
+
+
+## list_courses
+
+List Courses
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::LmsListCoursesRequest.new(
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,active,duration,categories,skills,updated_at,created_at",
+  filter: ::StackOne::Operations::LmsListCoursesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.lms.list_courses(req)
+
+if ! res.course_paginated.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [::StackOne::Operations::LmsListCoursesRequest](../../models/operations/lmslistcoursesrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsListCoursesResponse)](../../models/operations/lmslistcoursesresponse.md)**
 
 
 ## list_users
@@ -443,6 +650,8 @@ if ! res.users_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -505,6 +714,8 @@ if ! res.update_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -569,6 +780,8 @@ if ! res.create_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

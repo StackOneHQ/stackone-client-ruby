@@ -58,6 +58,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -103,6 +105,8 @@ if ! res.account_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -150,6 +154,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
@@ -194,6 +200,8 @@ if ! res.list_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -241,6 +249,8 @@ if ! res.accounts_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -290,6 +300,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -336,6 +348,8 @@ if ! res.lists_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -394,6 +408,8 @@ if ! res.contact_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

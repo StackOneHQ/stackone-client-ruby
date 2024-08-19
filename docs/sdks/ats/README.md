@@ -9,6 +9,7 @@
 * [create_offer](#create_offer) - Creates an offer
 * [download_application_document](#download_application_document) - Download Application Document
 * [get_application](#get_application) - Get Application
+* [get_application_custom_field_definition](#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](#get_application_document) - Get Application Document
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
@@ -17,6 +18,7 @@
 * [get_assessments_request](#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](#get_assessments_result) - Get Assessments Results
 * [get_candidate](#get_candidate) - Get Candidate
+* [get_candidate_custom_field_definition](#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
 * [get_department](#get_department) - Get Department
 * [get_interview](#get_interview) - Get Interview
@@ -28,14 +30,14 @@
 * [get_offer](#get_offer) - Get Offer
 * [get_rejected_reason](#get_rejected_reason) - Get Rejected Reason
 * [get_user](#get_user) - Get User
-* [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List application custom field definitions
+* [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](#list_application_documents) - List Application Documents
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
 * [list_applications_scheduled_interviews](#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
-* [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List candidate custom field definitions
+* [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List Candidate Custom Field Definitions
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
 * [list_departments](#list_departments) - List Departments
@@ -149,6 +151,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
@@ -223,6 +227,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -276,6 +282,8 @@ if ! res.create_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -334,6 +342,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
@@ -373,6 +383,8 @@ if ! res.bytes.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -424,6 +436,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -434,6 +448,56 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationResponse)](../../models/operations/atsgetapplicationresponse.md)**
+
+
+## get_application_custom_field_definition
+
+Get Application Custom Field Definition
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::Filter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_application_custom_field_definition(req)
+
+if ! res.custom_field_definition_result_api_model.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest](../../models/operations/atsgetapplicationcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionResponse)](../../models/operations/atsgetapplicationcustomfielddefinitionresponse.md)**
 
 
 ## get_application_document
@@ -469,6 +533,8 @@ if ! res.ats_document_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -516,6 +582,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
@@ -561,6 +629,8 @@ if ! res.scheduled_interviews_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -608,6 +678,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
@@ -651,6 +723,8 @@ if ! res.assessments_packages_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -696,6 +770,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
@@ -739,6 +815,8 @@ if ! res.assessments_results_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -786,6 +864,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -796,6 +876,56 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetCandidateResponse)](../../models/operations/atsgetcandidateresponse.md)**
+
+
+## get_candidate_custom_field_definition
+
+Get Candidate Custom Field Definition
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::QueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_candidate_custom_field_definition(req)
+
+if ! res.custom_field_definition_result_api_model.nil?
+  # handle response
+end
+
+```
+
+
+
+### Parameters
+
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest](../../models/operations/atsgetcandidatecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionResponse)](../../models/operations/atsgetcandidatecustomfielddefinitionresponse.md)**
 
 
 ## get_candidate_note
@@ -831,6 +961,8 @@ if ! res.note_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -877,6 +1009,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
@@ -922,6 +1056,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
@@ -966,6 +1102,8 @@ if ! res.interview_stage_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1013,6 +1151,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
@@ -1059,6 +1199,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
@@ -1103,6 +1245,8 @@ if ! res.list_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1149,6 +1293,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
@@ -1193,6 +1339,8 @@ if ! res.offers_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1239,6 +1387,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
@@ -1284,6 +1434,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
@@ -1298,7 +1450,7 @@ end
 
 ## list_application_custom_field_definitions
 
-List application custom field definitions
+List Application Custom Field Definitions
 
 ### Example Usage
 
@@ -1317,7 +1469,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::Filter.new(
+  filter: ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<value>",
@@ -1330,6 +1482,8 @@ if ! res.custom_field_definitions_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1364,7 +1518,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
-  filter: ::StackOne::Operations::QueryParamFilter.new(
+  filter: ::StackOne::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1378,6 +1532,8 @@ if ! res.ats_documents_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1426,6 +1582,8 @@ if ! res.scorecards_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1476,6 +1634,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
@@ -1523,6 +1683,8 @@ if ! res.offers_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1572,6 +1734,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
@@ -1618,6 +1782,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
@@ -1632,7 +1798,7 @@ end
 
 ## list_candidate_custom_field_definitions
 
-List candidate custom field definitions
+List Candidate Custom Field Definitions
 
 ### Example Usage
 
@@ -1664,6 +1830,8 @@ if ! res.custom_field_definitions_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1713,6 +1881,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
@@ -1761,6 +1931,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -1807,6 +1979,8 @@ if ! res.departments_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1855,6 +2029,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
@@ -1901,6 +2077,8 @@ if ! res.interviews_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -1950,6 +2128,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
@@ -1998,6 +2178,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
@@ -2044,6 +2226,8 @@ if ! res.lists_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -2092,6 +2276,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
@@ -2138,6 +2324,8 @@ if ! res.offers_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -2186,6 +2374,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
@@ -2232,6 +2422,8 @@ if ! res.users_paginated.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -2301,6 +2493,8 @@ if ! res.update_result.nil?
 end
 
 ```
+
+
 
 ### Parameters
 
@@ -2390,6 +2584,8 @@ end
 
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
@@ -2446,6 +2642,8 @@ if ! res.write_result_api_model.nil?
 end
 
 ```
+
+
 
 ### Parameters
 

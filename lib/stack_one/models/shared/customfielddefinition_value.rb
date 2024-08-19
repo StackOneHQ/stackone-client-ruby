@@ -16,6 +16,11 @@ module StackOne
         LIST = new('list')
         CHECKBOX = new('checkbox')
         TEXT = new('text')
+        BOOLEAN = new('boolean')
+        SINGLE_SELECT = new('single_select')
+        MULTI_SELECT = new('multi_select')
+        URL = new('url')
+        OTHER = new('other')
       end
     end
 

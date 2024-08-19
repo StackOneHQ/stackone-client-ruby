@@ -18,10 +18,10 @@ module StackOne
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :next_page, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
 
-      field :raw, T.nilable(T::Array[::StackOne::Shared::CustomFieldDefinition]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+      field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
 
-      sig { params(data: T::Array[::StackOne::Shared::CustomFieldDefinition], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::CustomFieldDefinition])).void }
+      sig { params(data: T::Array[::StackOne::Shared::CustomFieldDefinition], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
       def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
         @data = data
         @next_ = next_
