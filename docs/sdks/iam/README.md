@@ -1,5 +1,6 @@
 # Iam
 
+## Overview
 
 ### Available Operations
 
@@ -52,10 +53,11 @@ end
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `request`                                                                                   | [::StackOne::Operations::IamGetGroupRequest](../../models/operations/iamgetgrouprequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamGetGroupResponse)](../../models/operations/iamgetgroupresponse.md)**
+
+
 
 
 ## get_policy
@@ -98,10 +100,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::IamGetPolicyRequest](../../models/operations/iamgetpolicyrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamGetPolicyResponse)](../../models/operations/iamgetpolicyresponse.md)**
+
+
 
 
 ## get_role
@@ -144,10 +147,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::StackOne::Operations::IamGetRoleRequest](../../models/operations/iamgetrolerequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamGetRoleResponse)](../../models/operations/iamgetroleresponse.md)**
+
+
 
 
 ## get_user
@@ -190,10 +194,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::StackOne::Operations::IamGetUserRequest](../../models/operations/iamgetuserrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamGetUserResponse)](../../models/operations/iamgetuserresponse.md)**
+
+
 
 
 ## list_groups
@@ -238,10 +243,11 @@ end
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [::StackOne::Operations::IamListGroupsRequest](../../models/operations/iamlistgroupsrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListGroupsResponse)](../../models/operations/iamlistgroupsresponse.md)**
+
+
 
 
 ## list_policies
@@ -286,10 +292,11 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::IamListPoliciesRequest](../../models/operations/iamlistpoliciesrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListPoliciesResponse)](../../models/operations/iamlistpoliciesresponse.md)**
+
+
 
 
 ## list_roles
@@ -334,10 +341,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::IamListRolesRequest](../../models/operations/iamlistrolesrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListRolesResponse)](../../models/operations/iamlistrolesresponse.md)**
+
+
 
 
 ## list_users
@@ -382,8 +390,8 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::IamListUsersRequest](../../models/operations/iamlistusersrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListUsersResponse)](../../models/operations/iamlistusersresponse.md)**
+
 

@@ -1,5 +1,6 @@
 # Marketing
 
+## Overview
 
 ### Available Operations
 
@@ -68,10 +69,11 @@ end
 | `marketing_create_content_blocks_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
 | `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreateContentBlockResponse)](../../models/operations/marketingcreatecontentblockresponse.md)**
+
+
 
 
 ## create_email_template
@@ -121,10 +123,11 @@ end
 | `marketing_create_email_template_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateEmailTemplateRequestDto](../../models/shared/marketingcreateemailtemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
 | `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreateEmailTemplateResponse)](../../models/operations/marketingcreateemailtemplateresponse.md)**
+
+
 
 
 ## create_in_app_template
@@ -174,10 +177,11 @@ end
 | `marketing_create_in_app_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
 | `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreateInAppTemplateResponse)](../../models/operations/marketingcreateinapptemplateresponse.md)**
+
+
 
 
 ## ~~create_omni_channel_template~~
@@ -229,10 +233,11 @@ end
 | `marketing_create_template_request_dto`                                                                           | [::StackOne::Shared::MarketingCreateTemplateRequestDto](../../models/shared/marketingcreatetemplaterequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
 | `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreateOmniChannelTemplateResponse)](../../models/operations/marketingcreateomnichanneltemplateresponse.md)**
+
+
 
 
 ## create_push_template
@@ -282,10 +287,11 @@ end
 | `marketing_create_push_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreatePushTemplateRequestDto](../../models/shared/marketingcreatepushtemplaterequestdto.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
 | `x_account_id`                                                                                                            | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | The account identifier                                                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreatePushTemplateResponse)](../../models/operations/marketingcreatepushtemplateresponse.md)**
+
+
 
 
 ## create_sms_template
@@ -335,10 +341,11 @@ end
 | `marketing_create_sms_template_request_dto`                                                                             | [::StackOne::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreateSmsTemplateResponse)](../../models/operations/marketingcreatesmstemplateresponse.md)**
+
+
 
 
 ## get_campaign
@@ -380,10 +387,11 @@ end
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                     | [::StackOne::Operations::MarketingGetCampaignRequest](../../models/operations/marketinggetcampaignrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetCampaignResponse)](../../models/operations/marketinggetcampaignresponse.md)**
+
+
 
 
 ## get_content_block
@@ -425,10 +433,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                             | [::StackOne::Operations::MarketingGetContentBlockRequest](../../models/operations/marketinggetcontentblockrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetContentBlockResponse)](../../models/operations/marketinggetcontentblockresponse.md)**
+
+
 
 
 ## get_email_template
@@ -470,10 +479,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [::StackOne::Operations::MarketingGetEmailTemplateRequest](../../models/operations/marketinggetemailtemplaterequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetEmailTemplateResponse)](../../models/operations/marketinggetemailtemplateresponse.md)**
+
+
 
 
 ## get_in_app_template
@@ -515,10 +525,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [::StackOne::Operations::MarketingGetInAppTemplateRequest](../../models/operations/marketinggetinapptemplaterequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetInAppTemplateResponse)](../../models/operations/marketinggetinapptemplateresponse.md)**
+
+
 
 
 ## ~~get_omni_channel_template~~
@@ -562,10 +573,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                           | [::StackOne::Operations::MarketingGetOmniChannelTemplateRequest](../../models/operations/marketinggetomnichanneltemplaterequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetOmniChannelTemplateResponse)](../../models/operations/marketinggetomnichanneltemplateresponse.md)**
+
+
 
 
 ## get_push_template
@@ -607,10 +619,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                             | [::StackOne::Operations::MarketingGetPushTemplateRequest](../../models/operations/marketinggetpushtemplaterequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetPushTemplateResponse)](../../models/operations/marketinggetpushtemplateresponse.md)**
+
+
 
 
 ## get_sms_template
@@ -652,10 +665,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                           | [::StackOne::Operations::MarketingGetSmsTemplateRequest](../../models/operations/marketinggetsmstemplaterequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetSmsTemplateResponse)](../../models/operations/marketinggetsmstemplateresponse.md)**
+
+
 
 
 ## list_campaigns
@@ -699,10 +713,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                         | [::StackOne::Operations::MarketingListCampaignsRequest](../../models/operations/marketinglistcampaignsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListCampaignsResponse)](../../models/operations/marketinglistcampaignsresponse.md)**
+
+
 
 
 ## list_content_blocks
@@ -746,10 +761,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                 | [::StackOne::Operations::MarketingListContentBlocksRequest](../../models/operations/marketinglistcontentblocksrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListContentBlocksResponse)](../../models/operations/marketinglistcontentblocksresponse.md)**
+
+
 
 
 ## list_email_templates
@@ -793,10 +809,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                   | [::StackOne::Operations::MarketingListEmailTemplatesRequest](../../models/operations/marketinglistemailtemplatesrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListEmailTemplatesResponse)](../../models/operations/marketinglistemailtemplatesresponse.md)**
+
+
 
 
 ## list_in_app_templates
@@ -840,10 +857,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                   | [::StackOne::Operations::MarketingListInAppTemplatesRequest](../../models/operations/marketinglistinapptemplatesrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListInAppTemplatesResponse)](../../models/operations/marketinglistinapptemplatesresponse.md)**
+
+
 
 
 ## ~~list_omni_channel_templates~~
@@ -889,10 +907,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                               | [::StackOne::Operations::MarketingListOmniChannelTemplatesRequest](../../models/operations/marketinglistomnichanneltemplatesrequest.md) | :heavy_check_mark:                                                                                                                      | The request object to use for the request.                                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListOmniChannelTemplatesResponse)](../../models/operations/marketinglistomnichanneltemplatesresponse.md)**
+
+
 
 
 ## list_push_templates
@@ -936,10 +955,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                 | [::StackOne::Operations::MarketingListPushTemplatesRequest](../../models/operations/marketinglistpushtemplatesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListPushTemplatesResponse)](../../models/operations/marketinglistpushtemplatesresponse.md)**
+
+
 
 
 ## list_sms_templates
@@ -983,10 +1003,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [::StackOne::Operations::MarketingListSmsTemplatesRequest](../../models/operations/marketinglistsmstemplatesrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListSmsTemplatesResponse)](../../models/operations/marketinglistsmstemplatesresponse.md)**
+
+
 
 
 ## update_content_block
@@ -1028,10 +1049,11 @@ end
 | `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
 | `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateContentBlockResponse)](../../models/operations/marketingupdatecontentblockresponse.md)**
+
+
 
 
 ## update_email_template
@@ -1082,10 +1104,11 @@ end
 | `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
 | `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateEmailTemplateResponse)](../../models/operations/marketingupdateemailtemplateresponse.md)**
+
+
 
 
 ## update_in_app_template
@@ -1136,10 +1159,11 @@ end
 | `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
 | `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateInAppTemplateResponse)](../../models/operations/marketingupdateinapptemplateresponse.md)**
+
+
 
 
 ## ~~update_omni_channel_template~~
@@ -1192,10 +1216,11 @@ end
 | `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
 | `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateOmniChannelTemplateResponse)](../../models/operations/marketingupdateomnichanneltemplateresponse.md)**
+
+
 
 
 ## update_push_template
@@ -1246,10 +1271,11 @@ end
 | `id`                                                                                                                      | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
 | `x_account_id`                                                                                                            | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | The account identifier                                                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdatePushTemplateResponse)](../../models/operations/marketingupdatepushtemplateresponse.md)**
+
+
 
 
 ## update_sms_template
@@ -1300,8 +1326,8 @@ end
 | `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateSmsTemplateResponse)](../../models/operations/marketingupdatesmstemplateresponse.md)**
+
 

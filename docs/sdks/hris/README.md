@@ -1,5 +1,6 @@
 # Hris
 
+## Overview
 
 ### Available Operations
 
@@ -14,6 +15,7 @@
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
+* [get_employee_employment](#get_employee_employment) - Get Employee Employment
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
@@ -26,6 +28,7 @@
 * [list_department_groups](#list_department_groups) - List Department Groups
 * [list_employee_categories](#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
+* [list_employee_employments](#list_employee_employments) - List Employee Employments
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](#list_employees) - List Employees
@@ -81,15 +84,10 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     company_name: "Example Corp",
     custom_fields: [
       ::StackOne::Shared::EmployeeCustomFields.new(
-        description: "The completion status of the employee's training.",
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
-        options: [
-          "<value>",
-        ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        type: ::StackOne::Shared::EmployeeCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
       ),
@@ -139,6 +137,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "Cheese": "<value>",
@@ -173,6 +172,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "underneath": "<value>",
@@ -199,10 +199,11 @@ end
 | `hris_create_employee_request_dto`                                                                      | [::StackOne::Shared::HrisCreateEmployeeRequestDto](../../models/shared/hriscreateemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeResponse)](../../models/operations/hriscreateemployeeresponse.md)**
+
+
 
 
 ## create_employee_time_off_request
@@ -250,10 +251,11 @@ end
 | `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse)](../../models/operations/hriscreateemployeetimeoffrequestresponse.md)**
+
+
 
 
 ## create_employee_work_eligibility_request
@@ -278,6 +280,7 @@ s.config_security(
 res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: ::StackOne::Shared::Document.new(
       category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+      category_id: "6530",
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       file_format: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
         source_value: "abc",
@@ -317,10 +320,11 @@ end
 | `id`                                                                                                                  | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
 | `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hriscreateemployeeworkeligibilityrequestresponse.md)**
+
+
 
 
 ## create_time_off_request
@@ -367,10 +371,11 @@ end
 | `hris_create_time_off_request_dto`                                                                    | [::StackOne::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateTimeOffRequestResponse)](../../models/operations/hriscreatetimeoffrequestresponse.md)**
+
+
 
 
 ## download_employee_document
@@ -409,10 +414,11 @@ end
 | `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
 | `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in | base64                             |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse)](../../models/operations/hrisdownloademployeedocumentresponse.md)**
+
+
 
 
 ## get_benefit
@@ -454,10 +460,11 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::StackOne::Operations::HrisGetBenefitRequest](../../models/operations/hrisgetbenefitrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetBenefitResponse)](../../models/operations/hrisgetbenefitresponse.md)**
+
+
 
 
 ## get_company
@@ -499,10 +506,11 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::StackOne::Operations::HrisGetCompanyRequest](../../models/operations/hrisgetcompanyrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetCompanyResponse)](../../models/operations/hrisgetcompanyresponse.md)**
+
+
 
 
 ## get_department_group
@@ -544,10 +552,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                         | [::StackOne::Operations::HrisGetDepartmentGroupRequest](../../models/operations/hrisgetdepartmentgrouprequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetDepartmentGroupResponse)](../../models/operations/hrisgetdepartmentgroupresponse.md)**
+
+
 
 
 ## get_employee
@@ -591,10 +600,11 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::HrisGetEmployeeRequest](../../models/operations/hrisgetemployeerequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeeResponse)](../../models/operations/hrisgetemployeeresponse.md)**
+
+
 
 
 ## get_employee_document
@@ -617,7 +627,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
-  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -637,10 +647,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                           | [::StackOne::Operations::HrisGetEmployeeDocumentRequest](../../models/operations/hrisgetemployeedocumentrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentResponse)](../../models/operations/hrisgetemployeedocumentresponse.md)**
+
+
 
 
 ## get_employee_document_category
@@ -682,10 +693,59 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                           | [::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest](../../models/operations/hrisgetemployeedocumentcategoryrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse)](../../models/operations/hrisgetemployeedocumentcategoryresponse.md)**
+
+
+
+
+## get_employee_employment
+
+Get Employee Employment
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
+  expand: "groups",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  id: "<id>",
+  sub_resource_id: "<value>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.get_employee_employment(req)
+
+if ! res.employment_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [::StackOne::Operations::HrisGetEmployeeEmploymentRequest](../../models/operations/hrisgetemployeeemploymentrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeeEmploymentResponse)](../../models/operations/hrisgetemployeeemploymentresponse.md)**
+
+
 
 
 ## get_employees_time_off_request
@@ -728,10 +788,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                         | [::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest](../../models/operations/hrisgetemployeestimeoffrequestrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse)](../../models/operations/hrisgetemployeestimeoffrequestresponse.md)**
+
+
 
 
 ## get_employees_work_eligibility
@@ -774,10 +835,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                           | [::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest](../../models/operations/hrisgetemployeesworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse)](../../models/operations/hrisgetemployeesworkeligibilityresponse.md)**
+
+
 
 
 ## get_employment
@@ -820,10 +882,11 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::HrisGetEmploymentRequest](../../models/operations/hrisgetemploymentrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmploymentResponse)](../../models/operations/hrisgetemploymentresponse.md)**
+
+
 
 
 ## get_group
@@ -865,10 +928,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::HrisGetGroupRequest](../../models/operations/hrisgetgrouprequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetGroupResponse)](../../models/operations/hrisgetgroupresponse.md)**
+
+
 
 
 ## get_job
@@ -910,10 +974,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::StackOne::Operations::HrisGetJobRequest](../../models/operations/hrisgetjobrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetJobResponse)](../../models/operations/hrisgetjobresponse.md)**
+
+
 
 
 ## get_location
@@ -955,10 +1020,11 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::HrisGetLocationRequest](../../models/operations/hrisgetlocationrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetLocationResponse)](../../models/operations/hrisgetlocationresponse.md)**
+
+
 
 
 ## get_time_off_request
@@ -1000,10 +1066,11 @@ end
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                       | [::StackOne::Operations::HrisGetTimeOffRequestRequest](../../models/operations/hrisgettimeoffrequestrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetTimeOffRequestResponse)](../../models/operations/hrisgettimeoffrequestresponse.md)**
+
+
 
 
 ## list_benefits
@@ -1047,10 +1114,11 @@ end
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `request`                                                                                             | [::StackOne::Operations::HrisListBenefitsRequest](../../models/operations/hrislistbenefitsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListBenefitsResponse)](../../models/operations/hrislistbenefitsresponse.md)**
+
+
 
 
 ## list_companies
@@ -1094,10 +1162,11 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::HrisListCompaniesRequest](../../models/operations/hrislistcompaniesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
+
+
 
 
 ## list_department_groups
@@ -1141,10 +1210,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                             | [::StackOne::Operations::HrisListDepartmentGroupsRequest](../../models/operations/hrislistdepartmentgroupsrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListDepartmentGroupsResponse)](../../models/operations/hrislistdepartmentgroupsresponse.md)**
+
+
 
 
 ## list_employee_categories
@@ -1188,10 +1258,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                 | [::StackOne::Operations::HrisListEmployeeCategoriesRequest](../../models/operations/hrislistemployeecategoriesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesResponse)](../../models/operations/hrislistemployeecategoriesresponse.md)**
+
+
 
 
 ## list_employee_documents
@@ -1214,7 +1285,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
-  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   filter: ::StackOne::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1236,10 +1307,61 @@ end
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [::StackOne::Operations::HrisListEmployeeDocumentsRequest](../../models/operations/hrislistemployeedocumentsrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
+
+
+
+
+## list_employee_employments
+
+List Employee Employments
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
+  expand: "groups",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  filter: ::StackOne::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.hris.list_employee_employments(req)
+
+if ! res.employments_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [::StackOne::Operations::HrisListEmployeeEmploymentsRequest](../../models/operations/hrislistemployeeemploymentsrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsResponse)](../../models/operations/hrislistemployeeemploymentsresponse.md)**
+
+
 
 
 ## list_employee_time_off_requests
@@ -1284,10 +1406,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest](../../models/operations/hrislistemployeetimeoffrequestsrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsResponse)](../../models/operations/hrislistemployeetimeoffrequestsresponse.md)**
+
+
 
 
 ## list_employee_work_eligibility
@@ -1332,10 +1455,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest](../../models/operations/hrislistemployeeworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse)](../../models/operations/hrislistemployeeworkeligibilityresponse.md)**
+
+
 
 
 ## list_employees
@@ -1381,10 +1505,11 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::HrisListEmployeesRequest](../../models/operations/hrislistemployeesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeesResponse)](../../models/operations/hrislistemployeesresponse.md)**
+
+
 
 
 ## list_employments
@@ -1429,10 +1554,11 @@ end
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                   | [::StackOne::Operations::HrisListEmploymentsRequest](../../models/operations/hrislistemploymentsrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmploymentsResponse)](../../models/operations/hrislistemploymentsresponse.md)**
+
+
 
 
 ## list_groups
@@ -1476,10 +1602,11 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::StackOne::Operations::HrisListGroupsRequest](../../models/operations/hrislistgroupsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListGroupsResponse)](../../models/operations/hrislistgroupsresponse.md)**
+
+
 
 
 ## list_jobs
@@ -1523,10 +1650,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::HrisListJobsRequest](../../models/operations/hrislistjobsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListJobsResponse)](../../models/operations/hrislistjobsresponse.md)**
+
+
 
 
 ## list_locations
@@ -1570,10 +1698,11 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::HrisListLocationsRequest](../../models/operations/hrislistlocationsrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListLocationsResponse)](../../models/operations/hrislistlocationsresponse.md)**
+
+
 
 
 ## list_time_off_requests
@@ -1617,10 +1746,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                           | [::StackOne::Operations::HrisListTimeOffRequestsRequest](../../models/operations/hrislisttimeoffrequestsrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListTimeOffRequestsResponse)](../../models/operations/hrislisttimeoffrequestsresponse.md)**
+
+
 
 
 ## update_employee
@@ -1665,15 +1795,10 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     company_name: "Example Corp",
     custom_fields: [
       ::StackOne::Shared::EmployeeCustomFields.new(
-        description: "The completion status of the employee's training.",
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
-        options: [
-          "<value>",
-        ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        type: ::StackOne::Shared::EmployeeCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
       ),
@@ -1723,6 +1848,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "solid": "<value>",
@@ -1757,6 +1883,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
         value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
       ),
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Woolsthorpe Manor",
       passthrough: {
         "International": "<value>",
@@ -1784,10 +1911,11 @@ end
 | `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateEmployeeResponse)](../../models/operations/hrisupdateemployeeresponse.md)**
+
+
 
 
 ## update_employee_work_eligibility_request
@@ -1812,6 +1940,7 @@ s.config_security(
 res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: ::StackOne::Shared::Document.new(
       category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+      category_id: "6530",
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       file_format: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
         source_value: "abc",
@@ -1852,10 +1981,11 @@ end
 | `sub_resource_id`                                                                                                     | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
 | `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md)**
+
+
 
 
 ## update_time_off_request
@@ -1903,10 +2033,11 @@ end
 | `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateTimeOffRequestResponse)](../../models/operations/hrisupdatetimeoffrequestresponse.md)**
+
+
 
 
 ## upload_employee_document
@@ -1933,6 +2064,7 @@ res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackO
       source_value: "550e8400-e29b-41d4-a716-446655440000",
       value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoValue::UNMAPPED_VALUE,
     ),
+    category_id: "6530",
     confidential: ::StackOne::Shared::Confidential.new(
       source_value: "public",
       value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
@@ -1960,8 +2092,8 @@ end
 | `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
 | `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUploadEmployeeDocumentResponse)](../../models/operations/hrisuploademployeedocumentresponse.md)**
+
 

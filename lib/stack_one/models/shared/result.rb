@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-    # The result of the completion
+
     class Result < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-
+      # The source value of the assessment result.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The result of the assessment.
+      field :value, T.nilable(::StackOne::Shared::AssessmentsResultsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AssessmentsResultsValue, true) } }
 
-      field :value, T.nilable(::StackOne::Shared::CompletionValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CompletionValue, true) } }
 
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CompletionValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AssessmentsResultsValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

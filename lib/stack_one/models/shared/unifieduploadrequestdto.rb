@@ -13,6 +13,8 @@ module StackOne
 
       # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.
       field :category, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+      # The categoryId of the documents
+      field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
       # The confidentiality level of the file to be uploaded
       field :confidential, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential') } }
       # The base64 encoded content of the file to upload
@@ -25,9 +27,10 @@ module StackOne
       field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
 
 
-      sig { params(category: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoCategory), confidential: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
-      def initialize(category: nil, confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
+      sig { params(category: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoCategory), category_id: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
+      def initialize(category: nil, category_id: nil, confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
         @category = category
+        @category_id = category_id
         @confidential = confidential
         @content = content
         @file_format = file_format

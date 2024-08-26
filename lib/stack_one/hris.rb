@@ -486,6 +486,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeEmploymentRequest)).returns(::StackOne::Operations::HrisGetEmployeeEmploymentResponse) }
+    def get_employee_employment(request)
+      # get_employee_employment - Get Employee Employment
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetEmployeeEmploymentRequest,
+        base_url,
+        '/unified/hris/employees/{id}/employments/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeEmploymentRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetEmployeeEmploymentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          res.employment_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse) }
     def get_employees_time_off_request(request)
       # get_employees_time_off_request - Get Employees Time Off Request
@@ -915,6 +953,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentsPaginated)
           res.hris_documents_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsRequest)).returns(::StackOne::Operations::HrisListEmployeeEmploymentsResponse) }
+    def list_employee_employments(request)
+      # list_employee_employments - List Employee Employments
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisListEmployeeEmploymentsRequest,
+        base_url,
+        '/unified/hris/employees/{id}/employments',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeEmploymentsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListEmployeeEmploymentsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentsPaginated)
+          res.employments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

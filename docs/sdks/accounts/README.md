@@ -1,5 +1,6 @@
 # Accounts
 
+## Overview
 
 ### Available Operations
 
@@ -42,10 +43,11 @@ end
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneDeleteAccountResponse)](../../models/operations/stackonedeleteaccountresponse.md)**
+
+
 
 
 ## get_account
@@ -81,10 +83,11 @@ end
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneGetAccountResponse)](../../models/operations/stackonegetaccountresponse.md)**
+
+
 
 
 ## get_account_meta_info
@@ -120,10 +123,11 @@ end
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *::String*         | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneGetAccountMetaInfoResponse)](../../models/operations/stackonegetaccountmetainforesponse.md)**
+
+
 
 
 ## list_linked_accounts
@@ -161,10 +165,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                 | [::StackOne::Operations::StackoneListLinkedAccountsRequest](../../models/operations/stackonelistlinkedaccountsrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneListLinkedAccountsResponse)](../../models/operations/stackonelistlinkedaccountsresponse.md)**
+
+
 
 
 ## update_account
@@ -186,7 +191,7 @@ s.config_security(
 )
 
     
-res = s.accounts.update_account(patch_account_dto=::StackOne::Shared::PatchAccountDto.new(), id="<value>")
+res = s.accounts.update_account(patch_account_external_dto=::StackOne::Shared::PatchAccountExternalDto.new(), id="<value>")
 
 if ! res.linked_account.nil?
   # handle response
@@ -196,13 +201,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `patch_account_dto`                                                           | [::StackOne::Shared::PatchAccountDto](../../models/shared/patchaccountdto.md) | :heavy_check_mark:                                                            | N/A                                                                           |
-| `id`                                                                          | *::String*                                                                    | :heavy_check_mark:                                                            | N/A                                                                           |
-
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `patch_account_external_dto`                                                                  | [::StackOne::Shared::PatchAccountExternalDto](../../models/shared/patchaccountexternaldto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
 
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneUpdateAccountResponse)](../../models/operations/stackoneupdateaccountresponse.md)**
+
 

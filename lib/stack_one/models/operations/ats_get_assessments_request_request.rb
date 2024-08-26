@@ -15,7 +15,7 @@ module StackOne
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
-      # The comma separated list of fields to return in the response (if empty, all fields are returned)
+      # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
       field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }

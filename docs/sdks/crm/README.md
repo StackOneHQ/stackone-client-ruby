@@ -1,5 +1,6 @@
 # Crm
 
+## Overview
 
 ### Available Operations
 
@@ -65,10 +66,11 @@ end
 | `crm_create_contact_request_dto`                                                                    | [::StackOne::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmCreateContactResponse)](../../models/operations/crmcreatecontactresponse.md)**
+
+
 
 
 ## get_account
@@ -110,10 +112,11 @@ end
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [::StackOne::Operations::CrmGetAccountRequest](../../models/operations/crmgetaccountrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmGetAccountResponse)](../../models/operations/crmgetaccountresponse.md)**
+
+
 
 
 ## get_contact
@@ -156,10 +159,11 @@ end
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [::StackOne::Operations::CrmGetContactRequest](../../models/operations/crmgetcontactrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmGetContactResponse)](../../models/operations/crmgetcontactresponse.md)**
+
+
 
 
 ## get_list
@@ -201,10 +205,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::StackOne::Operations::CrmGetListRequest](../../models/operations/crmgetlistrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmGetListResponse)](../../models/operations/crmgetlistresponse.md)**
+
+
 
 
 ## list_accounts
@@ -248,10 +253,11 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::CrmListAccountsRequest](../../models/operations/crmlistaccountsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmListAccountsResponse)](../../models/operations/crmlistaccountsresponse.md)**
+
+
 
 
 ## list_contacts
@@ -296,10 +302,11 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::CrmListContactsRequest](../../models/operations/crmlistcontactsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmListContactsResponse)](../../models/operations/crmlistcontactsresponse.md)**
+
+
 
 
 ## list_lists
@@ -343,10 +350,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::CrmListListsRequest](../../models/operations/crmlistlistsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmListListsResponse)](../../models/operations/crmlistlistsresponse.md)**
+
+
 
 
 ## update_contact
@@ -403,8 +411,8 @@ end
 | `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
 | `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmUpdateContactResponse)](../../models/operations/crmupdatecontactresponse.md)**
+
 

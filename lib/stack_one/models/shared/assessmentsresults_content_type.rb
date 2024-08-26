@@ -14,10 +14,10 @@ module StackOne
       # The source value of the content type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The content type of the attachment.
-      field :value, T.nilable(::StackOne::Shared::AssessmentsResultsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AssessmentsResultsValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::AssessmentsResultsSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AssessmentsResultsSchemasValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AssessmentsResultsValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AssessmentsResultsSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

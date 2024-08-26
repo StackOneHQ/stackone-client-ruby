@@ -1,11 +1,13 @@
 # AssessmentsResultsValue
 
-The content type of the attachment.
+The result of the assessment.
 
 
 ## Values
 
-| Name             | Value            |
-| ---------------- | ---------------- |
-| `TEXT`           | text             |
-| `UNMAPPED_VALUE` | unmapped_value   |
+| Name        | Value       |
+| ----------- | ----------- |
+| `CANCELLED` | cancelled   |
+| `EXPIRED`   | expired     |
+| `FAILED`    | failed      |
+| `PASSED`    | passed      |

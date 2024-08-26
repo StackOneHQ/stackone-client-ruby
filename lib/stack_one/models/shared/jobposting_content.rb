@@ -16,11 +16,14 @@ module StackOne
 
       field :plain, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
 
+      field :section, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('section') } }
 
-      sig { params(html: T.nilable(::String), plain: T.nilable(::String)).void }
-      def initialize(html: nil, plain: nil)
+
+      sig { params(html: T.nilable(::String), plain: T.nilable(::String), section: T.nilable(T::Array[::String])).void }
+      def initialize(html: nil, plain: nil, section: nil)
         @html = html
         @plain = plain
+        @section = section
       end
     end
   end

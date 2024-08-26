@@ -1,14 +1,11 @@
 # Status
 
-The status of the candidates assessment.
+Status of the Campaign
 
 
-## Values
+## Fields
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `IN_PROGRESS` | in_progress   |
-| `PENDING`     | pending       |
-| `COMPLETED`   | completed     |
-| `REJECTED`    | rejected      |
-| `EXPIRED`     | expired       |
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        | Example                                                                                            |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                     | *T.nilable(::Object)*                                                                              | :heavy_minus_sign:                                                                                 | The source value of the Status.                                                                    | Email                                                                                              |
+| `value`                                                                                            | [T.nilable(::StackOne::Shared::CampaignSchemasValue)](../../models/shared/campaignschemasvalue.md) | :heavy_minus_sign:                                                                                 | The Status of the campaign.                                                                        | email                                                                                              |

@@ -7,11 +7,13 @@
 module StackOne
   module Shared
   
-    # AssessmentsResultsValue - The content type of the attachment.
+    # AssessmentsResultsValue - The result of the assessment.
     class AssessmentsResultsValue < T::Enum
       enums do
-        TEXT = new('text')
-        UNMAPPED_VALUE = new('unmapped_value')
+        CANCELLED = new('cancelled')
+        EXPIRED = new('expired')
+        FAILED = new('failed')
+        PASSED = new('passed')
       end
     end
 

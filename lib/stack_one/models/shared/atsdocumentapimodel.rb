@@ -13,6 +13,8 @@ module StackOne
 
       # The category of the the document
       field :category, T.nilable(::StackOne::Shared::AtsDocumentApiModelCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+      # The categoryId of the documents
+      field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
       # The content of the file. Deprecated, use `url` and `file_format` one level up instead
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -39,9 +41,10 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(category: T.nilable(::StackOne::Shared::AtsDocumentApiModelCategory), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(::StackOne::Shared::FileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(::StackOne::Shared::AtsDocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(category: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, updated_at: nil)
+      sig { params(category: T.nilable(::StackOne::Shared::AtsDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(::StackOne::Shared::FileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(::StackOne::Shared::AtsDocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
+      def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, updated_at: nil)
         @category = category
+        @category_id = category_id
         @contents = contents
         @created_at = created_at
         @file_format = file_format

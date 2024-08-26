@@ -14,13 +14,13 @@ module StackOne
 
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
-      field :patch_account_dto, ::StackOne::Shared::PatchAccountDto, { 'request': { 'media_type': 'application/json' } }
+      field :patch_account_external_dto, ::StackOne::Shared::PatchAccountExternalDto, { 'request': { 'media_type': 'application/json' } }
 
 
-      sig { params(id: ::String, patch_account_dto: ::StackOne::Shared::PatchAccountDto).void }
-      def initialize(id: nil, patch_account_dto: nil)
+      sig { params(id: ::String, patch_account_external_dto: ::StackOne::Shared::PatchAccountExternalDto).void }
+      def initialize(id: nil, patch_account_external_dto: nil)
         @id = id
-        @patch_account_dto = patch_account_dto
+        @patch_account_external_dto = patch_account_external_dto
       end
     end
   end

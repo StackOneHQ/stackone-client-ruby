@@ -34,10 +34,10 @@ module StackOne
 
       field :setup_information, T.nilable(::StackOne::Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
 
-      field :status_reasons, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
+      field :status_reasons, T.nilable(T::Array[::StackOne::Shared::StatusReason]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
 
 
-      sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: ::StackOne::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(::StackOne::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), setup_information: T.nilable(::StackOne::Shared::SetupInformation), status_reasons: T.nilable(T::Array[::String])).void }
+      sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: ::StackOne::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(::StackOne::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), setup_information: T.nilable(::StackOne::Shared::SetupInformation), status_reasons: T.nilable(T::Array[::StackOne::Shared::StatusReason])).void }
       def initialize(created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, status: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, setup_information: nil, status_reasons: nil)
         @created_at = created_at
         @id = id

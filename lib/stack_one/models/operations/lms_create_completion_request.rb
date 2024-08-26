@@ -12,13 +12,16 @@ module StackOne
       extend T::Sig
 
 
+      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+
       field :lms_create_completion_request_dto, ::StackOne::Shared::LmsCreateCompletionRequestDto, { 'request': { 'media_type': 'application/json' } }
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(lms_create_completion_request_dto: ::StackOne::Shared::LmsCreateCompletionRequestDto, x_account_id: ::String).void }
-      def initialize(lms_create_completion_request_dto: nil, x_account_id: nil)
+      sig { params(id: ::String, lms_create_completion_request_dto: ::StackOne::Shared::LmsCreateCompletionRequestDto, x_account_id: ::String).void }
+      def initialize(id: nil, lms_create_completion_request_dto: nil, x_account_id: nil)
+        @id = id
         @lms_create_completion_request_dto = lms_create_completion_request_dto
         @x_account_id = x_account_id
       end

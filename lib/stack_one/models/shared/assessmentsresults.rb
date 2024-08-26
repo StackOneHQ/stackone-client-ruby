@@ -23,20 +23,20 @@ module StackOne
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The final result to candidate whether pass or fail
-      field :result, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+
+      field :result, T.nilable(::StackOne::Shared::Result), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+      # The assessment`s result url
+      field :result_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_url') } }
 
       field :score, T.nilable(::StackOne::Shared::Score), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
-      # The status of the candidates assessment.
-      field :status, T.nilable(::StackOne::Shared::Status), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), 'decoder': Utils.enum_from_string(::StackOne::Shared::Status, true) } }
       # The submission date of the candidate assessment
       field :submission_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The summary about the result of the assessments
       field :summary, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
 
 
-      sig { params(assessment_date: T.nilable(::DateTime), assessment_id: T.nilable(::String), attachments: T.nilable(::StackOne::Shared::Attachments), candidate: T.nilable(::StackOne::Shared::AssessmentsResultsCandidate), id: T.nilable(::String), remote_id: T.nilable(::String), result: T.nilable(::String), score: T.nilable(::StackOne::Shared::Score), status: T.nilable(::StackOne::Shared::Status), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
-      def initialize(assessment_date: nil, assessment_id: nil, attachments: nil, candidate: nil, id: nil, remote_id: nil, result: nil, score: nil, status: nil, submission_date: nil, summary: nil)
+      sig { params(assessment_date: T.nilable(::DateTime), assessment_id: T.nilable(::String), attachments: T.nilable(::StackOne::Shared::Attachments), candidate: T.nilable(::StackOne::Shared::AssessmentsResultsCandidate), id: T.nilable(::String), remote_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::Result), result_url: T.nilable(::String), score: T.nilable(::StackOne::Shared::Score), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
+      def initialize(assessment_date: nil, assessment_id: nil, attachments: nil, candidate: nil, id: nil, remote_id: nil, result: nil, result_url: nil, score: nil, submission_date: nil, summary: nil)
         @assessment_date = assessment_date
         @assessment_id = assessment_id
         @attachments = attachments
@@ -44,8 +44,8 @@ module StackOne
         @id = id
         @remote_id = remote_id
         @result = result
+        @result_url = result_url
         @score = score
-        @status = status
         @submission_date = submission_date
         @summary = summary
       end

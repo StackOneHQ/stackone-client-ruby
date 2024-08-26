@@ -7,16 +7,21 @@
 module StackOne
   module Shared
   
-    # Status - The status of the candidates assessment.
-    class Status < T::Enum
-      enums do
-        IN_PROGRESS = new('in_progress')
-        PENDING = new('pending')
-        COMPLETED = new('completed')
-        REJECTED = new('rejected')
-        EXPIRED = new('expired')
+    # Status of the Campaign
+    class Status < ::StackOne::Utils::FieldAugmented
+      extend T::Sig
+
+      # The source value of the Status.
+      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # The Status of the campaign.
+      field :value, T.nilable(::StackOne::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CampaignSchemasValue, true) } }
+
+
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CampaignSchemasValue)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
+        @value = value
       end
     end
-
   end
 end

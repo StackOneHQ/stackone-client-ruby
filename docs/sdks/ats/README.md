@@ -1,5 +1,6 @@
 # Ats
 
+## Overview
 
 ### Available Operations
 
@@ -9,6 +10,7 @@
 * [create_offer](#create_offer) - Creates an offer
 * [download_application_document](#download_application_document) - Download Application Document
 * [get_application](#get_application) - Get Application
+* [get_application_custom_field_definition](#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](#get_application_document) - Get Application Document
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
@@ -17,6 +19,7 @@
 * [get_assessments_request](#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](#get_assessments_result) - Get Assessments Results
 * [get_candidate](#get_candidate) - Get Candidate
+* [get_candidate_custom_field_definition](#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
 * [get_department](#get_department) - Get Department
 * [get_interview](#get_interview) - Get Interview
@@ -28,14 +31,14 @@
 * [get_offer](#get_offer) - Get Offer
 * [get_rejected_reason](#get_rejected_reason) - Get Rejected Reason
 * [get_user](#get_user) - Get User
-* [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List application custom field definitions
+* [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](#list_application_documents) - List Application Documents
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
 * [list_applications_scheduled_interviews](#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
-* [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List candidate custom field definitions
+* [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List Candidate Custom Field Definitions
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
 * [list_departments](#list_departments) - List Departments
@@ -81,15 +84,10 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
       country: "United States",
       custom_fields: [
         ::StackOne::Shared::CandidateCustomFields.new(
-          description: "The completion status of the employee's training.",
           id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
           name: "Training Completion Status",
-          options: [
-            "<value>",
-          ],
           remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
           remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-          type: ::StackOne::Shared::CandidateCustomFieldsType.new(),
           value: "Completed",
           value_id: "value_456",
         ),
@@ -156,10 +154,11 @@ end
 | `ats_create_application_request_dto`                                                                        | [::StackOne::Shared::AtsCreateApplicationRequestDto](../../models/shared/atscreateapplicationrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
 | `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateApplicationResponse)](../../models/operations/atscreateapplicationresponse.md)**
+
+
 
 
 ## create_candidate
@@ -186,15 +185,10 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared
     country: "United States",
     custom_fields: [
       ::StackOne::Shared::CandidateCustomFields.new(
-        description: "The completion status of the employee's training.",
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
-        options: [
-          "<value>",
-        ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        type: ::StackOne::Shared::CandidateCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
       ),
@@ -230,10 +224,11 @@ end
 | `ats_create_candidate_request_dto`                                                                      | [::StackOne::Shared::AtsCreateCandidateRequestDto](../../models/shared/atscreatecandidaterequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateCandidateResponse)](../../models/operations/atscreatecandidateresponse.md)**
+
+
 
 
 ## create_candidate_note
@@ -285,10 +280,11 @@ end
 | `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateCandidateNoteResponse)](../../models/operations/atscreatecandidatenoteresponse.md)**
+
+
 
 
 ## create_offer
@@ -341,10 +337,11 @@ end
 | `ats_create_offer_request_dto`                                                                  | [::StackOne::Shared::AtsCreateOfferRequestDto](../../models/shared/atscreateofferrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
 | `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateOfferResponse)](../../models/operations/atscreateofferresponse.md)**
+
+
 
 
 ## download_application_document
@@ -383,10 +380,11 @@ end
 | `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
 | `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in | base64                             |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsDownloadApplicationDocumentResponse)](../../models/operations/atsdownloadapplicationdocumentresponse.md)**
+
+
 
 
 ## get_application
@@ -430,10 +428,60 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::AtsGetApplicationRequest](../../models/operations/atsgetapplicationrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationResponse)](../../models/operations/atsgetapplicationresponse.md)**
+
+
+
+
+## get_application_custom_field_definition
+
+Get Application Custom Field Definition
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::Filter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_application_custom_field_definition(req)
+
+if ! res.custom_field_definition_result_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest](../../models/operations/atsgetapplicationcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionResponse)](../../models/operations/atsgetapplicationcustomfielddefinitionresponse.md)**
+
+
 
 
 ## get_application_document
@@ -456,7 +504,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
-  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
+  fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<value>",
   x_account_id: "<value>",
@@ -476,10 +524,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [::StackOne::Operations::AtsGetApplicationDocumentRequest](../../models/operations/atsgetapplicationdocumentrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationDocumentResponse)](../../models/operations/atsgetapplicationdocumentresponse.md)**
+
+
 
 
 ## get_application_offer
@@ -522,10 +571,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                         | [::StackOne::Operations::AtsGetApplicationOfferRequest](../../models/operations/atsgetapplicationofferrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationOfferResponse)](../../models/operations/atsgetapplicationofferresponse.md)**
+
+
 
 
 ## get_application_scheduled_interview
@@ -568,10 +618,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                                   | [::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest](../../models/operations/atsgetapplicationscheduledinterviewrequest.md) | :heavy_check_mark:                                                                                                                          | The request object to use for the request.                                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationScheduledInterviewResponse)](../../models/operations/atsgetapplicationscheduledinterviewresponse.md)**
+
+
 
 
 ## get_application_scorecard
@@ -614,10 +665,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                 | [::StackOne::Operations::AtsGetApplicationScorecardRequest](../../models/operations/atsgetapplicationscorecardrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationScorecardResponse)](../../models/operations/atsgetapplicationscorecardresponse.md)**
+
+
 
 
 ## get_assessments_package
@@ -658,10 +710,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                             | [::StackOne::Operations::AtsGetAssessmentsPackageRequest](../../models/operations/atsgetassessmentspackagerequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
+
+
 
 
 ## get_assessments_request
@@ -684,6 +737,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetAssessmentsRequestRequest.new(
+  fields_: "assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -702,10 +756,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                             | [::StackOne::Operations::AtsGetAssessmentsRequestRequest](../../models/operations/atsgetassessmentsrequestrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsRequestResponse)](../../models/operations/atsgetassessmentsrequestresponse.md)**
+
+
 
 
 ## get_assessments_result
@@ -728,6 +783,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetAssessmentsResultRequest.new(
+  fields_: "assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -746,10 +802,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                           | [::StackOne::Operations::AtsGetAssessmentsResultRequest](../../models/operations/atsgetassessmentsresultrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsResultResponse)](../../models/operations/atsgetassessmentsresultresponse.md)**
+
+
 
 
 ## get_candidate
@@ -792,10 +849,60 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::AtsGetCandidateRequest](../../models/operations/atsgetcandidaterequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetCandidateResponse)](../../models/operations/atsgetcandidateresponse.md)**
+
+
+
+
+## get_candidate_custom_field_definition
+
+Get Candidate Custom Field Definition
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::QueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_candidate_custom_field_definition(req)
+
+if ! res.custom_field_definition_result_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest](../../models/operations/atsgetcandidatecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionResponse)](../../models/operations/atsgetcandidatecustomfielddefinitionresponse.md)**
+
+
 
 
 ## get_candidate_note
@@ -838,10 +945,11 @@ end
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                   | [::StackOne::Operations::AtsGetCandidateNoteRequest](../../models/operations/atsgetcandidatenoterequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetCandidateNoteResponse)](../../models/operations/atsgetcandidatenoteresponse.md)**
+
+
 
 
 ## get_department
@@ -883,10 +991,11 @@ end
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `request`                                                                                             | [::StackOne::Operations::AtsGetDepartmentRequest](../../models/operations/atsgetdepartmentrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetDepartmentResponse)](../../models/operations/atsgetdepartmentresponse.md)**
+
+
 
 
 ## get_interview
@@ -928,10 +1037,11 @@ end
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | `request`                                                                                           | [::StackOne::Operations::AtsGetInterviewRequest](../../models/operations/atsgetinterviewrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetInterviewResponse)](../../models/operations/atsgetinterviewresponse.md)**
+
+
 
 
 ## get_interview_stage
@@ -973,10 +1083,11 @@ end
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                     | [::StackOne::Operations::AtsGetInterviewStageRequest](../../models/operations/atsgetinterviewstagerequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetInterviewStageResponse)](../../models/operations/atsgetinterviewstageresponse.md)**
+
+
 
 
 ## get_job
@@ -1019,10 +1130,11 @@ end
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [::StackOne::Operations::AtsGetJobRequest](../../models/operations/atsgetjobrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetJobResponse)](../../models/operations/atsgetjobresponse.md)**
+
+
 
 
 ## get_job_posting
@@ -1065,10 +1177,11 @@ end
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `request`                                                                                             | [::StackOne::Operations::AtsGetJobPostingRequest](../../models/operations/atsgetjobpostingrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetJobPostingResponse)](../../models/operations/atsgetjobpostingresponse.md)**
+
+
 
 
 ## get_list
@@ -1110,10 +1223,11 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::StackOne::Operations::AtsGetListRequest](../../models/operations/atsgetlistrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetListResponse)](../../models/operations/atsgetlistresponse.md)**
+
+
 
 
 ## get_location
@@ -1155,10 +1269,11 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [::StackOne::Operations::AtsGetLocationRequest](../../models/operations/atsgetlocationrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetLocationResponse)](../../models/operations/atsgetlocationresponse.md)**
+
+
 
 
 ## get_offer
@@ -1200,10 +1315,11 @@ end
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `request`                                                                                   | [::StackOne::Operations::AtsGetOfferRequest](../../models/operations/atsgetofferrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetOfferResponse)](../../models/operations/atsgetofferresponse.md)**
+
+
 
 
 ## get_rejected_reason
@@ -1245,10 +1361,11 @@ end
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                     | [::StackOne::Operations::AtsGetRejectedReasonRequest](../../models/operations/atsgetrejectedreasonrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetRejectedReasonResponse)](../../models/operations/atsgetrejectedreasonresponse.md)**
+
+
 
 
 ## get_user
@@ -1290,15 +1407,16 @@ end
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `request`                                                                                 | [::StackOne::Operations::AtsGetUserRequest](../../models/operations/atsgetuserrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetUserResponse)](../../models/operations/atsgetuserresponse.md)**
 
 
+
+
 ## list_application_custom_field_definitions
 
-List application custom field definitions
+List Application Custom Field Definitions
 
 ### Example Usage
 
@@ -1317,7 +1435,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::Filter.new(
+  filter: ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<value>",
@@ -1337,10 +1455,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                                             | [::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest](../../models/operations/atslistapplicationcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                    | The request object to use for the request.                                                                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsResponse)](../../models/operations/atslistapplicationcustomfielddefinitionsresponse.md)**
+
+
 
 
 ## list_application_documents
@@ -1363,8 +1482,8 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
-  fields_: "id,remote_id,name,path,type,category,contents,created_at,updated_at,remote_url,file_format",
-  filter: ::StackOne::Operations::QueryParamFilter.new(
+  fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
+  filter: ::StackOne::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1385,10 +1504,11 @@ end
 | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                   | [::StackOne::Operations::AtsListApplicationDocumentsRequest](../../models/operations/atslistapplicationdocumentsrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationDocumentsResponse)](../../models/operations/atslistapplicationdocumentsresponse.md)**
+
+
 
 
 ## list_application_scorecards
@@ -1433,10 +1553,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                     | [::StackOne::Operations::AtsListApplicationScorecardsRequest](../../models/operations/atslistapplicationscorecardsrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationScorecardsResponse)](../../models/operations/atslistapplicationscorecardsresponse.md)**
+
+
 
 
 ## list_applications
@@ -1482,10 +1603,11 @@ end
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                   | [::StackOne::Operations::AtsListApplicationsRequest](../../models/operations/atslistapplicationsrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationsResponse)](../../models/operations/atslistapplicationsresponse.md)**
+
+
 
 
 ## list_applications_offers
@@ -1530,10 +1652,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [::StackOne::Operations::AtsListApplicationsOffersRequest](../../models/operations/atslistapplicationsoffersrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationsOffersResponse)](../../models/operations/atslistapplicationsoffersresponse.md)**
+
+
 
 
 ## list_applications_scheduled_interviews
@@ -1578,10 +1701,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                                         | [::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest](../../models/operations/atslistapplicationsscheduledinterviewsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationsScheduledInterviewsResponse)](../../models/operations/atslistapplicationsscheduledinterviewsresponse.md)**
+
+
 
 
 ## list_assessments_packages
@@ -1624,15 +1748,16 @@ end
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                 | [::StackOne::Operations::AtsListAssessmentsPackagesRequest](../../models/operations/atslistassessmentspackagesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListAssessmentsPackagesResponse)](../../models/operations/atslistassessmentspackagesresponse.md)**
 
 
+
+
 ## list_candidate_custom_field_definitions
 
-List candidate custom field definitions
+List Candidate Custom Field Definitions
 
 ### Example Usage
 
@@ -1671,10 +1796,11 @@ end
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                                                         | [::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest](../../models/operations/atslistcandidatecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsResponse)](../../models/operations/atslistcandidatecustomfielddefinitionsresponse.md)**
+
+
 
 
 ## list_candidate_notes
@@ -1719,10 +1845,11 @@ end
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                       | [::StackOne::Operations::AtsListCandidateNotesRequest](../../models/operations/atslistcandidatenotesrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListCandidateNotesResponse)](../../models/operations/atslistcandidatenotesresponse.md)**
+
+
 
 
 ## list_candidates
@@ -1767,10 +1894,11 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::AtsListCandidatesRequest](../../models/operations/atslistcandidatesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListCandidatesResponse)](../../models/operations/atslistcandidatesresponse.md)**
+
+
 
 
 ## list_departments
@@ -1814,10 +1942,11 @@ end
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                 | [::StackOne::Operations::AtsListDepartmentsRequest](../../models/operations/atslistdepartmentsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListDepartmentsResponse)](../../models/operations/atslistdepartmentsresponse.md)**
+
+
 
 
 ## list_interview_stages
@@ -1861,10 +1990,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                         | [::StackOne::Operations::AtsListInterviewStagesRequest](../../models/operations/atslistinterviewstagesrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListInterviewStagesResponse)](../../models/operations/atslistinterviewstagesresponse.md)**
+
+
 
 
 ## list_interviews
@@ -1908,10 +2038,11 @@ end
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [::StackOne::Operations::AtsListInterviewsRequest](../../models/operations/atslistinterviewsrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListInterviewsResponse)](../../models/operations/atslistinterviewsresponse.md)**
+
+
 
 
 ## list_job_postings
@@ -1956,10 +2087,11 @@ end
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                 | [::StackOne::Operations::AtsListJobPostingsRequest](../../models/operations/atslistjobpostingsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListJobPostingsResponse)](../../models/operations/atslistjobpostingsresponse.md)**
+
+
 
 
 ## list_jobs
@@ -2004,10 +2136,11 @@ end
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `request`                                                                                   | [::StackOne::Operations::AtsListJobsRequest](../../models/operations/atslistjobsrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListJobsResponse)](../../models/operations/atslistjobsresponse.md)**
+
+
 
 
 ## list_lists
@@ -2051,10 +2184,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::AtsListListsRequest](../../models/operations/atslistlistsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListListsResponse)](../../models/operations/atslistlistsresponse.md)**
+
+
 
 
 ## list_locations
@@ -2098,10 +2232,11 @@ end
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `request`                                                                                             | [::StackOne::Operations::AtsListLocationsRequest](../../models/operations/atslistlocationsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListLocationsResponse)](../../models/operations/atslistlocationsresponse.md)**
+
+
 
 
 ## list_offers
@@ -2145,10 +2280,11 @@ end
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [::StackOne::Operations::AtsListOffersRequest](../../models/operations/atslistoffersrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListOffersResponse)](../../models/operations/atslistoffersresponse.md)**
+
+
 
 
 ## list_rejected_reasons
@@ -2192,10 +2328,11 @@ end
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                         | [::StackOne::Operations::AtsListRejectedReasonsRequest](../../models/operations/atslistrejectedreasonsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListRejectedReasonsResponse)](../../models/operations/atslistrejectedreasonsresponse.md)**
+
+
 
 
 ## list_users
@@ -2239,10 +2376,11 @@ end
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [::StackOne::Operations::AtsListUsersRequest](../../models/operations/atslistusersrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListUsersResponse)](../../models/operations/atslistusersresponse.md)**
+
+
 
 
 ## update_application
@@ -2271,15 +2409,10 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
     ),
     custom_fields: [
       ::StackOne::Shared::ApplicationCustomFields.new(
-        description: "The completion status of the employee's training.",
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
-        options: [
-          "<value>",
-        ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        type: ::StackOne::Shared::ApplicationCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
       ),
@@ -2310,10 +2443,11 @@ end
 | `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
 | `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateApplicationResponse)](../../models/operations/atsupdateapplicationresponse.md)**
+
+
 
 
 ## update_candidate
@@ -2343,15 +2477,10 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
     country: "United States",
     custom_fields: [
       ::StackOne::Shared::CandidateCustomFields.new(
-        description: "The completion status of the employee's training.",
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
-        options: [
-          "<value>",
-        ],
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        type: ::StackOne::Shared::CandidateCustomFieldsType.new(),
         value: "Completed",
         value_id: "value_456",
       ),
@@ -2398,10 +2527,11 @@ end
 | `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateCandidateResponse)](../../models/operations/atsupdatecandidateresponse.md)**
+
+
 
 
 ## upload_application_document
@@ -2428,6 +2558,7 @@ res = s.ats.upload_application_document(unified_upload_request_dto=::StackOne::S
       source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
       value: "reports, resumes",
     ),
+    category_id: "6530",
     confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
       source_value: "public",
       value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
@@ -2455,8 +2586,8 @@ end
 | `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
 
-
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUploadApplicationDocumentResponse)](../../models/operations/atsuploadapplicationdocumentresponse.md)**
+
 

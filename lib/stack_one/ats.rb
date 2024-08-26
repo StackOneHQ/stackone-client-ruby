@@ -290,6 +290,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest)).returns(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionResponse) }
+    def get_application_custom_field_definition(request)
+      # get_application_custom_field_definition - Get Application Custom Field Definition
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest,
+        base_url,
+        '/unified/ats/custom_field_definitions/applications/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
+          res.custom_field_definition_result_api_model = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::AtsGetApplicationDocumentRequest)).returns(::StackOne::Operations::AtsGetApplicationDocumentResponse) }
     def get_application_document(request)
       # get_application_document - Get Application Document
@@ -587,6 +625,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CandidateResult)
           res.candidate_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest)).returns(::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionResponse) }
+    def get_candidate_custom_field_definition(request)
+      # get_candidate_custom_field_definition - Get Candidate Custom Field Definition
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest,
+        base_url,
+        '/unified/ats/custom_field_definitions/candidates/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
+          res.custom_field_definition_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -1014,7 +1090,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest)).returns(::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsResponse) }
     def list_application_custom_field_definitions(request)
-      # list_application_custom_field_definitions - List application custom field definitions
+      # list_application_custom_field_definitions - List Application Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ats/custom_field_definitions/applications"
@@ -1265,7 +1341,7 @@ module StackOne
 
     sig { params(request: T.nilable(::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest)).returns(::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsResponse) }
     def list_candidate_custom_field_definitions(request)
-      # list_candidate_custom_field_definitions - List candidate custom field definitions
+      # list_candidate_custom_field_definitions - List Candidate Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ats/custom_field_definitions/candidates"

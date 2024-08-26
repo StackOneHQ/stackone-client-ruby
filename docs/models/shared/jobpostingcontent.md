@@ -7,3 +7,4 @@
 | --------------------- | --------------------- | --------------------- | --------------------- |
 | `html`                | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
 | `plain`               | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
+| `section`             | T::Array<*::String*>  | :heavy_minus_sign:    | N/A                   |

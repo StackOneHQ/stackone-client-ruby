@@ -172,12 +172,12 @@ module StackOne
     end
 
 
-    sig { params(patch_account_dto: ::StackOne::Shared::PatchAccountDto, id: ::String).returns(::StackOne::Operations::StackoneUpdateAccountResponse) }
-    def update_account(patch_account_dto, id)
+    sig { params(patch_account_external_dto: ::StackOne::Shared::PatchAccountExternalDto, id: ::String).returns(::StackOne::Operations::StackoneUpdateAccountResponse) }
+    def update_account(patch_account_external_dto, id)
       # update_account - Update Account
       request = ::StackOne::Operations::StackoneUpdateAccountRequest.new(
         
-        patch_account_dto: patch_account_dto,
+        patch_account_external_dto: patch_account_external_dto,
         id: id
       )
       url, params = @sdk_configuration.get_server_details
@@ -189,7 +189,7 @@ module StackOne
         request
       )
       headers = {}
-      req_content_type, data, form = Utils.serialize_request_body(request, :patch_account_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :patch_account_external_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'

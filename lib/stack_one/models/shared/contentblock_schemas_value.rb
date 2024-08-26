@@ -11,6 +11,9 @@ module StackOne
     class ContentBlockSchemasValue < T::Enum
       enums do
         TEXT = new('text')
+        HTML = new('html')
+        IMAGE = new('image')
+        CODE_SNIPPET = new('code-snippet')
       end
     end
 

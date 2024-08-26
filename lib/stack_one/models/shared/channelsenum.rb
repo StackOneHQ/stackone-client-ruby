@@ -14,10 +14,10 @@ module StackOne
       # The source value of the Channels.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The Channels of the campaign.
-      field :value, T.nilable(::StackOne::Shared::Value), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::Value, true) } }
+      field :value, T.nilable(::StackOne::Shared::ChannelsEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::ChannelsEnumValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::Value)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::ChannelsEnumValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
