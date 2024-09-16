@@ -17,7 +17,7 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The assignments with the given identifier was retrieved.
+      # The assignment with the given identifier was retrieved.
       field :assignment_result, T.nilable(::StackOne::Shared::AssignmentResult)
 
 

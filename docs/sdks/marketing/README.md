@@ -51,10 +51,10 @@ s.config_security(
 
     
 res = s.marketing.create_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
-    passthrough: {
-      "Bike": "<value>",
-    },
-  ), x_account_id="<value>")
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -96,19 +96,19 @@ s.config_security(
 
     
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::EmailMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::MessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::EmailMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::MessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "Non": "<value>",
-    },
-  ), x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -150,19 +150,19 @@ s.config_security(
 
     
 res = s.marketing.create_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::InAppMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::InAppMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "Qatar": "<value>",
-    },
-  ), x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -206,19 +206,19 @@ s.config_security(
 
     
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::Message.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::MessageMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::Message.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::MessageMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "Cargo": "<value>",
-    },
-  ), x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -260,19 +260,19 @@ s.config_security(
 
     
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::PushMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::PushMessagesMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::PushMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::PushMessagesMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "turban": "<value>",
-    },
-  ), x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -314,19 +314,19 @@ s.config_security(
 
     
 res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::SmsMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::SmsMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "City": "<value>",
-    },
-  ), x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1030,10 +1030,10 @@ s.config_security(
 
     
 res = s.marketing.update_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
-    passthrough: {
-      "Pickup": "<value>",
-    },
-  ), id="<value>", x_account_id="<value>")
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1076,19 +1076,19 @@ s.config_security(
 
     
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::EmailMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::MessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::EmailMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::MessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "strategize": "<value>",
-    },
-  ), id="<value>", x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1131,19 +1131,19 @@ s.config_security(
 
     
 res = s.marketing.update_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::InAppMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::InAppMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "Operative": "<value>",
-    },
-  ), id="<value>", x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1188,19 +1188,19 @@ s.config_security(
 
     
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::Message.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::MessageMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::Message.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::MessageMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "Edina": "<value>",
-    },
-  ), id="<value>", x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1243,19 +1243,19 @@ s.config_security(
 
     
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::PushMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::PushMessagesMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::PushMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::PushMessagesMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "tightly": "<value>",
-    },
-  ), id="<value>", x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1298,19 +1298,19 @@ s.config_security(
 
     
 res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
-    messages: [
-      ::StackOne::Shared::SmsMessages.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
-          source_value: "Email",
-        ),
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  messages: [
+    ::StackOne::Shared::SmsMessages.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
+        source_value: "Email",
       ),
-    ],
-    passthrough: {
-      "Bronze": "<value>",
-    },
-  ), id="<value>", x_account_id="<value>")
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response

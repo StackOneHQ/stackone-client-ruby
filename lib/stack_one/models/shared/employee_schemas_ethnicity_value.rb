@@ -22,6 +22,5 @@ module StackOne
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end
-
   end
 end

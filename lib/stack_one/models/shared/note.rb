@@ -25,14 +25,16 @@ module StackOne
       field :remote_author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_author_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # Date of last update
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Visibility of the note
       field :visibility, T.nilable(::StackOne::Shared::NoteVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), created_at: T.nilable(::DateTime), deleted_at: T.nilable(::DateTime), id: T.nilable(::String), remote_author_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime), visibility: T.nilable(::StackOne::Shared::NoteVisibility)).void }
-      def initialize(author_id: nil, content: nil, created_at: nil, deleted_at: nil, id: nil, remote_author_id: nil, remote_id: nil, updated_at: nil, visibility: nil)
+      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), created_at: T.nilable(::DateTime), deleted_at: T.nilable(::DateTime), id: T.nilable(::String), remote_author_id: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), visibility: T.nilable(::StackOne::Shared::NoteVisibility)).void }
+      def initialize(author_id: nil, content: nil, created_at: nil, deleted_at: nil, id: nil, remote_author_id: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil, visibility: nil)
         @author_id = author_id
         @content = content
         @created_at = created_at
@@ -40,6 +42,7 @@ module StackOne
         @id = id
         @remote_author_id = remote_author_id
         @remote_id = remote_id
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
         @visibility = visibility
       end

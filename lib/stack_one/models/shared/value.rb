@@ -15,6 +15,5 @@ module StackOne
         COMPLETED = new('completed')
       end
     end
-
   end
 end

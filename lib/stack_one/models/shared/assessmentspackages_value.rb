@@ -7,16 +7,13 @@
 module StackOne
   module Shared
   
-    # AssessmentsPackagesValue - The type of the assessment.
+    # AssessmentsPackagesValue - The type of the description.
     class AssessmentsPackagesValue < T::Enum
       enums do
-        VIDEO_INTERVIEW = new('video_interview')
-        BEHAVIORAL_ASSESSMENT = new('behavioral_assessment')
-        BACKGROUND_CHECK = new('background_check')
-        REFERENCE_CHECK = new('reference_check')
-        SKILL_TEST = new('skill_test')
+        RESPONSIBILITIES = new('responsibilities')
+        SKILLS = new('skills')
+        BENEFITS = new('benefits')
       end
     end
-
   end
 end

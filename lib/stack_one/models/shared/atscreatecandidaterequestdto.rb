@@ -35,10 +35,12 @@ module StackOne
       field :social_links, T.nilable(T::Array[::StackOne::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
       # Candidate title
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(company: T.nilable(::String), country: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CandidateCustomFields]), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
-      def initialize(company: nil, country: nil, custom_fields: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, passthrough: nil, phone_number: nil, social_links: nil, title: nil)
+      sig { params(company: T.nilable(::String), country: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CandidateCustomFields]), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(company: nil, country: nil, custom_fields: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, passthrough: nil, phone_number: nil, social_links: nil, title: nil, unified_custom_fields: nil)
         @company = company
         @country = country
         @custom_fields = custom_fields
@@ -51,6 +53,7 @@ module StackOne
         @phone_number = phone_number
         @social_links = social_links
         @title = title
+        @unified_custom_fields = unified_custom_fields
       end
     end
   end

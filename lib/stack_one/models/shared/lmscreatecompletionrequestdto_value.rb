@@ -14,6 +14,5 @@ module StackOne
         FAIL = new('Fail')
       end
     end
-
   end
 end

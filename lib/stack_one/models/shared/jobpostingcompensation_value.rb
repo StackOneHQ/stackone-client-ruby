@@ -27,6 +27,5 @@ module StackOne
         DAILY = new('daily')
       end
     end
-
   end
 end

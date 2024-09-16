@@ -72,7 +72,14 @@ s.config_security(
 
 req = ::StackOne::Shared::ConnectSessionCreate.new(
   categories: [
+    ::StackOne::Shared::ConnectSessionCreateCategories::ATS,
+    ::StackOne::Shared::ConnectSessionCreateCategories::HRIS,
     ::StackOne::Shared::ConnectSessionCreateCategories::HRIS_LEGACY,
+    ::StackOne::Shared::ConnectSessionCreateCategories::CRM,
+    ::StackOne::Shared::ConnectSessionCreateCategories::IAM,
+    ::StackOne::Shared::ConnectSessionCreateCategories::MARKETING,
+    ::StackOne::Shared::ConnectSessionCreateCategories::LMS,
+    ::StackOne::Shared::ConnectSessionCreateCategories::STACKONE,
   ],
   origin_owner_id: "<value>",
   origin_owner_name: "<value>",

@@ -33,25 +33,27 @@ s.config_security(
 
     
 res = s.crm.create_contact(crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(
-    account_ids: [
-      "<value>",
-    ],
-    company_name: "Apple Inc.",
-    deal_ids: [
-      "<value>",
-    ],
-    emails: [
-      "<value>",
-    ],
-    first_name: "Steve",
-    last_name: "Wozniak",
-    passthrough: {
-      "Electric": "<value>",
-    },
-    phone_numbers: [
-      "<value>",
-    ],
-  ), x_account_id="<value>")
+  account_ids: [
+    "account-123",
+    "account-456",
+  ],
+  company_name: "Apple Inc.",
+  deal_ids: [
+    "deal-001",
+    "deal-002",
+  ],
+  emails: [
+    "steve@apple.com",
+  ],
+  first_name: "Steve",
+  last_name: "Wozniak",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  phone_numbers: [
+    "123-456-7890",
+  ],
+), x_account_id="<value>")
 
 if ! res.contact_result.nil?
   # handle response
@@ -377,25 +379,27 @@ s.config_security(
 
     
 res = s.crm.update_contact(crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(
-    account_ids: [
-      "<value>",
-    ],
-    company_name: "Apple Inc.",
-    deal_ids: [
-      "<value>",
-    ],
-    emails: [
-      "<value>",
-    ],
-    first_name: "Steve",
-    last_name: "Wozniak",
-    passthrough: {
-      "West": "<value>",
-    },
-    phone_numbers: [
-      "<value>",
-    ],
-  ), id="<value>", x_account_id="<value>")
+  account_ids: [
+    "account-123",
+    "account-456",
+  ],
+  company_name: "Apple Inc.",
+  deal_ids: [
+    "deal-001",
+    "deal-002",
+  ],
+  emails: [
+    "steve@apple.com",
+  ],
+  first_name: "Steve",
+  last_name: "Wozniak",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  phone_numbers: [
+    "123-456-7890",
+  ],
+), id="<id>", x_account_id="<value>")
 
 if ! res.contact_result.nil?
   # handle response

@@ -14,6 +14,5 @@ module StackOne
         FALSE = new('false')
       end
     end
-
   end
 end

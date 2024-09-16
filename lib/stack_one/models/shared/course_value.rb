@@ -14,6 +14,5 @@ module StackOne
         INACTIVE = new('INACTIVE')
       end
     end
-
   end
 end

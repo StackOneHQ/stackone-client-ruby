@@ -1222,6 +1222,5 @@ module StackOne
         ICE = new('ice')
       end
     end
-
   end
 end

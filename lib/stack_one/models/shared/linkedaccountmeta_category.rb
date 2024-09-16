@@ -20,6 +20,5 @@ module StackOne
         STACKONE = new('stackone')
       end
     end
-
   end
 end

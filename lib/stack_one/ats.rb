@@ -860,6 +860,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest)).returns(::StackOne::Operations::AtsGetJobCustomFieldDefinitionResponse) }
+    def get_job_custom_field_definition(request)
+      # get_job_custom_field_definition - Get Job Custom Field Definition
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest,
+        base_url,
+        '/unified/ats/custom_field_definitions/jobs/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsGetJobCustomFieldDefinitionResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
+          res.custom_field_definition_result_api_model = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::AtsGetJobPostingRequest)).returns(::StackOne::Operations::AtsGetJobPostingResponse) }
     def get_job_posting(request)
       # get_job_posting - Get Job Posting
@@ -1542,6 +1580,39 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest)).returns(::StackOne::Operations::AtsListJobCustomFieldDefinitionsResponse) }
+    def list_job_custom_field_definitions(request)
+      # list_job_custom_field_definitions - List Job Custom Field Definitions
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/ats/custom_field_definitions/jobs"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsListJobCustomFieldDefinitionsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionsPaginated)
+          res.custom_field_definitions_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::AtsListJobPostingsRequest)).returns(::StackOne::Operations::AtsListJobPostingsResponse) }
     def list_job_postings(request)
       # list_job_postings - List Job Postings
@@ -1773,6 +1844,110 @@ module StackOne
     end
 
 
+    sig { params(ats_move_application_request_dto: ::StackOne::Shared::AtsMoveApplicationRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsMoveApplicationResponse) }
+    def move_application(ats_move_application_request_dto, id, x_account_id)
+      # move_application - Move Application
+      request = ::StackOne::Operations::AtsMoveApplicationRequest.new(
+        
+        ats_move_application_request_dto: ats_move_application_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsMoveApplicationRequest,
+        base_url,
+        '/unified/ats/applications/{id}/move',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :ats_move_application_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsMoveApplicationResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::MoveApplicationResult)
+          res.move_application_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(ats_reject_application_request_dto: ::StackOne::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsRejectApplicationResponse) }
+    def reject_application(ats_reject_application_request_dto, id, x_account_id)
+      # reject_application - Reject Application
+      request = ::StackOne::Operations::AtsRejectApplicationRequest.new(
+        
+        ats_reject_application_request_dto: ats_reject_application_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsRejectApplicationRequest,
+        base_url,
+        '/unified/ats/applications/{id}/reject',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :ats_reject_application_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsRejectApplicationResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::RejectApplicationResult)
+          res.reject_application_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(ats_update_application_request_dto: ::StackOne::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateApplicationResponse) }
     def update_application(ats_update_application_request_dto, id, x_account_id)
       # update_application - Update an Application
@@ -1918,7 +2093,7 @@ module StackOne
       res = ::StackOne::Operations::AtsUploadApplicationDocumentResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 200
+      if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WriteResultApiModel)
           res.write_result_api_model = out

@@ -13,6 +13,5 @@ module StackOne
         DEPARTMENT = new('department')
       end
     end
-
   end
 end

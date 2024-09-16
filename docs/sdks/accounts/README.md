@@ -29,7 +29,7 @@ s.config_security(
 )
 
     
-res = s.accounts.delete_account(id="<value>")
+res = s.accounts.delete_account(id="<id>")
 
 if ! res.linked_account.nil?
   # handle response
@@ -69,7 +69,7 @@ s.config_security(
 )
 
     
-res = s.accounts.get_account(id="<value>")
+res = s.accounts.get_account(id="<id>")
 
 if ! res.linked_account.nil?
   # handle response
@@ -109,7 +109,7 @@ s.config_security(
 )
 
     
-res = s.accounts.get_account_meta_info(id="<value>")
+res = s.accounts.get_account_meta_info(id="<id>")
 
 if ! res.linked_account_meta.nil?
   # handle response
@@ -191,7 +191,7 @@ s.config_security(
 )
 
     
-res = s.accounts.update_account(patch_account_external_dto=::StackOne::Shared::PatchAccountExternalDto.new(), id="<value>")
+res = s.accounts.update_account(patch_account_external_dto=::StackOne::Shared::PatchAccountExternalDto.new(), id="<id>")
 
 if ! res.linked_account.nil?
   # handle response

@@ -37,12 +37,14 @@ module StackOne
       field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The updated_at date
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentEmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, updated_at: nil)
+      sig { params(created_at: T.nilable(::DateTime), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentEmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
         @created_at = created_at
         @effective_date = effective_date
         @employee_id = employee_id
@@ -56,6 +58,7 @@ module StackOne
         @pay_rate = pay_rate
         @remote_employee_id = remote_employee_id
         @remote_id = remote_id
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

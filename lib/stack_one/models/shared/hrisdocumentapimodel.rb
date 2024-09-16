@@ -37,12 +37,14 @@ module StackOne
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :type, T.nilable(::StackOne::Shared::HrisDocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The update date of the file
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(category: T.nilable(::StackOne::Shared::HrisDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(::StackOne::Shared::HrisDocumentApiModelFileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisDocumentApiModelType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, updated_at: nil)
+      sig { params(category: T.nilable(::StackOne::Shared::HrisDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(::StackOne::Shared::HrisDocumentApiModelFileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
         @category = category
         @category_id = category_id
         @contents = contents
@@ -54,6 +56,7 @@ module StackOne
         @remote_id = remote_id
         @remote_url = remote_url
         @type = type
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

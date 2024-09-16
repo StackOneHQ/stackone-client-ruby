@@ -25,6 +25,7 @@
 * [get_interview](#get_interview) - Get Interview
 * [get_interview_stage](#get_interview_stage) - Get Interview Stage
 * [get_job](#get_job) - Get Job
+* [get_job_custom_field_definition](#get_job_custom_field_definition) - Get Job Custom Field Definition
 * [get_job_posting](#get_job_posting) - Get Job Posting
 * [get_list](#get_list) - Get List
 * [get_location](#get_location) - Get Location
@@ -44,6 +45,7 @@
 * [list_departments](#list_departments) - List Departments
 * [list_interview_stages](#list_interview_stages) - List Interview Stages
 * [list_interviews](#list_interviews) - List Interviews
+* [list_job_custom_field_definitions](#list_job_custom_field_definitions) - List Job Custom Field Definitions
 * [list_job_postings](#list_job_postings) - List Job Postings
 * [list_jobs](#list_jobs) - List Jobs
 * [list_lists](#list_lists) - Get all Lists
@@ -51,6 +53,8 @@
 * [list_offers](#list_offers) - List Offers
 * [list_rejected_reasons](#list_rejected_reasons) - List Rejected Reasons
 * [list_users](#list_users) - List Users
+* [move_application](#move_application) - Move Application
+* [reject_application](#reject_application) - Reject Application
 * [update_application](#update_application) - Update an Application
 * [update_candidate](#update_candidate) - Update Candidate
 * [upload_application_document](#upload_application_document) - Upload Application Document
@@ -75,71 +79,75 @@ s.config_security(
 
     
 res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(
-    application_status: ::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
-      source_value: "Hired",
-      value: ::StackOne::Shared::AtsCreateApplicationRequestDtoValue::HIRED,
-    ),
-    candidate: ::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate.new(
-      company: "Company Inc.",
-      country: "United States",
-      custom_fields: [
-        ::StackOne::Shared::CandidateCustomFields.new(
-          id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-          name: "Training Completion Status",
-          remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-          remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-          value: "Completed",
-          value_id: "value_456",
-        ),
-      ],
-      email: "sestier.romain123@gmail.com",
-      first_name: "Romain",
-      hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      last_name: "Sestier",
-      name: "Romain Sestier",
-      passthrough: {
-        "synthesize": "<value>",
-      },
-      phone_number: "+1234567890",
-      social_links: [
-        ::StackOne::Shared::SocialLink.new(
-          type: "linkedin",
-          url: "https://www.linkedin.com/in/romainsestier/",
-        ),
-      ],
-      title: "Software Engineer",
-    ),
-    candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-    job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
-    location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",
-    passthrough: {
-      "Global": "<value>",
-    },
-    questionnaires: [
-      ::StackOne::Shared::Questionnaire.new(
-        answers: [
-          ::StackOne::Shared::Answer.new(
-            id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-            remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-            type: ::StackOne::Shared::Type.new(
-              source_value: "Short Text",
-              value: ::StackOne::Shared::AnswerValue::SHORT_TEXT,
-            ),
-            values: [
-              "<value>",
-            ],
-          ),
-        ],
+  application_status: ::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
+    source_value: "Hired",
+    value: ::StackOne::Shared::AtsCreateApplicationRequestDtoValue::HIRED,
+  ),
+  candidate: ::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate.new(
+    company: "Company Inc.",
+    country: "United States",
+    custom_fields: [
+      ::StackOne::Shared::CandidateCustomFields.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Training Completion Status",
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+        value: "Completed",
+        value_id: "value_456",
       ),
     ],
-    source: ::StackOne::Shared::AtsCreateApplicationRequestDtoSource.new(
-      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      name: "LinkedIn",
+    email: "sestier.romain123@gmail.com",
+    first_name: "Romain",
+    hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    last_name: "Sestier",
+    name: "Romain Sestier",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    phone_number: "+1234567890",
+    social_links: [
+      ::StackOne::Shared::SocialLink.new(
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/romainsestier/",
+      ),
+    ],
+    title: "Software Engineer",
+    unified_custom_fields: {
+      "my_project_custom_field_1": "REF-1236",
+      "my_project_custom_field_2": "some other value",
+    },
+  ),
+  candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+  job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
+  location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  questionnaires: [
+    ::StackOne::Shared::Questionnaire.new(
+      answers: [
+        ::StackOne::Shared::Answer.new(
+          id: "answer1",
+          remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+          type: ::StackOne::Shared::Type.new(
+            source_value: "Short Text",
+            value: ::StackOne::Shared::AnswerValue::SHORT_TEXT,
+          ),
+          values: [
+            "Yes",
+          ],
+        ),
+      ],
+      id: "right_to_work",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
-  ), x_account_id="<value>")
+  ],
+  source: ::StackOne::Shared::AtsCreateApplicationRequestDtoSource.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    name: "LinkedIn",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -181,35 +189,39 @@ s.config_security(
 
     
 res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(
-    company: "Company Inc.",
-    country: "United States",
-    custom_fields: [
-      ::StackOne::Shared::CandidateCustomFields.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        name: "Training Completion Status",
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        value: "Completed",
-        value_id: "value_456",
-      ),
-    ],
-    email: "sestier.romain123@gmail.com",
-    first_name: "Romain",
-    hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    last_name: "Sestier",
-    name: "Romain Sestier",
-    passthrough: {
-      "discrete": "<value>",
-    },
-    phone_number: "+1234567890",
-    social_links: [
-      ::StackOne::Shared::SocialLink.new(
-        type: "linkedin",
-        url: "https://www.linkedin.com/in/romainsestier/",
-      ),
-    ],
-    title: "Software Engineer",
-  ), x_account_id="<value>")
+  company: "Company Inc.",
+  country: "United States",
+  custom_fields: [
+    ::StackOne::Shared::CandidateCustomFields.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      name: "Training Completion Status",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+      value: "Completed",
+      value_id: "value_456",
+    ),
+  ],
+  email: "sestier.romain123@gmail.com",
+  first_name: "Romain",
+  hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  last_name: "Sestier",
+  name: "Romain Sestier",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  phone_number: "+1234567890",
+  social_links: [
+    ::StackOne::Shared::SocialLink.new(
+      type: "linkedin",
+      url: "https://www.linkedin.com/in/romainsestier/",
+    ),
+  ],
+  title: "Software Engineer",
+  unified_custom_fields: {
+    "my_project_custom_field_1": "REF-1236",
+    "my_project_custom_field_2": "some other value",
+  },
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -251,20 +263,20 @@ s.config_security(
 
     
 res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
-    author_id: "1234567890",
-    content: [
-      ::StackOne::Shared::NoteContentApiModel.new(
-        body: "This candidate seems like a good fit for the role",
-      ),
-    ],
-    passthrough: {
-      "Freeway": "<value>",
-    },
-    visibility: ::StackOne::Shared::Visibility.new(
-      source_value: "Public",
-      value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
+  author_id: "1234567890",
+  content: [
+    ::StackOne::Shared::NoteContentApiModel.new(
+      body: "This candidate seems like a good fit for the role",
     ),
-  ), id="<value>", x_account_id="<value>")
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  visibility: ::StackOne::Shared::Visibility.new(
+    source_value: "Public",
+    value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
+  ),
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -307,22 +319,22 @@ s.config_security(
 
     
 res = s.ats.create_offer(ats_create_offer_request_dto=::StackOne::Shared::AtsCreateOfferRequestDto.new(
-    offer_history: [
-      ::StackOne::Shared::OfferHistory.new(
-        created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-        updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      ),
-    ],
-    offer_status: ::StackOne::Shared::OfferStatus.new(
-      source_value: "Pending",
-      value: ::StackOne::Shared::AtsCreateOfferRequestDtoValue::PENDING,
+  offer_history: [
+    ::StackOne::Shared::OfferHistory.new(
+      created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     ),
-    passthrough: {
-      "quas": "<value>",
-    },
-    start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  ), x_account_id="<value>")
+  ],
+  offer_status: ::StackOne::Shared::OfferStatus.new(
+    source_value: "Pending",
+    value: ::StackOne::Shared::AtsCreateOfferRequestDtoValue::PENDING,
+  ),
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+), x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -363,7 +375,7 @@ s.config_security(
 )
 
     
-res = s.ats.download_application_document(id="<value>", sub_resource_id="<value>", x_account_id="<value>", format="base64")
+res = s.ats.download_application_document(id="<id>", sub_resource_id="<value>", x_account_id="<value>", format="base64")
 
 if ! res.bytes.nil?
   # handle response
@@ -1111,8 +1123,9 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsGetJobRequest.new(
   expand: "job_postings,interview_stages",
-  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
+  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
   id: "<id>",
+  include: "custom_fields",
   x_account_id: "<value>",
 )
     
@@ -1133,6 +1146,55 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetJobResponse)](../../models/operations/atsgetjobresponse.md)**
+
+
+
+
+## get_job_custom_field_definition
+
+Get Job Custom Field Definition
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<value>",
+)
+    
+res = s.ats.get_job_custom_field_definition(req)
+
+if ! res.custom_field_definition_result_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                         | [::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest](../../models/operations/atsgetjobcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetJobCustomFieldDefinitionResponse)](../../models/operations/atsgetjobcustomfielddefinitionresponse.md)**
 
 
 
@@ -2045,6 +2107,54 @@ end
 
 
 
+## list_job_custom_field_definitions
+
+List Job Custom Field Definitions
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<value>",
+)
+    
+res = s.ats.list_job_custom_field_definitions(req)
+
+if ! res.custom_field_definitions_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                             | [::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest](../../models/operations/atslistjobcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                    | The request object to use for the request.                                                                                            |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListJobCustomFieldDefinitionsResponse)](../../models/operations/atslistjobcustomfielddefinitionsresponse.md)**
+
+
+
+
 ## list_job_postings
 
 List Job Postings
@@ -2115,10 +2225,11 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
-  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,created_at,updated_at",
+  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListJobsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
+  include: "custom_fields",
   x_account_id: "<value>",
 )
     
@@ -2383,6 +2494,100 @@ end
 
 
 
+## move_application
+
+Move Application
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.move_application(ats_move_application_request_dto=::StackOne::Shared::AtsMoveApplicationRequestDto.new(
+  interview_stage_id: "f223d7f6-908b-48f0-9237-b201c307f609",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<value>")
+
+if ! res.move_application_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ats_move_application_request_dto`                                                                      | [::StackOne::Shared::AtsMoveApplicationRequestDto](../../models/shared/atsmoveapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsMoveApplicationResponse)](../../models/operations/atsmoveapplicationresponse.md)**
+
+
+
+
+## reject_application
+
+Reject Application
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.reject_application(ats_reject_application_request_dto=::StackOne::Shared::AtsRejectApplicationRequestDto.new(
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
+), id="<id>", x_account_id="<value>")
+
+if ! res.reject_application_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `ats_reject_application_request_dto`                                                                        | [::StackOne::Shared::AtsRejectApplicationRequestDto](../../models/shared/atsrejectapplicationrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsRejectApplicationResponse)](../../models/operations/atsrejectapplicationresponse.md)**
+
+
+
+
 ## update_application
 
 Update an Application
@@ -2403,31 +2608,31 @@ s.config_security(
 
     
 res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(
-    application_status: ::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
-      source_value: "Hired",
-      value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
-    ),
-    custom_fields: [
-      ::StackOne::Shared::ApplicationCustomFields.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        name: "Training Completion Status",
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        value: "Completed",
-        value_id: "value_456",
-      ),
-    ],
-    interview_stage_id: "18bcbb1b-3cbc-4198-a999-460861d19480",
-    passthrough: {
-      "Licensed": "<value>",
-    },
-    rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
-    source: ::StackOne::Shared::AtsUpdateApplicationRequestDtoSource.new(
+  application_status: ::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
+    source_value: "Hired",
+    value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
+  ),
+  custom_fields: [
+    ::StackOne::Shared::ApplicationCustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      name: "LinkedIn",
+      name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+      value: "Completed",
+      value_id: "value_456",
     ),
-  ), id="<value>", x_account_id="<value>")
+  ],
+  interview_stage_id: "18bcbb1b-3cbc-4198-a999-460861d19480",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
+  source: ::StackOne::Shared::AtsUpdateApplicationRequestDtoSource.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    name: "LinkedIn",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+), id="<id>", x_account_id="<value>")
 
 if ! res.update_result.nil?
   # handle response
@@ -2470,48 +2675,53 @@ s.config_security(
 
     
 res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared::AtsUpdateCandidateRequestDto.new(
-    application_ids: [
-      "<value>",
-    ],
-    company: "Company Inc.",
-    country: "United States",
-    custom_fields: [
-      ::StackOne::Shared::CandidateCustomFields.new(
-        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        name: "Training Completion Status",
-        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-        remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-        value: "Completed",
-        value_id: "value_456",
-      ),
-    ],
-    email: "sestier.romain123@gmail.com",
-    emails: [
-      ::StackOne::Shared::CandidateEmail.new(
-        type: "personal",
-        value: "sestier.romain123@gmail.com",
-      ),
-    ],
-    first_name: "Romain",
-    hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    last_name: "Sestier",
-    name: "Romain Sestier",
-    passthrough: {
-      "Extended": "<value>",
-    },
-    phone_numbers: [
-      ::StackOne::Shared::PhoneNumber.new(
-        phone: "+447700112233",
-      ),
-    ],
-    social_links: [
-      ::StackOne::Shared::SocialLink.new(
-        type: "linkedin",
-        url: "https://www.linkedin.com/in/romainsestier/",
-      ),
-    ],
-    title: "Software Engineer",
-  ), id="<value>", x_account_id="<value>")
+  application_ids: [
+    "123e4567-e89b-12d3-a456-426614174000",
+    "523e1234-e89b-fdd2-a456-762545121101",
+  ],
+  company: "Company Inc.",
+  country: "United States",
+  custom_fields: [
+    ::StackOne::Shared::CandidateCustomFields.new(
+      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      name: "Training Completion Status",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      remote_value_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+      value: "Completed",
+      value_id: "value_456",
+    ),
+  ],
+  email: "sestier.romain123@gmail.com",
+  emails: [
+    ::StackOne::Shared::CandidateEmail.new(
+      type: "personal",
+      value: "sestier.romain123@gmail.com",
+    ),
+  ],
+  first_name: "Romain",
+  hired_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  last_name: "Sestier",
+  name: "Romain Sestier",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  phone_numbers: [
+    ::StackOne::Shared::PhoneNumber.new(
+      phone: "+447700112233",
+    ),
+  ],
+  social_links: [
+    ::StackOne::Shared::SocialLink.new(
+      type: "linkedin",
+      url: "https://www.linkedin.com/in/romainsestier/",
+    ),
+  ],
+  title: "Software Engineer",
+  unified_custom_fields: {
+    "my_project_custom_field_1": "REF-1236",
+    "my_project_custom_field_2": "some other value",
+  },
+), id="<id>", x_account_id="<value>")
 
 if ! res.create_result.nil?
   # handle response
@@ -2554,23 +2764,23 @@ s.config_security(
 
     
 res = s.ats.upload_application_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
-    category: ::StackOne::Shared::UnifiedUploadRequestDtoCategory.new(
-      source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
-      value: "reports, resumes",
-    ),
-    category_id: "6530",
-    confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
-      source_value: "public",
-      value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
-    ),
-    content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
-    file_format: ::StackOne::Shared::UnifiedUploadRequestDtoFileFormat.new(
-      source_value: "abc",
-      value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
-    ),
-    name: "weather-forecast",
-    path: "/path/to/file",
-  ), id="<value>", x_account_id="<value>")
+  category: ::StackOne::Shared::UnifiedUploadRequestDtoCategory.new(
+    source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
+    value: "reports, resumes",
+  ),
+  category_id: "6530",
+  confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
+    source_value: "public",
+    value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
+  ),
+  content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+  file_format: ::StackOne::Shared::UnifiedUploadRequestDtoFileFormat.new(
+    source_value: "abc",
+    value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+  ),
+  name: "weather-forecast",
+  path: "/path/to/file",
+), id="<id>", x_account_id="<value>")
 
 if ! res.write_result_api_model.nil?
   # handle response

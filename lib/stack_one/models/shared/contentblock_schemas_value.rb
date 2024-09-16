@@ -16,6 +16,5 @@ module StackOne
         CODE_SNIPPET = new('code-snippet')
       end
     end
-
   end
 end

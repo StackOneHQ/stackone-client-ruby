@@ -15,6 +15,5 @@ module StackOne
         ERROR = new('error')
       end
     end
-
   end
 end

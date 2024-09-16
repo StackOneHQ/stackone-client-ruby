@@ -29,6 +29,8 @@ module StackOne
       field :date_of_birth, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee department
       field :department, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
+      # The employee department id
+      field :department_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_id') } }
       # The employee display name
       field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
       # The employment work schedule type (e.g., full-time, part-time)
@@ -61,6 +63,8 @@ module StackOne
       field :marital_status, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('marital_status') } }
       # The employee name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      # The national identity number
+      field :national_identity_number, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_number') } }
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # The employee personal email
@@ -85,8 +89,8 @@ module StackOne
       field :work_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(avatar: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[::StackOne::Shared::HRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::EmployeeCustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), display_name: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType), employments: T.nilable(T::Array[::StackOne::Shared::Employment]), ethnicity: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoGender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation), job_id: T.nilable(::String), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), preferred_language: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage), start_date: T.nilable(::DateTime), tenure: T.nilable(::Float), termination_date: T.nilable(::DateTime), work_anniversary: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(::String)).void }
-      def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_id: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, passthrough: nil, personal_email: nil, personal_phone_number: nil, preferred_language: nil, start_date: nil, tenure: nil, termination_date: nil, work_anniversary: nil, work_email: nil, work_location: nil, work_phone_number: nil)
+      sig { params(avatar: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[::StackOne::Shared::HRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::EmployeeCustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), department_id: T.nilable(::String), display_name: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType), employments: T.nilable(T::Array[::StackOne::Shared::Employment]), ethnicity: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoGender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation), job_id: T.nilable(::String), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus), name: T.nilable(::String), national_identity_number: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber), passthrough: T.nilable(T::Hash[Symbol, ::Object]), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), preferred_language: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage), start_date: T.nilable(::DateTime), tenure: T.nilable(::Float), termination_date: T.nilable(::DateTime), work_anniversary: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(::String)).void }
+      def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, department_id: nil, display_name: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, employments: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_id: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, national_identity_number: nil, passthrough: nil, personal_email: nil, personal_phone_number: nil, preferred_language: nil, start_date: nil, tenure: nil, termination_date: nil, work_anniversary: nil, work_email: nil, work_location: nil, work_phone_number: nil)
         @avatar = avatar
         @avatar_url = avatar_url
         @benefits = benefits
@@ -96,6 +100,7 @@ module StackOne
         @custom_fields = custom_fields
         @date_of_birth = date_of_birth
         @department = department
+        @department_id = department_id
         @display_name = display_name
         @employment_contract_type = employment_contract_type
         @employment_status = employment_status
@@ -112,6 +117,7 @@ module StackOne
         @manager_id = manager_id
         @marital_status = marital_status
         @name = name
+        @national_identity_number = national_identity_number
         @passthrough = passthrough
         @personal_email = personal_email
         @personal_phone_number = personal_phone_number

@@ -23,6 +23,5 @@ module StackOne
         OTHER = new('other')
       end
     end
-
   end
 end

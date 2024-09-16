@@ -31,12 +31,14 @@ module StackOne
       field :salary, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
       # Date of creation
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # Date of last update
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), id: T.nilable(::String), offer_history: T.nilable(T::Array[::StackOne::Shared::OfferHistory]), offer_status: T.nilable(::StackOne::Shared::OfferOfferStatus), remote_application_id: T.nilable(::String), remote_id: T.nilable(::String), salary: T.nilable(::Float), start_date: T.nilable(::DateTime), updated_at: T.nilable(::DateTime)).void }
-      def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, remote_application_id: nil, remote_id: nil, salary: nil, start_date: nil, updated_at: nil)
+      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), id: T.nilable(::String), offer_history: T.nilable(T::Array[::StackOne::Shared::OfferHistory]), offer_status: T.nilable(::StackOne::Shared::OfferOfferStatus), remote_application_id: T.nilable(::String), remote_id: T.nilable(::String), salary: T.nilable(::Float), start_date: T.nilable(::DateTime), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, remote_application_id: nil, remote_id: nil, salary: nil, start_date: nil, unified_custom_fields: nil, updated_at: nil)
         @application_id = application_id
         @created_at = created_at
         @currency = currency
@@ -47,6 +49,7 @@ module StackOne
         @remote_id = remote_id
         @salary = salary
         @start_date = start_date
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

@@ -17,6 +17,5 @@ module StackOne
         TRIGGERED = new('triggered')
       end
     end
-
   end
 end

@@ -15,12 +15,15 @@ module StackOne
       field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
       # The name associated with this category
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), name: T.nilable(::String)).void }
-      def initialize(active: nil, name: nil)
+      sig { params(active: T.nilable(T::Boolean), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(active: nil, name: nil, unified_custom_fields: nil)
         @active = active
         @name = name
+        @unified_custom_fields = unified_custom_fields
       end
     end
   end

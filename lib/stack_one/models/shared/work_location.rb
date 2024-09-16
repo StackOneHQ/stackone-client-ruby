@@ -37,14 +37,16 @@ module StackOne
       field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
       # The second line of the address
       field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The updated_at date
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The ZIP code/Postal code of the location
       field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::EmployeeSchemasCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::EmployeeSchemasLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
-      def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, remote_employee_id: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, updated_at: nil, zip_code: nil)
+      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::EmployeeSchemasCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::EmployeeSchemasLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
+      def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, remote_employee_id: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, unified_custom_fields: nil, updated_at: nil, zip_code: nil)
         @city = city
         @country = country
         @created_at = created_at
@@ -58,6 +60,7 @@ module StackOne
         @state = state
         @street_1 = street_1
         @street_2 = street_2
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
         @zip_code = zip_code
       end

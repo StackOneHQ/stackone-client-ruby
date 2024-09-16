@@ -17,7 +17,7 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The assignments related to the employee with the given identifier were retrieved.
+      # The list of assignments was retrieved.
       field :assignments_paginated, T.nilable(::StackOne::Shared::AssignmentsPaginated)
 
 

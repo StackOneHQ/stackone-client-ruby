@@ -1,4 +1,4 @@
-# LmsCreateCompletionRequest
+# LmsCreateUserCompletionRequest
 
 
 ## Fields

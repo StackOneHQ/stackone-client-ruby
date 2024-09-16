@@ -26,12 +26,12 @@ s.config_security(
 
     
 res = s.proxy.proxy_request(proxy_request_body=::StackOne::Shared::ProxyRequestBody.new(
-    headers: {
-      "Car": "<value>",
-    },
-    path: "/employees/directory",
-    url: "https://api.sample-integration.com/v1",
-  ), x_account_id="<value>")
+  headers: {
+    "Content-Type": "application/json",
+  },
+  path: "/employees/directory",
+  url: "https://api.sample-integration.com/v1",
+), x_account_id="<value>")
 
 if res.status_code == 200
   # handle response

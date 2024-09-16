@@ -41,14 +41,16 @@ module StackOne
       field :skills, T.nilable(T::Array[::StackOne::Shared::Skills]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
       # The title of the course
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The date on which the course was last updated.
       field :updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at') } }
       # The redirect URL of the course.
       field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(active: T.nilable(::StackOne::Shared::Active), categories: T.nilable(T::Array[::StackOne::Shared::Category]), content_ids: T.nilable(T::Array[::String]), course_type: T.nilable(::StackOne::Shared::CourseType), cover_url: T.nilable(::String), created_at: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::ContentLanguageEnum]), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[::StackOne::Shared::Skills]), title: T.nilable(::String), updated_at: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(active: nil, categories: nil, content_ids: nil, course_type: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, id: nil, languages: nil, remote_content_ids: nil, remote_id: nil, skills: nil, title: nil, updated_at: nil, url: nil)
+      sig { params(active: T.nilable(::StackOne::Shared::Active), categories: T.nilable(T::Array[::StackOne::Shared::Category]), content_ids: T.nilable(T::Array[::String]), course_type: T.nilable(::StackOne::Shared::CourseType), cover_url: T.nilable(::String), created_at: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::ContentLanguageEnum]), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[::StackOne::Shared::Skills]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), url: T.nilable(::String)).void }
+      def initialize(active: nil, categories: nil, content_ids: nil, course_type: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, id: nil, languages: nil, remote_content_ids: nil, remote_id: nil, skills: nil, title: nil, unified_custom_fields: nil, updated_at: nil, url: nil)
         @active = active
         @categories = categories
         @content_ids = content_ids
@@ -64,6 +66,7 @@ module StackOne
         @remote_id = remote_id
         @skills = skills
         @title = title
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
         @url = url
       end

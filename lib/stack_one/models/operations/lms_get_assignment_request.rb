@@ -13,8 +13,6 @@ module StackOne
 
 
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
-      field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
       # The comma separated list of fields to return in the response (if empty, all fields are returned)
@@ -25,10 +23,9 @@ module StackOne
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
-      def initialize(id: nil, sub_resource_id: nil, x_account_id: nil, fields_: nil, proxy: nil, raw: nil)
+      sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+      def initialize(id: nil, x_account_id: nil, fields_: nil, proxy: nil, raw: nil)
         @id = id
-        @sub_resource_id = sub_resource_id
         @x_account_id = x_account_id
         @fields_ = fields_
         @proxy = proxy

@@ -11,11 +11,11 @@ module StackOne
     class Skills < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # Whether the category is active and therefore available for use
+      # Whether the skill is active and therefore available for use
       field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-      # The ID associated with this category
+      # The ID associated with this skill
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name associated with this category
+      # The name associated with this skill
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }

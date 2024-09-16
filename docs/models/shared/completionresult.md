@@ -1,11 +1,9 @@
 # CompletionResult
 
-The result of the completion
-
 
 ## Fields
 
-| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `source_value`                                                                           | *T.nilable(::Object)*                                                                    | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `value`                                                                                  | [T.nilable(::StackOne::Shared::CompletionValue)](../../models/shared/completionvalue.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `data`                                                                          | [::StackOne::Shared::Completion](../../models/shared/completion.md)             | :heavy_check_mark:                                                              | N/A                                                                             |
+| `raw`                                                                           | T::Array<[::StackOne::Shared::RawResponse](../../models/shared/rawresponse.md)> | :heavy_minus_sign:                                                              | N/A                                                                             |

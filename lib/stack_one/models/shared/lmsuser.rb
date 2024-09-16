@@ -15,6 +15,8 @@ module StackOne
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The user email
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+      # The external ID associated with this user
+      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The user name
@@ -23,18 +25,22 @@ module StackOne
       field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The updated_at date
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), email: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, email: nil, id: nil, name: nil, phone_number: nil, remote_id: nil, updated_at: nil)
+      sig { params(created_at: T.nilable(::DateTime), email: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, email: nil, external_reference: nil, id: nil, name: nil, phone_number: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
         @created_at = created_at
         @email = email
+        @external_reference = external_reference
         @id = id
         @name = name
         @phone_number = phone_number
         @remote_id = remote_id
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

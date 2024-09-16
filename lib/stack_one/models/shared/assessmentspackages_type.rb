@@ -11,9 +11,9 @@ module StackOne
     class AssessmentsPackagesType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the assessment type.
+      # The source value of the description type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the assessment.
+      # The type of the description.
       field :value, T.nilable(::StackOne::Shared::AssessmentsPackagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AssessmentsPackagesValue, true) } }
 
 

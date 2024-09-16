@@ -24,6 +24,5 @@ module StackOne
         CHILD_CARE_LEAVE = new('child_care_leave')
       end
     end
-
   end
 end

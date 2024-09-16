@@ -260,6 +260,5 @@ module StackOne
         ZW = new('ZW')
       end
     end
-
   end
 end

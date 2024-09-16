@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsCreateCompletionResponse < ::StackOne::Utils::FieldAugmented
+    class AtsRejectApplicationResponse < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation
@@ -17,16 +17,16 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The completion was created successfully.
-      field :create_result, T.nilable(::StackOne::Shared::CreateResult)
+      # The application was rejected successfully.
+      field :reject_application_result, T.nilable(::StackOne::Shared::RejectApplicationResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, create_result: T.nilable(::StackOne::Shared::CreateResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, create_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, reject_application_result: T.nilable(::StackOne::Shared::RejectApplicationResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, reject_application_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @create_result = create_result
+        @reject_application_result = reject_application_result
       end
     end
   end

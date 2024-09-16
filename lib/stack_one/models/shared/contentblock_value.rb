@@ -15,6 +15,5 @@ module StackOne
         ARCHIVED = new('archived')
       end
     end
-
   end
 end

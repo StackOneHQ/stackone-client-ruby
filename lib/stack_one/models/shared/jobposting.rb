@@ -43,12 +43,14 @@ module StackOne
       field :status, T.nilable(::StackOne::Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # Date of last update
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(compensation: T.nilable(T::Array[::StackOne::Shared::JobPostingCompensation]), content: T.nilable(::StackOne::Shared::JobPostingContent), created_at: T.nilable(::DateTime), employment_contract_type: T.nilable(::StackOne::Shared::JobPostingEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::JobPostingEmploymentType), external_apply_url: T.nilable(::String), external_url: T.nilable(::String), id: T.nilable(::String), internal: T.nilable(::StackOne::Shared::Internal), job_id: T.nilable(::String), locations: T.nilable(T::Array[::StackOne::Shared::JobPostingLocation]), questionnaires: T.nilable(T::Array[::StackOne::Shared::JobPostingQuestionnaire]), remote_id: T.nilable(::String), remote_job_posting_id: T.nilable(::String), status: T.nilable(::StackOne::Shared::JobPostingStatus), title: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-      def initialize(compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, id: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, remote_id: nil, remote_job_posting_id: nil, status: nil, title: nil, updated_at: nil)
+      sig { params(compensation: T.nilable(T::Array[::StackOne::Shared::JobPostingCompensation]), content: T.nilable(::StackOne::Shared::JobPostingContent), created_at: T.nilable(::DateTime), employment_contract_type: T.nilable(::StackOne::Shared::JobPostingEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::JobPostingEmploymentType), external_apply_url: T.nilable(::String), external_url: T.nilable(::String), id: T.nilable(::String), internal: T.nilable(::StackOne::Shared::Internal), job_id: T.nilable(::String), locations: T.nilable(T::Array[::StackOne::Shared::JobPostingLocation]), questionnaires: T.nilable(T::Array[::StackOne::Shared::JobPostingQuestionnaire]), remote_id: T.nilable(::String), remote_job_posting_id: T.nilable(::String), status: T.nilable(::StackOne::Shared::JobPostingStatus), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, id: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, remote_id: nil, remote_job_posting_id: nil, status: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
         @compensation = compensation
         @content = content
         @created_at = created_at
@@ -65,6 +67,7 @@ module StackOne
         @remote_job_posting_id = remote_job_posting_id
         @status = status
         @title = title
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

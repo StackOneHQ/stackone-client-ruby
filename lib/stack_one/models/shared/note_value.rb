@@ -14,6 +14,5 @@ module StackOne
         PUBLIC = new('public')
       end
     end
-
   end
 end

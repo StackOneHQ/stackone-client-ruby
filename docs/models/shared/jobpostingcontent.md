@@ -3,8 +3,8 @@
 
 ## Fields
 
-| Field                 | Type                  | Required              | Description           |
-| --------------------- | --------------------- | --------------------- | --------------------- |
-| `html`                | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
-| `plain`               | *T.nilable(::String)* | :heavy_minus_sign:    | N/A                   |
-| `section`             | T::Array<*::String*>  | :heavy_minus_sign:    | N/A                   |
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `html`                                                                                                    | *T.nilable(::String)*                                                                                     | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `plain`                                                                                                   | *T.nilable(::String)*                                                                                     | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `sections`                                                                                                | T::Array<[::StackOne::Shared::JobPostingContentSection](../../models/shared/jobpostingcontentsection.md)> | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |

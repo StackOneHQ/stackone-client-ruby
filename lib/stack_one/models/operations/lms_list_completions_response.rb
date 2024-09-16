@@ -17,7 +17,7 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The completions with for the users with the given identifier were retrieved.
+      # The list of completions was retrieved.
       field :completions_paginated, T.nilable(::StackOne::Shared::CompletionsPaginated)
 
 

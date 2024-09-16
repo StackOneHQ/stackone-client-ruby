@@ -15,6 +15,5 @@ module StackOne
         LIVE = new('live')
       end
     end
-
   end
 end

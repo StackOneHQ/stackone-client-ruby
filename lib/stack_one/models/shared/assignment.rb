@@ -17,36 +17,30 @@ module StackOne
       field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
       # The date the assignment is due to be completed
       field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
-      # The external ID associated with this assignment
-      field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
       # The ID associated with this assignment
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # Provider's unique identifier of the course related to the assignment
       field :remote_course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_course_id') } }
-      # Provider's unique identifier of the assignment
-      field :remote_external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_external_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The status of the assignment
       field :status, T.nilable(T::Array[::StackOne::Shared::AssignmentStatusEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The date the assignment was last updated
       field :updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at') } }
 
 
-      sig { params(course_id: T.nilable(::String), created_at: T.nilable(::String), due_date: T.nilable(::String), external_id: T.nilable(::String), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(T::Array[::StackOne::Shared::AssignmentStatusEnum]), updated_at: T.nilable(::String)).void }
-      def initialize(course_id: nil, created_at: nil, due_date: nil, external_id: nil, id: nil, passthrough: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, status: nil, updated_at: nil)
+      sig { params(course_id: T.nilable(::String), created_at: T.nilable(::String), due_date: T.nilable(::String), id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(T::Array[::StackOne::Shared::AssignmentStatusEnum]), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String)).void }
+      def initialize(course_id: nil, created_at: nil, due_date: nil, id: nil, remote_course_id: nil, remote_id: nil, status: nil, unified_custom_fields: nil, updated_at: nil)
         @course_id = course_id
         @created_at = created_at
         @due_date = due_date
-        @external_id = external_id
         @id = id
-        @passthrough = passthrough
         @remote_course_id = remote_course_id
-        @remote_external_id = remote_external_id
         @remote_id = remote_id
         @status = status
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

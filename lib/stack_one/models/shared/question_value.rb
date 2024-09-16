@@ -21,6 +21,5 @@ module StackOne
         VIDEO = new('video')
       end
     end
-
   end
 end

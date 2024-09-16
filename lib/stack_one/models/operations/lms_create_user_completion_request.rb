@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsCreateCompletionRequest < ::StackOne::Utils::FieldAugmented
+    class LmsCreateUserCompletionRequest < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 

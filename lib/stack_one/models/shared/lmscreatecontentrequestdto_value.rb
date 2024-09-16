@@ -15,6 +15,5 @@ module StackOne
         DOCUMENT = new('document')
       end
     end
-
   end
 end

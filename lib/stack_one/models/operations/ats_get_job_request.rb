@@ -19,18 +19,21 @@ module StackOne
       field :expand, T.nilable(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+      # The comma separated list of fields that will be included in the response
+      field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
       field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: ::String, x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
-      def initialize(id: nil, x_account_id: nil, expand: nil, fields_: nil, proxy: nil, raw: nil)
+      sig { params(id: ::String, x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), include: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+      def initialize(id: nil, x_account_id: nil, expand: nil, fields_: nil, include: nil, proxy: nil, raw: nil)
         @id = id
         @x_account_id = x_account_id
         @expand = expand
         @fields_ = fields_
+        @include = include
         @proxy = proxy
         @raw = raw
       end

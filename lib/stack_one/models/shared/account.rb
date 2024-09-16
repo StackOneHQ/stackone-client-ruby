@@ -33,14 +33,16 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # Provider's unique identifier of the owner
       field :remote_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # Timestamp when the account was last updated
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
       field :website, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('website') } }
 
 
-      sig { params(addresses: T.nilable(T::Array[::StackOne::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), industries: T.nilable(T::Array[::String]), name: T.nilable(::String), owner_id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
-      def initialize(addresses: nil, annual_revenue: nil, created_at: nil, description: nil, id: nil, industries: nil, name: nil, owner_id: nil, phone_numbers: nil, remote_id: nil, remote_owner_id: nil, updated_at: nil, website: nil)
+      sig { params(addresses: T.nilable(T::Array[::StackOne::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), industries: T.nilable(T::Array[::String]), name: T.nilable(::String), owner_id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
+      def initialize(addresses: nil, annual_revenue: nil, created_at: nil, description: nil, id: nil, industries: nil, name: nil, owner_id: nil, phone_numbers: nil, remote_id: nil, remote_owner_id: nil, unified_custom_fields: nil, updated_at: nil, website: nil)
         @addresses = addresses
         @annual_revenue = annual_revenue
         @created_at = created_at
@@ -52,6 +54,7 @@ module StackOne
         @phone_numbers = phone_numbers
         @remote_id = remote_id
         @remote_owner_id = remote_owner_id
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
         @website = website
       end

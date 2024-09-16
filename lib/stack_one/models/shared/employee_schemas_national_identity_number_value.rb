@@ -17,6 +17,5 @@ module StackOne
         UNKNOWN = new('unknown')
       end
     end
-
   end
 end

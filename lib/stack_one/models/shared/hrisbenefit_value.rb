@@ -17,6 +17,5 @@ module StackOne
         INSURANCE = new('insurance')
       end
     end
-
   end
 end

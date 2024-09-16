@@ -23,18 +23,21 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The list type
       field :type, T.nilable(::StackOne::Shared::ListType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      # Custom Unified Fields configured in your StackOne project
+      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # Timestamp when the list was last updated
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[::StackOne::Shared::ListItem]), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::ListType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, id: nil, items: nil, name: nil, remote_id: nil, type: nil, updated_at: nil)
+      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[::StackOne::Shared::ListItem]), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::ListType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, id: nil, items: nil, name: nil, remote_id: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
         @created_at = created_at
         @id = id
         @items = items
         @name = name
         @remote_id = remote_id
         @type = type
+        @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
       end
     end

@@ -16,6 +16,5 @@ module StackOne
         PASSED = new('passed')
       end
     end
-
   end
 end

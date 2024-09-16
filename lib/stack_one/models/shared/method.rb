@@ -17,6 +17,5 @@ module StackOne
         PATCH = new('patch')
       end
     end
-
   end
 end
