@@ -520,7 +520,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetUserRequest.new(
-  fields_: "id,remote_id,external_reference,email,phone_number,created_at,updated_at,name",
+  fields_: "id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name",
   id: "<id>",
   x_account_id: "<value>",
 )
@@ -1052,7 +1052,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListUsersRequest.new(
-  fields_: "id,remote_id,external_reference,email,phone_number,created_at,updated_at,name",
+  fields_: "id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name",
   filter: ::StackOne::Operations::LmsListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),

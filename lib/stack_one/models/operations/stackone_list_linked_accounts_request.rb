@@ -20,6 +20,8 @@ module StackOne
       # The number of results per page
       field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # The provider of the results to fetch
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :provider, T.nilable(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
       # The providers list of the results to fetch
       field :providers, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'providers', 'style': 'form', 'explode': true } }

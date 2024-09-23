@@ -38,7 +38,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: stackone_create_connect_session
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Shared::ConnectSessionCreate.new(\n  categories: [\n    ::StackOne::Shared::Categories::ATS,\n    ::StackOne::Shared::Categories::HRIS,\n    ::StackOne::Shared::Categories::HRIS_LEGACY,\n    ::StackOne::Shared::Categories::CRM,\n    ::StackOne::Shared::Categories::IAM,\n    ::StackOne::Shared::Categories::MARKETING,\n    ::StackOne::Shared::Categories::LMS,\n    ::StackOne::Shared::Categories::STACKONE,\n  ],\n  origin_owner_id: \"<value>\",\n  origin_owner_name: \"<value>\",\n)\n    \nres = s.connect_sessions.create_connect_session(req)\n\nif ! res.connect_session_token.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Shared::ConnectSessionCreate.new(\n  categories: [\n    ::StackOne::Shared::Categories::ATS,\n    ::StackOne::Shared::Categories::HRIS,\n    ::StackOne::Shared::Categories::HRIS_LEGACY,\n    ::StackOne::Shared::Categories::CRM,\n    ::StackOne::Shared::Categories::IAM,\n    ::StackOne::Shared::Categories::MARKETING,\n    ::StackOne::Shared::Categories::LMS,\n    ::StackOne::Shared::Categories::ATS,\n  ],\n  origin_owner_id: \"<value>\",\n  origin_owner_name: \"<value>\",\n)\n    \nres = s.connect_sessions.create_connect_session(req)\n\nif ! res.connect_session_token.nil?\n  # handle response\nend"
   - target: $["paths"]["/connect_sessions/authenticate"]["post"]
     update:
       x-codeSamples:
@@ -806,13 +806,13 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_users
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUsersRequest.new(\n  fields_: \"id,remote_id,external_reference,email,phone_number,created_at,updated_at,name\",\n  filter: ::StackOne::Operations::LmsListUsersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<value>\",\n)\n    \nres = s.lms.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUsersRequest.new(\n  fields_: \"id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name\",\n  filter: ::StackOne::Operations::LmsListUsersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<value>\",\n)\n    \nres = s.lms.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}"]["get"]
     update:
       x-codeSamples:
         - lang: ruby
           label: lms_get_user
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsGetUserRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_reference,email,phone_number,created_at,updated_at,name\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.lms.get_user(req)\n\nif ! res.user_result.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsGetUserRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name\",\n  x_account_id: \"<value>\",\n)\n    \nres = s.lms.get_user(req)\n\nif ! res.user_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/assignments"]["get"]
     update:
       x-codeSamples:
