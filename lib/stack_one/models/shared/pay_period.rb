@@ -14,10 +14,10 @@ module StackOne
       # The source value of the pay period.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The pay period of the job postings.
-      field :value, T.nilable(::StackOne::Shared::EmploymentSchemasPayPeriodValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EmploymentSchemasPayPeriodValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EmploymentSchemasPayPeriodValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

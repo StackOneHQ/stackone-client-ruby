@@ -12,7 +12,7 @@ module StackOne
       extend T::Sig
 
       # The type of the benefit
-      field :benefit_type, T.nilable(::StackOne::Shared::BenefitType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('benefit_type') } }
+      field :benefit_type, T.nilable(::StackOne::Shared::HRISBenefitBenefitType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('benefit_type') } }
       # The date and time the benefit was created
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The description of the benefit
@@ -29,7 +29,7 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(benefit_type: T.nilable(::StackOne::Shared::BenefitType), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), provider: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
+      sig { params(benefit_type: T.nilable(::StackOne::Shared::HRISBenefitBenefitType), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), provider: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
       def initialize(benefit_type: nil, created_at: nil, description: nil, id: nil, name: nil, provider: nil, remote_id: nil, updated_at: nil)
         @benefit_type = benefit_type
         @created_at = created_at

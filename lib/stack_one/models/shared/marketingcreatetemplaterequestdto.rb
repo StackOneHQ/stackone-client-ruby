@@ -12,7 +12,7 @@ module StackOne
       extend T::Sig
 
 
-      field :messages, T.nilable(T::Array[::StackOne::Shared::Message]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
+      field :messages, T.nilable(T::Array[::StackOne::Shared::CreateMessage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Value to pass through to the provider
@@ -21,7 +21,7 @@ module StackOne
       field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
 
-      sig { params(messages: T.nilable(T::Array[::StackOne::Shared::Message]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
+      sig { params(messages: T.nilable(T::Array[::StackOne::Shared::CreateMessage]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
       def initialize(messages: nil, name: nil, passthrough: nil, tags: nil)
         @messages = messages
         @name = name

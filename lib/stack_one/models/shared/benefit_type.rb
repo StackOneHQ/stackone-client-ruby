@@ -14,10 +14,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the benefit
-      field :value, T.nilable(::StackOne::Shared::HRISBenefitValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HRISBenefitValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::CreateHRISBenefitValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateHRISBenefitValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HRISBenefitValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateHRISBenefitValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

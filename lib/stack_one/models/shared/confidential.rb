@@ -7,20 +7,11 @@
 module StackOne
   module Shared
   
-    # The confidentiality level of the file to be uploaded
-    class Confidential < ::StackOne::Utils::FieldAugmented
-      extend T::Sig
-
-
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # Whether the file is confidential or not
-      field :value, T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue, true) } }
-
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+    # Confidential - Confidential status of the job
+    class Confidential < T::Enum
+      enums do
+        TRUE = new('true')
+        FALSE = new('false')
       end
     end
   end

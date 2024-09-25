@@ -88,6 +88,7 @@ end
 * [create_application](docs/sdks/ats/README.md#create_application) - Create Application
 * [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
+* [create_job](docs/sdks/ats/README.md#create_job) - Create Job
 * [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
 * [download_application_document](docs/sdks/ats/README.md#download_application_document) - Download Application Document
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
@@ -138,6 +139,7 @@ end
 * [reject_application](docs/sdks/ats/README.md#reject_application) - Reject Application
 * [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
 * [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate
+* [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
 ### [Connectors](docs/sdks/connectors/README.md)

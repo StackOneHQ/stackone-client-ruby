@@ -16,7 +16,7 @@ module StackOne
       # The categoryId of the documents
       field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
       # The confidentiality level of the file to be uploaded
-      field :confidential, T.nilable(::StackOne::Shared::Confidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential') } }
+      field :confidential, T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential') } }
       # The base64 encoded content of the file to upload
       field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
       # The file format of the file
@@ -27,7 +27,7 @@ module StackOne
       field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
 
 
-      sig { params(category: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory), category_id: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::Confidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
+      sig { params(category: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory), category_id: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
       def initialize(category: nil, category_id: nil, confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
         @category = category
         @category_id = category_id

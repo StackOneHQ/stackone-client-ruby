@@ -760,8 +760,6 @@ req = ::StackOne::Operations::LmsListCompletionsRequest.new(
   filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-  user_id: "746359",
   x_account_id: "<value>",
 )
     
@@ -1006,8 +1004,6 @@ req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-  user_id: "746359",
   x_account_id: "<value>",
 )
     

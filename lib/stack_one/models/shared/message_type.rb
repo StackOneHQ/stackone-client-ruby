@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-
+    # Stackone enum identifying the type of message associated with the content.
     class MessageType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The original value from the provider used to derive the unified message type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The unified message type.
-      field :value, T.nilable(::StackOne::Shared::EmailMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+      field :value, T.nilable(::StackOne::Shared::CreateMessageValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EmailMessagesValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateMessageValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

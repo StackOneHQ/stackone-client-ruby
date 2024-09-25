@@ -99,7 +99,7 @@ res = s.marketing.create_email_template(marketing_create_email_template_request_
   messages: [
     ::StackOne::Shared::EmailMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::MessageType.new(
+      message_type: ::StackOne::Shared::EmailMessagesMessageType.new(
         source_value: "Email",
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -207,12 +207,11 @@ s.config_security(
     
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::Message.new(
+    ::StackOne::Shared::CreateMessage.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::MessageMessageType.new(
+      message_type: ::StackOne::Shared::MessageType.new(
         source_value: "Email",
       ),
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
   ],
   passthrough: {
@@ -1079,7 +1078,7 @@ res = s.marketing.update_email_template(marketing_create_email_template_request_
   messages: [
     ::StackOne::Shared::EmailMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::MessageType.new(
+      message_type: ::StackOne::Shared::EmailMessagesMessageType.new(
         source_value: "Email",
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -1189,12 +1188,11 @@ s.config_security(
     
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::Message.new(
+    ::StackOne::Shared::CreateMessage.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::MessageMessageType.new(
+      message_type: ::StackOne::Shared::MessageType.new(
         source_value: "Email",
       ),
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
   ],
   passthrough: {

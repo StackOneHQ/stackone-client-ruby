@@ -1,11 +1,11 @@
 # Confidential
 
-The confidentiality level of the file to be uploaded
+Confidential status of the job
 
 
-## Fields
+## Values
 
-| Field                                                                                                                                        | Type                                                                                                                                         | Required                                                                                                                                     | Description                                                                                                                                  | Example                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `source_value`                                                                                                                               | *T.nilable(::Object)*                                                                                                                        | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          | public                                                                                                                                       |
-| `value`                                                                                                                                      | [T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue)](../../models/shared/hrisdocumentsuploadrequestdtoschemasvalue.md) | :heavy_minus_sign:                                                                                                                           | Whether the file is confidential or not                                                                                                      | true                                                                                                                                         |
+| Name    | Value   |
+| ------- | ------- |
+| `TRUE`  | true    |
+| `FALSE` | false   |

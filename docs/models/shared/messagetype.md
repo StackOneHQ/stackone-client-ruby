@@ -1,9 +1,11 @@
 # MessageType
 
+Stackone enum identifying the type of message associated with the content.
+
 
 ## Fields
 
 | Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `source_value`                                                                                 | *T.nilable(::Object)*                                                                          | :heavy_minus_sign:                                                                             | The original value from the provider used to derive the unified message type.                  | Email                                                                                          |
-| `value`                                                                                        | [T.nilable(::StackOne::Shared::EmailMessagesValue)](../../models/shared/emailmessagesvalue.md) | :heavy_minus_sign:                                                                             | The unified message type.                                                                      |                                                                                                |
+| `value`                                                                                        | [T.nilable(::StackOne::Shared::CreateMessageValue)](../../models/shared/createmessagevalue.md) | :heavy_minus_sign:                                                                             | The unified message type.                                                                      |                                                                                                |

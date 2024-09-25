@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-    # The employee employment type
+    # The type of employment (e.g., contractor, permanent)
     class EmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the employment.
-      field :value, T.nilable(::StackOne::Shared::EmployeeSchemasEmploymentTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EmployeeSchemasEmploymentTypeValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::CreateEmploymentApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateEmploymentApiModelSchemasValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EmployeeSchemasEmploymentTypeValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateEmploymentApiModelSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

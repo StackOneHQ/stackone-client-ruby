@@ -16,14 +16,14 @@ module StackOne
 
       field :message_content, T.nilable(::StackOne::Shared::MessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
 
-      field :message_type, T.nilable(::StackOne::Shared::MessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
+      field :message_type, T.nilable(::StackOne::Shared::EmailMessagesMessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), message_content: T.nilable(::StackOne::Shared::MessageContent), message_type: T.nilable(::StackOne::Shared::MessageType), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+      sig { params(id: T.nilable(::String), message_content: T.nilable(::StackOne::Shared::MessageContent), message_type: T.nilable(::StackOne::Shared::EmailMessagesMessageType), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
       def initialize(id: nil, message_content: nil, message_type: nil, name: nil, remote_id: nil)
         @id = id
         @message_content = message_content

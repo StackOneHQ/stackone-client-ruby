@@ -14,6 +14,11 @@ module StackOne
         EMAIL = new('email')
         PUSH = new('push')
         TOTP = new('totp')
+        PHONE_CALL = new('phone_call')
+        QUESTION = new('question')
+        SOFTWARE_TOKEN = new('software_token')
+        HARDWARE_TOKEN = new('hardware_token')
+        WEB = new('web')
         UNKNOWN = new('unknown')
         UNMAPPED_VALUE = new('unmapped_value')
       end

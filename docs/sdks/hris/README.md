@@ -70,7 +70,7 @@ res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_d
         value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoValue::ACADEMIC,
       ),
       category_id: "6530",
-      confidential: ::StackOne::Shared::Confidential.new(
+      confidential: ::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
         source_value: "public",
         value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
       ),
@@ -129,13 +129,12 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
   benefits: [
-    ::StackOne::Shared::HRISBenefit.new(
+    ::StackOne::Shared::CreateHRISBenefit.new(
       created_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
       description: "Health insurance for employees",
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Health Insurance",
       provider: "Aetna",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       updated_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
     ),
   ],
@@ -167,29 +166,27 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
   ),
   employments: [
-    ::StackOne::Shared::Employment.new(
+    ::StackOne::Shared::CreateEmploymentApiModel.new(
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       employee_id: "1687-3",
-      employment_contract_type: ::StackOne::Shared::EmploymentEmploymentContractType.new(),
-      employment_type: ::StackOne::Shared::EmploymentEmploymentType.new(
+      employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
+      employment_type: ::StackOne::Shared::EmploymentType.new(
         source_value: "Permanent",
-        value: ::StackOne::Shared::EmploymentSchemasValue::PERMANENT,
+        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasValue::PERMANENT,
       ),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       job_title: "Software Engineer",
       pay_currency: "USD",
       pay_frequency: ::StackOne::Shared::PayFrequency.new(
         source_value: "Hourly",
-        value: ::StackOne::Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
+        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayFrequencyValue::HOURLY,
       ),
       pay_period: ::StackOne::Shared::PayPeriod.new(
         source_value: "Hour",
-        value: ::StackOne::Shared::EmploymentSchemasPayPeriodValue::HOUR,
+        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue::HOUR,
       ),
       pay_rate: "40.00",
-      remote_employee_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
@@ -1851,13 +1848,12 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
   benefits: [
-    ::StackOne::Shared::HRISBenefit.new(
+    ::StackOne::Shared::CreateHRISBenefit.new(
       created_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
       description: "Health insurance for employees",
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Health Insurance",
       provider: "Aetna",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       updated_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
     ),
   ],
@@ -1889,29 +1885,27 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
   ),
   employments: [
-    ::StackOne::Shared::Employment.new(
+    ::StackOne::Shared::CreateEmploymentApiModel.new(
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       employee_id: "1687-3",
-      employment_contract_type: ::StackOne::Shared::EmploymentEmploymentContractType.new(),
-      employment_type: ::StackOne::Shared::EmploymentEmploymentType.new(
+      employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
+      employment_type: ::StackOne::Shared::EmploymentType.new(
         source_value: "Permanent",
-        value: ::StackOne::Shared::EmploymentSchemasValue::PERMANENT,
+        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasValue::PERMANENT,
       ),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       job_title: "Software Engineer",
       pay_currency: "USD",
       pay_frequency: ::StackOne::Shared::PayFrequency.new(
         source_value: "Hourly",
-        value: ::StackOne::Shared::EmploymentSchemasPayFrequencyValue::HOURLY,
+        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayFrequencyValue::HOURLY,
       ),
       pay_period: ::StackOne::Shared::PayPeriod.new(
         source_value: "Hour",
-        value: ::StackOne::Shared::EmploymentSchemasPayPeriodValue::HOUR,
+        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue::HOUR,
       ),
       pay_rate: "40.00",
-      remote_employee_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
@@ -2151,7 +2145,7 @@ res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackO
     value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoValue::UNMAPPED_VALUE,
   ),
   category_id: "6530",
-  confidential: ::StackOne::Shared::Confidential.new(
+  confidential: ::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
     source_value: "public",
     value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
   ),
