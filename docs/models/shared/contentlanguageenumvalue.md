@@ -7,6 +7,7 @@ The Locale Code of the language
 
 | Name     | Value    |
 | -------- | -------- |
+| `AR_AR`  | ar_AR    |
 | `AA_ER`  | aa_ER    |
 | `AF_NA`  | af_NA    |
 | `AF_ZA`  | af_ZA    |
@@ -176,6 +177,7 @@ The Locale Code of the language
 | `ES_GT`  | es_GT    |
 | `ES_HN`  | es_HN    |
 | `ES_IC`  | es_IC    |
+| `ES_LA`  | es_LA    |
 | `ES_MX`  | es_MX    |
 | `ES_NI`  | es_NI    |
 | `ES_PA`  | es_PA    |

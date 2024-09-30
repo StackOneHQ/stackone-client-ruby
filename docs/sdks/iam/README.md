@@ -36,7 +36,7 @@ req = ::StackOne::Operations::IamGetGroupRequest.new(
   expand: "roles",
   fields_: "id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.get_group(req)
@@ -83,7 +83,7 @@ req = ::StackOne::Operations::IamGetPolicyRequest.new(
   expand: "permissions",
   fields_: "id,remote_id,name,permissions,description,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.get_policy(req)
@@ -130,7 +130,7 @@ req = ::StackOne::Operations::IamGetRoleRequest.new(
   expand: "policies",
   fields_: "id,remote_id,name,type,policies,description,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.get_role(req)
@@ -177,7 +177,7 @@ req = ::StackOne::Operations::IamGetUserRequest.new(
   expand: "roles,groups",
   fields_: "id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.get_user(req)
@@ -226,7 +226,7 @@ req = ::StackOne::Operations::IamListGroupsRequest.new(
   filter: ::StackOne::Operations::IamListGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.list_groups(req)
@@ -275,7 +275,7 @@ req = ::StackOne::Operations::IamListPoliciesRequest.new(
   filter: ::StackOne::Operations::IamListPoliciesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.list_policies(req)
@@ -324,7 +324,7 @@ req = ::StackOne::Operations::IamListRolesRequest.new(
   filter: ::StackOne::Operations::IamListRolesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.list_roles(req)
@@ -373,7 +373,7 @@ req = ::StackOne::Operations::IamListUsersRequest.new(
   filter: ::StackOne::Operations::IamListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.iam.list_users(req)

@@ -81,7 +81,7 @@ req = ::StackOne::Shared::ConnectSessionCreate.new(
     ::StackOne::Shared::ConnectSessionCreateCategories::LMS,
     ::StackOne::Shared::ConnectSessionCreateCategories::ATS,
   ],
-  origin_owner_id: "<value>",
+  origin_owner_id: "<id>",
   origin_owner_name: "<value>",
 )
     

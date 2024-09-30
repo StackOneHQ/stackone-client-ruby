@@ -54,7 +54,7 @@ res = s.marketing.create_content_block(marketing_create_content_blocks_request_d
   passthrough: {
     "other_known_names": "John Doe",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -108,7 +108,7 @@ res = s.marketing.create_email_template(marketing_create_email_template_request_
   passthrough: {
     "other_known_names": "John Doe",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -162,7 +162,7 @@ res = s.marketing.create_in_app_template(marketing_create_in_app_template_reques
   passthrough: {
     "other_known_names": "John Doe",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -217,7 +217,7 @@ res = s.marketing.create_omni_channel_template(marketing_create_template_request
   passthrough: {
     "other_known_names": "John Doe",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -271,7 +271,7 @@ res = s.marketing.create_push_template(marketing_create_push_template_request_dt
   passthrough: {
     "other_known_names": "John Doe",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -325,7 +325,7 @@ res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=
   passthrough: {
     "other_known_names": "John Doe",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -369,7 +369,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetCampaignRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_campaign(req)
@@ -415,7 +415,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetContentBlockRequest.new(
   fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_content_block(req)
@@ -461,7 +461,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_email_template(req)
@@ -507,7 +507,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetInAppTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_in_app_template(req)
@@ -555,7 +555,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetOmniChannelTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_omni_channel_template(req)
@@ -601,7 +601,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetPushTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_push_template(req)
@@ -647,7 +647,7 @@ s.config_security(
 req = ::StackOne::Operations::MarketingGetSmsTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.get_sms_template(req)
@@ -695,7 +695,7 @@ req = ::StackOne::Operations::MarketingListCampaignsRequest.new(
   filter: ::StackOne::Operations::MarketingListCampaignsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_campaigns(req)
@@ -743,7 +743,7 @@ req = ::StackOne::Operations::MarketingListContentBlocksRequest.new(
   filter: ::StackOne::Operations::MarketingListContentBlocksQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_content_blocks(req)
@@ -791,7 +791,7 @@ req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
   filter: ::StackOne::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_email_templates(req)
@@ -839,7 +839,7 @@ req = ::StackOne::Operations::MarketingListInAppTemplatesRequest.new(
   filter: ::StackOne::Operations::MarketingListInAppTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_in_app_templates(req)
@@ -889,7 +889,7 @@ req = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(
   filter: ::StackOne::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_omni_channel_templates(req)
@@ -937,7 +937,7 @@ req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
   filter: ::StackOne::Operations::MarketingListPushTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_push_templates(req)
@@ -985,7 +985,7 @@ req = ::StackOne::Operations::MarketingListSmsTemplatesRequest.new(
   filter: ::StackOne::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.marketing.list_sms_templates(req)
@@ -1032,7 +1032,7 @@ res = s.marketing.update_content_block(marketing_create_content_blocks_request_d
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1087,7 +1087,7 @@ res = s.marketing.update_email_template(marketing_create_email_template_request_
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1142,7 +1142,7 @@ res = s.marketing.update_in_app_template(marketing_create_in_app_template_reques
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1198,7 +1198,7 @@ res = s.marketing.update_omni_channel_template(marketing_create_template_request
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1253,7 +1253,7 @@ res = s.marketing.update_push_template(marketing_create_push_template_request_dt
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -1308,7 +1308,7 @@ res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response

@@ -53,7 +53,7 @@ res = s.crm.create_contact(crm_create_contact_request_dto=::StackOne::Shared::Cr
   phone_numbers: [
     "123-456-7890",
   ],
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.contact_result.nil?
   # handle response
@@ -97,7 +97,7 @@ s.config_security(
 req = ::StackOne::Operations::CrmGetAccountRequest.new(
   fields_: "id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.crm.get_account(req)
@@ -144,7 +144,7 @@ req = ::StackOne::Operations::CrmGetContactRequest.new(
   fields_: "id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at",
   id: "<id>",
   include: "custom_fields",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.crm.get_contact(req)
@@ -190,7 +190,7 @@ s.config_security(
 req = ::StackOne::Operations::CrmGetListRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.crm.get_list(req)
@@ -238,7 +238,7 @@ req = ::StackOne::Operations::CrmListAccountsRequest.new(
   filter: ::StackOne::Operations::CrmListAccountsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.crm.list_accounts(req)
@@ -287,7 +287,7 @@ req = ::StackOne::Operations::CrmListContactsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "custom_fields",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.crm.list_contacts(req)
@@ -335,7 +335,7 @@ req = ::StackOne::Operations::CrmListListsRequest.new(
   filter: ::StackOne::Operations::CrmListListsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.crm.list_lists(req)
@@ -399,7 +399,7 @@ res = s.crm.update_contact(crm_create_contact_request_dto=::StackOne::Shared::Cr
   phone_numbers: [
     "123-456-7890",
   ],
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.contact_result.nil?
   # handle response

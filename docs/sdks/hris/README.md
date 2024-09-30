@@ -83,7 +83,7 @@ res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_d
       path: "/path/to/file",
     ),
   ],
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.batch_result_api_model.nil?
   # handle response
@@ -256,7 +256,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
     zip_code: "NG33 5NR",
   ),
   work_phone_number: "+1234567890",
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -307,7 +307,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
   },
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   start_half_day: true,
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -376,7 +376,7 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
   type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
   valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
   valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -428,7 +428,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
   },
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   start_half_day: true,
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -469,7 +469,7 @@ s.config_security(
 )
 
     
-res = s.hris.download_employee_document(id="<id>", sub_resource_id="<value>", x_account_id="<value>", format="base64")
+res = s.hris.download_employee_document(id="<id>", sub_resource_id="<id>", x_account_id="<id>", format="base64")
 
 if ! res.bytes.nil?
   # handle response
@@ -515,7 +515,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetBenefitRequest.new(
   fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_benefit(req)
@@ -561,7 +561,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetCompanyRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_company(req)
@@ -607,7 +607,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetDepartmentGroupRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_department_group(req)
@@ -655,7 +655,7 @@ req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employee(req)
@@ -701,8 +701,8 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
-  sub_resource_id: "<value>",
-  x_account_id: "<value>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employee_document(req)
@@ -748,7 +748,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
   fields_: "id,remote_id,name,active",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employee_document_category(req)
@@ -795,8 +795,8 @@ req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   id: "<id>",
-  sub_resource_id: "<value>",
-  x_account_id: "<value>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employee_employment(req)
@@ -842,8 +842,8 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   id: "<id>",
-  sub_resource_id: "<value>",
-  x_account_id: "<value>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employees_time_off_request(req)
@@ -889,8 +889,8 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
   fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   id: "<id>",
-  sub_resource_id: "<value>",
-  x_account_id: "<value>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employees_work_eligibility(req)
@@ -937,7 +937,7 @@ req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_employment(req)
@@ -983,7 +983,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetGroupRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_group(req)
@@ -1029,7 +1029,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetJobRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_job(req)
@@ -1075,7 +1075,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetLocationRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_location(req)
@@ -1121,7 +1121,7 @@ s.config_security(
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.get_time_off_request(req)
@@ -1169,7 +1169,7 @@ req = ::StackOne::Operations::HrisListBenefitsRequest.new(
   filter: ::StackOne::Operations::HrisListBenefitsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_benefits(req)
@@ -1217,7 +1217,7 @@ req = ::StackOne::Operations::HrisListCompaniesRequest.new(
   filter: ::StackOne::Operations::HrisListCompaniesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_companies(req)
@@ -1265,7 +1265,7 @@ req = ::StackOne::Operations::HrisListDepartmentGroupsRequest.new(
   filter: ::StackOne::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_department_groups(req)
@@ -1313,7 +1313,7 @@ req = ::StackOne::Operations::HrisListEmployeeCategoriesRequest.new(
   filter: ::StackOne::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employee_categories(req)
@@ -1362,7 +1362,7 @@ req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employee_documents(req)
@@ -1412,7 +1412,7 @@ req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employee_employments(req)
@@ -1461,7 +1461,7 @@ req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employee_time_off_requests(req)
@@ -1510,7 +1510,7 @@ req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employee_work_eligibility(req)
@@ -1560,7 +1560,7 @@ req = ::StackOne::Operations::HrisListEmployeesRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employees(req)
@@ -1609,7 +1609,7 @@ req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employments(req)
@@ -1657,7 +1657,7 @@ req = ::StackOne::Operations::HrisListGroupsRequest.new(
   filter: ::StackOne::Operations::HrisListGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_groups(req)
@@ -1705,7 +1705,7 @@ req = ::StackOne::Operations::HrisListJobsRequest.new(
   filter: ::StackOne::Operations::HrisListJobsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_jobs(req)
@@ -1753,7 +1753,7 @@ req = ::StackOne::Operations::HrisListLocationsRequest.new(
   filter: ::StackOne::Operations::HrisListLocationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_locations(req)
@@ -1801,7 +1801,7 @@ req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
   filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_time_off_requests(req)
@@ -1975,7 +1975,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     zip_code: "NG33 5NR",
   ),
   work_phone_number: "+1234567890",
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -2044,7 +2044,7 @@ res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibili
   type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
   valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
   valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
-), id="<id>", sub_resource_id="<value>", x_account_id="<value>")
+), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
 
 if res.status_code == 200
   # handle response
@@ -2097,7 +2097,7 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
   },
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   start_half_day: true,
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -2156,7 +2156,7 @@ res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackO
   ),
   name: "weather-forecast",
   path: "/path/to/file",
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.write_result_api_model.nil?
   # handle response

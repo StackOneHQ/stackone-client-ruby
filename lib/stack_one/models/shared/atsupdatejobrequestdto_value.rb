@@ -18,6 +18,7 @@ module StackOne
         CLOSED = new('closed')
         OPEN = new('open')
         DELETED = new('deleted')
+        ON_HOLD = new('on_hold')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

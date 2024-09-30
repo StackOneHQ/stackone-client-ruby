@@ -16,14 +16,14 @@ module StackOne
       # The ID associated with this skill
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The hierarchal level of the skill
-      field :level, T.nilable(::StackOne::Shared::Level), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
+      field :level, T.nilable(::StackOne::Shared::SkillsLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this skill
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), level: T.nilable(::StackOne::Shared::Level), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+      sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), level: T.nilable(::StackOne::Shared::SkillsLevel), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
       def initialize(active: nil, id: nil, level: nil, name: nil, remote_id: nil)
         @active = active
         @id = id

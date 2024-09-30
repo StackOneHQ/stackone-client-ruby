@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: ae31cb6f9a733e94b9c8bdd5fe3a6c29
+  docChecksum: a4b683935f7cfa2e1af3e5ee16e4fb7a
   docVersion: 1.0.0
-  speakeasyVersion: 1.402.14
-  generationVersion: 2.422.22
-  releaseVersion: 0.2.40
-  configChecksum: 39cf67ce2a6ab418106d1726835aef98
+  speakeasyVersion: 1.404.5
+  generationVersion: 2.426.2
+  releaseVersion: 0.2.41
+  configChecksum: e8c4ef81dafec70168021967cd2a81ab
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.2.24
+    core: 3.2.25
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -511,6 +511,7 @@ generatedFiles:
   - docs/models/shared/categoriespaginated.md
   - docs/models/shared/category.md
   - docs/models/shared/categoryresult.md
+  - docs/models/shared/categoryvalue.md
   - docs/models/shared/channelsenum.md
   - docs/models/shared/channelsenumvalue.md
   - docs/models/shared/companiespaginated.md
@@ -562,6 +563,8 @@ generatedFiles:
   - docs/models/shared/createanswertype.md
   - docs/models/shared/createanswervalue.md
   - docs/models/shared/createcategoriesapimodel.md
+  - docs/models/shared/createcategoriesapimodellevel.md
+  - docs/models/shared/createcategoriesapimodelvalue.md
   - docs/models/shared/createemploymentapimodel.md
   - docs/models/shared/createemploymentapimodelschemaspayfrequencyvalue.md
   - docs/models/shared/createemploymentapimodelschemaspayperiodvalue.md
@@ -898,6 +901,7 @@ generatedFiles:
   - docs/models/shared/setupinformation.md
   - docs/models/shared/skillresult.md
   - docs/models/shared/skills.md
+  - docs/models/shared/skillslevel.md
   - docs/models/shared/skillspaginated.md
   - docs/models/shared/skillsvalue.md
   - docs/models/shared/smsmessages.md
@@ -1447,6 +1451,7 @@ generatedFiles:
   - lib/stack_one/models/shared/categories.rb
   - lib/stack_one/models/shared/categoriespaginated.rb
   - lib/stack_one/models/shared/category.rb
+  - lib/stack_one/models/shared/category_value.rb
   - lib/stack_one/models/shared/categoryresult.rb
   - lib/stack_one/models/shared/channelsenum.rb
   - lib/stack_one/models/shared/channelsenum_value.rb
@@ -1499,6 +1504,8 @@ generatedFiles:
   - lib/stack_one/models/shared/createanswer_type.rb
   - lib/stack_one/models/shared/createanswer_value.rb
   - lib/stack_one/models/shared/createcategoriesapimodel.rb
+  - lib/stack_one/models/shared/createcategoriesapimodel_level.rb
+  - lib/stack_one/models/shared/createcategoriesapimodel_value.rb
   - lib/stack_one/models/shared/createemploymentapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel_schemas_pay_frequency_value.rb
   - lib/stack_one/models/shared/createemploymentapimodel_schemas_pay_period_value.rb
@@ -1835,6 +1842,7 @@ generatedFiles:
   - lib/stack_one/models/shared/setup_information.rb
   - lib/stack_one/models/shared/skillresult.rb
   - lib/stack_one/models/shared/skills.rb
+  - lib/stack_one/models/shared/skills_level.rb
   - lib/stack_one/models/shared/skills_value.rb
   - lib/stack_one/models/shared/skillspaginated.rb
   - lib/stack_one/models/shared/smsmessages.rb
@@ -3394,7 +3402,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,name,active"
+          fields: "id,remote_id,name,active,level"
         header:
           x-account-id: "<value>"
       responses:
@@ -3501,7 +3509,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,name,active"
+          fields: "id,remote_id,name,active,level"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:

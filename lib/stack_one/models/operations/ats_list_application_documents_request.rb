@@ -17,7 +17,7 @@ module StackOne
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-      # Filter parameters that allow greater customisation of the list response
+      # ATS Document Filter
       field :filter, T.nilable(::StackOne::Operations::AtsListApplicationDocumentsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
       # The unified cursor
       field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }

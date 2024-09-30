@@ -10,6 +10,7 @@ module StackOne
     # ContentLanguageEnumValue - The Locale Code of the language
     class ContentLanguageEnumValue < T::Enum
       enums do
+        AR_AR = new('ar_AR')
         AA_ER = new('aa_ER')
         AF_NA = new('af_NA')
         AF_ZA = new('af_ZA')
@@ -179,6 +180,7 @@ module StackOne
         ES_GT = new('es_GT')
         ES_HN = new('es_HN')
         ES_IC = new('es_IC')
+        ES_LA = new('es_LA')
         ES_MX = new('es_MX')
         ES_NI = new('es_NI')
         ES_PA = new('es_PA')

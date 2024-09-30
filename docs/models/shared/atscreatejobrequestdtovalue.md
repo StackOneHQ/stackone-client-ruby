@@ -15,4 +15,5 @@ The status of the job.
 | `CLOSED`         | closed           |
 | `OPEN`           | open             |
 | `DELETED`        | deleted          |
+| `ON_HOLD`        | on_hold          |
 | `UNMAPPED_VALUE` | unmapped_value   |

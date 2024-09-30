@@ -21,7 +21,7 @@ req = ::StackOne::Operations::HrisListEmployeesRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.hris.list_employees(req)

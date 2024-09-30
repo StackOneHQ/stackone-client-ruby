@@ -31,7 +31,7 @@ res = s.proxy.proxy_request(proxy_request_body=::StackOne::Shared::ProxyRequestB
   },
   path: "/employees/directory",
   url: "https://api.sample-integration.com/v1",
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if res.status_code == 200
   # handle response

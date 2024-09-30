@@ -82,7 +82,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       },
     ),
   ],
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.batch_result_api_model.nil?
   # handle response
@@ -154,7 +154,7 @@ res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::Lm
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -203,7 +203,7 @@ res = s.lms.create_user_completion(lms_create_completion_request_dto=::StackOne:
   passthrough: {
     "other_known_names": "John Doe",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response
@@ -247,7 +247,7 @@ s.config_security(
 
 req = ::StackOne::Operations::LmsGetAssignmentRequest.new(
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_assignment(req)
@@ -291,9 +291,9 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCategoryRequest.new(
-  fields_: "id,remote_id,name,active",
+  fields_: "id,remote_id,name,active,level",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_category(req)
@@ -338,7 +338,7 @@ s.config_security(
 
 req = ::StackOne::Operations::LmsGetCompletionRequest.new(
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_completion(req)
@@ -384,7 +384,7 @@ s.config_security(
 req = ::StackOne::Operations::LmsGetContentRequest.new(
   fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_content(req)
@@ -430,7 +430,7 @@ s.config_security(
 req = ::StackOne::Operations::LmsGetCourseRequest.new(
   fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_course(req)
@@ -476,7 +476,7 @@ s.config_security(
 req = ::StackOne::Operations::LmsGetSkillRequest.new(
   fields_: "id,remote_id,name,active,level",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_skill(req)
@@ -522,7 +522,7 @@ s.config_security(
 req = ::StackOne::Operations::LmsGetUserRequest.new(
   fields_: "id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name",
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_user(req)
@@ -567,8 +567,8 @@ s.config_security(
 
 req = ::StackOne::Operations::LmsGetUserAssignmentRequest.new(
   id: "<id>",
-  sub_resource_id: "<value>",
-  x_account_id: "<value>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_user_assignment(req)
@@ -613,8 +613,8 @@ s.config_security(
 
 req = ::StackOne::Operations::LmsGetUserCompletionRequest.new(
   id: "<id>",
-  sub_resource_id: "<value>",
-  x_account_id: "<value>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.get_user_completion(req)
@@ -664,7 +664,7 @@ req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
   ),
   remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
   user_id: "c28xyrc55866bvuv",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_assignments(req)
@@ -708,11 +708,11 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCategoriesRequest.new(
-  fields_: "id,remote_id,name,active",
+  fields_: "id,remote_id,name,active,level",
   filter: ::StackOne::Operations::LmsListCategoriesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_categories(req)
@@ -760,7 +760,7 @@ req = ::StackOne::Operations::LmsListCompletionsRequest.new(
   filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_completions(req)
@@ -808,7 +808,7 @@ req = ::StackOne::Operations::LmsListContentRequest.new(
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_content(req)
@@ -856,7 +856,7 @@ req = ::StackOne::Operations::LmsListCoursesRequest.new(
   filter: ::StackOne::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_courses(req)
@@ -904,7 +904,7 @@ req = ::StackOne::Operations::LmsListSkillsRequest.new(
   filter: ::StackOne::Operations::LmsListSkillsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_skills(req)
@@ -955,7 +955,7 @@ req = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(
   id: "<id>",
   remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
   user_id: "c28xyrc55866bvuv",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_user_assignments(req)
@@ -1004,7 +1004,7 @@ req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_user_completions(req)
@@ -1052,7 +1052,7 @@ req = ::StackOne::Operations::LmsListUsersRequest.new(
   filter: ::StackOne::Operations::LmsListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  x_account_id: "<value>",
+  x_account_id: "<id>",
 )
     
 res = s.lms.list_users(req)
@@ -1126,7 +1126,7 @@ res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::Lm
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
-), id="<id>", x_account_id="<value>")
+), id="<id>", x_account_id="<id>")
 
 if ! res.update_result.nil?
   # handle response
@@ -1199,7 +1199,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
-), x_account_id="<value>")
+), x_account_id="<id>")
 
 if ! res.create_result.nil?
   # handle response

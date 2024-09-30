@@ -13,15 +13,18 @@ module StackOne
 
       # Whether the category is active and therefore available for use
       field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+      # The hierarchal level of the category
+      field :level, T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this category
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Custom Unified Fields configured in your StackOne project
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(active: nil, name: nil, unified_custom_fields: nil)
+      sig { params(active: T.nilable(T::Boolean), level: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(active: nil, level: nil, name: nil, unified_custom_fields: nil)
         @active = active
+        @level = level
         @name = name
         @unified_custom_fields = unified_custom_fields
       end

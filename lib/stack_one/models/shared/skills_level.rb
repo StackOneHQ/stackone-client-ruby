@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-    # The hierarchal level of the category
-    class Level < ::StackOne::Utils::FieldAugmented
+    # The hierarchal level of the skill
+    class SkillsLevel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::CategoryValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CategoryValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::SkillsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::SkillsValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CategoryValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::SkillsValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
