@@ -50,4 +50,3 @@ end
 
 **[T.nilable(::StackOne::Operations::StackoneProxyRequestResponse)](../../models/operations/stackoneproxyrequestresponse.md)**
 
-

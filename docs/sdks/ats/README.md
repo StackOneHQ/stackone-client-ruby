@@ -167,7 +167,6 @@ end
 
 
 
-
 ## create_candidate
 
 Create Candidate
@@ -241,7 +240,6 @@ end
 
 
 
-
 ## create_candidate_note
 
 Create Candidate Note
@@ -294,7 +292,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateCandidateNoteResponse)](../../models/operations/atscreatecandidatenoteresponse.md)**
-
 
 
 
@@ -394,7 +391,6 @@ end
 
 
 
-
 ## create_offer
 
 Creates an offer
@@ -451,7 +447,6 @@ end
 
 
 
-
 ## download_application_document
 
 Download Application Document
@@ -486,12 +481,11 @@ end
 | `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
 | `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
 | `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
-| `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in | base64                             |
+| `format`                           | *T.nilable(::String)*              | :heavy_minus_sign:                 | The format to download the file in | base64                             |
 
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsDownloadApplicationDocumentResponse)](../../models/operations/atsdownloadapplicationdocumentresponse.md)**
-
 
 
 
@@ -539,7 +533,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationResponse)](../../models/operations/atsgetapplicationresponse.md)**
-
 
 
 
@@ -591,7 +584,6 @@ end
 
 
 
-
 ## get_application_document
 
 Get Application Document
@@ -635,7 +627,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationDocumentResponse)](../../models/operations/atsgetapplicationdocumentresponse.md)**
-
 
 
 
@@ -685,7 +676,6 @@ end
 
 
 
-
 ## get_application_scheduled_interview
 
 Get Applications scheduled interview
@@ -729,7 +719,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationScheduledInterviewResponse)](../../models/operations/atsgetapplicationscheduledinterviewresponse.md)**
-
 
 
 
@@ -779,7 +768,6 @@ end
 
 
 
-
 ## get_assessments_package
 
 Get Assessments Package
@@ -821,7 +809,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
-
 
 
 
@@ -870,7 +857,6 @@ end
 
 
 
-
 ## get_assessments_result
 
 Get Assessments Results
@@ -913,7 +899,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsResultResponse)](../../models/operations/atsgetassessmentsresultresponse.md)**
-
 
 
 
@@ -960,7 +945,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetCandidateResponse)](../../models/operations/atsgetcandidateresponse.md)**
-
 
 
 
@@ -1012,7 +996,6 @@ end
 
 
 
-
 ## get_candidate_note
 
 Get Candidate Note
@@ -1056,7 +1039,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetCandidateNoteResponse)](../../models/operations/atsgetcandidatenoteresponse.md)**
-
 
 
 
@@ -1105,7 +1087,6 @@ end
 
 
 
-
 ## get_interview
 
 Get Interview
@@ -1148,7 +1129,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetInterviewResponse)](../../models/operations/atsgetinterviewresponse.md)**
-
 
 
 
@@ -1197,7 +1177,6 @@ end
 
 
 
-
 ## get_job
 
 Get Job
@@ -1242,7 +1221,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetJobResponse)](../../models/operations/atsgetjobresponse.md)**
-
 
 
 
@@ -1294,7 +1272,6 @@ end
 
 
 
-
 ## get_job_posting
 
 Get Job Posting
@@ -1338,7 +1315,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetJobPostingResponse)](../../models/operations/atsgetjobpostingresponse.md)**
-
 
 
 
@@ -1387,7 +1363,6 @@ end
 
 
 
-
 ## get_location
 
 Get Location
@@ -1430,7 +1405,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetLocationResponse)](../../models/operations/atsgetlocationresponse.md)**
-
 
 
 
@@ -1479,7 +1453,6 @@ end
 
 
 
-
 ## get_rejected_reason
 
 Get Rejected Reason
@@ -1522,7 +1495,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetRejectedReasonResponse)](../../models/operations/atsgetrejectedreasonresponse.md)**
-
 
 
 
@@ -1571,7 +1543,6 @@ end
 
 
 
-
 ## list_application_custom_field_definitions
 
 List Application Custom Field Definitions
@@ -1616,7 +1587,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsResponse)](../../models/operations/atslistapplicationcustomfielddefinitionsresponse.md)**
-
 
 
 
@@ -1668,7 +1638,6 @@ end
 
 
 
-
 ## list_application_scorecards
 
 List Application Scorecards
@@ -1714,7 +1683,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationScorecardsResponse)](../../models/operations/atslistapplicationscorecardsresponse.md)**
-
 
 
 
@@ -1767,7 +1735,6 @@ end
 
 
 
-
 ## list_applications_offers
 
 List Application Offers
@@ -1813,7 +1780,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListApplicationsOffersResponse)](../../models/operations/atslistapplicationsoffersresponse.md)**
-
 
 
 
@@ -1865,7 +1831,6 @@ end
 
 
 
-
 ## list_assessments_packages
 
 List Assessments Packages
@@ -1909,7 +1874,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListAssessmentsPackagesResponse)](../../models/operations/atslistassessmentspackagesresponse.md)**
-
 
 
 
@@ -1957,7 +1921,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsResponse)](../../models/operations/atslistcandidatecustomfielddefinitionsresponse.md)**
-
 
 
 
@@ -2009,7 +1972,6 @@ end
 
 
 
-
 ## list_candidates
 
 List Candidates
@@ -2055,7 +2017,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListCandidatesResponse)](../../models/operations/atslistcandidatesresponse.md)**
-
 
 
 
@@ -2106,7 +2067,6 @@ end
 
 
 
-
 ## list_interview_stages
 
 List Interview Stages
@@ -2151,7 +2111,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListInterviewStagesResponse)](../../models/operations/atslistinterviewstagesresponse.md)**
-
 
 
 
@@ -2202,7 +2161,6 @@ end
 
 
 
-
 ## list_job_custom_field_definitions
 
 List Job Custom Field Definitions
@@ -2247,7 +2205,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListJobCustomFieldDefinitionsResponse)](../../models/operations/atslistjobcustomfielddefinitionsresponse.md)**
-
 
 
 
@@ -2296,7 +2253,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListJobPostingsResponse)](../../models/operations/atslistjobpostingsresponse.md)**
-
 
 
 
@@ -2349,7 +2305,6 @@ end
 
 
 
-
 ## list_lists
 
 Get all Lists
@@ -2394,7 +2349,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListListsResponse)](../../models/operations/atslistlistsresponse.md)**
-
 
 
 
@@ -2445,7 +2399,6 @@ end
 
 
 
-
 ## list_offers
 
 List Offers
@@ -2490,7 +2443,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListOffersResponse)](../../models/operations/atslistoffersresponse.md)**
-
 
 
 
@@ -2541,7 +2493,6 @@ end
 
 
 
-
 ## list_users
 
 List Users
@@ -2586,7 +2537,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsListUsersResponse)](../../models/operations/atslistusersresponse.md)**
-
 
 
 
@@ -2636,7 +2586,6 @@ end
 
 
 
-
 ## reject_application
 
 Reject Application
@@ -2680,7 +2629,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsRejectApplicationResponse)](../../models/operations/atsrejectapplicationresponse.md)**
-
 
 
 
@@ -2746,7 +2694,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateApplicationResponse)](../../models/operations/atsupdateapplicationresponse.md)**
-
 
 
 
@@ -2835,7 +2782,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateCandidateResponse)](../../models/operations/atsupdatecandidateresponse.md)**
-
 
 
 
@@ -2936,7 +2882,6 @@ end
 
 
 
-
 ## upload_application_document
 
 Upload Application Document
@@ -2992,5 +2937,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUploadApplicationDocumentResponse)](../../models/operations/atsuploadapplicationdocumentresponse.md)**
-
 

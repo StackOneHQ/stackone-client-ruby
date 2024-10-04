@@ -105,7 +105,6 @@ end
 
 
 
-
 ## create_employee
 
 Creates an employee
@@ -277,7 +276,6 @@ end
 
 
 
-
 ## create_employee_time_off_request
 
 Create Employee Time Off Request
@@ -326,7 +324,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse)](../../models/operations/hriscreateemployeetimeoffrequestresponse.md)**
-
 
 
 
@@ -398,7 +395,6 @@ end
 
 
 
-
 ## create_time_off_request
 
 Creates a time off request
@@ -449,7 +445,6 @@ end
 
 
 
-
 ## download_employee_document
 
 Download Employee Document
@@ -484,12 +479,11 @@ end
 | `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
 | `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
 | `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
-| `format`                           | *::String*                         | :heavy_minus_sign:                 | The format to download the file in | base64                             |
+| `format`                           | *T.nilable(::String)*              | :heavy_minus_sign:                 | The format to download the file in | base64                             |
 
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse)](../../models/operations/hrisdownloademployeedocumentresponse.md)**
-
 
 
 
@@ -538,7 +532,6 @@ end
 
 
 
-
 ## get_company
 
 Get Company
@@ -584,7 +577,6 @@ end
 
 
 
-
 ## get_department_group
 
 Get Department Group
@@ -627,7 +619,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetDepartmentGroupResponse)](../../models/operations/hrisgetdepartmentgroupresponse.md)**
-
 
 
 
@@ -678,7 +669,6 @@ end
 
 
 
-
 ## get_employee_document
 
 Get Employee Document
@@ -725,7 +715,6 @@ end
 
 
 
-
 ## get_employee_document_category
 
 Get Employee Document Category
@@ -768,7 +757,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse)](../../models/operations/hrisgetemployeedocumentcategoryresponse.md)**
-
 
 
 
@@ -819,7 +807,6 @@ end
 
 
 
-
 ## get_employees_time_off_request
 
 Get Employees Time Off Request
@@ -863,7 +850,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse)](../../models/operations/hrisgetemployeestimeoffrequestresponse.md)**
-
 
 
 
@@ -913,7 +899,6 @@ end
 
 
 
-
 ## get_employment
 
 Get Employment
@@ -957,7 +942,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetEmploymentResponse)](../../models/operations/hrisgetemploymentresponse.md)**
-
 
 
 
@@ -1006,7 +990,6 @@ end
 
 
 
-
 ## get_job
 
 Get Job
@@ -1049,7 +1032,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetJobResponse)](../../models/operations/hrisgetjobresponse.md)**
-
 
 
 
@@ -1098,7 +1080,6 @@ end
 
 
 
-
 ## get_time_off_request
 
 Get time off request
@@ -1141,7 +1122,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetTimeOffRequestResponse)](../../models/operations/hrisgettimeoffrequestresponse.md)**
-
 
 
 
@@ -1192,7 +1172,6 @@ end
 
 
 
-
 ## list_companies
 
 List Companies
@@ -1237,7 +1216,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
-
 
 
 
@@ -1288,7 +1266,6 @@ end
 
 
 
-
 ## list_employee_categories
 
 List Employee Document Categories
@@ -1333,7 +1310,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesResponse)](../../models/operations/hrislistemployeecategoriesresponse.md)**
-
 
 
 
@@ -1382,7 +1358,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
-
 
 
 
@@ -1435,7 +1410,6 @@ end
 
 
 
-
 ## list_employee_time_off_requests
 
 List Employee Time Off Requests
@@ -1484,7 +1458,6 @@ end
 
 
 
-
 ## list_employee_work_eligibility
 
 List Employee Work Eligibility
@@ -1530,7 +1503,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse)](../../models/operations/hrislistemployeeworkeligibilityresponse.md)**
-
 
 
 
@@ -1583,7 +1555,6 @@ end
 
 
 
-
 ## list_employments
 
 List Employments
@@ -1629,7 +1600,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmploymentsResponse)](../../models/operations/hrislistemploymentsresponse.md)**
-
 
 
 
@@ -1680,7 +1650,6 @@ end
 
 
 
-
 ## list_jobs
 
 List Jobs
@@ -1725,7 +1694,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListJobsResponse)](../../models/operations/hrislistjobsresponse.md)**
-
 
 
 
@@ -1776,7 +1744,6 @@ end
 
 
 
-
 ## list_time_off_requests
 
 List time off requests
@@ -1821,7 +1788,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListTimeOffRequestsResponse)](../../models/operations/hrislisttimeoffrequestsresponse.md)**
-
 
 
 
@@ -1997,7 +1963,6 @@ end
 
 
 
-
 ## update_employee_work_eligibility_request
 
 Update Employee Work Eligibility Request
@@ -2067,7 +2032,6 @@ end
 
 
 
-
 ## update_time_off_request
 
 Update time off request
@@ -2116,7 +2080,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateTimeOffRequestResponse)](../../models/operations/hrisupdatetimeoffrequestresponse.md)**
-
 
 
 
@@ -2175,5 +2138,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUploadEmployeeDocumentResponse)](../../models/operations/hrisuploademployeedocumentresponse.md)**
-
 

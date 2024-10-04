@@ -13,7 +13,7 @@ module StackOne
 
       # The date the content was completed
       field :completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at') } }
-      # The external ID associated with this content
+      # The external reference associated with this content
       field :content_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_external_reference') } }
       # The content ID associated with this completion
       field :content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }

@@ -74,7 +74,6 @@ end
 
 
 
-
 ## get_account
 
 Get Account
@@ -117,7 +116,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmGetAccountResponse)](../../models/operations/crmgetaccountresponse.md)**
-
 
 
 
@@ -167,7 +165,6 @@ end
 
 
 
-
 ## get_list
 
 Get List
@@ -210,7 +207,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmGetListResponse)](../../models/operations/crmgetlistresponse.md)**
-
 
 
 
@@ -258,7 +254,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmListAccountsResponse)](../../models/operations/crmlistaccountsresponse.md)**
-
 
 
 
@@ -310,7 +305,6 @@ end
 
 
 
-
 ## list_lists
 
 Get all Lists
@@ -355,7 +349,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmListListsResponse)](../../models/operations/crmlistlistsresponse.md)**
-
 
 
 
@@ -418,5 +411,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::CrmUpdateContactResponse)](../../models/operations/crmupdatecontactresponse.md)**
-
 

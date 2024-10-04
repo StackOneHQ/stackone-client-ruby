@@ -746,7 +746,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_completions
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListCompletionsRequest.new(\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference\",\n  filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListCompletionsRequest.new(\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference\",\n  filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/completions/{id}"]["get"]
     update:
       x-codeSamples:
@@ -842,7 +842,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_user_completions
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUserCompletionsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference\",\n  filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_user_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUserCompletionsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference\",\n  filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_user_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/completions"]["post"]
     update:
       x-codeSamples:

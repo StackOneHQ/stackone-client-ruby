@@ -59,7 +59,6 @@ end
 
 
 
-
 ## get_policy
 
 Get Policy
@@ -103,7 +102,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamGetPolicyResponse)](../../models/operations/iamgetpolicyresponse.md)**
-
 
 
 
@@ -153,7 +151,6 @@ end
 
 
 
-
 ## get_user
 
 Get User
@@ -197,7 +194,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamGetUserResponse)](../../models/operations/iamgetuserresponse.md)**
-
 
 
 
@@ -249,7 +245,6 @@ end
 
 
 
-
 ## list_policies
 
 List Policies
@@ -295,7 +290,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListPoliciesResponse)](../../models/operations/iamlistpoliciesresponse.md)**
-
 
 
 
@@ -347,7 +341,6 @@ end
 
 
 
-
 ## list_users
 
 List Users
@@ -393,5 +386,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListUsersResponse)](../../models/operations/iamlistusersresponse.md)**
-
 
