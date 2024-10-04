@@ -103,7 +103,6 @@ end
 
 
 
-
 ## create_content
 
 Create Content
@@ -175,7 +174,6 @@ end
 
 
 
-
 ## create_user_completion
 
 Create User Completion
@@ -225,7 +223,6 @@ end
 
 
 
-
 ## get_assignment
 
 Get Assignment
@@ -267,7 +264,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetAssignmentResponse)](../../models/operations/lmsgetassignmentresponse.md)**
-
 
 
 
@@ -316,7 +312,6 @@ end
 
 
 
-
 ## get_completion
 
 Get Completion
@@ -358,7 +353,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetCompletionResponse)](../../models/operations/lmsgetcompletionresponse.md)**
-
 
 
 
@@ -407,7 +401,6 @@ end
 
 
 
-
 ## get_course
 
 Get Course
@@ -450,7 +443,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetCourseResponse)](../../models/operations/lmsgetcourseresponse.md)**
-
 
 
 
@@ -499,7 +491,6 @@ end
 
 
 
-
 ## get_user
 
 Get User
@@ -542,7 +533,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetUserResponse)](../../models/operations/lmsgetuserresponse.md)**
-
 
 
 
@@ -591,7 +581,6 @@ end
 
 
 
-
 ## get_user_completion
 
 Get User Completion
@@ -634,7 +623,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsGetUserCompletionResponse)](../../models/operations/lmsgetusercompletionresponse.md)**
-
 
 
 
@@ -687,7 +675,6 @@ end
 
 
 
-
 ## list_categories
 
 List Categories
@@ -735,7 +722,6 @@ end
 
 
 
-
 ## list_completions
 
 List Completions
@@ -756,7 +742,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCompletionsRequest.new(
-  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference",
+  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference",
   filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -780,7 +766,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsListCompletionsResponse)](../../models/operations/lmslistcompletionsresponse.md)**
-
 
 
 
@@ -831,7 +816,6 @@ end
 
 
 
-
 ## list_courses
 
 List Courses
@@ -879,7 +863,6 @@ end
 
 
 
-
 ## list_skills
 
 List Skills
@@ -924,7 +907,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsListSkillsResponse)](../../models/operations/lmslistskillsresponse.md)**
-
 
 
 
@@ -978,7 +960,6 @@ end
 
 
 
-
 ## list_user_completions
 
 List User Completions
@@ -999,7 +980,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
-  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference",
+  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference",
   filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1024,7 +1005,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsListUserCompletionsResponse)](../../models/operations/lmslistusercompletionsresponse.md)**
-
 
 
 
@@ -1072,7 +1052,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsListUsersResponse)](../../models/operations/lmslistusersresponse.md)**
-
 
 
 
@@ -1148,7 +1127,6 @@ end
 
 
 
-
 ## upsert_content
 
 Upsert Content
@@ -1217,5 +1195,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsUpsertContentResponse)](../../models/operations/lmsupsertcontentresponse.md)**
-
 

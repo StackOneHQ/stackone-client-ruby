@@ -50,7 +50,6 @@ end
 
 
 
-
 ## create_connect_session
 
 Create Connect Session
@@ -102,5 +101,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneCreateConnectSessionResponse)](../../models/operations/stackonecreateconnectsessionresponse.md)**
-
 

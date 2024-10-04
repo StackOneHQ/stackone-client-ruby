@@ -49,7 +49,6 @@ end
 
 
 
-
 ## get_account
 
 Get Account
@@ -89,7 +88,6 @@ end
 
 
 
-
 ## get_account_meta_info
 
 Get meta information of the account
@@ -126,7 +124,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneGetAccountMetaInfoResponse)](../../models/operations/stackonegetaccountmetainforesponse.md)**
-
 
 
 
@@ -171,7 +168,6 @@ end
 
 
 
-
 ## update_account
 
 Update Account
@@ -209,5 +205,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::StackoneUpdateAccountResponse)](../../models/operations/stackoneupdateaccountresponse.md)**
-
 

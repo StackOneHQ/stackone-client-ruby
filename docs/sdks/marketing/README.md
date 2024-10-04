@@ -75,7 +75,6 @@ end
 
 
 
-
 ## create_email_template
 
 Create Email Templates
@@ -129,7 +128,6 @@ end
 
 
 
-
 ## create_in_app_template
 
 Create In-App Template
@@ -180,7 +178,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreateInAppTemplateResponse)](../../models/operations/marketingcreateinapptemplateresponse.md)**
-
 
 
 
@@ -238,7 +235,6 @@ end
 
 
 
-
 ## create_push_template
 
 Create Push Template
@@ -289,7 +285,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingCreatePushTemplateResponse)](../../models/operations/marketingcreatepushtemplateresponse.md)**
-
 
 
 
@@ -346,7 +341,6 @@ end
 
 
 
-
 ## get_campaign
 
 Get campaign
@@ -389,7 +383,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetCampaignResponse)](../../models/operations/marketinggetcampaignresponse.md)**
-
 
 
 
@@ -438,7 +431,6 @@ end
 
 
 
-
 ## get_email_template
 
 Get Email Templates
@@ -484,7 +476,6 @@ end
 
 
 
-
 ## get_in_app_template
 
 Get In-App Template
@@ -527,7 +518,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetInAppTemplateResponse)](../../models/operations/marketinggetinapptemplateresponse.md)**
-
 
 
 
@@ -578,7 +568,6 @@ end
 
 
 
-
 ## get_push_template
 
 Get Push Template
@@ -624,7 +613,6 @@ end
 
 
 
-
 ## get_sms_template
 
 Get SMS Template
@@ -667,7 +655,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingGetSmsTemplateResponse)](../../models/operations/marketinggetsmstemplateresponse.md)**
-
 
 
 
@@ -718,7 +705,6 @@ end
 
 
 
-
 ## list_content_blocks
 
 List Content Blocks
@@ -763,7 +749,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListContentBlocksResponse)](../../models/operations/marketinglistcontentblocksresponse.md)**
-
 
 
 
@@ -814,7 +799,6 @@ end
 
 
 
-
 ## list_in_app_templates
 
 List In-App Templates
@@ -859,7 +843,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListInAppTemplatesResponse)](../../models/operations/marketinglistinapptemplatesresponse.md)**
-
 
 
 
@@ -912,7 +895,6 @@ end
 
 
 
-
 ## list_push_templates
 
 List Push Templates
@@ -957,7 +939,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingListPushTemplatesResponse)](../../models/operations/marketinglistpushtemplatesresponse.md)**
-
 
 
 
@@ -1008,7 +989,6 @@ end
 
 
 
-
 ## update_content_block
 
 Update Content Block
@@ -1051,7 +1031,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateContentBlockResponse)](../../models/operations/marketingupdatecontentblockresponse.md)**
-
 
 
 
@@ -1109,7 +1088,6 @@ end
 
 
 
-
 ## update_in_app_template
 
 Update In-App Template
@@ -1161,7 +1139,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateInAppTemplateResponse)](../../models/operations/marketingupdateinapptemplateresponse.md)**
-
 
 
 
@@ -1220,7 +1197,6 @@ end
 
 
 
-
 ## update_push_template
 
 Update Push Template
@@ -1275,7 +1251,6 @@ end
 
 
 
-
 ## update_sms_template
 
 Update SMS Template
@@ -1327,5 +1302,4 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::MarketingUpdateSmsTemplateResponse)](../../models/operations/marketingupdatesmstemplateresponse.md)**
-
 
