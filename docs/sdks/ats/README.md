@@ -2670,7 +2670,6 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
   passthrough: {
     "other_known_names": "John Doe",
   },
-  rejected_reason_id: "f223d7f6-908b-48f0-9237-b201c307f609",
   source: ::StackOne::Shared::AtsUpdateApplicationRequestDtoSource.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "LinkedIn",

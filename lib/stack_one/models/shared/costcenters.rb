@@ -13,14 +13,20 @@ module StackOne
 
 
       field :distribution_percentage, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
+      # Unique identifier
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+      # Provider's unique identifier
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(distribution_percentage: T.nilable(::Float), name: T.nilable(::String)).void }
-      def initialize(distribution_percentage: nil, name: nil)
+      sig { params(distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+      def initialize(distribution_percentage: nil, id: nil, name: nil, remote_id: nil)
         @distribution_percentage = distribution_percentage
+        @id = id
         @name = name
+        @remote_id = remote_id
       end
     end
   end
