@@ -11,14 +11,17 @@ module StackOne
     class HrisCreateEmployeeRequestDtoNationalIdentityNumber < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # The country code
+      field :country, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
 
       field :type, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
       field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(type: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoType), value: T.nilable(::String)).void }
-      def initialize(type: nil, value: nil)
+      sig { params(country: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), type: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoType), value: T.nilable(::String)).void }
+      def initialize(country: nil, type: nil, value: nil)
+        @country = country
         @type = type
         @value = value
       end

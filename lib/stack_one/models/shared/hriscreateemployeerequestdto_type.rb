@@ -14,10 +14,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The type of the national identity number
-      field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

@@ -14,7 +14,7 @@ module StackOne
       # The city where the location is situated
       field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+      field :country, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The name of the location
@@ -33,7 +33,7 @@ module StackOne
       field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), id: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), state: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoState), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
+      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry), id: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), state: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoState), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
       def initialize(city: nil, country: nil, id: nil, name: nil, passthrough: nil, phone_number: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
         @city = city
         @country = country

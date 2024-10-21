@@ -14,7 +14,7 @@ module StackOne
       # The city where the location is situated
       field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
       # The country code
-      field :country, T.nilable(::StackOne::Shared::EmployeeSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+      field :country, T.nilable(::StackOne::Shared::EmployeeSchemasWorkLocationCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The created_at date
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee ID
@@ -45,7 +45,7 @@ module StackOne
       field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
 
-      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::EmployeeSchemasCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::EmployeeSchemasLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
+      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::EmployeeSchemasWorkLocationCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(::StackOne::Shared::EmployeeSchemasLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
       def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, remote_employee_id: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, unified_custom_fields: nil, updated_at: nil, zip_code: nil)
         @city = city
         @country = country

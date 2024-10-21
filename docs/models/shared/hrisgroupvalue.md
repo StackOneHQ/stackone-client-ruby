@@ -11,3 +11,4 @@
 | `GROUP`          | group            |
 | `ORGANIZATION`   | organization     |
 | `UNMAPPED_VALUE` | unmapped_value   |
+| `COST_CENTER`    | cost_center      |

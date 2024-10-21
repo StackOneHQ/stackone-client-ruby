@@ -26,7 +26,7 @@ s.config_security(
 )
 
     
-res = s.connectors.get_connector_meta(provider="<value>", include="field_path,unmapped_fields,resources,inactive,webhooks")
+res = s.connectors.get_connector_meta(provider="<value>", include="field_path,unmapped_fields,resources,inactive,webhooks,static_fields")
 
 if ! res.connectors_meta.nil?
   # handle response
@@ -39,7 +39,7 @@ end
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `provider`                                                             | *::String*                                                             | :heavy_check_mark:                                                     | N/A                                                                    |                                                                        |
-| `include`                                                              | *T.nilable(::String)*                                                  | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive,webhooks                 |
+| `include`                                                              | *T.nilable(::String)*                                                  | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive,webhooks,static_fields   |
 
 ### Response
 
@@ -66,7 +66,7 @@ s.config_security(
 )
 
     
-res = s.connectors.list_connectors_meta(include="field_path,unmapped_fields,resources,inactive,webhooks")
+res = s.connectors.list_connectors_meta(include="field_path,unmapped_fields,resources,inactive,webhooks,static_fields")
 
 if ! res.connectors_metas.nil?
   # handle response
@@ -78,7 +78,7 @@ end
 
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `include`                                                              | *T.nilable(::String)*                                                  | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive,webhooks                 |
+| `include`                                                              | *T.nilable(::String)*                                                  | :heavy_minus_sign:                                                     | The comma separated list of data that will be included in the response | field_path,unmapped_fields,resources,inactive,webhooks,static_fields   |
 
 ### Response
 

@@ -17,3 +17,8 @@
 | `LEAVE_OF_ABSENCE`      | leave_of_absence        |
 | `BREAK`                 | break                   |
 | `CHILD_CARE_LEAVE`      | child_care_leave        |
+| `MATERNITY_LEAVE`       | maternity_leave         |
+| `JURY_DUTY`             | jury_duty               |
+| `BEREAVEMENT_LEAVE`     | bereavement_leave       |
+| `SABBATICAL`            | sabbatical              |
+| `ACCIDENT`              | accident                |

@@ -117,6 +117,58 @@ module StackOne
     end
 
 
+    sig { params(hris_create_employment_request_dto: ::StackOne::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeEmploymentResponse) }
+    def create_employee_employment(hris_create_employment_request_dto, id, x_account_id)
+      # create_employee_employment - Create Employee Employment
+      request = ::StackOne::Operations::HrisCreateEmployeeEmploymentRequest.new(
+        
+        hris_create_employment_request_dto: hris_create_employment_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisCreateEmployeeEmploymentRequest,
+        base_url,
+        '/unified/hris/employees/{id}/employments',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_employment_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisCreateEmployeeEmploymentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          res.employment_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
     def create_employee_time_off_request(hris_create_time_off_request_dto, id, x_account_id)
       # create_employee_time_off_request - Create Employee Time Off Request
@@ -379,6 +431,44 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompanyResult)
           res.company_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCostCenterGroupRequest)).returns(::StackOne::Operations::HrisGetCostCenterGroupResponse) }
+    def get_cost_center_group(request)
+      # get_cost_center_group - Get Cost Center Group
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetCostCenterGroupRequest,
+        base_url,
+        '/unified/hris/groups/cost_centers/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetCostCenterGroupRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetCostCenterGroupResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISCostCenterResult)
+          res.hris_cost_center_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -908,6 +998,39 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListCostCenterGroupsRequest)).returns(::StackOne::Operations::HrisListCostCenterGroupsResponse) }
+    def list_cost_center_groups(request)
+      # list_cost_center_groups - List Cost Center Groups
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/groups/cost_centers"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListCostCenterGroupsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListCostCenterGroupsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISCostCenterPaginated)
+          res.hris_cost_center_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisListDepartmentGroupsRequest)).returns(::StackOne::Operations::HrisListDepartmentGroupsResponse) }
     def list_department_groups(request)
       # list_department_groups - List Department Groups
@@ -1369,6 +1492,59 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(hris_create_employment_request_dto: ::StackOne::Shared::HrisCreateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeEmploymentResponse) }
+    def update_employee_employment(hris_create_employment_request_dto, id, sub_resource_id, x_account_id)
+      # update_employee_employment - Update Employee Employment
+      request = ::StackOne::Operations::HrisUpdateEmployeeEmploymentRequest.new(
+        
+        hris_create_employment_request_dto: hris_create_employment_request_dto,
+        id: id,
+        sub_resource_id: sub_resource_id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisUpdateEmployeeEmploymentRequest,
+        base_url,
+        '/unified/hris/employees/{id}/employments/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_employment_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.patch(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisUpdateEmployeeEmploymentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          res.employment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

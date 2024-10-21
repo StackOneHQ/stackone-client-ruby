@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: fd87ee2f666440f0d1521a4f0b0ea26f
+  docChecksum: ce058b663fd2f85c2b33367c49266ad8
   docVersion: 1.0.0
-  speakeasyVersion: 1.418.2
-  generationVersion: 2.438.3
-  releaseVersion: 0.2.43
-  configChecksum: e8cb4a49ce56dd93e51e21b842d3119e
+  speakeasyVersion: 1.419.2
+  generationVersion: 2.438.15
+  releaseVersion: 0.2.44
+  configChecksum: 53b9547940d58764e5366c98cd1e089d
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -163,6 +163,8 @@ generatedFiles:
   - docs/models/operations/atsupdatejobresponse.md
   - docs/models/operations/atsuploadapplicationdocumentrequest.md
   - docs/models/operations/atsuploadapplicationdocumentresponse.md
+  - docs/models/operations/createrequest.md
+  - docs/models/operations/createresponse.md
   - docs/models/operations/crmcreatecontactrequest.md
   - docs/models/operations/crmcreatecontactresponse.md
   - docs/models/operations/crmgetaccountrequest.md
@@ -185,6 +187,8 @@ generatedFiles:
   - docs/models/operations/filter.md
   - docs/models/operations/hrisbatchuploademployeedocumentrequest.md
   - docs/models/operations/hrisbatchuploademployeedocumentresponse.md
+  - docs/models/operations/hriscreateemployeeemploymentrequest.md
+  - docs/models/operations/hriscreateemployeeemploymentresponse.md
   - docs/models/operations/hriscreateemployeerequest.md
   - docs/models/operations/hriscreateemployeeresponse.md
   - docs/models/operations/hriscreateemployeetimeoffrequestrequest.md
@@ -199,6 +203,8 @@ generatedFiles:
   - docs/models/operations/hrisgetbenefitresponse.md
   - docs/models/operations/hrisgetcompanyrequest.md
   - docs/models/operations/hrisgetcompanyresponse.md
+  - docs/models/operations/hrisgetcostcentergrouprequest.md
+  - docs/models/operations/hrisgetcostcentergroupresponse.md
   - docs/models/operations/hrisgetdepartmentgrouprequest.md
   - docs/models/operations/hrisgetdepartmentgroupresponse.md
   - docs/models/operations/hrisgetemployeedocumentcategoryrequest.md
@@ -229,6 +235,9 @@ generatedFiles:
   - docs/models/operations/hrislistcompaniesqueryparamfilter.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
+  - docs/models/operations/hrislistcostcentergroupsqueryparamfilter.md
+  - docs/models/operations/hrislistcostcentergroupsrequest.md
+  - docs/models/operations/hrislistcostcentergroupsresponse.md
   - docs/models/operations/hrislistdepartmentgroupsqueryparamfilter.md
   - docs/models/operations/hrislistdepartmentgroupsrequest.md
   - docs/models/operations/hrislistdepartmentgroupsresponse.md
@@ -265,6 +274,8 @@ generatedFiles:
   - docs/models/operations/hrislisttimeoffrequestsqueryparamfilter.md
   - docs/models/operations/hrislisttimeoffrequestsrequest.md
   - docs/models/operations/hrislisttimeoffrequestsresponse.md
+  - docs/models/operations/hrisupdateemployeeemploymentrequest.md
+  - docs/models/operations/hrisupdateemployeeemploymentresponse.md
   - docs/models/operations/hrisupdateemployeerequest.md
   - docs/models/operations/hrisupdateemployeeresponse.md
   - docs/models/operations/hrisupdateemployeeworkeligibilityrequestrequest.md
@@ -570,6 +581,8 @@ generatedFiles:
   - docs/models/shared/createemploymentapimodelschemaspayperiodvalue.md
   - docs/models/shared/createemploymentapimodelschemasvalue.md
   - docs/models/shared/createemploymentapimodelvalue.md
+  - docs/models/shared/createevent.md
+  - docs/models/shared/createeventresponse.md
   - docs/models/shared/createhrisbenefit.md
   - docs/models/shared/createhrisbenefitvalue.md
   - docs/models/shared/createmessage.md
@@ -607,9 +620,11 @@ generatedFiles:
   - docs/models/shared/employeeschemashomelocationvalue.md
   - docs/models/shared/employeeschemaslocationtype.md
   - docs/models/shared/employeeschemasmaritalstatusvalue.md
+  - docs/models/shared/employeeschemasnationalidentitynumbertypevalue.md
   - docs/models/shared/employeeschemasnationalidentitynumbervalue.md
   - docs/models/shared/employeeschemaspreferredlanguagevalue.md
   - docs/models/shared/employeeschemasvalue.md
+  - docs/models/shared/employeeschemasworklocationcountry.md
   - docs/models/shared/employeeschemasworklocationlocationtypevalue.md
   - docs/models/shared/employeeschemasworklocationvalue.md
   - docs/models/shared/employeespaginated.md
@@ -642,6 +657,11 @@ generatedFiles:
   - docs/models/shared/hrisbenefitresult.md
   - docs/models/shared/hrisbenefitspaginated.md
   - docs/models/shared/hrisbenefitvalue.md
+  - docs/models/shared/hriscostcenter.md
+  - docs/models/shared/hriscostcenterpaginated.md
+  - docs/models/shared/hriscostcenterresult.md
+  - docs/models/shared/hriscostcentertype.md
+  - docs/models/shared/hriscostcentervalue.md
   - docs/models/shared/hriscreateemployeerequestdto.md
   - docs/models/shared/hriscreateemployeerequestdtoavatar.md
   - docs/models/shared/hriscreateemployeerequestdtocountry.md
@@ -661,15 +681,26 @@ generatedFiles:
   - docs/models/shared/hriscreateemployeerequestdtoschemashomelocationstatevalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemashomelocationvalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasmaritalstatusvalue.md
+  - docs/models/shared/hriscreateemployeerequestdtoschemasnationalidentitynumbertypevalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasnationalidentitynumbervalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemaspreferredlanguagevalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasvalue.md
+  - docs/models/shared/hriscreateemployeerequestdtoschemasworklocationcountry.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasworklocationstatevalue.md
   - docs/models/shared/hriscreateemployeerequestdtoschemasworklocationvalue.md
   - docs/models/shared/hriscreateemployeerequestdtostate.md
   - docs/models/shared/hriscreateemployeerequestdtotype.md
   - docs/models/shared/hriscreateemployeerequestdtovalue.md
   - docs/models/shared/hriscreateemployeerequestdtoworklocation.md
+  - docs/models/shared/hriscreateemploymentrequestdto.md
+  - docs/models/shared/hriscreateemploymentrequestdtoemploymentcontracttype.md
+  - docs/models/shared/hriscreateemploymentrequestdtoemploymenttype.md
+  - docs/models/shared/hriscreateemploymentrequestdtopayfrequency.md
+  - docs/models/shared/hriscreateemploymentrequestdtopayperiod.md
+  - docs/models/shared/hriscreateemploymentrequestdtoschemaspayfrequencyvalue.md
+  - docs/models/shared/hriscreateemploymentrequestdtoschemaspayperiodvalue.md
+  - docs/models/shared/hriscreateemploymentrequestdtoschemasvalue.md
+  - docs/models/shared/hriscreateemploymentrequestdtovalue.md
   - docs/models/shared/hriscreatetimeoffrequestdto.md
   - docs/models/shared/hriscreatetimeoffrequestdtoschemasvalue.md
   - docs/models/shared/hriscreatetimeoffrequestdtostatus.md
@@ -959,6 +990,7 @@ generatedFiles:
   - docs/sdks/marketing/README.md
   - docs/sdks/proxy/README.md
   - docs/sdks/stackone/README.md
+  - docs/sdks/webhooks/README.md
   - lib/stack_one/accounts.rb
   - lib/stack_one/ats.rb
   - lib/stack_one/connect_sessions.rb
@@ -1103,6 +1135,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_update_job_response.rb
   - lib/stack_one/models/operations/ats_upload_application_document_request.rb
   - lib/stack_one/models/operations/ats_upload_application_document_response.rb
+  - lib/stack_one/models/operations/create_request.rb
+  - lib/stack_one/models/operations/create_response.rb
   - lib/stack_one/models/operations/crm_create_contact_request.rb
   - lib/stack_one/models/operations/crm_create_contact_response.rb
   - lib/stack_one/models/operations/crm_get_account_request.rb
@@ -1125,6 +1159,8 @@ generatedFiles:
   - lib/stack_one/models/operations/filter.rb
   - lib/stack_one/models/operations/hris_batch_upload_employee_document_request.rb
   - lib/stack_one/models/operations/hris_batch_upload_employee_document_response.rb
+  - lib/stack_one/models/operations/hris_create_employee_employment_request.rb
+  - lib/stack_one/models/operations/hris_create_employee_employment_response.rb
   - lib/stack_one/models/operations/hris_create_employee_request.rb
   - lib/stack_one/models/operations/hris_create_employee_response.rb
   - lib/stack_one/models/operations/hris_create_employee_time_off_request_request.rb
@@ -1139,6 +1175,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_benefit_response.rb
   - lib/stack_one/models/operations/hris_get_company_request.rb
   - lib/stack_one/models/operations/hris_get_company_response.rb
+  - lib/stack_one/models/operations/hris_get_cost_center_group_request.rb
+  - lib/stack_one/models/operations/hris_get_cost_center_group_response.rb
   - lib/stack_one/models/operations/hris_get_department_group_request.rb
   - lib/stack_one/models/operations/hris_get_department_group_response.rb
   - lib/stack_one/models/operations/hris_get_employee_document_category_request.rb
@@ -1169,6 +1207,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_companies_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_companies_request.rb
   - lib/stack_one/models/operations/hris_list_companies_response.rb
+  - lib/stack_one/models/operations/hris_list_cost_center_groups_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_cost_center_groups_request.rb
+  - lib/stack_one/models/operations/hris_list_cost_center_groups_response.rb
   - lib/stack_one/models/operations/hris_list_department_groups_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_department_groups_request.rb
   - lib/stack_one/models/operations/hris_list_department_groups_response.rb
@@ -1205,6 +1246,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_time_off_requests_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_time_off_requests_request.rb
   - lib/stack_one/models/operations/hris_list_time_off_requests_response.rb
+  - lib/stack_one/models/operations/hris_update_employee_employment_request.rb
+  - lib/stack_one/models/operations/hris_update_employee_employment_response.rb
   - lib/stack_one/models/operations/hris_update_employee_request.rb
   - lib/stack_one/models/operations/hris_update_employee_response.rb
   - lib/stack_one/models/operations/hris_update_employee_work_eligibility_request_request.rb
@@ -1511,6 +1554,8 @@ generatedFiles:
   - lib/stack_one/models/shared/createemploymentapimodel_schemas_pay_period_value.rb
   - lib/stack_one/models/shared/createemploymentapimodel_schemas_value.rb
   - lib/stack_one/models/shared/createemploymentapimodel_value.rb
+  - lib/stack_one/models/shared/createevent.rb
+  - lib/stack_one/models/shared/createeventresponse.rb
   - lib/stack_one/models/shared/createhrisbenefit.rb
   - lib/stack_one/models/shared/createhrisbenefit_value.rb
   - lib/stack_one/models/shared/createmessage.rb
@@ -1546,9 +1591,11 @@ generatedFiles:
   - lib/stack_one/models/shared/employee_schemas_home_location_value.rb
   - lib/stack_one/models/shared/employee_schemas_location_type.rb
   - lib/stack_one/models/shared/employee_schemas_marital_status_value.rb
+  - lib/stack_one/models/shared/employee_schemas_national_identity_number_type_value.rb
   - lib/stack_one/models/shared/employee_schemas_national_identity_number_value.rb
   - lib/stack_one/models/shared/employee_schemas_preferred_language_value.rb
   - lib/stack_one/models/shared/employee_schemas_value.rb
+  - lib/stack_one/models/shared/employee_schemas_work_location_country.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_location_type_value.rb
   - lib/stack_one/models/shared/employee_schemas_work_location_value.rb
   - lib/stack_one/models/shared/employee_type.rb
@@ -1583,6 +1630,11 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisbenefit_value.rb
   - lib/stack_one/models/shared/hrisbenefitresult.rb
   - lib/stack_one/models/shared/hrisbenefitspaginated.rb
+  - lib/stack_one/models/shared/hriscostcenter.rb
+  - lib/stack_one/models/shared/hriscostcenter_type.rb
+  - lib/stack_one/models/shared/hriscostcenter_value.rb
+  - lib/stack_one/models/shared/hriscostcenterpaginated.rb
+  - lib/stack_one/models/shared/hriscostcenterresult.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_avatar.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_country.rb
@@ -1602,15 +1654,26 @@ generatedFiles:
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_home_location_state_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_home_location_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_marital_status_value.rb
+  - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_national_identity_number_type_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_national_identity_number_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_preferred_language_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_work_location_country.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_work_location_state_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_schemas_work_location_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_state.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_type.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_value.rb
   - lib/stack_one/models/shared/hriscreateemployeerequestdto_work_location.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_employment_contract_type.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_employment_type.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_pay_frequency.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_pay_period.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_schemas_pay_frequency_value.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_schemas_pay_period_value.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/hriscreateemploymentrequestdto_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/hriscreatetimeoffrequestdto_status.rb
@@ -1895,6 +1958,7 @@ generatedFiles:
   - lib/stack_one/utils/metadata_fields.rb
   - lib/stack_one/utils/t.rb
   - lib/stack_one/utils/utils.rb
+  - lib/stack_one/webhooks.rb
   - lib/stackone_client.rb
   - sorbet/config
   - sorbet/rbi/annotations/.gitattributes
@@ -1995,7 +2059,7 @@ examples:
         path:
           provider: "<value>"
         query:
-          include: "field_path,unmapped_fields,resources,inactive,webhooks"
+          include: "field_path,unmapped_fields,resources,inactive,webhooks,static_fields"
       responses:
         "200":
           application/json: {"active": true, "category": "hris", "models": {"employees": {"create": {"apiPath": "/unified/hris/employees/:id", "input": {"defaultFields": [{"name": "first_name", "type": "string"}]}, "output": {"defaultFields": [{"name": "id", "type": "string"}]}}}, "time_off": {"get": {"apiPath": "/unified/hris/employees/:id/time_off/:id", "output": {"defaultFields": [{"name": "id", "type": "string"}]}}}}, "provider": "hibob", "provider_name": "Hibob", "resources": {"images": {"logo_url": "https://app.stackone.com/assets/logos/hibob.png", "original_logo_horizontal_url": "https://app.stackone.com/assets/logos/original/hibob_horizontal.png"}}}
@@ -2003,7 +2067,7 @@ examples:
     "":
       parameters:
         query:
-          include: "field_path,unmapped_fields,resources,inactive,webhooks"
+          include: "field_path,unmapped_fields,resources,inactive,webhooks,static_fields"
       responses:
         "200":
           application/json: []
@@ -2796,7 +2860,7 @@ examples:
         header:
           x-account-id: "<value>"
       requestBody:
-        application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
+        application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"country": {"value": "US"}, "type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
       responses:
         "201":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -2882,7 +2946,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "department"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "department"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
   hris_get_employee:
     "":
       parameters:
@@ -2896,7 +2960,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company": {"created_at": "2023-02-23T00:00:00.000Z", "display_name": "StackOne", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "StackOne Technologies PLC", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2024-02-23T00:00:00.000Z"}, "company_name": "Example Corp", "cost_centers": [], "created_at": "2021-01-01T01:01:01.000Z", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employee_number": "125", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "groups": [], "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "created_at": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_type": {"source_value": "Home", "value": "home"}, "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "state": "Lincolnshire", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z", "zip_code": "NG33 5NR"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_description": {"text": "Testing the laws of motion"}, "job_id": "5290", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"type": {"value": "ssn"}, "value": "123456789"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_manager_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "created_at": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_type": {"source_value": "Home", "value": "home"}, "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "state": "Lincolnshire", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}}
+          application/json: {"data": {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company": {"created_at": "2023-02-23T00:00:00.000Z", "display_name": "StackOne", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "StackOne Technologies PLC", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2024-02-23T00:00:00.000Z"}, "company_name": "Example Corp", "cost_centers": [], "created_at": "2021-01-01T01:01:01.000Z", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employee_number": "125", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "groups": [], "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "created_at": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_type": {"source_value": "Home", "value": "home"}, "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "state": "Lincolnshire", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z", "zip_code": "NG33 5NR"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_description": {"text": "Testing the laws of motion"}, "job_id": "5290", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"country": {"value": "US"}, "type": {"value": "ssn"}, "value": "123456789"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_manager_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "created_at": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_type": {"source_value": "Home", "value": "home"}, "name": "Woolsthorpe Manor", "phone_number": "+44 1476 860 364", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "state": "Lincolnshire", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}}
   hris_get_employee_document:
     "":
       parameters:
@@ -2986,7 +3050,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "team"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "team"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
   hris_get_job:
     "":
       parameters:
@@ -3211,7 +3275,7 @@ examples:
         header:
           x-account-id: "<value>"
       requestBody:
-        application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
+        application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"country": {"value": "US"}, "type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
       responses:
         "200":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -3962,3 +4026,64 @@ examples:
       responses:
         "200":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+  hris_create_employee_employment:
+    speakeasy-default-hris-create-employee-employment:
+      parameters:
+        path:
+          id: "<id>"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+      responses:
+        "201":
+          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+  hris_get_cost_center_group:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "team"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
+  hris_list_cost_center_groups:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "team"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "team"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}]}
+  hris_update_employee_employment:
+    speakeasy-default-hris-update-employee-employment:
+      parameters:
+        path:
+          id: "<id>"
+          subResourceId: "<id>"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+      responses:
+        "200":
+          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+  create:
+    speakeasy-default-create:
+      parameters:
+        path:
+          id: "6384.24"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: [{"event": "hris_employees.created", "record_id": "<id>"}]
+      responses:
+        "207":
+          application/json: [{"event": "hris_employees.created", "message": "The event was created", "record_id": "<id>", "status": 200}]
