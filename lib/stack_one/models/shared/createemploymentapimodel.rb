@@ -11,8 +11,6 @@ module StackOne
     class CreateEmploymentApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The created_at date
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The effective date of the employment contract
       field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee ID associated with this employment
@@ -35,13 +33,10 @@ module StackOne
       field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
       # Custom Unified Fields configured in your StackOne project
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # The updated_at date
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, unified_custom_fields: nil, updated_at: nil)
-        @created_at = created_at
+      sig { params(effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, unified_custom_fields: nil)
         @effective_date = effective_date
         @employee_id = employee_id
         @employment_contract_type = employment_contract_type
@@ -53,7 +48,6 @@ module StackOne
         @pay_period = pay_period
         @pay_rate = pay_rate
         @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
       end
     end
   end

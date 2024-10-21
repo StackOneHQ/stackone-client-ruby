@@ -167,12 +167,14 @@ end
 
 * [batch_upload_employee_document](docs/sdks/hris/README.md#batch_upload_employee_document) - Batch Upload Employee Document
 * [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
+* [create_employee_employment](docs/sdks/hris/README.md#create_employee_employment) - Create Employee Employment
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](docs/sdks/hris/README.md#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
 * [download_employee_document](docs/sdks/hris/README.md#download_employee_document) - Download Employee Document
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
+* [get_cost_center_group](docs/sdks/hris/README.md#get_cost_center_group) - Get Cost Center Group
 * [get_department_group](docs/sdks/hris/README.md#get_department_group) - Get Department Group
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
@@ -187,6 +189,7 @@ end
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
+* [list_cost_center_groups](docs/sdks/hris/README.md#list_cost_center_groups) - List Cost Center Groups
 * [list_department_groups](docs/sdks/hris/README.md#list_department_groups) - List Department Groups
 * [list_employee_categories](docs/sdks/hris/README.md#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
@@ -200,6 +203,7 @@ end
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List locations
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
+* [update_employee_employment](docs/sdks/hris/README.md#update_employee_employment) - Update Employee Employment
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
@@ -274,6 +278,10 @@ end
 
 * [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
 
+
+### [Webhooks](docs/sdks/webhooks/README.md)
+
+* [create](docs/sdks/webhooks/README.md#create)
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

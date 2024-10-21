@@ -6,12 +6,14 @@
 
 * [batch_upload_employee_document](#batch_upload_employee_document) - Batch Upload Employee Document
 * [create_employee](#create_employee) - Creates an employee
+* [create_employee_employment](#create_employee_employment) - Create Employee Employment
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
 * [download_employee_document](#download_employee_document) - Download Employee Document
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
+* [get_cost_center_group](#get_cost_center_group) - Get Cost Center Group
 * [get_department_group](#get_department_group) - Get Department Group
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_document](#get_employee_document) - Get Employee Document
@@ -26,6 +28,7 @@
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
+* [list_cost_center_groups](#list_cost_center_groups) - List Cost Center Groups
 * [list_department_groups](#list_department_groups) - List Department Groups
 * [list_employee_categories](#list_employee_categories) - List Employee Document Categories
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
@@ -39,6 +42,7 @@
 * [list_locations](#list_locations) - List locations
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [update_employee](#update_employee) - Updates an employee
+* [update_employee_employment](#update_employee_employment) - Update Employee Employment
 * [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [update_time_off_request](#update_time_off_request) - Update time off request
 * [upload_employee_document](#upload_employee_document) - Upload Employee Document
@@ -166,7 +170,6 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   ),
   employments: [
     ::StackOne::Shared::CreateEmploymentApiModel.new(
-      created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       employee_id: "1687-3",
       employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
@@ -190,7 +193,6 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
       },
-      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     ),
   ],
   ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
@@ -220,8 +222,11 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
   name: "Issac Newton",
   national_identity_number: ::StackOne::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber.new(
+    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue::US,
+    ),
     type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoType.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue::SSN,
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN,
     ),
     value: "123456789",
   ),
@@ -240,7 +245,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   work_email: "newton@example.com",
   work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
+    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry.new(
       value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -273,6 +278,74 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeResponse)](../../models/operations/hriscreateemployeeresponse.md)**
+
+
+
+## create_employee_employment
+
+Create Employee Employment
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.hris.create_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
+  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  employee_id: "1687-3",
+  employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
+  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(
+    source_value: "Permanent",
+    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasValue::PERMANENT,
+  ),
+  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  job_title: "Software Engineer",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  pay_currency: "USD",
+  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(
+    source_value: "Hourly",
+    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
+  ),
+  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(
+    source_value: "Hour",
+    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
+  ),
+  pay_rate: "40.00",
+  unified_custom_fields: {
+    "my_project_custom_field_1": "REF-1236",
+    "my_project_custom_field_2": "some other value",
+  },
+), id="<id>", x_account_id="<id>")
+
+if ! res.employment_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `hris_create_employment_request_dto`                                                                        | [::StackOne::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisCreateEmployeeEmploymentResponse)](../../models/operations/hriscreateemployeeemploymentresponse.md)**
 
 
 
@@ -574,6 +647,51 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetCompanyResponse)](../../models/operations/hrisgetcompanyresponse.md)**
+
+
+
+## get_cost_center_group
+
+Get Cost Center Group
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetCostCenterGroupRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.get_cost_center_group(req)
+
+if ! res.hris_cost_center_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [::StackOne::Operations::HrisGetCostCenterGroupRequest](../../models/operations/hrisgetcostcentergrouprequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetCostCenterGroupResponse)](../../models/operations/hrisgetcostcentergroupresponse.md)**
 
 
 
@@ -1219,6 +1337,53 @@ end
 
 
 
+## list_cost_center_groups
+
+List Cost Center Groups
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListCostCenterGroupsRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  filter: ::StackOne::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.hris.list_cost_center_groups(req)
+
+if ! res.hris_cost_center_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [::StackOne::Operations::HrisListCostCenterGroupsRequest](../../models/operations/hrislistcostcentergroupsrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListCostCenterGroupsResponse)](../../models/operations/hrislistcostcentergroupsresponse.md)**
+
+
+
 ## list_department_groups
 
 List Department Groups
@@ -1852,7 +2017,6 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   ),
   employments: [
     ::StackOne::Shared::CreateEmploymentApiModel.new(
-      created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       employee_id: "1687-3",
       employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
@@ -1876,7 +2040,6 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
       },
-      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     ),
   ],
   ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
@@ -1906,8 +2069,11 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
   name: "Issac Newton",
   national_identity_number: ::StackOne::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber.new(
+    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue::US,
+    ),
     type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoType.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue::SSN,
+      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN,
     ),
     value: "123456789",
   ),
@@ -1926,7 +2092,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   work_email: "newton@example.com",
   work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
+    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry.new(
       value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -1960,6 +2126,75 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisUpdateEmployeeResponse)](../../models/operations/hrisupdateemployeeresponse.md)**
+
+
+
+## update_employee_employment
+
+Update Employee Employment
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.hris.update_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
+  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  employee_id: "1687-3",
+  employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
+  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(
+    source_value: "Permanent",
+    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasValue::PERMANENT,
+  ),
+  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  job_title: "Software Engineer",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  pay_currency: "USD",
+  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(
+    source_value: "Hourly",
+    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
+  ),
+  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(
+    source_value: "Hour",
+    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
+  ),
+  pay_rate: "40.00",
+  unified_custom_fields: {
+    "my_project_custom_field_1": "REF-1236",
+    "my_project_custom_field_2": "some other value",
+  },
+), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
+
+if ! res.employment_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `hris_create_employment_request_dto`                                                                        | [::StackOne::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `sub_resource_id`                                                                                           | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeEmploymentResponse)](../../models/operations/hrisupdateemployeeemploymentresponse.md)**
 
 
 

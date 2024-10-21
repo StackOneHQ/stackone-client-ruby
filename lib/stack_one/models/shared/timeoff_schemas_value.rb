@@ -22,6 +22,11 @@ module StackOne
         LEAVE_OF_ABSENCE = new('leave_of_absence')
         BREAK = new('break')
         CHILD_CARE_LEAVE = new('child_care_leave')
+        MATERNITY_LEAVE = new('maternity_leave')
+        JURY_DUTY = new('jury_duty')
+        BEREAVEMENT_LEAVE = new('bereavement_leave')
+        SABBATICAL = new('sabbatical')
+        ACCIDENT = new('accident')
       end
     end
   end
