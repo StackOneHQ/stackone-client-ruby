@@ -31,12 +31,14 @@ module StackOne
       field :pay_period, T.nilable(::StackOne::Shared::PayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
       # The pay rate for the employee
       field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
+      # The time worked for the employee in ISO 8601 duration format
+      field :time_worked, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_worked') } }
       # Custom Unified Fields configured in your StackOne project
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, unified_custom_fields: nil)
+      sig { params(effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), time_worked: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, time_worked: nil, unified_custom_fields: nil)
         @effective_date = effective_date
         @employee_id = employee_id
         @employment_contract_type = employment_contract_type
@@ -47,6 +49,7 @@ module StackOne
         @pay_frequency = pay_frequency
         @pay_period = pay_period
         @pay_rate = pay_rate
+        @time_worked = time_worked
         @unified_custom_fields = unified_custom_fields
       end
     end

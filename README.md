@@ -157,8 +157,10 @@ end
 * [create_contact](docs/sdks/crm/README.md#create_contact) - Creates a new Contact
 * [get_account](docs/sdks/crm/README.md#get_account) - Get Account
 * [get_contact](docs/sdks/crm/README.md#get_contact) - Get Contact
+* [get_contact_custom_field_definition](docs/sdks/crm/README.md#get_contact_custom_field_definition) - Get Contact Custom Field Definition
 * [get_list](docs/sdks/crm/README.md#get_list) - Get List
 * [list_accounts](docs/sdks/crm/README.md#list_accounts) - List Accounts
+* [list_contact_custom_field_definitions](docs/sdks/crm/README.md#list_contact_custom_field_definitions) - List Contact Custom Field Definitions
 * [list_contacts](docs/sdks/crm/README.md#list_contacts) - List Contacts
 * [list_lists](docs/sdks/crm/README.md#list_lists) - Get all Lists
 * [update_contact](docs/sdks/crm/README.md#update_contact) - Update Contact (early access)
@@ -224,6 +226,7 @@ end
 * [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert Content
 * [create_content](docs/sdks/lms/README.md#create_content) - Create Content
 * [create_user_completion](docs/sdks/lms/README.md#create_user_completion) - Create User Completion
+* [delete_content](docs/sdks/lms/README.md#delete_content) - Delete Content
 * [get_assignment](docs/sdks/lms/README.md#get_assignment) - Get Assignment
 * [get_category](docs/sdks/lms/README.md#get_category) - Get Category
 * [get_completion](docs/sdks/lms/README.md#get_completion) - Get Completion

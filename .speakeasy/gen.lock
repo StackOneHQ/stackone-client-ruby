@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: ce058b663fd2f85c2b33367c49266ad8
+  docChecksum: 8548d1ecccd0263fb680cb6bb3ec1ecc
   docVersion: 1.0.0
-  speakeasyVersion: 1.419.2
+  speakeasyVersion: 1.422.1
   generationVersion: 2.438.15
-  releaseVersion: 0.2.44
-  configChecksum: 53b9547940d58764e5366c98cd1e089d
+  releaseVersion: 0.2.45
+  configChecksum: 895910b470a7f7f4381f2d6e99fa996d
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -169,6 +169,9 @@ generatedFiles:
   - docs/models/operations/crmcreatecontactresponse.md
   - docs/models/operations/crmgetaccountrequest.md
   - docs/models/operations/crmgetaccountresponse.md
+  - docs/models/operations/crmgetcontactcustomfielddefinitionqueryparamfilter.md
+  - docs/models/operations/crmgetcontactcustomfielddefinitionrequest.md
+  - docs/models/operations/crmgetcontactcustomfielddefinitionresponse.md
   - docs/models/operations/crmgetcontactrequest.md
   - docs/models/operations/crmgetcontactresponse.md
   - docs/models/operations/crmgetlistrequest.md
@@ -176,6 +179,9 @@ generatedFiles:
   - docs/models/operations/crmlistaccountsqueryparamfilter.md
   - docs/models/operations/crmlistaccountsrequest.md
   - docs/models/operations/crmlistaccountsresponse.md
+  - docs/models/operations/crmlistcontactcustomfielddefinitionsqueryparamfilter.md
+  - docs/models/operations/crmlistcontactcustomfielddefinitionsrequest.md
+  - docs/models/operations/crmlistcontactcustomfielddefinitionsresponse.md
   - docs/models/operations/crmlistcontactsqueryparamfilter.md
   - docs/models/operations/crmlistcontactsrequest.md
   - docs/models/operations/crmlistcontactsresponse.md
@@ -310,6 +316,8 @@ generatedFiles:
   - docs/models/operations/lmscreatecontentresponse.md
   - docs/models/operations/lmscreateusercompletionrequest.md
   - docs/models/operations/lmscreateusercompletionresponse.md
+  - docs/models/operations/lmsdeletecontentrequest.md
+  - docs/models/operations/lmsdeletecontentresponse.md
   - docs/models/operations/lmsgetassignmentrequest.md
   - docs/models/operations/lmsgetassignmentresponse.md
   - docs/models/operations/lmsgetcategoryrequest.md
@@ -556,6 +564,7 @@ generatedFiles:
   - docs/models/shared/contentfileformat.md
   - docs/models/shared/contentlanguageenum.md
   - docs/models/shared/contentlanguageenumvalue.md
+  - docs/models/shared/contentlaunchmethod.md
   - docs/models/shared/contentpaginated.md
   - docs/models/shared/contentresult.md
   - docs/models/shared/contenttype.md
@@ -597,6 +606,7 @@ generatedFiles:
   - docs/models/shared/customfielddefinitionspaginated.md
   - docs/models/shared/customfielddefinitiontype.md
   - docs/models/shared/customfielddefinitionvalue.md
+  - docs/models/shared/deleteresult.md
   - docs/models/shared/department.md
   - docs/models/shared/departmentresult.md
   - docs/models/shared/departmentspaginated.md
@@ -829,6 +839,8 @@ generatedFiles:
   - docs/models/shared/jobstatus.md
   - docs/models/shared/jobvalue.md
   - docs/models/shared/label.md
+  - docs/models/shared/learningobjecttypeenum.md
+  - docs/models/shared/learningobjecttypeenumvalue.md
   - docs/models/shared/level.md
   - docs/models/shared/linkedaccount.md
   - docs/models/shared/linkedaccountmeta.md
@@ -846,9 +858,12 @@ generatedFiles:
   - docs/models/shared/lmscreatecompletionrequestdtovalue.md
   - docs/models/shared/lmscreatecontentrequestdto.md
   - docs/models/shared/lmscreatecontentrequestdtocontenttype.md
+  - docs/models/shared/lmscreatecontentrequestdtoschemasvalue.md
   - docs/models/shared/lmscreatecontentrequestdtovalue.md
   - docs/models/shared/lmsupsertcontentrequestdto.md
+  - docs/models/shared/lmsupsertcontentrequestdtocontentlaunchmethod.md
   - docs/models/shared/lmsupsertcontentrequestdtocontenttype.md
+  - docs/models/shared/lmsupsertcontentrequestdtoschemasvalue.md
   - docs/models/shared/lmsupsertcontentrequestdtovalue.md
   - docs/models/shared/lmsuser.md
   - docs/models/shared/locationtype.md
@@ -1141,6 +1156,9 @@ generatedFiles:
   - lib/stack_one/models/operations/crm_create_contact_response.rb
   - lib/stack_one/models/operations/crm_get_account_request.rb
   - lib/stack_one/models/operations/crm_get_account_response.rb
+  - lib/stack_one/models/operations/crm_get_contact_custom_field_definition_queryparam_filter.rb
+  - lib/stack_one/models/operations/crm_get_contact_custom_field_definition_request.rb
+  - lib/stack_one/models/operations/crm_get_contact_custom_field_definition_response.rb
   - lib/stack_one/models/operations/crm_get_contact_request.rb
   - lib/stack_one/models/operations/crm_get_contact_response.rb
   - lib/stack_one/models/operations/crm_get_list_request.rb
@@ -1148,6 +1166,9 @@ generatedFiles:
   - lib/stack_one/models/operations/crm_list_accounts_queryparam_filter.rb
   - lib/stack_one/models/operations/crm_list_accounts_request.rb
   - lib/stack_one/models/operations/crm_list_accounts_response.rb
+  - lib/stack_one/models/operations/crm_list_contact_custom_field_definitions_queryparam_filter.rb
+  - lib/stack_one/models/operations/crm_list_contact_custom_field_definitions_request.rb
+  - lib/stack_one/models/operations/crm_list_contact_custom_field_definitions_response.rb
   - lib/stack_one/models/operations/crm_list_contacts_queryparam_filter.rb
   - lib/stack_one/models/operations/crm_list_contacts_request.rb
   - lib/stack_one/models/operations/crm_list_contacts_response.rb
@@ -1282,6 +1303,8 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_create_content_response.rb
   - lib/stack_one/models/operations/lms_create_user_completion_request.rb
   - lib/stack_one/models/operations/lms_create_user_completion_response.rb
+  - lib/stack_one/models/operations/lms_delete_content_request.rb
+  - lib/stack_one/models/operations/lms_delete_content_response.rb
   - lib/stack_one/models/operations/lms_get_assignment_request.rb
   - lib/stack_one/models/operations/lms_get_assignment_response.rb
   - lib/stack_one/models/operations/lms_get_category_request.rb
@@ -1521,6 +1544,7 @@ generatedFiles:
   - lib/stack_one/models/shared/contactspaginated.rb
   - lib/stack_one/models/shared/content.rb
   - lib/stack_one/models/shared/content_file_format.rb
+  - lib/stack_one/models/shared/content_launch_method.rb
   - lib/stack_one/models/shared/content_type.rb
   - lib/stack_one/models/shared/content_value.rb
   - lib/stack_one/models/shared/contentblock.rb
@@ -1570,6 +1594,7 @@ generatedFiles:
   - lib/stack_one/models/shared/customfielddefinition_value.rb
   - lib/stack_one/models/shared/customfielddefinitionresultapimodel.rb
   - lib/stack_one/models/shared/customfielddefinitionspaginated.rb
+  - lib/stack_one/models/shared/deleteresult.rb
   - lib/stack_one/models/shared/department.rb
   - lib/stack_one/models/shared/departmentresult.rb
   - lib/stack_one/models/shared/departmentspaginated.rb
@@ -1802,6 +1827,8 @@ generatedFiles:
   - lib/stack_one/models/shared/jobresult.rb
   - lib/stack_one/models/shared/jobspaginated.rb
   - lib/stack_one/models/shared/label.rb
+  - lib/stack_one/models/shared/learningobjecttypeenum.rb
+  - lib/stack_one/models/shared/learningobjecttypeenum_value.rb
   - lib/stack_one/models/shared/level.rb
   - lib/stack_one/models/shared/linkedaccount.rb
   - lib/stack_one/models/shared/linkedaccount_status.rb
@@ -1819,9 +1846,12 @@ generatedFiles:
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_content_type.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_launch_method.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_type.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsuser.rb
   - lib/stack_one/models/shared/location_type.rb
@@ -2752,7 +2782,7 @@ examples:
         header:
           x-account-id: "<value>"
       requestBody:
-        application/json: {"account_ids": ["account-123", "account-456"], "company_name": "Apple Inc.", "deal_ids": ["deal-001", "deal-002"], "emails": ["steve@apple.com"], "first_name": "Steve", "last_name": "Wozniak", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": ["123-456-7890"]}
+        application/json: {"account_ids": ["account-123", "account-456"], "company_name": "Apple Inc.", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "deal_ids": ["deal-001", "deal-002"], "emails": ["steve@apple.com"], "first_name": "Steve", "last_name": "Wozniak", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": ["123-456-7890"]}
       responses:
         "200":
           application/json: {"data": {"account_ids": ["account-123", "account-456"], "company_name": "Apple Inc.", "created_at": "2021-01-01T01:01:01.000Z", "custom_fields": [], "deal_ids": ["deal-001", "deal-002"], "emails": ["steve@apple.com"], "first_name": "Steve", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Wozniak", "phone_numbers": ["123-456-7890"], "remote_account_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_deal_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
@@ -2838,7 +2868,7 @@ examples:
         header:
           x-account-id: "<value>"
       requestBody:
-        application/json: {"account_ids": ["account-123", "account-456"], "company_name": "Apple Inc.", "deal_ids": ["deal-001", "deal-002"], "emails": ["steve@apple.com"], "first_name": "Steve", "last_name": "Wozniak", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": ["123-456-7890"]}
+        application/json: {"account_ids": ["account-123", "account-456"], "company_name": "Apple Inc.", "custom_fields": [], "deal_ids": ["deal-001", "deal-002"], "emails": ["steve@apple.com"], "first_name": "Steve", "last_name": "Wozniak", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": ["123-456-7890"]}
       responses:
         "200":
           application/json: {"data": {"account_ids": ["account-123", "account-456"], "company_name": "Apple Inc.", "created_at": "2021-01-01T01:01:01.000Z", "custom_fields": [], "deal_ids": ["deal-001", "deal-002"], "emails": ["steve@apple.com"], "first_name": "Steve", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Wozniak", "phone_numbers": ["123-456-7890"], "remote_account_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_deal_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
@@ -2993,13 +3023,13 @@ examples:
           id: "<id>"
           subResourceId: "<value>"
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at"
+          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at"
           expand: "groups"
         header:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "time_worked": "P0Y0M0DT8H0M0S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
   hris_get_employees_time_off_request:
     "":
       parameters:
@@ -3032,13 +3062,13 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at"
+          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at"
           expand: "groups"
         header:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "time_worked": "P0Y0M0DT8H0M0S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
   hris_get_group:
     "":
       parameters:
@@ -3155,7 +3185,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at"
+          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           expand: "groups"
@@ -3210,7 +3240,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at"
+          fields: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           expand: "groups"
@@ -3459,7 +3489,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}}
+          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "learning_object_id": "e3gd34-23tr21-er234-345er56", "progress": "40", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
   lms_get_category:
     "":
       parameters:
@@ -3489,7 +3519,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order,content_launch_method"
         header:
           x-account-id: "<value>"
       responses:
@@ -3542,7 +3572,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}}
+          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "learning_object_id": "e3gd34-23tr21-er234-345er56", "progress": "40", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
   lms_get_user_completion:
     speakeasy-default-lms-get-user-completion:
       parameters:
@@ -3559,7 +3589,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status"
+          fields: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           user_id: "c28xyrc55866bvuv"
@@ -3599,7 +3629,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order,content_launch_method"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -3637,7 +3667,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status"
+          fields: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           user_id: "c28xyrc55866bvuv"
@@ -4034,10 +4064,10 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+        application/json: {"effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "time_worked": "P0Y0M0DT8H0M0S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "201":
-          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "time_worked": "P0Y0M0DT8H0M0S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
   hris_get_cost_center_group:
     "":
       parameters:
@@ -4071,10 +4101,10 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+        application/json: {"effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "passthrough": {"other_known_names": "John Doe"}, "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "time_worked": "P0Y0M0DT8H0M0S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"created_at": "2021-01-01T01:01:01.000Z", "effective_date": "2021-01-01T01:01:01.000Z", "employee_id": "1687-3", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_title": "Software Engineer", "pay_currency": "USD", "pay_frequency": {"source_value": "Hourly", "value": "hourly"}, "pay_period": {"source_value": "Hour", "value": "hour"}, "pay_rate": "40.00", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "time_worked": "P0Y0M0DT8H0M0S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
   create:
     speakeasy-default-create:
       parameters:
@@ -4087,3 +4117,39 @@ examples:
       responses:
         "207":
           application/json: [{"event": "hris_employees.created", "message": "The event was created", "record_id": "<id>", "status": 200}]
+  crm_get_contact_custom_field_definition:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,description,type,options"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
+  crm_list_contact_custom_field_definitions:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,name,description,type,options"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": []}
+  lms_delete_content:
+    speakeasy-default-lms-delete-content:
+      parameters:
+        path:
+          id: "<id>"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"message": "Record deleted successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}

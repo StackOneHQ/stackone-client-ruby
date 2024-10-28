@@ -19,29 +19,50 @@ module StackOne
       field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
       # The ID associated with this assignment
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # The learning_object_external_reference associated with this assignment
+      field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
+      # The learning_object_id associated with this assignment
+      field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
+      # The learning object type of the assignment
+      field :learning_object_type, T.nilable(T::Array[::StackOne::Shared::LearningObjectTypeEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }
+      # The progress associated with this assigment
+      field :progress, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
       # Provider's unique identifier of the course related to the assignment
       field :remote_course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_course_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Provider's unique identifier of the learning object related to the assignment
+      field :remote_learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_learning_object_id') } }
+      # Provider's unique identifier of the user related to the assignment
+      field :remote_user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
       # The status of the assignment
       field :status, T.nilable(T::Array[::StackOne::Shared::AssignmentStatusEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
       # Custom Unified Fields configured in your StackOne project
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
       # The date the assignment was last updated
       field :updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at') } }
+      # The user ID associated with this assignment
+      field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-      sig { params(course_id: T.nilable(::String), created_at: T.nilable(::String), due_date: T.nilable(::String), id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(T::Array[::StackOne::Shared::AssignmentStatusEnum]), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String)).void }
-      def initialize(course_id: nil, created_at: nil, due_date: nil, id: nil, remote_course_id: nil, remote_id: nil, status: nil, unified_custom_fields: nil, updated_at: nil)
+      sig { params(course_id: T.nilable(::String), created_at: T.nilable(::String), due_date: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(T::Array[::StackOne::Shared::LearningObjectTypeEnum]), progress: T.nilable(::Float), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), status: T.nilable(T::Array[::StackOne::Shared::AssignmentStatusEnum]), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(course_id: nil, created_at: nil, due_date: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, progress: nil, remote_course_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, status: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
         @course_id = course_id
         @created_at = created_at
         @due_date = due_date
         @id = id
+        @learning_object_external_reference = learning_object_external_reference
+        @learning_object_id = learning_object_id
+        @learning_object_type = learning_object_type
+        @progress = progress
         @remote_course_id = remote_course_id
         @remote_id = remote_id
+        @remote_learning_object_id = remote_learning_object_id
+        @remote_user_id = remote_user_id
         @status = status
         @unified_custom_fields = unified_custom_fields
         @updated_at = updated_at
+        @user_id = user_id
       end
     end
   end
