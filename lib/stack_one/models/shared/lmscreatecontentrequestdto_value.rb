@@ -10,9 +10,8 @@ module StackOne
 
     class LmsCreateContentRequestDtoValue < T::Enum
       enums do
-        VIDEO = new('video')
-        QUIZ = new('quiz')
-        DOCUMENT = new('document')
+        AUTOMATIC = new('automatic')
+        BROWSER = new('browser')
       end
     end
   end

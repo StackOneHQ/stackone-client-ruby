@@ -1,0 +1,11 @@
+# LmsUpsertContentRequestDtoContentLaunchMethod
+
+The content launch method associated with this content
+
+
+## Fields
+
+| Field                                                                                                                    | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `source_value`                                                                                                           | *T.nilable(::Object)*                                                                                                    | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `value`                                                                                                                  | [T.nilable(::StackOne::Shared::LmsUpsertContentRequestDtoValue)](../../models/shared/lmsupsertcontentrequestdtovalue.md) | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |

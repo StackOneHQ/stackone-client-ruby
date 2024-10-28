@@ -7,16 +7,19 @@
 module StackOne
   module Operations
   
-    # Filter parameters that allow greater customisation of the list response
+    # LMS Assignment Filter
     class LmsListAssignmentsQueryParamFilter < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # Filter to select assignment by completed status
+      field :completed, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'completed' } }
       # Use a string with a date to only select results updated after that given date
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
+      sig { params(completed: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      def initialize(completed: nil, updated_after: nil)
+        @completed = completed
         @updated_after = updated_after
       end
     end

@@ -15,6 +15,8 @@ module StackOne
       field :account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
       # The contact company name
       field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
+      # Contact custom fields
+      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::ContactsCustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
       # List of associated deal IDs
       field :deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
       # List of contact email addresses
@@ -29,10 +31,11 @@ module StackOne
       field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
 
 
-      sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_numbers: T.nilable(T::Array[::String])).void }
-      def initialize(account_ids: nil, company_name: nil, deal_ids: nil, emails: nil, first_name: nil, last_name: nil, passthrough: nil, phone_numbers: nil)
+      sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::ContactsCustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_numbers: T.nilable(T::Array[::String])).void }
+      def initialize(account_ids: nil, company_name: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, last_name: nil, passthrough: nil, phone_numbers: nil)
         @account_ids = account_ids
         @company_name = company_name
+        @custom_fields = custom_fields
         @deal_ids = deal_ids
         @emails = emails
         @first_name = first_name

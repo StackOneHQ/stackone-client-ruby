@@ -7,6 +7,7 @@
 * [batch_upsert_content](#batch_upsert_content) - Batch Upsert Content
 * [create_content](#create_content) - Create Content
 * [create_user_completion](#create_user_completion) - Create User Completion
+* [delete_content](#delete_content) - Delete Content
 * [get_assignment](#get_assignment) - Get Assignment
 * [get_category](#get_category) - Get Category
 * [get_completion](#get_completion) - Get Completion
@@ -61,6 +62,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
           },
         ),
       ],
+      content_launch_method: ::StackOne::Shared::LmsUpsertContentRequestDtoContentLaunchMethod.new(),
       content_url: "https://www.youtube.com/watch?v=16873",
       course_ids: [
         "16873-SOFTWARE-ENG-COURSE",
@@ -134,6 +136,7 @@ res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
+  content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
   content_url: "https://www.youtube.com/watch?v=16873",
   course_ids: [
     "16873-SOFTWARE-ENG-COURSE",
@@ -220,6 +223,46 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsCreateUserCompletionResponse)](../../models/operations/lmscreateusercompletionresponse.md)**
+
+
+
+## delete_content
+
+Delete Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.lms.delete_content(id="<id>", x_account_id="<id>")
+
+if ! res.delete_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
+| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsDeleteContentResponse)](../../models/operations/lmsdeletecontentresponse.md)**
 
 
 
@@ -376,7 +419,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order,content_launch_method",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -646,12 +689,10 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
-  fields_: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status",
+  fields_: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListAssignmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
-  remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-  user_id: "c28xyrc55866bvuv",
   x_account_id: "<id>",
 )
     
@@ -789,7 +830,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order,content_launch_method",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -930,13 +971,11 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(
-  fields_: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status",
+  fields_: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListUserAssignmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
-  remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
-  user_id: "c28xyrc55866bvuv",
   x_account_id: "<id>",
 )
     
@@ -1086,6 +1125,7 @@ res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
+  content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
   content_url: "https://www.youtube.com/watch?v=16873",
   course_ids: [
     "16873-SOFTWARE-ENG-COURSE",
@@ -1158,6 +1198,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
+  content_launch_method: ::StackOne::Shared::LmsUpsertContentRequestDtoContentLaunchMethod.new(),
   content_url: "https://www.youtube.com/watch?v=16873",
   course_ids: [
     "16873-SOFTWARE-ENG-COURSE",

@@ -1,9 +1,9 @@
-speakeasyVersion: 1.419.2
+speakeasyVersion: 1.422.1
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:393ffa714557339480c42d00e71fc73a5e6c599afac93ee1633df8e66d0de716
-        sourceBlobDigest: sha256:034d461218d927aff5a1f5456c9ecb4b8d340f7063e6abb53138901727875238
+        sourceRevisionDigest: sha256:298cbce8eb1d9478c7b8c99daf2c6e9ae4b903c08dd0c30879131b7be6e7e146
+        sourceBlobDigest: sha256:d6cb2f25fe11988ae618a422560d99ca7625a8fee72784caae99cee0c653d61c
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     StackOneRubyClient:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:393ffa714557339480c42d00e71fc73a5e6c599afac93ee1633df8e66d0de716
-        sourceBlobDigest: sha256:034d461218d927aff5a1f5456c9ecb4b8d340f7063e6abb53138901727875238
+        sourceRevisionDigest: sha256:298cbce8eb1d9478c7b8c99daf2c6e9ae4b903c08dd0c30879131b7be6e7e146
+        sourceBlobDigest: sha256:d6cb2f25fe11988ae618a422560d99ca7625a8fee72784caae99cee0c653d61c
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

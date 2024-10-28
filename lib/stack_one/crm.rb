@@ -141,6 +141,44 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest)).returns(::StackOne::Operations::CrmGetContactCustomFieldDefinitionResponse) }
+    def get_contact_custom_field_definition(request)
+      # get_contact_custom_field_definition - Get Contact Custom Field Definition
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest,
+        base_url,
+        '/unified/crm/custom_field_definitions/contacts/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::CrmGetContactCustomFieldDefinitionResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
+          res.custom_field_definition_result_api_model = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::CrmGetListRequest)).returns(::StackOne::Operations::CrmGetListResponse) }
     def get_list(request)
       # get_list - Get List
@@ -205,6 +243,39 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AccountsPaginated)
           res.accounts_paginated = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      end
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest)).returns(::StackOne::Operations::CrmListContactCustomFieldDefinitionsResponse) }
+    def list_contact_custom_field_definitions(request)
+      # list_contact_custom_field_definitions - List Contact Custom Field Definitions
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/crm/custom_field_definitions/contacts"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::CrmListContactCustomFieldDefinitionsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionsPaginated)
+          res.custom_field_definitions_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

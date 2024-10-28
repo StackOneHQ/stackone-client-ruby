@@ -189,6 +189,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
         value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue::HOUR,
       ),
       pay_rate: "40.00",
+      time_worked: "P0Y0M0DT8H0M0S",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
@@ -323,6 +324,7 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto=::Sta
     value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
   ),
   pay_rate: "40.00",
+  time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
@@ -899,7 +901,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1038,7 +1040,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1547,7 +1549,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1741,7 +1743,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2036,6 +2038,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
         value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue::HOUR,
       ),
       pay_rate: "40.00",
+      time_worked: "P0Y0M0DT8H0M0S",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
@@ -2171,6 +2174,7 @@ res = s.hris.update_employee_employment(hris_create_employment_request_dto=::Sta
     value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
   ),
   pay_rate: "40.00",
+  time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",

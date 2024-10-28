@@ -1220,6 +1220,7 @@ module StackOne
         MOVIE = new('movie')
         SMV = new('smv')
         ICE = new('ice')
+        MHT = new('mht')
       end
     end
   end
