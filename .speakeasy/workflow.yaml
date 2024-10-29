@@ -21,3 +21,5 @@ targets:
                 token: $RUBYGEMS_AUTH_TOKEN
         codeSamples:
             output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/stackone/stackone/code-samples-ruby-stackonerubyclient
