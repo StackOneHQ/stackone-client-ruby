@@ -54,6 +54,10 @@ res = s.marketing.create_content_block(marketing_create_content_blocks_request_d
   passthrough: {
     "other_known_names": "John Doe",
   },
+  type: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType.new(
+    source_value: "text",
+    value: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
+  ),
 ), x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -1012,6 +1016,10 @@ res = s.marketing.update_content_block(marketing_create_content_blocks_request_d
   passthrough: {
     "other_known_names": "John Doe",
   },
+  type: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType.new(
+    source_value: "text",
+    value: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
+  ),
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?

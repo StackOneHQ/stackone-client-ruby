@@ -7,16 +7,19 @@
 module StackOne
   module Operations
   
-    # Filter parameters that allow greater customisation of the list response
+    # LMS Completions Filter
     class LmsListUserCompletionsQueryParamFilter < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # Filter to select completions by learning object type.
+      field :learning_object_type, T.nilable(::String), { 'query_param': { 'field_name': 'learning_object_type' } }
       # Use a string with a date to only select results updated after that given date
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
+      sig { params(learning_object_type: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(learning_object_type: nil, updated_after: nil)
+        @learning_object_type = learning_object_type
         @updated_after = updated_after
       end
     end

@@ -503,6 +503,8 @@ module StackOne
     autoload :ContentPaginated, 'stack_one/models/shared/contentpaginated.rb'
     autoload :CoursePaginated, 'stack_one/models/shared/coursepaginated.rb'
     autoload :SkillsPaginated, 'stack_one/models/shared/skillspaginated.rb'
+    autoload :MarketingCreateContentBlocksRequestDtoValue, 'stack_one/models/shared/marketingcreatecontentblocksrequestdto_value.rb'
+    autoload :MarketingCreateContentBlocksRequestDtoType, 'stack_one/models/shared/marketingcreatecontentblocksrequestdto_type.rb'
     autoload :MarketingCreateContentBlocksRequestDto, 'stack_one/models/shared/marketingcreatecontentblocksrequestdto.rb'
     autoload :MarketingCreateEmailTemplateRequestDto, 'stack_one/models/shared/marketingcreateemailtemplaterequestdto.rb'
     autoload :MessageContent, 'stack_one/models/shared/message_content.rb'

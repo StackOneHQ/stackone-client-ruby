@@ -12,7 +12,7 @@ module StackOne
       enums do
         CONTENT = new('content')
         COURSE = new('course')
-        LEARNING_PATH = new('learning_path')
+        COLLECTION = new('collection')
       end
     end
   end

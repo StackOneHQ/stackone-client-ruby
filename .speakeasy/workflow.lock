@@ -1,9 +1,9 @@
-speakeasyVersion: 1.422.1
+speakeasyVersion: 1.423.1
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:298cbce8eb1d9478c7b8c99daf2c6e9ae4b903c08dd0c30879131b7be6e7e146
-        sourceBlobDigest: sha256:d6cb2f25fe11988ae618a422560d99ca7625a8fee72784caae99cee0c653d61c
+        sourceRevisionDigest: sha256:8190c8287054bb49d26dadb2cdaede9f217116681a921f3a9e29edf282743f20
+        sourceBlobDigest: sha256:150dfc6785178a9da7577593fadf87e21ef7c8560c6c5028dd70e5c44ff2efe9
         tags:
             - latest
             - main
@@ -11,8 +11,10 @@ targets:
     StackOneRubyClient:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:298cbce8eb1d9478c7b8c99daf2c6e9ae4b903c08dd0c30879131b7be6e7e146
-        sourceBlobDigest: sha256:d6cb2f25fe11988ae618a422560d99ca7625a8fee72784caae99cee0c653d61c
+        sourceRevisionDigest: sha256:8190c8287054bb49d26dadb2cdaede9f217116681a921f3a9e29edf282743f20
+        sourceBlobDigest: sha256:150dfc6785178a9da7577593fadf87e21ef7c8560c6c5028dd70e5c44ff2efe9
+        codeSamplesNamespace: code-samples-ruby-stackonerubyclient
+        codeSamplesRevisionDigest: sha256:af327cb8e657de253ea054ed229d4821c0e09b1314520d7130e75d865091ce53
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -37,3 +39,5 @@ workflow:
                     token: $RUBYGEMS_AUTH_TOKEN
             codeSamples:
                 output: codeSamples.yaml
+                registry:
+                    location: registry.speakeasyapi.dev/stackone/stackone/code-samples-ruby-stackonerubyclient

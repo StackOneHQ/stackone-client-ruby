@@ -758,7 +758,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_assignments
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListAssignmentsRequest.new(\n  fields_: \"id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: ::StackOne::Operations::LmsListAssignmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListAssignmentsRequest.new(\n  fields_: \"id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: ::StackOne::Operations::LmsListAssignmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  user_id: \"c28xyrc55866bvuv\",\n  remote_user_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/assignments/{id}"]["get"]
     update:
       x-codeSamples:
@@ -782,7 +782,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_completions
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListCompletionsRequest.new(\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference\",\n  filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListCompletionsRequest.new(\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/completions/{id}"]["get"]
     update:
       x-codeSamples:
@@ -872,7 +872,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_user_assignments
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: ::StackOne::Operations::LmsListUserAssignmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_user_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: ::StackOne::Operations::LmsListUserAssignmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  user_id: \"c28xyrc55866bvuv\",\n  remote_user_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_user_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/assignments/{subResourceId}"]["get"]
     update:
       x-codeSamples:
@@ -884,7 +884,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: lms_list_user_completions
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUserCompletionsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference\",\n  filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_user_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::LmsListUserCompletionsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.lms.list_user_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/completions"]["post"]
     update:
       x-codeSamples:
@@ -920,7 +920,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: marketing_create_content_block
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.marketing.create_content_block(x_account_id=\"<id>\", marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.marketing.create_content_block(x_account_id=\"<id>\", marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(\n  type: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType.new(\n    value: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,\n    source_value: \"text\",\n  ),\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/content_blocks/{id}"]["get"]
     update:
       x-codeSamples:
@@ -932,7 +932,7 @@ actions:
       x-codeSamples:
         - lang: ruby
           label: marketing_update_content_block
-          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.marketing.update_content_block(id=\"<id>\", x_account_id=\"<id>\", marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
+          source: "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.marketing.update_content_block(id=\"<id>\", x_account_id=\"<id>\", marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(\n  type: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType.new(\n    value: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,\n    source_value: \"text\",\n  ),\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/email"]["get"]
     update:
       x-codeSamples:

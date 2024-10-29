@@ -25,16 +25,19 @@ module StackOne
       field :provider, T.nilable(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
       # The providers list of the results to fetch
       field :providers, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'providers', 'style': 'form', 'explode': true } }
+      # The status of the results to fetch
+      field :status, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
 
 
-      sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String), providers: T.nilable(T::Array[::String])).void }
-      def initialize(account_ids: nil, origin_owner_id: nil, page: nil, page_size: nil, provider: nil, providers: nil)
+      sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String), providers: T.nilable(T::Array[::String]), status: T.nilable(T::Array[::String])).void }
+      def initialize(account_ids: nil, origin_owner_id: nil, page: nil, page_size: nil, provider: nil, providers: nil, status: nil)
         @account_ids = account_ids
         @origin_owner_id = origin_owner_id
         @page = page
         @page_size = page_size
         @provider = provider
         @providers = providers
+        @status = status
       end
     end
   end
