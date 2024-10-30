@@ -38,9 +38,9 @@ module StackOne
       @security = security
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.2.45'
-      @gen_version = '2.438.15'
-      @user_agent = 'speakeasy-sdk/ruby 0.2.45 2.438.15 1.0.0 stackone_client'
+      @sdk_version = '0.2.46'
+      @gen_version = '2.442.11'
+      @user_agent = 'speakeasy-sdk/ruby 0.2.46 2.442.11 1.0.0 stackone_client'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

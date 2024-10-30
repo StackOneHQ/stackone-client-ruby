@@ -693,6 +693,8 @@ req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
   filter: ::StackOne::Operations::LmsListAssignmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
+  remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+  user_id: "c28xyrc55866bvuv",
   x_account_id: "<id>",
 )
     
@@ -783,7 +785,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCompletionsRequest.new(
-  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference",
+  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -976,6 +978,8 @@ req = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
+  remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+  user_id: "c28xyrc55866bvuv",
   x_account_id: "<id>",
 )
     
@@ -1019,7 +1023,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
-  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference",
+  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
