@@ -5,14 +5,12 @@
 
 
 module StackOne
-  module Shared
+  module Operations
   
-
-    class CompletionValue < T::Enum
+    # Status - The status of the job
+    class Status < T::Enum
       enums do
-        CONTENT = new('content')
-        COURSE = new('course')
-        COLLECTION = new('collection')
+        OPEN = new('open')
       end
     end
   end

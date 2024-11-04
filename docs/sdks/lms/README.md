@@ -77,6 +77,14 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
         ),
       ],
       order: 1.0,
+      skills: [
+        ::StackOne::Shared::Skills.new(
+          active: true,
+          id: "12345",
+          name: "Sales Techniques",
+          remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        ),
+      ],
       title: "Software Engineer Lv 1",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -151,6 +159,14 @@ res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::Lm
     ),
   ],
   order: 1.0,
+  skills: [
+    ::StackOne::Shared::Skills.new(
+      active: true,
+      id: "12345",
+      name: "Sales Techniques",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
   title: "Software Engineer Lv 1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
@@ -419,7 +435,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order,content_launch_method",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,skills,order,content_launch_method,updated_at,created_at",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -832,7 +848,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,order,content_launch_method",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,skills,order,content_launch_method,updated_at,created_at",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1144,6 +1160,14 @@ res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::Lm
     ),
   ],
   order: 1.0,
+  skills: [
+    ::StackOne::Shared::Skills.new(
+      active: true,
+      id: "12345",
+      name: "Sales Techniques",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
   title: "Software Engineer Lv 1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
@@ -1217,6 +1241,14 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     ),
   ],
   order: 1.0,
+  skills: [
+    ::StackOne::Shared::Skills.new(
+      active: true,
+      id: "12345",
+      name: "Sales Techniques",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
+  ],
   title: "Software Engineer Lv 1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",

@@ -8,11 +8,10 @@ module StackOne
   module Shared
   
 
-    class CompletionValue < T::Enum
+    class CompletionSchemasValue < T::Enum
       enums do
-        CONTENT = new('content')
-        COURSE = new('course')
-        COLLECTION = new('collection')
+        PASS = new('Pass')
+        FAIL = new('Fail')
       end
     end
   end
