@@ -3,7 +3,8 @@
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `PASS` | Pass   |
-| `FAIL` | Fail   |
+| Name         | Value        |
+| ------------ | ------------ |
+| `CONTENT`    | content      |
+| `COURSE`     | course       |
+| `COLLECTION` | collection   |

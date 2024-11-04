@@ -17,7 +17,7 @@ module StackOne
       field :expand, T.nilable(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-      # Filter parameters that allow greater customisation of the list response
+      # ATS Jobs filters
       field :filter, T.nilable(::StackOne::Operations::AtsListJobsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
       # The comma separated list of fields that will be included in the response
       field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }

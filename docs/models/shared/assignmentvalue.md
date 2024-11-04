@@ -1,4 +1,4 @@
-# LearningObjectTypeEnumValue
+# AssignmentValue
 
 
 ## Values

@@ -12,6 +12,7 @@ The type of the national identity number
 | `SIN`                | sin                  |
 | `NID`                | nid                  |
 | `PIN`                | pin                  |
+| `PN`                 | pn                   |
 | `UMCN`               | umcn                 |
 | `PIC`                | pic                  |
 | `RIC`                | ric                  |
@@ -22,6 +23,7 @@ The type of the national identity number
 | `AADHAAR`            | aadhaar              |
 | `EPIC`               | epic                 |
 | `PTN`                | ptn                  |
+| `ITIN`               | itin                 |
 | `TIN`                | tin                  |
 | `UPRC`               | uprc                 |
 | `PCODE`              | pcode                |
