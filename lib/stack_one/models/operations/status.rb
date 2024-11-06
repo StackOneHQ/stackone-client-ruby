@@ -11,6 +11,7 @@ module StackOne
     class Status < T::Enum
       enums do
         OPEN = new('open')
+        DRAFT = new('draft')
       end
     end
   end

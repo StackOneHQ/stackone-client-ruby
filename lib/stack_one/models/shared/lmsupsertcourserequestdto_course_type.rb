@@ -8,16 +8,16 @@ module StackOne
   module Shared
   
     # The media type for the course
-    class CourseType < ::StackOne::Utils::FieldAugmented
+    class LmsUpsertCourseRequestDtoCourseType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::CourseValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CourseValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::LmsUpsertCourseRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::LmsUpsertCourseRequestDtoValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CourseValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::LmsUpsertCourseRequestDtoValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

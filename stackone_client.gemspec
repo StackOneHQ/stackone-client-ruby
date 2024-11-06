@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'stackone_client'
-  s.version     = '0.2.47'
+  s.version     = '0.3.0'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['Apache-2.0']
   s.summary     = ''
@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
 
 
   s.add_development_dependency('minitest')
-  s.add_development_dependency('rubocop')
+  s.add_development_dependency('rubocop', '~> 1.60.2')
   s.add_development_dependency('sorbet-runtime')
   s.add_development_dependency('tapioca')
 end

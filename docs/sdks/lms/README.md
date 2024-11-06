@@ -1,10 +1,12 @@
 # Lms
+(*lms*)
 
 ## Overview
 
 ### Available Operations
 
 * [batch_upsert_content](#batch_upsert_content) - Batch Upsert Content
+* [batch_upsert_course](#batch_upsert_course) - Batch Upsert Course
 * [create_content](#create_content) - Create Content
 * [create_user_completion](#create_user_completion) - Create User Completion
 * [delete_content](#delete_content) - Delete Content
@@ -28,6 +30,7 @@
 * [list_users](#list_users) - List Users
 * [update_content](#update_content) - Update Content
 * [upsert_content](#upsert_content) - Upsert Content
+* [upsert_course](#upsert_course) - Upsert Course
 
 ## batch_upsert_content
 
@@ -54,7 +57,6 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       active: true,
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
-          active: true,
           name: "Technology",
           unified_custom_fields: {
             "my_project_custom_field_1": "REF-1236",
@@ -78,11 +80,10 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       ],
       order: 1.0,
       skills: [
-        ::StackOne::Shared::Skills.new(
-          active: true,
-          id: "12345",
-          name: "Sales Techniques",
-          remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        ::StackOne::Shared::CreateSkillsApiModel.new(
+          id: "cx2367ndc8dgsbjhka9ry4",
+          name: "Software Engineering",
+          remote_id: "SE-001",
         ),
       ],
       title: "Software Engineer Lv 1",
@@ -113,6 +114,96 @@ end
 
 
 
+## batch_upsert_course
+
+Batch Upsert Course
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::Shared::LmsBatchUpsertCourseRequestDto.new(
+  items: [
+    ::StackOne::Shared::LmsUpsertCourseRequestDto.new(
+      active: true,
+      categories: [
+        ::StackOne::Shared::CreateCategoriesApiModel.new(
+          name: "Technology",
+          unified_custom_fields: {
+            "my_project_custom_field_1": "REF-1236",
+            "my_project_custom_field_2": "some other value",
+          },
+        ),
+      ],
+      content: [
+        ::StackOne::Shared::CreateContentApiModel.new(
+          content_url: "https://www.youtube.com/watch?v=16873",
+          description: "This video acts as learning content for software engineers.",
+          order: 1.0,
+          title: "Software Engineer Lv 1",
+        ),
+      ],
+      content_ids: [
+        "16873-SOFTWARE-ENG-Content",
+      ],
+      cover_url: "https://www.googledrive.com/?v=16873",
+      created_at: "2021-07-21T14:00:00.000Z",
+      description: "This course acts as learning content for software engineers.",
+      duration: "P3Y6M4DT12H30M5S",
+      external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+      languages: [
+        ::StackOne::Shared::ContentLanguageEnum.new(
+          value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+        ),
+      ],
+      skills: [
+        ::StackOne::Shared::CreateSkillsApiModel.new(
+          id: "cx2367ndc8dgsbjhka9ry4",
+          name: "Software Engineering",
+          remote_id: "SE-001",
+        ),
+      ],
+      title: "Software Engineer Lv 1",
+      unified_custom_fields: {
+        "my_project_custom_field_1": "REF-1236",
+        "my_project_custom_field_2": "some other value",
+      },
+      updated_at: "2021-07-21T14:00:00.000Z",
+      url: "https://www.linkedinlearning.com/?v=16873",
+    ),
+  ],
+), x_account_id="<id>")
+
+if ! res.batch_result_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `lms_batch_upsert_course_request_dto`                                                                       | [::StackOne::Shared::LmsBatchUpsertCourseRequestDto](../../models/shared/lmsbatchupsertcourserequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsBatchUpsertCourseResponse)](../../models/operations/lmsbatchupsertcourseresponse.md)**
+
+
+
 ## create_content
 
 Create Content
@@ -136,7 +227,6 @@ res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::Lm
   active: true,
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      active: true,
       name: "Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -435,7 +525,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,skills,order,content_launch_method,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -480,7 +570,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCourseRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -848,7 +938,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,categories,skills,order,content_launch_method,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -895,7 +985,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCoursesRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
   filter: ::StackOne::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1137,7 +1227,6 @@ res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::Lm
   active: true,
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      active: true,
       name: "Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -1218,7 +1307,6 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   active: true,
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      active: true,
       name: "Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -1242,11 +1330,10 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   ],
   order: 1.0,
   skills: [
-    ::StackOne::Shared::Skills.new(
-      active: true,
-      id: "12345",
-      name: "Sales Techniques",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ::StackOne::Shared::CreateSkillsApiModel.new(
+      id: "cx2367ndc8dgsbjhka9ry4",
+      name: "Software Engineering",
+      remote_id: "SE-001",
     ),
   ],
   title: "Software Engineer Lv 1",
@@ -1272,4 +1359,90 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsUpsertContentResponse)](../../models/operations/lmsupsertcontentresponse.md)**
+
+
+
+## upsert_course
+
+Upsert Course
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsUpsertCourseRequestDto.new(
+  active: true,
+  categories: [
+    ::StackOne::Shared::CreateCategoriesApiModel.new(
+      name: "Technology",
+      unified_custom_fields: {
+        "my_project_custom_field_1": "REF-1236",
+        "my_project_custom_field_2": "some other value",
+      },
+    ),
+  ],
+  content: [
+    ::StackOne::Shared::CreateContentApiModel.new(
+      content_url: "https://www.youtube.com/watch?v=16873",
+      description: "This video acts as learning content for software engineers.",
+      order: 1.0,
+      title: "Software Engineer Lv 1",
+    ),
+  ],
+  content_ids: [
+    "16873-SOFTWARE-ENG-Content",
+  ],
+  cover_url: "https://www.googledrive.com/?v=16873",
+  created_at: "2021-07-21T14:00:00.000Z",
+  description: "This course acts as learning content for software engineers.",
+  duration: "P3Y6M4DT12H30M5S",
+  external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+  languages: [
+    ::StackOne::Shared::ContentLanguageEnum.new(
+      value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+    ),
+  ],
+  skills: [
+    ::StackOne::Shared::CreateSkillsApiModel.new(
+      id: "cx2367ndc8dgsbjhka9ry4",
+      name: "Software Engineering",
+      remote_id: "SE-001",
+    ),
+  ],
+  title: "Software Engineer Lv 1",
+  unified_custom_fields: {
+    "my_project_custom_field_1": "REF-1236",
+    "my_project_custom_field_2": "some other value",
+  },
+  updated_at: "2021-07-21T14:00:00.000Z",
+  url: "https://www.linkedinlearning.com/?v=16873",
+), x_account_id="<id>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `lms_upsert_course_request_dto`                                                                   | [::StackOne::Shared::LmsUpsertCourseRequestDto](../../models/shared/lmsupsertcourserequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsUpsertCourseResponse)](../../models/operations/lmsupsertcourseresponse.md)**
 

@@ -5,5 +5,6 @@
 
 | Name       | Value      |
 | ---------- | ---------- |
-| `ACTIVE`   | ACTIVE     |
-| `INACTIVE` | INACTIVE   |
+| `VIDEO`    | video      |
+| `QUIZ`     | quiz       |
+| `DOCUMENT` | document   |

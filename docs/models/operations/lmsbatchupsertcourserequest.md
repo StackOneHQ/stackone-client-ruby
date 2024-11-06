@@ -1,0 +1,9 @@
+# LmsBatchUpsertCourseRequest
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `lms_batch_upsert_course_request_dto`                                                                       | [::StackOne::Shared::LmsBatchUpsertCourseRequestDto](../../models/shared/lmsbatchupsertcourserequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |

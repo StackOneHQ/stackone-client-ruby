@@ -1,4 +1,4 @@
-# CourseSchemasValue
+# LmsUpsertCourseRequestDtoValue
 
 
 ## Values
