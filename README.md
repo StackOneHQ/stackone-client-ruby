@@ -75,7 +75,7 @@ end
 <details open>
 <summary>Available methods</summary>
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
 * [delete_account](docs/sdks/accounts/README.md#delete_account) - Delete Account
 * [get_account](docs/sdks/accounts/README.md#get_account) - Get Account
@@ -83,7 +83,7 @@ end
 * [list_linked_accounts](docs/sdks/accounts/README.md#list_linked_accounts) - List Accounts
 * [update_account](docs/sdks/accounts/README.md#update_account) - Update Account
 
-### [Ats](docs/sdks/ats/README.md)
+### [ats](docs/sdks/ats/README.md)
 
 * [create_application](docs/sdks/ats/README.md#create_application) - Create Application
 * [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate
@@ -142,17 +142,17 @@ end
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
-### [Connectors](docs/sdks/connectors/README.md)
-
-* [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta information for the given provider key
-* [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connectors Meta Information for all providers
-
-### [ConnectSessions](docs/sdks/connectsessions/README.md)
+### [connect_sessions](docs/sdks/connectsessions/README.md)
 
 * [authenticate_connect_session](docs/sdks/connectsessions/README.md#authenticate_connect_session) - Authenticate Connect Session
 * [create_connect_session](docs/sdks/connectsessions/README.md#create_connect_session) - Create Connect Session
 
-### [Crm](docs/sdks/crm/README.md)
+### [connectors](docs/sdks/connectors/README.md)
+
+* [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta information for the given provider key
+* [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connectors Meta Information for all providers
+
+### [crm](docs/sdks/crm/README.md)
 
 * [create_contact](docs/sdks/crm/README.md#create_contact) - Creates a new Contact
 * [get_account](docs/sdks/crm/README.md#get_account) - Get Account
@@ -165,7 +165,7 @@ end
 * [list_lists](docs/sdks/crm/README.md#list_lists) - Get all Lists
 * [update_contact](docs/sdks/crm/README.md#update_contact) - Update Contact (early access)
 
-### [Hris](docs/sdks/hris/README.md)
+### [hris](docs/sdks/hris/README.md)
 
 * [batch_upload_employee_document](docs/sdks/hris/README.md#batch_upload_employee_document) - Batch Upload Employee Document
 * [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
@@ -210,7 +210,7 @@ end
 * [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
 
-### [Iam](docs/sdks/iam/README.md)
+### [iam](docs/sdks/iam/README.md)
 
 * [get_group](docs/sdks/iam/README.md#get_group) - Get Group
 * [get_policy](docs/sdks/iam/README.md#get_policy) - Get Policy
@@ -221,9 +221,10 @@ end
 * [list_roles](docs/sdks/iam/README.md#list_roles) - List Roles
 * [list_users](docs/sdks/iam/README.md#list_users) - List Users
 
-### [Lms](docs/sdks/lms/README.md)
+### [lms](docs/sdks/lms/README.md)
 
 * [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert Content
+* [batch_upsert_course](docs/sdks/lms/README.md#batch_upsert_course) - Batch Upsert Course
 * [create_content](docs/sdks/lms/README.md#create_content) - Create Content
 * [create_user_completion](docs/sdks/lms/README.md#create_user_completion) - Create User Completion
 * [delete_content](docs/sdks/lms/README.md#delete_content) - Delete Content
@@ -247,8 +248,9 @@ end
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
 * [update_content](docs/sdks/lms/README.md#update_content) - Update Content
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
+* [upsert_course](docs/sdks/lms/README.md#upsert_course) - Upsert Course
 
-### [Marketing](docs/sdks/marketing/README.md)
+### [marketing](docs/sdks/marketing/README.md)
 
 * [create_content_block](docs/sdks/marketing/README.md#create_content_block) - Create Content Block
 * [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create Email Templates
@@ -277,12 +279,12 @@ end
 * [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update Push Template
 * [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update SMS Template
 
-### [Proxy](docs/sdks/proxy/README.md)
+### [proxy](docs/sdks/proxy/README.md)
 
 * [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
 
 
-### [Webhooks](docs/sdks/webhooks/README.md)
+### [webhooks](docs/sdks/webhooks/README.md)
 
 * [create](docs/sdks/webhooks/README.md#create)
 

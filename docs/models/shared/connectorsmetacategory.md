@@ -5,13 +5,14 @@ The provider service category
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `ATS`         | ats           |
-| `HRIS`        | hris          |
-| `HRIS_LEGACY` | hris-legacy   |
-| `CRM`         | crm           |
-| `IAM`         | iam           |
-| `MARKETING`   | marketing     |
-| `LMS`         | lms           |
-| `STACKONE`    | stackone      |
+| Name           | Value          |
+| -------------- | -------------- |
+| `ATS`          | ats            |
+| `HRIS`         | hris           |
+| `HRIS_LEGACY`  | hris-legacy    |
+| `CRM`          | crm            |
+| `IAM`          | iam            |
+| `MARKETING`    | marketing      |
+| `LMS`          | lms            |
+| `STACKONE`     | stackone       |
+| `FILE_STORAGE` | file-storage   |

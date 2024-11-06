@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CourseSchemasValue < T::Enum
+    class LmsUpsertCourseRequestDtoValue < T::Enum
       enums do
         VIDEO = new('video')
         QUIZ = new('quiz')

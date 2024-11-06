@@ -10,8 +10,9 @@ module StackOne
 
     class CourseValue < T::Enum
       enums do
-        ACTIVE = new('ACTIVE')
-        INACTIVE = new('INACTIVE')
+        VIDEO = new('video')
+        QUIZ = new('quiz')
+        DOCUMENT = new('document')
       end
     end
   end

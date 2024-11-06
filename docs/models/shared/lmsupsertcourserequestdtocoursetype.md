@@ -1,0 +1,11 @@
+# LmsUpsertCourseRequestDtoCourseType
+
+The media type for the course
+
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                                         | *T.nilable(::Object)*                                                                                                  | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `value`                                                                                                                | [T.nilable(::StackOne::Shared::LmsUpsertCourseRequestDtoValue)](../../models/shared/lmsupsertcourserequestdtovalue.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

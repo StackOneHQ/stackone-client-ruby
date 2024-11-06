@@ -18,6 +18,7 @@ module StackOne
         MARKETING = new('marketing')
         LMS = new('lms')
         STACKONE = new('stackone')
+        FILE_STORAGE = new('file-storage')
       end
     end
   end

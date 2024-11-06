@@ -5,6 +5,7 @@ The status of the job
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `OPEN` | open   |
+| Name    | Value   |
+| ------- | ------- |
+| `OPEN`  | open    |
+| `DRAFT` | draft   |

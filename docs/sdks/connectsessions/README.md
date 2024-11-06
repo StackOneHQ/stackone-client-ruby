@@ -1,4 +1,5 @@
 # ConnectSessions
+(*connect_sessions*)
 
 ## Overview
 
@@ -73,12 +74,13 @@ req = ::StackOne::Shared::ConnectSessionCreate.new(
   categories: [
     ::StackOne::Shared::ConnectSessionCreateCategories::ATS,
     ::StackOne::Shared::ConnectSessionCreateCategories::HRIS,
-    ::StackOne::Shared::ConnectSessionCreateCategories::HRIS_LEGACY,
+    ::StackOne::Shared::ConnectSessionCreateCategories::CRM,
     ::StackOne::Shared::ConnectSessionCreateCategories::CRM,
     ::StackOne::Shared::ConnectSessionCreateCategories::IAM,
     ::StackOne::Shared::ConnectSessionCreateCategories::MARKETING,
     ::StackOne::Shared::ConnectSessionCreateCategories::LMS,
     ::StackOne::Shared::ConnectSessionCreateCategories::ATS,
+    ::StackOne::Shared::ConnectSessionCreateCategories::LMS,
   ],
   origin_owner_id: "<id>",
   origin_owner_name: "<value>",
