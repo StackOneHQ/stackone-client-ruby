@@ -16,7 +16,7 @@ module StackOne
       # Candidate country
       field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
       # The candidate custom fields
-      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CandidateCustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
       # Candidate email
       field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
       # Candidate first name
@@ -39,7 +39,7 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(company: T.nilable(::String), country: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CandidateCustomFields]), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      sig { params(company: T.nilable(::String), country: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
       def initialize(company: nil, country: nil, custom_fields: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, passthrough: nil, phone_number: nil, social_links: nil, title: nil, unified_custom_fields: nil)
         @company = company
         @country = country

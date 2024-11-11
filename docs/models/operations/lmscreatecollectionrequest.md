@@ -1,0 +1,9 @@
+# LmsCreateCollectionRequest
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `lms_create_collection_request_dto`                                                                       | [::StackOne::Shared::LmsCreateCollectionRequestDto](../../models/shared/lmscreatecollectionrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |

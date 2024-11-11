@@ -225,9 +225,8 @@ end
 
 * [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert Content
 * [batch_upsert_course](docs/sdks/lms/README.md#batch_upsert_course) - Batch Upsert Course
-* [create_content](docs/sdks/lms/README.md#create_content) - Create Content
+* [create_collection](docs/sdks/lms/README.md#create_collection) - Create Collection
 * [create_user_completion](docs/sdks/lms/README.md#create_user_completion) - Create User Completion
-* [delete_content](docs/sdks/lms/README.md#delete_content) - Delete Content
 * [get_assignment](docs/sdks/lms/README.md#get_assignment) - Get Assignment
 * [get_category](docs/sdks/lms/README.md#get_category) - Get Category
 * [get_completion](docs/sdks/lms/README.md#get_completion) - Get Completion
@@ -246,7 +245,7 @@ end
 * [list_user_assignments](docs/sdks/lms/README.md#list_user_assignments) - List User Assignments
 * [list_user_completions](docs/sdks/lms/README.md#list_user_completions) - List User Completions
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
-* [update_content](docs/sdks/lms/README.md#update_content) - Update Content
+* [update_collection](docs/sdks/lms/README.md#update_collection) - Update Collection
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
 * [upsert_course](docs/sdks/lms/README.md#upsert_course) - Upsert Course
 
@@ -294,22 +293,31 @@ end
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.stackone.com` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new(
+      server_url: "https://api.stackone.com",
+    )
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.accounts.delete_account(id="<id>")
+
+if ! res.linked_account.nil?
+  # handle response
+end
+
+```
 <!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

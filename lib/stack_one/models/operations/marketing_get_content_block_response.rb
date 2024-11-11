@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The Content Block with the given identifier was retrieved
-      field :content_blocks_paginated, T.nilable(::StackOne::Shared::ContentBlocksPaginated)
+      field :content_block_result, T.nilable(::StackOne::Shared::ContentBlockResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, content_blocks_paginated: T.nilable(::StackOne::Shared::ContentBlocksPaginated)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, content_blocks_paginated: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, content_block_result: T.nilable(::StackOne::Shared::ContentBlockResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, content_block_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @content_blocks_paginated = content_blocks_paginated
+        @content_block_result = content_block_result
       end
     end
   end

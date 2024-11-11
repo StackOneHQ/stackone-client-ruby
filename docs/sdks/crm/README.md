@@ -42,7 +42,7 @@ res = s.crm.create_contact(crm_create_contact_request_dto=::StackOne::Shared::Cr
   ],
   company_name: "Apple Inc.",
   custom_fields: [
-    ::StackOne::Shared::ContactsCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -486,7 +486,7 @@ res = s.crm.update_contact(crm_create_contact_request_dto=::StackOne::Shared::Cr
   ],
   company_name: "Apple Inc.",
   custom_fields: [
-    ::StackOne::Shared::ContactsCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
