@@ -105,6 +105,7 @@ res = s.marketing.create_email_template(marketing_create_email_template_request_
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::EmailMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::EmailMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -158,6 +159,7 @@ res = s.marketing.create_in_app_template(marketing_create_in_app_template_reques
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::InAppMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -213,6 +215,7 @@ res = s.marketing.create_omni_channel_template(marketing_create_template_request
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::MessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::CreateMessageValue::EMAIL,
       ),
     ),
   ],
@@ -265,6 +268,7 @@ res = s.marketing.create_push_template(marketing_create_push_template_request_dt
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::PushMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::PushMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -318,6 +322,7 @@ res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::SmsMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -418,7 +423,7 @@ req = ::StackOne::Operations::MarketingGetContentBlockRequest.new(
     
 res = s.marketing.get_content_block(req)
 
-if ! res.content_blocks_paginated.nil?
+if ! res.content_block_result.nil?
   # handle response
 end
 
@@ -463,7 +468,7 @@ req = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(
     
 res = s.marketing.get_email_template(req)
 
-if ! res.template_result.nil?
+if ! res.email_template_result.nil?
   # handle response
 end
 
@@ -508,7 +513,7 @@ req = ::StackOne::Operations::MarketingGetInAppTemplateRequest.new(
     
 res = s.marketing.get_in_app_template(req)
 
-if ! res.template_result.nil?
+if ! res.in_app_template_result.nil?
   # handle response
 end
 
@@ -600,7 +605,7 @@ req = ::StackOne::Operations::MarketingGetPushTemplateRequest.new(
     
 res = s.marketing.get_push_template(req)
 
-if ! res.template_result.nil?
+if ! res.push_template_result.nil?
   # handle response
 end
 
@@ -645,7 +650,7 @@ req = ::StackOne::Operations::MarketingGetSmsTemplateRequest.new(
     
 res = s.marketing.get_sms_template(req)
 
-if ! res.template_result.nil?
+if ! res.sms_template_result.nil?
   # handle response
 end
 
@@ -786,7 +791,7 @@ req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
     
 res = s.marketing.list_email_templates(req)
 
-if ! res.templates_paginated.nil?
+if ! res.email_templates_paginated.nil?
   # handle response
 end
 
@@ -833,7 +838,7 @@ req = ::StackOne::Operations::MarketingListInAppTemplatesRequest.new(
     
 res = s.marketing.list_in_app_templates(req)
 
-if ! res.templates_paginated.nil?
+if ! res.in_app_templates_paginated.nil?
   # handle response
 end
 
@@ -929,7 +934,7 @@ req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
     
 res = s.marketing.list_push_templates(req)
 
-if ! res.templates_paginated.nil?
+if ! res.push_templates_paginated.nil?
   # handle response
 end
 
@@ -976,7 +981,7 @@ req = ::StackOne::Operations::MarketingListSmsTemplatesRequest.new(
     
 res = s.marketing.list_sms_templates(req)
 
-if ! res.templates_paginated.nil?
+if ! res.sms_templates_paginated.nil?
   # handle response
 end
 
@@ -1068,6 +1073,7 @@ res = s.marketing.update_email_template(marketing_create_email_template_request_
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::EmailMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::EmailMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1122,6 +1128,7 @@ res = s.marketing.update_in_app_template(marketing_create_in_app_template_reques
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::InAppMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1178,6 +1185,7 @@ res = s.marketing.update_omni_channel_template(marketing_create_template_request
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::MessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::CreateMessageValue::EMAIL,
       ),
     ),
   ],
@@ -1231,6 +1239,7 @@ res = s.marketing.update_push_template(marketing_create_push_template_request_dt
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::PushMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::PushMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1285,6 +1294,7 @@ res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
         source_value: "Email",
+        value: ::StackOne::Shared::SmsMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),

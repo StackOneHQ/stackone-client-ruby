@@ -7,9 +7,8 @@
 
 * [batch_upsert_content](#batch_upsert_content) - Batch Upsert Content
 * [batch_upsert_course](#batch_upsert_course) - Batch Upsert Course
-* [create_content](#create_content) - Create Content
+* [create_collection](#create_collection) - Create Collection
 * [create_user_completion](#create_user_completion) - Create User Completion
-* [delete_content](#delete_content) - Delete Content
 * [get_assignment](#get_assignment) - Get Assignment
 * [get_category](#get_category) - Get Category
 * [get_completion](#get_completion) - Get Completion
@@ -28,7 +27,7 @@
 * [list_user_assignments](#list_user_assignments) - List User Assignments
 * [list_user_completions](#list_user_completions) - List User Completions
 * [list_users](#list_users) - List Users
-* [update_content](#update_content) - Update Content
+* [update_collection](#update_collection) - Update Collection
 * [upsert_content](#upsert_content) - Upsert Content
 * [upsert_course](#upsert_course) - Upsert Course
 
@@ -64,7 +63,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
           },
         ),
       ],
-      content_launch_method: ::StackOne::Shared::LmsUpsertContentRequestDtoContentLaunchMethod.new(),
+      content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
       content_url: "https://www.youtube.com/watch?v=16873",
       course_ids: [
         "16873-SOFTWARE-ENG-COURSE",
@@ -74,8 +73,8 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       duration: "P3Y6M4DT12H30M5S",
       external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
       languages: [
-        ::StackOne::Shared::ContentLanguageEnum.new(
-          value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+        ::StackOne::Shared::LanguageEnum.new(
+          value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
         ),
       ],
       order: 1.0,
@@ -163,8 +162,8 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       duration: "P3Y6M4DT12H30M5S",
       external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
       languages: [
-        ::StackOne::Shared::ContentLanguageEnum.new(
-          value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+        ::StackOne::Shared::LanguageEnum.new(
+          value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
         ),
       ],
       skills: [
@@ -204,9 +203,9 @@ end
 
 
 
-## create_content
+## create_collection
 
-Create Content
+Create Collection
 
 ### Example Usage
 
@@ -223,8 +222,7 @@ s.config_security(
 )
 
     
-res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::LmsCreateContentRequestDto.new(
-  active: true,
+res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shared::LmsCreateCollectionRequestDto.new(
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
@@ -234,30 +232,25 @@ res = s.lms.create_content(lms_create_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
-  content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
-  content_url: "https://www.youtube.com/watch?v=16873",
-  course_ids: [
-    "16873-SOFTWARE-ENG-COURSE",
-  ],
   cover_url: "https://www.googledrive.com/?v=16873",
-  description: "This video acts as learning content for software engineers.",
-  duration: "P3Y6M4DT12H30M5S",
-  external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
-  languages: [
-    ::StackOne::Shared::ContentLanguageEnum.new(
-      value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
-    ),
+  description: "This collection acts as learning pathway for software engineers.",
+  external_reference: "SOFTWARE-ENG-LV1-TRAINING-collection-1",
+  learning_object_ids: [
+    "16873-SOFTWARE-ENG-COURSE",
+    "16874-SOFTWARE-ENG-COURSE",
   ],
-  order: 1.0,
+  remote_learning_object_ids: [
+    "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+    "e3cb75bf-aa84-466e-a6c1-b8322b257a49",
+  ],
   skills: [
-    ::StackOne::Shared::Skills.new(
-      active: true,
-      id: "12345",
-      name: "Sales Techniques",
+    ::StackOne::Shared::CreateSkillsApiModel.new(
+      id: "16873-IT345",
+      name: "Technology",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
   ],
-  title: "Software Engineer Lv 1",
+  title: "Software Engineer Lv 1 Collection",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
@@ -272,14 +265,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `lms_create_content_request_dto`                                                                    | [::StackOne::Shared::LmsCreateContentRequestDto](../../models/shared/lmscreatecontentrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `lms_create_collection_request_dto`                                                                       | [::StackOne::Shared::LmsCreateCollectionRequestDto](../../models/shared/lmscreatecollectionrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::LmsCreateContentResponse)](../../models/operations/lmscreatecontentresponse.md)**
+**[T.nilable(::StackOne::Operations::LmsCreateCollectionResponse)](../../models/operations/lmscreatecollectionresponse.md)**
 
 
 
@@ -329,46 +322,6 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsCreateUserCompletionResponse)](../../models/operations/lmscreateusercompletionresponse.md)**
-
-
-
-## delete_content
-
-Delete Content
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
-res = s.lms.delete_content(id="<id>", x_account_id="<id>")
-
-if ! res.delete_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
-| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
-
-### Response
-
-**[T.nilable(::StackOne::Operations::LmsDeleteContentResponse)](../../models/operations/lmsdeletecontentresponse.md)**
 
 
 
@@ -570,7 +523,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCourseRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -985,7 +938,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCoursesRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
   filter: ::StackOne::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1204,9 +1157,9 @@ end
 
 
 
-## update_content
+## update_collection
 
-Update Content
+Update Collection
 
 ### Example Usage
 
@@ -1223,8 +1176,7 @@ s.config_security(
 )
 
     
-res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::LmsCreateContentRequestDto.new(
-  active: true,
+res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shared::LmsCreateCollectionRequestDto.new(
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
@@ -1234,30 +1186,25 @@ res = s.lms.update_content(lms_create_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
-  content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
-  content_url: "https://www.youtube.com/watch?v=16873",
-  course_ids: [
-    "16873-SOFTWARE-ENG-COURSE",
-  ],
   cover_url: "https://www.googledrive.com/?v=16873",
-  description: "This video acts as learning content for software engineers.",
-  duration: "P3Y6M4DT12H30M5S",
-  external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
-  languages: [
-    ::StackOne::Shared::ContentLanguageEnum.new(
-      value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
-    ),
+  description: "This collection acts as learning pathway for software engineers.",
+  external_reference: "SOFTWARE-ENG-LV1-TRAINING-collection-1",
+  learning_object_ids: [
+    "16873-SOFTWARE-ENG-COURSE",
+    "16874-SOFTWARE-ENG-COURSE",
   ],
-  order: 1.0,
+  remote_learning_object_ids: [
+    "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+    "e3cb75bf-aa84-466e-a6c1-b8322b257a49",
+  ],
   skills: [
-    ::StackOne::Shared::Skills.new(
-      active: true,
-      id: "12345",
-      name: "Sales Techniques",
+    ::StackOne::Shared::CreateSkillsApiModel.new(
+      id: "16873-IT345",
+      name: "Technology",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
   ],
-  title: "Software Engineer Lv 1",
+  title: "Software Engineer Lv 1 Collection",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
@@ -1272,15 +1219,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `lms_create_content_request_dto`                                                                    | [::StackOne::Shared::LmsCreateContentRequestDto](../../models/shared/lmscreatecontentrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `lms_create_collection_request_dto`                                                                       | [::StackOne::Shared::LmsCreateCollectionRequestDto](../../models/shared/lmscreatecollectionrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::LmsUpdateContentResponse)](../../models/operations/lmsupdatecontentresponse.md)**
+**[T.nilable(::StackOne::Operations::LmsUpdateCollectionResponse)](../../models/operations/lmsupdatecollectionresponse.md)**
 
 
 
@@ -1314,7 +1261,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
-  content_launch_method: ::StackOne::Shared::LmsUpsertContentRequestDtoContentLaunchMethod.new(),
+  content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
   content_url: "https://www.youtube.com/watch?v=16873",
   course_ids: [
     "16873-SOFTWARE-ENG-COURSE",
@@ -1324,8 +1271,8 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   duration: "P3Y6M4DT12H30M5S",
   external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
   languages: [
-    ::StackOne::Shared::ContentLanguageEnum.new(
-      value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+    ::StackOne::Shared::LanguageEnum.new(
+      value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
     ),
   ],
   order: 1.0,
@@ -1409,8 +1356,8 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   duration: "P3Y6M4DT12H30M5S",
   external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
   languages: [
-    ::StackOne::Shared::ContentLanguageEnum.new(
-      value: ::StackOne::Shared::ContentLanguageEnumValue::EN_GB,
+    ::StackOne::Shared::LanguageEnum.new(
+      value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
     ),
   ],
   skills: [

@@ -150,7 +150,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   ],
   company_name: "Example Corp",
   custom_fields: [
-    ::StackOne::Shared::EmployeeCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -1999,7 +1999,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   ],
   company_name: "Example Corp",
   custom_fields: [
-    ::StackOne::Shared::EmployeeCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",

@@ -29,18 +29,14 @@ module StackOne
       field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
-      # The sync token to select the only updated results
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :sync_token, T.nilable(::String), { 'query_param': { 'field_name': 'sync_token', 'style': 'form', 'explode': true } }
       # Use a string with a date to only select results updated after that given date
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), sync_token: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(x_account_id: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, sync_token: nil, updated_after: nil)
+      sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      def initialize(x_account_id: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
         @x_account_id = x_account_id
         @fields_ = fields_
         @filter = filter
@@ -49,7 +45,6 @@ module StackOne
         @page_size = page_size
         @proxy = proxy
         @raw = raw
-        @sync_token = sync_token
         @updated_after = updated_after
       end
     end

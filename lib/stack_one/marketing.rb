@@ -364,8 +364,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentBlocksPaginated)
-          res.content_blocks_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentBlockResult)
+          res.content_block_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -402,8 +402,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplateResult)
-          res.template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmailTemplateResult)
+          res.email_template_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -440,8 +440,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplateResult)
-          res.template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::InAppTemplateResult)
+          res.in_app_template_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -518,8 +518,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplateResult)
-          res.template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::PushTemplateResult)
+          res.push_template_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -556,8 +556,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplateResult)
-          res.template_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::SmsTemplateResult)
+          res.sms_template_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -655,8 +655,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplatesPaginated)
-          res.templates_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmailTemplatesPaginated)
+          res.email_templates_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -688,8 +688,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplatesPaginated)
-          res.templates_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::InAppTemplatesPaginated)
+          res.in_app_templates_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -756,8 +756,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplatesPaginated)
-          res.templates_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::PushTemplatesPaginated)
+          res.push_templates_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -789,8 +789,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TemplatesPaginated)
-          res.templates_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::SmsTemplatesPaginated)
+          res.sms_templates_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end

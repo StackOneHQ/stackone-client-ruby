@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The push template with the given identifier was retrieved.
-      field :template_result, T.nilable(::StackOne::Shared::TemplateResult)
+      field :push_template_result, T.nilable(::StackOne::Shared::PushTemplateResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, template_result: T.nilable(::StackOne::Shared::TemplateResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, template_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, push_template_result: T.nilable(::StackOne::Shared::PushTemplateResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, push_template_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @template_result = template_result
+        @push_template_result = push_template_result
       end
     end
   end

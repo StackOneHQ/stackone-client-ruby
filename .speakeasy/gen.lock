@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 40911dd2c956bfe4c387b8e460a2103c
+  docChecksum: 94cd7bfd258f94603b986c9dd874653b
   docVersion: 1.0.0
-  speakeasyVersion: 1.431.0
-  generationVersion: 2.451.0
-  releaseVersion: 0.3.0
-  configChecksum: 12bcea78e551301ccff890ec4bfa8020
+  speakeasyVersion: 1.436.0
+  generationVersion: 2.455.2
+  releaseVersion: 0.3.1
+  configChecksum: 6ef803ed8960b6010567ba2905401007
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -314,12 +314,10 @@ generatedFiles:
   - docs/models/operations/lmsbatchupsertcontentresponse.md
   - docs/models/operations/lmsbatchupsertcourserequest.md
   - docs/models/operations/lmsbatchupsertcourseresponse.md
-  - docs/models/operations/lmscreatecontentrequest.md
-  - docs/models/operations/lmscreatecontentresponse.md
+  - docs/models/operations/lmscreatecollectionrequest.md
+  - docs/models/operations/lmscreatecollectionresponse.md
   - docs/models/operations/lmscreateusercompletionrequest.md
   - docs/models/operations/lmscreateusercompletionresponse.md
-  - docs/models/operations/lmsdeletecontentrequest.md
-  - docs/models/operations/lmsdeletecontentresponse.md
   - docs/models/operations/lmsgetassignmentrequest.md
   - docs/models/operations/lmsgetassignmentresponse.md
   - docs/models/operations/lmsgetcategoryrequest.md
@@ -365,8 +363,8 @@ generatedFiles:
   - docs/models/operations/lmslistusersqueryparamfilter.md
   - docs/models/operations/lmslistusersrequest.md
   - docs/models/operations/lmslistusersresponse.md
-  - docs/models/operations/lmsupdatecontentrequest.md
-  - docs/models/operations/lmsupdatecontentresponse.md
+  - docs/models/operations/lmsupdatecollectionrequest.md
+  - docs/models/operations/lmsupdatecollectionresponse.md
   - docs/models/operations/lmsupsertcontentrequest.md
   - docs/models/operations/lmsupsertcontentresponse.md
   - docs/models/operations/lmsupsertcourserequest.md
@@ -527,7 +525,6 @@ generatedFiles:
   - docs/models/shared/campaignspaginated.md
   - docs/models/shared/campaignvalue.md
   - docs/models/shared/candidate.md
-  - docs/models/shared/candidatecustomfields.md
   - docs/models/shared/candidateemail.md
   - docs/models/shared/candidateresult.md
   - docs/models/shared/candidatespaginated.md
@@ -559,18 +556,16 @@ generatedFiles:
   - docs/models/shared/connectsessiontokencategories.md
   - docs/models/shared/contact.md
   - docs/models/shared/contactresult.md
-  - docs/models/shared/contactscustomfields.md
   - docs/models/shared/contactspaginated.md
   - docs/models/shared/content.md
   - docs/models/shared/contentblock.md
+  - docs/models/shared/contentblockresult.md
   - docs/models/shared/contentblockschemasvalue.md
   - docs/models/shared/contentblockspaginated.md
   - docs/models/shared/contentblockstatus.md
   - docs/models/shared/contentblocktype.md
   - docs/models/shared/contentblockvalue.md
   - docs/models/shared/contentfileformat.md
-  - docs/models/shared/contentlanguageenum.md
-  - docs/models/shared/contentlanguageenumvalue.md
   - docs/models/shared/contentlaunchmethod.md
   - docs/models/shared/contentpaginated.md
   - docs/models/shared/contentresult.md
@@ -583,8 +578,6 @@ generatedFiles:
   - docs/models/shared/course.md
   - docs/models/shared/coursepaginated.md
   - docs/models/shared/courseresult.md
-  - docs/models/shared/coursetype.md
-  - docs/models/shared/coursevalue.md
   - docs/models/shared/createanswer.md
   - docs/models/shared/createanswertype.md
   - docs/models/shared/createanswervalue.md
@@ -612,7 +605,7 @@ generatedFiles:
   - docs/models/shared/customfielddefinitionspaginated.md
   - docs/models/shared/customfielddefinitiontype.md
   - docs/models/shared/customfielddefinitionvalue.md
-  - docs/models/shared/deleteresult.md
+  - docs/models/shared/customfields.md
   - docs/models/shared/department.md
   - docs/models/shared/departmentresult.md
   - docs/models/shared/departmentspaginated.md
@@ -620,10 +613,12 @@ generatedFiles:
   - docs/models/shared/emailmessages.md
   - docs/models/shared/emailmessagesmessagetype.md
   - docs/models/shared/emailmessagesvalue.md
+  - docs/models/shared/emailtemplate.md
+  - docs/models/shared/emailtemplateresult.md
+  - docs/models/shared/emailtemplatespaginated.md
   - docs/models/shared/employee.md
   - docs/models/shared/employeecompany.md
   - docs/models/shared/employeecountry.md
-  - docs/models/shared/employeecustomfields.md
   - docs/models/shared/employeeemploymentcontracttype.md
   - docs/models/shared/employeeemploymenttype.md
   - docs/models/shared/employeelocationtype.md
@@ -797,6 +792,9 @@ generatedFiles:
   - docs/models/shared/inappmessagesmessagecontent.md
   - docs/models/shared/inappmessagesmessagetype.md
   - docs/models/shared/inappmessagesvalue.md
+  - docs/models/shared/inapptemplate.md
+  - docs/models/shared/inapptemplateresult.md
+  - docs/models/shared/inapptemplatespaginated.md
   - docs/models/shared/internal.md
   - docs/models/shared/interview.md
   - docs/models/shared/interviewer.md
@@ -814,7 +812,6 @@ generatedFiles:
   - docs/models/shared/issuedby.md
   - docs/models/shared/job.md
   - docs/models/shared/jobconfidential.md
-  - docs/models/shared/jobcustomfields.md
   - docs/models/shared/jobdescription.md
   - docs/models/shared/jobhiringteam.md
   - docs/models/shared/jobjobstatus.md
@@ -845,6 +842,8 @@ generatedFiles:
   - docs/models/shared/jobstatus.md
   - docs/models/shared/jobvalue.md
   - docs/models/shared/label.md
+  - docs/models/shared/languageenum.md
+  - docs/models/shared/languageenumvalue.md
   - docs/models/shared/learningobjecttype.md
   - docs/models/shared/level.md
   - docs/models/shared/linkedaccount.md
@@ -859,21 +858,15 @@ generatedFiles:
   - docs/models/shared/listvalue.md
   - docs/models/shared/lmsbatchupsertcontentrequestdto.md
   - docs/models/shared/lmsbatchupsertcourserequestdto.md
+  - docs/models/shared/lmscreatecollectionrequestdto.md
   - docs/models/shared/lmscreatecompletionrequestdto.md
   - docs/models/shared/lmscreatecompletionrequestdtoresult.md
   - docs/models/shared/lmscreatecompletionrequestdtovalue.md
-  - docs/models/shared/lmscreatecontentrequestdto.md
-  - docs/models/shared/lmscreatecontentrequestdtocontenttype.md
-  - docs/models/shared/lmscreatecontentrequestdtoschemasvalue.md
-  - docs/models/shared/lmscreatecontentrequestdtovalue.md
   - docs/models/shared/lmsupsertcontentrequestdto.md
-  - docs/models/shared/lmsupsertcontentrequestdtocontentlaunchmethod.md
   - docs/models/shared/lmsupsertcontentrequestdtocontenttype.md
   - docs/models/shared/lmsupsertcontentrequestdtoschemasvalue.md
   - docs/models/shared/lmsupsertcontentrequestdtovalue.md
   - docs/models/shared/lmsupsertcourserequestdto.md
-  - docs/models/shared/lmsupsertcourserequestdtocoursetype.md
-  - docs/models/shared/lmsupsertcourserequestdtovalue.md
   - docs/models/shared/lmsuser.md
   - docs/models/shared/locationtype.md
   - docs/models/shared/maritalstatus.md
@@ -922,6 +915,9 @@ generatedFiles:
   - docs/models/shared/pushmessagesmessagecontent.md
   - docs/models/shared/pushmessagesmessagetype.md
   - docs/models/shared/pushmessagesvalue.md
+  - docs/models/shared/pushtemplate.md
+  - docs/models/shared/pushtemplateresult.md
+  - docs/models/shared/pushtemplatespaginated.md
   - docs/models/shared/question.md
   - docs/models/shared/questionmultiplechoiceanswers.md
   - docs/models/shared/questionnaire.md
@@ -965,6 +961,9 @@ generatedFiles:
   - docs/models/shared/smsmessagesmessagecontent.md
   - docs/models/shared/smsmessagesmessagetype.md
   - docs/models/shared/smsmessagesvalue.md
+  - docs/models/shared/smstemplate.md
+  - docs/models/shared/smstemplateresult.md
+  - docs/models/shared/smstemplatespaginated.md
   - docs/models/shared/sociallink.md
   - docs/models/shared/source.md
   - docs/models/shared/state.md
@@ -1312,12 +1311,10 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_batch_upsert_content_response.rb
   - lib/stack_one/models/operations/lms_batch_upsert_course_request.rb
   - lib/stack_one/models/operations/lms_batch_upsert_course_response.rb
-  - lib/stack_one/models/operations/lms_create_content_request.rb
-  - lib/stack_one/models/operations/lms_create_content_response.rb
+  - lib/stack_one/models/operations/lms_create_collection_request.rb
+  - lib/stack_one/models/operations/lms_create_collection_response.rb
   - lib/stack_one/models/operations/lms_create_user_completion_request.rb
   - lib/stack_one/models/operations/lms_create_user_completion_response.rb
-  - lib/stack_one/models/operations/lms_delete_content_request.rb
-  - lib/stack_one/models/operations/lms_delete_content_response.rb
   - lib/stack_one/models/operations/lms_get_assignment_request.rb
   - lib/stack_one/models/operations/lms_get_assignment_response.rb
   - lib/stack_one/models/operations/lms_get_category_request.rb
@@ -1363,8 +1360,8 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_list_users_queryparam_filter.rb
   - lib/stack_one/models/operations/lms_list_users_request.rb
   - lib/stack_one/models/operations/lms_list_users_response.rb
-  - lib/stack_one/models/operations/lms_update_content_request.rb
-  - lib/stack_one/models/operations/lms_update_content_response.rb
+  - lib/stack_one/models/operations/lms_update_collection_request.rb
+  - lib/stack_one/models/operations/lms_update_collection_response.rb
   - lib/stack_one/models/operations/lms_upsert_content_request.rb
   - lib/stack_one/models/operations/lms_upsert_content_response.rb
   - lib/stack_one/models/operations/lms_upsert_course_request.rb
@@ -1526,7 +1523,6 @@ generatedFiles:
   - lib/stack_one/models/shared/campaignresult.rb
   - lib/stack_one/models/shared/campaignspaginated.rb
   - lib/stack_one/models/shared/candidate.rb
-  - lib/stack_one/models/shared/candidatecustomfields.rb
   - lib/stack_one/models/shared/candidateemail.rb
   - lib/stack_one/models/shared/candidateresult.rb
   - lib/stack_one/models/shared/candidatespaginated.rb
@@ -1558,7 +1554,6 @@ generatedFiles:
   - lib/stack_one/models/shared/connectsessiontoken_categories.rb
   - lib/stack_one/models/shared/contact.rb
   - lib/stack_one/models/shared/contactresult.rb
-  - lib/stack_one/models/shared/contactscustomfields.rb
   - lib/stack_one/models/shared/contactspaginated.rb
   - lib/stack_one/models/shared/content.rb
   - lib/stack_one/models/shared/content_file_format.rb
@@ -1570,9 +1565,8 @@ generatedFiles:
   - lib/stack_one/models/shared/contentblock_status.rb
   - lib/stack_one/models/shared/contentblock_type.rb
   - lib/stack_one/models/shared/contentblock_value.rb
+  - lib/stack_one/models/shared/contentblockresult.rb
   - lib/stack_one/models/shared/contentblockspaginated.rb
-  - lib/stack_one/models/shared/contentlanguageenum.rb
-  - lib/stack_one/models/shared/contentlanguageenum_value.rb
   - lib/stack_one/models/shared/contentpaginated.rb
   - lib/stack_one/models/shared/contentresult.rb
   - lib/stack_one/models/shared/costcenters.rb
@@ -1580,8 +1574,6 @@ generatedFiles:
   - lib/stack_one/models/shared/countrycodeenum.rb
   - lib/stack_one/models/shared/countrycodeenum_value.rb
   - lib/stack_one/models/shared/course.rb
-  - lib/stack_one/models/shared/course_type.rb
-  - lib/stack_one/models/shared/course_value.rb
   - lib/stack_one/models/shared/coursepaginated.rb
   - lib/stack_one/models/shared/courseresult.rb
   - lib/stack_one/models/shared/createanswer.rb
@@ -1611,7 +1603,7 @@ generatedFiles:
   - lib/stack_one/models/shared/customfielddefinition_value.rb
   - lib/stack_one/models/shared/customfielddefinitionresultapimodel.rb
   - lib/stack_one/models/shared/customfielddefinitionspaginated.rb
-  - lib/stack_one/models/shared/deleteresult.rb
+  - lib/stack_one/models/shared/customfields.rb
   - lib/stack_one/models/shared/department.rb
   - lib/stack_one/models/shared/departmentresult.rb
   - lib/stack_one/models/shared/departmentspaginated.rb
@@ -1619,6 +1611,9 @@ generatedFiles:
   - lib/stack_one/models/shared/emailmessages.rb
   - lib/stack_one/models/shared/emailmessages_message_type.rb
   - lib/stack_one/models/shared/emailmessages_value.rb
+  - lib/stack_one/models/shared/emailtemplate.rb
+  - lib/stack_one/models/shared/emailtemplateresult.rb
+  - lib/stack_one/models/shared/emailtemplatespaginated.rb
   - lib/stack_one/models/shared/employee.rb
   - lib/stack_one/models/shared/employee_company.rb
   - lib/stack_one/models/shared/employee_country.rb
@@ -1642,7 +1637,6 @@ generatedFiles:
   - lib/stack_one/models/shared/employee_schemas_work_location_value.rb
   - lib/stack_one/models/shared/employee_type.rb
   - lib/stack_one/models/shared/employee_value.rb
-  - lib/stack_one/models/shared/employeecustomfields.rb
   - lib/stack_one/models/shared/employeeresult.rb
   - lib/stack_one/models/shared/employeespaginated.rb
   - lib/stack_one/models/shared/employment.rb
@@ -1796,6 +1790,9 @@ generatedFiles:
   - lib/stack_one/models/shared/inappmessages_message_content.rb
   - lib/stack_one/models/shared/inappmessages_message_type.rb
   - lib/stack_one/models/shared/inappmessages_value.rb
+  - lib/stack_one/models/shared/inapptemplate.rb
+  - lib/stack_one/models/shared/inapptemplateresult.rb
+  - lib/stack_one/models/shared/inapptemplatespaginated.rb
   - lib/stack_one/models/shared/internal.rb
   - lib/stack_one/models/shared/interview.rb
   - lib/stack_one/models/shared/interview_interview_stage.rb
@@ -1817,7 +1814,6 @@ generatedFiles:
   - lib/stack_one/models/shared/job_job_status.rb
   - lib/stack_one/models/shared/job_status.rb
   - lib/stack_one/models/shared/job_value.rb
-  - lib/stack_one/models/shared/jobcustomfields.rb
   - lib/stack_one/models/shared/jobhiringteam.rb
   - lib/stack_one/models/shared/jobposting.rb
   - lib/stack_one/models/shared/jobposting_content.rb
@@ -1844,6 +1840,8 @@ generatedFiles:
   - lib/stack_one/models/shared/jobresult.rb
   - lib/stack_one/models/shared/jobspaginated.rb
   - lib/stack_one/models/shared/label.rb
+  - lib/stack_one/models/shared/languageenum.rb
+  - lib/stack_one/models/shared/languageenum_value.rb
   - lib/stack_one/models/shared/learning_object_type.rb
   - lib/stack_one/models/shared/level.rb
   - lib/stack_one/models/shared/linkedaccount.rb
@@ -1858,21 +1856,15 @@ generatedFiles:
   - lib/stack_one/models/shared/listspaginated.rb
   - lib/stack_one/models/shared/lmsbatchupsertcontentrequestdto.rb
   - lib/stack_one/models/shared/lmsbatchupsertcourserequestdto.rb
+  - lib/stack_one/models/shared/lmscreatecollectionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_result.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
-  - lib/stack_one/models/shared/lmscreatecontentrequestdto.rb
-  - lib/stack_one/models/shared/lmscreatecontentrequestdto_content_type.rb
-  - lib/stack_one/models/shared/lmscreatecontentrequestdto_schemas_value.rb
-  - lib/stack_one/models/shared/lmscreatecontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto.rb
-  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_launch_method.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_type.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcourserequestdto.rb
-  - lib/stack_one/models/shared/lmsupsertcourserequestdto_course_type.rb
-  - lib/stack_one/models/shared/lmsupsertcourserequestdto_value.rb
   - lib/stack_one/models/shared/lmsuser.rb
   - lib/stack_one/models/shared/location_type.rb
   - lib/stack_one/models/shared/marital_status.rb
@@ -1921,6 +1913,9 @@ generatedFiles:
   - lib/stack_one/models/shared/pushmessages_message_content.rb
   - lib/stack_one/models/shared/pushmessages_message_type.rb
   - lib/stack_one/models/shared/pushmessages_value.rb
+  - lib/stack_one/models/shared/pushtemplate.rb
+  - lib/stack_one/models/shared/pushtemplateresult.rb
+  - lib/stack_one/models/shared/pushtemplatespaginated.rb
   - lib/stack_one/models/shared/question.rb
   - lib/stack_one/models/shared/question_type.rb
   - lib/stack_one/models/shared/question_value.rb
@@ -1964,6 +1959,9 @@ generatedFiles:
   - lib/stack_one/models/shared/smsmessages_message_content.rb
   - lib/stack_one/models/shared/smsmessages_message_type.rb
   - lib/stack_one/models/shared/smsmessages_value.rb
+  - lib/stack_one/models/shared/smstemplate.rb
+  - lib/stack_one/models/shared/smstemplateresult.rb
+  - lib/stack_one/models/shared/smstemplatespaginated.rb
   - lib/stack_one/models/shared/sociallink.rb
   - lib/stack_one/models/shared/source.rb
   - lib/stack_one/models/shared/state.rb
@@ -3553,7 +3551,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at,content"
+          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content"
         header:
           x-account-id: "<value>"
       responses:
@@ -3663,7 +3661,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,course_type,cover_url,url,active,duration,categories,skills,updated_at,created_at,content"
+          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -3820,7 +3818,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"channels": [], "created_at": "2021-01-01T01:01:01.000Z", "first_sent_at": "2021-01-01T01:01:01.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_sent_at": "2021-01-01T01:01:01.000Z", "messages": [{"id": "message-id-1", "message_content": {"body": "This is an example SMS body.", "from": "1-555-123-4567"}, "message_type": {"source_value": "Email"}, "name": "SMS Message", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "message-id-2", "message_content": {"subject": "Example Email Subject", "body": "<h1>This is an example</h1>\n            <p>email body</p>", "from": "Jane Smith", "reply-to": "reply@example.com", "preheader": "This is the preheader of the email."}, "message_type": {"source_value": "Email"}, "name": "Email Message", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "message-id-3", "message_content": {"body": "This is an example push notification body."}, "message_type": {"source_value": "Email"}, "name": "iOS Push Message", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "schedule_type": {"source_value": "Immediate", "value": "immediate"}, "status": {"source_value": "Email", "value": "draft"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"channels": [], "created_at": "2021-01-01T01:01:01.000Z", "first_sent_at": "2021-01-01T01:01:01.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_sent_at": "2021-01-01T01:01:01.000Z", "messages": [{"id": "message-id-1", "message_content": {"body": "This is an example SMS body.", "from": "1-555-123-4567"}, "message_type": {"source_value": "Email", "value": "email"}, "name": "SMS Message", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "message-id-2", "message_content": {"subject": "Example Email Subject", "body": "<h1>This is an example</h1>\n            <p>email body</p>", "from": "Jane Smith", "reply-to": "reply@example.com", "preheader": "This is the preheader of the email."}, "message_type": {"source_value": "Email", "value": "email"}, "name": "Email Message", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "message-id-3", "message_content": {"body": "This is an example push notification body."}, "message_type": {"source_value": "Email", "value": "email"}, "name": "iOS Push Message", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "schedule_type": {"source_value": "Immediate", "value": "immediate"}, "status": {"source_value": "Email", "value": "draft"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
   marketing_get_content_block:
     "":
       parameters:
@@ -3832,7 +3830,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": []}
+          application/json: {"data": {}}
   marketing_get_email_template:
     "":
       parameters:
@@ -3844,7 +3842,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T00:00:00.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "updated_at": "2021-01-01T00:00:00.000Z"}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "messages": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "message_type": {"source_value": "Email", "value": "email"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "message_type": {"source_value": "Email", "value": "email"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
   marketing_get_in_app_template:
     "":
       parameters:
@@ -3856,7 +3854,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T00:00:00.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "updated_at": "2021-01-01T00:00:00.000Z"}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "messages": [], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
   marketing_get_omni_channel_template:
     "":
       parameters:
@@ -3880,7 +3878,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T00:00:00.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "updated_at": "2021-01-01T00:00:00.000Z"}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "messages": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "message_type": {"source_value": "Email", "value": "email"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
   marketing_get_sms_template:
     "":
       parameters:
@@ -3892,7 +3890,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"created_at": "2021-01-01T00:00:00.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "updated_at": "2021-01-01T00:00:00.000Z"}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "messages": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "message_type": {"source_value": "Email", "value": "email"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
   marketing_list_campaigns:
     "":
       parameters:
@@ -4195,3 +4193,25 @@ examples:
       responses:
         "201":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+  lms_create_collection:
+    speakeasy-default-lms-create-collection:
+      parameters:
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This collection acts as learning pathway for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-collection-1", "learning_object_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_learning_object_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1 Collection", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+      responses:
+        "201":
+          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+  lms_update_collection:
+    speakeasy-default-lms-update-collection:
+      parameters:
+        path:
+          id: "<id>"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This collection acts as learning pathway for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-collection-1", "learning_object_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_learning_object_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1 Collection", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+      responses:
+        "201":
+          application/json: {"message": "Record updated successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}

@@ -90,7 +90,7 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
     company: "Company Inc.",
     country: "United States",
     custom_fields: [
-      ::StackOne::Shared::CandidateCustomFields.new(
+      ::StackOne::Shared::CustomFields.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -191,7 +191,7 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared
   company: "Company Inc.",
   country: "United States",
   custom_fields: [
-    ::StackOne::Shared::CandidateCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -318,7 +318,7 @@ s.config_security(
 res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJobRequestDto.new(
   code: "184919",
   custom_fields: [
-    ::StackOne::Shared::JobCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -2724,7 +2724,7 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
   company: "Company Inc.",
   country: "United States",
   custom_fields: [
-    ::StackOne::Shared::CandidateCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -2807,7 +2807,7 @@ s.config_security(
 res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJobRequestDto.new(
   code: "184919",
   custom_fields: [
-    ::StackOne::Shared::JobCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",

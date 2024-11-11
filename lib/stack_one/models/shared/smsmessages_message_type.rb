@@ -14,7 +14,7 @@ module StackOne
       # The original value from the provider used to derive the unified message type.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
       # The unified message type.
-      field :value, T.nilable(::StackOne::Shared::SmsMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+      field :value, T.nilable(::StackOne::Shared::SmsMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::SmsMessagesValue, true) } }
 
 
       sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::SmsMessagesValue)).void }

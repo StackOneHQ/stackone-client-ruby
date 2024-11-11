@@ -111,19 +111,19 @@ module StackOne
     end
 
 
-    sig { params(lms_create_content_request_dto: ::StackOne::Shared::LmsCreateContentRequestDto, x_account_id: ::String).returns(::StackOne::Operations::LmsCreateContentResponse) }
-    def create_content(lms_create_content_request_dto, x_account_id)
-      # create_content - Create Content
-      request = ::StackOne::Operations::LmsCreateContentRequest.new(
+    sig { params(lms_create_collection_request_dto: ::StackOne::Shared::LmsCreateCollectionRequestDto, x_account_id: ::String).returns(::StackOne::Operations::LmsCreateCollectionResponse) }
+    def create_collection(lms_create_collection_request_dto, x_account_id)
+      # create_collection - Create Collection
+      request = ::StackOne::Operations::LmsCreateCollectionRequest.new(
         
-        lms_create_content_request_dto: lms_create_content_request_dto,
+        lms_create_collection_request_dto: lms_create_collection_request_dto,
         x_account_id: x_account_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/unified/lms/content"
+      url = "#{base_url}/unified/lms/collections"
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :lms_create_content_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :lms_create_collection_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
@@ -143,7 +143,7 @@ module StackOne
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::StackOne::Operations::LmsCreateContentResponse.new(
+      res = ::StackOne::Operations::LmsCreateCollectionResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 201
@@ -202,47 +202,6 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
-        end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
-      end
-      res
-    end
-
-
-    sig { params(id: ::String, x_account_id: ::String).returns(::StackOne::Operations::LmsDeleteContentResponse) }
-    def delete_content(id, x_account_id)
-      # delete_content - Delete Content
-      request = ::StackOne::Operations::LmsDeleteContentRequest.new(
-        
-        id: id,
-        x_account_id: x_account_id
-      )
-      url, params = @sdk_configuration.get_server_details
-      base_url = Utils.template_url(url, params)
-      url = Utils.generate_url(
-        ::StackOne::Operations::LmsDeleteContentRequest,
-        base_url,
-        '/unified/lms/content/{id}',
-        request
-      )
-      headers = Utils.get_headers(request)
-      headers['Accept'] = 'application/json'
-      headers['user-agent'] = @sdk_configuration.user_agent
-
-      r = @sdk_configuration.client.delete(url) do |req|
-        req.headers = headers
-        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
-      end
-
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
-
-      res = ::StackOne::Operations::LmsDeleteContentResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::DeleteResult)
-          res.delete_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
@@ -899,25 +858,25 @@ module StackOne
     end
 
 
-    sig { params(lms_create_content_request_dto: ::StackOne::Shared::LmsCreateContentRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::LmsUpdateContentResponse) }
-    def update_content(lms_create_content_request_dto, id, x_account_id)
-      # update_content - Update Content
-      request = ::StackOne::Operations::LmsUpdateContentRequest.new(
+    sig { params(lms_create_collection_request_dto: ::StackOne::Shared::LmsCreateCollectionRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::LmsUpdateCollectionResponse) }
+    def update_collection(lms_create_collection_request_dto, id, x_account_id)
+      # update_collection - Update Collection
+      request = ::StackOne::Operations::LmsUpdateCollectionRequest.new(
         
-        lms_create_content_request_dto: lms_create_content_request_dto,
+        lms_create_collection_request_dto: lms_create_collection_request_dto,
         id: id,
         x_account_id: x_account_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::StackOne::Operations::LmsUpdateContentRequest,
+        ::StackOne::Operations::LmsUpdateCollectionRequest,
         base_url,
-        '/unified/lms/content/{id}',
+        '/unified/lms/collections/{id}',
         request
       )
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :lms_create_content_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :lms_create_collection_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
@@ -937,7 +896,7 @@ module StackOne
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
 
-      res = ::StackOne::Operations::LmsUpdateContentResponse.new(
+      res = ::StackOne::Operations::LmsUpdateCollectionResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 201

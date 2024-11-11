@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The list of SMS templates was retrieved.
-      field :templates_paginated, T.nilable(::StackOne::Shared::TemplatesPaginated)
+      field :sms_templates_paginated, T.nilable(::StackOne::Shared::SmsTemplatesPaginated)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, templates_paginated: T.nilable(::StackOne::Shared::TemplatesPaginated)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, templates_paginated: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, sms_templates_paginated: T.nilable(::StackOne::Shared::SmsTemplatesPaginated)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, sms_templates_paginated: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @templates_paginated = templates_paginated
+        @sms_templates_paginated = sms_templates_paginated
       end
     end
   end
