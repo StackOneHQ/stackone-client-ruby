@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The content was upserted successfully.
-      field :create_result, T.nilable(::StackOne::Shared::CreateResult)
+      field :upsert_result, T.nilable(::StackOne::Shared::UpsertResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, create_result: T.nilable(::StackOne::Shared::CreateResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, create_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, upsert_result: T.nilable(::StackOne::Shared::UpsertResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, upsert_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @create_result = create_result
+        @upsert_result = upsert_result
       end
     end
   end

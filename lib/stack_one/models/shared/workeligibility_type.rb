@@ -12,14 +12,14 @@ module StackOne
       extend T::Sig
 
 
-      field :source_type, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_type') } }
+      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
       field :value, T.nilable(::StackOne::Shared::WorkEligibilitySchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::WorkEligibilitySchemasValue, true) } }
 
 
-      sig { params(source_type: T.nilable(::Object), value: T.nilable(::StackOne::Shared::WorkEligibilitySchemasValue)).void }
-      def initialize(source_type: nil, value: nil)
-        @source_type = source_type
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::WorkEligibilitySchemasValue)).void }
+      def initialize(source_value: nil, value: nil)
+        @source_value = source_value
         @value = value
       end
     end

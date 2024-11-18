@@ -7,16 +7,19 @@
 module StackOne
   module Operations
   
-    # Filter parameters that allow greater customisation of the list response
+    # HRIS Time Off filters
     class HrisListEmployeeTimeOffRequestsQueryParamFilter < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # List of time off type ids to filter by.
+      field :type, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'type' } }
       # Use a string with a date to only select results updated after that given date
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
+      sig { params(type: T.nilable(T::Array[::String]), updated_after: T.nilable(::String)).void }
+      def initialize(type: nil, updated_after: nil)
+        @type = type
         @updated_after = updated_after
       end
     end

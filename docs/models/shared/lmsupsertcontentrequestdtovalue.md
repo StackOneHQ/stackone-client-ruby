@@ -3,7 +3,8 @@
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `AUTOMATIC` | automatic   |
-| `BROWSER`   | browser     |
+| Name       | Value      |
+| ---------- | ---------- |
+| `VIDEO`    | video      |
+| `QUIZ`     | quiz       |
+| `DOCUMENT` | document   |

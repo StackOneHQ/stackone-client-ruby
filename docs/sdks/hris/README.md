@@ -17,6 +17,7 @@
 * [get_cost_center_group](#get_cost_center_group) - Get Cost Center Group
 * [get_department_group](#get_department_group) - Get Department Group
 * [get_employee](#get_employee) - Get Employee
+* [get_employee_custom_field_definition](#get_employee_custom_field_definition) - Get employee Custom Field Definition
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](#get_employee_employment) - Get Employee Employment
@@ -27,11 +28,13 @@
 * [get_job](#get_job) - Get Job
 * [get_location](#get_location) - Get Location
 * [get_time_off_request](#get_time_off_request) - Get time off request
+* [get_time_off_type](#get_time_off_type) - Get time off type
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
 * [list_cost_center_groups](#list_cost_center_groups) - List Cost Center Groups
 * [list_department_groups](#list_department_groups) - List Department Groups
 * [list_employee_categories](#list_employee_categories) - List Employee Document Categories
+* [list_employee_custom_field_definitions](#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_employments](#list_employee_employments) - List Employee Employments
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -42,6 +45,7 @@
 * [list_jobs](#list_jobs) - List Jobs
 * [list_locations](#list_locations) - List locations
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
+* [list_time_off_types](#list_time_off_types) - List time off types
 * [update_employee](#update_employee) - Updates an employee
 * [update_employee_employment](#update_employee_employment) - Update Employee Employment
 * [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
@@ -790,6 +794,54 @@ end
 
 
 
+## get_employee_custom_field_definition
+
+Get employee Custom Field Definition
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.get_employee_custom_field_definition(req)
+
+if ! res.custom_field_definition_result_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest](../../models/operations/hrisgetemployeecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionResponse)](../../models/operations/hrisgetemployeecustomfielddefinitionresponse.md)**
+
+
+
 ## get_employee_document
 
 Get Employee Document
@@ -1246,6 +1298,51 @@ end
 
 
 
+## get_time_off_type
+
+Get time off type
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetTimeOffTypeRequest.new(
+  fields_: "id,remote_id,name,active",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.get_time_off_type(req)
+
+if ! res.reference_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [::StackOne::Operations::HrisGetTimeOffTypeRequest](../../models/operations/hrisgettimeofftyperequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetTimeOffTypeResponse)](../../models/operations/hrisgettimeofftyperesponse.md)**
+
+
+
 ## list_benefits
 
 List benefits
@@ -1478,6 +1575,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesResponse)](../../models/operations/hrislistemployeecategoriesresponse.md)**
+
+
+
+## list_employee_custom_field_definitions
+
+List employee Custom Field Definitions
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
+  fields_: "id,remote_id,name,description,type,options",
+  filter: ::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.hris.list_employee_custom_field_definitions(req)
+
+if ! res.custom_field_definitions_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest](../../models/operations/hrislistemployeecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsResponse)](../../models/operations/hrislistemployeecustomfielddefinitionsresponse.md)**
 
 
 
@@ -1956,6 +2100,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListTimeOffRequestsResponse)](../../models/operations/hrislisttimeoffrequestsresponse.md)**
+
+
+
+## list_time_off_types
+
+List time off types
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListTimeOffTypesRequest.new(
+  fields_: "id,remote_id,name,active",
+  filter: ::StackOne::Operations::HrisListTimeOffTypesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.hris.list_time_off_types(req)
+
+if ! res.reference_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [::StackOne::Operations::HrisListTimeOffTypesRequest](../../models/operations/hrislisttimeofftypesrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListTimeOffTypesResponse)](../../models/operations/hrislisttimeofftypesresponse.md)**
 
 
 

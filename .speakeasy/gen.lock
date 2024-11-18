@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 94cd7bfd258f94603b986c9dd874653b
+  docChecksum: 3bf4f70b9306be84b812d5bc410b0b9b
   docVersion: 1.0.0
-  speakeasyVersion: 1.436.0
-  generationVersion: 2.455.2
-  releaseVersion: 0.3.1
-  configChecksum: 6ef803ed8960b6010567ba2905401007
+  speakeasyVersion: 1.440.1
+  generationVersion: 2.460.1
+  releaseVersion: 0.3.2
+  configChecksum: 088b374aff32b0da44c04e6a40907d35
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.3.0
+    core: 3.3.1
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -213,6 +213,9 @@ generatedFiles:
   - docs/models/operations/hrisgetcostcentergroupresponse.md
   - docs/models/operations/hrisgetdepartmentgrouprequest.md
   - docs/models/operations/hrisgetdepartmentgroupresponse.md
+  - docs/models/operations/hrisgetemployeecustomfielddefinitionqueryparamfilter.md
+  - docs/models/operations/hrisgetemployeecustomfielddefinitionrequest.md
+  - docs/models/operations/hrisgetemployeecustomfielddefinitionresponse.md
   - docs/models/operations/hrisgetemployeedocumentcategoryrequest.md
   - docs/models/operations/hrisgetemployeedocumentcategoryresponse.md
   - docs/models/operations/hrisgetemployeedocumentrequest.md
@@ -235,6 +238,8 @@ generatedFiles:
   - docs/models/operations/hrisgetlocationresponse.md
   - docs/models/operations/hrisgettimeoffrequestrequest.md
   - docs/models/operations/hrisgettimeoffrequestresponse.md
+  - docs/models/operations/hrisgettimeofftyperequest.md
+  - docs/models/operations/hrisgettimeofftyperesponse.md
   - docs/models/operations/hrislistbenefitsqueryparamfilter.md
   - docs/models/operations/hrislistbenefitsrequest.md
   - docs/models/operations/hrislistbenefitsresponse.md
@@ -250,6 +255,9 @@ generatedFiles:
   - docs/models/operations/hrislistemployeecategoriesqueryparamfilter.md
   - docs/models/operations/hrislistemployeecategoriesrequest.md
   - docs/models/operations/hrislistemployeecategoriesresponse.md
+  - docs/models/operations/hrislistemployeecustomfielddefinitionsqueryparamfilter.md
+  - docs/models/operations/hrislistemployeecustomfielddefinitionsrequest.md
+  - docs/models/operations/hrislistemployeecustomfielddefinitionsresponse.md
   - docs/models/operations/hrislistemployeedocumentsqueryparamfilter.md
   - docs/models/operations/hrislistemployeedocumentsrequest.md
   - docs/models/operations/hrislistemployeedocumentsresponse.md
@@ -280,6 +288,9 @@ generatedFiles:
   - docs/models/operations/hrislisttimeoffrequestsqueryparamfilter.md
   - docs/models/operations/hrislisttimeoffrequestsrequest.md
   - docs/models/operations/hrislisttimeoffrequestsresponse.md
+  - docs/models/operations/hrislisttimeofftypesqueryparamfilter.md
+  - docs/models/operations/hrislisttimeofftypesrequest.md
+  - docs/models/operations/hrislisttimeofftypesresponse.md
   - docs/models/operations/hrisupdateemployeeemploymentrequest.md
   - docs/models/operations/hrisupdateemployeeemploymentresponse.md
   - docs/models/operations/hrisupdateemployeerequest.md
@@ -566,7 +577,6 @@ generatedFiles:
   - docs/models/shared/contentblocktype.md
   - docs/models/shared/contentblockvalue.md
   - docs/models/shared/contentfileformat.md
-  - docs/models/shared/contentlaunchmethod.md
   - docs/models/shared/contentpaginated.md
   - docs/models/shared/contentresult.md
   - docs/models/shared/contenttype.md
@@ -864,7 +874,6 @@ generatedFiles:
   - docs/models/shared/lmscreatecompletionrequestdtovalue.md
   - docs/models/shared/lmsupsertcontentrequestdto.md
   - docs/models/shared/lmsupsertcontentrequestdtocontenttype.md
-  - docs/models/shared/lmsupsertcontentrequestdtoschemasvalue.md
   - docs/models/shared/lmsupsertcontentrequestdtovalue.md
   - docs/models/shared/lmsupsertcourserequestdto.md
   - docs/models/shared/lmsuser.md
@@ -987,6 +996,8 @@ generatedFiles:
   - docs/models/shared/unifieduploadrequestdtoschemasvalue.md
   - docs/models/shared/unifieduploadrequestdtovalue.md
   - docs/models/shared/updateresult.md
+  - docs/models/shared/upsertresult.md
+  - docs/models/shared/upsertresultdataexternalreferencemodel.md
   - docs/models/shared/userresult.md
   - docs/models/shared/userspaginated.md
   - docs/models/shared/value.md
@@ -1210,6 +1221,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_cost_center_group_response.rb
   - lib/stack_one/models/operations/hris_get_department_group_request.rb
   - lib/stack_one/models/operations/hris_get_department_group_response.rb
+  - lib/stack_one/models/operations/hris_get_employee_custom_field_definition_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_get_employee_custom_field_definition_request.rb
+  - lib/stack_one/models/operations/hris_get_employee_custom_field_definition_response.rb
   - lib/stack_one/models/operations/hris_get_employee_document_category_request.rb
   - lib/stack_one/models/operations/hris_get_employee_document_category_response.rb
   - lib/stack_one/models/operations/hris_get_employee_document_request.rb
@@ -1232,6 +1246,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_location_response.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_request.rb
   - lib/stack_one/models/operations/hris_get_time_off_request_response.rb
+  - lib/stack_one/models/operations/hris_get_time_off_type_request.rb
+  - lib/stack_one/models/operations/hris_get_time_off_type_response.rb
   - lib/stack_one/models/operations/hris_list_benefits_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_benefits_request.rb
   - lib/stack_one/models/operations/hris_list_benefits_response.rb
@@ -1247,6 +1263,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_employee_categories_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_request.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_response.rb
+  - lib/stack_one/models/operations/hris_list_employee_custom_field_definitions_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_employee_custom_field_definitions_request.rb
+  - lib/stack_one/models/operations/hris_list_employee_custom_field_definitions_response.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_request.rb
   - lib/stack_one/models/operations/hris_list_employee_documents_response.rb
@@ -1277,6 +1296,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_time_off_requests_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_time_off_requests_request.rb
   - lib/stack_one/models/operations/hris_list_time_off_requests_response.rb
+  - lib/stack_one/models/operations/hris_list_time_off_types_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_time_off_types_request.rb
+  - lib/stack_one/models/operations/hris_list_time_off_types_response.rb
   - lib/stack_one/models/operations/hris_update_employee_employment_request.rb
   - lib/stack_one/models/operations/hris_update_employee_employment_response.rb
   - lib/stack_one/models/operations/hris_update_employee_request.rb
@@ -1557,7 +1579,6 @@ generatedFiles:
   - lib/stack_one/models/shared/contactspaginated.rb
   - lib/stack_one/models/shared/content.rb
   - lib/stack_one/models/shared/content_file_format.rb
-  - lib/stack_one/models/shared/content_launch_method.rb
   - lib/stack_one/models/shared/content_type.rb
   - lib/stack_one/models/shared/content_value.rb
   - lib/stack_one/models/shared/contentblock.rb
@@ -1862,7 +1883,6 @@ generatedFiles:
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_type.rb
-  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcourserequestdto.rb
   - lib/stack_one/models/shared/lmsuser.rb
@@ -1985,6 +2005,8 @@ generatedFiles:
   - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_value.rb
   - lib/stack_one/models/shared/updateresult.rb
+  - lib/stack_one/models/shared/upsertresult.rb
+  - lib/stack_one/models/shared/upsertresultdataexternalreferencemodel.rb
   - lib/stack_one/models/shared/userresult.rb
   - lib/stack_one/models/shared/userspaginated.rb
   - lib/stack_one/models/shared/value.rb
@@ -2130,7 +2152,7 @@ examples:
         application/json: {"application_status": {"source_value": "Hired", "value": "hired"}, "candidate": {"company": "Company Inc.", "country": "United States", "custom_fields": [], "email": "sestier.romain123@gmail.com", "first_name": "Romain", "hired_at": "2021-01-01T01:01:01.000Z", "last_name": "Sestier", "name": "Romain Sestier", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+1234567890", "social_links": [], "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "location_id": "dd8d41d1-5eb8-4408-9c87-9ba44604eae4", "passthrough": {"other_known_names": "John Doe"}, "questionnaires": [{"answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"source_value": "Short Text", "value": "short_text"}, "values": ["Yes", "No Travel", "It sounds pretty cool.", "Excel", "Power Point"]}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_create_candidate:
     speakeasy-default-ats-create-candidate:
       parameters:
@@ -2140,7 +2162,7 @@ examples:
         application/json: {"company": "Company Inc.", "country": "United States", "custom_fields": [], "email": "sestier.romain123@gmail.com", "first_name": "Romain", "hired_at": "2021-01-01T01:01:01.000Z", "last_name": "Sestier", "name": "Romain Sestier", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+1234567890", "social_links": [], "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_create_candidate_note:
     speakeasy-default-ats-create-candidate-note:
       parameters:
@@ -2152,7 +2174,7 @@ examples:
         application/json: {"author_id": "1234567890", "content": [], "passthrough": {"other_known_names": "John Doe"}, "visibility": {"source_value": "Public", "value": "public"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_create_offer:
     speakeasy-default-ats-create-offer:
       parameters:
@@ -2162,7 +2184,7 @@ examples:
         application/json: {"offer_history": [], "offer_status": {"source_value": "Pending", "value": "pending"}, "passthrough": {"other_known_names": "John Doe"}, "start_date": "2021-01-01T01:01:01.000Z"}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_download_application_document:
     "":
       parameters:
@@ -2747,7 +2769,7 @@ examples:
         application/json: {"interview_stage_id": "f223d7f6-908b-48f0-9237-b201c307f609", "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Application moved successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Application moved successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_reject_application:
     speakeasy-default-ats-reject-application:
       parameters:
@@ -2759,7 +2781,7 @@ examples:
         application/json: {"passthrough": {"other_known_names": "John Doe"}, "rejected_reason_id": "f223d7f6-908b-48f0-9237-b201c307f609"}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Application rejected successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Application rejected successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_update_application:
     speakeasy-default-ats-update-application:
       parameters:
@@ -2783,7 +2805,7 @@ examples:
         application/json: {"application_ids": ["123e4567-e89b-12d3-a456-426614174000", "523e1234-e89b-fdd2-a456-762545121101"], "company": "Company Inc.", "country": "United States", "custom_fields": [], "email": "sestier.romain123@gmail.com", "emails": [], "first_name": "Romain", "hired_at": "2021-01-01T01:01:01.000Z", "last_name": "Sestier", "name": "Romain Sestier", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": [], "social_links": [], "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_upload_application_document:
     speakeasy-default-ats-upload-application-document:
       parameters:
@@ -2913,7 +2935,7 @@ examples:
         application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"country": {"value": "US"}, "type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_create_employee_time_off_request:
     speakeasy-default-hris-create-employee-time-off-request:
       parameters:
@@ -2925,7 +2947,7 @@ examples:
         application/json: {"approver_id": "1687-4", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000Z", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "start_date": "2021-01-01T01:01:01.000Z", "start_half_day": true}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_create_employee_work_eligibility_request:
     speakeasy-default-hris-create-employee-work-eligibility-request:
       parameters:
@@ -2937,7 +2959,7 @@ examples:
         application/json: {"document": {"category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "abc", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}, "issued_by": {"value": "US"}, "number": "1234567890", "passthrough": {"other_known_names": "John Doe"}, "sub_type": "H1B", "valid_from": "2021-01-01T00:00.000Z", "valid_to": "2021-01-01T00:00.000Z"}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_create_time_off_request:
     speakeasy-default-hris-create-time-off-request:
       parameters:
@@ -2947,7 +2969,7 @@ examples:
         application/json: {"approver_id": "1687-4", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000Z", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "start_date": "2021-01-01T01:01:01.000Z", "start_half_day": true}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_download_employee_document:
     "":
       parameters:
@@ -3328,7 +3350,7 @@ examples:
         application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employment_type": {"source_value": "Permanent", "value": "permanent"}, "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"country": {"value": "US"}, "type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "preferred_language": {"value": "eng"}, "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_update_employee_work_eligibility_request:
     speakeasy-default-hris-update-employee-work-eligibility-request:
       parameters:
@@ -3350,7 +3372,7 @@ examples:
         application/json: {"approver_id": "1687-4", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000Z", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "start_date": "2021-01-01T01:01:01.000Z", "start_half_day": true}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_upload_employee_document:
     speakeasy-default-hris-upload-employee-document:
       parameters:
@@ -3495,10 +3517,10 @@ examples:
         header:
           x-account-id: "<value>"
       requestBody:
-        application/json: {"completed_at": "2021-07-21T14:00:00.000Z", "content_external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT", "content_id": "16873-ENG-VIDEO-1", "external_id": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION", "passthrough": {"other_known_names": "John Doe"}}
+        application/json: {"completed_at": "2021-07-21T14:00:00.000Z", "content_external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT", "content_id": "16873-ENG-VIDEO-1", "external_id": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   lms_get_assignment:
     speakeasy-default-lms-get-assignment:
       parameters:
@@ -3509,7 +3531,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "learning_object_id": "e3gd34-23tr21-er234-345er56", "progress": "40", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
+          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "progress": "40", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
   lms_get_category:
     "":
       parameters:
@@ -3532,14 +3554,14 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "content_external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT", "content_id": "16873-ENG-VIDEO-1", "course_id": "16873-ENG-COURSE-1", "created_at": "2021-07-21T14:00:00.000Z", "external_id": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION", "id": "123456", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_content_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_external_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
+          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "content_external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT", "content_id": "16873-ENG-VIDEO-1", "course_id": "16873-ENG-COURSE-1", "created_at": "2021-07-21T14:00:00.000Z", "external_id": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_content_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_external_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
   lms_get_content:
     "":
       parameters:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
         header:
           x-account-id: "<value>"
       responses:
@@ -3592,7 +3614,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "learning_object_id": "e3gd34-23tr21-er234-345er56", "progress": "40", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
+          application/json: {"data": {"course_id": "16873-ENG-1", "created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "progress": "40", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
   lms_get_user_completion:
     speakeasy-default-lms-get-user-completion:
       parameters:
@@ -3604,7 +3626,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "content_external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT", "content_id": "16873-ENG-VIDEO-1", "course_id": "16873-ENG-COURSE-1", "created_at": "2021-07-21T14:00:00.000Z", "external_id": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION", "id": "123456", "learning_object_external_reference": "e3gd34-23tr21-er234-345er56", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_content_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_external_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
+          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "content_external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT", "content_id": "16873-ENG-VIDEO-1", "course_id": "16873-ENG-COURSE-1", "created_at": "2021-07-21T14:00:00.000Z", "external_id": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_content_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_course_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_external_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
   lms_list_assignments:
     "":
       parameters:
@@ -3649,7 +3671,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -3756,7 +3778,7 @@ examples:
         application/json: {"passthrough": {"other_known_names": "John Doe"}, "type": {"source_value": "text", "value": "html"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_create_email_template:
     speakeasy-default-marketing-create-email-template:
       parameters:
@@ -3766,7 +3788,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_create_in_app_template:
     speakeasy-default-marketing-create-in-app-template:
       parameters:
@@ -3776,7 +3798,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_create_omni_channel_template:
     speakeasy-default-marketing-create-omni-channel-template:
       parameters:
@@ -3786,7 +3808,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_create_push_template:
     speakeasy-default-marketing-create-push-template:
       parameters:
@@ -3796,7 +3818,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_create_sms_template:
     speakeasy-default-marketing-create-sms-template:
       parameters:
@@ -3806,7 +3828,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_get_campaign:
     "":
       parameters:
@@ -3986,7 +4008,7 @@ examples:
         application/json: {"passthrough": {"other_known_names": "John Doe"}, "type": {"source_value": "text", "value": "html"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_update_email_template:
     speakeasy-default-marketing-update-email-template:
       parameters:
@@ -3998,7 +4020,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_update_in_app_template:
     speakeasy-default-marketing-update-in-app-template:
       parameters:
@@ -4010,7 +4032,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_update_omni_channel_template:
     speakeasy-default-marketing-update-omni-channel-template:
       parameters:
@@ -4022,7 +4044,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_update_push_template:
     speakeasy-default-marketing-update-push-template:
       parameters:
@@ -4034,7 +4056,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   marketing_update_sms_template:
     speakeasy-default-marketing-update-sms-template:
       parameters:
@@ -4046,7 +4068,7 @@ examples:
         application/json: {"messages": [], "passthrough": {"other_known_names": "John Doe"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   stackone_proxy_request:
     speakeasy-default-stackone-proxy-request:
       parameters:
@@ -4063,7 +4085,7 @@ examples:
         application/json: {"code": "184919", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "department_ids": ["308570", "308571", "308572"], "hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "interview_stages": [{"created_at": "2021-01-01T01:01:01.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}], "job_status": {"source_value": "Published", "value": "published"}, "location_ids": ["668570", "678571", "688572"], "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   ats_update_job:
     speakeasy-default-ats-update-job:
       parameters:
@@ -4075,7 +4097,7 @@ examples:
         application/json: {"code": "184919", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "department_ids": ["308570", "308571", "308572"], "hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "interview_stages": [], "job_status": {"source_value": "Published", "value": "published"}, "location_ids": ["668570", "678571", "688572"], "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "200":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   hris_create_employee_employment:
     speakeasy-default-hris-create-employee-employment:
       parameters:
@@ -4179,7 +4201,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"items": [{"active": true, "categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}, {"active": true, "categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "order": 1, "title": "Software Engineer Lv 1"}, {"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "order": 1, "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}]}
+        application/json: {"items": [{"active": true, "categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}, {"active": true, "categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "order": 1, "title": "Software Engineer Lv 1"}, {"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "order": 1, "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}]}
       responses:
         "202":
           application/json: {"errors": [["Missing field: name"], [], []], "message": "Batch operation accepted", "statusCode": 202, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4189,7 +4211,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"active": true, "categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "order": 1, "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}
+        application/json: {"active": true, "categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "order": 1, "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}
       responses:
         "201":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4202,7 +4224,7 @@ examples:
         application/json: {"categories": [{"name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This collection acts as learning pathway for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-collection-1", "learning_object_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_learning_object_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1 Collection", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
   lms_update_collection:
     speakeasy-default-lms-update-collection:
       parameters:
@@ -4215,3 +4237,53 @@ examples:
       responses:
         "201":
           application/json: {"message": "Record updated successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
+  hris_get_employee_custom_field_definition:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,description,type,options"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
+  hris_get_time_off_type:
+    "":
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,active"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"active": true, "id": "1687-3", "name": "1687-4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
+  hris_list_employee_custom_field_definitions:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,name,description,type,options"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": []}
+  hris_list_time_off_types:
+    "":
+      parameters:
+        query:
+          fields: "id,remote_id,name,active"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"active": true, "id": "1687-3", "name": "1687-4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}
