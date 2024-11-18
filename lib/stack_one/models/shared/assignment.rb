@@ -12,6 +12,8 @@ module StackOne
       extend T::Sig
 
       # The course ID associated with this assignment
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('course_id') } }
       # The date the assignment was created
       field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
@@ -28,6 +30,8 @@ module StackOne
       # The progress associated with this assigment
       field :progress, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
       # Provider's unique identifier of the course related to the assignment
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :remote_course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_course_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }

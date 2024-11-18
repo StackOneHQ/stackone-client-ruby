@@ -63,7 +63,6 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
           },
         ),
       ],
-      content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
       content_url: "https://www.youtube.com/watch?v=16873",
       course_ids: [
         "16873-SOFTWARE-ENG-COURSE",
@@ -157,7 +156,6 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
         "16873-SOFTWARE-ENG-Content",
       ],
       cover_url: "https://www.googledrive.com/?v=16873",
-      created_at: "2021-07-21T14:00:00.000Z",
       description: "This course acts as learning content for software engineers.",
       duration: "P3Y6M4DT12H30M5S",
       external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
@@ -178,7 +176,6 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
       },
-      updated_at: "2021-07-21T14:00:00.000Z",
       url: "https://www.linkedinlearning.com/?v=16873",
     ),
   ],
@@ -297,9 +294,8 @@ s.config_security(
     
 res = s.lms.create_user_completion(lms_create_completion_request_dto=::StackOne::Shared::LmsCreateCompletionRequestDto.new(
   completed_at: "2021-07-21T14:00:00.000Z",
-  content_external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-CONTENT",
-  content_id: "16873-ENG-VIDEO-1",
-  external_id: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1-COMPLETION",
+  learning_object_external_reference: "learning-content-123",
+  learning_object_id: "e3gd34-23tr21-er234-345er56",
   passthrough: {
     "other_known_names": "John Doe",
   },
@@ -478,7 +474,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -891,7 +887,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,content_launch_method,categories,skills,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1261,7 +1257,6 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
       },
     ),
   ],
-  content_launch_method: ::StackOne::Shared::ContentLaunchMethod.new(),
   content_url: "https://www.youtube.com/watch?v=16873",
   course_ids: [
     "16873-SOFTWARE-ENG-COURSE",
@@ -1290,7 +1285,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   },
 ), x_account_id="<id>")
 
-if ! res.create_result.nil?
+if ! res.upsert_result.nil?
   # handle response
 end
 
@@ -1351,7 +1346,6 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
     "16873-SOFTWARE-ENG-Content",
   ],
   cover_url: "https://www.googledrive.com/?v=16873",
-  created_at: "2021-07-21T14:00:00.000Z",
   description: "This course acts as learning content for software engineers.",
   duration: "P3Y6M4DT12H30M5S",
   external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
@@ -1372,11 +1366,10 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
-  updated_at: "2021-07-21T14:00:00.000Z",
   url: "https://www.linkedinlearning.com/?v=16873",
 ), x_account_id="<id>")
 
-if ! res.create_result.nil?
+if ! res.upsert_result.nil?
   # handle response
 end
 

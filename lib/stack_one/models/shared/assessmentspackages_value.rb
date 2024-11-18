@@ -13,6 +13,9 @@ module StackOne
         RESPONSIBILITIES = new('responsibilities')
         SKILLS = new('skills')
         BENEFITS = new('benefits')
+        COMPANY_OVERVIEW = new('company_overview')
+        DESCRIPTION = new('description')
+        OTHER = new('other')
       end
     end
   end

@@ -10,8 +10,9 @@ module StackOne
 
     class LmsUpsertContentRequestDtoValue < T::Enum
       enums do
-        AUTOMATIC = new('automatic')
-        BROWSER = new('browser')
+        VIDEO = new('video')
+        QUIZ = new('quiz')
+        DOCUMENT = new('document')
       end
     end
   end

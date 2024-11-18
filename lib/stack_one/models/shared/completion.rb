@@ -14,14 +14,22 @@ module StackOne
       # The date the content was completed
       field :completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at') } }
       # The external reference associated with this content
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :content_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_external_reference') } }
       # The content ID associated with this completion
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }
       # The course ID associated with this completion
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('course_id') } }
       # The created date of the completion
       field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
       # The external ID associated with this completion
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
       # The ID associated with this completion
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
@@ -32,10 +40,16 @@ module StackOne
       # The learning object type of the assignment
       field :learning_object_type, T.nilable(::StackOne::Shared::CompletionLearningObjectType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }
       # Provider's unique identifier of the content associated with the completion
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :remote_content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_content_id') } }
       # Provider's unique identifier of the course associated with the completion
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :remote_course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_course_id') } }
       # Provider's unique identifier of the content external reference
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :remote_external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_external_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }

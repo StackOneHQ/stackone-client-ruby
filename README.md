@@ -179,6 +179,7 @@ end
 * [get_cost_center_group](docs/sdks/hris/README.md#get_cost_center_group) - Get Cost Center Group
 * [get_department_group](docs/sdks/hris/README.md#get_department_group) - Get Department Group
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
+* [get_employee_custom_field_definition](docs/sdks/hris/README.md#get_employee_custom_field_definition) - Get employee Custom Field Definition
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](docs/sdks/hris/README.md#get_employee_employment) - Get Employee Employment
@@ -189,11 +190,13 @@ end
 * [get_job](docs/sdks/hris/README.md#get_job) - Get Job
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Location
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
+* [get_time_off_type](docs/sdks/hris/README.md#get_time_off_type) - Get time off type
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
 * [list_cost_center_groups](docs/sdks/hris/README.md#list_cost_center_groups) - List Cost Center Groups
 * [list_department_groups](docs/sdks/hris/README.md#list_department_groups) - List Department Groups
 * [list_employee_categories](docs/sdks/hris/README.md#list_employee_categories) - List Employee Document Categories
+* [list_employee_custom_field_definitions](docs/sdks/hris/README.md#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_employments](docs/sdks/hris/README.md#list_employee_employments) - List Employee Employments
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -204,6 +207,7 @@ end
 * [list_jobs](docs/sdks/hris/README.md#list_jobs) - List Jobs
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List locations
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
+* [list_time_off_types](docs/sdks/hris/README.md#list_time_off_types) - List time off types
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
 * [update_employee_employment](docs/sdks/hris/README.md#update_employee_employment) - Update Employee Employment
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
