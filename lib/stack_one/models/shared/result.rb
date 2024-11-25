@@ -11,9 +11,9 @@ module StackOne
     class Result < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the assessment result.
+      # The source value of the test result.
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The result of the assessment.
+      # The result of the test.
       field :value, T.nilable(::StackOne::Shared::AssessmentsResultsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AssessmentsResultsValue, true) } }
 
 

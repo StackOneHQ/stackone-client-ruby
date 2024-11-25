@@ -11,15 +11,15 @@ module StackOne
     class AssessmentsPackages < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # Assessment description
+      # Package description
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Assessment name
+      # Package name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+      # Package type
       field :type, T.nilable(::StackOne::Shared::AssessmentsPackagesType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 

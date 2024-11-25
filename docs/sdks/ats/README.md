@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [create_application](#create_application) - Create Application
+* [create_background_check_package](#create_background_check_package) - Create Background Check Package
 * [create_candidate](#create_candidate) - Create Candidate
 * [create_candidate_note](#create_candidate_note) - Create Candidate Note
 * [create_job](#create_job) - Create Job
@@ -20,6 +21,9 @@
 * [get_assessments_package](#get_assessments_package) - Get Assessments Package
 * [get_assessments_request](#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](#get_assessments_result) - Get Assessments Results
+* [get_background_check_package](#get_background_check_package) - Get Background Check Package
+* [get_background_check_request](#get_background_check_request) - Get Background Check Request
+* [get_background_check_result](#get_background_check_result) - Get Background Check Results
 * [get_candidate](#get_candidate) - Get Candidate
 * [get_candidate_custom_field_definition](#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
@@ -41,6 +45,8 @@
 * [list_applications_offers](#list_applications_offers) - List Application Offers
 * [list_applications_scheduled_interviews](#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
+* [list_background_check_packages](#list_background_check_packages) - List Background Check Packages
+* [list_background_check_request](#list_background_check_request) - List Background Check Request
 * [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List Candidate Custom Field Definitions
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
@@ -165,6 +171,62 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateApplicationResponse)](../../models/operations/atscreateapplicationresponse.md)**
+
+
+
+## create_background_check_package
+
+Create Background Check Package
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.create_background_check_package(ats_create_background_check_packages_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckPackagesRequestDto.new(
+  description: "Standard background package for hires",
+  name: "Standard Background Check",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  tests: [
+    ::StackOne::Shared::CreateAssessmentsPackages.new(
+      description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+      name: "Test 1",
+      type: ::StackOne::Shared::CreateAssessmentsPackagesType.new(
+        source_value: "key_responsibilities",
+        value: ::StackOne::Shared::CreateAssessmentsPackagesValue::RESPONSIBILITIES,
+      ),
+    ),
+  ],
+), x_account_id="<id>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_create_background_check_packages_request_dto`                                                                                  | [::StackOne::Shared::AtsCreateBackgroundCheckPackagesRequestDto](../../models/shared/atscreatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                                  | N/A                                                                                                                                 |
+| `x_account_id`                                                                                                                      | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | The account identifier                                                                                                              |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsCreateBackgroundCheckPackageResponse)](../../models/operations/atscreatebackgroundcheckpackageresponse.md)**
 
 
 
@@ -833,14 +895,14 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetAssessmentsRequestRequest.new(
-  fields_: "assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments",
+  fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
   id: "<id>",
   x_account_id: "<id>",
 )
     
 res = s.ats.get_assessments_request(req)
 
-if ! res.assessments_results_result.nil?
+if ! res.assessments_order_result.nil?
   # handle response
 end
 
@@ -878,7 +940,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetAssessmentsResultRequest.new(
-  fields_: "assessment_id,remote_assessment_id,candidate,score,assessment_date,submission_date,summary,result,result_url,attachments",
+  fields_: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -900,6 +962,141 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetAssessmentsResultResponse)](../../models/operations/atsgetassessmentsresultresponse.md)**
+
+
+
+## get_background_check_package
+
+Get Background Check Package
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetBackgroundCheckPackageRequest.new(
+  fields_: "id,remote_id,name,description,tests",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.ats.get_background_check_package(req)
+
+if ! res.background_check_package_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                     | [::StackOne::Operations::AtsGetBackgroundCheckPackageRequest](../../models/operations/atsgetbackgroundcheckpackagerequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetBackgroundCheckPackageResponse)](../../models/operations/atsgetbackgroundcheckpackageresponse.md)**
+
+
+
+## get_background_check_request
+
+Get Background Check Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetBackgroundCheckRequestRequest.new(
+  fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.ats.get_background_check_request(req)
+
+if ! res.background_check_order_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                     | [::StackOne::Operations::AtsGetBackgroundCheckRequestRequest](../../models/operations/atsgetbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetBackgroundCheckRequestResponse)](../../models/operations/atsgetbackgroundcheckrequestresponse.md)**
+
+
+
+## get_background_check_result
+
+Get Background Check Results
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetBackgroundCheckResultRequest.new(
+  fields_: "id,remote_id,candidate,start_date,submission_date,summary,result,result_url,attachments",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.ats.get_background_check_result(req)
+
+if ! res.background_check_results_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [::StackOne::Operations::AtsGetBackgroundCheckResultRequest](../../models/operations/atsgetbackgroundcheckresultrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetBackgroundCheckResultResponse)](../../models/operations/atsgetbackgroundcheckresultresponse.md)**
 
 
 
@@ -1878,6 +2075,100 @@ end
 
 
 
+## list_background_check_packages
+
+List Background Check Packages
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListBackgroundCheckPackagesRequest.new(
+  fields_: "id,remote_id,name,description,tests",
+  filter: ::StackOne::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.ats.list_background_check_packages(req)
+
+if ! res.background_check_package_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                         | [::StackOne::Operations::AtsListBackgroundCheckPackagesRequest](../../models/operations/atslistbackgroundcheckpackagesrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListBackgroundCheckPackagesResponse)](../../models/operations/atslistbackgroundcheckpackagesresponse.md)**
+
+
+
+## list_background_check_request
+
+List Background Check Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListBackgroundCheckRequestRequest.new(
+  fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
+  filter: ::StackOne::Operations::AtsListBackgroundCheckRequestQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.ats.list_background_check_request(req)
+
+if ! res.background_check_order_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [::StackOne::Operations::AtsListBackgroundCheckRequestRequest](../../models/operations/atslistbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListBackgroundCheckRequestResponse)](../../models/operations/atslistbackgroundcheckrequestresponse.md)**
+
+
+
 ## list_candidate_custom_field_definitions
 
 List Candidate Custom Field Definitions
@@ -2658,7 +2949,7 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
     value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
   ),
   custom_fields: [
-    ::StackOne::Shared::ApplicationCustomFields.new(
+    ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",

@@ -146,10 +146,10 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       ],
       content: [
         ::StackOne::Shared::CreateContentApiModel.new(
-          content_url: "https://www.youtube.com/watch?v=16873",
-          description: "This video acts as learning content for software engineers.",
+          content_url: "https://www.google.com",
+          description: "This is a software engineering course",
           order: 1.0,
-          title: "Software Engineer Lv 1",
+          title: "Software Engineering",
         ),
       ],
       content_ids: [
@@ -1336,10 +1336,10 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   ],
   content: [
     ::StackOne::Shared::CreateContentApiModel.new(
-      content_url: "https://www.youtube.com/watch?v=16873",
-      description: "This video acts as learning content for software engineers.",
+      content_url: "https://www.google.com",
+      description: "This is a software engineering course",
       order: 1.0,
-      title: "Software Engineer Lv 1",
+      title: "Software Engineering",
     ),
   ],
   content_ids: [

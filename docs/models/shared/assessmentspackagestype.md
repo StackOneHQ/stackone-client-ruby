@@ -1,5 +1,7 @@
 # AssessmentsPackagesType
 
+Package type
+
 
 ## Fields
 

@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # Package type
     class AssessmentsPackagesType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 

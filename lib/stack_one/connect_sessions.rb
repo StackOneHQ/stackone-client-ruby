@@ -92,8 +92,8 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectSessionToken)
-          res.connect_session_token = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectSessionTokenAuthLink)
+          res.connect_session_token_auth_link = out
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
       end
