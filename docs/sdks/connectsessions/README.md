@@ -88,7 +88,7 @@ req = ::StackOne::Shared::ConnectSessionCreate.new(
     
 res = s.connect_sessions.create_connect_session(req)
 
-if ! res.connect_session_token.nil?
+if ! res.connect_session_token_auth_link.nil?
   # handle response
 end
 

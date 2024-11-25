@@ -18,15 +18,15 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The assessments order with the given identifier was retrieved.
-      field :assessments_results_result, T.nilable(::StackOne::Shared::AssessmentsResultsResult)
+      field :assessments_order_result, T.nilable(::StackOne::Shared::AssessmentsOrderResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, assessments_results_result: T.nilable(::StackOne::Shared::AssessmentsResultsResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, assessments_results_result: nil)
+      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, assessments_order_result: T.nilable(::StackOne::Shared::AssessmentsOrderResult)).void }
+      def initialize(content_type: nil, raw_response: nil, status_code: nil, assessments_order_result: nil)
         @content_type = content_type
         @raw_response = raw_response
         @status_code = status_code
-        @assessments_results_result = assessments_results_result
+        @assessments_order_result = assessments_order_result
       end
     end
   end

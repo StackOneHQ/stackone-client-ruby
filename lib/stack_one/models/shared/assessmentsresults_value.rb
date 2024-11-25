@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-    # AssessmentsResultsValue - The result of the assessment.
+    # AssessmentsResultsValue - The result of the test.
     class AssessmentsResultsValue < T::Enum
       enums do
         CANCELLED = new('cancelled')
