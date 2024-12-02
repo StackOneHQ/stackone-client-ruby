@@ -67,6 +67,7 @@ module StackOne
         end
       elsif [400, 403, 404, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
   end

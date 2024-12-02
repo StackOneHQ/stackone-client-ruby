@@ -80,7 +80,7 @@ req = ::StackOne::Shared::ConnectSessionCreate.new(
     ::StackOne::Shared::ConnectSessionCreateCategories::MARKETING,
     ::StackOne::Shared::ConnectSessionCreateCategories::LMS,
     ::StackOne::Shared::ConnectSessionCreateCategories::ATS,
-    ::StackOne::Shared::ConnectSessionCreateCategories::LMS,
+    ::StackOne::Shared::ConnectSessionCreateCategories::DOCUMENTS,
   ],
   origin_owner_id: "<id>",
   origin_owner_name: "<value>",

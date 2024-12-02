@@ -74,10 +74,7 @@ s.config_security(
 res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_dto=::StackOne::Shared::HrisBatchDocumentUploadRequestDto.new(
   items: [
     ::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
-      category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(
-        source_value: "550e8400-e29b-41d4-a716-446655440000",
-        value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoValue::ACADEMIC,
-      ),
+      category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
       category_id: "6530",
       confidential: ::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
         source_value: "public",
@@ -169,30 +166,18 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   display_name: "Sir Issac Newton",
   employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-    source_value: "Permanent",
-    value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
-  ),
+  employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
   employments: [
     ::StackOne::Shared::CreateEmploymentApiModel.new(
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       employee_id: "1687-3",
       employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
-      employment_type: ::StackOne::Shared::EmploymentType.new(
-        source_value: "Permanent",
-        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasValue::PERMANENT,
-      ),
+      employment_type: ::StackOne::Shared::EmploymentType.new(),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       job_title: "Software Engineer",
       pay_currency: "USD",
-      pay_frequency: ::StackOne::Shared::PayFrequency.new(
-        source_value: "Hourly",
-        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayFrequencyValue::HOURLY,
-      ),
-      pay_period: ::StackOne::Shared::PayPeriod.new(
-        source_value: "Hour",
-        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue::HOUR,
-      ),
+      pay_frequency: ::StackOne::Shared::PayFrequency.new(),
+      pay_period: ::StackOne::Shared::PayPeriod.new(),
       pay_rate: "40.00",
       time_worked: "P0Y0M0DT8H0M0S",
       unified_custom_fields: {
@@ -241,9 +226,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   },
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
-  preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
-    value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG,
-  ),
+  preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   tenure: 2.0,
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -310,24 +293,15 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto=::Sta
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   employee_id: "1687-3",
   employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(
-    source_value: "Permanent",
-    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasValue::PERMANENT,
-  ),
+  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
   },
   pay_currency: "USD",
-  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(
-    source_value: "Hourly",
-    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
-  ),
-  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(
-    source_value: "Hour",
-    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
-  ),
+  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
+  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
   time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
@@ -768,7 +742,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
@@ -1839,7 +1813,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,custom_fields,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2205,30 +2179,18 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   display_name: "Sir Issac Newton",
   employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(
-    source_value: "Permanent",
-    value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue::PERMANENT,
-  ),
+  employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
   employments: [
     ::StackOne::Shared::CreateEmploymentApiModel.new(
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       employee_id: "1687-3",
       employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
-      employment_type: ::StackOne::Shared::EmploymentType.new(
-        source_value: "Permanent",
-        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasValue::PERMANENT,
-      ),
+      employment_type: ::StackOne::Shared::EmploymentType.new(),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       job_title: "Software Engineer",
       pay_currency: "USD",
-      pay_frequency: ::StackOne::Shared::PayFrequency.new(
-        source_value: "Hourly",
-        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayFrequencyValue::HOURLY,
-      ),
-      pay_period: ::StackOne::Shared::PayPeriod.new(
-        source_value: "Hour",
-        value: ::StackOne::Shared::CreateEmploymentApiModelSchemasPayPeriodValue::HOUR,
-      ),
+      pay_frequency: ::StackOne::Shared::PayFrequency.new(),
+      pay_period: ::StackOne::Shared::PayPeriod.new(),
       pay_rate: "40.00",
       time_worked: "P0Y0M0DT8H0M0S",
       unified_custom_fields: {
@@ -2277,9 +2239,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   },
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
-  preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
-    value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG,
-  ),
+  preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   tenure: 2.0,
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -2347,24 +2307,15 @@ res = s.hris.update_employee_employment(hris_create_employment_request_dto=::Sta
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   employee_id: "1687-3",
   employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(
-    source_value: "Permanent",
-    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasValue::PERMANENT,
-  ),
+  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
   },
   pay_currency: "USD",
-  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(
-    source_value: "Hourly",
-    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
-  ),
-  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(
-    source_value: "Hour",
-    value: ::StackOne::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
-  ),
+  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
+  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
   time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
@@ -2534,10 +2485,7 @@ s.config_security(
 
     
 res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
-  category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(
-    source_value: "550e8400-e29b-41d4-a716-446655440000",
-    value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoValue::UNMAPPED_VALUE,
-  ),
+  category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
   category_id: "6530",
   confidential: ::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
     source_value: "public",

@@ -55,6 +55,7 @@ module StackOne
         end
       elsif [400, 403, 404, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -95,6 +96,7 @@ module StackOne
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -135,6 +137,7 @@ module StackOne
         end
       elsif [400, 403, 404, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -168,6 +171,7 @@ module StackOne
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -219,6 +223,7 @@ module StackOne
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
       end
+
       res
     end
   end
