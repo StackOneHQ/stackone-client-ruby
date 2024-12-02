@@ -54,7 +54,7 @@ module StackOne
       res = ::StackOne::Operations::StackoneProxyRequestResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      
+
       res
     end
   end

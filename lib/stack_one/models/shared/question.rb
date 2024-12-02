@@ -17,6 +17,8 @@ module StackOne
       field :multiple_choice_answers, T.nilable(T::Array[::StackOne::Shared::QuestionMultipleChoiceAnswers]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multiple_choice_answers') } }
 
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+
+      field :parent_question, T.nilable(::StackOne::Shared::ParentQuestion), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_question') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
@@ -27,11 +29,12 @@ module StackOne
       field :type, T.nilable(::StackOne::Shared::QuestionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(id: T.nilable(::String), multiple_choice_answers: T.nilable(T::Array[::StackOne::Shared::QuestionMultipleChoiceAnswers]), name: T.nilable(::String), remote_id: T.nilable(::String), required: T.nilable(::Object), text: T.nilable(::String), type: T.nilable(::StackOne::Shared::QuestionType)).void }
-      def initialize(id: nil, multiple_choice_answers: nil, name: nil, remote_id: nil, required: nil, text: nil, type: nil)
+      sig { params(id: T.nilable(::String), multiple_choice_answers: T.nilable(T::Array[::StackOne::Shared::QuestionMultipleChoiceAnswers]), name: T.nilable(::String), parent_question: T.nilable(::StackOne::Shared::ParentQuestion), remote_id: T.nilable(::String), required: T.nilable(::Object), text: T.nilable(::String), type: T.nilable(::StackOne::Shared::QuestionType)).void }
+      def initialize(id: nil, multiple_choice_answers: nil, name: nil, parent_question: nil, remote_id: nil, required: nil, text: nil, type: nil)
         @id = id
         @multiple_choice_answers = multiple_choice_answers
         @name = name
+        @parent_question = parent_question
         @remote_id = remote_id
         @required = required
         @text = text

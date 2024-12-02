@@ -137,10 +137,7 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
       answers: [
         ::StackOne::Shared::CreateAnswer.new(
           id: "answer1",
-          type: ::StackOne::Shared::CreateAnswerType.new(
-            source_value: "Short Text",
-            value: ::StackOne::Shared::CreateAnswerValue::SHORT_TEXT,
-          ),
+          type: ::StackOne::Shared::CreateAnswerType.new(),
           values: [
             "Yes",
           ],
@@ -332,10 +329,7 @@ res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Share
   passthrough: {
     "other_known_names": "John Doe",
   },
-  visibility: ::StackOne::Shared::Visibility.new(
-    source_value: "Public",
-    value: ::StackOne::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
-  ),
+  visibility: ::StackOne::Shared::Visibility.new(),
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -1120,7 +1114,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetCandidateRequest.new(
-  fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
+  fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
   id: "<id>",
   include: "custom_fields",
   x_account_id: "<id>",
@@ -2284,7 +2278,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListCandidatesRequest.new(
-  fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
+  fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListCandidatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),

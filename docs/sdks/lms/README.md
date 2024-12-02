@@ -57,10 +57,6 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           name: "Technology",
-          unified_custom_fields: {
-            "my_project_custom_field_1": "REF-1236",
-            "my_project_custom_field_2": "some other value",
-          },
         ),
       ],
       content_url: "https://www.youtube.com/watch?v=16873",
@@ -138,17 +134,12 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           name: "Technology",
-          unified_custom_fields: {
-            "my_project_custom_field_1": "REF-1236",
-            "my_project_custom_field_2": "some other value",
-          },
         ),
       ],
       content: [
         ::StackOne::Shared::CreateContentApiModel.new(
           content_url: "https://www.google.com",
           description: "This is a software engineering course",
-          order: 1.0,
           title: "Software Engineering",
         ),
       ],
@@ -223,10 +214,6 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
-      unified_custom_fields: {
-        "my_project_custom_field_1": "REF-1236",
-        "my_project_custom_field_2": "some other value",
-      },
     ),
   ],
   cover_url: "https://www.googledrive.com/?v=16873",
@@ -242,9 +229,7 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
   ],
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
-      id: "16873-IT345",
       name: "Technology",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
   ],
   title: "Software Engineer Lv 1 Collection",
@@ -1176,10 +1161,6 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
-      unified_custom_fields: {
-        "my_project_custom_field_1": "REF-1236",
-        "my_project_custom_field_2": "some other value",
-      },
     ),
   ],
   cover_url: "https://www.googledrive.com/?v=16873",
@@ -1195,9 +1176,7 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
   ],
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
-      id: "16873-IT345",
       name: "Technology",
-      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
   ],
   title: "Software Engineer Lv 1 Collection",
@@ -1251,10 +1230,6 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
-      unified_custom_fields: {
-        "my_project_custom_field_1": "REF-1236",
-        "my_project_custom_field_2": "some other value",
-      },
     ),
   ],
   content_url: "https://www.youtube.com/watch?v=16873",
@@ -1328,17 +1303,12 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
-      unified_custom_fields: {
-        "my_project_custom_field_1": "REF-1236",
-        "my_project_custom_field_2": "some other value",
-      },
     ),
   ],
   content: [
     ::StackOne::Shared::CreateContentApiModel.new(
       content_url: "https://www.google.com",
       description: "This is a software engineering course",
-      order: 1.0,
       title: "Software Engineering",
     ),
   ],

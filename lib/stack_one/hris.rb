@@ -67,6 +67,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -113,6 +114,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -165,6 +167,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -217,6 +220,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -269,6 +273,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -315,6 +320,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -355,9 +361,9 @@ module StackOne
       )
       if r.status == 200
         res.bytes = r.env.response_body if Utils.match_content_type(content_type, 'application/octet-stream')
-      
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -396,6 +402,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -434,6 +441,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -472,6 +480,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -510,6 +519,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -548,6 +558,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -586,6 +597,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -624,6 +636,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -662,6 +675,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -700,6 +714,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -738,6 +753,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -776,6 +792,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -814,6 +831,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -852,6 +870,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -890,6 +909,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -928,6 +948,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -966,6 +987,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1004,6 +1026,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1037,6 +1060,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1070,6 +1094,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1103,6 +1128,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1136,6 +1162,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1169,6 +1196,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1202,6 +1230,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1240,6 +1269,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1278,6 +1308,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1316,6 +1347,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1354,6 +1386,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1387,6 +1420,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1420,6 +1454,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1453,6 +1488,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1486,6 +1522,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1519,6 +1556,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1552,6 +1590,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1585,6 +1624,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1637,6 +1677,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1690,6 +1731,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1736,7 +1778,7 @@ module StackOne
       res = ::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      
+
       res
     end
 
@@ -1789,6 +1831,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1841,6 +1884,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
   end

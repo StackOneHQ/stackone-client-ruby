@@ -61,6 +61,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -75,7 +76,7 @@ module StackOne
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/unified/ats/background-checks/packages"
+      url = "#{base_url}/unified/ats/background_checks/packages"
       headers = Utils.get_headers(request)
       req_content_type, data, form = Utils.serialize_request_body(request, :ats_create_background_check_packages_request_dto, :json)
       headers['content-type'] = req_content_type
@@ -107,6 +108,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -153,6 +155,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -205,6 +208,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -251,6 +255,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -297,6 +302,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -337,9 +343,9 @@ module StackOne
       )
       if r.status == 200
         res.bytes = r.env.response_body if Utils.match_content_type(content_type, 'application/octet-stream')
-      
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -378,6 +384,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -416,6 +423,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -454,6 +462,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -492,6 +501,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -530,6 +540,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -568,6 +579,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -606,6 +618,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -644,6 +657,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -682,6 +696,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -694,7 +709,7 @@ module StackOne
       url = Utils.generate_url(
         ::StackOne::Operations::AtsGetBackgroundCheckPackageRequest,
         base_url,
-        '/unified/ats/background-checks/packages/{id}',
+        '/unified/ats/background_checks/packages/{id}',
         request
       )
       headers = Utils.get_headers(request)
@@ -720,6 +735,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -732,7 +748,7 @@ module StackOne
       url = Utils.generate_url(
         ::StackOne::Operations::AtsGetBackgroundCheckRequestRequest,
         base_url,
-        '/unified/ats/background-checks/orders/{id}',
+        '/unified/ats/background_checks/orders/{id}',
         request
       )
       headers = Utils.get_headers(request)
@@ -758,6 +774,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -770,7 +787,7 @@ module StackOne
       url = Utils.generate_url(
         ::StackOne::Operations::AtsGetBackgroundCheckResultRequest,
         base_url,
-        '/unified/ats/background-checks/orders/{id}/results',
+        '/unified/ats/background_checks/orders/{id}/results',
         request
       )
       headers = Utils.get_headers(request)
@@ -796,6 +813,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -834,6 +852,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -872,6 +891,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -910,6 +930,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -948,6 +969,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -986,6 +1008,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1024,6 +1047,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1062,6 +1086,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1100,6 +1125,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1138,6 +1164,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1176,6 +1203,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1214,6 +1242,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1252,6 +1281,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1290,6 +1320,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1328,6 +1359,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1361,6 +1393,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1399,6 +1432,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1437,6 +1471,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1470,6 +1505,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1508,6 +1544,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1546,6 +1583,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1579,6 +1617,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1588,7 +1627,7 @@ module StackOne
       # list_background_check_packages - List Background Check Packages
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/unified/ats/background-checks/packages"
+      url = "#{base_url}/unified/ats/background_checks/packages"
       headers = Utils.get_headers(request)
       query_params = Utils.get_query_params(::StackOne::Operations::AtsListBackgroundCheckPackagesRequest, request)
       headers['Accept'] = 'application/json'
@@ -1612,6 +1651,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1621,7 +1661,7 @@ module StackOne
       # list_background_check_request - List Background Check Request
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/unified/ats/background-checks/orders"
+      url = "#{base_url}/unified/ats/background_checks/orders"
       headers = Utils.get_headers(request)
       query_params = Utils.get_query_params(::StackOne::Operations::AtsListBackgroundCheckRequestRequest, request)
       headers['Accept'] = 'application/json'
@@ -1645,6 +1685,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1678,6 +1719,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1716,6 +1758,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1749,6 +1792,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1782,6 +1826,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1815,6 +1860,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1848,6 +1894,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1881,6 +1928,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1914,6 +1962,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1947,6 +1996,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -1980,6 +2030,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2013,6 +2064,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2046,6 +2098,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2079,6 +2132,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2112,6 +2166,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2164,6 +2219,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2216,6 +2272,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2268,6 +2325,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2320,6 +2378,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2372,6 +2431,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
 
@@ -2424,6 +2484,7 @@ module StackOne
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       end
+
       res
     end
   end
