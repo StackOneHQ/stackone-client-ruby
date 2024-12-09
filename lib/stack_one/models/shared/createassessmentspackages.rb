@@ -15,15 +15,12 @@ module StackOne
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
       # Package name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Package type
-      field :type, T.nilable(::StackOne::Shared::CreateAssessmentsPackagesType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(description: T.nilable(::String), name: T.nilable(::String), type: T.nilable(::StackOne::Shared::CreateAssessmentsPackagesType)).void }
-      def initialize(description: nil, name: nil, type: nil)
+      sig { params(description: T.nilable(::String), name: T.nilable(::String)).void }
+      def initialize(description: nil, name: nil)
         @description = description
         @name = name
-        @type = type
       end
     end
   end

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: a9bf79479bddf4c902ade6a415b7e0f1
+  docChecksum: af447d16c92146e531240c9e31699b94
   docVersion: 1.0.0
-  speakeasyVersion: 1.448.2
-  generationVersion: 2.467.4
-  releaseVersion: 0.4.0
-  configChecksum: 9f1e3c49cc9a6cadec77f129e68721f1
+  speakeasyVersion: 1.453.4
+  generationVersion: 2.474.6
+  releaseVersion: 0.4.1
+  configChecksum: 0540911e7b3d986082ffd08a550688cc
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.4.1
+    core: 3.4.2
     deprecations: 2.81.1
     examples: 2.81.3
     flattening: 2.81.1
@@ -335,6 +335,7 @@ generatedFiles:
   - docs/models/operations/iamlistusersqueryparamfilter.md
   - docs/models/operations/iamlistusersrequest.md
   - docs/models/operations/iamlistusersresponse.md
+  - docs/models/operations/learningobjecttype.md
   - docs/models/operations/lmsbatchupsertcontentrequest.md
   - docs/models/operations/lmsbatchupsertcontentresponse.md
   - docs/models/operations/lmsbatchupsertcourserequest.md
@@ -380,9 +381,11 @@ generatedFiles:
   - docs/models/operations/lmslistskillsrequest.md
   - docs/models/operations/lmslistskillsresponse.md
   - docs/models/operations/lmslistuserassignmentsqueryparamfilter.md
+  - docs/models/operations/lmslistuserassignmentsqueryparamlearningobjecttype.md
   - docs/models/operations/lmslistuserassignmentsrequest.md
   - docs/models/operations/lmslistuserassignmentsresponse.md
   - docs/models/operations/lmslistusercompletionsqueryparamfilter.md
+  - docs/models/operations/lmslistusercompletionsqueryparamlearningobjecttype.md
   - docs/models/operations/lmslistusercompletionsrequest.md
   - docs/models/operations/lmslistusercompletionsresponse.md
   - docs/models/operations/lmslistusersqueryparamfilter.md
@@ -454,6 +457,7 @@ generatedFiles:
   - docs/models/operations/marketingupdatesmstemplaterequest.md
   - docs/models/operations/marketingupdatesmstemplateresponse.md
   - docs/models/operations/queryparamfilter.md
+  - docs/models/operations/queryparamlearningobjecttype.md
   - docs/models/operations/stackoneauthenticateconnectsessionresponse.md
   - docs/models/operations/stackonecreateconnectsessionresponse.md
   - docs/models/operations/stackonedeleteaccountrequest.md
@@ -499,17 +503,11 @@ generatedFiles:
   - docs/models/shared/assessmentsordercandidate.md
   - docs/models/shared/assessmentsorderjob.md
   - docs/models/shared/assessmentsorderresult.md
-  - docs/models/shared/assessmentsorderschemasvalue.md
-  - docs/models/shared/assessmentsordertype.md
   - docs/models/shared/assessmentsordervalue.md
   - docs/models/shared/assessmentspackages.md
   - docs/models/shared/assessmentspackagespaginated.md
   - docs/models/shared/assessmentspackagesresult.md
   - docs/models/shared/assessmentspackagestestapimodel.md
-  - docs/models/shared/assessmentspackagestestapimodeltype.md
-  - docs/models/shared/assessmentspackagestestapimodelvalue.md
-  - docs/models/shared/assessmentspackagestype.md
-  - docs/models/shared/assessmentspackagesvalue.md
   - docs/models/shared/assessmentsrequestsjobhiringteamapimodel.md
   - docs/models/shared/assessmentsresults.md
   - docs/models/shared/assessmentsresultscandidate.md
@@ -571,6 +569,7 @@ generatedFiles:
   - docs/models/shared/backgroundcheckresultsresult.md
   - docs/models/shared/backgroundcheckresultsresultcandidate.md
   - docs/models/shared/backgroundcheckresultsresultresult.md
+  - docs/models/shared/backgroundcheckresultsresultscore.md
   - docs/models/shared/backgroundcheckresultsresultvalue.md
   - docs/models/shared/batchresultapimodel.md
   - docs/models/shared/benefittype.md
@@ -637,8 +636,6 @@ generatedFiles:
   - docs/models/shared/createanswertype.md
   - docs/models/shared/createanswervalue.md
   - docs/models/shared/createassessmentspackages.md
-  - docs/models/shared/createassessmentspackagestype.md
-  - docs/models/shared/createassessmentspackagesvalue.md
   - docs/models/shared/createcategoriesapimodel.md
   - docs/models/shared/createcontentapimodel.md
   - docs/models/shared/createemploymentapimodel.md
@@ -1395,6 +1392,7 @@ generatedFiles:
   - lib/stack_one/models/operations/iam_list_users_queryparam_filter.rb
   - lib/stack_one/models/operations/iam_list_users_request.rb
   - lib/stack_one/models/operations/iam_list_users_response.rb
+  - lib/stack_one/models/operations/learning_object_type.rb
   - lib/stack_one/models/operations/lms_batch_upsert_content_request.rb
   - lib/stack_one/models/operations/lms_batch_upsert_content_response.rb
   - lib/stack_one/models/operations/lms_batch_upsert_course_request.rb
@@ -1440,9 +1438,11 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_list_skills_request.rb
   - lib/stack_one/models/operations/lms_list_skills_response.rb
   - lib/stack_one/models/operations/lms_list_user_assignments_queryparam_filter.rb
+  - lib/stack_one/models/operations/lms_list_user_assignments_queryparam_learning_object_type.rb
   - lib/stack_one/models/operations/lms_list_user_assignments_request.rb
   - lib/stack_one/models/operations/lms_list_user_assignments_response.rb
   - lib/stack_one/models/operations/lms_list_user_completions_queryparam_filter.rb
+  - lib/stack_one/models/operations/lms_list_user_completions_queryparam_learning_object_type.rb
   - lib/stack_one/models/operations/lms_list_user_completions_request.rb
   - lib/stack_one/models/operations/lms_list_user_completions_response.rb
   - lib/stack_one/models/operations/lms_list_users_queryparam_filter.rb
@@ -1514,6 +1514,7 @@ generatedFiles:
   - lib/stack_one/models/operations/marketing_update_sms_template_request.rb
   - lib/stack_one/models/operations/marketing_update_sms_template_response.rb
   - lib/stack_one/models/operations/queryparam_filter.rb
+  - lib/stack_one/models/operations/queryparam_learning_object_type.rb
   - lib/stack_one/models/operations/stackone_authenticate_connect_session_response.rb
   - lib/stack_one/models/operations/stackone_create_connect_session_response.rb
   - lib/stack_one/models/operations/stackone_delete_account_request.rb
@@ -1559,18 +1560,12 @@ generatedFiles:
   - lib/stack_one/models/shared/assessmentsorder_application_status.rb
   - lib/stack_one/models/shared/assessmentsorder_candidate.rb
   - lib/stack_one/models/shared/assessmentsorder_job.rb
-  - lib/stack_one/models/shared/assessmentsorder_schemas_value.rb
-  - lib/stack_one/models/shared/assessmentsorder_type.rb
   - lib/stack_one/models/shared/assessmentsorder_value.rb
   - lib/stack_one/models/shared/assessmentsorderresult.rb
   - lib/stack_one/models/shared/assessmentspackages.rb
-  - lib/stack_one/models/shared/assessmentspackages_type.rb
-  - lib/stack_one/models/shared/assessmentspackages_value.rb
   - lib/stack_one/models/shared/assessmentspackagespaginated.rb
   - lib/stack_one/models/shared/assessmentspackagesresult.rb
   - lib/stack_one/models/shared/assessmentspackagestestapimodel.rb
-  - lib/stack_one/models/shared/assessmentspackagestestapimodel_type.rb
-  - lib/stack_one/models/shared/assessmentspackagestestapimodel_value.rb
   - lib/stack_one/models/shared/assessmentsrequestsjobhiringteamapimodel.rb
   - lib/stack_one/models/shared/assessmentsresults.rb
   - lib/stack_one/models/shared/assessmentsresults_candidate.rb
@@ -1632,6 +1627,7 @@ generatedFiles:
   - lib/stack_one/models/shared/backgroundcheckresultsresult.rb
   - lib/stack_one/models/shared/backgroundcheckresultsresult_candidate.rb
   - lib/stack_one/models/shared/backgroundcheckresultsresult_result.rb
+  - lib/stack_one/models/shared/backgroundcheckresultsresult_score.rb
   - lib/stack_one/models/shared/backgroundcheckresultsresult_value.rb
   - lib/stack_one/models/shared/batchresultapimodel.rb
   - lib/stack_one/models/shared/benefit_type.rb
@@ -1698,8 +1694,6 @@ generatedFiles:
   - lib/stack_one/models/shared/createanswer_type.rb
   - lib/stack_one/models/shared/createanswer_value.rb
   - lib/stack_one/models/shared/createassessmentspackages.rb
-  - lib/stack_one/models/shared/createassessmentspackages_type.rb
-  - lib/stack_one/models/shared/createassessmentspackages_value.rb
   - lib/stack_one/models/shared/createcategoriesapimodel.rb
   - lib/stack_one/models/shared/createcontentapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel.rb
@@ -2392,7 +2386,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}}
+          application/json: {"data": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
   ats_get_assessments_request:
     "":
       parameters:
@@ -2404,7 +2398,7 @@ examples:
           x-account-id: "<value>"
       responses:
         "200":
-          application/json: {"data": {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
+          application/json: {"data": {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
   ats_get_assessments_result:
     "":
       parameters:
@@ -3665,7 +3659,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
         header:
           x-account-id: "<value>"
       responses:
@@ -3775,7 +3769,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -4397,7 +4391,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"description": "Standard background package for hires", "name": "Standard Background Check", "passthrough": {"other_known_names": "John Doe"}, "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}]}
+        application/json: {"description": "Standard background package for hires", "name": "Standard Background Check", "passthrough": {"other_known_names": "John Doe"}, "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1"}]}
       responses:
         "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4424,14 +4418,14 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
+          application/json: {"data": {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
   ats_get_background_check_result:
     "":
       parameters:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,candidate,start_date,submission_date,summary,result,result_url,attachments"
+          fields: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments"
         header:
           x-account-id: "<id>"
       responses:
@@ -4448,7 +4442,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}]}]}
+          application/json: {"data": [{"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}]}
   ats_list_background_check_request:
     "":
       parameters:
@@ -4460,5 +4454,5 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "type": {"source_value": "key_responsibilities", "value": "responsibilities"}}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}]}
+          application/json: {"data": [{"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}]}
 generatedTests: {}

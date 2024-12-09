@@ -200,10 +200,6 @@ res = s.ats.create_background_check_package(ats_create_background_check_packages
     ::StackOne::Shared::CreateAssessmentsPackages.new(
       description: "Skills test to gauge a candidate's proficiency in job-specific skills",
       name: "Test 1",
-      type: ::StackOne::Shared::CreateAssessmentsPackagesType.new(
-        source_value: "key_responsibilities",
-        value: ::StackOne::Shared::CreateAssessmentsPackagesValue::RESPONSIBILITIES,
-      ),
     ),
   ],
 ), x_account_id="<id>")
@@ -1069,7 +1065,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetBackgroundCheckResultRequest.new(
-  fields_: "id,remote_id,candidate,start_date,submission_date,summary,result,result_url,attachments",
+  fields_: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<id>",
 )

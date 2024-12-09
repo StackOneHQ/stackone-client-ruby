@@ -23,6 +23,8 @@ module StackOne
       field :result, T.nilable(::StackOne::Shared::BackgroundCheckResultsResultResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
       # The test`s result url
       field :result_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_url') } }
+
+      field :score, T.nilable(::StackOne::Shared::BackgroundCheckResultsResultScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
       # The start date of the candidate test
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The submission date of the candidate test
@@ -31,14 +33,15 @@ module StackOne
       field :summary, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
 
 
-      sig { params(attachments: T.nilable(T::Array[::StackOne::Shared::AssessmentsAttachment]), candidate: T.nilable(::StackOne::Shared::BackgroundCheckResultsResultCandidate), id: T.nilable(::String), remote_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::BackgroundCheckResultsResultResult), result_url: T.nilable(::String), start_date: T.nilable(::DateTime), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
-      def initialize(attachments: nil, candidate: nil, id: nil, remote_id: nil, result: nil, result_url: nil, start_date: nil, submission_date: nil, summary: nil)
+      sig { params(attachments: T.nilable(T::Array[::StackOne::Shared::AssessmentsAttachment]), candidate: T.nilable(::StackOne::Shared::BackgroundCheckResultsResultCandidate), id: T.nilable(::String), remote_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::BackgroundCheckResultsResultResult), result_url: T.nilable(::String), score: T.nilable(::StackOne::Shared::BackgroundCheckResultsResultScore), start_date: T.nilable(::DateTime), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
+      def initialize(attachments: nil, candidate: nil, id: nil, remote_id: nil, result: nil, result_url: nil, score: nil, start_date: nil, submission_date: nil, summary: nil)
         @attachments = attachments
         @candidate = candidate
         @id = id
         @remote_id = remote_id
         @result = result
         @result_url = result_url
+        @score = score
         @start_date = start_date
         @submission_date = submission_date
         @summary = summary

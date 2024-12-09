@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-    # The learning object type of the assignment
+    # The learning object type of the completion
     class CompletionLearningObjectType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
