@@ -17,16 +17,13 @@ module StackOne
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Package name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Package type
-      field :type, T.nilable(::StackOne::Shared::AssessmentsPackagesTestApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), type: T.nilable(::StackOne::Shared::AssessmentsPackagesTestApiModelType)).void }
-      def initialize(description: nil, id: nil, name: nil, type: nil)
+      sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String)).void }
+      def initialize(description: nil, id: nil, name: nil)
         @description = description
         @id = id
         @name = name
-        @type = type
       end
     end
   end

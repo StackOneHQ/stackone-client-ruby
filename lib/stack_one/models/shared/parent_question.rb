@@ -19,14 +19,17 @@ module StackOne
       field :option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('option_ids') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Provider's list of parent questions's option IDs
+      field :remote_option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_option_ids') } }
 
 
-      sig { params(condition_type: T.nilable(::StackOne::Shared::ConditionType), id: T.nilable(::String), option_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String)).void }
-      def initialize(condition_type: nil, id: nil, option_ids: nil, remote_id: nil)
+      sig { params(condition_type: T.nilable(::StackOne::Shared::ConditionType), id: T.nilable(::String), option_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_option_ids: T.nilable(T::Array[::String])).void }
+      def initialize(condition_type: nil, id: nil, option_ids: nil, remote_id: nil, remote_option_ids: nil)
         @condition_type = condition_type
         @id = id
         @option_ids = option_ids
         @remote_id = remote_id
+        @remote_option_ids = remote_option_ids
       end
     end
   end

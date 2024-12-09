@@ -33,6 +33,8 @@ module StackOne
       field :languages, T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
       # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
       field :order, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
+      # A short description or summary for the content
+      field :short_description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('short_description') } }
       # The skills associated with this content
       field :skills, T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
       # The title of the content
@@ -41,8 +43,8 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content_type: T.nilable(::StackOne::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), course_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), order: T.nilable(::Float), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(active: nil, categories: nil, content_type: nil, content_url: nil, course_ids: nil, cover_url: nil, description: nil, duration: nil, external_reference: nil, languages: nil, order: nil, skills: nil, title: nil, unified_custom_fields: nil)
+      sig { params(active: T.nilable(T::Boolean), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content_type: T.nilable(::StackOne::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), course_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(active: nil, categories: nil, content_type: nil, content_url: nil, course_ids: nil, cover_url: nil, description: nil, duration: nil, external_reference: nil, languages: nil, order: nil, short_description: nil, skills: nil, title: nil, unified_custom_fields: nil)
         @active = active
         @categories = categories
         @content_type = content_type
@@ -54,6 +56,7 @@ module StackOne
         @external_reference = external_reference
         @languages = languages
         @order = order
+        @short_description = short_description
         @skills = skills
         @title = title
         @unified_custom_fields = unified_custom_fields

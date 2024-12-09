@@ -33,11 +33,11 @@ module StackOne
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
       # The ID associated with this completion
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The learning_object_external_reference associated with this assignment
+      # The external reference of the learning object associated with this completion
       field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
-      # The learning_object_id associated with this assignment
+      # The id of the learning object associated with this completion
       field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
-      # The learning object type of the assignment
+      # The learning object type of the completion
       field :learning_object_type, T.nilable(::StackOne::Shared::CompletionLearningObjectType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }
       # Provider's unique identifier of the content associated with the completion
       # 
@@ -53,7 +53,7 @@ module StackOne
       field :remote_external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_external_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the learning object related to the assignment
+      # Provider's unique identifier of the learning object related to the completion
       field :remote_learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_learning_object_id') } }
       # Provider's unique identifier of the user related to the completion
       field :remote_user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
