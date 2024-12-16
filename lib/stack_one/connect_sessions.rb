@@ -55,6 +55,8 @@ module StackOne
           res.connect_session = out
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -97,6 +99,8 @@ module StackOne
           res.connect_session_token_auth_link = out
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: af447d16c92146e531240c9e31699b94
+  docChecksum: 5088fcaee72febc7f4874324f22ef0eb
   docVersion: 1.0.0
-  speakeasyVersion: 1.453.4
-  generationVersion: 2.474.6
-  releaseVersion: 0.4.1
-  configChecksum: 0540911e7b3d986082ffd08a550688cc
+  speakeasyVersion: 1.455.3
+  generationVersion: 2.479.3
+  releaseVersion: 0.4.2
+  configChecksum: bca063a55d8b8851ef6f661e073d34a0
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -342,6 +342,8 @@ generatedFiles:
   - docs/models/operations/lmsbatchupsertcourseresponse.md
   - docs/models/operations/lmscreatecollectionrequest.md
   - docs/models/operations/lmscreatecollectionresponse.md
+  - docs/models/operations/lmscreateuserassignmentrequest.md
+  - docs/models/operations/lmscreateuserassignmentresponse.md
   - docs/models/operations/lmscreateusercompletionrequest.md
   - docs/models/operations/lmscreateusercompletionresponse.md
   - docs/models/operations/lmsgetassignmentrequest.md
@@ -515,8 +517,8 @@ generatedFiles:
   - docs/models/shared/assessmentsresultsvalue.md
   - docs/models/shared/assignment.md
   - docs/models/shared/assignmentresult.md
+  - docs/models/shared/assignmentschemasvalue.md
   - docs/models/shared/assignmentspaginated.md
-  - docs/models/shared/assignmentstatusenum.md
   - docs/models/shared/assignmentvalue.md
   - docs/models/shared/atscreateapplicationrequestdto.md
   - docs/models/shared/atscreateapplicationrequestdtoapplicationstatus.md
@@ -577,6 +579,7 @@ generatedFiles:
   - docs/models/shared/campaignresult.md
   - docs/models/shared/campaignschemasvalue.md
   - docs/models/shared/campaignspaginated.md
+  - docs/models/shared/campaignstatus.md
   - docs/models/shared/campaignvalue.md
   - docs/models/shared/candidate.md
   - docs/models/shared/candidateemail.md
@@ -588,7 +591,6 @@ generatedFiles:
   - docs/models/shared/categoryresult.md
   - docs/models/shared/categoryvalue.md
   - docs/models/shared/channelsenum.md
-  - docs/models/shared/channelsenumvalue.md
   - docs/models/shared/companiespaginated.md
   - docs/models/shared/company.md
   - docs/models/shared/companyresult.md
@@ -638,6 +640,7 @@ generatedFiles:
   - docs/models/shared/createassessmentspackages.md
   - docs/models/shared/createcategoriesapimodel.md
   - docs/models/shared/createcontentapimodel.md
+  - docs/models/shared/createcostcenterapimodel.md
   - docs/models/shared/createemploymentapimodel.md
   - docs/models/shared/createemploymentapimodelschemaspayfrequencyvalue.md
   - docs/models/shared/createemploymentapimodelschemaspayperiodvalue.md
@@ -913,6 +916,9 @@ generatedFiles:
   - docs/models/shared/listvalue.md
   - docs/models/shared/lmsbatchupsertcontentrequestdto.md
   - docs/models/shared/lmsbatchupsertcourserequestdto.md
+  - docs/models/shared/lmscreateassignmentrequestdto.md
+  - docs/models/shared/lmscreateassignmentrequestdtostatus.md
+  - docs/models/shared/lmscreateassignmentrequestdtovalue.md
   - docs/models/shared/lmscreatecollectionrequestdto.md
   - docs/models/shared/lmscreatecompletionrequestdto.md
   - docs/models/shared/lmscreatecompletionrequestdtoresult.md
@@ -1399,6 +1405,8 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_batch_upsert_course_response.rb
   - lib/stack_one/models/operations/lms_create_collection_request.rb
   - lib/stack_one/models/operations/lms_create_collection_response.rb
+  - lib/stack_one/models/operations/lms_create_user_assignment_request.rb
+  - lib/stack_one/models/operations/lms_create_user_assignment_response.rb
   - lib/stack_one/models/operations/lms_create_user_completion_request.rb
   - lib/stack_one/models/operations/lms_create_user_completion_response.rb
   - lib/stack_one/models/operations/lms_get_assignment_request.rb
@@ -1572,10 +1580,10 @@ generatedFiles:
   - lib/stack_one/models/shared/assessmentsresults_value.rb
   - lib/stack_one/models/shared/assessmentsresultsresult.rb
   - lib/stack_one/models/shared/assignment.rb
+  - lib/stack_one/models/shared/assignment_schemas_value.rb
   - lib/stack_one/models/shared/assignment_value.rb
   - lib/stack_one/models/shared/assignmentresult.rb
   - lib/stack_one/models/shared/assignmentspaginated.rb
-  - lib/stack_one/models/shared/assignmentstatusenum.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_application_status.rb
   - lib/stack_one/models/shared/atscreateapplicationrequestdto_candidate.rb
@@ -1633,6 +1641,7 @@ generatedFiles:
   - lib/stack_one/models/shared/benefit_type.rb
   - lib/stack_one/models/shared/campaign.rb
   - lib/stack_one/models/shared/campaign_schemas_value.rb
+  - lib/stack_one/models/shared/campaign_status.rb
   - lib/stack_one/models/shared/campaign_value.rb
   - lib/stack_one/models/shared/campaignresult.rb
   - lib/stack_one/models/shared/campaignspaginated.rb
@@ -1646,7 +1655,6 @@ generatedFiles:
   - lib/stack_one/models/shared/category_value.rb
   - lib/stack_one/models/shared/categoryresult.rb
   - lib/stack_one/models/shared/channelsenum.rb
-  - lib/stack_one/models/shared/channelsenum_value.rb
   - lib/stack_one/models/shared/companiespaginated.rb
   - lib/stack_one/models/shared/company.rb
   - lib/stack_one/models/shared/companyresult.rb
@@ -1696,6 +1704,7 @@ generatedFiles:
   - lib/stack_one/models/shared/createassessmentspackages.rb
   - lib/stack_one/models/shared/createcategoriesapimodel.rb
   - lib/stack_one/models/shared/createcontentapimodel.rb
+  - lib/stack_one/models/shared/createcostcenterapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel_schemas_pay_frequency_value.rb
   - lib/stack_one/models/shared/createemploymentapimodel_schemas_pay_period_value.rb
@@ -1971,6 +1980,9 @@ generatedFiles:
   - lib/stack_one/models/shared/listspaginated.rb
   - lib/stack_one/models/shared/lmsbatchupsertcontentrequestdto.rb
   - lib/stack_one/models/shared/lmsbatchupsertcourserequestdto.rb
+  - lib/stack_one/models/shared/lmscreateassignmentrequestdto.rb
+  - lib/stack_one/models/shared/lmscreateassignmentrequestdto_status.rb
+  - lib/stack_one/models/shared/lmscreateassignmentrequestdto_value.rb
   - lib/stack_one/models/shared/lmscreatecollectionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_result.rb
@@ -2302,7 +2314,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
           expand: "documents"
           include: "attachments,custom_fields"
         header:
@@ -2357,7 +2369,7 @@ examples:
           id: "<id>"
           subResourceId: "<value>"
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
         header:
           x-account-id: "<value>"
       responses:
@@ -2632,7 +2644,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           expand: "documents"
@@ -3124,7 +3136,7 @@ examples:
           id: "<id>"
         query:
           fields: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number"
-          expand: "company,employments,work_location,home_location,custom_fields,groups"
+          expand: "company,employments,work_location,home_location,groups"
           include: "avatar_url,avatar,custom_fields,job_description,benefits"
         header:
           x-account-id: "<value>"
@@ -3369,7 +3381,7 @@ examples:
           fields: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
-          expand: "company,employments,work_location,home_location,custom_fields,groups"
+          expand: "company,employments,work_location,home_location,groups"
           include: "avatar_url,avatar,custom_fields,job_description,benefits"
         header:
           x-account-id: "<value>"
@@ -4455,4 +4467,16 @@ examples:
       responses:
         "200":
           application/json: {"data": [{"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "title": "Software Engineer"}, "package": {"description": "Standard background package for hires", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Standard Background Check", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}}, "results_update_url": "https://exmaple.com/integrations/results/update"}]}
+  lms_create_user_assignment:
+    speakeasy-default-lms-create-user-assignment:
+      parameters:
+        path:
+          id: "<id>"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"created_at": "2021-07-21T14:00:00.000Z", "due_date": "2021-07-21T14:00:00.000Z", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "passthrough": {"other_known_names": "John Doe"}, "progress": "40", "status": {"value": "pending"}}
+      responses:
+        "201":
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
 generatedTests: {}

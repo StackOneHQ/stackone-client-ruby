@@ -60,6 +60,8 @@ module StackOne
           res.batch_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -107,6 +109,8 @@ module StackOne
           res.batch_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -154,6 +158,63 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
+      end
+
+      res
+    end
+
+
+    sig { params(lms_create_assignment_request_dto: ::StackOne::Shared::LmsCreateAssignmentRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::LmsCreateUserAssignmentResponse) }
+    def create_user_assignment(lms_create_assignment_request_dto, id, x_account_id)
+      # create_user_assignment - Create User Assignment
+      request = ::StackOne::Operations::LmsCreateUserAssignmentRequest.new(
+        
+        lms_create_assignment_request_dto: lms_create_assignment_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::LmsCreateUserAssignmentRequest,
+        base_url,
+        '/unified/lms/users/{id}/assignments',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :lms_create_assignment_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::LmsCreateUserAssignmentResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 201
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          res.create_result = out
+        end
+      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -207,6 +268,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -246,6 +309,8 @@ module StackOne
           res.assignment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -285,6 +350,8 @@ module StackOne
           res.category_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -324,6 +391,8 @@ module StackOne
           res.completion_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -363,6 +432,8 @@ module StackOne
           res.content_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -402,6 +473,8 @@ module StackOne
           res.course_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -441,6 +514,8 @@ module StackOne
           res.skill_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -480,6 +555,8 @@ module StackOne
           res.user_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -519,6 +596,8 @@ module StackOne
           res.assignment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -558,6 +637,8 @@ module StackOne
           res.completion_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -592,6 +673,8 @@ module StackOne
           res.assignments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -626,6 +709,8 @@ module StackOne
           res.categories_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -660,6 +745,8 @@ module StackOne
           res.completions_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -694,6 +781,8 @@ module StackOne
           res.content_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -728,6 +817,8 @@ module StackOne
           res.course_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -762,6 +853,8 @@ module StackOne
           res.skills_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -801,6 +894,8 @@ module StackOne
           res.assignments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -840,6 +935,8 @@ module StackOne
           res.completions_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -874,6 +971,8 @@ module StackOne
           res.users_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -927,6 +1026,8 @@ module StackOne
           res.update_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -974,6 +1075,8 @@ module StackOne
           res.upsert_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1021,6 +1124,8 @@ module StackOne
           res.upsert_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res

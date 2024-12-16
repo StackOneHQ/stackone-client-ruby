@@ -333,6 +333,8 @@ module StackOne
     autoload :LmsBatchUpsertCourseResponse, 'stack_one/models/operations/lms_batch_upsert_course_response.rb'
     autoload :LmsCreateCollectionRequest, 'stack_one/models/operations/lms_create_collection_request.rb'
     autoload :LmsCreateCollectionResponse, 'stack_one/models/operations/lms_create_collection_response.rb'
+    autoload :LmsCreateUserAssignmentRequest, 'stack_one/models/operations/lms_create_user_assignment_request.rb'
+    autoload :LmsCreateUserAssignmentResponse, 'stack_one/models/operations/lms_create_user_assignment_response.rb'
     autoload :LmsCreateUserCompletionRequest, 'stack_one/models/operations/lms_create_user_completion_request.rb'
     autoload :LmsCreateUserCompletionResponse, 'stack_one/models/operations/lms_create_user_completion_response.rb'
     autoload :LmsGetAssignmentRequest, 'stack_one/models/operations/lms_get_assignment_request.rb'

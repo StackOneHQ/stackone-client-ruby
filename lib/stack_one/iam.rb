@@ -52,6 +52,8 @@ module StackOne
           res.iam_group_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -91,6 +93,8 @@ module StackOne
           res.iam_policy_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -130,6 +134,8 @@ module StackOne
           res.iam_role_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -169,6 +175,8 @@ module StackOne
           res.iam_user_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -203,6 +211,8 @@ module StackOne
           res.iam_groups_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -237,6 +247,8 @@ module StackOne
           res.iam_policies_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -271,6 +283,8 @@ module StackOne
           res.iam_roles_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -305,6 +319,8 @@ module StackOne
           res.iam_users_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res

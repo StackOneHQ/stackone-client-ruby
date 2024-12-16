@@ -19,6 +19,8 @@ module StackOne
       field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
       # Unique identifier of the job
       field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
+      # Unique identifier of the job posting that is associated with application
+      field :job_posting_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_posting_id') } }
       # Unique identifier of the location
       field :location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
       # Value to pass through to the provider
@@ -29,12 +31,13 @@ module StackOne
       field :source, T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[::StackOne::Shared::CreateQuestionnaire]), source: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoSource)).void }
-      def initialize(application_status: nil, candidate: nil, candidate_id: nil, job_id: nil, location_id: nil, passthrough: nil, questionnaires: nil, source: nil)
+      sig { params(application_status: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), job_id: T.nilable(::String), job_posting_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[::StackOne::Shared::CreateQuestionnaire]), source: T.nilable(::StackOne::Shared::AtsCreateApplicationRequestDtoSource)).void }
+      def initialize(application_status: nil, candidate: nil, candidate_id: nil, job_id: nil, job_posting_id: nil, location_id: nil, passthrough: nil, questionnaires: nil, source: nil)
         @application_status = application_status
         @candidate = candidate
         @candidate_id = candidate_id
         @job_id = job_id
+        @job_posting_id = job_posting_id
         @location_id = location_id
         @passthrough = passthrough
         @questionnaires = questionnaires

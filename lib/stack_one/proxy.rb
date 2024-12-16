@@ -54,6 +54,10 @@ module StackOne
       res = ::StackOne::Operations::StackoneProxyRequestResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
+      if [200, 400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
+      end
 
       res
     end

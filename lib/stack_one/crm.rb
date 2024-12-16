@@ -60,6 +60,8 @@ module StackOne
           res.contact_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -99,6 +101,8 @@ module StackOne
           res.account_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -138,6 +142,8 @@ module StackOne
           res.contact_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -177,6 +183,8 @@ module StackOne
           res.custom_field_definition_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -216,6 +224,8 @@ module StackOne
           res.list_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -250,6 +260,8 @@ module StackOne
           res.accounts_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -284,6 +296,8 @@ module StackOne
           res.custom_field_definitions_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -318,6 +332,8 @@ module StackOne
           res.contacts_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -352,6 +368,8 @@ module StackOne
           res.lists_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -405,6 +423,8 @@ module StackOne
           res.contact_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res

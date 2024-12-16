@@ -7,17 +7,17 @@
 module StackOne
   module Shared
   
-    # Status of the Campaign
+    # The status of the assignment
     class Status < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The source value of the Status.
+
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The Status of the campaign.
-      field :value, T.nilable(::StackOne::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CampaignSchemasValue, true) } }
+
+      field :value, T.nilable(::StackOne::Shared::AssignmentSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AssignmentSchemasValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CampaignSchemasValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AssignmentSchemasValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value
