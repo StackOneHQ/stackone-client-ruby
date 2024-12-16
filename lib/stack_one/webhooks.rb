@@ -66,6 +66,8 @@ module StackOne
           res.create_event_responses = out
         end
       elsif [400, 403, 404, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res

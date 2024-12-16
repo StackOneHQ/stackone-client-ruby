@@ -128,6 +128,7 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
   ),
   candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
   job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
+  job_posting_id: "1c702a20-8de8-4d03-ac18-cbf4ac42eb51",
   location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",
   passthrough: {
     "other_known_names": "John Doe",
@@ -563,7 +564,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsGetApplicationRequest.new(
   expand: "documents",
-  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   id: "<id>",
   include: "attachments,custom_fields",
   x_account_id: "<id>",
@@ -749,7 +750,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest.new(
-  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1895,7 +1896,7 @@ s.config_security(
 
 req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
-  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
+  fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),

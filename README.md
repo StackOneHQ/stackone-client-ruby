@@ -56,7 +56,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  expand: "company,employments,work_location,home_location,custom_fields,groups",
+  expand: "company,employments,work_location,home_location,groups",
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
@@ -241,6 +241,7 @@ end
 * [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert Content
 * [batch_upsert_course](docs/sdks/lms/README.md#batch_upsert_course) - Batch Upsert Course
 * [create_collection](docs/sdks/lms/README.md#create_collection) - Create Collection
+* [create_user_assignment](docs/sdks/lms/README.md#create_user_assignment) - Create User Assignment
 * [create_user_completion](docs/sdks/lms/README.md#create_user_completion) - Create User Completion
 * [get_assignment](docs/sdks/lms/README.md#get_assignment) - Get Assignment
 * [get_category](docs/sdks/lms/README.md#get_category) - Get Category

@@ -13,6 +13,8 @@ module StackOne
 
       # HTTP response content type for this operation
       field :content_type, ::String
+
+      field :headers, T::Hash[Symbol, T::Array[::String]]
       # Raw HTTP response; suitable for custom response parsing
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
@@ -21,9 +23,10 @@ module StackOne
       field :hris_cost_center_result, T.nilable(::StackOne::Shared::HRISCostCenterResult)
 
 
-      sig { params(content_type: ::String, raw_response: ::Faraday::Response, status_code: ::Integer, hris_cost_center_result: T.nilable(::StackOne::Shared::HRISCostCenterResult)).void }
-      def initialize(content_type: nil, raw_response: nil, status_code: nil, hris_cost_center_result: nil)
+      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, hris_cost_center_result: T.nilable(::StackOne::Shared::HRISCostCenterResult)).void }
+      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, hris_cost_center_result: nil)
         @content_type = content_type
+        @headers = headers
         @raw_response = raw_response
         @status_code = status_code
         @hris_cost_center_result = hris_cost_center_result

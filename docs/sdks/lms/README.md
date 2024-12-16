@@ -8,6 +8,7 @@
 * [batch_upsert_content](#batch_upsert_content) - Batch Upsert Content
 * [batch_upsert_course](#batch_upsert_course) - Batch Upsert Course
 * [create_collection](#create_collection) - Create Collection
+* [create_user_assignment](#create_user_assignment) - Create User Assignment
 * [create_user_completion](#create_user_completion) - Create User Completion
 * [get_assignment](#get_assignment) - Get Assignment
 * [get_category](#get_category) - Get Category
@@ -256,6 +257,59 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsCreateCollectionResponse)](../../models/operations/lmscreatecollectionresponse.md)**
+
+
+
+## create_user_assignment
+
+Create User Assignment
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.lms.create_user_assignment(lms_create_assignment_request_dto=::StackOne::Shared::LmsCreateAssignmentRequestDto.new(
+  created_at: "2021-07-21T14:00:00.000Z",
+  due_date: "2021-07-21T14:00:00.000Z",
+  learning_object_external_reference: "learning-content-123",
+  learning_object_id: "e3gd34-23tr21-er234-345er56",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  progress: 40,
+  status: ::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus.new(
+    value: ::StackOne::Shared::LmsCreateAssignmentRequestDtoValue::PENDING,
+  ),
+), id="<id>", x_account_id="<id>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `lms_create_assignment_request_dto`                                                                       | [::StackOne::Shared::LmsCreateAssignmentRequestDto](../../models/shared/lmscreateassignmentrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsCreateUserAssignmentResponse)](../../models/operations/lmscreateuserassignmentresponse.md)**
 
 
 

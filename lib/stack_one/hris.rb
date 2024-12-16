@@ -66,6 +66,8 @@ module StackOne
           res.batch_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -113,6 +115,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -166,6 +170,8 @@ module StackOne
           res.employment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -219,6 +225,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -272,6 +280,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -319,6 +329,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -362,6 +374,8 @@ module StackOne
       if r.status == 200
         res.bytes = r.env.response_body if Utils.match_content_type(content_type, 'application/octet-stream')
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -401,6 +415,8 @@ module StackOne
           res.hris_benefit_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -440,6 +456,8 @@ module StackOne
           res.company_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -479,6 +497,8 @@ module StackOne
           res.hris_cost_center_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -518,6 +538,8 @@ module StackOne
           res.hris_departments_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -557,6 +579,8 @@ module StackOne
           res.employee_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -596,6 +620,8 @@ module StackOne
           res.custom_field_definition_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -635,6 +661,8 @@ module StackOne
           res.hris_document_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -674,6 +702,8 @@ module StackOne
           res.reference_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -713,6 +743,8 @@ module StackOne
           res.employment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -752,6 +784,8 @@ module StackOne
           res.time_off_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -791,6 +825,8 @@ module StackOne
           res.work_eligibility_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -830,6 +866,8 @@ module StackOne
           res.employment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -869,6 +907,8 @@ module StackOne
           res.hris_groups_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -908,6 +948,8 @@ module StackOne
           res.job_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -947,6 +989,8 @@ module StackOne
           res.hris_location_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -986,6 +1030,8 @@ module StackOne
           res.time_off_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1025,6 +1071,8 @@ module StackOne
           res.reference_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1059,6 +1107,8 @@ module StackOne
           res.hris_benefits_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1093,6 +1143,8 @@ module StackOne
           res.companies_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1127,6 +1179,8 @@ module StackOne
           res.hris_cost_center_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1161,6 +1215,8 @@ module StackOne
           res.hris_departments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1195,6 +1251,8 @@ module StackOne
           res.reference_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1229,6 +1287,8 @@ module StackOne
           res.custom_field_definitions_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1268,6 +1328,8 @@ module StackOne
           res.hris_documents_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1307,6 +1369,8 @@ module StackOne
           res.employments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1346,6 +1410,8 @@ module StackOne
           res.time_off_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1385,6 +1451,8 @@ module StackOne
           res.work_eligibility_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1419,6 +1487,8 @@ module StackOne
           res.employees_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1453,6 +1523,8 @@ module StackOne
           res.employments_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1487,6 +1559,8 @@ module StackOne
           res.hris_groups_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1521,6 +1595,8 @@ module StackOne
           res.jobs_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1555,6 +1631,8 @@ module StackOne
           res.hris_locations_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1589,6 +1667,8 @@ module StackOne
           res.time_off_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1623,6 +1703,8 @@ module StackOne
           res.reference_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1676,6 +1758,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1730,6 +1814,8 @@ module StackOne
           res.employment_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1778,6 +1864,10 @@ module StackOne
       res = ::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
+      if [200, 400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
+      end
 
       res
     end
@@ -1830,6 +1920,8 @@ module StackOne
           res.create_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -1883,6 +1975,8 @@ module StackOne
           res.write_result_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res

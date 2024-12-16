@@ -54,6 +54,8 @@ module StackOne
           res.linked_account = out
         end
       elsif [400, 403, 404, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -95,6 +97,8 @@ module StackOne
           res.linked_account = out
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -136,6 +140,8 @@ module StackOne
           res.linked_account_meta = out
         end
       elsif [400, 403, 404, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -170,6 +176,8 @@ module StackOne
           res.linked_accounts = out
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
@@ -222,6 +230,8 @@ module StackOne
           res.linked_account = out
         end
       elsif [400, 403, 429, 500, 501].include?(r.status)
+      elsif r.status == 408
+        res.headers = r.headers
       end
 
       res
