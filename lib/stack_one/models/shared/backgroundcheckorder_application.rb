@@ -17,13 +17,16 @@ module StackOne
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+      # Provider's unique identifier
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::BackgroundCheckOrderApplicationStatus), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(application_status: nil, id: nil, passthrough: nil)
+      sig { params(application_status: T.nilable(::StackOne::Shared::BackgroundCheckOrderApplicationStatus), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+      def initialize(application_status: nil, id: nil, passthrough: nil, remote_id: nil)
         @application_status = application_status
         @id = id
         @passthrough = passthrough
+        @remote_id = remote_id
       end
     end
   end
