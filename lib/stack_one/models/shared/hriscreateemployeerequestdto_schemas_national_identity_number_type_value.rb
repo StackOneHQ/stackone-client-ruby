@@ -150,6 +150,7 @@ module StackOne
         CURP = new('curp')
         IMSS = new('imss')
         RFC = new('rfc')
+        EIN = new('ein')
         OTHER = new('other')
         UNKNOWN = new('unknown')
       end

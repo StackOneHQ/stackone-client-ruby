@@ -17,15 +17,18 @@ module StackOne
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+      # Provider's unique identifier
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # Title of the job
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(hiring_team: T.nilable(T::Array[::StackOne::Shared::AssessmentsRequestsJobHiringTeamApiModel]), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), title: T.nilable(::String)).void }
-      def initialize(hiring_team: nil, id: nil, passthrough: nil, title: nil)
+      sig { params(hiring_team: T.nilable(T::Array[::StackOne::Shared::AssessmentsRequestsJobHiringTeamApiModel]), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
+      def initialize(hiring_team: nil, id: nil, passthrough: nil, remote_id: nil, title: nil)
         @hiring_team = hiring_team
         @id = id
         @passthrough = passthrough
+        @remote_id = remote_id
         @title = title
       end
     end

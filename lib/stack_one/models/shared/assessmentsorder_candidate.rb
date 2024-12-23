@@ -23,16 +23,19 @@ module StackOne
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # Candidate profile url
       field :profile_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('profile_url') } }
+      # Provider's unique identifier
+      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), profile_url: T.nilable(::String)).void }
-      def initialize(emails: nil, first_name: nil, id: nil, last_name: nil, passthrough: nil, profile_url: nil)
+      sig { params(emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), profile_url: T.nilable(::String), remote_id: T.nilable(::String)).void }
+      def initialize(emails: nil, first_name: nil, id: nil, last_name: nil, passthrough: nil, profile_url: nil, remote_id: nil)
         @emails = emails
         @first_name = first_name
         @id = id
         @last_name = last_name
         @passthrough = passthrough
         @profile_url = profile_url
+        @remote_id = remote_id
       end
     end
   end
