@@ -255,6 +255,7 @@ The Locale Code of the language
 | `GA_IE`  | ga_IE    |
 | `GN_PY`  | gn_PY    |
 | `GN_AR`  | gn_AR    |
+| `GU_IN`  | gu_IN    |
 | `GV_IM`  | gv_IM    |
 | `HE_IL`  | he_IL    |
 | `HI_IN`  | hi_IN    |
@@ -296,6 +297,7 @@ The Locale Code of the language
 | `MI_NZ`  | mi_NZ    |
 | `MK_MK`  | mk_MK    |
 | `MN_MN`  | mn_MN    |
+| `MR_IN`  | mr_IN    |
 | `MS_BN`  | ms_BN    |
 | `MS_MY`  | ms_MY    |
 | `MS_SG`  | ms_SG    |
@@ -355,9 +357,11 @@ The Locale Code of the language
 | `RU_TM`  | ru_TM    |
 | `RU_UZ`  | ru_UZ    |
 | `RW_RW`  | rw_RW    |
+| `SE_SE`  | se_SE    |
 | `SG_CF`  | sg_CF    |
 | `SI_LK`  | si_LK    |
 | `SK_SK`  | sk_SK    |
+| `SL_SI`  | sl_SI    |
 | `SM_AS`  | sm_AS    |
 | `SM_WS`  | sm_WS    |
 | `SN_ZW`  | sn_ZW    |
@@ -385,6 +389,7 @@ The Locale Code of the language
 | `TA_MY`  | ta_MY    |
 | `TA_SG`  | ta_SG    |
 | `TA_LK`  | ta_LK    |
+| `TE_IN`  | te_IN    |
 | `TG_TJ`  | tg_TJ    |
 | `TH_TH`  | th_TH    |
 | `TI_ER`  | ti_ER    |

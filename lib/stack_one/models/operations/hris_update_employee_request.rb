@@ -12,16 +12,16 @@ module StackOne
       extend T::Sig
 
 
-      field :hris_create_employee_request_dto, ::StackOne::Shared::HrisCreateEmployeeRequestDto, { 'request': { 'media_type': 'application/json' } }
+      field :hris_update_employee_request_dto, ::StackOne::Shared::HrisUpdateEmployeeRequestDto, { 'request': { 'media_type': 'application/json' } }
 
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, id: ::String, x_account_id: ::String).void }
-      def initialize(hris_create_employee_request_dto: nil, id: nil, x_account_id: nil)
-        @hris_create_employee_request_dto = hris_create_employee_request_dto
+      sig { params(hris_update_employee_request_dto: ::StackOne::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String).void }
+      def initialize(hris_update_employee_request_dto: nil, id: nil, x_account_id: nil)
+        @hris_update_employee_request_dto = hris_update_employee_request_dto
         @id = id
         @x_account_id = x_account_id
       end

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: b3f5fa1ce24b2f5a919b53738343c16f
+  docChecksum: 860d0ebc1320d471850e3c34c6cdd82d
   docVersion: 1.0.0
-  speakeasyVersion: 1.459.3
-  generationVersion: 2.483.6
-  releaseVersion: 0.4.3
-  configChecksum: 0b2f229d2cec67e5c771f28b92c76786
+  speakeasyVersion: 1.460.3
+  generationVersion: 2.484.0
+  releaseVersion: 0.4.4
+  configChecksum: 17ee00204b36f84a4fef37bcadcca13f
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -817,6 +817,37 @@ generatedFiles:
   - docs/models/shared/hrislocationschemasvalue.md
   - docs/models/shared/hrislocationspaginated.md
   - docs/models/shared/hrislocationvalue.md
+  - docs/models/shared/hrisupdateemployeerequestdto.md
+  - docs/models/shared/hrisupdateemployeerequestdtoavatar.md
+  - docs/models/shared/hrisupdateemployeerequestdtocountry.md
+  - docs/models/shared/hrisupdateemployeerequestdtoemploymentcontracttype.md
+  - docs/models/shared/hrisupdateemployeerequestdtoemploymentstatus.md
+  - docs/models/shared/hrisupdateemployeerequestdtoemploymenttype.md
+  - docs/models/shared/hrisupdateemployeerequestdtoethnicity.md
+  - docs/models/shared/hrisupdateemployeerequestdtogender.md
+  - docs/models/shared/hrisupdateemployeerequestdtohomelocation.md
+  - docs/models/shared/hrisupdateemployeerequestdtomaritalstatus.md
+  - docs/models/shared/hrisupdateemployeerequestdtonationalidentitynumber.md
+  - docs/models/shared/hrisupdateemployeerequestdtopreferredlanguage.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemascountry.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasemploymenttypevalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasethnicityvalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasgendervalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemashomelocationstatevalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemashomelocationvalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasmaritalstatusvalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasnationalidentitynumbertypevalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasnationalidentitynumbervalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemaspreferredlanguagevalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasstate.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasvalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasworklocationcountry.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasworklocationstatevalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoschemasworklocationvalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtostate.md
+  - docs/models/shared/hrisupdateemployeerequestdtotype.md
+  - docs/models/shared/hrisupdateemployeerequestdtovalue.md
+  - docs/models/shared/hrisupdateemployeerequestdtoworklocation.md
   - docs/models/shared/iamgroup.md
   - docs/models/shared/iamgroupresult.md
   - docs/models/shared/iamgroupspaginated.md
@@ -1052,6 +1083,37 @@ generatedFiles:
   - docs/models/shared/unifieduploadrequestdtofileformat.md
   - docs/models/shared/unifieduploadrequestdtoschemasvalue.md
   - docs/models/shared/unifieduploadrequestdtovalue.md
+  - docs/models/shared/updateemployeeapimodel.md
+  - docs/models/shared/updateemployeeapimodelavatar.md
+  - docs/models/shared/updateemployeeapimodelcountry.md
+  - docs/models/shared/updateemployeeapimodelemploymentcontracttype.md
+  - docs/models/shared/updateemployeeapimodelemploymentstatus.md
+  - docs/models/shared/updateemployeeapimodelemploymenttype.md
+  - docs/models/shared/updateemployeeapimodelethnicity.md
+  - docs/models/shared/updateemployeeapimodelgender.md
+  - docs/models/shared/updateemployeeapimodelhomelocation.md
+  - docs/models/shared/updateemployeeapimodelmaritalstatus.md
+  - docs/models/shared/updateemployeeapimodelnationalidentitynumber.md
+  - docs/models/shared/updateemployeeapimodelpreferredlanguage.md
+  - docs/models/shared/updateemployeeapimodelschemascountry.md
+  - docs/models/shared/updateemployeeapimodelschemasemploymenttypevalue.md
+  - docs/models/shared/updateemployeeapimodelschemasethnicityvalue.md
+  - docs/models/shared/updateemployeeapimodelschemasgendervalue.md
+  - docs/models/shared/updateemployeeapimodelschemashomelocationstatevalue.md
+  - docs/models/shared/updateemployeeapimodelschemashomelocationvalue.md
+  - docs/models/shared/updateemployeeapimodelschemasmaritalstatusvalue.md
+  - docs/models/shared/updateemployeeapimodelschemasnationalidentitynumbertypevalue.md
+  - docs/models/shared/updateemployeeapimodelschemasnationalidentitynumbervalue.md
+  - docs/models/shared/updateemployeeapimodelschemaspreferredlanguagevalue.md
+  - docs/models/shared/updateemployeeapimodelschemasstate.md
+  - docs/models/shared/updateemployeeapimodelschemasvalue.md
+  - docs/models/shared/updateemployeeapimodelschemasworklocationcountry.md
+  - docs/models/shared/updateemployeeapimodelschemasworklocationstatevalue.md
+  - docs/models/shared/updateemployeeapimodelschemasworklocationvalue.md
+  - docs/models/shared/updateemployeeapimodelstate.md
+  - docs/models/shared/updateemployeeapimodeltype.md
+  - docs/models/shared/updateemployeeapimodelvalue.md
+  - docs/models/shared/updateemployeeapimodelworklocation.md
   - docs/models/shared/updateresult.md
   - docs/models/shared/upsertresult.md
   - docs/models/shared/upsertresultdataexternalreferencemodel.md
@@ -1883,6 +1945,37 @@ generatedFiles:
   - lib/stack_one/models/shared/hrislocation_value.rb
   - lib/stack_one/models/shared/hrislocationresult.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_avatar.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_country.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_employment_contract_type.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_employment_status.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_employment_type.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_ethnicity.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_gender.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_home_location.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_marital_status.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_national_identity_number.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_preferred_language.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_country.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_employment_type_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_ethnicity_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_gender_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_home_location_state_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_home_location_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_marital_status_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_national_identity_number_type_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_national_identity_number_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_preferred_language_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_state.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_work_location_country.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_work_location_state_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_schemas_work_location_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_state.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_type.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_value.rb
+  - lib/stack_one/models/shared/hrisupdateemployeerequestdto_work_location.rb
   - lib/stack_one/models/shared/iamgroup.rb
   - lib/stack_one/models/shared/iamgroup_type.rb
   - lib/stack_one/models/shared/iamgroup_value.rb
@@ -2118,6 +2211,37 @@ generatedFiles:
   - lib/stack_one/models/shared/unifieduploadrequestdto_file_format.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_schemas_value.rb
   - lib/stack_one/models/shared/unifieduploadrequestdto_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_avatar.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_country.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_employment_contract_type.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_employment_status.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_employment_type.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_ethnicity.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_gender.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_home_location.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_marital_status.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_national_identity_number.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_preferred_language.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_country.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_employment_type_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_ethnicity_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_gender_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_home_location_state_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_home_location_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_marital_status_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_national_identity_number_type_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_national_identity_number_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_preferred_language_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_state.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_work_location_country.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_work_location_state_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_schemas_work_location_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_state.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_type.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_value.rb
+  - lib/stack_one/models/shared/updateemployeeapimodel_work_location.rb
   - lib/stack_one/models/shared/updateresult.rb
   - lib/stack_one/models/shared/upsertresult.rb
   - lib/stack_one/models/shared/upsertresultdataexternalreferencemodel.rb
@@ -3464,7 +3588,7 @@ examples:
         application/json: {"avatar_url": "https://example.com/avatar.png", "benefits": [], "birthday": "2021-01-01T00:00:00Z", "citizenships": [], "company_name": "Example Corp", "custom_fields": [], "date_of_birth": "1990-01-01T00:00.000Z", "department": "Physics", "department_id": "3093", "display_name": "Sir Issac Newton", "employments": [], "first_name": "Issac", "hire_date": "2021-01-01T00:00.000Z", "home_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "job_id": "R-6789", "job_title": "Physicist", "last_name": "Newton", "manager_id": "67890", "name": "Issac Newton", "national_identity_number": {"country": {"value": "US"}, "type": {"value": "ssn"}, "value": "123456789"}, "passthrough": {"other_known_names": "John Doe"}, "personal_email": "isaac.newton@example.com", "personal_phone_number": "+1234567890", "start_date": "2021-01-01T00:00.000Z", "tenure": 2, "termination_date": "2021-01-01T00:00:00Z", "work_anniversary": "2021-01-01T00:00:00Z", "work_email": "newton@example.com", "work_location": {"city": "Grantham", "country": {"value": "US"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Woolsthorpe Manor", "passthrough": {"other_known_names": "John Doe"}, "phone_number": "+44 1476 860 364", "street_1": "Water Lane", "street_2": "Woolsthorpe by Colsterworth", "zip_code": "NG33 5NR"}, "work_phone_number": "+1234567890"}
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
+          application/json: {}
   hris_update_employee_work_eligibility_request:
     speakeasy-default-hris-update-employee-work-eligibility-request:
       parameters:
