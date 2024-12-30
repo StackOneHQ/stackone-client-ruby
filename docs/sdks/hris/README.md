@@ -2151,8 +2151,8 @@ s.config_security(
 )
 
     
-res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(
-  avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
+res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared::HrisUpdateEmployeeRequestDto.new(
+  avatar: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
   benefits: [
     ::StackOne::Shared::CreateHRISBenefit.new(
@@ -2171,13 +2171,6 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
     ),
   ],
   company_name: "Example Corp",
-  cost_centers: [
-    ::StackOne::Shared::CreateCostCenterApiModel.new(
-      distribution_percentage: 100.0,
-      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      name: "R&D",
-    ),
-  ],
   custom_fields: [
     ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -2193,9 +2186,9 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   department_id: "3093",
   display_name: "Sir Issac Newton",
   employee_number: "125",
-  employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
-  employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
+  employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
+  employment_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
+  employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
   employments: [
     ::StackOne::Shared::CreateEmploymentApiModel.new(
       effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -2215,14 +2208,14 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       },
     ),
   ],
-  ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
+  ethnicity: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
   first_name: "Issac",
-  gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
+  gender: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoGender.new(),
   hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
+  home_location: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoHomeLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
+    country: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoCountry.new(
+      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Woolsthorpe Manor",
@@ -2230,7 +2223,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       "other_known_names": "John Doe",
     },
     phone_number: "+44 1476 860 364",
-    state: ::StackOne::Shared::State.new(),
+    state: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoState.new(),
     street_1: "Water Lane",
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
@@ -2239,14 +2232,14 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   job_title: "Physicist",
   last_name: "Newton",
   manager_id: "67890",
-  marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
+  marital_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new(),
   name: "Issac Newton",
-  national_identity_number: ::StackOne::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber.new(
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue::US,
+  national_identity_number: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoNationalIdentityNumber.new(
+    country: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasCountry.new(
+      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberValue::US,
     ),
-    type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoType.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN,
+    type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoType.new(
+      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN,
     ),
     value: "123456789",
   ),
@@ -2255,16 +2248,16 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   },
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
-  preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
+  preferred_language: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   tenure: 2.0,
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
-  work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
+  work_location: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
+    country: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationCountry.new(
+      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Woolsthorpe Manor",
@@ -2272,7 +2265,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
       "other_known_names": "John Doe",
     },
     phone_number: "+44 1476 860 364",
-    state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(),
+    state: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasState.new(),
     street_1: "Water Lane",
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
@@ -2280,7 +2273,7 @@ res = s.hris.update_employee(hris_create_employee_request_dto=::StackOne::Shared
   work_phone_number: "+1234567890",
 ), id="<id>", x_account_id="<id>")
 
-if ! res.create_result.nil?
+if ! res.update_employee_api_model.nil?
   # handle response
 end
 
@@ -2290,7 +2283,7 @@ end
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_create_employee_request_dto`                                                                      | [::StackOne::Shared::HrisCreateEmployeeRequestDto](../../models/shared/hriscreateemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `hris_update_employee_request_dto`                                                                      | [::StackOne::Shared::HrisUpdateEmployeeRequestDto](../../models/shared/hrisupdateemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 

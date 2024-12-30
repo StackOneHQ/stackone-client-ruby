@@ -20,16 +20,16 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # Record updated successfully
-      field :create_result, T.nilable(::StackOne::Shared::CreateResult)
+      field :update_employee_api_model, T.nilable(::StackOne::Shared::UpdateEmployeeApiModel)
 
 
-      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, create_result: T.nilable(::StackOne::Shared::CreateResult)).void }
-      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, create_result: nil)
+      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, update_employee_api_model: T.nilable(::StackOne::Shared::UpdateEmployeeApiModel)).void }
+      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, update_employee_api_model: nil)
         @content_type = content_type
         @headers = headers
         @raw_response = raw_response
         @status_code = status_code
-        @create_result = create_result
+        @update_employee_api_model = update_employee_api_model
       end
     end
   end

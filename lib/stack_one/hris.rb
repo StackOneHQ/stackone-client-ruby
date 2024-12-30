@@ -1711,12 +1711,12 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeResponse) }
-    def update_employee(hris_create_employee_request_dto, id, x_account_id)
+    sig { params(hris_update_employee_request_dto: ::StackOne::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeResponse) }
+    def update_employee(hris_update_employee_request_dto, id, x_account_id)
       # update_employee - Updates an employee
       request = ::StackOne::Operations::HrisUpdateEmployeeRequest.new(
         
-        hris_create_employee_request_dto: hris_create_employee_request_dto,
+        hris_update_employee_request_dto: hris_update_employee_request_dto,
         id: id,
         x_account_id: x_account_id
       )
@@ -1729,7 +1729,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_employee_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_update_employee_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
@@ -1754,8 +1754,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
-          res.create_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpdateEmployeeApiModel)
+          res.update_employee_api_model = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       elsif r.status == 408
