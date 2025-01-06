@@ -1,0 +1,9 @@
+# AttachmentContentType
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              | Example                                                                                  |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `source_value`                                                                           | *T.nilable(::Object)*                                                                    | :heavy_minus_sign:                                                                       | The source value of the content type.                                                    | Text                                                                                     |
+| `value`                                                                                  | [T.nilable(::StackOne::Shared::AttachmentValue)](../../models/shared/attachmentvalue.md) | :heavy_minus_sign:                                                                       | The content type of the attachment.                                                      | text                                                                                     |

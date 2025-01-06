@@ -19,6 +19,8 @@ module StackOne
       field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
       # The date the assignment is due to be completed
       field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
+      # The external reference associated with this assignment
+      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The ID associated with this assignment
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The external reference of the learning object associated with this assignment
@@ -49,11 +51,12 @@ module StackOne
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-      sig { params(course_id: T.nilable(::String), created_at: T.nilable(::String), due_date: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(::StackOne::Shared::LearningObjectType), progress: T.nilable(::Float), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), status: T.nilable(::StackOne::Shared::Status), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(course_id: nil, created_at: nil, due_date: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, progress: nil, remote_course_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, status: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+      sig { params(course_id: T.nilable(::String), created_at: T.nilable(::String), due_date: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(::StackOne::Shared::LearningObjectType), progress: T.nilable(::Float), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), status: T.nilable(::StackOne::Shared::Status), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(course_id: nil, created_at: nil, due_date: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, progress: nil, remote_course_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, status: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
         @course_id = course_id
         @created_at = created_at
         @due_date = due_date
+        @external_reference = external_reference
         @id = id
         @learning_object_external_reference = learning_object_external_reference
         @learning_object_id = learning_object_id

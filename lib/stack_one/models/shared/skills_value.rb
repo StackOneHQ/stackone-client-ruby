@@ -12,6 +12,7 @@ module StackOne
       enums do
         PRIMARY = new('primary')
         SECONDARY = new('secondary')
+        TERTIARY = new('tertiary')
       end
     end
   end

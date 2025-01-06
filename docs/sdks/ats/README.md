@@ -192,13 +192,13 @@ s.config_security(
 
     
 res = s.ats.create_background_check_package(ats_create_background_check_packages_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckPackagesRequestDto.new(
-  description: "Standard background package for hires",
-  name: "Standard Background Check",
+  description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+  name: "Test 1",
   passthrough: {
     "other_known_names": "John Doe",
   },
   tests: [
-    ::StackOne::Shared::CreateAssessmentsPackages.new(
+    ::StackOne::Shared::CreatePackage.new(
       description: "Skills test to gauge a candidate's proficiency in job-specific skills",
       name: "Test 1",
     ),
@@ -848,7 +848,7 @@ req = ::StackOne::Operations::AtsGetAssessmentsPackageRequest.new(
     
 res = s.ats.get_assessments_package(req)
 
-if ! res.assessments_packages_result.nil?
+if ! res.assessment_package_result.nil?
   # handle response
 end
 
@@ -893,7 +893,7 @@ req = ::StackOne::Operations::AtsGetAssessmentsRequestRequest.new(
     
 res = s.ats.get_assessments_request(req)
 
-if ! res.assessments_order_result.nil?
+if ! res.assessment_order_result.nil?
   # handle response
 end
 
@@ -938,7 +938,7 @@ req = ::StackOne::Operations::AtsGetAssessmentsResultRequest.new(
     
 res = s.ats.get_assessments_result(req)
 
-if ! res.assessments_results_result.nil?
+if ! res.assessment_results_result.nil?
   # handle response
 end
 
@@ -2048,7 +2048,7 @@ req = ::StackOne::Operations::AtsListAssessmentsPackagesRequest.new(
     
 res = s.ats.list_assessments_packages(req)
 
-if ! res.assessments_packages_paginated.nil?
+if ! res.assessment_package_paginated.nil?
   # handle response
 end
 
