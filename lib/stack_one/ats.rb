@@ -639,8 +639,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsPackagesResult)
-          res.assessments_packages_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentPackageResult)
+          res.assessment_package_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       elsif r.status == 408
@@ -680,8 +680,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsOrderResult)
-          res.assessments_order_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentOrderResult)
+          res.assessment_order_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       elsif r.status == 408
@@ -721,8 +721,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsResultsResult)
-          res.assessments_results_result = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentResultsResult)
+          res.assessment_results_result = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       elsif r.status == 408
@@ -1690,8 +1690,8 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentsPackagesPaginated)
-          res.assessments_packages_paginated = out
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssessmentPackagePaginated)
+          res.assessment_package_paginated = out
         end
       elsif [400, 403, 412, 429, 500, 501].include?(r.status)
       elsif r.status == 408

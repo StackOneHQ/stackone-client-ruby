@@ -18,10 +18,10 @@ module StackOne
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
       # Package tests
-      field :tests, T.nilable(T::Array[::StackOne::Shared::CreateAssessmentsPackages]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
+      field :tests, T.nilable(T::Array[::StackOne::Shared::CreatePackage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
 
 
-      sig { params(description: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tests: T.nilable(T::Array[::StackOne::Shared::CreateAssessmentsPackages])).void }
+      sig { params(description: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tests: T.nilable(T::Array[::StackOne::Shared::CreatePackage])).void }
       def initialize(description: nil, name: nil, passthrough: nil, tests: nil)
         @description = description
         @name = name

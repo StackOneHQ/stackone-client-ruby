@@ -7,3 +7,4 @@
 | ----------- | ----------- |
 | `PRIMARY`   | primary     |
 | `SECONDARY` | secondary   |
+| `TERTIARY`  | tertiary    |

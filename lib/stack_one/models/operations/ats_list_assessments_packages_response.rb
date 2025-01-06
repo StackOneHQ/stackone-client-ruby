@@ -20,16 +20,16 @@ module StackOne
       # HTTP response status code for this operation
       field :status_code, ::Integer
       # The list of assessments packages was retrieved.
-      field :assessments_packages_paginated, T.nilable(::StackOne::Shared::AssessmentsPackagesPaginated)
+      field :assessment_package_paginated, T.nilable(::StackOne::Shared::AssessmentPackagePaginated)
 
 
-      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, assessments_packages_paginated: T.nilable(::StackOne::Shared::AssessmentsPackagesPaginated)).void }
-      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, assessments_packages_paginated: nil)
+      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, assessment_package_paginated: T.nilable(::StackOne::Shared::AssessmentPackagePaginated)).void }
+      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, assessment_package_paginated: nil)
         @content_type = content_type
         @headers = headers
         @raw_response = raw_response
         @status_code = status_code
-        @assessments_packages_paginated = assessments_packages_paginated
+        @assessment_package_paginated = assessment_package_paginated
       end
     end
   end

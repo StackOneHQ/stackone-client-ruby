@@ -31,6 +31,8 @@ module StackOne
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
+      # The external reference associated with this completion
+      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The ID associated with this completion
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The external reference of the learning object associated with this completion
@@ -67,14 +69,15 @@ module StackOne
       field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-      sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::String), external_id: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(::StackOne::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::CompletionSchemasResult), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+      sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::String), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(::StackOne::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::CompletionSchemasResult), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
+      def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
         @completed_at = completed_at
         @content_external_reference = content_external_reference
         @content_id = content_id
         @course_id = course_id
         @created_at = created_at
         @external_id = external_id
+        @external_reference = external_reference
         @id = id
         @learning_object_external_reference = learning_object_external_reference
         @learning_object_id = learning_object_id

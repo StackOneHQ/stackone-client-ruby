@@ -13,17 +13,17 @@ module StackOne
 
       # The ID associated with this skill
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # The hierarchal level of the skill
+      field :level, T.nilable(::StackOne::Shared::CreateSkillsApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this skill
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(id: nil, name: nil, remote_id: nil)
+      sig { params(id: T.nilable(::String), level: T.nilable(::StackOne::Shared::CreateSkillsApiModelLevel), name: T.nilable(::String)).void }
+      def initialize(id: nil, level: nil, name: nil)
         @id = id
+        @level = level
         @name = name
-        @remote_id = remote_id
       end
     end
   end

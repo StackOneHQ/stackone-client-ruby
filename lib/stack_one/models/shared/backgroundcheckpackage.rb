@@ -20,10 +20,10 @@ module StackOne
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # Package tests
-      field :tests, T.nilable(T::Array[::StackOne::Shared::AssessmentsPackages]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
+      field :tests, T.nilable(T::Array[::StackOne::Shared::Package]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
 
 
-      sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), tests: T.nilable(T::Array[::StackOne::Shared::AssessmentsPackages])).void }
+      sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), tests: T.nilable(T::Array[::StackOne::Shared::Package])).void }
       def initialize(description: nil, id: nil, name: nil, remote_id: nil, tests: nil)
         @description = description
         @id = id

@@ -15,6 +15,8 @@ module StackOne
       field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
       # The date the assignment is due to be completed
       field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
+      # The external reference associated with this assignment
+      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The external reference of the learning object associated with this assignment
       field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
       # The learning_object_id associated with this assignment
@@ -27,10 +29,11 @@ module StackOne
       field :status, T.nilable(::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
 
-      sig { params(created_at: T.nilable(::String), due_date: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
-      def initialize(created_at: nil, due_date: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
+      sig { params(created_at: T.nilable(::String), due_date: T.nilable(::String), external_reference: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
+      def initialize(created_at: nil, due_date: nil, external_reference: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
         @created_at = created_at
         @due_date = due_date
+        @external_reference = external_reference
         @learning_object_external_reference = learning_object_external_reference
         @learning_object_id = learning_object_id
         @passthrough = passthrough

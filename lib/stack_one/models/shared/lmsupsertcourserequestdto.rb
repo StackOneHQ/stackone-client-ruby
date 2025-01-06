@@ -13,7 +13,7 @@ module StackOne
 
       # Whether the course is active and available for users.
       field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-      # The categories associated with this course
+      # The categories associated with this content
       field :categories, T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
       # The content associated with this course
       field :content, T.nilable(T::Array[::StackOne::Shared::CreateContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
@@ -29,7 +29,7 @@ module StackOne
       field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The languages associated with this course
       field :languages, T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
-      # The skills associated with this course
+      # The skills associated with this content
       field :skills, T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
       # The title of the course
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }

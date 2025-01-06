@@ -57,7 +57,12 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       active: true,
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
-          name: "Technology",
+          id: "16873-IT345",
+          name: "Information-Technology",
+          unified_custom_fields: {
+            "my_project_custom_field_1": "REF-1236",
+            "my_project_custom_field_2": "some other value",
+          },
         ),
       ],
       content_url: "https://www.youtube.com/watch?v=16873",
@@ -77,9 +82,8 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       short_description: "This course is a valuable resource and acts as learning content for...",
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
-          id: "cx2367ndc8dgsbjhka9ry4",
-          name: "Software Engineering",
-          remote_id: "SE-001",
+          id: "12345",
+          name: "Sales Techniques",
         ),
       ],
       title: "Software Engineer Lv 1",
@@ -135,7 +139,12 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       active: true,
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
-          name: "Technology",
+          id: "16873-IT345",
+          name: "Information-Technology",
+          unified_custom_fields: {
+            "my_project_custom_field_1": "REF-1236",
+            "my_project_custom_field_2": "some other value",
+          },
         ),
       ],
       content: [
@@ -160,9 +169,8 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       ],
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
-          id: "cx2367ndc8dgsbjhka9ry4",
-          name: "Software Engineering",
-          remote_id: "SE-001",
+          id: "16873-IT345",
+          name: "Information-Technology",
         ),
       ],
       title: "Software Engineer Lv 1",
@@ -216,7 +224,12 @@ s.config_security(
 res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shared::LmsCreateCollectionRequestDto.new(
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      name: "Technology",
+      id: "16873-IT345",
+      name: "Information-Technology",
+      unified_custom_fields: {
+        "my_project_custom_field_1": "REF-1236",
+        "my_project_custom_field_2": "some other value",
+      },
     ),
   ],
   cover_url: "https://www.googledrive.com/?v=16873",
@@ -232,7 +245,8 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
   ],
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
-      name: "Technology",
+      id: "16873-IT345",
+      name: "Information-Technology",
     ),
   ],
   title: "Software Engineer Lv 1 Collection",
@@ -283,6 +297,7 @@ s.config_security(
 res = s.lms.create_user_assignment(lms_create_assignment_request_dto=::StackOne::Shared::LmsCreateAssignmentRequestDto.new(
   created_at: "2021-07-21T14:00:00.000Z",
   due_date: "2021-07-21T14:00:00.000Z",
+  external_reference: "e3gd34-23tr21-er234-345er56",
   learning_object_external_reference: "learning-content-123",
   learning_object_id: "e3gd34-23tr21-er234-345er56",
   passthrough: {
@@ -335,6 +350,7 @@ s.config_security(
     
 res = s.lms.create_user_completion(lms_create_completion_request_dto=::StackOne::Shared::LmsCreateCompletionRequestDto.new(
   completed_at: "2021-07-21T14:00:00.000Z",
+  external_reference: "e3gd34-23tr21-er234-345er56",
   learning_object_external_reference: "learning-content-123",
   learning_object_id: "e3gd34-23tr21-er234-345er56",
   passthrough: {
@@ -785,7 +801,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
-  fields_: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
+  fields_: "id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListAssignmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -881,7 +897,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCompletionsRequest.new(
-  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
+  fields_: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1069,7 +1085,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(
-  fields_: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
+  fields_: "id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListUserAssignmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1119,7 +1135,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
-  fields_: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
+  fields_: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
   filter: ::StackOne::Operations::LmsListUserCompletionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1216,7 +1232,12 @@ s.config_security(
 res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shared::LmsCreateCollectionRequestDto.new(
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      name: "Technology",
+      id: "16873-IT345",
+      name: "Information-Technology",
+      unified_custom_fields: {
+        "my_project_custom_field_1": "REF-1236",
+        "my_project_custom_field_2": "some other value",
+      },
     ),
   ],
   cover_url: "https://www.googledrive.com/?v=16873",
@@ -1232,7 +1253,8 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
   ],
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
-      name: "Technology",
+      id: "16873-IT345",
+      name: "Information-Technology",
     ),
   ],
   title: "Software Engineer Lv 1 Collection",
@@ -1285,7 +1307,12 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   active: true,
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      name: "Technology",
+      id: "16873-IT345",
+      name: "Information-Technology",
+      unified_custom_fields: {
+        "my_project_custom_field_1": "REF-1236",
+        "my_project_custom_field_2": "some other value",
+      },
     ),
   ],
   content_url: "https://www.youtube.com/watch?v=16873",
@@ -1305,9 +1332,8 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   short_description: "This course is a valuable resource and acts as learning content for...",
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
-      id: "cx2367ndc8dgsbjhka9ry4",
-      name: "Software Engineering",
-      remote_id: "SE-001",
+      id: "12345",
+      name: "Sales Techniques",
     ),
   ],
   title: "Software Engineer Lv 1",
@@ -1359,7 +1385,12 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   active: true,
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
-      name: "Technology",
+      id: "16873-IT345",
+      name: "Information-Technology",
+      unified_custom_fields: {
+        "my_project_custom_field_1": "REF-1236",
+        "my_project_custom_field_2": "some other value",
+      },
     ),
   ],
   content: [
@@ -1384,9 +1415,8 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   ],
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
-      id: "cx2367ndc8dgsbjhka9ry4",
-      name: "Software Engineering",
-      remote_id: "SE-001",
+      id: "16873-IT345",
+      name: "Information-Technology",
     ),
   ],
   title: "Software Engineer Lv 1",

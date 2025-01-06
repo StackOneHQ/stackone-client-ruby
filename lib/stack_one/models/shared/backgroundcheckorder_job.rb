@@ -12,7 +12,7 @@ module StackOne
       extend T::Sig
 
       # Hiring team for the job.
-      field :hiring_team, T.nilable(T::Array[::StackOne::Shared::AssessmentsRequestsJobHiringTeamApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
+      field :hiring_team, T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Value to pass through to the provider
@@ -23,7 +23,7 @@ module StackOne
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(hiring_team: T.nilable(T::Array[::StackOne::Shared::AssessmentsRequestsJobHiringTeamApiModel]), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
+      sig { params(hiring_team: T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
       def initialize(hiring_team: nil, id: nil, passthrough: nil, remote_id: nil, title: nil)
         @hiring_team = hiring_team
         @id = id

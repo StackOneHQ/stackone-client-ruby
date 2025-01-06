@@ -1,20 +1,20 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 860d0ebc1320d471850e3c34c6cdd82d
+  docChecksum: 1c7375d37e7d13f070e8b2187005a5d7
   docVersion: 1.0.0
-  speakeasyVersion: 1.460.3
-  generationVersion: 2.484.0
-  releaseVersion: 0.4.4
-  configChecksum: 17ee00204b36f84a4fef37bcadcca13f
+  speakeasyVersion: 1.462.2
+  generationVersion: 2.486.1
+  releaseVersion: 0.5.0
+  configChecksum: fea1c23038ec0842637761aa0ba09886
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
-    core: 3.4.5
-    deprecations: 2.81.1
+    core: 3.5.0
+    deprecations: 2.81.2
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
@@ -498,25 +498,21 @@ generatedFiles:
   - docs/models/shared/applicationspaginated.md
   - docs/models/shared/applicationstatus.md
   - docs/models/shared/applicationvalue.md
-  - docs/models/shared/assessmentsattachment.md
-  - docs/models/shared/assessmentsattachmentcontenttype.md
-  - docs/models/shared/assessmentsattachmentvalue.md
-  - docs/models/shared/assessmentsorder.md
-  - docs/models/shared/assessmentsorderapplication.md
-  - docs/models/shared/assessmentsorderapplicationstatus.md
-  - docs/models/shared/assessmentsordercandidate.md
-  - docs/models/shared/assessmentsorderjob.md
-  - docs/models/shared/assessmentsorderresult.md
-  - docs/models/shared/assessmentsordervalue.md
-  - docs/models/shared/assessmentspackages.md
-  - docs/models/shared/assessmentspackagespaginated.md
-  - docs/models/shared/assessmentspackagesresult.md
-  - docs/models/shared/assessmentspackagestestapimodel.md
-  - docs/models/shared/assessmentsrequestsjobhiringteamapimodel.md
-  - docs/models/shared/assessmentsresults.md
-  - docs/models/shared/assessmentsresultscandidate.md
-  - docs/models/shared/assessmentsresultsresult.md
-  - docs/models/shared/assessmentsresultsvalue.md
+  - docs/models/shared/assessmentorder.md
+  - docs/models/shared/assessmentorderapplication.md
+  - docs/models/shared/assessmentorderapplicationstatus.md
+  - docs/models/shared/assessmentordercandidate.md
+  - docs/models/shared/assessmentorderjob.md
+  - docs/models/shared/assessmentorderpackage.md
+  - docs/models/shared/assessmentorderresult.md
+  - docs/models/shared/assessmentordervalue.md
+  - docs/models/shared/assessmentpackage.md
+  - docs/models/shared/assessmentpackagepaginated.md
+  - docs/models/shared/assessmentpackageresult.md
+  - docs/models/shared/assessmentresult.md
+  - docs/models/shared/assessmentresultcandidate.md
+  - docs/models/shared/assessmentresultsresult.md
+  - docs/models/shared/assessmentresultvalue.md
   - docs/models/shared/assignment.md
   - docs/models/shared/assignmentresult.md
   - docs/models/shared/assignmentschemasvalue.md
@@ -556,6 +552,9 @@ generatedFiles:
   - docs/models/shared/atsupdatejobrequestdtoconfidential.md
   - docs/models/shared/atsupdatejobrequestdtojobstatus.md
   - docs/models/shared/atsupdatejobrequestdtovalue.md
+  - docs/models/shared/attachment.md
+  - docs/models/shared/attachmentcontenttype.md
+  - docs/models/shared/attachmentvalue.md
   - docs/models/shared/avatar.md
   - docs/models/shared/backgroundcheckorder.md
   - docs/models/shared/backgroundcheckorderapplication.md
@@ -570,11 +569,12 @@ generatedFiles:
   - docs/models/shared/backgroundcheckpackage.md
   - docs/models/shared/backgroundcheckpackagepaginated.md
   - docs/models/shared/backgroundcheckpackageresult.md
+  - docs/models/shared/backgroundcheckresult.md
+  - docs/models/shared/backgroundcheckresultcandidate.md
+  - docs/models/shared/backgroundcheckresultresult.md
+  - docs/models/shared/backgroundcheckresultscore.md
   - docs/models/shared/backgroundcheckresultsresult.md
-  - docs/models/shared/backgroundcheckresultsresultcandidate.md
-  - docs/models/shared/backgroundcheckresultsresultresult.md
-  - docs/models/shared/backgroundcheckresultsresultscore.md
-  - docs/models/shared/backgroundcheckresultsresultvalue.md
+  - docs/models/shared/backgroundcheckresultvalue.md
   - docs/models/shared/batchresultapimodel.md
   - docs/models/shared/benefittype.md
   - docs/models/shared/campaign.md
@@ -639,8 +639,9 @@ generatedFiles:
   - docs/models/shared/createanswer.md
   - docs/models/shared/createanswertype.md
   - docs/models/shared/createanswervalue.md
-  - docs/models/shared/createassessmentspackages.md
   - docs/models/shared/createcategoriesapimodel.md
+  - docs/models/shared/createcategoriesapimodellevel.md
+  - docs/models/shared/createcategoriesapimodelvalue.md
   - docs/models/shared/createcontentapimodel.md
   - docs/models/shared/createcostcenterapimodel.md
   - docs/models/shared/createemploymentapimodel.md
@@ -654,10 +655,13 @@ generatedFiles:
   - docs/models/shared/createhrisbenefitvalue.md
   - docs/models/shared/createmessage.md
   - docs/models/shared/createmessagevalue.md
+  - docs/models/shared/createpackage.md
   - docs/models/shared/createquestionnaire.md
   - docs/models/shared/createresult.md
   - docs/models/shared/createresultdataapimodel.md
   - docs/models/shared/createskillsapimodel.md
+  - docs/models/shared/createskillsapimodellevel.md
+  - docs/models/shared/createskillsapimodelvalue.md
   - docs/models/shared/credentials.md
   - docs/models/shared/crmcreatecontactrequestdto.md
   - docs/models/shared/customfielddefinition.md
@@ -1626,25 +1630,21 @@ generatedFiles:
   - lib/stack_one/models/shared/applicationattachment_value.rb
   - lib/stack_one/models/shared/applicationresult.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
-  - lib/stack_one/models/shared/assessmentsattachment.rb
-  - lib/stack_one/models/shared/assessmentsattachment_content_type.rb
-  - lib/stack_one/models/shared/assessmentsattachment_value.rb
-  - lib/stack_one/models/shared/assessmentsorder.rb
-  - lib/stack_one/models/shared/assessmentsorder_application.rb
-  - lib/stack_one/models/shared/assessmentsorder_application_status.rb
-  - lib/stack_one/models/shared/assessmentsorder_candidate.rb
-  - lib/stack_one/models/shared/assessmentsorder_job.rb
-  - lib/stack_one/models/shared/assessmentsorder_value.rb
-  - lib/stack_one/models/shared/assessmentsorderresult.rb
-  - lib/stack_one/models/shared/assessmentspackages.rb
-  - lib/stack_one/models/shared/assessmentspackagespaginated.rb
-  - lib/stack_one/models/shared/assessmentspackagesresult.rb
-  - lib/stack_one/models/shared/assessmentspackagestestapimodel.rb
-  - lib/stack_one/models/shared/assessmentsrequestsjobhiringteamapimodel.rb
-  - lib/stack_one/models/shared/assessmentsresults.rb
-  - lib/stack_one/models/shared/assessmentsresults_candidate.rb
-  - lib/stack_one/models/shared/assessmentsresults_value.rb
-  - lib/stack_one/models/shared/assessmentsresultsresult.rb
+  - lib/stack_one/models/shared/assessmentorder.rb
+  - lib/stack_one/models/shared/assessmentorder_application.rb
+  - lib/stack_one/models/shared/assessmentorder_application_status.rb
+  - lib/stack_one/models/shared/assessmentorder_candidate.rb
+  - lib/stack_one/models/shared/assessmentorder_job.rb
+  - lib/stack_one/models/shared/assessmentorder_package.rb
+  - lib/stack_one/models/shared/assessmentorder_value.rb
+  - lib/stack_one/models/shared/assessmentorderresult.rb
+  - lib/stack_one/models/shared/assessmentpackage.rb
+  - lib/stack_one/models/shared/assessmentpackagepaginated.rb
+  - lib/stack_one/models/shared/assessmentpackageresult.rb
+  - lib/stack_one/models/shared/assessmentresult.rb
+  - lib/stack_one/models/shared/assessmentresult_candidate.rb
+  - lib/stack_one/models/shared/assessmentresult_value.rb
+  - lib/stack_one/models/shared/assessmentresultsresult.rb
   - lib/stack_one/models/shared/assignment.rb
   - lib/stack_one/models/shared/assignment_schemas_value.rb
   - lib/stack_one/models/shared/assignment_value.rb
@@ -1684,6 +1684,9 @@ generatedFiles:
   - lib/stack_one/models/shared/atsupdatejobrequestdto_confidential.rb
   - lib/stack_one/models/shared/atsupdatejobrequestdto_job_status.rb
   - lib/stack_one/models/shared/atsupdatejobrequestdto_value.rb
+  - lib/stack_one/models/shared/attachment.rb
+  - lib/stack_one/models/shared/attachment_content_type.rb
+  - lib/stack_one/models/shared/attachment_value.rb
   - lib/stack_one/models/shared/avatar.rb
   - lib/stack_one/models/shared/backgroundcheckorder.rb
   - lib/stack_one/models/shared/backgroundcheckorder_application.rb
@@ -1698,11 +1701,12 @@ generatedFiles:
   - lib/stack_one/models/shared/backgroundcheckpackage.rb
   - lib/stack_one/models/shared/backgroundcheckpackagepaginated.rb
   - lib/stack_one/models/shared/backgroundcheckpackageresult.rb
+  - lib/stack_one/models/shared/backgroundcheckresult.rb
+  - lib/stack_one/models/shared/backgroundcheckresult_candidate.rb
+  - lib/stack_one/models/shared/backgroundcheckresult_result.rb
+  - lib/stack_one/models/shared/backgroundcheckresult_score.rb
+  - lib/stack_one/models/shared/backgroundcheckresult_value.rb
   - lib/stack_one/models/shared/backgroundcheckresultsresult.rb
-  - lib/stack_one/models/shared/backgroundcheckresultsresult_candidate.rb
-  - lib/stack_one/models/shared/backgroundcheckresultsresult_result.rb
-  - lib/stack_one/models/shared/backgroundcheckresultsresult_score.rb
-  - lib/stack_one/models/shared/backgroundcheckresultsresult_value.rb
   - lib/stack_one/models/shared/batchresultapimodel.rb
   - lib/stack_one/models/shared/benefit_type.rb
   - lib/stack_one/models/shared/campaign.rb
@@ -1767,8 +1771,9 @@ generatedFiles:
   - lib/stack_one/models/shared/createanswer.rb
   - lib/stack_one/models/shared/createanswer_type.rb
   - lib/stack_one/models/shared/createanswer_value.rb
-  - lib/stack_one/models/shared/createassessmentspackages.rb
   - lib/stack_one/models/shared/createcategoriesapimodel.rb
+  - lib/stack_one/models/shared/createcategoriesapimodel_level.rb
+  - lib/stack_one/models/shared/createcategoriesapimodel_value.rb
   - lib/stack_one/models/shared/createcontentapimodel.rb
   - lib/stack_one/models/shared/createcostcenterapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel.rb
@@ -1782,10 +1787,13 @@ generatedFiles:
   - lib/stack_one/models/shared/createhrisbenefit_value.rb
   - lib/stack_one/models/shared/createmessage.rb
   - lib/stack_one/models/shared/createmessage_value.rb
+  - lib/stack_one/models/shared/createpackage.rb
   - lib/stack_one/models/shared/createquestionnaire.rb
   - lib/stack_one/models/shared/createresult.rb
   - lib/stack_one/models/shared/createresultdataapimodel.rb
   - lib/stack_one/models/shared/createskillsapimodel.rb
+  - lib/stack_one/models/shared/createskillsapimodel_level.rb
+  - lib/stack_one/models/shared/createskillsapimodel_value.rb
   - lib/stack_one/models/shared/credentials.rb
   - lib/stack_one/models/shared/crmcreatecontactrequestdto.rb
   - lib/stack_one/models/shared/customfielddefinition.rb
@@ -3869,7 +3877,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
+          fields: "id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           user_id: "c28xyrc55866bvuv"
@@ -3895,7 +3903,7 @@ examples:
     "":
       parameters:
         query:
-          fields: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
+          fields: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           user_id: "746359"
@@ -3947,7 +3955,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
+          fields: "id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           user_id: "c28xyrc55866bvuv"
@@ -3963,7 +3971,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_id,remote_external_id,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
+          fields: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           user_id: "746359"
@@ -4003,7 +4011,7 @@ examples:
         header:
           x-account-id: "<value>"
       requestBody:
-        application/json: {"active": true, "categories": [{"name": "Information-Technology"}], "content_url": "https://www.youtube.com/watch?v=16873", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [], "order": 1, "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
+        application/json: {"active": true, "categories": [{"name": "Information-Technology"}], "content_url": "https://www.youtube.com/watch?v=16873", "course_ids": ["16873-SOFTWARE-ENG-COURSE"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [], "order": 1, "skills": [{"id": "16873-IT345", "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
         "201":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4439,7 +4447,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"items": [{"active": true, "categories": [{"name": "Information-Technology"}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}, {"active": true, "categories": [{"name": "Information-Technology"}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}]}
+        application/json: {"items": [{"active": true, "categories": [{"name": "Information-Technology"}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}, {"active": true, "categories": [{"name": "Information-Technology"}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [], "skills": [{"id": "16873-IT345", "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}]}
       responses:
         "202":
           application/json: {"errors": [["Missing field: name"], [], []], "message": "Batch operation accepted", "statusCode": 202, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4449,7 +4457,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"active": true, "categories": [{"name": "Information-Technology"}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}
+        application/json: {"active": true, "categories": [{"name": "Information-Technology"}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "title": "Software Engineer Lv 1"}], "content_ids": ["16873-SOFTWARE-ENG-Content"], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "skills": [{"id": "16873-IT345", "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}
       responses:
         "201":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4531,7 +4539,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"description": "Standard background package for hires", "name": "Standard Background Check", "passthrough": {"other_known_names": "John Doe"}, "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1"}]}
+        application/json: {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1", "passthrough": {"other_known_names": "John Doe"}, "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "name": "Test 1"}]}
       responses:
         "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -4570,7 +4578,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"attachments": [{"content_type": {"source_value": "Text", "value": "text"}, "url": "http://example.com/resume.pdf"}, {"content_type": {"source_value": "Text", "value": "text"}, "url": "http://example.com/resume.pdf"}, {"content_type": {"source_value": "Text", "value": "text"}, "url": "http://example.com/resume.pdf"}], "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "profile_url": "https://exmaple.com/candidate?id=xyz"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "result": {"source_value": "Passed", "value": "passed"}, "result_url": "https://exmaple.com/result?id=xyz", "start_date": "2021-01-01T01:01:01.000Z", "submission_date": "2021-01-01T01:01:01.000Z", "summary": "Test is passed"}
+          application/json: {"data": {"attachments": [{"content_type": {"source_value": "Text", "value": "text"}, "url": "http://example.com/resume.pdf"}, {"content_type": {"source_value": "Text", "value": "text"}, "url": "http://example.com/resume.pdf"}, {"content_type": {"source_value": "Text", "value": "text"}, "url": "http://example.com/resume.pdf"}], "candidate": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "profile_url": "https://exmaple.com/candidate?id=xyz", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "result": {"source_value": "Passed", "value": "passed"}, "result_url": "https://exmaple.com/result?id=xyz", "score": {"label": "Percentage", "max": "100", "min": "0", "value": "80"}, "start_date": "2021-01-01T01:01:01.000Z", "submission_date": "2021-01-01T01:01:01.000Z", "summary": "Test is passed"}}
   ats_list_background_check_packages:
     "":
       parameters:
