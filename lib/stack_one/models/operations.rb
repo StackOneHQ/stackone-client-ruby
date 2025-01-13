@@ -141,6 +141,7 @@ module StackOne
     autoload :AtsListJobPostingsQueryParamFilter, 'stack_one/models/operations/ats_list_job_postings_queryparam_filter.rb'
     autoload :AtsListJobPostingsRequest, 'stack_one/models/operations/ats_list_job_postings_request.rb'
     autoload :AtsListJobPostingsResponse, 'stack_one/models/operations/ats_list_job_postings_response.rb'
+    autoload :JobStatus, 'stack_one/models/operations/job_status.rb'
     autoload :Status, 'stack_one/models/operations/status.rb'
     autoload :AtsListJobsQueryParamFilter, 'stack_one/models/operations/ats_list_jobs_queryparam_filter.rb'
     autoload :AtsListJobsRequest, 'stack_one/models/operations/ats_list_jobs_request.rb'

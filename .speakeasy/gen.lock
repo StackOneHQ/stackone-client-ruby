@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 1c7375d37e7d13f070e8b2187005a5d7
+  docChecksum: 6fce164f09bf329e219975bcb07d96cd
   docVersion: 1.0.0
-  speakeasyVersion: 1.462.2
-  generationVersion: 2.486.1
-  releaseVersion: 0.5.0
-  configChecksum: fea1c23038ec0842637761aa0ba09886
+  speakeasyVersion: 1.468.2
+  generationVersion: 2.493.4
+  releaseVersion: 0.5.1
+  configChecksum: 36f3d3259029687fff1c43dbbc1a3283
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -15,7 +15,7 @@ features:
   ruby:
     core: 3.5.0
     deprecations: 2.81.2
-    examples: 2.81.3
+    examples: 2.81.4
     flattening: 2.81.1
     globalSecurity: 2.81.7
     globalServerURLs: 2.82.3
@@ -24,7 +24,6 @@ features:
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
-  - CONTRIBUTING.md
   - Gemfile
   - Gemfile.lock
   - Rakefile
@@ -335,6 +334,7 @@ generatedFiles:
   - docs/models/operations/iamlistusersqueryparamfilter.md
   - docs/models/operations/iamlistusersrequest.md
   - docs/models/operations/iamlistusersresponse.md
+  - docs/models/operations/jobstatus.md
   - docs/models/operations/learningobjecttype.md
   - docs/models/operations/lmsbatchupsertcontentrequest.md
   - docs/models/operations/lmsbatchupsertcontentresponse.md
@@ -1466,6 +1466,7 @@ generatedFiles:
   - lib/stack_one/models/operations/iam_list_users_queryparam_filter.rb
   - lib/stack_one/models/operations/iam_list_users_request.rb
   - lib/stack_one/models/operations/iam_list_users_response.rb
+  - lib/stack_one/models/operations/job_status.rb
   - lib/stack_one/models/operations/learning_object_type.rb
   - lib/stack_one/models/operations/lms_batch_upsert_content_request.rb
   - lib/stack_one/models/operations/lms_batch_upsert_content_response.rb

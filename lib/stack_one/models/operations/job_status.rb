@@ -7,10 +7,8 @@
 module StackOne
   module Operations
   
-    # Status - The status of the job
-    # 
-    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class Status < T::Enum
+    # JobStatus - The job_status of the job
+    class JobStatus < T::Enum
       enums do
         OPEN = new('open')
         DRAFT = new('draft')
