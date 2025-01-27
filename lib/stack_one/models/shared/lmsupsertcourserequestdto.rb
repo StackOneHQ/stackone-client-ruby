@@ -29,6 +29,8 @@ module StackOne
       field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The languages associated with this course
       field :languages, T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
+      # The name of the course provider
+      field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
       # The skills associated with this content
       field :skills, T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
       # The title of the course
@@ -39,8 +41,8 @@ module StackOne
       field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content: T.nilable(T::Array[::StackOne::Shared::CreateContentApiModel]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
-      def initialize(active: nil, categories: nil, content: nil, content_ids: nil, cover_url: nil, description: nil, duration: nil, external_reference: nil, languages: nil, skills: nil, title: nil, unified_custom_fields: nil, url: nil)
+      sig { params(active: T.nilable(T::Boolean), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content: T.nilable(T::Array[::StackOne::Shared::CreateContentApiModel]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), provider: T.nilable(::String), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
+      def initialize(active: nil, categories: nil, content: nil, content_ids: nil, cover_url: nil, description: nil, duration: nil, external_reference: nil, languages: nil, provider: nil, skills: nil, title: nil, unified_custom_fields: nil, url: nil)
         @active = active
         @categories = categories
         @content = content
@@ -50,6 +52,7 @@ module StackOne
         @duration = duration
         @external_reference = external_reference
         @languages = languages
+        @provider = provider
         @skills = skills
         @title = title
         @unified_custom_fields = unified_custom_fields

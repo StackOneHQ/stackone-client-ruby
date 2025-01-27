@@ -91,6 +91,7 @@ end
 ### [ats](docs/sdks/ats/README.md)
 
 * [create_application](docs/sdks/ats/README.md#create_application) - Create Application
+* [create_application_note](docs/sdks/ats/README.md#create_application_note) - Create Application Note
 * [create_background_check_package](docs/sdks/ats/README.md#create_background_check_package) - Create Background Check Package
 * [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
@@ -100,6 +101,7 @@ end
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
 * [get_application_custom_field_definition](docs/sdks/ats/README.md#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
+* [get_application_note](docs/sdks/ats/README.md#get_application_note) - Get Application Note
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
@@ -125,6 +127,7 @@ end
 * [get_user](docs/sdks/ats/README.md#get_user) - Get User
 * [list_application_custom_field_definitions](docs/sdks/ats/README.md#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
+* [list_application_notes](docs/sdks/ats/README.md#list_application_notes) - List Application Notes
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
 * [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
 * [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
@@ -149,6 +152,7 @@ end
 * [move_application](docs/sdks/ats/README.md#move_application) - Move Application
 * [reject_application](docs/sdks/ats/README.md#reject_application) - Reject Application
 * [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
+* [update_application_note](docs/sdks/ats/README.md#update_application_note) - Update an Application Note
 * [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document

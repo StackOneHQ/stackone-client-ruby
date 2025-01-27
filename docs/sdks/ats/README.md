@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [create_application](#create_application) - Create Application
+* [create_application_note](#create_application_note) - Create Application Note
 * [create_background_check_package](#create_background_check_package) - Create Background Check Package
 * [create_candidate](#create_candidate) - Create Candidate
 * [create_candidate_note](#create_candidate_note) - Create Candidate Note
@@ -15,6 +16,7 @@
 * [get_application](#get_application) - Get Application
 * [get_application_custom_field_definition](#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](#get_application_document) - Get Application Document
+* [get_application_note](#get_application_note) - Get Application Note
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](#get_application_scorecard) - Get Application Scorecard
@@ -40,6 +42,7 @@
 * [get_user](#get_user) - Get User
 * [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](#list_application_documents) - List Application Documents
+* [list_application_notes](#list_application_notes) - List Application Notes
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
@@ -64,6 +67,7 @@
 * [move_application](#move_application) - Move Application
 * [reject_application](#reject_application) - Reject Application
 * [update_application](#update_application) - Update an Application
+* [update_application_note](#update_application_note) - Update an Application Note
 * [update_candidate](#update_candidate) - Update Candidate
 * [update_job](#update_job) - Update Job
 * [upload_application_document](#upload_application_document) - Upload Application Document
@@ -169,6 +173,58 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsCreateApplicationResponse)](../../models/operations/atscreateapplicationresponse.md)**
+
+
+
+## create_application_note
+
+Create Application Note
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.create_application_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
+  author_id: "1234567890",
+  content: [
+    ::StackOne::Shared::NoteContentApiModel.new(
+      body: "This candidate seems like a good fit for the role",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  visibility: ::StackOne::Shared::Visibility.new(),
+), id="<id>", x_account_id="<id>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `ats_create_notes_request_dto`                                                                  | [::StackOne::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsCreateApplicationNoteResponse)](../../models/operations/atscreateapplicationnoteresponse.md)**
 
 
 
@@ -681,6 +737,52 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsGetApplicationDocumentResponse)](../../models/operations/atsgetapplicationdocumentresponse.md)**
+
+
+
+## get_application_note
+
+Get Application Note
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsGetApplicationNoteRequest.new(
+  fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
+  id: "<id>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.ats.get_application_note(req)
+
+if ! res.note_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [::StackOne::Operations::AtsGetApplicationNoteRequest](../../models/operations/atsgetapplicationnoterequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsGetApplicationNoteResponse)](../../models/operations/atsgetapplicationnoteresponse.md)**
 
 
 
@@ -1827,6 +1929,54 @@ end
 
 
 
+## list_application_notes
+
+List Application Notes
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::AtsListApplicationNotesRequest.new(
+  fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
+  filter: ::StackOne::Operations::AtsListApplicationNotesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.ats.list_application_notes(req)
+
+if ! res.notes_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [::StackOne::Operations::AtsListApplicationNotesRequest](../../models/operations/atslistapplicationnotesrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsListApplicationNotesResponse)](../../models/operations/atslistapplicationnotesresponse.md)**
+
+
+
 ## list_application_scorecards
 
 List Application Scorecards
@@ -1898,6 +2048,7 @@ req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
   fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
+    created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "attachments,custom_fields",
@@ -2277,6 +2428,7 @@ s.config_security(
 req = ::StackOne::Operations::AtsListCandidatesRequest.new(
   fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListCandidatesQueryParamFilter.new(
+    created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "custom_fields",
@@ -2419,6 +2571,7 @@ s.config_security(
 req = ::StackOne::Operations::AtsListInterviewsRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListInterviewsQueryParamFilter.new(
+    created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2513,6 +2666,7 @@ s.config_security(
 req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
   fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
   filter: ::StackOne::Operations::AtsListJobPostingsQueryParamFilter.new(
+    created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "questionnaires",
@@ -2562,6 +2716,7 @@ req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
   fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListJobsQueryParamFilter.new(
+    created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "custom_fields",
@@ -2976,6 +3131,59 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateApplicationResponse)](../../models/operations/atsupdateapplicationresponse.md)**
+
+
+
+## update_application_note
+
+Update an Application Note
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.update_application_note(ats_update_notes_request_dto=::StackOne::Shared::AtsUpdateNotesRequestDto.new(
+  author_id: "1234567890",
+  content: [
+    ::StackOne::Shared::NoteContentApiModel.new(
+      body: "This candidate seems like a good fit for the role",
+    ),
+  ],
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  visibility: ::StackOne::Shared::AtsUpdateNotesRequestDtoVisibility.new(),
+), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
+
+if ! res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `ats_update_notes_request_dto`                                                                  | [::StackOne::Shared::AtsUpdateNotesRequestDto](../../models/shared/atsupdatenotesrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `sub_resource_id`                                                                               | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsUpdateApplicationNoteResponse)](../../models/operations/atsupdateapplicationnoteresponse.md)**
 
 
 

@@ -20,13 +20,16 @@ module StackOne
 
       field :timestamp, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
+      field :unified_warnings, T.nilable(T::Array[::StackOne::Shared::UnifiedWarningApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_warnings') } }
 
-      sig { params(message: T.nilable(::String), provider_errors: T.nilable(T::Array[::StackOne::Shared::ProviderErrorApiModel]), status_code: T.nilable(::Float), timestamp: T.nilable(::DateTime)).void }
-      def initialize(message: nil, provider_errors: nil, status_code: nil, timestamp: nil)
+
+      sig { params(message: T.nilable(::String), provider_errors: T.nilable(T::Array[::StackOne::Shared::ProviderErrorApiModel]), status_code: T.nilable(::Float), timestamp: T.nilable(::DateTime), unified_warnings: T.nilable(T::Array[::StackOne::Shared::UnifiedWarningApiModel])).void }
+      def initialize(message: nil, provider_errors: nil, status_code: nil, timestamp: nil, unified_warnings: nil)
         @message = message
         @provider_errors = provider_errors
         @status_code = status_code
         @timestamp = timestamp
+        @unified_warnings = unified_warnings
       end
     end
   end

@@ -59,9 +59,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::BatchResultApiModel)
           res.batch_result_api_model = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -108,9 +109,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::BatchResultApiModel)
           res.batch_result_api_model = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -157,9 +159,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -212,9 +215,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -267,9 +271,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -308,9 +313,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssignmentResult)
           res.assignment_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -349,9 +355,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CategoryResult)
           res.category_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -390,9 +397,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompletionResult)
           res.completion_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -431,9 +439,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentResult)
           res.content_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -472,9 +481,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CourseResult)
           res.course_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -513,9 +523,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::SkillResult)
           res.skill_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -554,9 +565,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UserResult)
           res.user_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -595,9 +607,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssignmentResult)
           res.assignment_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -636,9 +649,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompletionResult)
           res.completion_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -672,9 +686,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssignmentsPaginated)
           res.assignments_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -708,9 +723,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CategoriesPaginated)
           res.categories_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -744,9 +760,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompletionsPaginated)
           res.completions_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -780,9 +797,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContentPaginated)
           res.content_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -816,9 +834,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CoursePaginated)
           res.course_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -852,9 +871,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::SkillsPaginated)
           res.skills_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -893,9 +913,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AssignmentsPaginated)
           res.assignments_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -934,9 +955,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompletionsPaginated)
           res.completions_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -970,9 +992,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UsersPaginated)
           res.users_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -1025,9 +1048,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpdateResult)
           res.update_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -1074,9 +1098,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpsertResult)
           res.upsert_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -1123,9 +1148,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpsertResult)
           res.upsert_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res

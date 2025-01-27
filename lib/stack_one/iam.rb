@@ -51,9 +51,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamGroupResult)
           res.iam_group_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -92,9 +93,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamPolicyResult)
           res.iam_policy_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -133,9 +135,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamRoleResult)
           res.iam_role_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -174,9 +177,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamUserResult)
           res.iam_user_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -210,9 +214,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamGroupsPaginated)
           res.iam_groups_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -246,9 +251,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamPoliciesPaginated)
           res.iam_policies_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -282,9 +288,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamRolesPaginated)
           res.iam_roles_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -318,9 +325,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamUsersPaginated)
           res.iam_users_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
