@@ -13,6 +13,8 @@ module StackOne
 
       # The ID associated with this category
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # The language associated with this category
+      field :language, T.nilable(::StackOne::Shared::CreateCategoriesApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
       # The hierarchal level of the category
       field :level, T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this category
@@ -21,9 +23,10 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(id: T.nilable(::String), level: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(id: nil, level: nil, name: nil, unified_custom_fields: nil)
+      sig { params(id: T.nilable(::String), language: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLanguage), level: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(id: nil, language: nil, level: nil, name: nil, unified_custom_fields: nil)
         @id = id
+        @language = language
         @level = level
         @name = name
         @unified_custom_fields = unified_custom_fields

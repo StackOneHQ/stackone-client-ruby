@@ -58,6 +58,9 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           id: "16873-IT345",
+          language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
+            value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+          ),
           name: "Information-Technology",
           unified_custom_fields: {
             "my_project_custom_field_1": "REF-1236",
@@ -79,6 +82,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
         ),
       ],
       order: 1.0,
+      provider: "Content Provider",
       short_description: "This course is a valuable resource and acts as learning content for...",
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
@@ -140,6 +144,9 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           id: "16873-IT345",
+          language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
+            value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+          ),
           name: "Information-Technology",
           unified_custom_fields: {
             "my_project_custom_field_1": "REF-1236",
@@ -167,6 +174,7 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
           value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
         ),
       ],
+      provider: "Course Provider",
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
           id: "16873-IT345",
@@ -225,6 +233,9 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+      ),
       name: "Information-Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -442,7 +453,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCategoryRequest.new(
-  fields_: "id,remote_id,name,active,level",
+  fields_: "id,remote_id,name,active,level,language",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -531,7 +542,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -576,7 +587,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCourseRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -850,7 +861,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCategoriesRequest.new(
-  fields_: "id,remote_id,name,active,level",
+  fields_: "id,remote_id,name,active,level,language",
   filter: ::StackOne::Operations::LmsListCategoriesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -944,7 +955,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -991,7 +1002,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCoursesRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider",
   filter: ::StackOne::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1233,6 +1244,9 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+      ),
       name: "Information-Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -1308,6 +1322,9 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+      ),
       name: "Information-Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -1329,6 +1346,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     ),
   ],
   order: 1.0,
+  provider: "Content Provider",
   short_description: "This course is a valuable resource and acts as learning content for...",
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
@@ -1386,6 +1404,9 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+      ),
       name: "Information-Technology",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
@@ -1413,6 +1434,7 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
       value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
     ),
   ],
+  provider: "Course Provider",
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",

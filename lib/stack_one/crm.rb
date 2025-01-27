@@ -59,9 +59,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContactResult)
           res.contact_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -100,9 +101,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AccountResult)
           res.account_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -141,9 +143,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContactResult)
           res.contact_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -182,9 +185,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
           res.custom_field_definition_result_api_model = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -223,9 +227,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ListResult)
           res.list_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -259,9 +264,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::AccountsPaginated)
           res.accounts_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -295,9 +301,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionsPaginated)
           res.custom_field_definitions_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -331,9 +338,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContactsPaginated)
           res.contacts_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -367,9 +375,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ListsPaginated)
           res.lists_paginated = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
@@ -422,9 +431,10 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ContactResult)
           res.contact_result = out
         end
-      elsif [400, 403, 412, 429, 500, 501].include?(r.status)
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [500, 501].include?(r.status)
       end
 
       res
