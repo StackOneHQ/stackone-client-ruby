@@ -13,7 +13,7 @@ module StackOne
   class StackOne
     extend T::Sig
 
-    attr_accessor :accounts, :connect_sessions, :connectors, :ats, :crm, :hris, :iam, :lms, :marketing, :proxy, :webhooks
+    attr_accessor :accounts, :connect_sessions, :connectors, :ats, :crm, :hris, :iam, :lms, :marketing, :proxy
 
     sig do
       params(client: Faraday::Request,
@@ -85,7 +85,6 @@ module StackOne
       @lms = Lms.new(@sdk_configuration)
       @marketing = Marketing.new(@sdk_configuration)
       @proxy = Proxy.new(@sdk_configuration)
-      @webhooks = Webhooks.new(@sdk_configuration)
     end
   end
 end

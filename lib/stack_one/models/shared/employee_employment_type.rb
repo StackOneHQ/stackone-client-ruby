@@ -8,6 +8,8 @@ module StackOne
   module Shared
   
     # The employee employment type
+    # 
+    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
     class EmployeeEmploymentType < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 

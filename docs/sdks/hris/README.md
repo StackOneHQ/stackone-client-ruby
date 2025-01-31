@@ -27,6 +27,7 @@
 * [get_group](#get_group) - Get Group
 * [get_job](#get_job) - Get Job
 * [get_location](#get_location) - Get Location
+* [get_time_entries](#get_time_entries) - Get Time Entry
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [get_time_off_type](#get_time_off_type) - Get time off type
 * [list_benefits](#list_benefits) - List benefits
@@ -44,6 +45,7 @@
 * [list_groups](#list_groups) - List Groups
 * [list_jobs](#list_jobs) - List Jobs
 * [list_locations](#list_locations) - List locations
+* [list_time_entries](#list_time_entries) - List Time Entries
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [list_time_off_types](#list_time_off_types) - List time off types
 * [update_employee](#update_employee) - Updates an employee
@@ -936,7 +938,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,cost_center,division,job,type,contract_type,manager",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1075,7 +1077,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,cost_center,division,job,type,contract_type,manager",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1232,6 +1234,51 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetLocationResponse)](../../models/operations/hrisgetlocationresponse.md)**
+
+
+
+## get_time_entries
+
+Get Time Entry
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetTimeEntriesRequest.new(
+  fields_: "id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.get_time_entries(req)
+
+if ! res.time_entries_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [::StackOne::Operations::HrisGetTimeEntriesRequest](../../models/operations/hrisgettimeentriesrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetTimeEntriesResponse)](../../models/operations/hrisgettimeentriesresponse.md)**
 
 
 
@@ -1676,7 +1723,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,cost_center,division,job,type,contract_type,manager",
   filter: ::StackOne::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1870,7 +1917,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,cost_center,division,job,type,contract_type,manager",
   filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2038,6 +2085,55 @@ end
 
 
 
+## list_time_entries
+
+List Time Entries
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListTimeEntriesRequest.new(
+  fields_: "id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at",
+  filter: ::StackOne::Operations::HrisListTimeEntriesQueryParamFilter.new(
+    end_time: "2020-01-01T00:00:00.000Z",
+    start_time: "2020-01-01T00:00:00.000Z",
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.hris.list_time_entries(req)
+
+if ! res.time_entries_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [::StackOne::Operations::HrisListTimeEntriesRequest](../../models/operations/hrislisttimeentriesrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListTimeEntriesResponse)](../../models/operations/hrislisttimeentriesresponse.md)**
+
+
+
 ## list_time_off_requests
 
 List time off requests
@@ -2189,25 +2285,6 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
   employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
-  employments: [
-    ::StackOne::Shared::CreateEmploymentApiModel.new(
-      effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      employee_id: "1687-3",
-      employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
-      employment_type: ::StackOne::Shared::EmploymentType.new(),
-      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      job_title: "Software Engineer",
-      pay_currency: "USD",
-      pay_frequency: ::StackOne::Shared::PayFrequency.new(),
-      pay_period: ::StackOne::Shared::PayPeriod.new(),
-      pay_rate: "40.00",
-      time_worked: "P0Y0M0DT8H0M0S",
-      unified_custom_fields: {
-        "my_project_custom_field_1": "REF-1236",
-        "my_project_custom_field_2": "some other value",
-      },
-    ),
-  ],
   ethnicity: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
   first_name: "Issac",
   gender: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoGender.new(),

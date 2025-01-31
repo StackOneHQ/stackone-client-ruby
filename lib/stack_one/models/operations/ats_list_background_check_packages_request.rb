@@ -16,7 +16,7 @@ module StackOne
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # Filter parameters that allow greater customisation of the list response
-      field :filter, T.nilable(::StackOne::Operations::AtsListBackgroundCheckPackagesQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+      field :filter, T.nilable(::StackOne::Operations::AtsListBackgroundCheckPackagesQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
       # The unified cursor
       field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
       # The page number of the results to fetch
@@ -26,7 +26,7 @@ module StackOne
       # The number of results per page
       field :page_size, T.nilable(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-      field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
+      field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
       # Indicates that the raw request result is returned
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
       # Use a string with a date to only select results updated after that given date

@@ -65,6 +65,8 @@
 * [list_rejected_reasons](#list_rejected_reasons) - List Rejected Reasons
 * [list_users](#list_users) - List Users
 * [move_application](#move_application) - Move Application
+* [order_assessments_request](#order_assessments_request) - Order Assessments Request
+* [order_background_check_request](#order_background_check_request) - Order Background Check Request
 * [reject_application](#reject_application) - Reject Application
 * [update_application](#update_application) - Update an Application
 * [update_application_note](#update_application_note) - Update an Application Note
@@ -3021,6 +3023,225 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsMoveApplicationResponse)](../../models/operations/atsmoveapplicationresponse.md)**
+
+
+
+## order_assessments_request
+
+Order Assessments Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_dto=::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDto.new(
+  application: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication.new(
+    application_status: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus.new(
+      source_value: "Hired",
+      value: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoValue::HIRED,
+    ),
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  candidate: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate.new(
+    emails: [
+      ::StackOne::Shared::CandidateEmail.new(
+        type: "personal",
+        value: "sestier.romain123@gmail.com",
+      ),
+    ],
+    first_name: "Romain",
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    last_name: "Sestier",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    profile_url: "https://exmaple.com/candidate?id=xyz",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  job: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob.new(
+    hiring_team: [
+      ::StackOne::Shared::JobHiringTeam.new(
+        email: "john.doe@gmail.com",
+        first_name: "John",
+        last_name: "Doe",
+        remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+        role: "Software Engineer",
+        user_id: "123456",
+      ),
+    ],
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    title: "Software Engineer",
+  ),
+  package: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage.new(
+    description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    name: "Test 1",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  requester: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester.new(
+    email: "john.doe@gmail.com",
+    first_name: "John",
+    last_name: "Doe",
+    remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+    role: "Software Engineer",
+    user_id: "123456",
+  ),
+  results_update_url: "https://exmaple.com/integrations/results/update",
+), x_account_id="<id>")
+
+if ! res.create_assessment_order_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_create_candidates_assessments_request_dto`                                                                                 | [::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDto](../../models/shared/atscreatecandidatesassessmentsrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsOrderAssessmentsRequestResponse)](../../models/operations/atsorderassessmentsrequestresponse.md)**
+
+
+
+## order_background_check_request
+
+Order Background Check Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.order_background_check_request(ats_create_background_check_order_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto.new(
+  application: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication.new(
+    application_status: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus.new(
+      source_value: "Hired",
+      value: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue::HIRED,
+    ),
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  candidate: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate.new(
+    emails: [
+      ::StackOne::Shared::CandidateEmail.new(
+        type: "personal",
+        value: "sestier.romain123@gmail.com",
+      ),
+    ],
+    first_name: "Romain",
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    last_name: "Sestier",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    profile_url: "https://exmaple.com/candidate?id=xyz",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  job: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob.new(
+    hiring_team: [
+      ::StackOne::Shared::JobHiringTeam.new(
+        email: "john.doe@gmail.com",
+        first_name: "John",
+        last_name: "Doe",
+        remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+        role: "Software Engineer",
+        user_id: "123456",
+      ),
+    ],
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    title: "Software Engineer",
+  ),
+  package: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage.new(
+    description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    name: "Test 1",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    tests: [
+      ::StackOne::Shared::Package.new(
+        description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+        id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+        name: "Test 1",
+        remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      ),
+    ],
+  ),
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  requester: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoRequester.new(
+    email: "john.doe@gmail.com",
+    first_name: "John",
+    last_name: "Doe",
+    remote_user_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+    role: "Software Engineer",
+    user_id: "123456",
+  ),
+  results_update_url: "https://exmaple.com/integrations/results/update",
+), x_account_id="<id>")
+
+if ! res.create_background_check_order_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `ats_create_background_check_order_request_dto`                                                                               | [::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto](../../models/shared/atscreatebackgroundcheckorderrequestdto.md) | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `x_account_id`                                                                                                                | *::String*                                                                                                                    | :heavy_check_mark:                                                                                                            | The account identifier                                                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsOrderBackgroundCheckRequestResponse)](../../models/operations/atsorderbackgroundcheckrequestresponse.md)**
 
 
 

@@ -150,6 +150,8 @@ end
 * [list_rejected_reasons](docs/sdks/ats/README.md#list_rejected_reasons) - List Rejected Reasons
 * [list_users](docs/sdks/ats/README.md#list_users) - List Users
 * [move_application](docs/sdks/ats/README.md#move_application) - Move Application
+* [order_assessments_request](docs/sdks/ats/README.md#order_assessments_request) - Order Assessments Request
+* [order_background_check_request](docs/sdks/ats/README.md#order_background_check_request) - Order Background Check Request
 * [reject_application](docs/sdks/ats/README.md#reject_application) - Reject Application
 * [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
 * [update_application_note](docs/sdks/ats/README.md#update_application_note) - Update an Application Note
@@ -204,6 +206,7 @@ end
 * [get_group](docs/sdks/hris/README.md#get_group) - Get Group
 * [get_job](docs/sdks/hris/README.md#get_job) - Get Job
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Location
+* [get_time_entries](docs/sdks/hris/README.md#get_time_entries) - Get Time Entry
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
 * [get_time_off_type](docs/sdks/hris/README.md#get_time_off_type) - Get time off type
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
@@ -221,6 +224,7 @@ end
 * [list_groups](docs/sdks/hris/README.md#list_groups) - List Groups
 * [list_jobs](docs/sdks/hris/README.md#list_jobs) - List Jobs
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List locations
+* [list_time_entries](docs/sdks/hris/README.md#list_time_entries) - List Time Entries
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
 * [list_time_off_types](docs/sdks/hris/README.md#list_time_off_types) - List time off types
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
@@ -302,10 +306,6 @@ end
 
 * [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
 
-
-### [webhooks](docs/sdks/webhooks/README.md)
-
-* [create](docs/sdks/webhooks/README.md#create)
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
