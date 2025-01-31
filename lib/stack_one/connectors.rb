@@ -56,9 +56,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectorsMeta)
           res.connectors_meta = out
         end
-      elsif [400, 403, 404, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 404, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -97,9 +97,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, T::Array[::StackOne::Shared::ConnectorsMeta])
           res.connectors_metas = out
         end
-      elsif [400, 403, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 

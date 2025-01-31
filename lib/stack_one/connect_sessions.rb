@@ -54,9 +54,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectSession)
           res.connect_session = out
         end
-      elsif [400, 403, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -99,9 +99,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectSessionTokenAuthLink)
           res.connect_session_token_auth_link = out
         end
-      elsif [400, 403, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 

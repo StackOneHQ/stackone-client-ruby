@@ -17,7 +17,6 @@ module StackOne
   autoload :Lms, 'stack_one/lms'
   autoload :Marketing, 'stack_one/marketing'
   autoload :Proxy, 'stack_one/proxy'
-  autoload :Webhooks, 'stack_one/webhooks'
 end
 
 require_relative 'stack_one/utils/t'

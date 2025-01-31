@@ -65,9 +65,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::BatchResultApiModel)
           res.batch_result_api_model = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -115,9 +115,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -171,9 +171,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -227,9 +227,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -283,9 +283,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -333,9 +333,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -379,9 +379,9 @@ module StackOne
       )
       if r.status == 200
         res.bytes = r.env.response_body if Utils.match_content_type(content_type, 'application/octet-stream')
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -421,9 +421,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISBenefitResult)
           res.hris_benefit_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -463,9 +463,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompanyResult)
           res.company_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -505,9 +505,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISCostCenterResult)
           res.hris_cost_center_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -547,9 +547,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISDepartmentsResult)
           res.hris_departments_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -589,9 +589,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmployeeResult)
           res.employee_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -631,9 +631,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
           res.custom_field_definition_result_api_model = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -673,9 +673,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentResult)
           res.hris_document_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -715,9 +715,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferenceResult)
           res.reference_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -757,9 +757,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -799,9 +799,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffResult)
           res.time_off_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -841,9 +841,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WorkEligibilityResult)
           res.work_eligibility_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -883,9 +883,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -925,9 +925,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsResult)
           res.hris_groups_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -967,9 +967,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::JobResult)
           res.job_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1009,9 +1009,51 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISLocationResult)
           res.hris_location_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeEntriesRequest)).returns(::StackOne::Operations::HrisGetTimeEntriesResponse) }
+    def get_time_entries(request)
+      # get_time_entries - Get Time Entry
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetTimeEntriesRequest,
+        base_url,
+        '/unified/hris/time_entries/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTimeEntriesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetTimeEntriesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeEntriesResult)
+          res.time_entries_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1051,9 +1093,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffResult)
           res.time_off_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1093,9 +1135,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferenceResult)
           res.reference_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1130,9 +1172,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISBenefitsPaginated)
           res.hris_benefits_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1167,9 +1209,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompaniesPaginated)
           res.companies_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1204,9 +1246,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISCostCenterPaginated)
           res.hris_cost_center_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1241,9 +1283,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISDepartmentsPaginated)
           res.hris_departments_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1278,9 +1320,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferencePaginated)
           res.reference_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1315,9 +1357,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionsPaginated)
           res.custom_field_definitions_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1357,9 +1399,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentsPaginated)
           res.hris_documents_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1399,9 +1441,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentsPaginated)
           res.employments_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1441,9 +1483,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPaginated)
           res.time_off_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1483,9 +1525,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WorkEligibilityPaginated)
           res.work_eligibility_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1520,9 +1562,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmployeesPaginated)
           res.employees_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1557,9 +1599,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentsPaginated)
           res.employments_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1594,9 +1636,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsPaginated)
           res.hris_groups_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1631,9 +1673,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::JobsPaginated)
           res.jobs_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1668,9 +1710,46 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISLocationsPaginated)
           res.hris_locations_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeEntriesRequest)).returns(::StackOne::Operations::HrisListTimeEntriesResponse) }
+    def list_time_entries(request)
+      # list_time_entries - List Time Entries
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/time_entries"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListTimeEntriesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListTimeEntriesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeEntriesPaginated)
+          res.time_entries_paginated = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1705,9 +1784,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPaginated)
           res.time_off_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1742,9 +1821,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferencePaginated)
           res.reference_paginated = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1798,9 +1877,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpdateEmployeeApiModel)
           res.update_employee_api_model = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1855,9 +1934,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1908,9 +1987,9 @@ module StackOne
         status_code: r.status, content_type: content_type, raw_response: r
       )
       if r.status == 200
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -1964,9 +2043,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 
@@ -2020,9 +2099,9 @@ module StackOne
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WriteResultApiModel)
           res.write_result_api_model = out
         end
-      elsif [400, 403, 412, 429].include?(r.status)
       elsif r.status == 408
         res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
       elsif [500, 501].include?(r.status)
       end
 

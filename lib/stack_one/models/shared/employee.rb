@@ -26,6 +26,8 @@ module StackOne
       # The employee company name
       field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
       # The employee cost centers
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :cost_centers, T.nilable(T::Array[::StackOne::Shared::CostCenters]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_centers') } }
       # The created_at date
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
@@ -34,18 +36,26 @@ module StackOne
       # The employee date_of_birth
       field :date_of_birth, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee department
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :department, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
       # The employee department id
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :department_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_id') } }
       # The employee display name
       field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
       # The assigned employee number
       field :employee_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_number') } }
       # The employment work schedule type (e.g., full-time, part-time)
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :employment_contract_type, T.nilable(::StackOne::Shared::EmployeeEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
       # The employee employment status
       field :employment_status, T.nilable(::StackOne::Shared::EmploymentStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_status') } }
       # The employee employment type
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :employment_type, T.nilable(::StackOne::Shared::EmployeeEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
       # The employee employments
       field :employments, T.nilable(T::Array[::StackOne::Shared::Employment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employments') } }
@@ -64,14 +74,22 @@ module StackOne
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The employee job description
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :job_description, T.nilable(::StackOne::Shared::JobDescription), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_description') } }
       # The employee job id
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
       # The employee job title
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
       # The employee last name
       field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
       # The employee manager ID
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :manager_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager_id') } }
       # The employee marital status
       field :marital_status, T.nilable(::StackOne::Shared::MaritalStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('marital_status') } }
@@ -90,6 +108,8 @@ module StackOne
       # Provider's unique identifier of the manager
       field :remote_manager_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_manager_id') } }
       # The employee start date
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee tenure
       field :tenure, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tenure') } }

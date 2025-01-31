@@ -55,6 +55,13 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
   items: [
     ::StackOne::Shared::LmsUpsertContentRequestDto.new(
       active: true,
+      additional_data: [
+        ::StackOne::Shared::AdditionalData.new(
+          id: "learning_outcomes",
+          remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+          value: ::StackOne::Shared::Value.new(),
+        ),
+      ],
       categories: [
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           id: "16873-IT345",
@@ -83,7 +90,6 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       ],
       order: 1.0,
       provider: "Content Provider",
-      short_description: "This course is a valuable resource and acts as learning content for...",
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
           id: "12345",
@@ -542,7 +548,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -955,7 +961,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1319,6 +1325,13 @@ s.config_security(
     
 res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::LmsUpsertContentRequestDto.new(
   active: true,
+  additional_data: [
+    ::StackOne::Shared::AdditionalData.new(
+      id: "learning_outcomes",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      value: ::StackOne::Shared::Value.new(),
+    ),
+  ],
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
@@ -1347,7 +1360,6 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   ],
   order: 1.0,
   provider: "Content Provider",
-  short_description: "This course is a valuable resource and acts as learning content for...",
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "12345",
