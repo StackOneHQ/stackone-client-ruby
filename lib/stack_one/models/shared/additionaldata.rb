@@ -16,10 +16,10 @@ module StackOne
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The value of the additional data
-      field :value, T.nilable(::StackOne::Shared::Value), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+      field :value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), value: T.nilable(::StackOne::Shared::Value)).void }
+      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), value: T.nilable(::Object)).void }
       def initialize(id: nil, remote_id: nil, value: nil)
         @id = id
         @remote_id = remote_id

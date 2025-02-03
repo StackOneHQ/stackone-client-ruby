@@ -11,6 +11,7 @@ module StackOne
     class AssessmentResultValue < T::Enum
       enums do
         CANCELLED = new('cancelled')
+        COMPLETED = new('completed')
         EXPIRED = new('expired')
         FAILED = new('failed')
         PASSED = new('passed')
