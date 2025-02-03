@@ -1,9 +1,16 @@
 # Value
 
-The value of the additional data
+The Channels of the campaign.
 
 
-## Fields
+## Values
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+| Name             | Value            |
+| ---------------- | ---------------- |
+| `EMAIL`          | email            |
+| `SMS`            | sms              |
+| `WEB_PUSH`       | web_push         |
+| `IOS_PUSH`       | ios_push         |
+| `ANDROID_PUSH`   | android_push     |
+| `UNKNOWN`        | unknown          |
+| `UNMAPPED_VALUE` | unmapped_value   |

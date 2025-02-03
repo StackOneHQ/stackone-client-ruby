@@ -59,7 +59,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
         ::StackOne::Shared::AdditionalData.new(
           id: "learning_outcomes",
           remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-          value: ::StackOne::Shared::Value.new(),
+          value: "This is additional data",
         ),
       ],
       categories: [
@@ -1329,7 +1329,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     ::StackOne::Shared::AdditionalData.new(
       id: "learning_outcomes",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      value: ::StackOne::Shared::Value.new(),
+      value: "This is additional data",
     ),
   ],
   categories: [
