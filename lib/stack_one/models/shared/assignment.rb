@@ -20,12 +20,14 @@ module StackOne
       # The date the assignment is due to be completed
       field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
       # The external reference associated with this assignment
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The ID associated with this assignment
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The external reference of the learning object associated with this assignment
+      # The external reference of the learning object associated with this assignment, this is the main identifier for creating assignments.
       field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
-      # The learning_object_id associated with this assignment
+      # The learning_object_id associated with this assignment. This is not required unless specified in an integration.
       field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
       # The learning object type of the assignment
       field :learning_object_type, T.nilable(::StackOne::Shared::LearningObjectType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }

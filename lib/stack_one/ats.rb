@@ -2804,6 +2804,118 @@ module StackOne
     end
 
 
+    sig { params(ats_update_candidates_assessments_results_request_dto: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateAssessmentsResultResponse) }
+    def update_assessments_result(ats_update_candidates_assessments_results_request_dto, id, x_account_id)
+      # update_assessments_result - Update Assessments Result
+      request = ::StackOne::Operations::AtsUpdateAssessmentsResultRequest.new(
+        
+        ats_update_candidates_assessments_results_request_dto: ats_update_candidates_assessments_results_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsUpdateAssessmentsResultRequest,
+        base_url,
+        '/unified/ats/assessments/orders/{id}/result',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :ats_update_candidates_assessments_results_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.patch(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsUpdateAssessmentsResultResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpdateResult)
+          res.update_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(ats_update_background_check_result_request_dto: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateBackgroundCheckResultResponse) }
+    def update_background_check_result(ats_update_background_check_result_request_dto, id, x_account_id)
+      # update_background_check_result - Update Background Check Result
+      request = ::StackOne::Operations::AtsUpdateBackgroundCheckResultRequest.new(
+        
+        ats_update_background_check_result_request_dto: ats_update_background_check_result_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::AtsUpdateBackgroundCheckResultRequest,
+        base_url,
+        '/unified/ats/background_checks/orders/{id}/result',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :ats_update_background_check_result_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.patch(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::AtsUpdateBackgroundCheckResultResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpdateResult)
+          res.update_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
     sig { params(ats_update_candidate_request_dto: ::StackOne::Shared::AtsUpdateCandidateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::AtsUpdateCandidateResponse) }
     def update_candidate(ats_update_candidate_request_dto, id, x_account_id)
       # update_candidate - Update Candidate

@@ -70,6 +70,8 @@
 * [reject_application](#reject_application) - Reject Application
 * [update_application](#update_application) - Update an Application
 * [update_application_note](#update_application_note) - Update an Application Note
+* [update_assessments_result](#update_assessments_result) - Update Assessments Result
+* [update_background_check_result](#update_background_check_result) - Update Background Check Result
 * [update_candidate](#update_candidate) - Update Candidate
 * [update_job](#update_job) - Update Job
 * [upload_application_document](#upload_application_document) - Upload Application Document
@@ -3405,6 +3407,152 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::AtsUpdateApplicationNoteResponse)](../../models/operations/atsupdateapplicationnoteresponse.md)**
+
+
+
+## update_assessments_result
+
+Update Assessments Result
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_request_dto=::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto.new(
+  attachments: [
+    ::StackOne::Shared::Attachment.new(
+      content_type: ::StackOne::Shared::AttachmentContentType.new(
+        source_value: "Text",
+        value: ::StackOne::Shared::AttachmentValue::TEXT,
+      ),
+      url: "http://example.com/resume.pdf",
+    ),
+  ],
+  candidate: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    profile_url: "https://exmaple.com/candidate?id=xyz",
+  ),
+  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  result: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoResult.new(
+    source_value: "Passed",
+    value: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoValue::PASSED,
+  ),
+  result_url: "https://exmaple.com/result?id=xyz",
+  score: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoScore.new(
+    label: "Percentage",
+    max: "100",
+    min: "0",
+    value: "80",
+  ),
+  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  submission_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  summary: "Test is passed",
+), id="<id>", x_account_id="<id>")
+
+if ! res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_update_candidates_assessments_results_request_dto`                                                                                       | [::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto](../../models/shared/atsupdatecandidatesassessmentsresultsrequestdto.md) | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |
+| `id`                                                                                                                                          | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |
+| `x_account_id`                                                                                                                                | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | The account identifier                                                                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsUpdateAssessmentsResultResponse)](../../models/operations/atsupdateassessmentsresultresponse.md)**
+
+
+
+## update_background_check_result
+
+Update Background Check Result
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.ats.update_background_check_result(ats_update_background_check_result_request_dto=::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDto.new(
+  attachments: [
+    ::StackOne::Shared::Attachment.new(
+      content_type: ::StackOne::Shared::AttachmentContentType.new(
+        source_value: "Text",
+        value: ::StackOne::Shared::AttachmentValue::TEXT,
+      ),
+      url: "http://example.com/resume.pdf",
+    ),
+  ],
+  candidate: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    profile_url: "https://exmaple.com/candidate?id=xyz",
+  ),
+  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  result: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult.new(
+    source_value: "Passed",
+    value: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoValue::PASSED,
+  ),
+  result_url: "https://exmaple.com/result?id=xyz",
+  score: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoScore.new(
+    label: "Percentage",
+    max: "100",
+    min: "0",
+    value: "80",
+  ),
+  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  submission_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  summary: "Test is passed",
+), id="<id>", x_account_id="<id>")
+
+if ! res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_update_background_check_result_request_dto`                                                                                | [::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDto](../../models/shared/atsupdatebackgroundcheckresultrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `id`                                                                                                                            | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsUpdateBackgroundCheckResultResponse)](../../models/operations/atsupdatebackgroundcheckresultresponse.md)**
 
 
 

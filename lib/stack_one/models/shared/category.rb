@@ -13,11 +13,15 @@ module StackOne
 
       # Whether the category is active and therefore available for use
       field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+      # The hierarchal level of the category
+      field :hierarchy, T.nilable(::StackOne::Shared::Hierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
       # The ID associated with this category
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The language associated with this category
       field :language, T.nilable(::StackOne::Shared::Language), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
       # The hierarchal level of the category
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :level, T.nilable(::StackOne::Shared::Level), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this category
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
@@ -27,9 +31,10 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), language: T.nilable(::StackOne::Shared::Language), level: T.nilable(::StackOne::Shared::Level), name: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(active: nil, id: nil, language: nil, level: nil, name: nil, remote_id: nil, unified_custom_fields: nil)
+      sig { params(active: T.nilable(T::Boolean), hierarchy: T.nilable(::StackOne::Shared::Hierarchy), id: T.nilable(::String), language: T.nilable(::StackOne::Shared::Language), level: T.nilable(::StackOne::Shared::Level), name: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(active: nil, hierarchy: nil, id: nil, language: nil, level: nil, name: nil, remote_id: nil, unified_custom_fields: nil)
         @active = active
+        @hierarchy = hierarchy
         @id = id
         @language = language
         @level = level

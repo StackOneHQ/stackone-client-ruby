@@ -13,9 +13,17 @@ module StackOne
 
       # Whether the skill is active and therefore available for use
       field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+      # The user competency level of the skill ranked out of 5
+      field :competency, T.nilable(::StackOne::Shared::SkillsCompetency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('competency') } }
+      # The hierarchal level of the skill
+      field :hierarchy, T.nilable(::StackOne::Shared::SkillsHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
       # The ID associated with this skill
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # The language associated with this skill
+      field :language, T.nilable(::StackOne::Shared::SkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
       # The hierarchal level of the skill
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :level, T.nilable(::StackOne::Shared::SkillsLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this skill
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
@@ -23,10 +31,13 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), level: T.nilable(::StackOne::Shared::SkillsLevel), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(active: nil, id: nil, level: nil, name: nil, remote_id: nil)
+      sig { params(active: T.nilable(T::Boolean), competency: T.nilable(::StackOne::Shared::SkillsCompetency), hierarchy: T.nilable(::StackOne::Shared::SkillsHierarchy), id: T.nilable(::String), language: T.nilable(::StackOne::Shared::SkillsLanguage), level: T.nilable(::StackOne::Shared::SkillsLevel), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+      def initialize(active: nil, competency: nil, hierarchy: nil, id: nil, language: nil, level: nil, name: nil, remote_id: nil)
         @active = active
+        @competency = competency
+        @hierarchy = hierarchy
         @id = id
+        @language = language
         @level = level
         @name = name
         @remote_id = remote_id

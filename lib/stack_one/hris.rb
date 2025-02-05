@@ -1019,6 +1019,48 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTeamGroupRequest)).returns(::StackOne::Operations::HrisGetTeamGroupResponse) }
+    def get_team_group(request)
+      # get_team_group - Get Team Group
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetTeamGroupRequest,
+        base_url,
+        '/unified/hris/groups/teams/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTeamGroupRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetTeamGroupResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISTeamsResult)
+          res.hris_teams_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeEntriesRequest)).returns(::StackOne::Operations::HrisGetTimeEntriesResponse) }
     def get_time_entries(request)
       # get_time_entries - Get Time Entry
@@ -1709,6 +1751,43 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISLocationsPaginated)
           res.hris_locations_paginated = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTeamGroupsRequest)).returns(::StackOne::Operations::HrisListTeamGroupsResponse) }
+    def list_team_groups(request)
+      # list_team_groups - List Team Groups
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/groups/teams"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListTeamGroupsRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListTeamGroupsResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISTeamsPaginated)
+          res.hris_teams_paginated = out
         end
       elsif r.status == 408
         res.headers = r.headers

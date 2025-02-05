@@ -3,8 +3,10 @@
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `PRIMARY`   | primary     |
-| `SECONDARY` | secondary   |
-| `TERTIARY`  | tertiary    |
+| Name    | Value   |
+| ------- | ------- |
+| `ONE`   | 1       |
+| `TWO`   | 2       |
+| `THREE` | 3       |
+| `FOUR`  | 4       |
+| `FIVE`  | 5       |
