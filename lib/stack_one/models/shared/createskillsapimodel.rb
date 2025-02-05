@@ -11,17 +11,28 @@ module StackOne
     class CreateSkillsApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # The user competency level of the skill ranked out of 5
+      field :competency, T.nilable(::StackOne::Shared::Competency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('competency') } }
+      # The hierarchal level of the skill
+      field :hierarchy, T.nilable(::StackOne::Shared::CreateSkillsApiModelHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
       # The ID associated with this skill
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      # The language associated with this skill
+      field :language, T.nilable(::StackOne::Shared::CreateSkillsApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
       # The hierarchal level of the skill
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :level, T.nilable(::StackOne::Shared::CreateSkillsApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this skill
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(id: T.nilable(::String), level: T.nilable(::StackOne::Shared::CreateSkillsApiModelLevel), name: T.nilable(::String)).void }
-      def initialize(id: nil, level: nil, name: nil)
+      sig { params(competency: T.nilable(::StackOne::Shared::Competency), hierarchy: T.nilable(::StackOne::Shared::CreateSkillsApiModelHierarchy), id: T.nilable(::String), language: T.nilable(::StackOne::Shared::CreateSkillsApiModelLanguage), level: T.nilable(::StackOne::Shared::CreateSkillsApiModelLevel), name: T.nilable(::String)).void }
+      def initialize(competency: nil, hierarchy: nil, id: nil, language: nil, level: nil, name: nil)
+        @competency = competency
+        @hierarchy = hierarchy
         @id = id
+        @language = language
         @level = level
         @name = name
       end

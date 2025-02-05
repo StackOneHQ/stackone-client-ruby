@@ -11,11 +11,15 @@ module StackOne
     class CreateCategoriesApiModel < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
+      # The hierarchal level of the category
+      field :hierarchy, T.nilable(::StackOne::Shared::CreateCategoriesApiModelHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
       # The ID associated with this category
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The language associated with this category
       field :language, T.nilable(::StackOne::Shared::CreateCategoriesApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
       # The hierarchal level of the category
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :level, T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
       # The name associated with this category
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
@@ -23,8 +27,9 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(id: T.nilable(::String), language: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLanguage), level: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(id: nil, language: nil, level: nil, name: nil, unified_custom_fields: nil)
+      sig { params(hierarchy: T.nilable(::StackOne::Shared::CreateCategoriesApiModelHierarchy), id: T.nilable(::String), language: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLanguage), level: T.nilable(::StackOne::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(hierarchy: nil, id: nil, language: nil, level: nil, name: nil, unified_custom_fields: nil)
+        @hierarchy = hierarchy
         @id = id
         @language = language
         @level = level

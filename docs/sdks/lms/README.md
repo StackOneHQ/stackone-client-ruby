@@ -10,6 +10,7 @@
 * [create_collection](#create_collection) - Create Collection
 * [create_user_assignment](#create_user_assignment) - Create User Assignment
 * [create_user_completion](#create_user_completion) - Create User Completion
+* [delete_user_completion](#delete_user_completion) - Delete User Completion
 * [get_assignment](#get_assignment) - Get Assignment
 * [get_category](#get_category) - Get Category
 * [get_completion](#get_completion) - Get Completion
@@ -66,7 +67,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           id: "16873-IT345",
           language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
-            value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+            value: ::StackOne::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
           ),
           name: "Information-Technology",
           unified_custom_fields: {
@@ -76,9 +77,6 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
         ),
       ],
       content_url: "https://www.youtube.com/watch?v=16873",
-      course_ids: [
-        "16873-SOFTWARE-ENG-COURSE",
-      ],
       cover_url: "https://www.googledrive.com/?v=16873",
       description: "This video acts as learning content for software engineers.",
       duration: "P3Y6M4DT12H30M5S",
@@ -89,7 +87,6 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
         ),
       ],
       order: 1.0,
-      provider: "Content Provider",
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
           id: "12345",
@@ -151,7 +148,7 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
         ::StackOne::Shared::CreateCategoriesApiModel.new(
           id: "16873-IT345",
           language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
-            value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+            value: ::StackOne::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
           ),
           name: "Information-Technology",
           unified_custom_fields: {
@@ -168,9 +165,6 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
           title: "Software Engineer Lv 1",
         ),
       ],
-      content_ids: [
-        "16873-SOFTWARE-ENG-Content",
-      ],
       cover_url: "https://www.googledrive.com/?v=16873",
       description: "This course acts as learning content for software engineers.",
       duration: "P3Y6M4DT12H30M5S",
@@ -180,10 +174,12 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
           value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
         ),
       ],
-      provider: "Course Provider",
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
           id: "16873-IT345",
+          language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
+            value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+          ),
           name: "Information-Technology",
         ),
       ],
@@ -240,7 +236,7 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+        value: ::StackOne::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
       unified_custom_fields: {
@@ -263,6 +259,9 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+      ),
       name: "Information-Technology",
     ),
   ],
@@ -314,7 +313,6 @@ s.config_security(
 res = s.lms.create_user_assignment(lms_create_assignment_request_dto=::StackOne::Shared::LmsCreateAssignmentRequestDto.new(
   created_at: "2021-07-21T14:00:00.000Z",
   due_date: "2021-07-21T14:00:00.000Z",
-  external_reference: "e3gd34-23tr21-er234-345er56",
   learning_object_external_reference: "learning-content-123",
   learning_object_id: "e3gd34-23tr21-er234-345er56",
   passthrough: {
@@ -367,7 +365,6 @@ s.config_security(
     
 res = s.lms.create_user_completion(lms_create_completion_request_dto=::StackOne::Shared::LmsCreateCompletionRequestDto.new(
   completed_at: "2021-07-21T14:00:00.000Z",
-  external_reference: "e3gd34-23tr21-er234-345er56",
   learning_object_external_reference: "learning-content-123",
   learning_object_id: "e3gd34-23tr21-er234-345er56",
   passthrough: {
@@ -392,6 +389,47 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::LmsCreateUserCompletionResponse)](../../models/operations/lmscreateusercompletionresponse.md)**
+
+
+
+## delete_user_completion
+
+Delete User Completion
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.lms.delete_user_completion(id="<id>", sub_resource_id="<id>", x_account_id="<id>")
+
+if ! res.delete_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
+| `sub_resource_id`      | *::String*             | :heavy_check_mark:     | N/A                    |
+| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::LmsDeleteUserCompletionResponse)](../../models/operations/lmsdeleteusercompletionresponse.md)**
 
 
 
@@ -459,7 +497,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetCategoryRequest.new(
-  fields_: "id,remote_id,name,active,level,language",
+  fields_: "id,remote_id,name,active,hierarchy,level,language",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -548,7 +586,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -638,7 +676,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetSkillRequest.new(
-  fields_: "id,remote_id,name,active,level",
+  fields_: "id,remote_id,name,active,level,language,hierarchy,competency",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -867,7 +905,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListCategoriesRequest.new(
-  fields_: "id,remote_id,name,active,level,language",
+  fields_: "id,remote_id,name,active,hierarchy,level,language",
   filter: ::StackOne::Operations::LmsListCategoriesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -961,7 +999,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,short_description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1055,7 +1093,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListSkillsRequest.new(
-  fields_: "id,remote_id,name,active,level",
+  fields_: "id,remote_id,name,active,level,language,hierarchy,competency",
   filter: ::StackOne::Operations::LmsListSkillsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1251,7 +1289,7 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+        value: ::StackOne::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
       unified_custom_fields: {
@@ -1274,6 +1312,9 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+      ),
       name: "Information-Technology",
     ),
   ],
@@ -1336,7 +1377,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+        value: ::StackOne::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
       unified_custom_fields: {
@@ -1346,9 +1387,6 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     ),
   ],
   content_url: "https://www.youtube.com/watch?v=16873",
-  course_ids: [
-    "16873-SOFTWARE-ENG-COURSE",
-  ],
   cover_url: "https://www.googledrive.com/?v=16873",
   description: "This video acts as learning content for software engineers.",
   duration: "P3Y6M4DT12H30M5S",
@@ -1359,7 +1397,6 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
     ),
   ],
   order: 1.0,
-  provider: "Content Provider",
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "12345",
@@ -1417,7 +1454,7 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
     ::StackOne::Shared::CreateCategoriesApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateCategoriesApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateCategoriesApiModelValue::EN_GB,
+        value: ::StackOne::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
       unified_custom_fields: {
@@ -1434,9 +1471,6 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
       title: "Software Engineer Lv 1",
     ),
   ],
-  content_ids: [
-    "16873-SOFTWARE-ENG-Content",
-  ],
   cover_url: "https://www.googledrive.com/?v=16873",
   description: "This course acts as learning content for software engineers.",
   duration: "P3Y6M4DT12H30M5S",
@@ -1446,10 +1480,12 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
       value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
     ),
   ],
-  provider: "Course Provider",
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",
+      language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
+        value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+      ),
       name: "Information-Technology",
     ),
   ],

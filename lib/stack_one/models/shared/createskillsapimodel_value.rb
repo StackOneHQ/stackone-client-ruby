@@ -10,9 +10,11 @@ module StackOne
 
     class CreateSkillsApiModelValue < T::Enum
       enums do
-        PRIMARY = new('primary')
-        SECONDARY = new('secondary')
-        TERTIARY = new('tertiary')
+        ONE = new('1')
+        TWO = new('2')
+        THREE = new('3')
+        FOUR = new('4')
+        FIVE = new('5')
       end
     end
   end

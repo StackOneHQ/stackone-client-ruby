@@ -32,12 +32,14 @@ module StackOne
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
       # The external reference associated with this completion
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The ID associated with this completion
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The external reference of the learning object associated with this completion
+      # The external reference of the learning object associated with this completion, this is the main identifier for creating completions.
       field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
-      # The id of the learning object associated with this completion
+      # The id of the learning object associated with this completion. This is not required unless specified in an integration.
       field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
       # The learning object type of the completion
       field :learning_object_type, T.nilable(::StackOne::Shared::CompletionLearningObjectType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }
