@@ -15,16 +15,19 @@ module StackOne
       field :content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_url') } }
       # The description of the content
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+      # The external ID associated with this content
+      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
       field :order, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
       # The title of the content
       field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(content_url: T.nilable(::String), description: T.nilable(::String), order: T.nilable(::Float), title: T.nilable(::String)).void }
-      def initialize(content_url: nil, description: nil, order: nil, title: nil)
+      sig { params(content_url: T.nilable(::String), description: T.nilable(::String), external_reference: T.nilable(::String), order: T.nilable(::Float), title: T.nilable(::String)).void }
+      def initialize(content_url: nil, description: nil, external_reference: nil, order: nil, title: nil)
         @content_url = content_url
         @description = description
+        @external_reference = external_reference
         @order = order
         @title = title
       end

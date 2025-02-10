@@ -3327,7 +3327,6 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
       value_id: "value_456",
     ),
   ],
-  interview_stage_id: "18bcbb1b-3cbc-4198-a999-460861d19480",
   passthrough: {
     "other_known_names": "John Doe",
   },

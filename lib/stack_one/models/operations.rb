@@ -221,6 +221,8 @@ module StackOne
     autoload :HrisCreateEmployeeResponse, 'stack_one/models/operations/hris_create_employee_response.rb'
     autoload :HrisCreateEmployeeEmploymentRequest, 'stack_one/models/operations/hris_create_employee_employment_request.rb'
     autoload :HrisCreateEmployeeEmploymentResponse, 'stack_one/models/operations/hris_create_employee_employment_response.rb'
+    autoload :HrisCreateEmployeeSkillRequest, 'stack_one/models/operations/hris_create_employee_skill_request.rb'
+    autoload :HrisCreateEmployeeSkillResponse, 'stack_one/models/operations/hris_create_employee_skill_response.rb'
     autoload :HrisCreateEmployeeTimeOffRequestRequest, 'stack_one/models/operations/hris_create_employee_time_off_request_request.rb'
     autoload :HrisCreateEmployeeTimeOffRequestResponse, 'stack_one/models/operations/hris_create_employee_time_off_request_response.rb'
     autoload :HrisCreateEmployeeWorkEligibilityRequestRequest, 'stack_one/models/operations/hris_create_employee_work_eligibility_request_request.rb'

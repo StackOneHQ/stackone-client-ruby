@@ -36,6 +36,8 @@ module StackOne
       # Unique identifier of the job
       field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
       # Unique identifier of the location
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
       # Unique identifiers of the locations
       field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
