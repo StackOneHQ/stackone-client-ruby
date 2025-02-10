@@ -14,10 +14,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::SkillsSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::SkillsSchemasValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::SkillsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::SkillsValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::SkillsSchemasValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::SkillsValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

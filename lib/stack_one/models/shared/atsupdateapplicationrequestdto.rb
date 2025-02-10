@@ -15,25 +15,17 @@ module StackOne
       field :application_status, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
       # The application custom fields
       field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
-      # Unique identifier of the interview stage
-      field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
       # Value to pass through to the provider
       field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Unique identifier of the rejection reason
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
 
       field :source, T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), interview_stage_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), rejected_reason_id: T.nilable(::String), source: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoSource)).void }
-      def initialize(application_status: nil, custom_fields: nil, interview_stage_id: nil, passthrough: nil, rejected_reason_id: nil, source: nil)
+      sig { params(application_status: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), source: T.nilable(::StackOne::Shared::AtsUpdateApplicationRequestDtoSource)).void }
+      def initialize(application_status: nil, custom_fields: nil, passthrough: nil, source: nil)
         @application_status = application_status
         @custom_fields = custom_fields
-        @interview_stage_id = interview_stage_id
         @passthrough = passthrough
-        @rejected_reason_id = rejected_reason_id
         @source = source
       end
     end

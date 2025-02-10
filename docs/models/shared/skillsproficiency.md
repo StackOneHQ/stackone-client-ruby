@@ -1,0 +1,11 @@
+# SkillsProficiency
+
+The user proficiency level of the skill ranked out of 5
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `source_value`                                                                                                       | *T.nilable(::Object)*                                                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `value`                                                                                                              | [T.nilable(::StackOne::Shared::SkillsSchemasProficiencyValue)](../../models/shared/skillsschemasproficiencyvalue.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |

@@ -8,6 +8,7 @@
 * [batch_upload_employee_document](#batch_upload_employee_document) - Batch Upload Employee Document
 * [create_employee](#create_employee) - Creates an employee
 * [create_employee_employment](#create_employee_employment) - Create Employee Employment
+* [create_employee_skill](#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
 * [create_time_off_request](#create_time_off_request) - Creates a time off request
@@ -153,7 +154,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       value: ::StackOne::Shared::CountryCodeEnumValue::US,
     ),
   ],
-  company_name: "Example Corp",
+  company_id: "1234567890",
   cost_centers: [
     ::StackOne::Shared::CreateCostCenterApiModel.new(
       distribution_percentage: 100.0,
@@ -339,6 +340,50 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisCreateEmployeeEmploymentResponse)](../../models/operations/hriscreateemployeeemploymentresponse.md)**
+
+
+
+## create_employee_skill
+
+Create Employee Skill
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.hris.create_employee_skill(hris_skills_create_request_dto=::StackOne::Shared::HrisSkillsCreateRequestDto.new(
+  id: "16873-IT345",
+  name: "Information-Technology",
+), id="<id>", x_account_id="<id>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `hris_skills_create_request_dto`                                                                    | [::StackOne::Shared::HrisSkillsCreateRequestDto](../../models/shared/hrisskillscreaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisCreateEmployeeSkillResponse)](../../models/operations/hriscreateemployeeskillresponse.md)**
 
 
 
@@ -754,7 +799,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
   expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
@@ -1915,7 +1960,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2360,7 +2405,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
       value: ::StackOne::Shared::CountryCodeEnumValue::US,
     ),
   ],
-  company_name: "Example Corp",
+  company_id: "1234567890",
   custom_fields: [
     ::StackOne::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",

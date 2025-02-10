@@ -14,10 +14,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::CreateSkillsApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateSkillsApiModelSchemasValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::CreateSkillsApiModelValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateSkillsApiModelValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateSkillsApiModelSchemasValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateSkillsApiModelValue)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

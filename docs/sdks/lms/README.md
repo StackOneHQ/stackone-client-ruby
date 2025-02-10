@@ -86,6 +86,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
           value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
         ),
       ],
+      mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
       order: 1.0,
       skills: [
         ::StackOne::Shared::CreateSkillsApiModel.new(
@@ -161,6 +162,7 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
         ::StackOne::Shared::CreateContentApiModel.new(
           content_url: "https://www.youtube.com/watch?v=16873",
           description: "This video acts as learning content for software engineers.",
+          external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
           order: 1.0,
           title: "Software Engineer Lv 1",
         ),
@@ -178,7 +180,7 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
         ::StackOne::Shared::CreateSkillsApiModel.new(
           id: "16873-IT345",
           language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
-            value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+            value: ::StackOne::Shared::CreateSkillsApiModelSchemasValue::EN_GB,
           ),
           name: "Information-Technology",
         ),
@@ -260,7 +262,7 @@ res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shar
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+        value: ::StackOne::Shared::CreateSkillsApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
     ),
@@ -586,7 +588,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -676,7 +678,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetSkillRequest.new(
-  fields_: "id,remote_id,name,active,level,language,hierarchy,competency",
+  fields_: "id,remote_id,name,active,level,language,hierarchy,proficiency",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -999,7 +1001,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1093,7 +1095,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListSkillsRequest.new(
-  fields_: "id,remote_id,name,active,level,language,hierarchy,competency",
+  fields_: "id,remote_id,name,active,level,language,hierarchy,proficiency",
   filter: ::StackOne::Operations::LmsListSkillsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1313,7 +1315,7 @@ res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shar
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+        value: ::StackOne::Shared::CreateSkillsApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
     ),
@@ -1396,6 +1398,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
       value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
     ),
   ],
+  mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
   order: 1.0,
   skills: [
     ::StackOne::Shared::CreateSkillsApiModel.new(
@@ -1467,6 +1470,7 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
     ::StackOne::Shared::CreateContentApiModel.new(
       content_url: "https://www.youtube.com/watch?v=16873",
       description: "This video acts as learning content for software engineers.",
+      external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
       order: 1.0,
       title: "Software Engineer Lv 1",
     ),
@@ -1484,7 +1488,7 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
     ::StackOne::Shared::CreateSkillsApiModel.new(
       id: "16873-IT345",
       language: ::StackOne::Shared::CreateSkillsApiModelLanguage.new(
-        value: ::StackOne::Shared::CreateSkillsApiModelSchemasLanguageValue::EN_GB,
+        value: ::StackOne::Shared::CreateSkillsApiModelSchemasValue::EN_GB,
       ),
       name: "Information-Technology",
     ),

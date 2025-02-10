@@ -1,0 +1,10 @@
+# HrisCreateEmployeeSkillRequest
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `hris_skills_create_request_dto`                                                                    | [::StackOne::Shared::HrisSkillsCreateRequestDto](../../models/shared/hrisskillscreaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |

@@ -11,7 +11,7 @@ module StackOne
     class AdditionalData < ::StackOne::Utils::FieldAugmented
       extend T::Sig
 
-      # The type of the additional data
+      # The name of the additional data field. Speak to your Solutions Engineer to understand the id for the specific use case
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
