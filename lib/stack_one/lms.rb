@@ -312,11 +312,12 @@ module StackOne
       res = ::StackOne::Operations::LmsDeleteUserCompletionResponse.new(
         status_code: r.status, content_type: content_type, raw_response: r
       )
-      if r.status == 201
+      if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::DeleteResult)
           res.delete_result = out
         end
+      elsif r.status == 204
       elsif r.status == 408
         res.headers = r.headers
       elsif [400, 403, 412, 429].include?(r.status)
