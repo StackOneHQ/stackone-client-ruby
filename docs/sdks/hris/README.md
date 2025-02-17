@@ -22,6 +22,7 @@
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](#get_employee_employment) - Get Employee Employment
+* [get_employee_time_off_balance](#get_employee_time_off_balance) - Get Employee Time Off Balance
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
 * [get_employment](#get_employment) - Get Employment
@@ -30,8 +31,10 @@
 * [get_location](#get_location) - Get Location
 * [get_team_group](#get_team_group) - Get Team Group
 * [get_time_entries](#get_time_entries) - Get Time Entry
+* [get_time_off_policy](#get_time_off_policy) - Get Time Off Policy
 * [get_time_off_request](#get_time_off_request) - Get time off request
 * [get_time_off_type](#get_time_off_type) - Get time off type
+* [invite_employee](#invite_employee) - Invite Employee
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
 * [list_cost_center_groups](#list_cost_center_groups) - List Cost Center Groups
@@ -40,6 +43,7 @@
 * [list_employee_custom_field_definitions](#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_employments](#list_employee_employments) - List Employee Employments
+* [list_employee_time_off_balances](#list_employee_time_off_balances) - List Employee Time Off Balances
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](#list_employees) - List Employees
@@ -49,6 +53,7 @@
 * [list_locations](#list_locations) - List locations
 * [list_team_groups](#list_team_groups) - List Team Groups
 * [list_time_entries](#list_time_entries) - List Time Entries
+* [list_time_off_policies](#list_time_off_policies) - List Time Off Policies
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [list_time_off_types](#list_time_off_types) - List time off types
 * [update_employee](#update_employee) - Updates an employee
@@ -1011,6 +1016,53 @@ end
 
 
 
+## get_employee_time_off_balance
+
+Get Employee Time Off Balance
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
+  expand: "policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at",
+  id: "<id>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.get_employee_time_off_balance(req)
+
+if ! res.time_off_balance_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest](../../models/operations/hrisgetemployeetimeoffbalancerequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceResponse)](../../models/operations/hrisgetemployeetimeoffbalanceresponse.md)**
+
+
+
 ## get_employees_time_off_request
 
 Get Employees Time Off Request
@@ -1374,6 +1426,51 @@ end
 
 
 
+## get_time_off_policy
+
+Get Time Off Policy
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisGetTimeOffPolicyRequest.new(
+  fields_: "id,remote_id,name,description,type,updated_at,created_at",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.get_time_off_policy(req)
+
+if ! res.time_off_policy_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [::StackOne::Operations::HrisGetTimeOffPolicyRequest](../../models/operations/hrisgettimeoffpolicyrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetTimeOffPolicyResponse)](../../models/operations/hrisgettimeoffpolicyresponse.md)**
+
+
+
 ## get_time_off_request
 
 Get time off request
@@ -1461,6 +1558,51 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisGetTimeOffTypeResponse)](../../models/operations/hrisgettimeofftyperesponse.md)**
+
+
+
+## invite_employee
+
+Invite Employee
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+    
+res = s.hris.invite_employee(hris_invite_employee_request_dto=::StackOne::Shared::HrisInviteEmployeeRequestDto.new(
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+), id="<id>", x_account_id="<id>")
+
+if ! res.invite_employee_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `hris_invite_employee_request_dto`                                                                      | [::StackOne::Shared::HrisInviteEmployeeRequestDto](../../models/shared/hrisinviteemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisInviteEmployeeResponse)](../../models/operations/hrisinviteemployeeresponse.md)**
 
 
 
@@ -1840,6 +1982,55 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsResponse)](../../models/operations/hrislistemployeeemploymentsresponse.md)**
+
+
+
+## list_employee_time_off_balances
+
+List Employee Time Off Balances
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
+  expand: "policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at",
+  filter: ::StackOne::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+    
+res = s.hris.list_employee_time_off_balances(req)
+
+if ! res.time_off_balances_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest](../../models/operations/hrislistemployeetimeoffbalancesrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffBalancesResponse)](../../models/operations/hrislistemployeetimeoffbalancesresponse.md)**
 
 
 
@@ -2270,6 +2461,53 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::HrisListTimeEntriesResponse)](../../models/operations/hrislisttimeentriesresponse.md)**
+
+
+
+## list_time_off_policies
+
+List Time Off Policies
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+
+s = ::StackOne::StackOne.new
+s.config_security(
+  ::StackOne::Shared::Security.new(
+    password: "",
+    username: "",
+  )
+)
+
+
+req = ::StackOne::Operations::HrisListTimeOffPoliciesRequest.new(
+  fields_: "id,remote_id,name,description,type,updated_at,created_at",
+  filter: ::StackOne::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+    
+res = s.hris.list_time_off_policies(req)
+
+if ! res.time_off_policies_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [::StackOne::Operations::HrisListTimeOffPoliciesRequest](../../models/operations/hrislisttimeoffpoliciesrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListTimeOffPoliciesResponse)](../../models/operations/hrislisttimeoffpoliciesresponse.md)**
 
 
 

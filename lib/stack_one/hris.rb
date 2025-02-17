@@ -823,6 +823,48 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest)).returns(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceResponse) }
+    def get_employee_time_off_balance(request)
+      # get_employee_time_off_balance - Get Employee Time Off Balance
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest,
+        base_url,
+        '/unified/hris/employees/{id}/time_off_balances/{subResourceId}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffBalanceResult)
+          res.time_off_balance_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse) }
     def get_employees_time_off_request(request)
       # get_employees_time_off_request - Get Employees Time Off Request
@@ -1159,6 +1201,48 @@ module StackOne
     end
 
 
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffPolicyRequest)).returns(::StackOne::Operations::HrisGetTimeOffPolicyResponse) }
+    def get_time_off_policy(request)
+      # get_time_off_policy - Get Time Off Policy
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisGetTimeOffPolicyRequest,
+        base_url,
+        '/unified/hris/time_off_policies/{id}',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTimeOffPolicyRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisGetTimeOffPolicyResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPolicyResult)
+          res.time_off_policy_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
     sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetTimeOffRequestResponse) }
     def get_time_off_request(request)
       # get_time_off_request - Get time off request
@@ -1232,6 +1316,62 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferenceResult)
           res.reference_result = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(hris_invite_employee_request_dto: ::StackOne::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisInviteEmployeeResponse) }
+    def invite_employee(hris_invite_employee_request_dto, id, x_account_id)
+      # invite_employee - Invite Employee
+      request = ::StackOne::Operations::HrisInviteEmployeeRequest.new(
+        
+        hris_invite_employee_request_dto: hris_invite_employee_request_dto,
+        id: id,
+        x_account_id: x_account_id
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisInviteEmployeeRequest,
+        base_url,
+        '/unified/hris/employees/{id}/invite',
+        request
+      )
+      headers = Utils.get_headers(request)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_invite_employee_request_dto, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.post(url) do |req|
+        req.headers = headers
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+        if form
+          req.body = Utils.encode_form(form)
+        elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+          req.body = URI.encode_www_form(data)
+        else
+          req.body = data
+        end
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisInviteEmployeeResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::InviteEmployeeResult)
+          res.invite_employee_result = out
         end
       elsif r.status == 408
         res.headers = r.headers
@@ -1538,6 +1678,48 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentsPaginated)
           res.employments_paginated = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest)).returns(::StackOne::Operations::HrisListEmployeeTimeOffBalancesResponse) }
+    def list_employee_time_off_balances(request)
+      # list_employee_time_off_balances - List Employee Time Off Balances
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        ::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest,
+        base_url,
+        '/unified/hris/employees/{id}/time_off_balances',
+        request
+      )
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListEmployeeTimeOffBalancesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffBalancesPaginated)
+          res.time_off_balances_paginated = out
         end
       elsif r.status == 408
         res.headers = r.headers
@@ -1881,6 +2063,43 @@ module StackOne
         if Utils.match_content_type(content_type, 'application/json')
           out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeEntriesPaginated)
           res.time_entries_paginated = out
+        end
+      elsif r.status == 408
+        res.headers = r.headers
+      elsif [400, 403, 412, 429].include?(r.status)
+      elsif [500, 501].include?(r.status)
+      end
+
+      res
+    end
+
+
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffPoliciesRequest)).returns(::StackOne::Operations::HrisListTimeOffPoliciesResponse) }
+    def list_time_off_policies(request)
+      # list_time_off_policies - List Time Off Policies
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/unified/hris/time_off_policies"
+      headers = Utils.get_headers(request)
+      query_params = Utils.get_query_params(::StackOne::Operations::HrisListTimeOffPoliciesRequest, request)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      r = @sdk_configuration.client.get(url) do |req|
+        req.headers = headers
+        req.params = query_params
+        Utils.configure_request_security(req, @sdk_configuration.security) if !@sdk_configuration.nil? && !@sdk_configuration.security.nil?
+      end
+
+      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+
+      res = ::StackOne::Operations::HrisListTimeOffPoliciesResponse.new(
+        status_code: r.status, content_type: content_type, raw_response: r
+      )
+      if r.status == 200
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPoliciesPaginated)
+          res.time_off_policies_paginated = out
         end
       elsif r.status == 408
         res.headers = r.headers

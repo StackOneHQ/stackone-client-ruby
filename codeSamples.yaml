@@ -663,6 +663,12 @@ actions:
         - "lang": "ruby"
           "label": "hris_update_employee_employment"
           "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.hris.update_employee_employment(id=\"<id>\", sub_resource_id=\"<id>\", x_account_id=\"<id>\", hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(\n  id: \"8187e5da-dc77-475e-9949-af0f1fa4e4e3\",\n  unified_custom_fields: {\n    \"my_project_custom_field_1\": \"REF-1236\",\n    \"my_project_custom_field_2\": \"some other value\",\n  },\n  employee_id: \"1687-3\",\n  job_title: \"Software Engineer\",\n  pay_rate: \"40.00\",\n  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),\n  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),\n  pay_currency: \"USD\",\n  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),\n  employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),\n  time_worked: \"P0Y0M0DT8H0M0S\",\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.employment_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/invite"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_invite_employee"
+          "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.hris.invite_employee(id=\"<id>\", x_account_id=\"<id>\", hris_invite_employee_request_dto=::StackOne::Shared::HrisInviteEmployeeRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.invite_employee_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/skills"]["post"]
     update:
       "x-codeSamples":
@@ -687,6 +693,18 @@ actions:
         - "lang": "ruby"
           "label": "hris_get_employees_time_off_request"
           "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at\",\n  x_account_id: \"<id>\",\n)\n    \nres = s.hris.get_employees_time_off_request(req)\n\nif ! res.time_off_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/time_off_balances"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_employee_time_off_balances"
+          "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at\",\n  filter: ::StackOne::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n    \nres = s.hris.list_employee_time_off_balances(req)\n\nif ! res.time_off_balances_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/time_off_balances/{subResourceId}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_employee_time_off_balance"
+          "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(\n  id: \"<id>\",\n  sub_resource_id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at\",\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n    \nres = s.hris.get_employee_time_off_balance(req)\n\nif ! res.time_off_balance_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["get"]
     update:
       "x-codeSamples":
@@ -831,6 +849,18 @@ actions:
         - "lang": "ruby"
           "label": "hris_update_time_off_request"
           "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n    \nres = s.hris.update_time_off_request(id=\"<id>\", x_account_id=\"<id>\", hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(\n  employee_id: \"1687-3\",\n  approver_id: \"1687-4\",\n  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),\n  start_half_day: true,\n  end_half_day: true,\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/time_off_policies"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_time_off_policies"
+          "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisListTimeOffPoliciesRequest.new(\n  fields_: \"id,remote_id,name,description,type,updated_at,created_at\",\n  filter: ::StackOne::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n    \nres = s.hris.list_time_off_policies(req)\n\nif ! res.time_off_policies_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/time_off_policies/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_time_off_policy"
+          "source": "require 'stackone_client'\n\n\ns = ::StackOne::StackOne.new\ns.config_security(\n  ::StackOne::Shared::Security.new(\n    username: \"\",\n    password: \"\",\n  )\n)\n\n\nreq = ::StackOne::Operations::HrisGetTimeOffPolicyRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,updated_at,created_at\",\n  x_account_id: \"<id>\",\n)\n    \nres = s.hris.get_time_off_policy(req)\n\nif ! res.time_off_policy_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/time_off_types"]["get"]
     update:
       "x-codeSamples":
