@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee work location
-    class WorkLocation < ::StackOne::Utils::FieldAugmented
+    class WorkLocation < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The city where the location is situated

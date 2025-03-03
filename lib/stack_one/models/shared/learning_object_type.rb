@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The learning object type of the assignment
-    class LearningObjectType < ::StackOne::Utils::FieldAugmented
+    class LearningObjectType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

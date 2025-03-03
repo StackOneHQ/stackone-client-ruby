@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The country code
-    class EmployeeSchemasWorkLocationCountry < ::StackOne::Utils::FieldAugmented
+    class EmployeeSchemasWorkLocationCountry < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

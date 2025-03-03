@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The status of the time entry
-    class TimeEntriesStatus < ::StackOne::Utils::FieldAugmented
+    class TimeEntriesStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Template < ::StackOne::Utils::FieldAugmented
+    class Template < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Date of creation

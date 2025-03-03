@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class HrisDocumentsUploadRequestDtoFileFormat < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentsUploadRequestDtoFileFormat < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

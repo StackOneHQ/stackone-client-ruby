@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsGetContentRequest < ::StackOne::Utils::FieldAugmented
+    class LmsGetContentRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

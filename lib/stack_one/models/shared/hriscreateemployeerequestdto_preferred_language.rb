@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee preferred language
-    class HrisCreateEmployeeRequestDtoPreferredLanguage < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoPreferredLanguage < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

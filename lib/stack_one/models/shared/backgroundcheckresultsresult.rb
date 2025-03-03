@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckResultsResult < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckResultsResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class QuestionMultipleChoiceAnswers < ::StackOne::Utils::FieldAugmented
+    class QuestionMultipleChoiceAnswers < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

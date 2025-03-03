@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Status of the job
-    class JobJobStatus < ::StackOne::Utils::FieldAugmented
+    class JobJobStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the job status.

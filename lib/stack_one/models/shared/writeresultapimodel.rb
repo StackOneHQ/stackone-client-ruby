@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class WriteResultApiModel < ::StackOne::Utils::FieldAugmented
+    class WriteResultApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

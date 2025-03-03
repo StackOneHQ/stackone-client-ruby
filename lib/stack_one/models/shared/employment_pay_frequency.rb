@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The pay frequency
-    class EmploymentPayFrequency < ::StackOne::Utils::FieldAugmented
+    class EmploymentPayFrequency < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the pay frequency.

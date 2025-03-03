@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TemplateResult < ::StackOne::Utils::FieldAugmented
+    class TemplateResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateEmploymentApiModel < ::StackOne::Utils::FieldAugmented
+    class CreateEmploymentApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The effective date of the employment contract

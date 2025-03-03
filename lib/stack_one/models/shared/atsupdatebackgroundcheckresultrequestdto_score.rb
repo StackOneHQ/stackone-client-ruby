@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateBackgroundCheckResultRequestDtoScore < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateBackgroundCheckResultRequestDtoScore < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The label of the score

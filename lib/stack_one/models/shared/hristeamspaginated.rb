@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISTeamsPaginated < ::StackOne::Utils::FieldAugmented
+    class HRISTeamsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

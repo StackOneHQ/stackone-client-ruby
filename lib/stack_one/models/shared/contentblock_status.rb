@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Stackone enum identifying the status of content block.
-    class ContentBlockStatus < ::StackOne::Utils::FieldAugmented
+    class ContentBlockStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the status.

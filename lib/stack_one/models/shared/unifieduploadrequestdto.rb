@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class UnifiedUploadRequestDto < ::StackOne::Utils::FieldAugmented
+    class UnifiedUploadRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.

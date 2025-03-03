@@ -48,7 +48,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamGroupResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamGroupResult)
           res.iam_group_result = out
         end
       elsif r.status == 408
@@ -90,7 +90,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamPolicyResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamPolicyResult)
           res.iam_policy_result = out
         end
       elsif r.status == 408
@@ -132,7 +132,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamRoleResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamRoleResult)
           res.iam_role_result = out
         end
       elsif r.status == 408
@@ -174,7 +174,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamUserResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamUserResult)
           res.iam_user_result = out
         end
       elsif r.status == 408
@@ -211,7 +211,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamGroupsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamGroupsPaginated)
           res.iam_groups_paginated = out
         end
       elsif r.status == 408
@@ -248,7 +248,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamPoliciesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamPoliciesPaginated)
           res.iam_policies_paginated = out
         end
       elsif r.status == 408
@@ -285,7 +285,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamRolesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamRolesPaginated)
           res.iam_roles_paginated = out
         end
       elsif r.status == 408
@@ -322,7 +322,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::IamUsersPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::IamUsersPaginated)
           res.iam_users_paginated = out
         end
       elsif r.status == 408

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ChannelsEnum < ::StackOne::Utils::FieldAugmented
+    class ChannelsEnum < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the Channels.

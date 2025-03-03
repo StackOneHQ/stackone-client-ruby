@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The language associated with this skill
-    class SkillsLanguage < ::StackOne::Utils::FieldAugmented
+    class SkillsLanguage < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PushTemplateResult < ::StackOne::Utils::FieldAugmented
+    class PushTemplateResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

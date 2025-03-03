@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The country code
-    class Country < ::StackOne::Utils::FieldAugmented
+    class Country < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the ISO 3166-1 alpha-2 code of the country.

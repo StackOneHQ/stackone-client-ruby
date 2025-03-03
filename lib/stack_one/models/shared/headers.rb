@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Headers < ::StackOne::Utils::FieldAugmented
+    class Headers < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

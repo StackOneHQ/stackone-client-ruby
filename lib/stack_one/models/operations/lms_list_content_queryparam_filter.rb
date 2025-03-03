@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # Filter parameters that allow greater customisation of the list response
-    class LmsListContentQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class LmsListContentQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Use a string with a date to only select results updated after that given date

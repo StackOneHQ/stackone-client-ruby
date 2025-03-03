@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetAssessmentsResultRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetAssessmentsResultRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

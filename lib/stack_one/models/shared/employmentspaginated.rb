@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class EmploymentsPaginated < ::StackOne::Utils::FieldAugmented
+    class EmploymentsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

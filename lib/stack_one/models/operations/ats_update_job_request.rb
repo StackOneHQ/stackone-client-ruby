@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsUpdateJobRequest < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateJobRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

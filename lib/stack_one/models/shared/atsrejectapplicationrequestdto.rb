@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsRejectApplicationRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsRejectApplicationRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Value to pass through to the provider

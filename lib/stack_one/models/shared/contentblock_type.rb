@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Stackone enum identifying the type of content block.
-    class ContentBlockType < ::StackOne::Utils::FieldAugmented
+    class ContentBlockType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the type.

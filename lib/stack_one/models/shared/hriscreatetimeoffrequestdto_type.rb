@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the time off request
-    class HrisCreateTimeOffRequestDtoType < ::StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestDtoType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

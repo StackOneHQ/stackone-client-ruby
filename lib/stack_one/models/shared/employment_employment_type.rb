@@ -10,7 +10,7 @@ module StackOne
     # The type of employment (e.g., contractor, permanent)
     # 
     # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class EmploymentEmploymentType < ::StackOne::Utils::FieldAugmented
+    class EmploymentEmploymentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.

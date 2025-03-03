@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckOrderRequester < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckOrderRequester < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Email of the hiring team member.

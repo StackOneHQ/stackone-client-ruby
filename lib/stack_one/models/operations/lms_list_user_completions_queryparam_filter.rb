@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # LMS Completions Filter
-    class LmsListUserCompletionsQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class LmsListUserCompletionsQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Use a string with a date to only select results updated after that given date

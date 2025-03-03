@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class QuestionType < ::StackOne::Utils::FieldAugmented
+    class QuestionType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the questions type.

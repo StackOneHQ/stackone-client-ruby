@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobPostingCompensationType < ::StackOne::Utils::FieldAugmented
+    class JobPostingCompensationType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the compensation type.

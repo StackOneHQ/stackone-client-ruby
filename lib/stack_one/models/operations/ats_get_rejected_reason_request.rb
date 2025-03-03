@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetRejectedReasonRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetRejectedReasonRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

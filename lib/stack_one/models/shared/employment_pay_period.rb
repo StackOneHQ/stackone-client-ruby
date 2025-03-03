@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The pay period
-    class EmploymentPayPeriod < ::StackOne::Utils::FieldAugmented
+    class EmploymentPayPeriod < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the pay period.

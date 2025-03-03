@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisListTimeOffRequestsRequest < ::StackOne::Utils::FieldAugmented
+    class HrisListTimeOffRequestsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

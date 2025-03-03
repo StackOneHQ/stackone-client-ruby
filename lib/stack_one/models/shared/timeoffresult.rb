@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeOffResult < ::StackOne::Utils::FieldAugmented
+    class TimeOffResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SmsTemplateResult < ::StackOne::Utils::FieldAugmented
+    class SmsTemplateResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

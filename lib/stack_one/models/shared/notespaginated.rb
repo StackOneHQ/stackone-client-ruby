@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class NotesPaginated < ::StackOne::Utils::FieldAugmented
+    class NotesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

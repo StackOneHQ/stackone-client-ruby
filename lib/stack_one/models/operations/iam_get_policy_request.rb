@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class IamGetPolicyRequest < ::StackOne::Utils::FieldAugmented
+    class IamGetPolicyRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

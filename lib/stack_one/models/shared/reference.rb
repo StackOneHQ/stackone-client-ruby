@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Reference < ::StackOne::Utils::FieldAugmented
+    class Reference < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The reference status

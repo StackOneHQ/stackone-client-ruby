@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ProviderErrorApiModel < ::StackOne::Utils::FieldAugmented
+    class ProviderErrorApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

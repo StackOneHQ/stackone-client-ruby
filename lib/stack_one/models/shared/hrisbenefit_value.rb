@@ -15,6 +15,7 @@ module StackOne
         OTHER = new('other')
         HEALTH_INSURANCE = new('health_insurance')
         INSURANCE = new('insurance')
+        UNMAPPED_VALUE = new('unmapped_value')
       end
     end
   end

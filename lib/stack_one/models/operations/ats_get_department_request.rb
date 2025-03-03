@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetDepartmentRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetDepartmentRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

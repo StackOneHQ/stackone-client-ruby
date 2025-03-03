@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobPostingLocation < ::StackOne::Utils::FieldAugmented
+    class JobPostingLocation < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class NoteResult < ::StackOne::Utils::FieldAugmented
+    class NoteResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

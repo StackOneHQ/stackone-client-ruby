@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneGetAccountMetaInfoRequest < ::StackOne::Utils::FieldAugmented
+    class StackoneGetAccountMetaInfoRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Completion < ::StackOne::Utils::FieldAugmented
+    class Completion < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The date the content was completed

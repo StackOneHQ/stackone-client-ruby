@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListBackgroundCheckRequestResponse < ::StackOne::Utils::FieldAugmented
+    class AtsListBackgroundCheckRequestResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

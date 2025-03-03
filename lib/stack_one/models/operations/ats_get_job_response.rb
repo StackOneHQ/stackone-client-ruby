@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetJobResponse < ::StackOne::Utils::FieldAugmented
+    class AtsGetJobResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamPolicy < ::StackOne::Utils::FieldAugmented
+    class IamPolicy < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

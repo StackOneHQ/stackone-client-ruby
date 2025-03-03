@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListApplicationScorecardsResponse < ::StackOne::Utils::FieldAugmented
+    class AtsListApplicationScorecardsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

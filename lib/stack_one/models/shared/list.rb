@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class List < ::StackOne::Utils::FieldAugmented
+    class List < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Timestamp when the list was created

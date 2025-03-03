@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InviteEmployeeResult < ::StackOne::Utils::FieldAugmented
+    class InviteEmployeeResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

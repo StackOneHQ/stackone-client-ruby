@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ApplicationCandidate < ::StackOne::Utils::FieldAugmented
+    class ApplicationCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Candidate company

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The status of the time off request
-    class TimeOffStatus < ::StackOne::Utils::FieldAugmented
+    class TimeOffStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

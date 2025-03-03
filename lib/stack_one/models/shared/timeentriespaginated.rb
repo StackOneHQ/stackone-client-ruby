@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeEntriesPaginated < ::StackOne::Utils::FieldAugmented
+    class TimeEntriesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetInterviewResponse < ::StackOne::Utils::FieldAugmented
+    class AtsGetInterviewResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

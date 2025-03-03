@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamRole < ::StackOne::Utils::FieldAugmented
+    class IamRole < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

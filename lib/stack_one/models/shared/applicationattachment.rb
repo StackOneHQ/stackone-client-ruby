@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ApplicationAttachment < ::StackOne::Utils::FieldAugmented
+    class ApplicationAttachment < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The content of the attachment.

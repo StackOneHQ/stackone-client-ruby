@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The manager role type (e.g., admin, viewer)
-    class RoleType < ::StackOne::Utils::FieldAugmented
+    class RoleType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

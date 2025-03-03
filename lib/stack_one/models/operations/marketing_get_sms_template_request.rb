@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingGetSmsTemplateRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingGetSmsTemplateRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

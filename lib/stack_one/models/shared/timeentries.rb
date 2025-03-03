@@ -8,14 +8,14 @@ module StackOne
   module Shared
   
 
-    class TimeEntries < ::StackOne::Utils::FieldAugmented
+    class TimeEntries < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # The duration of the break in hours
+      # The duration of the break taken during time entry in hours
       field :break_duration, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('break_duration') } }
       # The created_at date
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee ID associated with this employment
+      # The employee ID associated with this time entry
       field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
       # The end time of the time entry
       field :end_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
@@ -27,7 +27,7 @@ module StackOne
       field :labor_type, T.nilable(::StackOne::Shared::LaborType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('labor_type') } }
       # The location of the time entry
       field :location, T.nilable(::StackOne::Shared::Location), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location') } }
-      # Provider's unique identifier of the employee associated with this employment
+      # Provider's unique identifier of the employee associated with this time entry
       field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }

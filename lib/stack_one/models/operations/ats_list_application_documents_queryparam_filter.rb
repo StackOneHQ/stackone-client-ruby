@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # ATS Document Filter
-    class AtsListApplicationDocumentsQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class AtsListApplicationDocumentsQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Filter to select documents by type

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsDocumentResult < ::StackOne::Utils::FieldAugmented
+    class AtsDocumentResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

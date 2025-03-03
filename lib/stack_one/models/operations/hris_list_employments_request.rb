@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisListEmploymentsRequest < ::StackOne::Utils::FieldAugmented
+    class HrisListEmploymentsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The job of employee
-    class EmploymentJob < ::StackOne::Utils::FieldAugmented
+    class EmploymentJob < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The employee job description

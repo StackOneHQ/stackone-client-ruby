@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateCategoriesApiModel < ::StackOne::Utils::FieldAugmented
+    class CreateCategoriesApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The hierarchal level of the category

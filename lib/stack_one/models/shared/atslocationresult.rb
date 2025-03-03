@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ATSLocationResult < ::StackOne::Utils::FieldAugmented
+    class ATSLocationResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

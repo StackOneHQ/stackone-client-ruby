@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ConnectSession < ::StackOne::Utils::FieldAugmented
+    class ConnectSession < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

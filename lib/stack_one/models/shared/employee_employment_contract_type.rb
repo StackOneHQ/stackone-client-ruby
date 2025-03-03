@@ -10,7 +10,7 @@ module StackOne
     # The employment work schedule type (e.g., full-time, part-time)
     # 
     # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class EmployeeEmploymentContractType < ::StackOne::Utils::FieldAugmented
+    class EmployeeEmploymentContractType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -78,12 +78,19 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
       ],
       content_url: "https://www.youtube.com/watch?v=16873",
       cover_url: "https://www.googledrive.com/?v=16873",
+      created_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
       description: "This video acts as learning content for software engineers.",
       duration: "P3Y6M4DT12H30M5S",
       external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
       languages: [
         ::StackOne::Shared::LanguageEnum.new(
           value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
+        ),
+      ],
+      localisations: [
+        ::StackOne::Shared::LocalisationModel.new(
+          description: "This video acts as learning content for software engineers.",
+          title: "Software Engineer Lv 1",
         ),
       ],
       mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
@@ -94,11 +101,16 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
           name: "Sales Techniques",
         ),
       ],
+      tags: [
+        "Sales Techniques",
+        "Customer Service",
+      ],
       title: "Software Engineer Lv 1",
       unified_custom_fields: {
         "my_project_custom_field_1": "REF-1236",
         "my_project_custom_field_2": "some other value",
       },
+      updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
     ),
   ],
 ), x_account_id="<id>")
@@ -163,6 +175,7 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
           content_url: "https://www.youtube.com/watch?v=16873",
           description: "This video acts as learning content for software engineers.",
           external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+          mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
           order: 1.0,
           title: "Software Engineer Lv 1",
         ),
@@ -588,7 +601,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localisations,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -678,7 +691,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsGetSkillRequest.new(
-  fields_: "id,remote_id,name,active,level,language,hierarchy,proficiency",
+  fields_: "id,remote_id,name,active,hierarchy,language",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1001,7 +1014,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localisations,tags",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1095,7 +1108,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::LmsListSkillsRequest.new(
-  fields_: "id,remote_id,name,active,level,language,hierarchy,proficiency",
+  fields_: "id,remote_id,name,active,hierarchy,language",
   filter: ::StackOne::Operations::LmsListSkillsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1390,12 +1403,19 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
   ],
   content_url: "https://www.youtube.com/watch?v=16873",
   cover_url: "https://www.googledrive.com/?v=16873",
+  created_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
   description: "This video acts as learning content for software engineers.",
   duration: "P3Y6M4DT12H30M5S",
   external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
   languages: [
     ::StackOne::Shared::LanguageEnum.new(
       value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
+    ),
+  ],
+  localisations: [
+    ::StackOne::Shared::LocalisationModel.new(
+      description: "This video acts as learning content for software engineers.",
+      title: "Software Engineer Lv 1",
     ),
   ],
   mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
@@ -1406,11 +1426,16 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
       name: "Sales Techniques",
     ),
   ],
+  tags: [
+    "Sales Techniques",
+    "Customer Service",
+  ],
   title: "Software Engineer Lv 1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
+  updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
 ), x_account_id="<id>")
 
 if ! res.upsert_result.nil?
@@ -1471,6 +1496,7 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
       content_url: "https://www.youtube.com/watch?v=16873",
       description: "This video acts as learning content for software engineers.",
       external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+      mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
       order: 1.0,
       title: "Software Engineer Lv 1",
     ),

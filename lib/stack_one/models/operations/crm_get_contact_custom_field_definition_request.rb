@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmGetContactCustomFieldDefinitionRequest < ::StackOne::Utils::FieldAugmented
+    class CrmGetContactCustomFieldDefinitionRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

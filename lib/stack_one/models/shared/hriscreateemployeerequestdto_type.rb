@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisCreateEmployeeRequestDtoType < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ListResult < ::StackOne::Utils::FieldAugmented
+    class ListResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

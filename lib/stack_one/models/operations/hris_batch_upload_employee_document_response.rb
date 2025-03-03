@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisBatchUploadEmployeeDocumentResponse < ::StackOne::Utils::FieldAugmented
+    class HrisBatchUploadEmployeeDocumentResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

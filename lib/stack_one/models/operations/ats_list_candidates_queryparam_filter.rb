@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # ATS Candidate Filter
-    class AtsListCandidatesQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class AtsListCandidatesQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Use a string with a date to only select results created after that given date

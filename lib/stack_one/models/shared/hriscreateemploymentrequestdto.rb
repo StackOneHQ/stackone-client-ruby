@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisCreateEmploymentRequestDto < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmploymentRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The effective date of the employment contract

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the custom field.
-    class CustomFieldDefinitionType < ::StackOne::Utils::FieldAugmented
+    class CustomFieldDefinitionType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

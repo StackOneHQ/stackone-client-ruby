@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LmsBatchUpsertContentRequestDto < ::StackOne::Utils::FieldAugmented
+    class LmsBatchUpsertContentRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The batch of items to upsert

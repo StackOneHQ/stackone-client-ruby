@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CandidateEmail < ::StackOne::Utils::FieldAugmented
+    class CandidateEmail < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Type of the email

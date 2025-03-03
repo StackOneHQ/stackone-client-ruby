@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamUserResult < ::StackOne::Utils::FieldAugmented
+    class IamUserResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

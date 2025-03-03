@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ScorecardsPaginated < ::StackOne::Utils::FieldAugmented
+    class ScorecardsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

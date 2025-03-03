@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsDeleteUserCompletionResponse < ::StackOne::Utils::FieldAugmented
+    class LmsDeleteUserCompletionResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

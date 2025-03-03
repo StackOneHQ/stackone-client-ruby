@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AttachmentContentType < ::StackOne::Utils::FieldAugmented
+    class AttachmentContentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the content type.

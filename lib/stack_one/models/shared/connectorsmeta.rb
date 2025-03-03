@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ConnectorsMeta < ::StackOne::Utils::FieldAugmented
+    class ConnectorsMeta < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The provider service category

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class OfferHistory < ::StackOne::Utils::FieldAugmented
+    class OfferHistory < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Date of creation

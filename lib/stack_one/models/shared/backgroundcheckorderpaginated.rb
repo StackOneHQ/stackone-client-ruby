@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckOrderPaginated < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckOrderPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

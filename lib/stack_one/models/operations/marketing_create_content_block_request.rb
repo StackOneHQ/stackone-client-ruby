@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingCreateContentBlockRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingCreateContentBlockRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Result < ::StackOne::Utils::FieldAugmented
+    class Result < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the test result.

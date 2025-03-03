@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CustomFieldDefinition < ::StackOne::Utils::FieldAugmented
+    class CustomFieldDefinition < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateQuestionnaire < ::StackOne::Utils::FieldAugmented
+    class CreateQuestionnaire < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

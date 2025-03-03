@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisListEmployeeTimeOffRequestsResponse < ::StackOne::Utils::FieldAugmented
+    class HrisListEmployeeTimeOffRequestsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

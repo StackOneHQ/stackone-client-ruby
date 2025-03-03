@@ -107,6 +107,7 @@ module StackOne
         THA = new('tha')
         TIR = new('tir')
         TIG = new('tig')
+        ZHO = new('zho')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

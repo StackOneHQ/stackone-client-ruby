@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingUpdateOmniChannelTemplateRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingUpdateOmniChannelTemplateRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The result of the completion
-    class CompletionSchemasResult < ::StackOne::Utils::FieldAugmented
+    class CompletionSchemasResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

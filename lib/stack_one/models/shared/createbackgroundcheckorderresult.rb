@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateBackgroundCheckOrderResult < ::StackOne::Utils::FieldAugmented
+    class CreateBackgroundCheckOrderResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CampaignResult < ::StackOne::Utils::FieldAugmented
+    class CampaignResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

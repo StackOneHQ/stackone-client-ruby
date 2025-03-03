@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Assignment < ::StackOne::Utils::FieldAugmented
+    class Assignment < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The course ID associated with this assignment

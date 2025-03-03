@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Image assets for this provider
-    class Images < ::StackOne::Utils::FieldAugmented
+    class Images < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # URL of the square logo designed and used by StackOne for this provider

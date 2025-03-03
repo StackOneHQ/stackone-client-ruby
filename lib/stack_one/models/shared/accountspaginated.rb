@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AccountsPaginated < ::StackOne::Utils::FieldAugmented
+    class AccountsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

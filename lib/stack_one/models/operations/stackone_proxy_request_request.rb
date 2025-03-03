@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneProxyRequestRequest < ::StackOne::Utils::FieldAugmented
+    class StackoneProxyRequestRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The request body

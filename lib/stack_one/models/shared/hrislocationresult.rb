@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISLocationResult < ::StackOne::Utils::FieldAugmented
+    class HRISLocationResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

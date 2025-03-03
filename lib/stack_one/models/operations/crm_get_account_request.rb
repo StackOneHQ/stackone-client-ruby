@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmGetAccountRequest < ::StackOne::Utils::FieldAugmented
+    class CrmGetAccountRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

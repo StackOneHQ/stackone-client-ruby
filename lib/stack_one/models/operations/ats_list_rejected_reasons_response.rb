@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListRejectedReasonsResponse < ::StackOne::Utils::FieldAugmented
+    class AtsListRejectedReasonsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

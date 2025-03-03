@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AdditionalData < ::StackOne::Utils::FieldAugmented
+    class AdditionalData < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The name of the additional data field. Speak to your Solutions Engineer to understand the id for the specific use case

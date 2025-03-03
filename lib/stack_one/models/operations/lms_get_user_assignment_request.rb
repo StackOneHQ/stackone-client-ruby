@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsGetUserAssignmentRequest < ::StackOne::Utils::FieldAugmented
+    class LmsGetUserAssignmentRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

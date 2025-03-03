@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PatchAccountExternalDto < ::StackOne::Utils::FieldAugmented
+    class PatchAccountExternalDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class MarketingCreateContentBlocksRequestDto < ::StackOne::Utils::FieldAugmented
+    class MarketingCreateContentBlocksRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

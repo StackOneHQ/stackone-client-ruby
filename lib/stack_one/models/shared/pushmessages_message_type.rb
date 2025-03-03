@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PushMessagesMessageType < ::StackOne::Utils::FieldAugmented
+    class PushMessagesMessageType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The original value from the provider used to derive the unified message type.

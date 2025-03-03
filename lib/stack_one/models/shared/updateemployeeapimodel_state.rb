@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The ISO3166-2 sub division where the location is situated
-    class UpdateEmployeeApiModelState < ::StackOne::Utils::FieldAugmented
+    class UpdateEmployeeApiModelState < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

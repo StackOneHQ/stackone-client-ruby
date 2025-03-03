@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Campaign < ::StackOne::Utils::FieldAugmented
+    class Campaign < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

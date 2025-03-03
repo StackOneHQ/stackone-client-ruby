@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ContactsPaginated < ::StackOne::Utils::FieldAugmented
+    class ContactsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AssessmentResultsResult < ::StackOne::Utils::FieldAugmented
+    class AssessmentResultsResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

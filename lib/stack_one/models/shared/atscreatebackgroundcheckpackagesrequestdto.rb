@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateBackgroundCheckPackagesRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsCreateBackgroundCheckPackagesRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Package description

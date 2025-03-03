@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateBackgroundCheckResultRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateBackgroundCheckResultRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

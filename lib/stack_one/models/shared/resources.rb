@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Resources for this provider, such as image assets
-    class Resources < ::StackOne::Utils::FieldAugmented
+    class Resources < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Image assets for this provider

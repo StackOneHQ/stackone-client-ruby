@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The user's avatar data. This generally contains a URL within this property's 'contents' array.
-    class IamUserAvatar < ::StackOne::Utils::FieldAugmented
+    class IamUserAvatar < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The category of the file

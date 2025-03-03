@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ScheduledInterview < ::StackOne::Utils::FieldAugmented
+    class ScheduledInterview < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

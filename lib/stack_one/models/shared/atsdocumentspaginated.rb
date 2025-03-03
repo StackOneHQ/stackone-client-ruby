@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsDocumentsPaginated < ::StackOne::Utils::FieldAugmented
+    class AtsDocumentsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

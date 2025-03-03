@@ -10,7 +10,7 @@ module StackOne
     # The content type of the document
     # 
     # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class HrisDocumentApiModelType < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentApiModelType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

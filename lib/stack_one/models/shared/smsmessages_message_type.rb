@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SmsMessagesMessageType < ::StackOne::Utils::FieldAugmented
+    class SmsMessagesMessageType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The original value from the provider used to derive the unified message type.

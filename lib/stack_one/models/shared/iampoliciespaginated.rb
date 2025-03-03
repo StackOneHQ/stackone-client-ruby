@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamPoliciesPaginated < ::StackOne::Utils::FieldAugmented
+    class IamPoliciesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

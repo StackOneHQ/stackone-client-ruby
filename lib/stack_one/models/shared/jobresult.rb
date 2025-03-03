@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobResult < ::StackOne::Utils::FieldAugmented
+    class JobResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisUpdateTimeOffRequestRequest < ::StackOne::Utils::FieldAugmented
+    class HrisUpdateTimeOffRequestRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

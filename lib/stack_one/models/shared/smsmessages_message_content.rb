@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SmsMessagesMessageContent < ::StackOne::Utils::FieldAugmented
+    class SmsMessagesMessageContent < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

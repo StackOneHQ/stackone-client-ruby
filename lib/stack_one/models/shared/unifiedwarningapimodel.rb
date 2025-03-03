@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class UnifiedWarningApiModel < ::StackOne::Utils::FieldAugmented
+    class UnifiedWarningApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Document < ::StackOne::Utils::FieldAugmented
+    class Document < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The category of the file

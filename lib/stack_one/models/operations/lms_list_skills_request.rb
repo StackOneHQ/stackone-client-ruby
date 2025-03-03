@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsListSkillsRequest < ::StackOne::Utils::FieldAugmented
+    class LmsListSkillsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

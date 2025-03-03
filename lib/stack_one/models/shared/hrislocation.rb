@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISLocation < ::StackOne::Utils::FieldAugmented
+    class HRISLocation < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The city where the location is situated

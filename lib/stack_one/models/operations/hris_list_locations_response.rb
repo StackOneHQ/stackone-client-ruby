@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisListLocationsResponse < ::StackOne::Utils::FieldAugmented
+    class HrisListLocationsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

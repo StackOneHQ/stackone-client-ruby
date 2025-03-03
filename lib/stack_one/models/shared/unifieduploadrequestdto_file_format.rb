@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class UnifiedUploadRequestDtoFileFormat < ::StackOne::Utils::FieldAugmented
+    class UnifiedUploadRequestDtoFileFormat < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

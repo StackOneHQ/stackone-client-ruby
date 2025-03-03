@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CategoriesPaginated < ::StackOne::Utils::FieldAugmented
+    class CategoriesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

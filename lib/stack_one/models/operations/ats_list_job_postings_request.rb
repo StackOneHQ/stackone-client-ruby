@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListJobPostingsRequest < ::StackOne::Utils::FieldAugmented
+    class AtsListJobPostingsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Category < ::StackOne::Utils::FieldAugmented
+    class Category < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether the category is active and therefore available for use

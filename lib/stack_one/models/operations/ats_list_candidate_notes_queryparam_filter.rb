@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # Filter parameters that allow greater customisation of the list response
-    class AtsListCandidateNotesQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class AtsListCandidateNotesQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Use a string with a date to only select results updated after that given date

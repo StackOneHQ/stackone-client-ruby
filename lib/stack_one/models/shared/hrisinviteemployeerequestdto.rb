@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisInviteEmployeeRequestDto < ::StackOne::Utils::FieldAugmented
+    class HrisInviteEmployeeRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Value to pass through to the provider

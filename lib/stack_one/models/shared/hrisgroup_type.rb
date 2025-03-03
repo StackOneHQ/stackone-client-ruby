@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the group
-    class HRISGroupType < ::StackOne::Utils::FieldAugmented
+    class HRISGroupType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

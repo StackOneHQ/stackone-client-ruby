@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ConnectSessionAuthenticate < ::StackOne::Utils::FieldAugmented
+    class ConnectSessionAuthenticate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The token to authenticate with

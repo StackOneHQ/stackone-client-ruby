@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetJobCustomFieldDefinitionRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetJobCustomFieldDefinitionRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

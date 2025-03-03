@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingCreatePushTemplateResponse < ::StackOne::Utils::FieldAugmented
+    class MarketingCreatePushTemplateResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

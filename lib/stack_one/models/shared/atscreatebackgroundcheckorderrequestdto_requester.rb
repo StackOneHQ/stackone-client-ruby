@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateBackgroundCheckOrderRequestDtoRequester < ::StackOne::Utils::FieldAugmented
+    class AtsCreateBackgroundCheckOrderRequestDtoRequester < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Email of the hiring team member.

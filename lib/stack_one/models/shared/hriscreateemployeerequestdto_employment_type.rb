@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee employment type
-    class HrisCreateEmployeeRequestDtoEmploymentType < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEmploymentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InterviewStage < ::StackOne::Utils::FieldAugmented
+    class InterviewStage < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Interview Stage created date

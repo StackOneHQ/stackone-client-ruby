@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CompaniesPaginated < ::StackOne::Utils::FieldAugmented
+    class CompaniesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

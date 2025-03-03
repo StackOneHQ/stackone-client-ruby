@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISTeamsResult < ::StackOne::Utils::FieldAugmented
+    class HRISTeamsResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

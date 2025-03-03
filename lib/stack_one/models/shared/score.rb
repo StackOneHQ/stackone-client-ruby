@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Score < ::StackOne::Utils::FieldAugmented
+    class Score < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The label of the score

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeOffPaginated < ::StackOne::Utils::FieldAugmented
+    class TimeOffPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

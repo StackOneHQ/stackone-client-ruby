@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LmsUpsertCourseRequestDto < ::StackOne::Utils::FieldAugmented
+    class LmsUpsertCourseRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether the course is active and available for users.

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CompanyResult < ::StackOne::Utils::FieldAugmented
+    class CompanyResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

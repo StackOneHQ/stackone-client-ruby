@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of content
-    class LmsUpsertContentRequestDtoContentType < ::StackOne::Utils::FieldAugmented
+    class LmsUpsertContentRequestDtoContentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

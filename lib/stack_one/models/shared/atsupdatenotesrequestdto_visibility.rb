@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Visibility of the note
-    class AtsUpdateNotesRequestDtoVisibility < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateNotesRequestDtoVisibility < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the notes visibility.

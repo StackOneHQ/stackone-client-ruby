@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The learning object type of the completion
-    class CompletionLearningObjectType < ::StackOne::Utils::FieldAugmented
+    class CompletionLearningObjectType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

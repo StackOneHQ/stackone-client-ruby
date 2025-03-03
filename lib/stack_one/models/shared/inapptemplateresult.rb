@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InAppTemplateResult < ::StackOne::Utils::FieldAugmented
+    class InAppTemplateResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

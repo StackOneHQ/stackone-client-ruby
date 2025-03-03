@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class WorkEligibilityPaginated < ::StackOne::Utils::FieldAugmented
+    class WorkEligibilityPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

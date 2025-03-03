@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsGetCategoryResponse < ::StackOne::Utils::FieldAugmented
+    class LmsGetCategoryResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

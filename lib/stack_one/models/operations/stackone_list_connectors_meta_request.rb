@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneListConnectorsMetaRequest < ::StackOne::Utils::FieldAugmented
+    class StackoneListConnectorsMetaRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The comma separated list of data that will be included in the response

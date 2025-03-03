@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Contact < ::StackOne::Utils::FieldAugmented
+    class Contact < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of associated account IDs

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Raw < ::StackOne::Utils::FieldAugmented
+    class Raw < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

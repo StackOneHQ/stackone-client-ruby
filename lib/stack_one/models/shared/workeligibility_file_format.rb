@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class WorkEligibilityFileFormat < ::StackOne::Utils::FieldAugmented
+    class WorkEligibilityFileFormat < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

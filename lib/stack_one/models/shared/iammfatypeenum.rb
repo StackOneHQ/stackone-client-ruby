@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamMfaTypeEnum < ::StackOne::Utils::FieldAugmented
+    class IamMfaTypeEnum < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

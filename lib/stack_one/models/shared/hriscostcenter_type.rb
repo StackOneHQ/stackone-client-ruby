@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the group
-    class HRISCostCenterType < ::StackOne::Utils::FieldAugmented
+    class HRISCostCenterType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

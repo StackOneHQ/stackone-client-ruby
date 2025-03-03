@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeOff < ::StackOne::Utils::FieldAugmented
+    class TimeOff < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The approver ID

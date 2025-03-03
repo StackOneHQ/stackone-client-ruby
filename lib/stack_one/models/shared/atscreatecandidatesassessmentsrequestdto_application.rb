@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateCandidatesAssessmentsRequestDtoApplication < ::StackOne::Utils::FieldAugmented
+    class AtsCreateCandidatesAssessmentsRequestDtoApplication < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

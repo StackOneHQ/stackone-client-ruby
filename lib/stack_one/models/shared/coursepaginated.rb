@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CoursePaginated < ::StackOne::Utils::FieldAugmented
+    class CoursePaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

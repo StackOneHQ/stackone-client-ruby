@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Requester < ::StackOne::Utils::FieldAugmented
+    class Requester < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Email of the hiring team member.

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LanguageEnum < ::StackOne::Utils::FieldAugmented
+    class LanguageEnum < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ATSLocation < ::StackOne::Utils::FieldAugmented
+    class ATSLocation < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

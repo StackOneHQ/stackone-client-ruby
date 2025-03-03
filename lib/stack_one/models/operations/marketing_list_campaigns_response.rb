@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingListCampaignsResponse < ::StackOne::Utils::FieldAugmented
+    class MarketingListCampaignsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Status of the Campaign
-    class CampaignStatus < ::StackOne::Utils::FieldAugmented
+    class CampaignStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the Status.

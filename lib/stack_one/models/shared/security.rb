@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Security < ::StackOne::Utils::FieldAugmented
+    class Security < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

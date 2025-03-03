@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The location type
-    class HRISLocationLocationType < ::StackOne::Utils::FieldAugmented
+    class HRISLocationLocationType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the location type.

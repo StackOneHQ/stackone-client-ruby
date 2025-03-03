@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InterviewStatus < ::StackOne::Utils::FieldAugmented
+    class InterviewStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the interview status.

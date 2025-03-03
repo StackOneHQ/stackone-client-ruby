@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Credentials < ::StackOne::Utils::FieldAugmented
+    class Credentials < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

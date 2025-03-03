@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneGetConnectorMetaResponse < ::StackOne::Utils::FieldAugmented
+    class StackoneGetConnectorMetaResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

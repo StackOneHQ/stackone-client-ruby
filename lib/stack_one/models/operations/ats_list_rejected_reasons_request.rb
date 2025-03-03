@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListRejectedReasonsRequest < ::StackOne::Utils::FieldAugmented
+    class AtsListRejectedReasonsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

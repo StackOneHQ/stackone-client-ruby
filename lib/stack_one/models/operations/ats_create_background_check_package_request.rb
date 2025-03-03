@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsCreateBackgroundCheckPackageRequest < ::StackOne::Utils::FieldAugmented
+    class AtsCreateBackgroundCheckPackageRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetTimeOffPolicyRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetTimeOffPolicyRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee ethnicity
-    class HrisUpdateEmployeeRequestDtoEthnicity < ::StackOne::Utils::FieldAugmented
+    class HrisUpdateEmployeeRequestDtoEthnicity < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

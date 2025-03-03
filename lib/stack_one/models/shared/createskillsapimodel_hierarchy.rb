@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The hierarchal level of the skill
-    class CreateSkillsApiModelHierarchy < ::StackOne::Utils::FieldAugmented
+    class CreateSkillsApiModelHierarchy < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

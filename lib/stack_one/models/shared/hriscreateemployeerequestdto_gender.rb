@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee gender
-    class HrisCreateEmployeeRequestDtoGender < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoGender < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

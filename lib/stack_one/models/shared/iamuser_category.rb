@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The category of the file
-    class IamUserCategory < ::StackOne::Utils::FieldAugmented
+    class IamUserCategory < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

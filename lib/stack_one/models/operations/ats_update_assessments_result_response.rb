@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsUpdateAssessmentsResultResponse < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateAssessmentsResultResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

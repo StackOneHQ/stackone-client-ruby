@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The status of the assignment
-    class LmsCreateAssignmentRequestDtoStatus < ::StackOne::Utils::FieldAugmented
+    class LmsCreateAssignmentRequestDtoStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

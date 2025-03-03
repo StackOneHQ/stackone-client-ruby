@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateBackgroundCheckOrderRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsCreateBackgroundCheckOrderRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

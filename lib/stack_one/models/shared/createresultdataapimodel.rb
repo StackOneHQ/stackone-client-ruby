@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateResultDataApiModel < ::StackOne::Utils::FieldAugmented
+    class CreateResultDataApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

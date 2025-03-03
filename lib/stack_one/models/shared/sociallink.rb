@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SocialLink < ::StackOne::Utils::FieldAugmented
+    class SocialLink < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Type of the social link

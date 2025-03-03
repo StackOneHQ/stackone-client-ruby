@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckResultCandidate < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckResultCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

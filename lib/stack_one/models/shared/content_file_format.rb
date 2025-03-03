@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class ContentFileFormat < ::StackOne::Utils::FieldAugmented
+    class ContentFileFormat < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

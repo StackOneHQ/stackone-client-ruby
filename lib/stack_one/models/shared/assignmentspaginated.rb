@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AssignmentsPaginated < ::StackOne::Utils::FieldAugmented
+    class AssignmentsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

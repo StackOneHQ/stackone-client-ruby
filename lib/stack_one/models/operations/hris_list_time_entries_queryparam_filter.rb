@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # HRIS Time Entries filters
-    class HrisListTimeEntriesQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class HrisListTimeEntriesQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Filter to select time entries by employee_id

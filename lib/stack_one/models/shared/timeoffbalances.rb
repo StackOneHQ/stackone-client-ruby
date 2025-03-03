@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeOffBalances < ::StackOne::Utils::FieldAugmented
+    class TimeOffBalances < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The date of when the current balance expires
@@ -29,14 +29,18 @@ module StackOne
       field :policy, T.nilable(::StackOne::Shared::Policy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('policy') } }
       # The time off policy id associated with this balance
       field :policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('policy_id') } }
+      # Provider's unique identifier of the employee associated with this balance
+      field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      # Provider's unique identifier of the time off policy id associated with this balance
+      field :remote_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_policy_id') } }
       # The updated_at date of this time off balance
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(balance_expiry_date: T.nilable(::DateTime), balance_start_date: T.nilable(::DateTime), balance_unit: T.nilable(::StackOne::Shared::BalanceUnit), current_balance: T.nilable(::Float), employee_id: T.nilable(::String), id: T.nilable(::String), initial_balance: T.nilable(::Float), policy: T.nilable(::StackOne::Shared::Policy), policy_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-      def initialize(balance_expiry_date: nil, balance_start_date: nil, balance_unit: nil, current_balance: nil, employee_id: nil, id: nil, initial_balance: nil, policy: nil, policy_id: nil, remote_id: nil, updated_at: nil)
+      sig { params(balance_expiry_date: T.nilable(::DateTime), balance_start_date: T.nilable(::DateTime), balance_unit: T.nilable(::StackOne::Shared::BalanceUnit), current_balance: T.nilable(::Float), employee_id: T.nilable(::String), id: T.nilable(::String), initial_balance: T.nilable(::Float), policy: T.nilable(::StackOne::Shared::Policy), policy_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_policy_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
+      def initialize(balance_expiry_date: nil, balance_start_date: nil, balance_unit: nil, current_balance: nil, employee_id: nil, id: nil, initial_balance: nil, policy: nil, policy_id: nil, remote_employee_id: nil, remote_id: nil, remote_policy_id: nil, updated_at: nil)
         @balance_expiry_date = balance_expiry_date
         @balance_start_date = balance_start_date
         @balance_unit = balance_unit
@@ -46,7 +50,9 @@ module StackOne
         @initial_balance = initial_balance
         @policy = policy
         @policy_id = policy_id
+        @remote_employee_id = remote_employee_id
         @remote_id = remote_id
+        @remote_policy_id = remote_policy_id
         @updated_at = updated_at
       end
     end

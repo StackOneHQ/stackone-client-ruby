@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InAppTemplatesPaginated < ::StackOne::Utils::FieldAugmented
+    class InAppTemplatesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

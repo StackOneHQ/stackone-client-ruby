@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The ISO3166-2 sub division where the location is situated
-    class HrisUpdateEmployeeRequestDtoSchemasState < ::StackOne::Utils::FieldAugmented
+    class HrisUpdateEmployeeRequestDtoSchemasState < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

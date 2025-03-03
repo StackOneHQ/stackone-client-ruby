@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListApplicationsScheduledInterviewsResponse < ::StackOne::Utils::FieldAugmented
+    class AtsListApplicationsScheduledInterviewsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

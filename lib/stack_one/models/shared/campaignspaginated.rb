@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CampaignsPaginated < ::StackOne::Utils::FieldAugmented
+    class CampaignsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

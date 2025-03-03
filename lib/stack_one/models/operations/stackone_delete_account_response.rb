@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneDeleteAccountResponse < ::StackOne::Utils::FieldAugmented
+    class StackoneDeleteAccountResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

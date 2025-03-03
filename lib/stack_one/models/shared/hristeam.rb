@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISTeam < ::StackOne::Utils::FieldAugmented
+    class HRISTeam < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class DeleteResult < ::StackOne::Utils::FieldAugmented
+    class DeleteResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

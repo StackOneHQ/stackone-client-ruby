@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The list type
-    class ListType < ::StackOne::Utils::FieldAugmented
+    class ListType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the list type.

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateCandidatesAssessmentsResultsRequestDtoResult < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateCandidatesAssessmentsResultsRequestDtoResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the test result.

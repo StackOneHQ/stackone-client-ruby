@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class MarketingCreateEmailTemplateRequestDto < ::StackOne::Utils::FieldAugmented
+    class MarketingCreateEmailTemplateRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

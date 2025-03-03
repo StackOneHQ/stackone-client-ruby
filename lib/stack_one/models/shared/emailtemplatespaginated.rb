@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class EmailTemplatesPaginated < ::StackOne::Utils::FieldAugmented
+    class EmailTemplatesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

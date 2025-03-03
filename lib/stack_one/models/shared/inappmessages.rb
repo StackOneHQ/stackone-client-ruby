@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InAppMessages < ::StackOne::Utils::FieldAugmented
+    class InAppMessages < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

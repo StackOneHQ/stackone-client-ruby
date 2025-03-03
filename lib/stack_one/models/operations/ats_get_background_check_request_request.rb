@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetBackgroundCheckRequestRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetBackgroundCheckRequestRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

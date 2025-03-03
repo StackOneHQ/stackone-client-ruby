@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsMoveApplicationRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsMoveApplicationRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier of the application stage.

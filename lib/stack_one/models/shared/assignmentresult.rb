@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AssignmentResult < ::StackOne::Utils::FieldAugmented
+    class AssignmentResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

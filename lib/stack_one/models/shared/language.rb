@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The language associated with this category
-    class Language < ::StackOne::Utils::FieldAugmented
+    class Language < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

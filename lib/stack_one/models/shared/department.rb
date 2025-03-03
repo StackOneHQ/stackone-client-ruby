@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Department < ::StackOne::Utils::FieldAugmented
+    class Department < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # HRIS Time Off Balance filters
-    class HrisListEmployeeTimeOffBalancesQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class HrisListEmployeeTimeOffBalancesQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of policy ids to filter time off balances by.

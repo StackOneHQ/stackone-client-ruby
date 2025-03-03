@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The category of the file
-    class HrisCreateWorkEligibilityRequestDtoCategory < ::StackOne::Utils::FieldAugmented
+    class HrisCreateWorkEligibilityRequestDtoCategory < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

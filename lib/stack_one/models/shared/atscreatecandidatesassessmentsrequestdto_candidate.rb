@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateCandidatesAssessmentsRequestDtoCandidate < ::StackOne::Utils::FieldAugmented
+    class AtsCreateCandidatesAssessmentsRequestDtoCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of candidate emails

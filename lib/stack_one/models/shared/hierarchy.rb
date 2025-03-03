@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The hierarchal level of the category
-    class Hierarchy < ::StackOne::Utils::FieldAugmented
+    class Hierarchy < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,20 +8,20 @@ module StackOne
   module Operations
   
 
-    class HrisCreateEmployeeSkillRequest < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeSkillRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 
-      field :hris_skills_create_request_dto, ::StackOne::Shared::HrisSkillsCreateRequestDto, { 'request': { 'media_type': 'application/json' } }
+      field :entity_skills_create_request_dto, ::StackOne::Shared::EntitySkillsCreateRequestDto, { 'request': { 'media_type': 'application/json' } }
 
       field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
       # The account identifier
       field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(hris_skills_create_request_dto: ::StackOne::Shared::HrisSkillsCreateRequestDto, id: ::String, x_account_id: ::String).void }
-      def initialize(hris_skills_create_request_dto: nil, id: nil, x_account_id: nil)
-        @hris_skills_create_request_dto = hris_skills_create_request_dto
+      sig { params(entity_skills_create_request_dto: ::StackOne::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String).void }
+      def initialize(entity_skills_create_request_dto: nil, id: nil, x_account_id: nil)
+        @entity_skills_create_request_dto = entity_skills_create_request_dto
         @id = id
         @x_account_id = x_account_id
       end

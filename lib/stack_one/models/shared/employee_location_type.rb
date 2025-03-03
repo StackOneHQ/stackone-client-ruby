@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The location type
-    class EmployeeLocationType < ::StackOne::Utils::FieldAugmented
+    class EmployeeLocationType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the location type.

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsGetCategoryRequest < ::StackOne::Utils::FieldAugmented
+    class LmsGetCategoryRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

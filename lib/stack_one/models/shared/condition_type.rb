@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ConditionType < ::StackOne::Utils::FieldAugmented
+    class ConditionType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the question's condition type

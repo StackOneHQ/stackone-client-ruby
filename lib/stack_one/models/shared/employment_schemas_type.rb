@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of employment
-    class EmploymentSchemasType < ::StackOne::Utils::FieldAugmented
+    class EmploymentSchemasType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

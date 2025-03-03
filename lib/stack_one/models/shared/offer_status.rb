@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class OfferStatus < ::StackOne::Utils::FieldAugmented
+    class OfferStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the offer status.

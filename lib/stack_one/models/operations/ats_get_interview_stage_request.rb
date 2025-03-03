@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetInterviewStageRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetInterviewStageRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

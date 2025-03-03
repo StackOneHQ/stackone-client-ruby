@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ScorecardSection < ::StackOne::Utils::FieldAugmented
+    class ScorecardSection < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The fields within the section

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmListContactsRequest < ::StackOne::Utils::FieldAugmented
+    class CrmListContactsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

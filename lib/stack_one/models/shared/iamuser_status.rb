@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamUserStatus < ::StackOne::Utils::FieldAugmented
+    class IamUserStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

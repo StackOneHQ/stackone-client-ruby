@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckOrderPackage < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckOrderPackage < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Package description

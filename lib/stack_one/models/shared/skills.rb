@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Skills < ::StackOne::Utils::FieldAugmented
+    class Skills < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether the skill is active and therefore available for use

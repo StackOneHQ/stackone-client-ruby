@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeOffPolicies < ::StackOne::Utils::FieldAugmented
+    class TimeOffPolicies < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The created_at date of this policy
