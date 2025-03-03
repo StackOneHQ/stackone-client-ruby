@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateApplicationRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateApplicationRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateCostCenterApiModel < ::StackOne::Utils::FieldAugmented
+    class CreateCostCenterApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

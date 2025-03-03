@@ -230,15 +230,17 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   manager_id: "67890",
   marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
   name: "Issac Newton",
-  national_identity_number: ::StackOne::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber.new(
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasCountry.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue::US,
+  national_identity_numbers: [
+    ::StackOne::Shared::NationalIdentityNumberApiModel.new(
+      country: ::StackOne::Shared::NationalIdentityNumberApiModelCountry.new(
+        value: ::StackOne::Shared::NationalIdentityNumberApiModelValue::US,
+      ),
+      type: ::StackOne::Shared::NationalIdentityNumberApiModelType.new(
+        value: ::StackOne::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
+      ),
+      value: "123456789",
     ),
-    type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoType.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN,
-    ),
-    value: "123456789",
-  ),
+  ],
   passthrough: {
     "other_known_names": "John Doe",
   },
@@ -367,8 +369,18 @@ s.config_security(
 )
 
     
-res = s.hris.create_employee_skill(hris_skills_create_request_dto=::StackOne::Shared::HrisSkillsCreateRequestDto.new(
+res = s.hris.create_employee_skill(entity_skills_create_request_dto=::StackOne::Shared::EntitySkillsCreateRequestDto.new(
   id: "16873-IT345",
+  maximum_proficiency: ::StackOne::Shared::MaximumProficiency.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    name: "Expert",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  minimum_proficiency: ::StackOne::Shared::MinimumProficiency.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    name: "Expert",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
   name: "Information-Technology",
 ), id="<id>", x_account_id="<id>")
 
@@ -380,11 +392,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `hris_skills_create_request_dto`                                                                    | [::StackOne::Shared::HrisSkillsCreateRequestDto](../../models/shared/hrisskillscreaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `entity_skills_create_request_dto`                                                                      | [::StackOne::Shared::EntitySkillsCreateRequestDto](../../models/shared/entityskillscreaterequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 ### Response
 
@@ -713,7 +725,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisGetCostCenterGroupRequest.new(
-  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -804,7 +816,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
   expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
@@ -990,7 +1002,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1176,7 +1188,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1720,7 +1732,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::HrisListCostCenterGroupsRequest.new(
-  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   filter: ::StackOne::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1957,7 +1969,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: ::StackOne::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2151,7 +2163,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2200,7 +2212,7 @@ s.config_security(
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2688,15 +2700,17 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   manager_id: "67890",
   marital_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new(),
   name: "Issac Newton",
-  national_identity_number: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoNationalIdentityNumber.new(
-    country: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasCountry.new(
-      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberValue::US,
+  national_identity_numbers: [
+    ::StackOne::Shared::NationalIdentityNumberApiModel.new(
+      country: ::StackOne::Shared::NationalIdentityNumberApiModelCountry.new(
+        value: ::StackOne::Shared::NationalIdentityNumberApiModelValue::US,
+      ),
+      type: ::StackOne::Shared::NationalIdentityNumberApiModelType.new(
+        value: ::StackOne::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
+      ),
+      value: "123456789",
     ),
-    type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoType.new(
-      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN,
-    ),
-    value: "123456789",
-  ),
+  ],
   passthrough: {
     "other_known_names": "John Doe",
   },

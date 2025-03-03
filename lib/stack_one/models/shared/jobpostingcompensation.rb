@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobPostingCompensation < ::StackOne::Utils::FieldAugmented
+    class JobPostingCompensation < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

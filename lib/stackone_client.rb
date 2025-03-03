@@ -19,7 +19,6 @@ module StackOne
   autoload :Proxy, 'stack_one/proxy'
 end
 
-require_relative 'stack_one/utils/t'
 require_relative 'stack_one/utils/utils'
-require_relative 'stack_one/utils/metadata_fields'
+require_relative 'crystalline'
 require_relative 'stack_one/sdkconfiguration'

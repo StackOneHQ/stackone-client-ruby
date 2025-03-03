@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetCandidateRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetCandidateRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

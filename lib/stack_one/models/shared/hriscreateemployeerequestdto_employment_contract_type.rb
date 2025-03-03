@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employment work schedule type (e.g., full-time, part-time)
-    class HrisCreateEmployeeRequestDtoEmploymentContractType < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEmploymentContractType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

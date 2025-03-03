@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisListEmployeeDocumentsRequest < ::StackOne::Utils::FieldAugmented
+    class HrisListEmployeeDocumentsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

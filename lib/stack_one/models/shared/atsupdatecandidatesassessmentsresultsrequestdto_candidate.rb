@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

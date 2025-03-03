@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateApplicationRequestDtoApplicationStatus < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateApplicationRequestDtoApplicationStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the application status.

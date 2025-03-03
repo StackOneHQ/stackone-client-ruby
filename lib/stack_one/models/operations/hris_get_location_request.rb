@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetLocationRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetLocationRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

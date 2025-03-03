@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The metadata for the connection
-    class Metadata < ::StackOne::Utils::FieldAugmented
+    class Metadata < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee gender
-    class Gender < ::StackOne::Utils::FieldAugmented
+    class Gender < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

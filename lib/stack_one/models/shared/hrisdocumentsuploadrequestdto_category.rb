@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The category to be associated with the file to be uploaded. Id will take precedence over name.
-    class HrisDocumentsUploadRequestDtoCategory < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentsUploadRequestDtoCategory < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The provider specific category for associating uploaded files, if provided, the value will be ignored.

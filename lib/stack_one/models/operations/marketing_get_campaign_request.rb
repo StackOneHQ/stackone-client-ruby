@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingGetCampaignRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingGetCampaignRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

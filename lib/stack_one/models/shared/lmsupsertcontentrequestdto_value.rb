@@ -13,6 +13,8 @@ module StackOne
         VIDEO = new('video')
         QUIZ = new('quiz')
         DOCUMENT = new('document')
+        AUDIO = new('audio')
+        ARTICLE = new('article')
       end
     end
   end

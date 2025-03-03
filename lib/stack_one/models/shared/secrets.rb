@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Secrets < ::StackOne::Utils::FieldAugmented
+    class Secrets < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

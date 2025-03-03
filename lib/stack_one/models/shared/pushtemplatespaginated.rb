@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PushTemplatesPaginated < ::StackOne::Utils::FieldAugmented
+    class PushTemplatesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

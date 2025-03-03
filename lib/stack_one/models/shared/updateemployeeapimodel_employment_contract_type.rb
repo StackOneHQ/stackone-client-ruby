@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employment work schedule type (e.g., full-time, part-time)
-    class UpdateEmployeeApiModelEmploymentContractType < ::StackOne::Utils::FieldAugmented
+    class UpdateEmployeeApiModelEmploymentContractType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

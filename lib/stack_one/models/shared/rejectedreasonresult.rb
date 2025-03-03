@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class RejectedReasonResult < ::StackOne::Utils::FieldAugmented
+    class RejectedReasonResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

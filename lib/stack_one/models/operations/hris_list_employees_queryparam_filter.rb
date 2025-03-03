@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # HRIS Employees filters
-    class HrisListEmployeesQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class HrisListEmployeesQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Filter to select employees by email

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckOrderJob < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckOrderJob < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Hiring team for the job.

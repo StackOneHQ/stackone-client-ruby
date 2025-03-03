@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class UpdateEmployeeApiModelType < ::StackOne::Utils::FieldAugmented
+    class UpdateEmployeeApiModelType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

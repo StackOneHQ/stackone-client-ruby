@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The confidentiality level of the file to be uploaded
-    class HrisDocumentsUploadRequestDtoConfidential < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentsUploadRequestDtoConfidential < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

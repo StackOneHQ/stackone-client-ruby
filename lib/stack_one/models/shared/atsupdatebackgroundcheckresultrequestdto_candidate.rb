@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateBackgroundCheckResultRequestDtoCandidate < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateBackgroundCheckResultRequestDtoCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

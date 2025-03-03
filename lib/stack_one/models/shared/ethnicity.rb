@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee ethnicity
-    class Ethnicity < ::StackOne::Utils::FieldAugmented
+    class Ethnicity < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

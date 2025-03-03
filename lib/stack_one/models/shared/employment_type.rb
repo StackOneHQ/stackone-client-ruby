@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of employment (e.g., contractor, permanent)
-    class EmploymentType < ::StackOne::Utils::FieldAugmented
+    class EmploymentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.

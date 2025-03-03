@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # LMS Users Filter
-    class LmsListUsersQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class LmsListUsersQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Filter to select users by email

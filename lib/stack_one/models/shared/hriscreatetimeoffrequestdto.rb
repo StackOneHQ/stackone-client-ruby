@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisCreateTimeOffRequestDto < ::StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The approver ID

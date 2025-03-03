@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsDownloadApplicationDocumentResponse < ::StackOne::Utils::FieldAugmented
+    class AtsDownloadApplicationDocumentResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

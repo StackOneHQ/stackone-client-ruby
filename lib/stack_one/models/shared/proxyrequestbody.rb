@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ProxyRequestBody < ::StackOne::Utils::FieldAugmented
+    class ProxyRequestBody < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The body of the request

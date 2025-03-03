@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetEmployeeCustomFieldDefinitionResponse < ::StackOne::Utils::FieldAugmented
+    class HrisGetEmployeeCustomFieldDefinitionResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

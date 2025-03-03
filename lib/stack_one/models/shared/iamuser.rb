@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamUser < ::StackOne::Utils::FieldAugmented
+    class IamUser < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The user's avatar data. This generally contains a URL within this property's 'contents' array.

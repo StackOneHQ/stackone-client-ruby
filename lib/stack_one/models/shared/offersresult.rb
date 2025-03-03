@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class OffersResult < ::StackOne::Utils::FieldAugmented
+    class OffersResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

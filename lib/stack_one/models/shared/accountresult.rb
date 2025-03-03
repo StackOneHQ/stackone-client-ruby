@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AccountResult < ::StackOne::Utils::FieldAugmented
+    class AccountResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneGetAccountResponse < ::StackOne::Utils::FieldAugmented
+    class StackoneGetAccountResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

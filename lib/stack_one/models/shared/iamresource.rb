@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamResource < ::StackOne::Utils::FieldAugmented
+    class IamResource < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

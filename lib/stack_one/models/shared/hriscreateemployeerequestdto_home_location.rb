@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee home location
-    class HrisCreateEmployeeRequestDtoHomeLocation < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoHomeLocation < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The city where the location is situated

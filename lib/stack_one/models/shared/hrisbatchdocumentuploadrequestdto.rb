@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisBatchDocumentUploadRequestDto < ::StackOne::Utils::FieldAugmented
+    class HrisBatchDocumentUploadRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The batch of items to create

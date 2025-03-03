@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class IamListPoliciesRequest < ::StackOne::Utils::FieldAugmented
+    class IamListPoliciesRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

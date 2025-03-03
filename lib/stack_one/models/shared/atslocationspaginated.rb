@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ATSLocationsPaginated < ::StackOne::Utils::FieldAugmented
+    class ATSLocationsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

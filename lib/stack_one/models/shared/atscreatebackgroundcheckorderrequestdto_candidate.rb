@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateBackgroundCheckOrderRequestDtoCandidate < ::StackOne::Utils::FieldAugmented
+    class AtsCreateBackgroundCheckOrderRequestDtoCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of candidate emails

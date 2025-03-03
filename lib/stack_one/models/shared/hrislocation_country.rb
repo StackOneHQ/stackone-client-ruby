@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The country code
-    class HRISLocationCountry < ::StackOne::Utils::FieldAugmented
+    class HRISLocationCountry < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

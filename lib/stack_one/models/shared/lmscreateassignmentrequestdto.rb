@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LmsCreateAssignmentRequestDto < ::StackOne::Utils::FieldAugmented
+    class LmsCreateAssignmentRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The date the assignment was created

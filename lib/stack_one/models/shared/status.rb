@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The status of the assignment
-    class Status < ::StackOne::Utils::FieldAugmented
+    class Status < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

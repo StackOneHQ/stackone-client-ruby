@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SkillsPaginated < ::StackOne::Utils::FieldAugmented
+    class SkillsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

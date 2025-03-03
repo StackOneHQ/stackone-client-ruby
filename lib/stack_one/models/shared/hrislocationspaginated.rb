@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISLocationsPaginated < ::StackOne::Utils::FieldAugmented
+    class HRISLocationsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

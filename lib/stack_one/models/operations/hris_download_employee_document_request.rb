@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisDownloadEmployeeDocumentRequest < ::StackOne::Utils::FieldAugmented
+    class HrisDownloadEmployeeDocumentRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

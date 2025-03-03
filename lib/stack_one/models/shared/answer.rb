@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Answer < ::StackOne::Utils::FieldAugmented
+    class Answer < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingCreatePushTemplateRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingCreatePushTemplateRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

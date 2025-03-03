@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SetupInformation < ::StackOne::Utils::FieldAugmented
+    class SetupInformation < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

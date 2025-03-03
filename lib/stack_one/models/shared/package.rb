@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Package < ::StackOne::Utils::FieldAugmented
+    class Package < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Package description

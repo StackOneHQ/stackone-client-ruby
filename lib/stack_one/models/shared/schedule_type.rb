@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The schedule type
-    class ScheduleType < ::StackOne::Utils::FieldAugmented
+    class ScheduleType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the schedule type.

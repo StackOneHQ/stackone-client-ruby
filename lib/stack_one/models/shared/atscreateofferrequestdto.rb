@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateOfferRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsCreateOfferRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Employment < ::StackOne::Utils::FieldAugmented
+    class Employment < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The employment active status
@@ -16,7 +16,11 @@ module StackOne
       # The employment work schedule type
       field :contract_type, T.nilable(::StackOne::Shared::ContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
       # The employee cost_center
+      # 
+      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :cost_center, T.nilable(::StackOne::Shared::CostCenter), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_center') } }
+      # The employee cost_centers
+      field :cost_centers, T.nilable(T::Array[::StackOne::Shared::HRISCostCenter]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_centers') } }
       # The created_at date
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee department
@@ -71,11 +75,12 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(active: T.nilable(T::Boolean), contract_type: T.nilable(::StackOne::Shared::ContractType), cost_center: T.nilable(::StackOne::Shared::CostCenter), created_at: T.nilable(::DateTime), department: T.nilable(::StackOne::Shared::EmploymentDepartment), division: T.nilable(::StackOne::Shared::Division), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentEmploymentType), end_date: T.nilable(::DateTime), id: T.nilable(::String), job: T.nilable(::StackOne::Shared::EmploymentJob), job_title: T.nilable(::String), manager: T.nilable(T::Array[::StackOne::Shared::EmploymentManagerApiModel]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::EmploymentPayFrequency), pay_period: T.nilable(::StackOne::Shared::EmploymentPayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), time_worked: T.nilable(::String), type: T.nilable(::StackOne::Shared::EmploymentSchemasType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(active: nil, contract_type: nil, cost_center: nil, created_at: nil, department: nil, division: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, id: nil, job: nil, job_title: nil, manager: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, time_worked: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
+      sig { params(active: T.nilable(T::Boolean), contract_type: T.nilable(::StackOne::Shared::ContractType), cost_center: T.nilable(::StackOne::Shared::CostCenter), cost_centers: T.nilable(T::Array[::StackOne::Shared::HRISCostCenter]), created_at: T.nilable(::DateTime), department: T.nilable(::StackOne::Shared::EmploymentDepartment), division: T.nilable(::StackOne::Shared::Division), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentEmploymentType), end_date: T.nilable(::DateTime), id: T.nilable(::String), job: T.nilable(::StackOne::Shared::EmploymentJob), job_title: T.nilable(::String), manager: T.nilable(T::Array[::StackOne::Shared::EmploymentManagerApiModel]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::EmploymentPayFrequency), pay_period: T.nilable(::StackOne::Shared::EmploymentPayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), time_worked: T.nilable(::String), type: T.nilable(::StackOne::Shared::EmploymentSchemasType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(active: nil, contract_type: nil, cost_center: nil, cost_centers: nil, created_at: nil, department: nil, division: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, id: nil, job: nil, job_title: nil, manager: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, time_worked: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
         @active = active
         @contract_type = contract_type
         @cost_center = cost_center
+        @cost_centers = cost_centers
         @created_at = created_at
         @department = department
         @division = division

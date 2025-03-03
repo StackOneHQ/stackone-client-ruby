@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamRolesPaginated < ::StackOne::Utils::FieldAugmented
+    class IamRolesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

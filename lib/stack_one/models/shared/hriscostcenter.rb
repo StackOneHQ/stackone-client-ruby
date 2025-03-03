@@ -8,9 +8,11 @@ module StackOne
   module Shared
   
 
-    class HRISCostCenter < ::StackOne::Utils::FieldAugmented
+    class HRISCostCenter < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # The distribution percentage for cost_center
+      field :distribution_percentage, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The name of the group
@@ -31,8 +33,9 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::HRISCostCenterType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
+      sig { params(distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::HRISCostCenterType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(distribution_percentage: nil, id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
+        @distribution_percentage = distribution_percentage
         @id = id
         @name = name
         @owner_ids = owner_ids

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsUpdateApplicationNoteRequest < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateApplicationNoteRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

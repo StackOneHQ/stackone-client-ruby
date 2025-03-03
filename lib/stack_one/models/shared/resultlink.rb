@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ResultLink < ::StackOne::Utils::FieldAugmented
+    class ResultLink < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The label of the result link.

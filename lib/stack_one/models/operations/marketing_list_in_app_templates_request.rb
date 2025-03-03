@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingListInAppTemplatesRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingListInAppTemplatesRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

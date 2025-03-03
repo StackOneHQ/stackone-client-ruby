@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class HrisDocumentApiModelFileFormat < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentApiModelFileFormat < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

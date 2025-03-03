@@ -10,7 +10,7 @@ module StackOne
     # The hierarchal level of the skill
     # 
     # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class CreateSkillsApiModelLevel < ::StackOne::Utils::FieldAugmented
+    class CreateSkillsApiModelLevel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ConnectSessionCreate < ::StackOne::Utils::FieldAugmented
+    class ConnectSessionCreate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The origin owner identifier

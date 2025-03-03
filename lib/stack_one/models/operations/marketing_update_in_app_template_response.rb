@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingUpdateInAppTemplateResponse < ::StackOne::Utils::FieldAugmented
+    class MarketingUpdateInAppTemplateResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

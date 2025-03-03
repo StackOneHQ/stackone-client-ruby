@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The confidentiality level of the file to be uploaded
-    class UnifiedUploadRequestDtoConfidential < ::StackOne::Utils::FieldAugmented
+    class UnifiedUploadRequestDtoConfidential < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

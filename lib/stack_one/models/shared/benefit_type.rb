@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the benefit
-    class BenefitType < ::StackOne::Utils::FieldAugmented
+    class BenefitType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The country code
-    class UpdateEmployeeApiModelSchemasCountry < ::StackOne::Utils::FieldAugmented
+    class UpdateEmployeeApiModelSchemasCountry < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

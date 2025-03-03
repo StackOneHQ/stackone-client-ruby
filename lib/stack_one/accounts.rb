@@ -50,7 +50,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::LinkedAccount)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccount)
           res.linked_account = out
         end
       elsif r.status == 408
@@ -94,7 +94,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::LinkedAccount)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccount)
           res.linked_account = out
         end
       elsif r.status == 408
@@ -138,7 +138,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::LinkedAccountMeta)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccountMeta)
           res.linked_account_meta = out
         end
       elsif r.status == 408
@@ -175,7 +175,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::StackOne::Shared::LinkedAccount])
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::StackOne::Shared::LinkedAccount])
           res.linked_accounts = out
         end
       elsif r.status == 408
@@ -230,7 +230,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::LinkedAccount)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccount)
           res.linked_account = out
         end
       elsif r.status == 408

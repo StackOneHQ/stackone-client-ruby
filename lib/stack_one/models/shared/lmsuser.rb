@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LmsUser < ::StackOne::Utils::FieldAugmented
+    class LmsUser < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The user active status

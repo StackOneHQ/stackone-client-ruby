@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the department group
-    class HRISDepartmentType < ::StackOne::Utils::FieldAugmented
+    class HRISDepartmentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

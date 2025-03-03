@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The file format of the file
-    class HrisCreateWorkEligibilityRequestDtoFileFormat < ::StackOne::Utils::FieldAugmented
+    class HrisCreateWorkEligibilityRequestDtoFileFormat < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

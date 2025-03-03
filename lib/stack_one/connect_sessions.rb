@@ -51,7 +51,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectSession)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConnectSession)
           res.connect_session = out
         end
       elsif r.status == 408
@@ -96,7 +96,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectSessionTokenAuthLink)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConnectSessionTokenAuthLink)
           res.connect_session_token_auth_link = out
         end
       elsif r.status == 408

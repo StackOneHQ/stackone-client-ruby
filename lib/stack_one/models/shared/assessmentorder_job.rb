@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AssessmentOrderJob < ::StackOne::Utils::FieldAugmented
+    class AssessmentOrderJob < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Hiring team for the job.

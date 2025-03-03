@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamPermissionType < ::StackOne::Utils::FieldAugmented
+    class IamPermissionType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

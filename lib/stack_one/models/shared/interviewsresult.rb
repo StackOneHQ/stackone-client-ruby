@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InterviewsResult < ::StackOne::Utils::FieldAugmented
+    class InterviewsResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

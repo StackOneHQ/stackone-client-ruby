@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ScorecardsResult < ::StackOne::Utils::FieldAugmented
+    class ScorecardsResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

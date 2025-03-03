@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Course < ::StackOne::Utils::FieldAugmented
+    class Course < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Whether the course is active and available for users.

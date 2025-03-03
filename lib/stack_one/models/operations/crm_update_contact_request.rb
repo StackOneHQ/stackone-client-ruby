@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmUpdateContactRequest < ::StackOne::Utils::FieldAugmented
+    class CrmUpdateContactRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

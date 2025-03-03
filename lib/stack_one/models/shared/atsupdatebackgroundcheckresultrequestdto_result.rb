@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateBackgroundCheckResultRequestDtoResult < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateBackgroundCheckResultRequestDtoResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the test result.

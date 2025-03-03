@@ -53,7 +53,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ConnectorsMeta)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConnectorsMeta)
           res.connectors_meta = out
         end
       elsif r.status == 408
@@ -94,7 +94,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, T::Array[::StackOne::Shared::ConnectorsMeta])
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::StackOne::Shared::ConnectorsMeta])
           res.connectors_metas = out
         end
       elsif r.status == 408

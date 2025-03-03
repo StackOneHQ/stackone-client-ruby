@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class DepartmentResult < ::StackOne::Utils::FieldAugmented
+    class DepartmentResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

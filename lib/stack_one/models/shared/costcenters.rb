@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CostCenters < ::StackOne::Utils::FieldAugmented
+    class CostCenters < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee department
-    class EmploymentDepartment < ::StackOne::Utils::FieldAugmented
+    class EmploymentDepartment < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier
@@ -25,12 +25,14 @@ module StackOne
       field :remote_owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_ids') } }
       # Provider's list of parent group remote ids of the given group
       field :remote_parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_ids') } }
+      # The type of the group
+      field :type, T.nilable(::StackOne::Shared::EmploymentSchemasDepartmentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # Custom Unified Fields configured in your StackOne project
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, unified_custom_fields: nil)
+      sig { params(id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::EmploymentSchemasDepartmentType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
         @id = id
         @name = name
         @owner_ids = owner_ids
@@ -38,6 +40,7 @@ module StackOne
         @remote_id = remote_id
         @remote_owner_ids = remote_owner_ids
         @remote_parent_ids = remote_parent_ids
+        @type = type
         @unified_custom_fields = unified_custom_fields
       end
     end

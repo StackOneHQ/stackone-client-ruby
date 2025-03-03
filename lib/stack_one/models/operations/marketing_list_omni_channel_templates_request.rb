@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingListOmniChannelTemplatesRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingListOmniChannelTemplatesRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

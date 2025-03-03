@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ContentBlocksPaginated < ::StackOne::Utils::FieldAugmented
+    class ContentBlocksPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

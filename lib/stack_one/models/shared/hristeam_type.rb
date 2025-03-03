@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The type of the team group
-    class HRISTeamType < ::StackOne::Utils::FieldAugmented
+    class HRISTeamType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

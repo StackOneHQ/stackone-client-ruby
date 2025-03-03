@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee employment status
-    class HrisCreateEmployeeRequestDtoEmploymentStatus < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoEmploymentStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

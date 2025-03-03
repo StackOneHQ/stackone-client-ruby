@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PushMessagesMessageContent < ::StackOne::Utils::FieldAugmented
+    class PushMessagesMessageContent < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

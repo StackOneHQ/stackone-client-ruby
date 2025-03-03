@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetLocationRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetLocationRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

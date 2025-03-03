@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The pay period
-    class HrisCreateEmploymentRequestDtoPayPeriod < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmploymentRequestDtoPayPeriod < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the pay period.

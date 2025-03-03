@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateJobRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateJobRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Code of the job

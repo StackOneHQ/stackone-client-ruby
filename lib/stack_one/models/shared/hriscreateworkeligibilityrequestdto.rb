@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisCreateWorkEligibilityRequestDto < ::StackOne::Utils::FieldAugmented
+    class HrisCreateWorkEligibilityRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

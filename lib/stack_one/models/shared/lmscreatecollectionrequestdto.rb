@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LmsCreateCollectionRequestDto < ::StackOne::Utils::FieldAugmented
+    class LmsCreateCollectionRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The categories associated with this content

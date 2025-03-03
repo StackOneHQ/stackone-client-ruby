@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetCostCenterGroupRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetCostCenterGroupRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The country code
-    class HrisUpdateEmployeeRequestDtoSchemasCountry < ::StackOne::Utils::FieldAugmented
+    class HrisUpdateEmployeeRequestDtoSchemasCountry < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

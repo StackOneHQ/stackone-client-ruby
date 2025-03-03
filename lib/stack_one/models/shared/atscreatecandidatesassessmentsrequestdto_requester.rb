@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateCandidatesAssessmentsRequestDtoRequester < ::StackOne::Utils::FieldAugmented
+    class AtsCreateCandidatesAssessmentsRequestDtoRequester < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Email of the hiring team member.

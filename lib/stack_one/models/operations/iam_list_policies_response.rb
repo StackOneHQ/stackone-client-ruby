@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class IamListPoliciesResponse < ::StackOne::Utils::FieldAugmented
+    class IamListPoliciesResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

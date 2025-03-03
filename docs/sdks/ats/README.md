@@ -121,7 +121,11 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
     passthrough: {
       "other_known_names": "John Doe",
     },
-    phone_number: "+1234567890",
+    phone_numbers: [
+      ::StackOne::Shared::PhoneNumber.new(
+        phone: "+447700112233",
+      ),
+    ],
     social_links: [
       ::StackOne::Shared::SocialLink.new(
         type: "linkedin",
@@ -324,7 +328,11 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared
   passthrough: {
     "other_known_names": "John Doe",
   },
-  phone_number: "+1234567890",
+  phone_numbers: [
+    ::StackOne::Shared::PhoneNumber.new(
+      phone: "+447700112233",
+    ),
+  ],
   social_links: [
     ::StackOne::Shared::SocialLink.new(
       type: "linkedin",
@@ -1813,7 +1821,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsGetUserRequest.new(
-  fields_: "id,remote_id,first_name,last_name,name,email",
+  fields_: "id,remote_id,first_name,last_name,name,email,phone",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -2955,7 +2963,7 @@ s.config_security(
 
 
 req = ::StackOne::Operations::AtsListUsersRequest.new(
-  fields_: "id,remote_id,first_name,last_name,name,email",
+  fields_: "id,remote_id,first_name,last_name,name,email,phone",
   filter: ::StackOne::Operations::AtsListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),

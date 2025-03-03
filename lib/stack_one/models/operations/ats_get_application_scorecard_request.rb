@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetApplicationScorecardRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetApplicationScorecardRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

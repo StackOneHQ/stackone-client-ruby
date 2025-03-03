@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
     # LMS Assignment Filter
-    class LmsListAssignmentsQueryParamFilter < ::StackOne::Utils::FieldAugmented
+    class LmsListAssignmentsQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Filter to select assignment by status

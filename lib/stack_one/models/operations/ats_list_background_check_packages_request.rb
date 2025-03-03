@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListBackgroundCheckPackagesRequest < ::StackOne::Utils::FieldAugmented
+    class AtsListBackgroundCheckPackagesRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Type of the answer
-    class CreateAnswerType < ::StackOne::Utils::FieldAugmented
+    class CreateAnswerType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the answer type.

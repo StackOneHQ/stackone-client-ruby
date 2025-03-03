@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateCandidateRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateCandidateRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of candidate application IDs

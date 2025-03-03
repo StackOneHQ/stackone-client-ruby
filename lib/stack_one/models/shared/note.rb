@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Note < ::StackOne::Utils::FieldAugmented
+    class Note < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier of the author

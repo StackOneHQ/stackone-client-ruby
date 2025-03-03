@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The status of the time off request
-    class HrisCreateTimeOffRequestDtoStatus < ::StackOne::Utils::FieldAugmented
+    class HrisCreateTimeOffRequestDtoStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

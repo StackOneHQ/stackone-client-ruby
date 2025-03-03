@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetCandidateCustomFieldDefinitionResponse < ::StackOne::Utils::FieldAugmented
+    class AtsGetCandidateCustomFieldDefinitionResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

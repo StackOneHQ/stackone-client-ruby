@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsUpdateCollectionRequest < ::StackOne::Utils::FieldAugmented
+    class LmsUpdateCollectionRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

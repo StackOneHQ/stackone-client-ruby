@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Scorecard < ::StackOne::Utils::FieldAugmented
+    class Scorecard < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The application ID associated with the scorecard

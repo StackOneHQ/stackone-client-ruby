@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateNotesRequestDto < ::StackOne::Utils::FieldAugmented
+    class AtsCreateNotesRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier of the author

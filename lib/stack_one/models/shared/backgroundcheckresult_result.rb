@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckResultResult < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckResultResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the test result.

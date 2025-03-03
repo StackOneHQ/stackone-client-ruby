@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateHRISBenefit < ::StackOne::Utils::FieldAugmented
+    class CreateHRISBenefit < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The type of the benefit

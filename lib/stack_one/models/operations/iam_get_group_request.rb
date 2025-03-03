@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class IamGetGroupRequest < ::StackOne::Utils::FieldAugmented
+    class IamGetGroupRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

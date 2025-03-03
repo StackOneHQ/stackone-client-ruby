@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The role of manager
-    class Role < ::StackOne::Utils::FieldAugmented
+    class Role < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

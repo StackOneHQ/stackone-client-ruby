@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CategoryResult < ::StackOne::Utils::FieldAugmented
+    class CategoryResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

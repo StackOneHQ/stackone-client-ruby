@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsBatchUpsertCourseResponse < ::StackOne::Utils::FieldAugmented
+    class LmsBatchUpsertCourseResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

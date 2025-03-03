@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISCostCenterResult < ::StackOne::Utils::FieldAugmented
+    class HRISCostCenterResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

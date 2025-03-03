@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InterviewStagesPaginated < ::StackOne::Utils::FieldAugmented
+    class InterviewStagesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

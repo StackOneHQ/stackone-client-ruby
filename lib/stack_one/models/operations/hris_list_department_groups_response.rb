@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisListDepartmentGroupsResponse < ::StackOne::Utils::FieldAugmented
+    class HrisListDepartmentGroupsResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

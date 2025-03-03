@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee preferred language
-    class PreferredLanguage < ::StackOne::Utils::FieldAugmented
+    class PreferredLanguage < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

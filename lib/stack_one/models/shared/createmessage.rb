@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateMessage < ::StackOne::Utils::FieldAugmented
+    class CreateMessage < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

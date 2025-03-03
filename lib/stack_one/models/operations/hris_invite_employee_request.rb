@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisInviteEmployeeRequest < ::StackOne::Utils::FieldAugmented
+    class HrisInviteEmployeeRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

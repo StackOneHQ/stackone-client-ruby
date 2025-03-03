@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisBatchUploadEmployeeDocumentRequest < ::StackOne::Utils::FieldAugmented
+    class HrisBatchUploadEmployeeDocumentRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

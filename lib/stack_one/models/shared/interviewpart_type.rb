@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class InterviewPartType < ::StackOne::Utils::FieldAugmented
+    class InterviewPartType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the interview type.

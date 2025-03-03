@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetBenefitResponse < ::StackOne::Utils::FieldAugmented
+    class HrisGetBenefitResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

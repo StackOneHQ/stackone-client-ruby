@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Attachment < ::StackOne::Utils::FieldAugmented
+    class Attachment < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

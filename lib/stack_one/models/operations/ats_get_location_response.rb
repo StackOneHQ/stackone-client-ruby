@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetLocationResponse < ::StackOne::Utils::FieldAugmented
+    class AtsGetLocationResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

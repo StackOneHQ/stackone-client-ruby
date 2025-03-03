@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Field < ::StackOne::Utils::FieldAugmented
+    class Field < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

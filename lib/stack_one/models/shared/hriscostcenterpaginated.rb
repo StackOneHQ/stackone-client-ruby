@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISCostCenterPaginated < ::StackOne::Utils::FieldAugmented
+    class HRISCostCenterPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

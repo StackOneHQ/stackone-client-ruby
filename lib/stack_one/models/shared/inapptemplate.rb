@@ -8,9 +8,11 @@ module StackOne
   module Shared
   
 
-    class InAppTemplate < ::StackOne::Utils::FieldAugmented
+    class InAppTemplate < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # Date of creation
+      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
@@ -21,15 +23,19 @@ module StackOne
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
       field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+      # Date of last update
+      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(id: T.nilable(::String), messages: T.nilable(T::Array[::StackOne::Shared::InAppMessages]), name: T.nilable(::String), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String])).void }
-      def initialize(id: nil, messages: nil, name: nil, remote_id: nil, tags: nil)
+      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), messages: T.nilable(T::Array[::StackOne::Shared::InAppMessages]), name: T.nilable(::String), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, id: nil, messages: nil, name: nil, remote_id: nil, tags: nil, updated_at: nil)
+        @created_at = created_at
         @id = id
         @messages = messages
         @name = name
         @remote_id = remote_id
         @tags = tags
+        @updated_at = updated_at
       end
     end
   end

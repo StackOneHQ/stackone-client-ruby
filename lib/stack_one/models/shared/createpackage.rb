@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreatePackage < ::StackOne::Utils::FieldAugmented
+    class CreatePackage < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Package description

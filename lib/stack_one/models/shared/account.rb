@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Account < ::StackOne::Utils::FieldAugmented
+    class Account < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

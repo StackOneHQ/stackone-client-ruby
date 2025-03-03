@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class StatusReason < ::StackOne::Utils::FieldAugmented
+    class StatusReason < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobPostingQuestionnaire < ::StackOne::Utils::FieldAugmented
+    class JobPostingQuestionnaire < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

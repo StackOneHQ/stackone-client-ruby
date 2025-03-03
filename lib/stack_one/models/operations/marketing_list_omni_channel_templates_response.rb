@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingListOmniChannelTemplatesResponse < ::StackOne::Utils::FieldAugmented
+    class MarketingListOmniChannelTemplatesResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

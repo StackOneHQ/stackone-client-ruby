@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AccountAddress < ::StackOne::Utils::FieldAugmented
+    class AccountAddress < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

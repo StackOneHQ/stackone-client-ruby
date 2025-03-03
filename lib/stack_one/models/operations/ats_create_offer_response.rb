@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsCreateOfferResponse < ::StackOne::Utils::FieldAugmented
+    class AtsCreateOfferResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class NoteContentApiModel < ::StackOne::Utils::FieldAugmented
+    class NoteContentApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Body of the note

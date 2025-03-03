@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmGetAccountResponse < ::StackOne::Utils::FieldAugmented
+    class CrmGetAccountResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

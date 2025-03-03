@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetCompanyResponse < ::StackOne::Utils::FieldAugmented
+    class HrisGetCompanyResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

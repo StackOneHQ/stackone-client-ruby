@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The user proficiency level of the skill ranked out of 5
-    class SkillsProficiency < ::StackOne::Utils::FieldAugmented
+    class SkillsProficiency < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

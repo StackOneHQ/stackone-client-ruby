@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class UpsertResult < ::StackOne::Utils::FieldAugmented
+    class UpsertResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

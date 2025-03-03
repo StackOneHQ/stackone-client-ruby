@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The language associated with this category
-    class CreateCategoriesApiModelLanguage < ::StackOne::Utils::FieldAugmented
+    class CreateCategoriesApiModelLanguage < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

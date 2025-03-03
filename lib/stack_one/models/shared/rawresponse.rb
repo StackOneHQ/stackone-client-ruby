@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class RawResponse < ::StackOne::Utils::FieldAugmented
+    class RawResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetCompanyRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetCompanyRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

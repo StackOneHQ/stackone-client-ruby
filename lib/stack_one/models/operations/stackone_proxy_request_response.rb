@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneProxyRequestResponse < ::StackOne::Utils::FieldAugmented
+    class StackoneProxyRequestResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

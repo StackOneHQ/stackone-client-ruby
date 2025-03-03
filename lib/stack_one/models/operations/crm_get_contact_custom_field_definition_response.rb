@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmGetContactCustomFieldDefinitionResponse < ::StackOne::Utils::FieldAugmented
+    class CrmGetContactCustomFieldDefinitionResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

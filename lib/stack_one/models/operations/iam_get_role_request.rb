@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class IamGetRoleRequest < ::StackOne::Utils::FieldAugmented
+    class IamGetRoleRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

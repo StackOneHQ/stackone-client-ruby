@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class RejectedReasonsPaginated < ::StackOne::Utils::FieldAugmented
+    class RejectedReasonsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

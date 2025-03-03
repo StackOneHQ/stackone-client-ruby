@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CreateAssessmentOrderResult < ::StackOne::Utils::FieldAugmented
+    class CreateAssessmentOrderResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class UpsertResultDataExternalReferenceModel < ::StackOne::Utils::FieldAugmented
+    class UpsertResultDataExternalReferenceModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The external identifier

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BackgroundCheckResultScore < ::StackOne::Utils::FieldAugmented
+    class BackgroundCheckResultScore < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The label of the score

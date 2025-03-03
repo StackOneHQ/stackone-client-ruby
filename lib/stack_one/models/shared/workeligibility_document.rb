@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class WorkEligibilityDocument < ::StackOne::Utils::FieldAugmented
+    class WorkEligibilityDocument < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The category of the file

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The location of the time entry
-    class Location < ::StackOne::Utils::FieldAugmented
+    class Location < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The reference status

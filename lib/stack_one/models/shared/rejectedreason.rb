@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class RejectedReason < ::StackOne::Utils::FieldAugmented
+    class RejectedReason < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

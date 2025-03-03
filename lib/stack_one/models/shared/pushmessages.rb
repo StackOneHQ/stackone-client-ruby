@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PushMessages < ::StackOne::Utils::FieldAugmented
+    class PushMessages < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class MarketingCreateEmailTemplateRequest < ::StackOne::Utils::FieldAugmented
+    class MarketingCreateEmailTemplateRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

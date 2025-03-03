@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmGetListResponse < ::StackOne::Utils::FieldAugmented
+    class CrmGetListResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

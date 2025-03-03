@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class BatchResultApiModel < ::StackOne::Utils::FieldAugmented
+    class BatchResultApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

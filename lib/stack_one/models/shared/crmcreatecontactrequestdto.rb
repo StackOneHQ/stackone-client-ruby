@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CrmCreateContactRequestDto < ::StackOne::Utils::FieldAugmented
+    class CrmCreateContactRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of associated account IDs

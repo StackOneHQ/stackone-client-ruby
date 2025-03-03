@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Company < ::StackOne::Utils::FieldAugmented
+    class Company < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The created_at date

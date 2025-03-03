@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CustomFieldDefinitionResultApiModel < ::StackOne::Utils::FieldAugmented
+    class CustomFieldDefinitionResultApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee employment status
-    class EmploymentStatus < ::StackOne::Utils::FieldAugmented
+    class EmploymentStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

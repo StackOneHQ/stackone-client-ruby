@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ContentType < ::StackOne::Utils::FieldAugmented
+    class ContentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the content type.

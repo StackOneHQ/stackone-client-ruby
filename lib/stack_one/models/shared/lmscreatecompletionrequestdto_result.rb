@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The result of the completion
-    class LmsCreateCompletionRequestDtoResult < ::StackOne::Utils::FieldAugmented
+    class LmsCreateCompletionRequestDtoResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

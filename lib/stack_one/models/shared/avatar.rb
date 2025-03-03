@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee avatar
-    class Avatar < ::StackOne::Utils::FieldAugmented
+    class Avatar < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

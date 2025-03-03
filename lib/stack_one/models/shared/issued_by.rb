@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The country code of the issued by authority
-    class IssuedBy < ::StackOne::Utils::FieldAugmented
+    class IssuedBy < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class IamGetGroupResponse < ::StackOne::Utils::FieldAugmented
+    class IamGetGroupResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

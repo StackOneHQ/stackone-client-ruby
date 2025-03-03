@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsGetUserCompletionResponse < ::StackOne::Utils::FieldAugmented
+    class LmsGetUserCompletionResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

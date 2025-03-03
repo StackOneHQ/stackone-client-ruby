@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsGetSkillRequest < ::StackOne::Utils::FieldAugmented
+    class LmsGetSkillRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

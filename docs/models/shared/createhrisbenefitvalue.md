@@ -12,3 +12,4 @@ The type of the benefit
 | `OTHER`              | other                |
 | `HEALTH_INSURANCE`   | health_insurance     |
 | `INSURANCE`          | insurance            |
+| `UNMAPPED_VALUE`     | unmapped_value       |

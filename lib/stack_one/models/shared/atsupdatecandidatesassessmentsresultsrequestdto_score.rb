@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsUpdateCandidatesAssessmentsResultsRequestDtoScore < ::StackOne::Utils::FieldAugmented
+    class AtsUpdateCandidatesAssessmentsResultsRequestDtoScore < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The label of the score

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneDeleteAccountRequest < ::StackOne::Utils::FieldAugmented
+    class StackoneDeleteAccountRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

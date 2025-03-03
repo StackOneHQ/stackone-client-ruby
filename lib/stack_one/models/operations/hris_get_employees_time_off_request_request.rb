@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetEmployeesTimeOffRequestRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetEmployeesTimeOffRequestRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

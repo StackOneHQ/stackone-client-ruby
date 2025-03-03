@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CountryCodeEnum < ::StackOne::Utils::FieldAugmented
+    class CountryCodeEnum < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

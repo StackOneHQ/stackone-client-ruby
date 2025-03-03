@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetTeamGroupRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetTeamGroupRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

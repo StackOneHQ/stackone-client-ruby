@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class WorkEligibilityType < ::StackOne::Utils::FieldAugmented
+    class WorkEligibilityType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

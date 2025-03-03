@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AtsCreateCandidatesAssessmentsRequestDtoJob < ::StackOne::Utils::FieldAugmented
+    class AtsCreateCandidatesAssessmentsRequestDtoJob < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Hiring team for the job.

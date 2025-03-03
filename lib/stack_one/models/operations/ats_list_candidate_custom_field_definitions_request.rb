@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsListCandidateCustomFieldDefinitionsRequest < ::StackOne::Utils::FieldAugmented
+    class AtsListCandidateCustomFieldDefinitionsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The account identifier

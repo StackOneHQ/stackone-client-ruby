@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee marital status
-    class HrisCreateEmployeeRequestDtoMaritalStatus < ::StackOne::Utils::FieldAugmented
+    class HrisCreateEmployeeRequestDtoMaritalStatus < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

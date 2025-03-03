@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class CustomFieldDefinitionsPaginated < ::StackOne::Utils::FieldAugmented
+    class CustomFieldDefinitionsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

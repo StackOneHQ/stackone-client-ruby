@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AssessmentResultCandidate < ::StackOne::Utils::FieldAugmented
+    class AssessmentResultCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

@@ -62,7 +62,7 @@ module StackOne
       )
       if r.status == 202
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::BatchResultApiModel)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BatchResultApiModel)
           res.batch_result_api_model = out
         end
       elsif r.status == 408
@@ -112,7 +112,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
       elsif r.status == 408
@@ -168,7 +168,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
       elsif r.status == 408
@@ -181,12 +181,12 @@ module StackOne
     end
 
 
-    sig { params(hris_skills_create_request_dto: ::StackOne::Shared::HrisSkillsCreateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeSkillResponse) }
-    def create_employee_skill(hris_skills_create_request_dto, id, x_account_id)
+    sig { params(entity_skills_create_request_dto: ::StackOne::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeSkillResponse) }
+    def create_employee_skill(entity_skills_create_request_dto, id, x_account_id)
       # create_employee_skill - Create Employee Skill
       request = ::StackOne::Operations::HrisCreateEmployeeSkillRequest.new(
         
-        hris_skills_create_request_dto: hris_skills_create_request_dto,
+        entity_skills_create_request_dto: entity_skills_create_request_dto,
         id: id,
         x_account_id: x_account_id
       )
@@ -199,7 +199,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :hris_skills_create_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :entity_skills_create_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
@@ -224,7 +224,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
       elsif r.status == 408
@@ -280,7 +280,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
       elsif r.status == 408
@@ -336,7 +336,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
       elsif r.status == 408
@@ -386,7 +386,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
       elsif r.status == 408
@@ -474,7 +474,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISBenefitResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISBenefitResult)
           res.hris_benefit_result = out
         end
       elsif r.status == 408
@@ -516,7 +516,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompanyResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CompanyResult)
           res.company_result = out
         end
       elsif r.status == 408
@@ -558,7 +558,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISCostCenterResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISCostCenterResult)
           res.hris_cost_center_result = out
         end
       elsif r.status == 408
@@ -600,7 +600,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISDepartmentsResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISDepartmentsResult)
           res.hris_departments_result = out
         end
       elsif r.status == 408
@@ -642,7 +642,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmployeeResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmployeeResult)
           res.employee_result = out
         end
       elsif r.status == 408
@@ -684,7 +684,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
           res.custom_field_definition_result_api_model = out
         end
       elsif r.status == 408
@@ -726,7 +726,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HrisDocumentResult)
           res.hris_document_result = out
         end
       elsif r.status == 408
@@ -768,7 +768,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferenceResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ReferenceResult)
           res.reference_result = out
         end
       elsif r.status == 408
@@ -810,7 +810,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
       elsif r.status == 408
@@ -852,7 +852,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffBalanceResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffBalanceResult)
           res.time_off_balance_result = out
         end
       elsif r.status == 408
@@ -894,7 +894,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffResult)
           res.time_off_result = out
         end
       elsif r.status == 408
@@ -936,7 +936,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WorkEligibilityResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::WorkEligibilityResult)
           res.work_eligibility_result = out
         end
       elsif r.status == 408
@@ -978,7 +978,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
       elsif r.status == 408
@@ -1020,7 +1020,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISGroupsResult)
           res.hris_groups_result = out
         end
       elsif r.status == 408
@@ -1062,7 +1062,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::JobResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::JobResult)
           res.job_result = out
         end
       elsif r.status == 408
@@ -1104,7 +1104,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISLocationResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISLocationResult)
           res.hris_location_result = out
         end
       elsif r.status == 408
@@ -1146,7 +1146,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISTeamsResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISTeamsResult)
           res.hris_teams_result = out
         end
       elsif r.status == 408
@@ -1188,7 +1188,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeEntriesResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeEntriesResult)
           res.time_entries_result = out
         end
       elsif r.status == 408
@@ -1230,7 +1230,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPolicyResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffPolicyResult)
           res.time_off_policy_result = out
         end
       elsif r.status == 408
@@ -1272,7 +1272,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffResult)
           res.time_off_result = out
         end
       elsif r.status == 408
@@ -1314,7 +1314,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferenceResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ReferenceResult)
           res.reference_result = out
         end
       elsif r.status == 408
@@ -1370,7 +1370,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::InviteEmployeeResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InviteEmployeeResult)
           res.invite_employee_result = out
         end
       elsif r.status == 408
@@ -1407,7 +1407,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISBenefitsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISBenefitsPaginated)
           res.hris_benefits_paginated = out
         end
       elsif r.status == 408
@@ -1444,7 +1444,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CompaniesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CompaniesPaginated)
           res.companies_paginated = out
         end
       elsif r.status == 408
@@ -1481,7 +1481,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISCostCenterPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISCostCenterPaginated)
           res.hris_cost_center_paginated = out
         end
       elsif r.status == 408
@@ -1518,7 +1518,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISDepartmentsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISDepartmentsPaginated)
           res.hris_departments_paginated = out
         end
       elsif r.status == 408
@@ -1555,7 +1555,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferencePaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ReferencePaginated)
           res.reference_paginated = out
         end
       elsif r.status == 408
@@ -1592,7 +1592,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CustomFieldDefinitionsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CustomFieldDefinitionsPaginated)
           res.custom_field_definitions_paginated = out
         end
       elsif r.status == 408
@@ -1634,7 +1634,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HrisDocumentsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HrisDocumentsPaginated)
           res.hris_documents_paginated = out
         end
       elsif r.status == 408
@@ -1676,7 +1676,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmploymentsPaginated)
           res.employments_paginated = out
         end
       elsif r.status == 408
@@ -1718,7 +1718,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffBalancesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffBalancesPaginated)
           res.time_off_balances_paginated = out
         end
       elsif r.status == 408
@@ -1760,7 +1760,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffPaginated)
           res.time_off_paginated = out
         end
       elsif r.status == 408
@@ -1802,7 +1802,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WorkEligibilityPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::WorkEligibilityPaginated)
           res.work_eligibility_paginated = out
         end
       elsif r.status == 408
@@ -1839,7 +1839,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmployeesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmployeesPaginated)
           res.employees_paginated = out
         end
       elsif r.status == 408
@@ -1876,7 +1876,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmploymentsPaginated)
           res.employments_paginated = out
         end
       elsif r.status == 408
@@ -1913,7 +1913,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISGroupsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISGroupsPaginated)
           res.hris_groups_paginated = out
         end
       elsif r.status == 408
@@ -1950,7 +1950,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::JobsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::JobsPaginated)
           res.jobs_paginated = out
         end
       elsif r.status == 408
@@ -1987,7 +1987,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISLocationsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISLocationsPaginated)
           res.hris_locations_paginated = out
         end
       elsif r.status == 408
@@ -2024,7 +2024,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::HRISTeamsPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::HRISTeamsPaginated)
           res.hris_teams_paginated = out
         end
       elsif r.status == 408
@@ -2061,7 +2061,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeEntriesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeEntriesPaginated)
           res.time_entries_paginated = out
         end
       elsif r.status == 408
@@ -2098,7 +2098,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPoliciesPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffPoliciesPaginated)
           res.time_off_policies_paginated = out
         end
       elsif r.status == 408
@@ -2135,7 +2135,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::TimeOffPaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TimeOffPaginated)
           res.time_off_paginated = out
         end
       elsif r.status == 408
@@ -2172,7 +2172,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::ReferencePaginated)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ReferencePaginated)
           res.reference_paginated = out
         end
       elsif r.status == 408
@@ -2228,7 +2228,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::UpdateEmployeeApiModel)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UpdateEmployeeApiModel)
           res.update_employee_api_model = out
         end
       elsif r.status == 408
@@ -2285,7 +2285,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::EmploymentResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::EmploymentResult)
           res.employment_result = out
         end
       elsif r.status == 408
@@ -2394,7 +2394,7 @@ module StackOne
       )
       if r.status == 200
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::CreateResult)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CreateResult)
           res.create_result = out
         end
       elsif r.status == 408
@@ -2450,7 +2450,7 @@ module StackOne
       )
       if r.status == 201
         if Utils.match_content_type(content_type, 'application/json')
-          out = Utils.unmarshal_complex(r.env.response_body, ::StackOne::Shared::WriteResultApiModel)
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::WriteResultApiModel)
           res.write_result_api_model = out
         end
       elsif r.status == 408

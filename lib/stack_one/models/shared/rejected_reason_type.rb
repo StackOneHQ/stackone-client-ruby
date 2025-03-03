@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class RejectedReasonType < ::StackOne::Utils::FieldAugmented
+    class RejectedReasonType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the rejected reason type.

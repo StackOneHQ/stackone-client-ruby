@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ListItem < ::StackOne::Utils::FieldAugmented
+    class ListItem < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

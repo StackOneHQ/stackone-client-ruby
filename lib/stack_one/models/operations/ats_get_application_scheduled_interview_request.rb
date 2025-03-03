@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class AtsGetApplicationScheduledInterviewRequest < ::StackOne::Utils::FieldAugmented
+    class AtsGetApplicationScheduledInterviewRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

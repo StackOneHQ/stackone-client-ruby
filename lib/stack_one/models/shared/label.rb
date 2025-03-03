@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Label < ::StackOne::Utils::FieldAugmented
+    class Label < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

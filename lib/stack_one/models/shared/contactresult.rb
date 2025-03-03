@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ContactResult < ::StackOne::Utils::FieldAugmented
+    class ContactResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

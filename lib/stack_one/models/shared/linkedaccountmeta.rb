@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LinkedAccountMeta < ::StackOne::Utils::FieldAugmented
+    class LinkedAccountMeta < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class TimeEntriesResult < ::StackOne::Utils::FieldAugmented
+    class TimeEntriesResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

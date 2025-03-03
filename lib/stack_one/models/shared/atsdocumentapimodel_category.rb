@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The category of the the document
-    class AtsDocumentApiModelCategory < ::StackOne::Utils::FieldAugmented
+    class AtsDocumentApiModelCategory < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class LmsCreateCompletionRequestDto < ::StackOne::Utils::FieldAugmented
+    class LmsCreateCompletionRequestDto < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The date the content was completed

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The hierarchal level of the skill
-    class SkillsHierarchy < ::StackOne::Utils::FieldAugmented
+    class SkillsHierarchy < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

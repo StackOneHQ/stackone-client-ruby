@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class AssessmentOrderCandidate < ::StackOne::Utils::FieldAugmented
+    class AssessmentOrderCandidate < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # List of candidate emails

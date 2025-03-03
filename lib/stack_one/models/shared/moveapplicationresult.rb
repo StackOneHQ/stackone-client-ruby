@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class MoveApplicationResult < ::StackOne::Utils::FieldAugmented
+    class MoveApplicationResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

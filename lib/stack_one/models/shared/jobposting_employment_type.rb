@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobPostingEmploymentType < ::StackOne::Utils::FieldAugmented
+    class JobPostingEmploymentType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the employment type.

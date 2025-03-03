@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class LmsBatchUpsertContentRequest < ::StackOne::Utils::FieldAugmented
+    class LmsBatchUpsertContentRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

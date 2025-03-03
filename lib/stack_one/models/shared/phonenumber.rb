@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class PhoneNumber < ::StackOne::Utils::FieldAugmented
+    class PhoneNumber < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Phone number string

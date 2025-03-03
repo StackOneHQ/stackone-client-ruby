@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HRISBenefitResult < ::StackOne::Utils::FieldAugmented
+    class HRISBenefitResult < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

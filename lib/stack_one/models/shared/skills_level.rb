@@ -10,7 +10,7 @@ module StackOne
     # The hierarchal level of the skill
     # 
     # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class SkillsLevel < ::StackOne::Utils::FieldAugmented
+    class SkillsLevel < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

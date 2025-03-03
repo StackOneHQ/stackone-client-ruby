@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee preferred language
-    class UpdateEmployeeApiModelPreferredLanguage < ::StackOne::Utils::FieldAugmented
+    class UpdateEmployeeApiModelPreferredLanguage < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

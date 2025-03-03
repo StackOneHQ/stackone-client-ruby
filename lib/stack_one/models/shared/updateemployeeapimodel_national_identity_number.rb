@@ -8,7 +8,9 @@ module StackOne
   module Shared
   
     # The national identity number
-    class UpdateEmployeeApiModelNationalIdentityNumber < ::StackOne::Utils::FieldAugmented
+    # 
+    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+    class UpdateEmployeeApiModelNationalIdentityNumber < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The country code

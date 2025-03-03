@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # Stackone enum identifying the type of message associated with the content.
-    class MessageType < ::StackOne::Utils::FieldAugmented
+    class MessageType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The original value from the provider used to derive the unified message type.

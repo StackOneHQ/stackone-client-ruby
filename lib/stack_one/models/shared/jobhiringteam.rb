@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobHiringTeam < ::StackOne::Utils::FieldAugmented
+    class JobHiringTeam < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Email of the hiring team member.

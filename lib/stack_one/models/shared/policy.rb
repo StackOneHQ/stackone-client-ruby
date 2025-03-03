@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The time off policy associated with this balance
-    class Policy < ::StackOne::Utils::FieldAugmented
+    class Policy < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The created_at date of this policy

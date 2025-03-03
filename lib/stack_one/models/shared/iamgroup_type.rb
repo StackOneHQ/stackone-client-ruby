@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class IamGroupType < ::StackOne::Utils::FieldAugmented
+    class IamGroupType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class CrmUpdateContactResponse < ::StackOne::Utils::FieldAugmented
+    class CrmUpdateContactResponse < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # HTTP response content type for this operation

@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneGetConnectorMetaRequest < ::StackOne::Utils::FieldAugmented
+    class StackoneGetConnectorMetaRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

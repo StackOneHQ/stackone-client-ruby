@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class StackoneListLinkedAccountsRequest < ::StackOne::Utils::FieldAugmented
+    class StackoneListLinkedAccountsRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The providers list of the results to fetch

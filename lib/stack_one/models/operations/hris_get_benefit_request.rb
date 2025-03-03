@@ -8,7 +8,7 @@ module StackOne
   module Operations
   
 
-    class HrisGetBenefitRequest < ::StackOne::Utils::FieldAugmented
+    class HrisGetBenefitRequest < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

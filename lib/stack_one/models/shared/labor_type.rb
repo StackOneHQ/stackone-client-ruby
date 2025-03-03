@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The labor type associated with this time entry
-    class LaborType < ::StackOne::Utils::FieldAugmented
+    class LaborType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class SmsTemplatesPaginated < ::StackOne::Utils::FieldAugmented
+    class SmsTemplatesPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

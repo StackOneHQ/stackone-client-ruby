@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class EmploymentManagerApiModel < ::StackOne::Utils::FieldAugmented
+    class EmploymentManagerApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Unique identifier

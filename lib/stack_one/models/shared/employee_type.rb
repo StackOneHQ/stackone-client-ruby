@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class EmployeeType < ::StackOne::Utils::FieldAugmented
+    class EmployeeType < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

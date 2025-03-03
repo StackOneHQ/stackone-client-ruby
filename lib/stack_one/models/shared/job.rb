@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class Job < ::StackOne::Utils::FieldAugmented
+    class Job < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # Code of the job

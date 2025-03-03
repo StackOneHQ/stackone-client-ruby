@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class JobPostingContentSectionType < ::StackOne::Utils::FieldAugmented
+    class JobPostingContentSectionType < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The source value of the description type.

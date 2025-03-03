@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ScheduledInterviewsPaginated < ::StackOne::Utils::FieldAugmented
+    class ScheduledInterviewsPaginated < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

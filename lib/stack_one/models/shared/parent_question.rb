@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class ParentQuestion < ::StackOne::Utils::FieldAugmented
+    class ParentQuestion < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

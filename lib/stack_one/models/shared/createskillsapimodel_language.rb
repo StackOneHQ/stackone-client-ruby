@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The language associated with this skill
-    class CreateSkillsApiModelLanguage < ::StackOne::Utils::FieldAugmented
+    class CreateSkillsApiModelLanguage < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
     # The employee avatar
-    class HrisUpdateEmployeeRequestDtoAvatar < ::StackOne::Utils::FieldAugmented
+    class HrisUpdateEmployeeRequestDtoAvatar < ::Crystalline::FieldAugmented
       extend T::Sig
 
 

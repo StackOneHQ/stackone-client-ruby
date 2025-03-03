@@ -8,7 +8,7 @@ module StackOne
   module Shared
   
 
-    class HrisDocumentApiModel < ::StackOne::Utils::FieldAugmented
+    class HrisDocumentApiModel < ::Crystalline::FieldAugmented
       extend T::Sig
 
       # The category of the the document
