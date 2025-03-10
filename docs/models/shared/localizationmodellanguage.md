@@ -1,6 +1,6 @@
-# LocalisationModelLanguage
+# LocalizationModelLanguage
 
-The language associated with this localisation details
+The language associated with the localization details
 
 
 ## Fields
@@ -8,4 +8,4 @@ The language associated with this localisation details
 | Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            | Example                                                                                                |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
 | `source_value`                                                                                         | *T.nilable(::Object)*                                                                                  | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |                                                                                                        |
-| `value`                                                                                                | [T.nilable(::StackOne::Shared::LocalisationModelValue)](../../models/shared/localisationmodelvalue.md) | :heavy_minus_sign:                                                                                     | The Locale Code of the language                                                                        | en_GB                                                                                                  |
+| `value`                                                                                                | [T.nilable(::StackOne::Shared::LocalizationModelValue)](../../models/shared/localizationmodelvalue.md) | :heavy_minus_sign:                                                                                     | The Locale Code of the language                                                                        | en_GB                                                                                                  |

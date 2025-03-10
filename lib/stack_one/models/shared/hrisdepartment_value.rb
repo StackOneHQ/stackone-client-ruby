@@ -15,6 +15,7 @@ module StackOne
         DIVISION = new('division')
         GROUP = new('group')
         PROJECT = new('project')
+        TEAM = new('team')
       end
     end
   end

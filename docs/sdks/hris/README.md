@@ -22,6 +22,7 @@
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](#get_employee_employment) - Get Employee Employment
+* [get_employee_skill](#get_employee_skill) - Get Employee Skill
 * [get_employee_time_off_balance](#get_employee_time_off_balance) - Get Employee Time Off Balance
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
@@ -43,6 +44,7 @@
 * [list_employee_custom_field_definitions](#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_employments](#list_employee_employments) - List Employee Employments
+* [list_employee_skills](#list_employee_skills) - List Employee Skills
 * [list_employee_time_off_balances](#list_employee_time_off_balances) - List Employee Time Off Balances
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
@@ -71,16 +73,13 @@ Batch Upload Employee Document
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_dto=::StackOne::Shared::HrisBatchDocumentUploadRequestDto.new(
   items: [
     ::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
@@ -130,16 +129,13 @@ Creates an employee
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(
   avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
@@ -299,16 +295,13 @@ Create Employee Employment
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.create_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   employee_id: "1687-3",
@@ -359,24 +352,21 @@ Create Employee Skill
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.create_employee_skill(entity_skills_create_request_dto=::StackOne::Shared::EntitySkillsCreateRequestDto.new(
   id: "16873-IT345",
-  maximum_proficiency: ::StackOne::Shared::MaximumProficiency.new(
+  maximum_proficiency: ::StackOne::Shared::EntitySkillsCreateRequestDtoMaximumProficiency.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Expert",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
-  minimum_proficiency: ::StackOne::Shared::MinimumProficiency.new(
+  minimum_proficiency: ::StackOne::Shared::EntitySkillsCreateRequestDtoMinimumProficiency.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Expert",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -413,16 +403,13 @@ Create Employee Time Off Request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
@@ -431,8 +418,13 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
   passthrough: {
     "other_known_names": "John Doe",
   },
+  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   start_half_day: true,
+  time_off_policy_id: "cx280928933",
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -464,16 +456,13 @@ Create Employee Work Eligibility Request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
   document: ::StackOne::Shared::Document.new(
     category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
@@ -532,16 +521,13 @@ Creates a time off request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
@@ -550,8 +536,13 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
   passthrough: {
     "other_known_names": "John Doe",
   },
+  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   start_half_day: true,
+  time_off_policy_id: "cx280928933",
 ), x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -582,16 +573,13 @@ Download Employee Document
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.download_employee_document(id="<id>", sub_resource_id="<id>", x_account_id="<id>", format="base64")
 
 if ! res.bytes.nil?
@@ -624,22 +612,19 @@ Get Benefit
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetBenefitRequest.new(
   fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_benefit(req)
 
 if ! res.hris_benefit_result.nil?
@@ -669,22 +654,19 @@ Get Company
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetCompanyRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_company(req)
 
 if ! res.company_result.nil?
@@ -714,22 +696,19 @@ Get Cost Center Group
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetCostCenterGroupRequest.new(
   fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_cost_center_group(req)
 
 if ! res.hris_cost_center_result.nil?
@@ -759,22 +738,19 @@ Get Department Group
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetDepartmentGroupRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_department_group(req)
 
 if ! res.hris_departments_result.nil?
@@ -804,24 +780,21 @@ Get Employee
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
-  expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers",
+  expand: "company,employments,work_location,home_location,groups,skills",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employee(req)
 
 if ! res.employee_result.nil?
@@ -851,15 +824,12 @@ Get employee Custom Field Definition
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -869,7 +839,7 @@ req = ::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employee_custom_field_definition(req)
 
 if ! res.custom_field_definition_result_api_model.nil?
@@ -899,15 +869,12 @@ Get Employee Document
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
@@ -915,7 +882,7 @@ req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employee_document(req)
 
 if ! res.hris_document_result.nil?
@@ -945,22 +912,19 @@ Get Employee Document Category
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
   fields_: "id,remote_id,name,active",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employee_document_category(req)
 
 if ! res.reference_result.nil?
@@ -990,15 +954,12 @@ Get Employee Employment
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
@@ -1007,7 +968,7 @@ req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employee_employment(req)
 
 if ! res.employment_result.nil?
@@ -1028,6 +989,49 @@ end
 
 
 
+## get_employee_skill
+
+Get Employee Skill
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = ::StackOne::Operations::HrisGetEmployeeSkillRequest.new(
+  fields_: "id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency",
+  id: "<id>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_employee_skill(req)
+
+if ! res.entity_skill_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [::StackOne::Operations::HrisGetEmployeeSkillRequest](../../models/operations/hrisgetemployeeskillrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisGetEmployeeSkillResponse)](../../models/operations/hrisgetemployeeskillresponse.md)**
+
+
+
 ## get_employee_time_off_balance
 
 Get Employee Time Off Balance
@@ -1037,15 +1041,12 @@ Get Employee Time Off Balance
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
   expand: "policy",
@@ -1054,7 +1055,7 @@ req = ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employee_time_off_balance(req)
 
 if ! res.time_off_balance_result.nil?
@@ -1084,23 +1085,20 @@ Get Employees Time Off Request
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employees_time_off_request(req)
 
 if ! res.time_off_result.nil?
@@ -1130,15 +1128,12 @@ Get Employees Work Eligibility
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
   fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
@@ -1146,7 +1141,7 @@ req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employees_work_eligibility(req)
 
 if ! res.work_eligibility_result.nil?
@@ -1176,15 +1171,12 @@ Get Employment
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
@@ -1192,7 +1184,7 @@ req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_employment(req)
 
 if ! res.employment_result.nil?
@@ -1222,22 +1214,19 @@ Get Group
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetGroupRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_group(req)
 
 if ! res.hris_groups_result.nil?
@@ -1267,22 +1256,19 @@ Get Job
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetJobRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_job(req)
 
 if ! res.job_result.nil?
@@ -1312,22 +1298,19 @@ Get Location
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetLocationRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_location(req)
 
 if ! res.hris_location_result.nil?
@@ -1357,22 +1340,19 @@ Get Team Group
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetTeamGroupRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_team_group(req)
 
 if ! res.hris_teams_result.nil?
@@ -1402,22 +1382,19 @@ Get Time Entry
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetTimeEntriesRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_time_entries(req)
 
 if ! res.time_entries_result.nil?
@@ -1447,22 +1424,19 @@ Get Time Off Policy
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetTimeOffPolicyRequest.new(
-  fields_: "id,remote_id,name,description,type,updated_at,created_at",
+  fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_time_off_policy(req)
 
 if ! res.time_off_policy_result.nil?
@@ -1492,22 +1466,19 @@ Get time off request
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_time_off_request(req)
 
 if ! res.time_off_result.nil?
@@ -1537,22 +1508,19 @@ Get time off type
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisGetTimeOffTypeRequest.new(
   fields_: "id,remote_id,name,active",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.get_time_off_type(req)
 
 if ! res.reference_result.nil?
@@ -1582,16 +1550,13 @@ Invite Employee
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.invite_employee(hris_invite_employee_request_dto=::StackOne::Shared::HrisInviteEmployeeRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
@@ -1627,15 +1592,12 @@ List benefits
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListBenefitsRequest.new(
   fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
@@ -1644,7 +1606,7 @@ req = ::StackOne::Operations::HrisListBenefitsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_benefits(req)
 
 if ! res.hris_benefits_paginated.nil?
@@ -1674,15 +1636,12 @@ List Companies
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListCompaniesRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
@@ -1691,7 +1650,7 @@ req = ::StackOne::Operations::HrisListCompaniesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_companies(req)
 
 if ! res.companies_paginated.nil?
@@ -1721,15 +1680,12 @@ List Cost Center Groups
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListCostCenterGroupsRequest.new(
   fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
@@ -1738,7 +1694,7 @@ req = ::StackOne::Operations::HrisListCostCenterGroupsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_cost_center_groups(req)
 
 if ! res.hris_cost_center_paginated.nil?
@@ -1768,15 +1724,12 @@ List Department Groups
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListDepartmentGroupsRequest.new(
   fields_: "id,remote_id,name",
@@ -1785,7 +1738,7 @@ req = ::StackOne::Operations::HrisListDepartmentGroupsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_department_groups(req)
 
 if ! res.hris_departments_paginated.nil?
@@ -1815,15 +1768,12 @@ List Employee Document Categories
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeCategoriesRequest.new(
   fields_: "id,remote_id,name,active",
@@ -1832,7 +1782,7 @@ req = ::StackOne::Operations::HrisListEmployeeCategoriesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_categories(req)
 
 if ! res.reference_paginated.nil?
@@ -1862,15 +1812,12 @@ List employee Custom Field Definitions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -1879,7 +1826,7 @@ req = ::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_custom_field_definitions(req)
 
 if ! res.custom_field_definitions_paginated.nil?
@@ -1909,15 +1856,12 @@ List Employee Documents
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
@@ -1927,7 +1871,7 @@ req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_documents(req)
 
 if ! res.hris_documents_paginated.nil?
@@ -1957,15 +1901,12 @@ List Employee Employments
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
@@ -1976,7 +1917,7 @@ req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_employments(req)
 
 if ! res.employments_paginated.nil?
@@ -1997,6 +1938,51 @@ end
 
 
 
+## list_employee_skills
+
+List Employee Skills
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = ::StackOne::Operations::HrisListEmployeeSkillsRequest.new(
+  fields_: "id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency",
+  filter: ::StackOne::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_employee_skills(req)
+
+if ! res.entity_skills_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [::StackOne::Operations::HrisListEmployeeSkillsRequest](../../models/operations/hrislistemployeeskillsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeSkillsResponse)](../../models/operations/hrislistemployeeskillsresponse.md)**
+
+
+
 ## list_employee_time_off_balances
 
 List Employee Time Off Balances
@@ -2006,15 +1992,12 @@ List Employee Time Off Balances
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
   expand: "policy",
@@ -2025,7 +2008,7 @@ req = ::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_time_off_balances(req)
 
 if ! res.time_off_balances_paginated.nil?
@@ -2055,25 +2038,22 @@ List Employee Time Off Requests
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_time_off_requests(req)
 
 if ! res.time_off_paginated.nil?
@@ -2103,15 +2083,12 @@ List Employee Work Eligibility
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
@@ -2121,7 +2098,7 @@ req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employee_work_eligibility(req)
 
 if ! res.work_eligibility_paginated.nil?
@@ -2151,26 +2128,23 @@ List Employees
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers",
+  expand: "company,employments,work_location,home_location,groups,skills",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employees(req)
 
 if ! res.employees_paginated.nil?
@@ -2200,15 +2174,12 @@ List Employments
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
@@ -2218,7 +2189,7 @@ req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employments(req)
 
 if ! res.employments_paginated.nil?
@@ -2248,15 +2219,12 @@ List Groups
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
@@ -2265,7 +2233,7 @@ req = ::StackOne::Operations::HrisListGroupsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_groups(req)
 
 if ! res.hris_groups_paginated.nil?
@@ -2295,15 +2263,12 @@ List Jobs
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListJobsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
@@ -2312,7 +2277,7 @@ req = ::StackOne::Operations::HrisListJobsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_jobs(req)
 
 if ! res.jobs_paginated.nil?
@@ -2342,15 +2307,12 @@ List locations
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListLocationsRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
@@ -2359,7 +2321,7 @@ req = ::StackOne::Operations::HrisListLocationsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_locations(req)
 
 if ! res.hris_locations_paginated.nil?
@@ -2389,15 +2351,12 @@ List Team Groups
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListTeamGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
@@ -2406,7 +2365,7 @@ req = ::StackOne::Operations::HrisListTeamGroupsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_team_groups(req)
 
 if ! res.hris_teams_paginated.nil?
@@ -2436,15 +2395,12 @@ List Time Entries
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListTimeEntriesRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at",
@@ -2455,7 +2411,7 @@ req = ::StackOne::Operations::HrisListTimeEntriesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_time_entries(req)
 
 if ! res.time_entries_paginated.nil?
@@ -2485,24 +2441,21 @@ List Time Off Policies
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListTimeOffPoliciesRequest.new(
-  fields_: "id,remote_id,name,description,type,updated_at,created_at",
+  fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
   filter: ::StackOne::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_time_off_policies(req)
 
 if ! res.time_off_policies_paginated.nil?
@@ -2532,24 +2485,21 @@ List time off requests
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,created_at,updated_at",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
   filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_time_off_requests(req)
 
 if ! res.time_off_paginated.nil?
@@ -2579,15 +2529,12 @@ List time off types
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListTimeOffTypesRequest.new(
   fields_: "id,remote_id,name,active",
@@ -2596,7 +2543,7 @@ req = ::StackOne::Operations::HrisListTimeOffTypesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_time_off_types(req)
 
 if ! res.reference_paginated.nil?
@@ -2626,16 +2573,13 @@ Updates an employee
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared::HrisUpdateEmployeeRequestDto.new(
   avatar: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
@@ -2770,16 +2714,13 @@ Update Employee Employment
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.update_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   employee_id: "1687-3",
@@ -2831,16 +2772,13 @@ Update Employee Work Eligibility Request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
   document: ::StackOne::Shared::Document.new(
     category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
@@ -2900,16 +2838,13 @@ Update time off request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
@@ -2918,8 +2853,13 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
   passthrough: {
     "other_known_names": "John Doe",
   },
+  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   start_half_day: true,
+  time_off_policy_id: "cx280928933",
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -2951,16 +2891,13 @@ Upload Employee Document
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
   category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
   category_id: "6530",

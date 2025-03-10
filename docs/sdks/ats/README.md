@@ -12,6 +12,7 @@
 * [create_candidate_note](#create_candidate_note) - Create Candidate Note
 * [create_job](#create_job) - Create Job
 * [create_offer](#create_offer) - Creates an offer
+* [delete_background_check_package](#delete_background_check_package) - Delete Background Check Package
 * [download_application_document](#download_application_document) - Download Application Document
 * [get_application](#get_application) - Get Application
 * [get_application_custom_field_definition](#get_application_custom_field_definition) - Get Application Custom Field Definition
@@ -71,6 +72,7 @@
 * [update_application](#update_application) - Update an Application
 * [update_application_note](#update_application_note) - Update an Application Note
 * [update_assessments_result](#update_assessments_result) - Update Assessments Result
+* [update_background_check_package](#update_background_check_package) - Update Background Check Package
 * [update_background_check_result](#update_background_check_result) - Update Background Check Result
 * [update_candidate](#update_candidate) - Update Candidate
 * [update_job](#update_job) - Update Job
@@ -85,16 +87,13 @@ Create Application
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(
   application_status: ::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
     source_value: "Hired",
@@ -193,16 +192,13 @@ Create Application Note
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_application_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
   author_id: "1234567890",
   content: [
@@ -245,16 +241,13 @@ Create Background Check Package
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_background_check_package(ats_create_background_check_packages_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckPackagesRequestDto.new(
   description: "Skills test to gauge a candidate's proficiency in job-specific skills",
   name: "Test 1",
@@ -297,16 +290,13 @@ Create Candidate
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(
   company: "Company Inc.",
   country: "United States",
@@ -374,16 +364,13 @@ Create Candidate Note
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
   author_id: "1234567890",
   content: [
@@ -426,16 +413,13 @@ Create Job
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJobRequestDto.new(
   code: "184919",
   custom_fields: [
@@ -522,16 +506,13 @@ Creates an offer
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.create_offer(ats_create_offer_request_dto=::StackOne::Shared::AtsCreateOfferRequestDto.new(
   offer_history: [
     ::StackOne::Shared::OfferHistory.new(
@@ -569,6 +550,43 @@ end
 
 
 
+## delete_background_check_package
+
+Delete Background Check Package
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.ats.delete_background_check_package(id="<id>", x_account_id="<id>")
+
+if ! res.delete_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
+| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsDeleteBackgroundCheckPackageResponse)](../../models/operations/atsdeletebackgroundcheckpackageresponse.md)**
+
+
+
 ## download_application_document
 
 Download Application Document
@@ -578,16 +596,13 @@ Download Application Document
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.download_application_document(id="<id>", sub_resource_id="<id>", x_account_id="<id>", format="base64")
 
 if ! res.bytes.nil?
@@ -620,15 +635,12 @@ Get Application
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationRequest.new(
   expand: "documents",
@@ -637,7 +649,7 @@ req = ::StackOne::Operations::AtsGetApplicationRequest.new(
   include: "attachments,custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application(req)
 
 if ! res.application_result.nil?
@@ -667,15 +679,12 @@ Get Application Custom Field Definition
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -685,7 +694,7 @@ req = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application_custom_field_definition(req)
 
 if ! res.custom_field_definition_result_api_model.nil?
@@ -715,15 +724,12 @@ Get Application Document
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
@@ -731,7 +737,7 @@ req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application_document(req)
 
 if ! res.ats_document_result.nil?
@@ -761,15 +767,12 @@ Get Application Note
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationNoteRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
@@ -777,7 +780,7 @@ req = ::StackOne::Operations::AtsGetApplicationNoteRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application_note(req)
 
 if ! res.note_result.nil?
@@ -807,15 +810,12 @@ Get Application Offer
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationOfferRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
@@ -823,7 +823,7 @@ req = ::StackOne::Operations::AtsGetApplicationOfferRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application_offer(req)
 
 if ! res.offers_result.nil?
@@ -853,15 +853,12 @@ Get Applications scheduled interview
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest.new(
   fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
@@ -869,7 +866,7 @@ req = ::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application_scheduled_interview(req)
 
 if ! res.scheduled_interviews_result.nil?
@@ -899,15 +896,12 @@ Get Application Scorecard
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(
   fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
@@ -915,7 +909,7 @@ req = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_application_scorecard(req)
 
 if ! res.scorecards_result.nil?
@@ -945,21 +939,18 @@ Get Assessments Package
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetAssessmentsPackageRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_assessments_package(req)
 
 if ! res.assessment_package_result.nil?
@@ -989,22 +980,19 @@ Get Assessments Requests
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetAssessmentsRequestRequest.new(
   fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_assessments_request(req)
 
 if ! res.assessment_order_result.nil?
@@ -1034,22 +1022,19 @@ Get Assessments Results
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetAssessmentsResultRequest.new(
   fields_: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_assessments_result(req)
 
 if ! res.assessment_results_result.nil?
@@ -1079,22 +1064,19 @@ Get Background Check Package
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetBackgroundCheckPackageRequest.new(
   fields_: "id,remote_id,name,description,tests",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_background_check_package(req)
 
 if ! res.background_check_package_result.nil?
@@ -1124,22 +1106,19 @@ Get Background Check Request
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetBackgroundCheckRequestRequest.new(
   fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_background_check_request(req)
 
 if ! res.background_check_order_result.nil?
@@ -1169,22 +1148,19 @@ Get Background Check Results
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetBackgroundCheckResultRequest.new(
   fields_: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_background_check_result(req)
 
 if ! res.background_check_results_result.nil?
@@ -1214,15 +1190,12 @@ Get Candidate
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetCandidateRequest.new(
   fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
@@ -1230,7 +1203,7 @@ req = ::StackOne::Operations::AtsGetCandidateRequest.new(
   include: "custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_candidate(req)
 
 if ! res.candidate_result.nil?
@@ -1260,15 +1233,12 @@ Get Candidate Custom Field Definition
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -1278,7 +1248,7 @@ req = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_candidate_custom_field_definition(req)
 
 if ! res.custom_field_definition_result_api_model.nil?
@@ -1308,15 +1278,12 @@ Get Candidate Note
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetCandidateNoteRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
@@ -1324,7 +1291,7 @@ req = ::StackOne::Operations::AtsGetCandidateNoteRequest.new(
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_candidate_note(req)
 
 if ! res.note_result.nil?
@@ -1354,22 +1321,19 @@ Get Department
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetDepartmentRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_department(req)
 
 if ! res.department_result.nil?
@@ -1399,22 +1363,19 @@ Get Interview
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetInterviewRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_interview(req)
 
 if ! res.interviews_result.nil?
@@ -1444,22 +1405,19 @@ Get Interview Stage
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetInterviewStageRequest.new(
   fields_: "id,remote_id,name,order,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_interview_stage(req)
 
 if ! res.interview_stage_result.nil?
@@ -1489,15 +1447,12 @@ Get Job
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetJobRequest.new(
   expand: "job_postings,interview_stages",
@@ -1506,7 +1461,7 @@ req = ::StackOne::Operations::AtsGetJobRequest.new(
   include: "custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_job(req)
 
 if ! res.job_result.nil?
@@ -1536,15 +1491,12 @@ Get Job Custom Field Definition
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -1554,7 +1506,7 @@ req = ::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_job_custom_field_definition(req)
 
 if ! res.custom_field_definition_result_api_model.nil?
@@ -1584,15 +1536,12 @@ Get Job Posting
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetJobPostingRequest.new(
   fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
@@ -1600,7 +1549,7 @@ req = ::StackOne::Operations::AtsGetJobPostingRequest.new(
   include: "questionnaires",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_job_posting(req)
 
 if ! res.job_posting_result.nil?
@@ -1630,22 +1579,19 @@ Get List
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetListRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_list(req)
 
 if ! res.list_result.nil?
@@ -1675,22 +1621,19 @@ Get Location
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetLocationRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_location(req)
 
 if ! res.ats_location_result.nil?
@@ -1720,22 +1663,19 @@ Get Offer
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetOfferRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_offer(req)
 
 if ! res.offers_result.nil?
@@ -1765,22 +1705,19 @@ Get Rejected Reason
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetRejectedReasonRequest.new(
   fields_: "id,remote_id,label,type,rejected_reason_type",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_rejected_reason(req)
 
 if ! res.rejected_reason_result.nil?
@@ -1810,22 +1747,19 @@ Get User
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsGetUserRequest.new(
   fields_: "id,remote_id,first_name,last_name,name,email,phone",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.get_user(req)
 
 if ! res.user_result.nil?
@@ -1855,15 +1789,12 @@ List Application Custom Field Definitions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -1872,7 +1803,7 @@ req = ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest.ne
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_application_custom_field_definitions(req)
 
 if ! res.custom_field_definitions_paginated.nil?
@@ -1902,15 +1833,12 @@ List Application Documents
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
@@ -1920,7 +1848,7 @@ req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_application_documents(req)
 
 if ! res.ats_documents_paginated.nil?
@@ -1950,15 +1878,12 @@ List Application Notes
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationNotesRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
@@ -1968,7 +1893,7 @@ req = ::StackOne::Operations::AtsListApplicationNotesRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_application_notes(req)
 
 if ! res.notes_paginated.nil?
@@ -1998,15 +1923,12 @@ List Application Scorecards
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
   fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
@@ -2016,7 +1938,7 @@ req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_application_scorecards(req)
 
 if ! res.scorecards_paginated.nil?
@@ -2046,15 +1968,12 @@ List Applications
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
@@ -2066,7 +1985,7 @@ req = ::StackOne::Operations::AtsListApplicationsRequest.new(
   include: "attachments,custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_applications(req)
 
 if ! res.applications_paginated.nil?
@@ -2096,15 +2015,12 @@ List Application Offers
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
@@ -2114,7 +2030,7 @@ req = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_applications_offers(req)
 
 if ! res.offers_paginated.nil?
@@ -2144,15 +2060,12 @@ List Applications scheduled interviews
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
@@ -2162,7 +2075,7 @@ req = ::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_applications_scheduled_interviews(req)
 
 if ! res.scheduled_interviews_paginated.nil?
@@ -2192,15 +2105,12 @@ List Assessments Packages
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListAssessmentsPackagesRequest.new(
   filter: ::StackOne::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(
@@ -2208,7 +2118,7 @@ req = ::StackOne::Operations::AtsListAssessmentsPackagesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_assessments_packages(req)
 
 if ! res.assessment_package_paginated.nil?
@@ -2238,15 +2148,12 @@ List Background Check Packages
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListBackgroundCheckPackagesRequest.new(
   fields_: "id,remote_id,name,description,tests",
@@ -2255,7 +2162,7 @@ req = ::StackOne::Operations::AtsListBackgroundCheckPackagesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_background_check_packages(req)
 
 if ! res.background_check_package_paginated.nil?
@@ -2285,15 +2192,12 @@ List Background Check Request
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListBackgroundCheckRequestRequest.new(
   fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
@@ -2302,7 +2206,7 @@ req = ::StackOne::Operations::AtsListBackgroundCheckRequestRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_background_check_request(req)
 
 if ! res.background_check_order_paginated.nil?
@@ -2332,15 +2236,12 @@ List Candidate Custom Field Definitions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -2349,7 +2250,7 @@ req = ::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_candidate_custom_field_definitions(req)
 
 if ! res.custom_field_definitions_paginated.nil?
@@ -2379,15 +2280,12 @@ List Candidate Notes
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListCandidateNotesRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
@@ -2397,7 +2295,7 @@ req = ::StackOne::Operations::AtsListCandidateNotesRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_candidate_notes(req)
 
 if ! res.notes_paginated.nil?
@@ -2427,15 +2325,12 @@ List Candidates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListCandidatesRequest.new(
   fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
@@ -2446,7 +2341,7 @@ req = ::StackOne::Operations::AtsListCandidatesRequest.new(
   include: "custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_candidates(req)
 
 if ! res.candidates_paginated.nil?
@@ -2476,15 +2371,12 @@ List Departments
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListDepartmentsRequest.new(
   fields_: "id,remote_id,name",
@@ -2493,7 +2385,7 @@ req = ::StackOne::Operations::AtsListDepartmentsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_departments(req)
 
 if ! res.departments_paginated.nil?
@@ -2523,15 +2415,12 @@ List Interview Stages
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListInterviewStagesRequest.new(
   fields_: "id,remote_id,name,order,created_at,updated_at",
@@ -2540,7 +2429,7 @@ req = ::StackOne::Operations::AtsListInterviewStagesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_interview_stages(req)
 
 if ! res.interview_stages_paginated.nil?
@@ -2570,15 +2459,12 @@ List Interviews
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListInterviewsRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
@@ -2588,7 +2474,7 @@ req = ::StackOne::Operations::AtsListInterviewsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_interviews(req)
 
 if ! res.interviews_paginated.nil?
@@ -2618,15 +2504,12 @@ List Job Custom Field Definitions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -2635,7 +2518,7 @@ req = ::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_job_custom_field_definitions(req)
 
 if ! res.custom_field_definitions_paginated.nil?
@@ -2665,15 +2548,12 @@ List Job Postings
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
   fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
@@ -2684,7 +2564,7 @@ req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
   include: "questionnaires",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_job_postings(req)
 
 if ! res.job_postings_paginated.nil?
@@ -2714,15 +2594,12 @@ List Jobs
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
@@ -2734,7 +2611,7 @@ req = ::StackOne::Operations::AtsListJobsRequest.new(
   include: "custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_jobs(req)
 
 if ! res.jobs_paginated.nil?
@@ -2764,15 +2641,12 @@ Get all Lists
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListListsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
@@ -2781,7 +2655,7 @@ req = ::StackOne::Operations::AtsListListsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_lists(req)
 
 if ! res.lists_paginated.nil?
@@ -2811,15 +2685,12 @@ List locations
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListLocationsRequest.new(
   fields_: "id,remote_id,name",
@@ -2828,7 +2699,7 @@ req = ::StackOne::Operations::AtsListLocationsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_locations(req)
 
 if ! res.ats_locations_paginated.nil?
@@ -2858,15 +2729,12 @@ List Offers
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListOffersRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
@@ -2875,7 +2743,7 @@ req = ::StackOne::Operations::AtsListOffersRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_offers(req)
 
 if ! res.offers_paginated.nil?
@@ -2905,15 +2773,12 @@ List Rejected Reasons
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(
   fields_: "id,remote_id,label,type,rejected_reason_type",
@@ -2922,7 +2787,7 @@ req = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_rejected_reasons(req)
 
 if ! res.rejected_reasons_paginated.nil?
@@ -2952,15 +2817,12 @@ List Users
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::AtsListUsersRequest.new(
   fields_: "id,remote_id,first_name,last_name,name,email,phone",
@@ -2969,7 +2831,7 @@ req = ::StackOne::Operations::AtsListUsersRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.ats.list_users(req)
 
 if ! res.users_paginated.nil?
@@ -2999,16 +2861,13 @@ Move Application
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.move_application(ats_move_application_request_dto=::StackOne::Shared::AtsMoveApplicationRequestDto.new(
   interview_stage_id: "f223d7f6-908b-48f0-9237-b201c307f609",
   passthrough: {
@@ -3045,16 +2904,13 @@ Order Assessments Request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_dto=::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDto.new(
   application: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication.new(
     application_status: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus.new(
@@ -3150,16 +3006,13 @@ Order Background Check Request
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.order_background_check_request(ats_create_background_check_order_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto.new(
   application: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication.new(
     application_status: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus.new(
@@ -3264,16 +3117,13 @@ Reject Application
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.reject_application(ats_reject_application_request_dto=::StackOne::Shared::AtsRejectApplicationRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
@@ -3310,16 +3160,13 @@ Update an Application
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(
   application_status: ::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
     source_value: "Hired",
@@ -3373,16 +3220,13 @@ Update an Application Note
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.update_application_note(ats_update_notes_request_dto=::StackOne::Shared::AtsUpdateNotesRequestDto.new(
   author_id: "1234567890",
   content: [
@@ -3426,16 +3270,13 @@ Update Assessments Result
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_request_dto=::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto.new(
   attachments: [
     ::StackOne::Shared::Attachment.new(
@@ -3490,6 +3331,56 @@ end
 
 
 
+## update_background_check_package
+
+Update Background Check Package
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.ats.update_background_check_package(ats_update_background_check_packages_request_dto=::StackOne::Shared::AtsUpdateBackgroundCheckPackagesRequestDto.new(
+  description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+  name: "Test 1",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  tests: [
+    ::StackOne::Shared::UpdatePackage.new(
+      description: "Skills test to gauge a candidate's proficiency in job-specific skills",
+      name: "Test 1",
+    ),
+  ],
+), id="<id>", x_account_id="<id>")
+
+if ! res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_update_background_check_packages_request_dto`                                                                                  | [::StackOne::Shared::AtsUpdateBackgroundCheckPackagesRequestDto](../../models/shared/atsupdatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                                  | N/A                                                                                                                                 |
+| `id`                                                                                                                                | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | N/A                                                                                                                                 |
+| `x_account_id`                                                                                                                      | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | The account identifier                                                                                                              |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::AtsUpdateBackgroundCheckPackageResponse)](../../models/operations/atsupdatebackgroundcheckpackageresponse.md)**
+
+
+
 ## update_background_check_result
 
 Update Background Check Result
@@ -3499,16 +3390,13 @@ Update Background Check Result
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.update_background_check_result(ats_update_background_check_result_request_dto=::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDto.new(
   attachments: [
     ::StackOne::Shared::Attachment.new(
@@ -3572,16 +3460,13 @@ Update Candidate
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared::AtsUpdateCandidateRequestDto.new(
   application_ids: [
     "123e4567-e89b-12d3-a456-426614174000",
@@ -3660,16 +3545,13 @@ Update Job
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJobRequestDto.new(
   code: "184919",
   custom_fields: [
@@ -3757,16 +3639,13 @@ Upload Application Document
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.ats.upload_application_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
   category: ::StackOne::Shared::UnifiedUploadRequestDtoCategory.new(
     source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",

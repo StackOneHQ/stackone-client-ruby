@@ -20,6 +20,8 @@ module StackOne
 
       field :label, T.nilable(::StackOne::Shared::Label), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
+      field :metadata, T.nilable(::StackOne::Shared::PatchAccountExternalDtoMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
+
       field :origin_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
 
       field :origin_owner_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
@@ -33,12 +35,13 @@ module StackOne
       field :setup_information, T.nilable(::StackOne::Shared::PatchAccountExternalDtoSetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
 
 
-      sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(::StackOne::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(::StackOne::Shared::Label), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(::StackOne::Shared::Secrets), setup_information: T.nilable(::StackOne::Shared::PatchAccountExternalDtoSetupInformation)).void }
-      def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil)
+      sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(::StackOne::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(::StackOne::Shared::Label), metadata: T.nilable(::StackOne::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(::StackOne::Shared::Secrets), setup_information: T.nilable(::StackOne::Shared::PatchAccountExternalDtoSetupInformation)).void }
+      def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil)
         @authentication_config_key = authentication_config_key
         @credentials = credentials
         @environment = environment
         @label = label
+        @metadata = metadata
         @origin_owner_id = origin_owner_id
         @origin_owner_name = origin_owner_name
         @origin_username = origin_username

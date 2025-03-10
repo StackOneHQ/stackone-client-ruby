@@ -19,6 +19,7 @@ IAM: The documentation for the StackOne Unified API - IAM
 * [stackone_client](#stackoneclient)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Server Selection](#server-selection)
 * [Development](#development)
@@ -45,26 +46,23 @@ gem install stackone_client
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::HrisListEmployeesRequest.new(
-  expand: "company,employments,work_location,home_location,groups",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers",
+  expand: "company,employments,work_location,home_location,groups,skills",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
   filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
 )
-    
+
 res = s.hris.list_employees(req)
 
 if ! res.employees_paginated.nil?
@@ -73,6 +71,37 @@ end
 
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name                      | Type | Scheme     |
+| ------------------------- | ---- | ---------- |
+| `username`<br/>`password` | http | HTTP Basic |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.accounts.delete_account(id="<id>")
+
+if ! res.linked_account.nil?
+  # handle response
+end
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -97,6 +126,7 @@ end
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
 * [create_job](docs/sdks/ats/README.md#create_job) - Create Job
 * [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
+* [delete_background_check_package](docs/sdks/ats/README.md#delete_background_check_package) - Delete Background Check Package
 * [download_application_document](docs/sdks/ats/README.md#download_application_document) - Download Application Document
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
 * [get_application_custom_field_definition](docs/sdks/ats/README.md#get_application_custom_field_definition) - Get Application Custom Field Definition
@@ -156,6 +186,7 @@ end
 * [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
 * [update_application_note](docs/sdks/ats/README.md#update_application_note) - Update an Application Note
 * [update_assessments_result](docs/sdks/ats/README.md#update_assessments_result) - Update Assessments Result
+* [update_background_check_package](docs/sdks/ats/README.md#update_background_check_package) - Update Background Check Package
 * [update_background_check_result](docs/sdks/ats/README.md#update_background_check_result) - Update Background Check Result
 * [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
@@ -203,6 +234,7 @@ end
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](docs/sdks/hris/README.md#get_employee_employment) - Get Employee Employment
+* [get_employee_skill](docs/sdks/hris/README.md#get_employee_skill) - Get Employee Skill
 * [get_employee_time_off_balance](docs/sdks/hris/README.md#get_employee_time_off_balance) - Get Employee Time Off Balance
 * [get_employees_time_off_request](docs/sdks/hris/README.md#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](docs/sdks/hris/README.md#get_employees_work_eligibility) - Get Employees Work Eligibility
@@ -224,6 +256,7 @@ end
 * [list_employee_custom_field_definitions](docs/sdks/hris/README.md#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_employments](docs/sdks/hris/README.md#list_employee_employments) - List Employee Employments
+* [list_employee_skills](docs/sdks/hris/README.md#list_employee_skills) - List Employee Skills
 * [list_employee_time_off_balances](docs/sdks/hris/README.md#list_employee_time_off_balances) - List Employee Time Off Balances
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](docs/sdks/hris/README.md#list_employee_work_eligibility) - List Employee Work Eligibility
@@ -330,18 +363,14 @@ The default server can be overridden globally by passing a URL to the `server_ur
 ```ruby
 require 'stackone_client'
 
-
 s = ::StackOne::StackOne.new(
       server_url: "https://api.stackone.com",
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
     )
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
 
-    
 res = s.accounts.delete_account(id="<id>")
 
 if ! res.linked_account.nil?

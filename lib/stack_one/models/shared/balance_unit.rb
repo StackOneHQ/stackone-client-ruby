@@ -13,7 +13,7 @@ module StackOne
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The unified value for the duration unit of the time off balance. If the provider does not specify this unit, the value will be set to unknown
+      # The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
       field :value, T.nilable(::StackOne::Shared::TimeOffBalancesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::TimeOffBalancesValue, true) } }
 
 

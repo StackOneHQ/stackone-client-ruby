@@ -41,16 +41,13 @@ Create Content Block
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.create_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
@@ -89,16 +86,13 @@ Create Email Templates
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::EmailMessages.new(
@@ -143,16 +137,13 @@ Create In-App Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.create_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::InAppMessages.new(
@@ -199,16 +190,13 @@ Create Omni-Channel Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::CreateMessage.new(
@@ -252,16 +240,13 @@ Create Push Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::PushMessages.new(
@@ -306,16 +291,13 @@ Create SMS Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::SmsMessages.new(
@@ -360,22 +342,19 @@ Get campaign
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetCampaignRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_campaign(req)
 
 if ! res.campaign_result.nil?
@@ -405,22 +384,19 @@ Get Content Blocks
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetContentBlockRequest.new(
   fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_content_block(req)
 
 if ! res.content_block_result.nil?
@@ -450,22 +426,19 @@ Get Email Templates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_email_template(req)
 
 if ! res.email_template_result.nil?
@@ -495,22 +468,19 @@ Get In-App Template
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetInAppTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_in_app_template(req)
 
 if ! res.in_app_template_result.nil?
@@ -542,22 +512,19 @@ Get Omni-Channel Template
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetOmniChannelTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_omni_channel_template(req)
 
 if ! res.template_result.nil?
@@ -587,22 +554,19 @@ Get Push Template
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetPushTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_push_template(req)
 
 if ! res.push_template_result.nil?
@@ -632,22 +596,19 @@ Get SMS Template
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingGetSmsTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.get_sms_template(req)
 
 if ! res.sms_template_result.nil?
@@ -677,15 +638,12 @@ List campaigns
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListCampaignsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
@@ -694,7 +652,7 @@ req = ::StackOne::Operations::MarketingListCampaignsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_campaigns(req)
 
 if ! res.campaigns_paginated.nil?
@@ -724,15 +682,12 @@ List Content Blocks
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListContentBlocksRequest.new(
   fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
@@ -741,7 +696,7 @@ req = ::StackOne::Operations::MarketingListContentBlocksRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_content_blocks(req)
 
 if ! res.content_blocks_paginated.nil?
@@ -771,15 +726,12 @@ List Email Templates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
@@ -788,7 +740,7 @@ req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_email_templates(req)
 
 if ! res.email_templates_paginated.nil?
@@ -818,15 +770,12 @@ List In-App Templates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListInAppTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
@@ -835,7 +784,7 @@ req = ::StackOne::Operations::MarketingListInAppTemplatesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_in_app_templates(req)
 
 if ! res.in_app_templates_paginated.nil?
@@ -867,15 +816,12 @@ List Omni-Channel Templates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
@@ -884,7 +830,7 @@ req = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_omni_channel_templates(req)
 
 if ! res.templates_paginated.nil?
@@ -914,15 +860,12 @@ List Push Templates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
@@ -931,7 +874,7 @@ req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_push_templates(req)
 
 if ! res.push_templates_paginated.nil?
@@ -961,15 +904,12 @@ List SMS Templates
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::MarketingListSmsTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
@@ -978,7 +918,7 @@ req = ::StackOne::Operations::MarketingListSmsTemplatesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.marketing.list_sms_templates(req)
 
 if ! res.sms_templates_paginated.nil?
@@ -1008,16 +948,13 @@ Update Content Block
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.update_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
@@ -1057,16 +994,13 @@ Update Email Templates
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::EmailMessages.new(
@@ -1112,16 +1046,13 @@ Update In-App Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.update_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::InAppMessages.new(
@@ -1169,16 +1100,13 @@ Update Omni-Channel Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::CreateMessage.new(
@@ -1223,16 +1151,13 @@ Update Push Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::PushMessages.new(
@@ -1278,16 +1203,13 @@ Update SMS Template
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
   messages: [
     ::StackOne::Shared::SmsMessages.new(

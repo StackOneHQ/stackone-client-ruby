@@ -33,8 +33,8 @@ module StackOne
       field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
       # The languages associated with this content
       field :languages, T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
-      # Localised content information
-      field :localisations, T.nilable(T::Array[::StackOne::Shared::LocalisationModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('localisations') } }
+      # The localization data for this course
+      field :localizations, T.nilable(T::Array[::StackOne::Shared::LocalizationModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('localizations') } }
       # The mobile friendly URL of the content
       field :mobile_launch_content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('mobile_launch_content_url') } }
       # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
@@ -55,8 +55,8 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(active: T.nilable(T::Boolean), additional_data: T.nilable(T::Array[::StackOne::Shared::AdditionalData]), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content_type: T.nilable(::StackOne::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), localisations: T.nilable(T::Array[::StackOne::Shared::LocalisationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(active: nil, additional_data: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localisations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+      sig { params(active: T.nilable(T::Boolean), additional_data: T.nilable(T::Array[::StackOne::Shared::AdditionalData]), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content_type: T.nilable(::StackOne::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), localizations: T.nilable(T::Array[::StackOne::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(active: nil, additional_data: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
         @active = active
         @additional_data = additional_data
         @categories = categories
@@ -68,7 +68,7 @@ module StackOne
         @duration = duration
         @external_reference = external_reference
         @languages = languages
-        @localisations = localisations
+        @localizations = localizations
         @mobile_launch_content_url = mobile_launch_content_url
         @order = order
         @short_description = short_description

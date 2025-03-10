@@ -29,14 +29,16 @@ module StackOne
       field :categories, T.nilable(T::Array[::StackOne::Shared::Categories]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
 
       field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+      # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
+      field :metadata, T.nilable(::StackOne::Shared::Metadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
 
       field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
       field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
 
 
-      sig { params(created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[::StackOne::Shared::Categories]), label: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
-      def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, account_id: nil, categories: nil, label: nil, origin_username: nil, provider: nil)
+      sig { params(created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[::StackOne::Shared::Categories]), label: T.nilable(::String), metadata: T.nilable(::StackOne::Shared::Metadata), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
+      def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, account_id: nil, categories: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
         @created_at = created_at
         @id = id
         @organization_id = organization_id
@@ -46,6 +48,7 @@ module StackOne
         @account_id = account_id
         @categories = categories
         @label = label
+        @metadata = metadata
         @origin_username = origin_username
         @provider = provider
       end

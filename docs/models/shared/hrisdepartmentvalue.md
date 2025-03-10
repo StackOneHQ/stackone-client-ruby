@@ -10,3 +10,4 @@
 | `DIVISION`   | division     |
 | `GROUP`      | group        |
 | `PROJECT`    | project      |
+| `TEAM`       | team         |

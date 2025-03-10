@@ -20,10 +20,10 @@ module StackOne
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::EntitySkillsCreateRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EntitySkillsCreateRequestDtoValue, true) } }
+      field :value, T.nilable(::StackOne::Shared::EntitySkillsSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EntitySkillsSchemasValue, true) } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EntitySkillsCreateRequestDtoValue)).void }
+      sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EntitySkillsSchemasValue)).void }
       def initialize(id: nil, name: nil, remote_id: nil, source_value: nil, value: nil)
         @id = id
         @name = name
