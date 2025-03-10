@@ -23,15 +23,12 @@ Get Group
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamGetGroupRequest.new(
   expand: "roles",
@@ -39,7 +36,7 @@ req = ::StackOne::Operations::IamGetGroupRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.get_group(req)
 
 if ! res.iam_group_result.nil?
@@ -69,15 +66,12 @@ Get Policy
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamGetPolicyRequest.new(
   expand: "permissions",
@@ -85,7 +79,7 @@ req = ::StackOne::Operations::IamGetPolicyRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.get_policy(req)
 
 if ! res.iam_policy_result.nil?
@@ -115,15 +109,12 @@ Get Role
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamGetRoleRequest.new(
   expand: "policies",
@@ -131,7 +122,7 @@ req = ::StackOne::Operations::IamGetRoleRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.get_role(req)
 
 if ! res.iam_role_result.nil?
@@ -161,15 +152,12 @@ Get User
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamGetUserRequest.new(
   expand: "roles,groups",
@@ -177,7 +165,7 @@ req = ::StackOne::Operations::IamGetUserRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.get_user(req)
 
 if ! res.iam_user_result.nil?
@@ -207,15 +195,12 @@ List Groups
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamListGroupsRequest.new(
   expand: "roles",
@@ -225,7 +210,7 @@ req = ::StackOne::Operations::IamListGroupsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.list_groups(req)
 
 if ! res.iam_groups_paginated.nil?
@@ -255,15 +240,12 @@ List Policies
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamListPoliciesRequest.new(
   expand: "permissions",
@@ -273,7 +255,7 @@ req = ::StackOne::Operations::IamListPoliciesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.list_policies(req)
 
 if ! res.iam_policies_paginated.nil?
@@ -303,15 +285,12 @@ List Roles
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamListRolesRequest.new(
   expand: "policies",
@@ -321,7 +300,7 @@ req = ::StackOne::Operations::IamListRolesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.list_roles(req)
 
 if ! res.iam_roles_paginated.nil?
@@ -351,15 +330,12 @@ List Users
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::IamListUsersRequest.new(
   expand: "roles,groups",
@@ -369,7 +345,7 @@ req = ::StackOne::Operations::IamListUsersRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.iam.list_users(req)
 
 if ! res.iam_users_paginated.nil?

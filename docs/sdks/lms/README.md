@@ -42,16 +42,13 @@ Batch Upsert Content
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne::Shared::LmsBatchUpsertContentRequestDto.new(
   items: [
     ::StackOne::Shared::LmsUpsertContentRequestDto.new(
@@ -87,10 +84,14 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=::StackOne
           value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
         ),
       ],
-      localisations: [
-        ::StackOne::Shared::LocalisationModel.new(
-          description: "This video acts as learning content for software engineers.",
+      localizations: [
+        ::StackOne::Shared::LocalizationModel.new(
+          description: "This course acts as learning resource for software engineers.",
           title: "Software Engineer Lv 1",
+        ),
+        ::StackOne::Shared::LocalizationModel.new(
+          description: "This course acts as learning resource for software engineers.",
+          title: "Software Engineer: A comprehensive guide",
         ),
       ],
       mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
@@ -143,16 +144,13 @@ Batch Upsert Course
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::Shared::LmsBatchUpsertCourseRequestDto.new(
   items: [
     ::StackOne::Shared::LmsUpsertCourseRequestDto.new(
@@ -187,6 +185,16 @@ res = s.lms.batch_upsert_course(lms_batch_upsert_course_request_dto=::StackOne::
       languages: [
         ::StackOne::Shared::LanguageEnum.new(
           value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
+        ),
+      ],
+      localizations: [
+        ::StackOne::Shared::LocalizationModel.new(
+          description: "This course acts as learning resource for software engineers.",
+          title: "Software Engineer Lv 1",
+        ),
+        ::StackOne::Shared::LocalizationModel.new(
+          description: "This course acts as learning resource for software engineers.",
+          title: "Software Engineer: A comprehensive guide",
         ),
       ],
       skills: [
@@ -236,16 +244,13 @@ Create Collection
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.create_collection(lms_create_collection_request_dto=::StackOne::Shared::LmsCreateCollectionRequestDto.new(
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
@@ -315,16 +320,13 @@ Create User Assignment
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.create_user_assignment(lms_create_assignment_request_dto=::StackOne::Shared::LmsCreateAssignmentRequestDto.new(
   created_at: "2021-07-21T14:00:00.000Z",
   due_date: "2021-07-21T14:00:00.000Z",
@@ -368,16 +370,13 @@ Create User Completion
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.create_user_completion(lms_create_completion_request_dto=::StackOne::Shared::LmsCreateCompletionRequestDto.new(
   completed_at: "2021-07-21T14:00:00.000Z",
   learning_object_external_reference: "learning-content-123",
@@ -416,16 +415,13 @@ Delete User Completion
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.delete_user_completion(id="<id>", sub_resource_id="<id>", x_account_id="<id>")
 
 if ! res.delete_result.nil?
@@ -457,21 +453,18 @@ Get Assignment
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetAssignmentRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_assignment(req)
 
 if ! res.assignment_result.nil?
@@ -501,22 +494,19 @@ Get Category
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetCategoryRequest.new(
   fields_: "id,remote_id,name,active,hierarchy,level,language",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_category(req)
 
 if ! res.category_result.nil?
@@ -546,21 +536,18 @@ Get Completion
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetCompletionRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_completion(req)
 
 if ! res.completion_result.nil?
@@ -590,22 +577,19 @@ Get Content
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localisations,tags",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_content(req)
 
 if ! res.content_result.nil?
@@ -635,22 +619,19 @@ Get Course
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetCourseRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_course(req)
 
 if ! res.course_result.nil?
@@ -680,22 +661,19 @@ Get Skill
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetSkillRequest.new(
   fields_: "id,remote_id,name,active,hierarchy,language",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_skill(req)
 
 if ! res.skill_result.nil?
@@ -725,22 +703,19 @@ Get User
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetUserRequest.new(
   fields_: "id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_user(req)
 
 if ! res.user_result.nil?
@@ -770,22 +745,19 @@ Get User Assignment
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetUserAssignmentRequest.new(
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_user_assignment(req)
 
 if ! res.assignment_result.nil?
@@ -815,22 +787,19 @@ Get User Completion
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsGetUserCompletionRequest.new(
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.get_user_completion(req)
 
 if ! res.completion_result.nil?
@@ -860,15 +829,12 @@ List Assignments
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
   fields_: "id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
@@ -879,7 +845,7 @@ req = ::StackOne::Operations::LmsListAssignmentsRequest.new(
   user_id: "c28xyrc55866bvuv",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_assignments(req)
 
 if ! res.assignments_paginated.nil?
@@ -909,15 +875,12 @@ List Categories
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListCategoriesRequest.new(
   fields_: "id,remote_id,name,active,hierarchy,level,language",
@@ -926,7 +889,7 @@ req = ::StackOne::Operations::LmsListCategoriesRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_categories(req)
 
 if ! res.categories_paginated.nil?
@@ -956,15 +919,12 @@ List Completions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListCompletionsRequest.new(
   fields_: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
@@ -973,7 +933,7 @@ req = ::StackOne::Operations::LmsListCompletionsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_completions(req)
 
 if ! res.completions_paginated.nil?
@@ -1003,24 +963,21 @@ List Content
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localisations,tags",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags",
   filter: ::StackOne::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_content(req)
 
 if ! res.content_paginated.nil?
@@ -1050,24 +1007,21 @@ List Courses
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListCoursesRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations",
   filter: ::StackOne::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_courses(req)
 
 if ! res.course_paginated.nil?
@@ -1097,15 +1051,12 @@ List Skills
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListSkillsRequest.new(
   fields_: "id,remote_id,name,active,hierarchy,language",
@@ -1114,7 +1065,7 @@ req = ::StackOne::Operations::LmsListSkillsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_skills(req)
 
 if ! res.skills_paginated.nil?
@@ -1144,15 +1095,12 @@ List User Assignments
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(
   fields_: "id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
@@ -1164,7 +1112,7 @@ req = ::StackOne::Operations::LmsListUserAssignmentsRequest.new(
   user_id: "c28xyrc55866bvuv",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_user_assignments(req)
 
 if ! res.assignments_paginated.nil?
@@ -1194,15 +1142,12 @@ List User Completions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
   fields_: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference",
@@ -1212,7 +1157,7 @@ req = ::StackOne::Operations::LmsListUserCompletionsRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_user_completions(req)
 
 if ! res.completions_paginated.nil?
@@ -1242,15 +1187,12 @@ List Users
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::LmsListUsersRequest.new(
   fields_: "id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name",
@@ -1259,7 +1201,7 @@ req = ::StackOne::Operations::LmsListUsersRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.lms.list_users(req)
 
 if ! res.users_paginated.nil?
@@ -1289,16 +1231,13 @@ Update Collection
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.update_collection(lms_create_collection_request_dto=::StackOne::Shared::LmsCreateCollectionRequestDto.new(
   categories: [
     ::StackOne::Shared::CreateCategoriesApiModel.new(
@@ -1369,16 +1308,13 @@ Upsert Content
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::LmsUpsertContentRequestDto.new(
   active: true,
   additional_data: [
@@ -1412,10 +1348,14 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=::StackOne::Shared::Lm
       value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
     ),
   ],
-  localisations: [
-    ::StackOne::Shared::LocalisationModel.new(
-      description: "This video acts as learning content for software engineers.",
+  localizations: [
+    ::StackOne::Shared::LocalizationModel.new(
+      description: "This course acts as learning resource for software engineers.",
       title: "Software Engineer Lv 1",
+    ),
+    ::StackOne::Shared::LocalizationModel.new(
+      description: "This course acts as learning resource for software engineers.",
+      title: "Software Engineer: A comprehensive guide",
     ),
   ],
   mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
@@ -1466,16 +1406,13 @@ Upsert Course
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsUpsertCourseRequestDto.new(
   active: true,
   categories: [
@@ -1508,6 +1445,16 @@ res = s.lms.upsert_course(lms_upsert_course_request_dto=::StackOne::Shared::LmsU
   languages: [
     ::StackOne::Shared::LanguageEnum.new(
       value: ::StackOne::Shared::LanguageEnumValue::EN_GB,
+    ),
+  ],
+  localizations: [
+    ::StackOne::Shared::LocalizationModel.new(
+      description: "This course acts as learning resource for software engineers.",
+      title: "Software Engineer Lv 1",
+    ),
+    ::StackOne::Shared::LocalizationModel.new(
+      description: "This course acts as learning resource for software engineers.",
+      title: "Software Engineer: A comprehensive guide",
     ),
   ],
   skills: [

@@ -20,16 +20,13 @@ Delete Account
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.accounts.delete_account(id="<id>")
 
 if ! res.linked_account.nil?
@@ -59,16 +56,13 @@ Get Account
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.accounts.get_account(id="<id>")
 
 if ! res.linked_account.nil?
@@ -98,16 +92,13 @@ Get meta information of the account
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.accounts.get_account_meta_info(id="<id>")
 
 if ! res.linked_account_meta.nil?
@@ -137,18 +128,15 @@ List Accounts
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::StackoneListLinkedAccountsRequest.new()
-    
+
 res = s.accounts.list_linked_accounts(req)
 
 if ! res.linked_accounts.nil?
@@ -178,16 +166,13 @@ Update Account
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.accounts.update_account(patch_account_external_dto=::StackOne::Shared::PatchAccountExternalDto.new(), id="<id>")
 
 if ! res.linked_account.nil?

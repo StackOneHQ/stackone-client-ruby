@@ -33,14 +33,16 @@ module StackOne
       field :categories, T.nilable(T::Array[::StackOne::Shared::ConnectSessionTokenAuthLinkCategories]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
 
       field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+      # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
+      field :metadata, T.nilable(::StackOne::Shared::ConnectSessionTokenAuthLinkMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
 
       field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
       field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
 
 
-      sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[::StackOne::Shared::ConnectSessionTokenAuthLinkCategories]), label: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
-      def initialize(auth_link_url: nil, created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, token: nil, account_id: nil, categories: nil, label: nil, origin_username: nil, provider: nil)
+      sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[::StackOne::Shared::ConnectSessionTokenAuthLinkCategories]), label: T.nilable(::String), metadata: T.nilable(::StackOne::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
+      def initialize(auth_link_url: nil, created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, token: nil, account_id: nil, categories: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
         @auth_link_url = auth_link_url
         @created_at = created_at
         @id = id
@@ -52,6 +54,7 @@ module StackOne
         @account_id = account_id
         @categories = categories
         @label = label
+        @metadata = metadata
         @origin_username = origin_username
         @provider = provider
       end

@@ -17,20 +17,17 @@ Authenticate Connect Session
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Shared::ConnectSessionAuthenticate.new(
   token: "<value>",
 )
-    
+
 res = s.connect_sessions.authenticate_connect_session(req)
 
 if ! res.connect_session.nil?
@@ -60,15 +57,12 @@ Create Connect Session
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Shared::ConnectSessionCreate.new(
   categories: [
@@ -85,7 +79,7 @@ req = ::StackOne::Shared::ConnectSessionCreate.new(
   origin_owner_id: "<id>",
   origin_owner_name: "<value>",
 )
-    
+
 res = s.connect_sessions.create_connect_session(req)
 
 if ! res.connect_session_token_auth_link.nil?

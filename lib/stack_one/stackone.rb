@@ -16,24 +16,23 @@ module StackOne
     attr_accessor :accounts, :connect_sessions, :connectors, :ats, :crm, :hris, :iam, :lms, :marketing, :proxy
 
     sig do
-      params(client: Faraday::Request,
-             security: T.nilable(Shared::Security),
-             server_idx: Integer,
-             server_url: String,
-             url_params: T::Hash[Symbol, String]).void
+      params(
+        client: T.nilable(Faraday::Request),
+        security: T.nilable(::StackOne::Shared::Security),
+        security_source: T.nilable(T.proc.returns(::StackOne::Shared::Security)),
+        server_idx: T.nilable(Integer),
+        server_url: T.nilable(String),
+        url_params: T.nilable(T::Hash[Symbol, String])
+      ).void
     end
-    def initialize(client: nil,
-                   security: nil,
-                   server_idx: nil,
-                   server_url: nil,
-                   url_params: nil)
-
+    def initialize(client: nil, security: nil, security_source: nil, server_idx: nil, server_url: nil, url_params: nil)
       ## Instantiates the SDK configuring it with the provided parameters.
-      # @param [Faraday::Request] client The faraday HTTP client to use for all operations
-      # @param [Shared::Security] security The security details required for authentication
-      # @param [::Integer] server_idx The index of the server to use for all operations
-      # @param [::String] server_url The server URL to use for all operations
-      # @param [::Hash<::Symbol, ::String>] url_params Parameters to optionally template the server URL with
+      # @param [T.nilable(Faraday::Request)] client The faraday HTTP client to use for all operations
+      # @param [T.nilable(::StackOne::Shared::Security)] security: The security details required for authentication
+      # @param [T.proc.returns(T.nilable(::StackOne::Shared::Security))] security_source: A function that returns security details required for authentication
+      # @param [T.nilable(::Integer)] server_idx The index of the server to use for all operations
+      # @param [T.nilable(::String)] server_url The server URL to use for all operations
+      # @param [T.nilable(::Hash<::Symbol, ::String>)] url_params Parameters to optionally template the server URL with
 
       if client.nil?
         client = Faraday.new(request: {
@@ -49,28 +48,16 @@ module StackOne
           server_url = Utils.template_url(server_url, url_params)
         end
       end
+
       server_idx = 0 if server_idx.nil?
-
-      @sdk_configuration = SDKConfiguration.new(client, security, server_url, server_idx)
+      @sdk_configuration = SDKConfiguration.new(
+        client,
+        security,
+        security_source,
+        server_url,
+        server_idx
+      )
       init_sdks
-    end
-
-    sig { params(server_url: String).void }
-    def config_server_url(server_url)
-      @sdk_configuration.server_url = server_url
-      init_sdks
-    end
-
-    sig { params(server_idx: Integer).void }
-    def config_server(server_idx)
-      raise StandardError, "Invalid server index #{server_idx}" if server_idx.negative? || server_idx >= SERVERS.length
-      @sdk_configuration.server_idx = server_idx
-      init_sdks
-    end
-
-    sig { params(security: ::StackOne::Shared::Security).void }
-    def config_security(security)
-      @sdk_configuration.security = security
     end
 
     sig { void }

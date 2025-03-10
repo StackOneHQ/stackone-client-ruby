@@ -17,16 +17,13 @@ Get Connector Meta information for the given provider key
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.connectors.get_connector_meta(provider="<value>", include="field_path,unmapped_fields,resources,inactive,webhooks,static_fields")
 
 if ! res.connectors_meta.nil?
@@ -57,16 +54,13 @@ List Connectors Meta Information for all providers
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.connectors.list_connectors_meta(include="field_path,unmapped_fields,resources,inactive,webhooks,static_fields")
 
 if ! res.connectors_metas.nil?

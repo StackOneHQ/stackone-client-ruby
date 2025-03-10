@@ -1,4 +1,4 @@
-# LocalisationModelValue
+# EntitySkillsValue
 
 The Locale Code of the language
 

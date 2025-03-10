@@ -25,16 +25,13 @@ Creates a new Contact
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.crm.create_contact(crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(
   account_ids: [
     "account-123",
@@ -96,22 +93,19 @@ Get Account
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmGetAccountRequest.new(
   fields_: "id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.get_account(req)
 
 if ! res.account_result.nil?
@@ -141,15 +135,12 @@ Get Contact
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmGetContactRequest.new(
   fields_: "id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at",
@@ -157,7 +148,7 @@ req = ::StackOne::Operations::CrmGetContactRequest.new(
   include: "custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.get_contact(req)
 
 if ! res.contact_result.nil?
@@ -187,15 +178,12 @@ Get Contact Custom Field Definition
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -205,7 +193,7 @@ req = ::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.get_contact_custom_field_definition(req)
 
 if ! res.custom_field_definition_result_api_model.nil?
@@ -235,22 +223,19 @@ Get List
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmGetListRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
   id: "<id>",
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.get_list(req)
 
 if ! res.list_result.nil?
@@ -280,15 +265,12 @@ List Accounts
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmListAccountsRequest.new(
   fields_: "id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
@@ -297,7 +279,7 @@ req = ::StackOne::Operations::CrmListAccountsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.list_accounts(req)
 
 if ! res.accounts_paginated.nil?
@@ -327,15 +309,12 @@ List Contact Custom Field Definitions
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
@@ -344,7 +323,7 @@ req = ::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.list_contact_custom_field_definitions(req)
 
 if ! res.custom_field_definitions_paginated.nil?
@@ -374,15 +353,12 @@ List Contacts
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmListContactsRequest.new(
   fields_: "id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at",
@@ -392,7 +368,7 @@ req = ::StackOne::Operations::CrmListContactsRequest.new(
   include: "custom_fields",
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.list_contacts(req)
 
 if ! res.contacts_paginated.nil?
@@ -422,15 +398,12 @@ Get all Lists
 ```ruby
 require 'stackone_client'
 
-
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
 req = ::StackOne::Operations::CrmListListsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
@@ -439,7 +412,7 @@ req = ::StackOne::Operations::CrmListListsRequest.new(
   ),
   x_account_id: "<id>",
 )
-    
+
 res = s.crm.list_lists(req)
 
 if ! res.lists_paginated.nil?
@@ -469,16 +442,13 @@ Update Contact (early access)
 ```ruby
 require 'stackone_client'
 
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
 
-s = ::StackOne::StackOne.new
-s.config_security(
-  ::StackOne::Shared::Security.new(
-    password: "",
-    username: "",
-  )
-)
-
-    
 res = s.crm.update_contact(crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(
   account_ids: [
     "account-123",

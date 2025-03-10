@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-    # TimeOffBalancesValue - The unified value for the duration unit of the time off balance. If the provider does not specify this unit, the value will be set to unknown
+    # TimeOffBalancesValue - The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
     class TimeOffBalancesValue < T::Enum
       enums do
         MINUTES = new('minutes')
