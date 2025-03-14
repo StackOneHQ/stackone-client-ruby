@@ -19,7 +19,7 @@ module StackOne
       field :raw_response, ::Faraday::Response
       # HTTP response status code for this operation
       field :status_code, ::Integer
-      # The list of Locations was retrieved.
+      # The list of work locations was retrieved.
       field :hris_locations_paginated, T.nilable(::StackOne::Shared::HRISLocationsPaginated)
 
 

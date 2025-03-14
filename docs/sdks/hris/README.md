@@ -29,7 +29,7 @@
 * [get_employment](#get_employment) - Get Employment
 * [get_group](#get_group) - Get Group
 * [get_job](#get_job) - Get Job
-* [get_location](#get_location) - Get Location
+* [get_location](#get_location) - Get Work Location
 * [get_team_group](#get_team_group) - Get Team Group
 * [get_time_entries](#get_time_entries) - Get Time Entry
 * [get_time_off_policy](#get_time_off_policy) - Get Time Off Policy
@@ -52,7 +52,7 @@
 * [list_employments](#list_employments) - List Employments
 * [list_groups](#list_groups) - List Groups
 * [list_jobs](#list_jobs) - List Jobs
-* [list_locations](#list_locations) - List locations
+* [list_locations](#list_locations) - List Work Locations
 * [list_team_groups](#list_team_groups) - List Team Groups
 * [list_time_entries](#list_time_entries) - List Time Entries
 * [list_time_off_policies](#list_time_off_policies) - List Time Off Policies
@@ -178,28 +178,24 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   department_id: "3093",
   display_name: "Sir Issac Newton",
   employee_number: "125",
+  employment: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
+    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType.new(),
+    employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType.new(),
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    job_title: "Software Engineer",
+    pay_currency: "USD",
+    pay_frequency: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPayFrequency.new(),
+    pay_period: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPayPeriod.new(),
+    pay_rate: "40.00",
+    time_worked: "P0Y0M0DT8H0M0S",
+    unified_custom_fields: {
+      "my_project_custom_field_1": "REF-1236",
+      "my_project_custom_field_2": "some other value",
+    },
+  ),
   employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
   employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
-  employments: [
-    ::StackOne::Shared::CreateEmploymentApiModel.new(
-      effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      employee_id: "1687-3",
-      employment_contract_type: ::StackOne::Shared::EmploymentContractType.new(),
-      employment_type: ::StackOne::Shared::EmploymentType.new(),
-      id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      job_title: "Software Engineer",
-      pay_currency: "USD",
-      pay_frequency: ::StackOne::Shared::PayFrequency.new(),
-      pay_period: ::StackOne::Shared::PayPeriod.new(),
-      pay_rate: "40.00",
-      time_worked: "P0Y0M0DT8H0M0S",
-      unified_custom_fields: {
-        "my_project_custom_field_1": "REF-1236",
-        "my_project_custom_field_2": "some other value",
-      },
-    ),
-  ],
   ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
   first_name: "Issac",
   gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
@@ -244,9 +240,8 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   personal_phone_number: "+1234567890",
   preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  tenure: 2.0,
+  team_id: "2913",
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
-  work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
   work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
@@ -303,8 +298,6 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.hris.create_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
-  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  employee_id: "1687-3",
   employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
   employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -1291,7 +1284,7 @@ end
 
 ## get_location
 
-Get Location
+Get Work Location
 
 ### Example Usage
 
@@ -2300,7 +2293,7 @@ end
 
 ## list_locations
 
-List locations
+List Work Locations
 
 ### Example Usage
 
@@ -2615,6 +2608,21 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   department_id: "3093",
   display_name: "Sir Issac Newton",
   employee_number: "125",
+  employment: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmployment.new(
+    employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType.new(),
+    employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType.new(),
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    job_title: "Software Engineer",
+    pay_currency: "USD",
+    pay_frequency: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPayFrequency.new(),
+    pay_period: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPayPeriod.new(),
+    pay_rate: "40.00",
+    time_worked: "P0Y0M0DT8H0M0S",
+    unified_custom_fields: {
+      "my_project_custom_field_1": "REF-1236",
+      "my_project_custom_field_2": "some other value",
+    },
+  ),
   employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
   employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
@@ -2662,9 +2670,8 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   personal_phone_number: "+1234567890",
   preferred_language: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  tenure: 2.0,
+  team_id: "2913",
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
-  work_anniversary: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
   work_location: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
@@ -2722,8 +2729,6 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.hris.update_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
-  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  employee_id: "1687-3",
   employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
   employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",

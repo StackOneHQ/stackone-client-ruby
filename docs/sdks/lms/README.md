@@ -337,7 +337,7 @@ res = s.lms.create_user_assignment(lms_create_assignment_request_dto=::StackOne:
   },
   progress: 40,
   status: ::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus.new(
-    value: ::StackOne::Shared::LmsCreateAssignmentRequestDtoValue::PENDING,
+    value: ::StackOne::Shared::LmsCreateAssignmentRequestDtoValue::IN_PROGRESS,
   ),
 ), id="<id>", x_account_id="<id>")
 

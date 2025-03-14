@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(proxy_request_body: ::StackOne::Shared::ProxyRequestBody, x_account_id: ::String).returns(::StackOne::Operations::StackoneProxyRequestResponse) }
-    def proxy_request(proxy_request_body, x_account_id)
+    sig { params(proxy_request_body: ::StackOne::Shared::ProxyRequestBody, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneProxyRequestResponse) }
+    def proxy_request(proxy_request_body, x_account_id, retries = nil)
       # proxy_request - Proxy Request
       request = ::StackOne::Operations::StackoneProxyRequestRequest.new(
         
@@ -36,8 +38,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = '*/*'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?

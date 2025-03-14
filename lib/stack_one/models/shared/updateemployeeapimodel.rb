@@ -39,6 +39,8 @@ module StackOne
       field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
       # The assigned employee number
       field :employee_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_number') } }
+      # The employee employment
+      field :employment, T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmployment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment') } }
       # The employment work schedule type (e.g., full-time, part-time)
       field :employment_contract_type, T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
       # The employee employment status
@@ -81,12 +83,10 @@ module StackOne
       field :preferred_language, T.nilable(::StackOne::Shared::UpdateEmployeeApiModelPreferredLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preferred_language') } }
       # The employee start date
       field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee tenure
-      field :tenure, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tenure') } }
+      # The employee team id
+      field :team_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('team_id') } }
       # The employee termination date
       field :termination_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee work anniversary
-      field :work_anniversary, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_anniversary'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The employee work email
       field :work_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
       # The employee work location
@@ -95,8 +95,8 @@ module StackOne
       field :work_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(avatar: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelAvatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[::StackOne::Shared::CreateHRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company_id: T.nilable(::String), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), department_id: T.nilable(::String), display_name: T.nilable(::String), employee_number: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentContractType), employment_status: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentStatus), employment_type: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentType), ethnicity: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEthnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelGender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelHomeLocation), job_id: T.nilable(::String), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelMaritalStatus), name: T.nilable(::String), national_identity_number: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelNationalIdentityNumber), national_identity_numbers: T.nilable(T::Array[::StackOne::Shared::NationalIdentityNumberApiModel]), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), preferred_language: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelPreferredLanguage), start_date: T.nilable(::DateTime), tenure: T.nilable(::Float), termination_date: T.nilable(::DateTime), work_anniversary: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelWorkLocation), work_phone_number: T.nilable(::String)).void }
-      def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company_id: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, department_id: nil, display_name: nil, employee_number: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_id: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, national_identity_number: nil, national_identity_numbers: nil, personal_email: nil, personal_phone_number: nil, preferred_language: nil, start_date: nil, tenure: nil, termination_date: nil, work_anniversary: nil, work_email: nil, work_location: nil, work_phone_number: nil)
+      sig { params(avatar: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelAvatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[::StackOne::Shared::CreateHRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company_id: T.nilable(::String), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), department_id: T.nilable(::String), display_name: T.nilable(::String), employee_number: T.nilable(::String), employment: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmployment), employment_contract_type: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentContractType), employment_status: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentStatus), employment_type: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEmploymentType), ethnicity: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelEthnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelGender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelHomeLocation), job_id: T.nilable(::String), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelMaritalStatus), name: T.nilable(::String), national_identity_number: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelNationalIdentityNumber), national_identity_numbers: T.nilable(T::Array[::StackOne::Shared::NationalIdentityNumberApiModel]), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), preferred_language: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelPreferredLanguage), start_date: T.nilable(::DateTime), team_id: T.nilable(::String), termination_date: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::UpdateEmployeeApiModelWorkLocation), work_phone_number: T.nilable(::String)).void }
+      def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company_id: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, department_id: nil, display_name: nil, employee_number: nil, employment: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_id: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, national_identity_number: nil, national_identity_numbers: nil, personal_email: nil, personal_phone_number: nil, preferred_language: nil, start_date: nil, team_id: nil, termination_date: nil, work_email: nil, work_location: nil, work_phone_number: nil)
         @avatar = avatar
         @avatar_url = avatar_url
         @benefits = benefits
@@ -110,6 +110,7 @@ module StackOne
         @department_id = department_id
         @display_name = display_name
         @employee_number = employee_number
+        @employment = employment
         @employment_contract_type = employment_contract_type
         @employment_status = employment_status
         @employment_type = employment_type
@@ -130,9 +131,8 @@ module StackOne
         @personal_phone_number = personal_phone_number
         @preferred_language = preferred_language
         @start_date = start_date
-        @tenure = tenure
+        @team_id = team_id
         @termination_date = termination_date
-        @work_anniversary = work_anniversary
         @work_email = work_email
         @work_location = work_location
         @work_phone_number = work_phone_number

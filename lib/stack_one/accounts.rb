@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String).returns(::StackOne::Operations::StackoneDeleteAccountResponse) }
-    def delete_account(id)
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneDeleteAccountResponse) }
+    def delete_account(id, retries = nil)
       # delete_account - Delete Account
       request = ::StackOne::Operations::StackoneDeleteAccountRequest.new(
         
@@ -37,8 +39,24 @@ module StackOne
       headers = {}
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.delete(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.delete(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -64,8 +82,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String).returns(::StackOne::Operations::StackoneGetAccountResponse) }
-    def get_account(id)
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneGetAccountResponse) }
+    def get_account(id, retries = nil)
       # get_account - Get Account
       request = ::StackOne::Operations::StackoneGetAccountRequest.new(
         
@@ -82,8 +100,24 @@ module StackOne
       headers = {}
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -109,8 +143,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String).returns(::StackOne::Operations::StackoneGetAccountMetaInfoResponse) }
-    def get_account_meta_info(id)
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneGetAccountMetaInfoResponse) }
+    def get_account_meta_info(id, retries = nil)
       # get_account_meta_info - Get meta information of the account
       request = ::StackOne::Operations::StackoneGetAccountMetaInfoRequest.new(
         
@@ -127,8 +161,24 @@ module StackOne
       headers = {}
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -154,8 +204,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::StackoneListLinkedAccountsRequest)).returns(::StackOne::Operations::StackoneListLinkedAccountsResponse) }
-    def list_linked_accounts(request)
+    sig { params(request: T.nilable(::StackOne::Operations::StackoneListLinkedAccountsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneListLinkedAccountsResponse) }
+    def list_linked_accounts(request, retries = nil)
       # list_linked_accounts - List Accounts
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -164,8 +214,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::StackoneListLinkedAccountsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -192,8 +258,8 @@ module StackOne
     end
 
 
-    sig { params(patch_account_external_dto: ::StackOne::Shared::PatchAccountExternalDto, id: ::String).returns(::StackOne::Operations::StackoneUpdateAccountResponse) }
-    def update_account(patch_account_external_dto, id)
+    sig { params(patch_account_external_dto: ::StackOne::Shared::PatchAccountExternalDto, id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneUpdateAccountResponse) }
+    def update_account(patch_account_external_dto, id, retries = nil)
       # update_account - Update Account
       request = ::StackOne::Operations::StackoneUpdateAccountRequest.new(
         
@@ -214,8 +280,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.patch(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?

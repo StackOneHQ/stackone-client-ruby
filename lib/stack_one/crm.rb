@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, x_account_id: ::String).returns(::StackOne::Operations::CrmCreateContactResponse) }
-    def create_contact(crm_create_contact_request_dto, x_account_id)
+    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmCreateContactResponse) }
+    def create_contact(crm_create_contact_request_dto, x_account_id, retries = nil)
       # create_contact - Creates a new Contact
       request = ::StackOne::Operations::CrmCreateContactRequest.new(
         
@@ -36,8 +38,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -70,8 +88,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetAccountRequest)).returns(::StackOne::Operations::CrmGetAccountResponse) }
-    def get_account(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetAccountRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmGetAccountResponse) }
+    def get_account(request, retries = nil)
       # get_account - Get Account
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -85,8 +103,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmGetAccountRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -113,8 +147,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactRequest)).returns(::StackOne::Operations::CrmGetContactResponse) }
-    def get_contact(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmGetContactResponse) }
+    def get_contact(request, retries = nil)
       # get_contact - Get Contact
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -128,8 +162,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmGetContactRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -156,8 +206,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest)).returns(::StackOne::Operations::CrmGetContactCustomFieldDefinitionResponse) }
-    def get_contact_custom_field_definition(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmGetContactCustomFieldDefinitionResponse) }
+    def get_contact_custom_field_definition(request, retries = nil)
       # get_contact_custom_field_definition - Get Contact Custom Field Definition
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -171,8 +221,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -199,8 +265,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmGetListRequest)).returns(::StackOne::Operations::CrmGetListResponse) }
-    def get_list(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmGetListRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmGetListResponse) }
+    def get_list(request, retries = nil)
       # get_list - Get List
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -214,8 +280,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmGetListRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -242,8 +324,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListAccountsRequest)).returns(::StackOne::Operations::CrmListAccountsResponse) }
-    def list_accounts(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListAccountsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmListAccountsResponse) }
+    def list_accounts(request, retries = nil)
       # list_accounts - List Accounts
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -252,8 +334,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmListAccountsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -280,8 +378,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest)).returns(::StackOne::Operations::CrmListContactCustomFieldDefinitionsResponse) }
-    def list_contact_custom_field_definitions(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmListContactCustomFieldDefinitionsResponse) }
+    def list_contact_custom_field_definitions(request, retries = nil)
       # list_contact_custom_field_definitions - List Contact Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -290,8 +388,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -318,8 +432,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactsRequest)).returns(::StackOne::Operations::CrmListContactsResponse) }
-    def list_contacts(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListContactsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmListContactsResponse) }
+    def list_contacts(request, retries = nil)
       # list_contacts - List Contacts
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -328,8 +442,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmListContactsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -356,8 +486,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::CrmListListsRequest)).returns(::StackOne::Operations::CrmListListsResponse) }
-    def list_lists(request)
+    sig { params(request: T.nilable(::StackOne::Operations::CrmListListsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmListListsResponse) }
+    def list_lists(request, retries = nil)
       # list_lists - Get all Lists
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -366,8 +496,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::CrmListListsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -394,8 +540,8 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::CrmUpdateContactResponse) }
-    def update_contact(crm_create_contact_request_dto, id, x_account_id)
+    sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::CrmUpdateContactResponse) }
+    def update_contact(crm_create_contact_request_dto, id, x_account_id, retries = nil)
       # update_contact - Update Contact (early access)
       request = ::StackOne::Operations::CrmUpdateContactRequest.new(
         
@@ -417,8 +563,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.patch(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
