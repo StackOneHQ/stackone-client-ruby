@@ -15,6 +15,8 @@ module StackOne
       field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
       # The display name of the company
       field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
+      # The full name of the company
+      field :full_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('full_name') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The name of the company
@@ -27,10 +29,11 @@ module StackOne
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), display_name: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, display_name: nil, id: nil, name: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
+      sig { params(created_at: T.nilable(::DateTime), display_name: T.nilable(::String), full_name: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+      def initialize(created_at: nil, display_name: nil, full_name: nil, id: nil, name: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
         @created_at = created_at
         @display_name = display_name
+        @full_name = full_name
         @id = id
         @name = name
         @remote_id = remote_id

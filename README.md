@@ -21,6 +21,7 @@ IAM: The documentation for the StackOne Unified API - IAM
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Retries](#retries)
   * [Server Selection](#server-selection)
 * [Development](#development)
   * [Maturity](#maturity)
@@ -241,7 +242,7 @@ end
 * [get_employment](docs/sdks/hris/README.md#get_employment) - Get Employment
 * [get_group](docs/sdks/hris/README.md#get_group) - Get Group
 * [get_job](docs/sdks/hris/README.md#get_job) - Get Job
-* [get_location](docs/sdks/hris/README.md#get_location) - Get Location
+* [get_location](docs/sdks/hris/README.md#get_location) - Get Work Location
 * [get_team_group](docs/sdks/hris/README.md#get_team_group) - Get Team Group
 * [get_time_entries](docs/sdks/hris/README.md#get_time_entries) - Get Time Entry
 * [get_time_off_policy](docs/sdks/hris/README.md#get_time_off_policy) - Get Time Off Policy
@@ -264,7 +265,7 @@ end
 * [list_employments](docs/sdks/hris/README.md#list_employments) - List Employments
 * [list_groups](docs/sdks/hris/README.md#list_groups) - List Groups
 * [list_jobs](docs/sdks/hris/README.md#list_jobs) - List Jobs
-* [list_locations](docs/sdks/hris/README.md#list_locations) - List locations
+* [list_locations](docs/sdks/hris/README.md#list_locations) - List Work Locations
 * [list_team_groups](docs/sdks/hris/README.md#list_team_groups) - List Team Groups
 * [list_time_entries](docs/sdks/hris/README.md#list_time_entries) - List Time Entries
 * [list_time_off_policies](docs/sdks/hris/README.md#list_time_off_policies) - List Time Off Policies
@@ -353,6 +354,60 @@ end
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.accounts.delete_account(id="<id>")
+
+if ! res.linked_account.nil?
+  # handle response
+end
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      retry_config: Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.1,
+          initial_interval: 1,
+          max_elapsed_time: 100,
+          max_interval: 50
+        ),
+        retry_connection_errors: false,
+        strategy: 'backoff'
+      ),
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.accounts.delete_account(id="<id>")
+
+if ! res.linked_account.nil?
+  # handle response
+end
+
+```
+<!-- End Retries [retries] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection

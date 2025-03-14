@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamGetGroupRequest)).returns(::StackOne::Operations::IamGetGroupResponse) }
-    def get_group(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamGetGroupRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamGetGroupResponse) }
+    def get_group(request, retries = nil)
       # get_group - Get Group
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -34,8 +36,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamGetGroupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -62,8 +80,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamGetPolicyRequest)).returns(::StackOne::Operations::IamGetPolicyResponse) }
-    def get_policy(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamGetPolicyRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamGetPolicyResponse) }
+    def get_policy(request, retries = nil)
       # get_policy - Get Policy
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -77,8 +95,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamGetPolicyRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -105,8 +139,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamGetRoleRequest)).returns(::StackOne::Operations::IamGetRoleResponse) }
-    def get_role(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamGetRoleRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamGetRoleResponse) }
+    def get_role(request, retries = nil)
       # get_role - Get Role
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -120,8 +154,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamGetRoleRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -148,8 +198,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamGetUserRequest)).returns(::StackOne::Operations::IamGetUserResponse) }
-    def get_user(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamGetUserRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamGetUserResponse) }
+    def get_user(request, retries = nil)
       # get_user - Get User
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -163,8 +213,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamGetUserRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -191,8 +257,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamListGroupsRequest)).returns(::StackOne::Operations::IamListGroupsResponse) }
-    def list_groups(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamListGroupsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamListGroupsResponse) }
+    def list_groups(request, retries = nil)
       # list_groups - List Groups
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -201,8 +267,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamListGroupsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -229,8 +311,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamListPoliciesRequest)).returns(::StackOne::Operations::IamListPoliciesResponse) }
-    def list_policies(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamListPoliciesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamListPoliciesResponse) }
+    def list_policies(request, retries = nil)
       # list_policies - List Policies
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -239,8 +321,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamListPoliciesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -267,8 +365,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamListRolesRequest)).returns(::StackOne::Operations::IamListRolesResponse) }
-    def list_roles(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamListRolesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamListRolesResponse) }
+    def list_roles(request, retries = nil)
       # list_roles - List Roles
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -277,8 +375,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamListRolesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -305,8 +419,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::IamListUsersRequest)).returns(::StackOne::Operations::IamListUsersResponse) }
-    def list_users(request)
+    sig { params(request: T.nilable(::StackOne::Operations::IamListUsersRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::IamListUsersResponse) }
+    def list_users(request, retries = nil)
       # list_users - List Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -315,8 +429,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::IamListUsersRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil

@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(hris_batch_document_upload_request_dto: ::StackOne::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisBatchUploadEmployeeDocumentResponse) }
-    def batch_upload_employee_document(hris_batch_document_upload_request_dto, id, x_account_id)
+    sig { params(hris_batch_document_upload_request_dto: ::StackOne::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisBatchUploadEmployeeDocumentResponse) }
+    def batch_upload_employee_document(hris_batch_document_upload_request_dto, id, x_account_id, retries = nil)
       # batch_upload_employee_document - Batch Upload Employee Document
       request = ::StackOne::Operations::HrisBatchUploadEmployeeDocumentRequest.new(
         
@@ -42,8 +44,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -76,8 +94,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeResponse) }
-    def create_employee(hris_create_employee_request_dto, x_account_id)
+    sig { params(hris_create_employee_request_dto: ::StackOne::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisCreateEmployeeResponse) }
+    def create_employee(hris_create_employee_request_dto, x_account_id, retries = nil)
       # create_employee - Creates an employee
       request = ::StackOne::Operations::HrisCreateEmployeeRequest.new(
         
@@ -93,8 +111,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -127,8 +161,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employment_request_dto: ::StackOne::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeEmploymentResponse) }
-    def create_employee_employment(hris_create_employment_request_dto, id, x_account_id)
+    sig { params(hris_create_employment_request_dto: ::StackOne::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisCreateEmployeeEmploymentResponse) }
+    def create_employee_employment(hris_create_employment_request_dto, id, x_account_id, retries = nil)
       # create_employee_employment - Create Employee Employment
       request = ::StackOne::Operations::HrisCreateEmployeeEmploymentRequest.new(
         
@@ -150,8 +184,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -184,8 +234,8 @@ module StackOne
     end
 
 
-    sig { params(entity_skills_create_request_dto: ::StackOne::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeSkillResponse) }
-    def create_employee_skill(entity_skills_create_request_dto, id, x_account_id)
+    sig { params(entity_skills_create_request_dto: ::StackOne::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisCreateEmployeeSkillResponse) }
+    def create_employee_skill(entity_skills_create_request_dto, id, x_account_id, retries = nil)
       # create_employee_skill - Create Employee Skill
       request = ::StackOne::Operations::HrisCreateEmployeeSkillRequest.new(
         
@@ -207,8 +257,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -241,8 +307,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
-    def create_employee_time_off_request(hris_create_time_off_request_dto, id, x_account_id)
+    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
+    def create_employee_time_off_request(hris_create_time_off_request_dto, id, x_account_id, retries = nil)
       # create_employee_time_off_request - Create Employee Time Off Request
       request = ::StackOne::Operations::HrisCreateEmployeeTimeOffRequestRequest.new(
         
@@ -264,8 +330,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -298,8 +380,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
-    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto, id, x_account_id)
+    sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
+    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto, id, x_account_id, retries = nil)
       # create_employee_work_eligibility_request - Create Employee Work Eligibility Request
       request = ::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestRequest.new(
         
@@ -321,8 +403,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -355,8 +453,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, x_account_id: ::String).returns(::StackOne::Operations::HrisCreateTimeOffRequestResponse) }
-    def create_time_off_request(hris_create_time_off_request_dto, x_account_id)
+    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisCreateTimeOffRequestResponse) }
+    def create_time_off_request(hris_create_time_off_request_dto, x_account_id, retries = nil)
       # create_time_off_request - Creates a time off request
       request = ::StackOne::Operations::HrisCreateTimeOffRequestRequest.new(
         
@@ -372,8 +470,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -406,8 +520,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, format: T.nilable(::String)).returns(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse) }
-    def download_employee_document(id, sub_resource_id, x_account_id, format = nil)
+    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, format: T.nilable(::String), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse) }
+    def download_employee_document(id, sub_resource_id, x_account_id, format = nil, retries = nil)
       # download_employee_document - Download Employee Document
       request = ::StackOne::Operations::HrisDownloadEmployeeDocumentRequest.new(
         
@@ -428,8 +542,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisDownloadEmployeeDocumentRequest, request)
       headers['Accept'] = 'application/octet-stream'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -453,8 +583,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetBenefitRequest)).returns(::StackOne::Operations::HrisGetBenefitResponse) }
-    def get_benefit(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetBenefitRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetBenefitResponse) }
+    def get_benefit(request, retries = nil)
       # get_benefit - Get Benefit
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -468,8 +598,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetBenefitRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -496,8 +642,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCompanyRequest)).returns(::StackOne::Operations::HrisGetCompanyResponse) }
-    def get_company(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCompanyRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetCompanyResponse) }
+    def get_company(request, retries = nil)
       # get_company - Get Company
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -511,8 +657,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetCompanyRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -539,8 +701,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCostCenterGroupRequest)).returns(::StackOne::Operations::HrisGetCostCenterGroupResponse) }
-    def get_cost_center_group(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetCostCenterGroupRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetCostCenterGroupResponse) }
+    def get_cost_center_group(request, retries = nil)
       # get_cost_center_group - Get Cost Center Group
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -554,8 +716,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetCostCenterGroupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -582,8 +760,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetDepartmentGroupRequest)).returns(::StackOne::Operations::HrisGetDepartmentGroupResponse) }
-    def get_department_group(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetDepartmentGroupRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetDepartmentGroupResponse) }
+    def get_department_group(request, retries = nil)
       # get_department_group - Get Department Group
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -597,8 +775,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetDepartmentGroupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -625,8 +819,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeRequest)).returns(::StackOne::Operations::HrisGetEmployeeResponse) }
-    def get_employee(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeResponse) }
+    def get_employee(request, retries = nil)
       # get_employee - Get Employee
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -640,8 +834,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -668,8 +878,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest)).returns(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionResponse) }
-    def get_employee_custom_field_definition(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionResponse) }
+    def get_employee_custom_field_definition(request, retries = nil)
       # get_employee_custom_field_definition - Get employee Custom Field Definition
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -683,8 +893,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -711,8 +937,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentRequest)).returns(::StackOne::Operations::HrisGetEmployeeDocumentResponse) }
-    def get_employee_document(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeDocumentResponse) }
+    def get_employee_document(request, retries = nil)
       # get_employee_document - Get Employee Document
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -726,8 +952,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeDocumentRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -754,8 +996,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest)).returns(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse) }
-    def get_employee_document_category(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse) }
+    def get_employee_document_category(request, retries = nil)
       # get_employee_document_category - Get Employee Document Category
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -769,8 +1011,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -797,8 +1055,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeEmploymentRequest)).returns(::StackOne::Operations::HrisGetEmployeeEmploymentResponse) }
-    def get_employee_employment(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeEmploymentRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeEmploymentResponse) }
+    def get_employee_employment(request, retries = nil)
       # get_employee_employment - Get Employee Employment
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -812,8 +1070,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeEmploymentRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -840,8 +1114,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeSkillRequest)).returns(::StackOne::Operations::HrisGetEmployeeSkillResponse) }
-    def get_employee_skill(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeSkillRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeSkillResponse) }
+    def get_employee_skill(request, retries = nil)
       # get_employee_skill - Get Employee Skill
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -855,8 +1129,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeSkillRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -883,8 +1173,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest)).returns(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceResponse) }
-    def get_employee_time_off_balance(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceResponse) }
+    def get_employee_time_off_balance(request, retries = nil)
       # get_employee_time_off_balance - Get Employee Time Off Balance
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -898,8 +1188,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -926,8 +1232,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse) }
-    def get_employees_time_off_request(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse) }
+    def get_employees_time_off_request(request, retries = nil)
       # get_employees_time_off_request - Get Employees Time Off Request
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -941,8 +1247,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -969,8 +1291,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest)).returns(::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse) }
-    def get_employees_work_eligibility(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse) }
+    def get_employees_work_eligibility(request, retries = nil)
       # get_employees_work_eligibility - Get Employees Work Eligibility
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -984,8 +1306,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1012,8 +1350,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmploymentRequest)).returns(::StackOne::Operations::HrisGetEmploymentResponse) }
-    def get_employment(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetEmploymentRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetEmploymentResponse) }
+    def get_employment(request, retries = nil)
       # get_employment - Get Employment
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1027,8 +1365,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetEmploymentRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1055,8 +1409,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetGroupRequest)).returns(::StackOne::Operations::HrisGetGroupResponse) }
-    def get_group(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetGroupRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetGroupResponse) }
+    def get_group(request, retries = nil)
       # get_group - Get Group
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1070,8 +1424,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetGroupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1098,8 +1468,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetJobRequest)).returns(::StackOne::Operations::HrisGetJobResponse) }
-    def get_job(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetJobRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetJobResponse) }
+    def get_job(request, retries = nil)
       # get_job - Get Job
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1113,8 +1483,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetJobRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1141,9 +1527,9 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetLocationRequest)).returns(::StackOne::Operations::HrisGetLocationResponse) }
-    def get_location(request)
-      # get_location - Get Location
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetLocationRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetLocationResponse) }
+    def get_location(request, retries = nil)
+      # get_location - Get Work Location
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1156,8 +1542,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetLocationRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1184,8 +1586,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTeamGroupRequest)).returns(::StackOne::Operations::HrisGetTeamGroupResponse) }
-    def get_team_group(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTeamGroupRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetTeamGroupResponse) }
+    def get_team_group(request, retries = nil)
       # get_team_group - Get Team Group
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1199,8 +1601,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTeamGroupRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1227,8 +1645,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeEntriesRequest)).returns(::StackOne::Operations::HrisGetTimeEntriesResponse) }
-    def get_time_entries(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeEntriesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetTimeEntriesResponse) }
+    def get_time_entries(request, retries = nil)
       # get_time_entries - Get Time Entry
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1242,8 +1660,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTimeEntriesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1270,8 +1704,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffPolicyRequest)).returns(::StackOne::Operations::HrisGetTimeOffPolicyResponse) }
-    def get_time_off_policy(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffPolicyRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetTimeOffPolicyResponse) }
+    def get_time_off_policy(request, retries = nil)
       # get_time_off_policy - Get Time Off Policy
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1285,8 +1719,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTimeOffPolicyRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1313,8 +1763,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffRequestRequest)).returns(::StackOne::Operations::HrisGetTimeOffRequestResponse) }
-    def get_time_off_request(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffRequestRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetTimeOffRequestResponse) }
+    def get_time_off_request(request, retries = nil)
       # get_time_off_request - Get time off request
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1328,8 +1778,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTimeOffRequestRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1356,8 +1822,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffTypeRequest)).returns(::StackOne::Operations::HrisGetTimeOffTypeResponse) }
-    def get_time_off_type(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisGetTimeOffTypeRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisGetTimeOffTypeResponse) }
+    def get_time_off_type(request, retries = nil)
       # get_time_off_type - Get time off type
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1371,8 +1837,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisGetTimeOffTypeRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1399,8 +1881,8 @@ module StackOne
     end
 
 
-    sig { params(hris_invite_employee_request_dto: ::StackOne::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisInviteEmployeeResponse) }
-    def invite_employee(hris_invite_employee_request_dto, id, x_account_id)
+    sig { params(hris_invite_employee_request_dto: ::StackOne::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisInviteEmployeeResponse) }
+    def invite_employee(hris_invite_employee_request_dto, id, x_account_id, retries = nil)
       # invite_employee - Invite Employee
       request = ::StackOne::Operations::HrisInviteEmployeeRequest.new(
         
@@ -1422,8 +1904,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -1456,8 +1954,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListBenefitsRequest)).returns(::StackOne::Operations::HrisListBenefitsResponse) }
-    def list_benefits(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListBenefitsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListBenefitsResponse) }
+    def list_benefits(request, retries = nil)
       # list_benefits - List benefits
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1466,8 +1964,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListBenefitsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1494,8 +2008,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListCompaniesRequest)).returns(::StackOne::Operations::HrisListCompaniesResponse) }
-    def list_companies(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListCompaniesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListCompaniesResponse) }
+    def list_companies(request, retries = nil)
       # list_companies - List Companies
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1504,8 +2018,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListCompaniesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1532,8 +2062,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListCostCenterGroupsRequest)).returns(::StackOne::Operations::HrisListCostCenterGroupsResponse) }
-    def list_cost_center_groups(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListCostCenterGroupsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListCostCenterGroupsResponse) }
+    def list_cost_center_groups(request, retries = nil)
       # list_cost_center_groups - List Cost Center Groups
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1542,8 +2072,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListCostCenterGroupsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1570,8 +2116,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListDepartmentGroupsRequest)).returns(::StackOne::Operations::HrisListDepartmentGroupsResponse) }
-    def list_department_groups(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListDepartmentGroupsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListDepartmentGroupsResponse) }
+    def list_department_groups(request, retries = nil)
       # list_department_groups - List Department Groups
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1580,8 +2126,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListDepartmentGroupsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1608,8 +2170,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesRequest)).returns(::StackOne::Operations::HrisListEmployeeCategoriesResponse) }
-    def list_employee_categories(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeCategoriesResponse) }
+    def list_employee_categories(request, retries = nil)
       # list_employee_categories - List Employee Document Categories
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1618,8 +2180,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeCategoriesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1646,8 +2224,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest)).returns(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsResponse) }
-    def list_employee_custom_field_definitions(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsResponse) }
+    def list_employee_custom_field_definitions(request, retries = nil)
       # list_employee_custom_field_definitions - List employee Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1656,8 +2234,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1684,8 +2278,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsRequest)).returns(::StackOne::Operations::HrisListEmployeeDocumentsResponse) }
-    def list_employee_documents(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeDocumentsResponse) }
+    def list_employee_documents(request, retries = nil)
       # list_employee_documents - List Employee Documents
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1699,8 +2293,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeDocumentsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1727,8 +2337,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsRequest)).returns(::StackOne::Operations::HrisListEmployeeEmploymentsResponse) }
-    def list_employee_employments(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeEmploymentsResponse) }
+    def list_employee_employments(request, retries = nil)
       # list_employee_employments - List Employee Employments
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1742,8 +2352,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeEmploymentsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1770,8 +2396,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeSkillsRequest)).returns(::StackOne::Operations::HrisListEmployeeSkillsResponse) }
-    def list_employee_skills(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeSkillsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeSkillsResponse) }
+    def list_employee_skills(request, retries = nil)
       # list_employee_skills - List Employee Skills
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1785,8 +2411,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeSkillsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1813,8 +2455,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest)).returns(::StackOne::Operations::HrisListEmployeeTimeOffBalancesResponse) }
-    def list_employee_time_off_balances(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeTimeOffBalancesResponse) }
+    def list_employee_time_off_balances(request, retries = nil)
       # list_employee_time_off_balances - List Employee Time Off Balances
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1828,8 +2470,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1856,8 +2514,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest)).returns(::StackOne::Operations::HrisListEmployeeTimeOffRequestsResponse) }
-    def list_employee_time_off_requests(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeTimeOffRequestsResponse) }
+    def list_employee_time_off_requests(request, retries = nil)
       # list_employee_time_off_requests - List Employee Time Off Requests
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1871,8 +2529,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1899,8 +2573,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest)).returns(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse) }
-    def list_employee_work_eligibility(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse) }
+    def list_employee_work_eligibility(request, retries = nil)
       # list_employee_work_eligibility - List Employee Work Eligibility
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1914,8 +2588,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1942,8 +2632,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeesRequest)).returns(::StackOne::Operations::HrisListEmployeesResponse) }
-    def list_employees(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmployeesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmployeesResponse) }
+    def list_employees(request, retries = nil)
       # list_employees - List Employees
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1952,8 +2642,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmployeesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -1980,8 +2686,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmploymentsRequest)).returns(::StackOne::Operations::HrisListEmploymentsResponse) }
-    def list_employments(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListEmploymentsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListEmploymentsResponse) }
+    def list_employments(request, retries = nil)
       # list_employments - List Employments
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1990,8 +2696,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListEmploymentsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2018,8 +2740,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListGroupsRequest)).returns(::StackOne::Operations::HrisListGroupsResponse) }
-    def list_groups(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListGroupsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListGroupsResponse) }
+    def list_groups(request, retries = nil)
       # list_groups - List Groups
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2028,8 +2750,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListGroupsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2056,8 +2794,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListJobsRequest)).returns(::StackOne::Operations::HrisListJobsResponse) }
-    def list_jobs(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListJobsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListJobsResponse) }
+    def list_jobs(request, retries = nil)
       # list_jobs - List Jobs
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2066,8 +2804,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListJobsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2094,9 +2848,9 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListLocationsRequest)).returns(::StackOne::Operations::HrisListLocationsResponse) }
-    def list_locations(request)
-      # list_locations - List locations
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListLocationsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListLocationsResponse) }
+    def list_locations(request, retries = nil)
+      # list_locations - List Work Locations
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/locations"
@@ -2104,8 +2858,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListLocationsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2132,8 +2902,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListTeamGroupsRequest)).returns(::StackOne::Operations::HrisListTeamGroupsResponse) }
-    def list_team_groups(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTeamGroupsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListTeamGroupsResponse) }
+    def list_team_groups(request, retries = nil)
       # list_team_groups - List Team Groups
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2142,8 +2912,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListTeamGroupsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2170,8 +2956,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeEntriesRequest)).returns(::StackOne::Operations::HrisListTimeEntriesResponse) }
-    def list_time_entries(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeEntriesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListTimeEntriesResponse) }
+    def list_time_entries(request, retries = nil)
       # list_time_entries - List Time Entries
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2180,8 +2966,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListTimeEntriesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2208,8 +3010,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffPoliciesRequest)).returns(::StackOne::Operations::HrisListTimeOffPoliciesResponse) }
-    def list_time_off_policies(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffPoliciesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListTimeOffPoliciesResponse) }
+    def list_time_off_policies(request, retries = nil)
       # list_time_off_policies - List Time Off Policies
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2218,8 +3020,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListTimeOffPoliciesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2246,8 +3064,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffRequestsRequest)).returns(::StackOne::Operations::HrisListTimeOffRequestsResponse) }
-    def list_time_off_requests(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffRequestsRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListTimeOffRequestsResponse) }
+    def list_time_off_requests(request, retries = nil)
       # list_time_off_requests - List time off requests
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2256,8 +3074,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListTimeOffRequestsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2284,8 +3118,8 @@ module StackOne
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffTypesRequest)).returns(::StackOne::Operations::HrisListTimeOffTypesResponse) }
-    def list_time_off_types(request)
+    sig { params(request: T.nilable(::StackOne::Operations::HrisListTimeOffTypesRequest), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisListTimeOffTypesResponse) }
+    def list_time_off_types(request, retries = nil)
       # list_time_off_types - List time off types
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2294,8 +3128,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::HrisListTimeOffTypesRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -2322,8 +3172,8 @@ module StackOne
     end
 
 
-    sig { params(hris_update_employee_request_dto: ::StackOne::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeResponse) }
-    def update_employee(hris_update_employee_request_dto, id, x_account_id)
+    sig { params(hris_update_employee_request_dto: ::StackOne::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisUpdateEmployeeResponse) }
+    def update_employee(hris_update_employee_request_dto, id, x_account_id, retries = nil)
       # update_employee - Updates an employee
       request = ::StackOne::Operations::HrisUpdateEmployeeRequest.new(
         
@@ -2345,8 +3195,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.patch(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -2379,8 +3245,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employment_request_dto: ::StackOne::Shared::HrisCreateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeEmploymentResponse) }
-    def update_employee_employment(hris_create_employment_request_dto, id, sub_resource_id, x_account_id)
+    sig { params(hris_create_employment_request_dto: ::StackOne::Shared::HrisCreateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisUpdateEmployeeEmploymentResponse) }
+    def update_employee_employment(hris_create_employment_request_dto, id, sub_resource_id, x_account_id, retries = nil)
       # update_employee_employment - Update Employee Employment
       request = ::StackOne::Operations::HrisUpdateEmployeeEmploymentRequest.new(
         
@@ -2403,8 +3269,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.patch(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -2437,8 +3319,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
-    def update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto, id, sub_resource_id, x_account_id)
+    sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
+    def update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto, id, sub_resource_id, x_account_id, retries = nil)
       # update_employee_work_eligibility_request - Update Employee Work Eligibility Request
       request = ::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest.new(
         
@@ -2461,8 +3343,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = '*/*'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.patch(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -2491,8 +3389,8 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUpdateTimeOffRequestResponse) }
-    def update_time_off_request(hris_create_time_off_request_dto, id, x_account_id)
+    sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisUpdateTimeOffRequestResponse) }
+    def update_time_off_request(hris_create_time_off_request_dto, id, x_account_id, retries = nil)
       # update_time_off_request - Update time off request
       request = ::StackOne::Operations::HrisUpdateTimeOffRequestRequest.new(
         
@@ -2514,8 +3412,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.patch(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.patch(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -2548,8 +3462,8 @@ module StackOne
     end
 
 
-    sig { params(hris_documents_upload_request_dto: ::StackOne::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String).returns(::StackOne::Operations::HrisUploadEmployeeDocumentResponse) }
-    def upload_employee_document(hris_documents_upload_request_dto, id, x_account_id)
+    sig { params(hris_documents_upload_request_dto: ::StackOne::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::HrisUploadEmployeeDocumentResponse) }
+    def upload_employee_document(hris_documents_upload_request_dto, id, x_account_id, retries = nil)
       # upload_employee_document - Upload Employee Document
       request = ::StackOne::Operations::HrisUploadEmployeeDocumentRequest.new(
         
@@ -2571,8 +3485,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?

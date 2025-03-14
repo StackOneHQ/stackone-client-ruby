@@ -27,11 +27,11 @@ module StackOne
       # 
       # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
       field :page, T.nilable(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-      # The number of results per page
+      # The number of results per page (default value is 25)
       field :page_size, T.nilable(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
       # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
       field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
-      # Indicates that the raw request result is returned
+      # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
       field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
       # The sync token to select the only updated results
       # 

@@ -13,13 +13,16 @@ module StackOne
 
       # Package description
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+      # Unique identifier
+      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # Package name
       field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(description: T.nilable(::String), name: T.nilable(::String)).void }
-      def initialize(description: nil, name: nil)
+      sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String)).void }
+      def initialize(description: nil, id: nil, name: nil)
         @description = description
+        @id = id
         @name = name
       end
     end

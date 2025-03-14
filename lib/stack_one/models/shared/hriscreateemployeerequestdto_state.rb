@@ -13,11 +13,11 @@ module StackOne
 
 
       field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+      # state (ISO3166-2 Sub Division Code) - value must be a valid enum value
+      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
-      field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue, true) } }
 
-
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationStateValue)).void }
+      sig { params(source_value: T.nilable(::Object), value: T.nilable(::String)).void }
       def initialize(source_value: nil, value: nil)
         @source_value = source_value
         @value = value

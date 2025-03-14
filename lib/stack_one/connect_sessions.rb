@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(request: ::StackOne::Shared::ConnectSessionAuthenticate).returns(::StackOne::Operations::StackoneAuthenticateConnectSessionResponse) }
-    def authenticate_connect_session(request)
+    sig { params(request: ::StackOne::Shared::ConnectSessionAuthenticate, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneAuthenticateConnectSessionResponse) }
+    def authenticate_connect_session(request, retries = nil)
       # authenticate_connect_session - Authenticate Connect Session
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -31,8 +33,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?
@@ -65,8 +83,8 @@ module StackOne
     end
 
 
-    sig { params(request: ::StackOne::Shared::ConnectSessionCreate).returns(::StackOne::Operations::StackoneCreateConnectSessionResponse) }
-    def create_connect_session(request)
+    sig { params(request: ::StackOne::Shared::ConnectSessionCreate, retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneCreateConnectSessionResponse) }
+    def create_connect_session(request, retries = nil)
       # create_connect_session - Create Connect Session
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -77,8 +95,24 @@ module StackOne
       raise StandardError, 'request body is required' if data.nil? && form.nil?
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.post(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.post(url) do |req|
         req.headers = headers
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
         Utils.configure_request_security(req, security) if !security.nil?

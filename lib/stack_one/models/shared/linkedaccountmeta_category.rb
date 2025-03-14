@@ -19,6 +19,8 @@ module StackOne
         LMS = new('lms')
         STACKONE = new('stackone')
         DOCUMENTS = new('documents')
+        TICKETING = new('ticketing')
+        SCREENING = new('screening')
       end
     end
   end

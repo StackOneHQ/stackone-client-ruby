@@ -5,7 +5,9 @@
 
 require 'faraday'
 require 'faraday/multipart'
+require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'utils/retries'
 
 module StackOne
   extend T::Sig
@@ -19,8 +21,8 @@ module StackOne
     end
 
 
-    sig { params(provider: ::String, include: T.nilable(::String)).returns(::StackOne::Operations::StackoneGetConnectorMetaResponse) }
-    def get_connector_meta(provider, include = nil)
+    sig { params(provider: ::String, include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneGetConnectorMetaResponse) }
+    def get_connector_meta(provider, include = nil, retries = nil)
       # get_connector_meta - Get Connector Meta information for the given provider key
       request = ::StackOne::Operations::StackoneGetConnectorMetaRequest.new(
         
@@ -39,8 +41,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::StackoneGetConnectorMetaRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
@@ -67,8 +85,8 @@ module StackOne
     end
 
 
-    sig { params(include: T.nilable(::String)).returns(::StackOne::Operations::StackoneListConnectorsMetaResponse) }
-    def list_connectors_meta(include = nil)
+    sig { params(include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneListConnectorsMetaResponse) }
+    def list_connectors_meta(include = nil, retries = nil)
       # list_connectors_meta - List Connectors Meta Information for all providers
       request = ::StackOne::Operations::StackoneListConnectorsMetaRequest.new(
         
@@ -81,8 +99,24 @@ module StackOne
       query_params = Utils.get_query_params(::StackOne::Operations::StackoneListConnectorsMetaRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
+      retries ||= @sdk_configuration.retry_config
+      retries ||= Utils::RetryConfig.new(
+        backoff: Utils::BackoffStrategy.new(
+          exponent: 1.5,
+          initial_interval: 500,
+          max_elapsed_time: 3_600_000,
+          max_interval: 60_000
+        ),
+        retry_connection_errors: true,
+        strategy: 'backoff'
+      )
+      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options[:retry_statuses] = [429, 408]
 
-      r = @sdk_configuration.client.get(url) do |req|
+      connection = @sdk_configuration.client.dup
+      connection.request :retry, retry_options
+
+      r = connection.get(url) do |req|
         req.headers = headers
         req.params = query_params
         security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
