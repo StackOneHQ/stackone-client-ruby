@@ -437,6 +437,7 @@ res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJ
     "308571",
     "308572",
   ],
+  description: "Responsible for identifying business requirements",
   hiring_team: [
     ::StackOne::Shared::JobHiringTeam.new(
       email: "john.doe@gmail.com",
@@ -1456,7 +1457,7 @@ s = ::StackOne::StackOne.new(
 
 req = ::StackOne::Operations::AtsGetJobRequest.new(
   expand: "job_postings,interview_stages",
-  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
+  fields_: "id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
   id: "<id>",
   include: "custom_fields",
   x_account_id: "<id>",
@@ -2603,7 +2604,7 @@ s = ::StackOne::StackOne.new(
 
 req = ::StackOne::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
-  fields_: "id,remote_id,code,title,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
+  fields_: "id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
   filter: ::StackOne::Operations::AtsListJobsQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
@@ -3570,6 +3571,7 @@ res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJ
     "308571",
     "308572",
   ],
+  description: "Responsible for identifying business requirements",
   hiring_team: [
     ::StackOne::Shared::JobHiringTeam.new(
       email: "john.doe@gmail.com",

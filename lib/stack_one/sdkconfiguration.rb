@@ -7,6 +7,7 @@ require 'faraday'
 require 'faraday/multipart'
 require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
 module StackOne
@@ -21,7 +22,9 @@ module StackOne
     extend T::Sig
 
     field :client, T.nilable(Faraday::Connection)
+    field :hooks, ::StackOne::SDKHooks::Hooks
     field :retry_config, T.nilable(::StackOne::Utils::RetryConfig)
+    field :timeout, T.nilable(Float)
     field :security_source, T.nilable(T.proc.returns(T.nilable(::StackOne::Shared::Security)))
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
@@ -34,17 +37,21 @@ module StackOne
     sig do
       params(
         client: T.nilable(Faraday::Connection),
+        hooks: ::StackOne::SDKHooks::Hooks,
         retry_config: T.nilable(::StackOne::Utils::RetryConfig),
+        timeout_ms: T.nilable(Integer),
         security: T.nilable(::StackOne::Shared::Security),
         security_source: T.nilable(T.proc.returns(::StackOne::Shared::Security)),
         server_url: T.nilable(String),
         server_idx: T.nilable(Integer)
       ).void
     end
-    def initialize(client, retry_config, security, security_source, server_url, server_idx)
+    def initialize(client, hooks, retry_config, timeout_ms, security, security_source, server_url, server_idx)
       @client = client
+      @hooks = hooks
       @retry_config = retry_config
       @server_url = server_url
+      @timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       @server_idx = server_idx.nil? ? 0 : server_idx
       raise StandardError, "Invalid server index #{server_idx}" if @server_idx.negative? || @server_idx >= SERVERS.length
       if !security_source.nil?
@@ -54,9 +61,9 @@ module StackOne
       end
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.6.0'
-      @gen_version = '2.548.6'
-      @user_agent = 'speakeasy-sdk/ruby 0.6.0 2.548.6 1.0.0 stackone_client'
+      @sdk_version = '0.7.0'
+      @gen_version = '2.559.0'
+      @user_agent = 'speakeasy-sdk/ruby 0.7.0 2.559.0 1.0.0 stackone_client'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
