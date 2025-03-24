@@ -7,6 +7,7 @@ require 'faraday'
 require 'faraday/multipart'
 require 'faraday/retry'
 require 'sorbet-runtime'
+require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
 module StackOne
@@ -21,8 +22,8 @@ module StackOne
     end
 
 
-    sig { params(provider: ::String, include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneGetConnectorMetaResponse) }
-    def get_connector_meta(provider, include = nil, retries = nil)
+    sig { params(provider: ::String, include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneGetConnectorMetaResponse) }
+    def get_connector_meta(provider, include = nil, retries = nil, timeout_ms = nil)
       # get_connector_meta - Get Connector Meta information for the given provider key
       request = ::StackOne::Operations::StackoneGetConnectorMetaRequest.new(
         
@@ -55,14 +56,62 @@ module StackOne
       retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
 
-      r = connection.get(url) do |req|
-        req.headers = headers
-        req.params = query_params
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'stackone_get_connector_meta',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.get(url) do |req|
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        else
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
+        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
@@ -85,8 +134,8 @@ module StackOne
     end
 
 
-    sig { params(include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig)).returns(::StackOne::Operations::StackoneListConnectorsMetaResponse) }
-    def list_connectors_meta(include = nil, retries = nil)
+    sig { params(include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneListConnectorsMetaResponse) }
+    def list_connectors_meta(include = nil, retries = nil, timeout_ms = nil)
       # list_connectors_meta - List Connectors Meta Information for all providers
       request = ::StackOne::Operations::StackoneListConnectorsMetaRequest.new(
         
@@ -113,14 +162,62 @@ module StackOne
       retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
+      security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
 
-      r = connection.get(url) do |req|
-        req.headers = headers
-        req.params = query_params
-        security = !@sdk_configuration.nil? && !@sdk_configuration.security_source.nil? ? @sdk_configuration.security_source.call : nil
-        Utils.configure_request_security(req, security) if !security.nil?
+      hook_ctx = SDKHooks::HookContext.new(
+        base_url: base_url,
+        oauth2_scopes: [],
+        operation_id: 'stackone_list_connectors_meta',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      r = T.let(nil, T.nilable(Faraday::Response))
+      
+      begin
+        r = connection.get(url) do |req|
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if r.nil? || Utils.error_status?(r.status)
+          r = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        else
+          r = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: r
+          )
+        end
+        
+        if r.nil?
+          raise error if !error.nil?
+          raise 'no response'
+        end
       end
 
       content_type = r.headers.fetch('Content-Type', 'application/octet-stream')

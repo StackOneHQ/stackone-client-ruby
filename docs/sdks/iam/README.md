@@ -5,6 +5,7 @@
 
 ### Available Operations
 
+* [delete_user](#delete_user) - Delete User
 * [get_group](#get_group) - Get Group
 * [get_policy](#get_policy) - Get Policy
 * [get_role](#get_role) - Get Role
@@ -13,6 +14,44 @@
 * [list_policies](#list_policies) - List Policies
 * [list_roles](#list_roles) - List Roles
 * [list_users](#list_users) - List Users
+* [update_user](#update_user) - Update User
+
+## delete_user
+
+Delete User
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.iam.delete_user(id="<id>", x_account_id="<id>")
+
+if ! res.delete_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
+| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::IamDeleteUserResponse)](../../models/operations/iamdeleteuserresponse.md)**
+
+
 
 ## get_group
 
@@ -363,4 +402,55 @@ end
 ### Response
 
 **[T.nilable(::StackOne::Operations::IamListUsersResponse)](../../models/operations/iamlistusersresponse.md)**
+
+
+
+## update_user
+
+Update User
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.iam.update_user(iam_update_user_request_dto=::StackOne::Shared::IamUpdateUserRequestDto.new(
+  first_name: "Han",
+  is_bot_user: true,
+  last_name: "Solo",
+  name: "Han Solo",
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  primary_email_address: "han@stackone.com",
+  status: ::StackOne::Shared::IamUpdateUserRequestDtoStatus.new(
+    value: ::StackOne::Shared::IamUpdateUserRequestDtoValue::ENABLED,
+  ),
+  username: "hansolo1977",
+), id="<id>", x_account_id="<id>")
+
+if ! res.update_user_api_model.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `iam_update_user_request_dto`                                                                 | [::StackOne::Shared::IamUpdateUserRequestDto](../../models/shared/iamupdateuserrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::IamUpdateUserResponse)](../../models/operations/iamupdateuserresponse.md)**
 

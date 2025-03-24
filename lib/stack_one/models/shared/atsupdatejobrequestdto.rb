@@ -19,6 +19,8 @@ module StackOne
       field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
       # Department ids of the job
       field :department_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_ids') } }
+      # Description of the job
+      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
       # Hiring team for the job.
       field :hiring_team, T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
       # Interview stages for the job.
@@ -39,12 +41,13 @@ module StackOne
       field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(code: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), hiring_team: T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), interview_stages: T.nilable(T::Array[::StackOne::Shared::InterviewStage]), job_status: T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(code: nil, confidential: nil, custom_fields: nil, department_ids: nil, hiring_team: nil, interview_stages: nil, job_status: nil, location_ids: nil, passthrough: nil, status: nil, title: nil, unified_custom_fields: nil)
+      sig { params(code: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), interview_stages: T.nilable(T::Array[::StackOne::Shared::InterviewStage]), job_status: T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+      def initialize(code: nil, confidential: nil, custom_fields: nil, department_ids: nil, description: nil, hiring_team: nil, interview_stages: nil, job_status: nil, location_ids: nil, passthrough: nil, status: nil, title: nil, unified_custom_fields: nil)
         @code = code
         @confidential = confidential
         @custom_fields = custom_fields
         @department_ids = department_ids
+        @description = description
         @hiring_team = hiring_team
         @interview_stages = interview_stages
         @job_status = job_status

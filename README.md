@@ -224,7 +224,7 @@ end
 * [create_employee_skill](docs/sdks/hris/README.md#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](docs/sdks/hris/README.md#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
-* [create_time_off_request](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request
+* [~~create_time_off_request~~](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request :warning: **Deprecated**
 * [download_employee_document](docs/sdks/hris/README.md#download_employee_document) - Download Employee Document
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
@@ -247,7 +247,7 @@ end
 * [get_time_entries](docs/sdks/hris/README.md#get_time_entries) - Get Time Entry
 * [get_time_off_policy](docs/sdks/hris/README.md#get_time_off_policy) - Get Time Off Policy
 * [get_time_off_request](docs/sdks/hris/README.md#get_time_off_request) - Get time off request
-* [get_time_off_type](docs/sdks/hris/README.md#get_time_off_type) - Get time off type
+* [~~get_time_off_type~~](docs/sdks/hris/README.md#get_time_off_type) - Get time off type :warning: **Deprecated**
 * [invite_employee](docs/sdks/hris/README.md#invite_employee) - Invite Employee
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
@@ -270,15 +270,17 @@ end
 * [list_time_entries](docs/sdks/hris/README.md#list_time_entries) - List Time Entries
 * [list_time_off_policies](docs/sdks/hris/README.md#list_time_off_policies) - List Time Off Policies
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
-* [list_time_off_types](docs/sdks/hris/README.md#list_time_off_types) - List time off types
+* [~~list_time_off_types~~](docs/sdks/hris/README.md#list_time_off_types) - List time off types :warning: **Deprecated**
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
 * [update_employee_employment](docs/sdks/hris/README.md#update_employee_employment) - Update Employee Employment
+* [update_employee_time_off_request](docs/sdks/hris/README.md#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
-* [update_time_off_request](docs/sdks/hris/README.md#update_time_off_request) - Update time off request
+* [~~update_time_off_request~~](docs/sdks/hris/README.md#update_time_off_request) - Update time off request :warning: **Deprecated**
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
 
 ### [iam](docs/sdks/iam/README.md)
 
+* [delete_user](docs/sdks/iam/README.md#delete_user) - Delete User
 * [get_group](docs/sdks/iam/README.md#get_group) - Get Group
 * [get_policy](docs/sdks/iam/README.md#get_policy) - Get Policy
 * [get_role](docs/sdks/iam/README.md#get_role) - Get Role
@@ -287,6 +289,7 @@ end
 * [list_policies](docs/sdks/iam/README.md#list_policies) - List Policies
 * [list_roles](docs/sdks/iam/README.md#list_roles) - List Roles
 * [list_users](docs/sdks/iam/README.md#list_users) - List Users
+* [update_user](docs/sdks/iam/README.md#update_user) - Update User
 
 ### [lms](docs/sdks/lms/README.md)
 

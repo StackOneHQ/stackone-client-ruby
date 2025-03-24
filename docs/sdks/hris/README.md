@@ -11,7 +11,7 @@
 * [create_employee_skill](#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
-* [create_time_off_request](#create_time_off_request) - Creates a time off request
+* [~~create_time_off_request~~](#create_time_off_request) - Creates a time off request :warning: **Deprecated**
 * [download_employee_document](#download_employee_document) - Download Employee Document
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
@@ -34,7 +34,7 @@
 * [get_time_entries](#get_time_entries) - Get Time Entry
 * [get_time_off_policy](#get_time_off_policy) - Get Time Off Policy
 * [get_time_off_request](#get_time_off_request) - Get time off request
-* [get_time_off_type](#get_time_off_type) - Get time off type
+* [~~get_time_off_type~~](#get_time_off_type) - Get time off type :warning: **Deprecated**
 * [invite_employee](#invite_employee) - Invite Employee
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
@@ -57,11 +57,12 @@
 * [list_time_entries](#list_time_entries) - List Time Entries
 * [list_time_off_policies](#list_time_off_policies) - List Time Off Policies
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
-* [list_time_off_types](#list_time_off_types) - List time off types
+* [~~list_time_off_types~~](#list_time_off_types) - List time off types :warning: **Deprecated**
 * [update_employee](#update_employee) - Updates an employee
 * [update_employee_employment](#update_employee_employment) - Update Employee Employment
+* [update_employee_time_off_request](#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
-* [update_time_off_request](#update_time_off_request) - Update time off request
+* [~~update_time_off_request~~](#update_time_off_request) - Update time off request :warning: **Deprecated**
 * [upload_employee_document](#upload_employee_document) - Upload Employee Document
 
 ## batch_upload_employee_document
@@ -176,7 +177,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
   department: "Physics",
   department_id: "3093",
-  display_name: "Sir Issac Newton",
+  display_name: "Sir Isaac Newton",
   employee_number: "125",
   employment: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
     employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType.new(),
@@ -197,7 +198,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
   employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
   ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
-  first_name: "Issac",
+  first_name: "Isaac",
   gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
   hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
@@ -221,7 +222,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   last_name: "Newton",
   manager_id: "67890",
   marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
-  name: "Issac Newton",
+  name: "Isaac Newton",
   national_identity_numbers: [
     ::StackOne::Shared::NationalIdentityNumberApiModel.new(
       country: ::StackOne::Shared::NationalIdentityNumberApiModelCountry.new(
@@ -505,9 +506,11 @@ end
 
 
 
-## create_time_off_request
+## ~~create_time_off_request~~
 
 Creates a time off request
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -1492,9 +1495,11 @@ end
 
 
 
-## get_time_off_type
+## ~~get_time_off_type~~
 
 Get time off type
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -2513,9 +2518,11 @@ end
 
 
 
-## list_time_off_types
+## ~~list_time_off_types~~
 
 List time off types
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -2606,7 +2613,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
   department: "Physics",
   department_id: "3093",
-  display_name: "Sir Issac Newton",
+  display_name: "Sir Isaac Newton",
   employee_number: "125",
   employment: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmployment.new(
     employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType.new(),
@@ -2627,7 +2634,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   employment_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
   employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
   ethnicity: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
-  first_name: "Issac",
+  first_name: "Isaac",
   gender: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoGender.new(),
   hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   home_location: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoHomeLocation.new(
@@ -2651,7 +2658,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   last_name: "Newton",
   manager_id: "67890",
   marital_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new(),
-  name: "Issac Newton",
+  name: "Isaac Newton",
   national_identity_numbers: [
     ::StackOne::Shared::NationalIdentityNumberApiModel.new(
       country: ::StackOne::Shared::NationalIdentityNumberApiModelCountry.new(
@@ -2768,6 +2775,60 @@ end
 
 
 
+## update_employee_time_off_request
+
+Update Employee Time Off Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
+  approver_id: "1687-4",
+  employee_id: "1687-3",
+  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  end_half_day: true,
+  passthrough: {
+    "other_known_names": "John Doe",
+  },
+  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
+  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  start_half_day: true,
+  time_off_policy_id: "cx280928933",
+), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
+
+if ! res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `hris_create_time_off_request_dto`                                                                    | [::StackOne::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `sub_resource_id`                                                                                     | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeTimeOffRequestResponse)](../../models/operations/hrisupdateemployeetimeoffrequestresponse.md)**
+
+
+
 ## update_employee_work_eligibility_request
 
 Update Employee Work Eligibility Request
@@ -2834,9 +2895,11 @@ end
 
 
 
-## update_time_off_request
+## ~~update_time_off_request~~
 
 Update time off request
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

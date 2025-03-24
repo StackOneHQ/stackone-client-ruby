@@ -8,6 +8,8 @@ module StackOne
   module Shared
   
     # The type of the time off request
+    # 
+    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
     class HrisCreateTimeOffRequestDtoType < ::Crystalline::FieldAugmented
       extend T::Sig
 
