@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # Raw error response from the provider
     class Raw < ::Crystalline::FieldAugmented
       extend T::Sig
 

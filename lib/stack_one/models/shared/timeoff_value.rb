@@ -14,6 +14,7 @@ module StackOne
         CANCELLED = new('cancelled')
         REJECTED = new('rejected')
         PENDING = new('pending')
+        DELETED = new('deleted')
         UNMAPPED_VALUE = new('unmapped_value')
       end
     end

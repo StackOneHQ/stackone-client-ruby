@@ -1,0 +1,9 @@
+# StackoneGetLogRequest
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `id`                                                                             | *::String*                                                                       | :heavy_check_mark:                                                               | N/A                                                                              |                                                                                  |
+| `include`                                                                        | [T.nilable(::StackOne::Operations::Include)](../../models/operations/include.md) | :heavy_minus_sign:                                                               | The include parameter allows you to include additional data in the response.     | step_logs                                                                        |

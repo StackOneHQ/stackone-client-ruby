@@ -71,7 +71,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_create_contact',
         security_source: @sdk_configuration.security_source
       )
@@ -129,10 +129,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ContactResult)
           res.contact_result = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -178,7 +235,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_account',
         security_source: @sdk_configuration.security_source
       )
@@ -236,10 +293,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::AccountResult)
           res.account_result = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -285,7 +399,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_contact',
         security_source: @sdk_configuration.security_source
       )
@@ -343,10 +457,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ContactResult)
           res.contact_result = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -392,7 +563,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_contact_custom_field_definition',
         security_source: @sdk_configuration.security_source
       )
@@ -450,10 +621,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CustomFieldDefinitionResultApiModel)
           res.custom_field_definition_result_api_model = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -499,7 +727,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_list',
         security_source: @sdk_configuration.security_source
       )
@@ -557,10 +785,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ListResult)
           res.list_result = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -601,7 +886,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_accounts',
         security_source: @sdk_configuration.security_source
       )
@@ -659,10 +944,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::AccountsPaginated)
           res.accounts_paginated = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -703,7 +1045,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_contact_custom_field_definitions',
         security_source: @sdk_configuration.security_source
       )
@@ -761,10 +1103,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::CustomFieldDefinitionsPaginated)
           res.custom_field_definitions_paginated = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -805,7 +1204,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_contacts',
         security_source: @sdk_configuration.security_source
       )
@@ -863,10 +1262,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ContactsPaginated)
           res.contacts_paginated = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -907,7 +1363,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_lists',
         security_source: @sdk_configuration.security_source
       )
@@ -965,10 +1421,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ListsPaginated)
           res.lists_paginated = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res
@@ -1030,7 +1543,7 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_update_contact',
         security_source: @sdk_configuration.security_source
       )
@@ -1088,10 +1601,67 @@ module StackOne
           out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ContactResult)
           res.contact_result = out
         end
+      elsif r.status == 400
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
+          res.bad_request_response = out
+        end
+      elsif r.status == 401
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
+          res.unauthorized_response = out
+        end
+      elsif r.status == 403
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
+          res.forbidden_response = out
+        end
+      elsif r.status == 404
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
+          res.not_found_response = out
+        end
       elsif r.status == 408
         res.headers = r.headers
-      elsif [400, 403, 412, 429].include?(r.status)
-      elsif [500, 501].include?(r.status)
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
+          res.request_timed_out_response = out
+        end
+      elsif r.status == 409
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
+          res.conflict_response = out
+        end
+      elsif r.status == 412
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::PreconditionFailedResponse)
+          res.precondition_failed_response = out
+        end
+      elsif r.status == 422
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
+          res.unprocessable_entity_response = out
+        end
+      elsif r.status == 429
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
+          res.too_many_requests_response = out
+        end
+      elsif r.status == 500
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
+          res.internal_server_error_response = out
+        end
+      elsif r.status == 501
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
+          res.not_implemented_response = out
+        end
+      elsif r.status == 502
+        if Utils.match_content_type(content_type, 'application/json')
+          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
+          res.bad_gateway_response = out
+        end
       end
 
       res

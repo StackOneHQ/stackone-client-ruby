@@ -12,16 +12,16 @@ module StackOne
       extend T::Sig
 
 
-      field :headers, T.nilable(::StackOne::Shared::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+      field :headers, T.nilable(::StackOne::Shared::ProviderErrorApiModelHeaders), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
 
-      field :raw, T.nilable(::StackOne::Shared::Raw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+      field :raw, T.nilable(::StackOne::Shared::ProviderErrorApiModelRaw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
       field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
       field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(headers: T.nilable(::StackOne::Shared::Headers), raw: T.nilable(::StackOne::Shared::Raw), status: T.nilable(::Float), url: T.nilable(::String)).void }
+      sig { params(headers: T.nilable(::StackOne::Shared::ProviderErrorApiModelHeaders), raw: T.nilable(::StackOne::Shared::ProviderErrorApiModelRaw), status: T.nilable(::Float), url: T.nilable(::String)).void }
       def initialize(headers: nil, raw: nil, status: nil, url: nil)
         @headers = headers
         @raw = raw

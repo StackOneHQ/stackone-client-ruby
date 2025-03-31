@@ -436,7 +436,7 @@ res = s.iam.update_user(iam_update_user_request_dto=::StackOne::Shared::IamUpdat
   username: "hansolo1977",
 ), id="<id>", x_account_id="<id>")
 
-if ! res.update_user_api_model.nil?
+if ! res.update_result.nil?
   # handle response
 end
 

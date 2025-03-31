@@ -11,13 +11,64 @@ module StackOne
     class Filter < ::Crystalline::FieldAugmented
       extend T::Sig
 
-      # Use a string with a date to only select results updated after that given date
-      field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+      # A comma-separated list of account IDs to filter the results by.
+      field :account_ids, T.nilable(::String), { 'query_param': { 'field_name': 'account_ids' } }
+      # A comma-separated list of actions to filter the results by.
+      field :actions, T.nilable(::String), { 'query_param': { 'field_name': 'actions' } }
+      # A comma-separated list of child resources to filter the results by.
+      field :child_resources, T.nilable(::String), { 'query_param': { 'field_name': 'child_resources' } }
+      # A ISO8601 date string to filter the results by end_date.
+      field :end_date, T.nilable(::String), { 'query_param': { 'field_name': 'end_date' } }
+      # A comma-separated list of HTTP methods to filter the results by.
+      field :http_methods, T.nilable(::String), { 'query_param': { 'field_name': 'http_methods' } }
+      # The field to order the results by.
+      field :order_by, T.nilable(::StackOne::Operations::QueryParamOrderBy), { 'query_param': { 'field_name': 'order_by' } }
+      # The direction to order the results by.
+      field :order_direction, T.nilable(::StackOne::Operations::QueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction' } }
+      # A comma-separated list of provider keys to filter the results by.
+      field :providers, T.nilable(::String), { 'query_param': { 'field_name': 'providers' } }
+      # A comma-separated list of request IDs to filter the results by.
+      field :request_ids, T.nilable(::String), { 'query_param': { 'field_name': 'request_ids' } }
+      # A comma-separated list of resources to filter the results by.
+      field :resources, T.nilable(::String), { 'query_param': { 'field_name': 'resources' } }
+      # A comma-separated list of services to filter the results by.
+      field :services, T.nilable(::String), { 'query_param': { 'field_name': 'services' } }
+      # A comma-separated list of source IDs to filter the results by.
+      field :source_ids, T.nilable(::String), { 'query_param': { 'field_name': 'source_ids' } }
+      # A comma-separated list of source types to filter the results by.
+      field :source_types, T.nilable(::String), { 'query_param': { 'field_name': 'source_types' } }
+      # A comma-separated list of source values to filter the results by.
+      field :source_values, T.nilable(::String), { 'query_param': { 'field_name': 'source_values' } }
+      # A ISO8601 date string to filter the results by start_date.
+      field :start_date, T.nilable(::String), { 'query_param': { 'field_name': 'start_date' } }
+      # A comma-separated list of status codes to filter the results by.
+      field :status_codes, T.nilable(::String), { 'query_param': { 'field_name': 'status_codes' } }
+      # A comma-separated list of sub resources to filter the results by.
+      field :sub_resources, T.nilable(::String), { 'query_param': { 'field_name': 'sub_resources' } }
+      # A boolean value to filter the results by success or failure.
+      field :success, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'success' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
-        @updated_after = updated_after
+      sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), child_resources: T.nilable(::String), end_date: T.nilable(::String), http_methods: T.nilable(::String), order_by: T.nilable(::StackOne::Operations::QueryParamOrderBy), order_direction: T.nilable(::StackOne::Operations::QueryParamOrderDirection), providers: T.nilable(::String), request_ids: T.nilable(::String), resources: T.nilable(::String), services: T.nilable(::String), source_ids: T.nilable(::String), source_types: T.nilable(::String), source_values: T.nilable(::String), start_date: T.nilable(::String), status_codes: T.nilable(::String), sub_resources: T.nilable(::String), success: T.nilable(T::Boolean)).void }
+      def initialize(account_ids: nil, actions: nil, child_resources: nil, end_date: nil, http_methods: nil, order_by: nil, order_direction: nil, providers: nil, request_ids: nil, resources: nil, services: nil, source_ids: nil, source_types: nil, source_values: nil, start_date: nil, status_codes: nil, sub_resources: nil, success: nil)
+        @account_ids = account_ids
+        @actions = actions
+        @child_resources = child_resources
+        @end_date = end_date
+        @http_methods = http_methods
+        @order_by = order_by
+        @order_direction = order_direction
+        @providers = providers
+        @request_ids = request_ids
+        @resources = resources
+        @services = services
+        @source_ids = source_ids
+        @source_types = source_types
+        @source_values = source_values
+        @start_date = start_date
+        @status_codes = status_codes
+        @sub_resources = sub_resources
+        @success = success
       end
     end
   end

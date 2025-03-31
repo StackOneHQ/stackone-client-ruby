@@ -46,6 +46,7 @@
 * [list_employee_employments](#list_employee_employments) - List Employee Employments
 * [list_employee_skills](#list_employee_skills) - List Employee Skills
 * [list_employee_time_off_balances](#list_employee_time_off_balances) - List Employee Time Off Balances
+* [list_employee_time_off_policies](#list_employee_time_off_policies) - List Assigned Time Off Policies
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](#list_employees) - List Employees
@@ -1089,7 +1090,8 @@ s = ::StackOne::StackOne.new(
     )
 
 req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
+  expand: "policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1470,7 +1472,8 @@ s = ::StackOne::StackOne.new(
     )
 
 req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
+  expand: "policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -2027,6 +2030,51 @@ end
 
 
 
+## list_employee_time_off_policies
+
+List Assigned Time Off Policies
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: ::StackOne::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = ::StackOne::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
+  fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
+  filter: ::StackOne::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_employee_time_off_policies(req)
+
+if ! res.time_off_policies_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeTimeOffPoliciesRequest](../../models/operations/hrislistemployeetimeoffpoliciesrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+
+### Response
+
+**[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffPoliciesResponse)](../../models/operations/hrislistemployeetimeoffpoliciesresponse.md)**
+
+
+
 ## list_employee_time_off_requests
 
 List Employee Time Off Requests
@@ -2044,7 +2092,8 @@ s = ::StackOne::StackOne.new(
     )
 
 req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
+  expand: "policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
   filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2491,7 +2540,8 @@ s = ::StackOne::StackOne.new(
     )
 
 req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at",
+  expand: "policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
   filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2699,7 +2749,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   work_phone_number: "+1234567890",
 ), id="<id>", x_account_id="<id>")
 
-if ! res.update_employee_api_model.nil?
+if ! res.update_result.nil?
   # handle response
 end
 

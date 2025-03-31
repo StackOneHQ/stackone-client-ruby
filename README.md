@@ -259,6 +259,7 @@ end
 * [list_employee_employments](docs/sdks/hris/README.md#list_employee_employments) - List Employee Employments
 * [list_employee_skills](docs/sdks/hris/README.md#list_employee_skills) - List Employee Skills
 * [list_employee_time_off_balances](docs/sdks/hris/README.md#list_employee_time_off_balances) - List Employee Time Off Balances
+* [list_employee_time_off_policies](docs/sdks/hris/README.md#list_employee_time_off_policies) - List Assigned Time Off Policies
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests
 * [list_employee_work_eligibility](docs/sdks/hris/README.md#list_employee_work_eligibility) - List Employee Work Eligibility
 * [list_employees](docs/sdks/hris/README.md#list_employees) - List Employees
@@ -353,6 +354,12 @@ end
 ### [proxy](docs/sdks/proxy/README.md)
 
 * [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
+
+### [request_logs](docs/sdks/requestlogs/README.md)
+
+* [get_log](docs/sdks/requestlogs/README.md#get_log) - Get a Log
+* [list_logs](docs/sdks/requestlogs/README.md#list_logs) - List Logs
+* [list_step_logs](docs/sdks/requestlogs/README.md#list_step_logs) - List Step Logs
 
 
 </details>

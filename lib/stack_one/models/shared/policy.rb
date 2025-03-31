@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-    # The time off policy associated with this balance
+    # The time off policy associated with Time Off
     class Policy < ::Crystalline::FieldAugmented
       extend T::Sig
 
@@ -16,7 +16,7 @@ module StackOne
       # The description of this policy
       field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
       # The duration unit of the current policy
-      field :duration_unit, T.nilable(::StackOne::Shared::TimeOffBalancesDurationUnit), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_unit') } }
+      field :duration_unit, T.nilable(::StackOne::Shared::TimeOffDurationUnit), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_unit') } }
       # Unique identifier
       field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
       # The name of this policy
@@ -26,12 +26,12 @@ module StackOne
       # Provider's unique identifier
       field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
       # The type of this policy
-      field :type, T.nilable(::StackOne::Shared::TimeOffBalancesType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      field :type, T.nilable(::StackOne::Shared::TimeOffSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
       # The updated_at date of this policy
       field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), duration_unit: T.nilable(::StackOne::Shared::TimeOffBalancesDurationUnit), id: T.nilable(::String), name: T.nilable(::String), reasons: T.nilable(T::Array[::StackOne::Shared::Reason]), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::TimeOffBalancesType), updated_at: T.nilable(::DateTime)).void }
+      sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), duration_unit: T.nilable(::StackOne::Shared::TimeOffDurationUnit), id: T.nilable(::String), name: T.nilable(::String), reasons: T.nilable(T::Array[::StackOne::Shared::Reason]), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::TimeOffSchemasType), updated_at: T.nilable(::DateTime)).void }
       def initialize(created_at: nil, description: nil, duration_unit: nil, id: nil, name: nil, reasons: nil, remote_id: nil, type: nil, updated_at: nil)
         @created_at = created_at
         @description = description

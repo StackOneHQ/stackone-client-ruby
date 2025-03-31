@@ -7,7 +7,7 @@
 module StackOne
   module Shared
   
-
+    # Response headers
     class Headers < ::Crystalline::FieldAugmented
       extend T::Sig
 
