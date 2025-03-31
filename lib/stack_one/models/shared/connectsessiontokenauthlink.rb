@@ -31,6 +31,8 @@ module StackOne
       field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
 
       field :categories, T.nilable(T::Array[::StackOne::Shared::ConnectSessionTokenAuthLinkCategories]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+      # External trigger token to be used to trigger actions on the account
+      field :external_trigger_token, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_trigger_token') } }
 
       field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
       # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
@@ -41,8 +43,8 @@ module StackOne
       field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
 
 
-      sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[::StackOne::Shared::ConnectSessionTokenAuthLinkCategories]), label: T.nilable(::String), metadata: T.nilable(::StackOne::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
-      def initialize(auth_link_url: nil, created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, token: nil, account_id: nil, categories: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
+      sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[::StackOne::Shared::ConnectSessionTokenAuthLinkCategories]), external_trigger_token: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(::StackOne::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
+      def initialize(auth_link_url: nil, created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, token: nil, account_id: nil, categories: nil, external_trigger_token: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
         @auth_link_url = auth_link_url
         @created_at = created_at
         @id = id
@@ -53,6 +55,7 @@ module StackOne
         @token = token
         @account_id = account_id
         @categories = categories
+        @external_trigger_token = external_trigger_token
         @label = label
         @metadata = metadata
         @origin_username = origin_username

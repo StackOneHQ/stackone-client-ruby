@@ -1,0 +1,14 @@
+# Request
+
+The advanced log request data
+
+
+## Fields
+
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             | Example                                                                 |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `body`                                                                  | *T.nilable(::Object)*                                                   | :heavy_minus_sign:                                                      | N/A                                                                     |                                                                         |
+| `headers`                                                               | T::Hash[Symbol, *::Object*]                                             | :heavy_minus_sign:                                                      | N/A                                                                     | {<br/>"content-type": "application/json",<br/>"authorization": "Bearer token"<br/>} |
+| `id`                                                                    | *T.nilable(::String)*                                                   | :heavy_minus_sign:                                                      | The request ID                                                          | adbf752f-6457-4ddd-89b3-98ae2252b83b                                    |
+| `method`                                                                | *T.nilable(::String)*                                                   | :heavy_minus_sign:                                                      | The request method                                                      | get                                                                     |
+| `url`                                                                   | [T.nilable(::StackOne::Shared::Url)](../../models/shared/url.md)        | :heavy_minus_sign:                                                      | The request URL data                                                    |                                                                         |

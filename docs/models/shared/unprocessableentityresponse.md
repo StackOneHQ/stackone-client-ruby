@@ -1,0 +1,10 @@
+# UnprocessableEntityResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `message`                                                            | *::String*                                                           | :heavy_check_mark:                                                   | Error message                                                        | Unprocessable Entity                                                 |
+| `status_code`                                                        | *::Float*                                                            | :heavy_check_mark:                                                   | HTTP status code                                                     | 422                                                                  |
+| `timestamp`                                                          | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_check_mark:                                                   | Timestamp when the error occurred                                    | 2023-05-30T00:00:00.000Z                                             |

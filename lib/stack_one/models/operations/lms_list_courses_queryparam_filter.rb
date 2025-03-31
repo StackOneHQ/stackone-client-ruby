@@ -7,16 +7,19 @@
 module StackOne
   module Operations
   
-    # Filter parameters that allow greater customisation of the list response
+    # LMS Courses Filter
     class LmsListCoursesQueryParamFilter < ::Crystalline::FieldAugmented
       extend T::Sig
 
+      # Filter to select courses by external_reference
+      field :external_reference, T.nilable(::String), { 'query_param': { 'field_name': 'external_reference' } }
       # Use a string with a date to only select results updated after that given date
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
+      sig { params(external_reference: T.nilable(::String), updated_after: T.nilable(::String)).void }
+      def initialize(external_reference: nil, updated_after: nil)
+        @external_reference = external_reference
         @updated_after = updated_after
       end
     end

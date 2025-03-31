@@ -18,7 +18,7 @@ module StackOne
       # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
       field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
       # Filter parameters that allow greater customisation of the list response
-      field :filter, T.nilable(::StackOne::Operations::Filter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+      field :filter, T.nilable(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
       # The unified cursor
       field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
       # The page number of the results to fetch
@@ -37,7 +37,7 @@ module StackOne
       field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
 
-      sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::Filter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
+      sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::String)).void }
       def initialize(id: nil, x_account_id: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
         @id = id
         @x_account_id = x_account_id

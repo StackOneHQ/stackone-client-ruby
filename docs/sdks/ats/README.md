@@ -689,7 +689,7 @@ s = ::StackOne::StackOne.new(
 
 req = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::Filter.new(
+  filter: ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1243,7 +1243,7 @@ s = ::StackOne::StackOne.new(
 
 req = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::QueryParamFilter.new(
+  filter: ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
