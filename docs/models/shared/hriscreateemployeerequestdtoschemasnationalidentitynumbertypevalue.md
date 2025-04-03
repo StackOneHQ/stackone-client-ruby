@@ -150,3 +150,4 @@ The type of the national identity number
 | `EIN`                | ein                  |
 | `OTHER`              | other                |
 | `UNKNOWN`            | unknown              |
+| `UNMAPPED_VALUE`     | unmapped_value       |

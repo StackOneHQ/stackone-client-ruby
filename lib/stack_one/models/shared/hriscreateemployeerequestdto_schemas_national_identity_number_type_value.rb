@@ -153,6 +153,7 @@ module StackOne
         EIN = new('ein')
         OTHER = new('other')
         UNKNOWN = new('unknown')
+        UNMAPPED_VALUE = new('unmapped_value')
       end
     end
   end

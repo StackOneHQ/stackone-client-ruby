@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 923339f997d07cfcd03ea16387f4df95
+  docChecksum: 4d88ee658f48e9b5625fe85dc524e9c9
   docVersion: 1.0.0
-  speakeasyVersion: 1.526.1
-  generationVersion: 2.563.0
-  releaseVersion: 0.7.1
-  configChecksum: 8e8790519185ee9bc5e2b55346dbb7f3
+  speakeasyVersion: 1.528.1
+  generationVersion: 2.565.1
+  releaseVersion: 0.7.2
+  configChecksum: 09a622111d94189d55a46b6ad0f34b2e
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
