@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The type of the benefit
-    class BenefitType < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+  module Models
+    module Shared
+    
       # The type of the benefit
-      field :value, T.nilable(::StackOne::Shared::CreateHRISBenefitValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateHRISBenefitValue, true) } }
+      class BenefitType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateHRISBenefitValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CreateHRISBenefit4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The type of the benefit
+        field :value, T.nilable(Models::Shared::CreateHRISBenefitValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CreateHRISBenefitValue, true) } }
+
+
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CreateHRISBenefit4, T::Array[::Object])), value: T.nilable(Models::Shared::CreateHRISBenefitValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

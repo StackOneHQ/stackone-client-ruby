@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The schedule type
-    class ScheduleType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The schedule type
+      class ScheduleType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The source value of the schedule type.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The schedule type of the campaign.
-      field :value, T.nilable(::StackOne::Shared::CampaignValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CampaignValue, true) } }
+        # The source value of the schedule type.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Campaign4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The schedule type of the campaign.
+        field :value, T.nilable(Models::Shared::CampaignValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CampaignValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CampaignValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Campaign4, T::Array[::Object])), value: T.nilable(Models::Shared::CampaignValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

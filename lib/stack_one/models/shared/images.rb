@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # Image assets for this provider
-    class Images < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Image assets for this provider
+      class Images
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # URL of the square logo designed and used by StackOne for this provider
-      field :logo_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('logo_url') } }
-      # URL of the original provider logo (with logo and/or name aligned horizontally)
-      field :original_logo_horizontal_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('original_logo_horizontal_url') } }
+        # URL of the square logo designed and used by StackOne for this provider
+        field :logo_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('logo_url') } }
+        # URL of the original provider logo (with logo and/or name aligned horizontally)
+        field :original_logo_horizontal_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('original_logo_horizontal_url') } }
 
 
-      sig { params(logo_url: T.nilable(::String), original_logo_horizontal_url: T.nilable(::String)).void }
-      def initialize(logo_url: nil, original_logo_horizontal_url: nil)
-        @logo_url = logo_url
-        @original_logo_horizontal_url = original_logo_horizontal_url
+        sig { params(logo_url: T.nilable(::String), original_logo_horizontal_url: T.nilable(::String)).void }
+        def initialize(logo_url: nil, original_logo_horizontal_url: nil)
+          @logo_url = logo_url
+          @original_logo_horizontal_url = original_logo_horizontal_url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @logo_url == other.logo_url
+          return false unless @original_logo_horizontal_url == other.original_logo_horizontal_url
+          true
+        end
       end
     end
   end

@@ -5,37 +5,52 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class IamPolicy < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name of the policy.
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The set of permissions associated with the policy.
-      field :permissions, T.nilable(T::Array[::StackOne::Shared::IamPermission]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('permissions') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class IamPolicy
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), permissions: T.nilable(T::Array[::StackOne::Shared::IamPermission]), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, description: nil, id: nil, name: nil, permissions: nil, remote_id: nil, updated_at: nil)
-        @created_at = created_at
-        @description = description
-        @id = id
-        @name = name
-        @permissions = permissions
-        @remote_id = remote_id
-        @updated_at = updated_at
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The name of the policy.
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The set of permissions associated with the policy.
+        field :permissions, T.nilable(T::Array[Models::Shared::IamPermission]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('permissions') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), permissions: T.nilable(T::Array[Models::Shared::IamPermission]), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, description: nil, id: nil, name: nil, permissions: nil, remote_id: nil, updated_at: nil)
+          @created_at = created_at
+          @description = description
+          @id = id
+          @name = name
+          @permissions = permissions
+          @remote_id = remote_id
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_at == other.created_at
+          return false unless @description == other.description
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @permissions == other.permissions
+          return false unless @remote_id == other.remote_id
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

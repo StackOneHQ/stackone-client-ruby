@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
-    # AssessmentResultValue - The result of the test.
-    class AssessmentResultValue < T::Enum
-      enums do
-        CANCELLED = new('cancelled')
-        COMPLETED = new('completed')
-        EXPIRED = new('expired')
-        FAILED = new('failed')
-        PASSED = new('passed')
+  module Models
+    module Shared
+    
+      # AssessmentResultValue - The result of the test.
+      class AssessmentResultValue < T::Enum
+        enums do
+          CANCELLED = new('cancelled')
+          COMPLETED = new('completed')
+          EXPIRED = new('expired')
+          FAILED = new('failed')
+          PASSED = new('passed')
+        end
       end
     end
   end

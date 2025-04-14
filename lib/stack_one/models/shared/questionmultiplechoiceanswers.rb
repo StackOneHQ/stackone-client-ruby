@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class QuestionMultipleChoiceAnswers < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class QuestionMultipleChoiceAnswers
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-      field :text, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
+        field :text, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
 
 
-      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), text: T.nilable(::String)).void }
-      def initialize(id: nil, remote_id: nil, text: nil)
-        @id = id
-        @remote_id = remote_id
-        @text = text
+        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), text: T.nilable(::String)).void }
+        def initialize(id: nil, remote_id: nil, text: nil)
+          @id = id
+          @remote_id = remote_id
+          @text = text
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          return false unless @text == other.text
+          true
+        end
       end
     end
   end

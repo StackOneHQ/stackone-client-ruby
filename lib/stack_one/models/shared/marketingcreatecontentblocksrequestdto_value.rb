@@ -5,15 +5,17 @@
 
 
 module StackOne
-  module Shared
-  
-    # MarketingCreateContentBlocksRequestDtoValue - The type of the content blocks.
-    class MarketingCreateContentBlocksRequestDtoValue < T::Enum
-      enums do
-        TEXT = new('text')
-        HTML = new('html')
-        IMAGE = new('image')
-        CODE_SNIPPET = new('code-snippet')
+  module Models
+    module Shared
+    
+      # MarketingCreateContentBlocksRequestDtoValue - The type of the content blocks.
+      class MarketingCreateContentBlocksRequestDtoValue < T::Enum
+        enums do
+          TEXT = new('text')
+          HTML = new('html')
+          IMAGE = new('image')
+          CODE_SNIPPET = new('code-snippet')
+        end
       end
     end
   end

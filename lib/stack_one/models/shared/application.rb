@@ -5,104 +5,140 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Application < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :application_status, T.nilable(::StackOne::Shared::ApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
-      # Use `documents` expand instead
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :attachments, T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
-
-      field :candidate, T.nilable(::StackOne::Shared::ApplicationCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
-      # Unique identifier of the candidate
-      field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
-      # Date of creation
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The application custom fields
-      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
-      # The documents attached to this application (eg. resume, cover letter etc.)
-      field :documents, T.nilable(T::Array[::StackOne::Shared::AtsDocumentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :interview_stage, T.nilable(::StackOne::Shared::ApplicationInterviewStage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
-      # Unique identifier of the interview stage
-      field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
-      # Unique identifier of the job
-      field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
-      # Unique identifier of the location
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
-      # Unique identifiers of the locations
-      field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
-      # Questionnaires associated with the application
-      field :questionnaires, T.nilable(T::Array[::StackOne::Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
-      # Date of rejection
-      field :rejected_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Unique identifiers of the rejection reasons
-      field :rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
-
-      field :rejected_reasons, T.nilable(T::Array[::StackOne::Shared::RejectedReason]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reasons') } }
-      # Provider's unique identifier of the candidate
-      field :remote_candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_candidate_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the interview stage
-      field :remote_interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_stage_id') } }
-      # Provider's unique identifier of the job
-      field :remote_job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
-      # Provider's unique identifier of the location
-      field :remote_location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_id') } }
-      # Remote's unique identifiers of the locations
-      field :remote_location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_ids') } }
-      # Provider's unique identifiers of the rejection reasons
-      field :remote_rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_rejected_reason_ids') } }
-
-      field :result_links, T.nilable(T::Array[::StackOne::Shared::ResultLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_links') } }
-
-      field :source, T.nilable(::StackOne::Shared::Source), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # Date of last update
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class Application
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::ApplicationStatus), attachments: T.nilable(T::Array[::StackOne::Shared::ApplicationAttachment]), candidate: T.nilable(::StackOne::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), documents: T.nilable(T::Array[::StackOne::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(::StackOne::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[::StackOne::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[::StackOne::Shared::RejectedReason]), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_job_id: T.nilable(::String), remote_location_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), remote_rejected_reason_ids: T.nilable(T::Array[::String]), result_links: T.nilable(T::Array[::StackOne::Shared::ResultLink]), source: T.nilable(::StackOne::Shared::Source), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, custom_fields: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_job_id: nil, remote_location_id: nil, remote_location_ids: nil, remote_rejected_reason_ids: nil, result_links: nil, source: nil, unified_custom_fields: nil, updated_at: nil)
-        @application_status = application_status
-        @attachments = attachments
-        @candidate = candidate
-        @candidate_id = candidate_id
-        @created_at = created_at
-        @custom_fields = custom_fields
-        @documents = documents
-        @id = id
-        @interview_stage = interview_stage
-        @interview_stage_id = interview_stage_id
-        @job_id = job_id
-        @location_id = location_id
-        @location_ids = location_ids
-        @questionnaires = questionnaires
-        @rejected_at = rejected_at
-        @rejected_reason_ids = rejected_reason_ids
-        @rejected_reasons = rejected_reasons
-        @remote_candidate_id = remote_candidate_id
-        @remote_id = remote_id
-        @remote_interview_stage_id = remote_interview_stage_id
-        @remote_job_id = remote_job_id
-        @remote_location_id = remote_location_id
-        @remote_location_ids = remote_location_ids
-        @remote_rejected_reason_ids = remote_rejected_reason_ids
-        @result_links = result_links
-        @source = source
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
+        field :application_status, T.nilable(Models::Shared::ApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
+        # Use `documents` expand instead
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :attachments, T.nilable(T::Array[Models::Shared::ApplicationAttachment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
+
+        field :candidate, T.nilable(Models::Shared::ApplicationCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+        # Unique identifier of the candidate
+        field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
+        # Date of creation
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The application custom fields
+        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        # The documents attached to this application (eg. resume, cover letter etc.)
+        field :documents, T.nilable(T::Array[Models::Shared::AtsDocumentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :interview_stage, T.nilable(Models::Shared::ApplicationInterviewStage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
+        # Unique identifier of the interview stage
+        field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
+        # Unique identifier of the job
+        field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
+        # Unique identifier of the location
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
+        # Unique identifiers of the locations
+        field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
+        # Questionnaires associated with the application
+        field :questionnaires, T.nilable(T::Array[Models::Shared::Questionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
+        # Date of rejection
+        field :rejected_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Unique identifiers of the rejection reasons
+        field :rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
+
+        field :rejected_reasons, T.nilable(T::Array[Models::Shared::RejectedReason]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reasons') } }
+        # Provider's unique identifier of the candidate
+        field :remote_candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_candidate_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's unique identifier of the interview stage
+        field :remote_interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_stage_id') } }
+        # Provider's unique identifier of the job
+        field :remote_job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
+        # Provider's unique identifier of the location
+        field :remote_location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_id') } }
+        # Remote's unique identifiers of the locations
+        field :remote_location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_ids') } }
+        # Provider's unique identifiers of the rejection reasons
+        field :remote_rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_rejected_reason_ids') } }
+
+        field :result_links, T.nilable(T::Array[Models::Shared::ResultLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_links') } }
+
+        field :source, T.nilable(Models::Shared::Source), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Date of last update
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(application_status: T.nilable(Models::Shared::ApplicationStatus), attachments: T.nilable(T::Array[Models::Shared::ApplicationAttachment]), candidate: T.nilable(Models::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), documents: T.nilable(T::Array[Models::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(Models::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[Models::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[Models::Shared::RejectedReason]), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_job_id: T.nilable(::String), remote_location_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), remote_rejected_reason_ids: T.nilable(T::Array[::String]), result_links: T.nilable(T::Array[Models::Shared::ResultLink]), source: T.nilable(Models::Shared::Source), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, custom_fields: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_job_id: nil, remote_location_id: nil, remote_location_ids: nil, remote_rejected_reason_ids: nil, result_links: nil, source: nil, unified_custom_fields: nil, updated_at: nil)
+          @application_status = application_status
+          @attachments = attachments
+          @candidate = candidate
+          @candidate_id = candidate_id
+          @created_at = created_at
+          @custom_fields = custom_fields
+          @documents = documents
+          @id = id
+          @interview_stage = interview_stage
+          @interview_stage_id = interview_stage_id
+          @job_id = job_id
+          @location_id = location_id
+          @location_ids = location_ids
+          @questionnaires = questionnaires
+          @rejected_at = rejected_at
+          @rejected_reason_ids = rejected_reason_ids
+          @rejected_reasons = rejected_reasons
+          @remote_candidate_id = remote_candidate_id
+          @remote_id = remote_id
+          @remote_interview_stage_id = remote_interview_stage_id
+          @remote_job_id = remote_job_id
+          @remote_location_id = remote_location_id
+          @remote_location_ids = remote_location_ids
+          @remote_rejected_reason_ids = remote_rejected_reason_ids
+          @result_links = result_links
+          @source = source
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @application_status == other.application_status
+          return false unless @attachments == other.attachments
+          return false unless @candidate == other.candidate
+          return false unless @candidate_id == other.candidate_id
+          return false unless @created_at == other.created_at
+          return false unless @custom_fields == other.custom_fields
+          return false unless @documents == other.documents
+          return false unless @id == other.id
+          return false unless @interview_stage == other.interview_stage
+          return false unless @interview_stage_id == other.interview_stage_id
+          return false unless @job_id == other.job_id
+          return false unless @location_id == other.location_id
+          return false unless @location_ids == other.location_ids
+          return false unless @questionnaires == other.questionnaires
+          return false unless @rejected_at == other.rejected_at
+          return false unless @rejected_reason_ids == other.rejected_reason_ids
+          return false unless @rejected_reasons == other.rejected_reasons
+          return false unless @remote_candidate_id == other.remote_candidate_id
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_interview_stage_id == other.remote_interview_stage_id
+          return false unless @remote_job_id == other.remote_job_id
+          return false unless @remote_location_id == other.remote_location_id
+          return false unless @remote_location_ids == other.remote_location_ids
+          return false unless @remote_rejected_reason_ids == other.remote_rejected_reason_ids
+          return false unless @result_links == other.result_links
+          return false unless @source == other.source
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

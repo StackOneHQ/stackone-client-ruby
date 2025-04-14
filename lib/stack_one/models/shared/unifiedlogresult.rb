@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class UnifiedLogResult < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UnifiedLogResult
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :data, ::StackOne::Shared::UnifiedLogs, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Models::Shared::UnifiedLogs, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
 
-      sig { params(data: ::StackOne::Shared::UnifiedLogs).void }
-      def initialize(data: nil)
-        @data = data
+        sig { params(data: Models::Shared::UnifiedLogs).void }
+        def initialize(data: nil)
+          @data = data
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          true
+        end
       end
     end
   end

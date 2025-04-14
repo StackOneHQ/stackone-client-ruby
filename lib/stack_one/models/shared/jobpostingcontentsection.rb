@@ -5,31 +5,44 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class JobPostingContentSection < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
-      field :type, T.nilable(::StackOne::Shared::JobPostingContentSectionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      class JobPostingContentSection
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(content: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::JobPostingContentSectionType)).void }
-      def initialize(content: nil, id: nil, label: nil, remote_id: nil, type: nil)
-        @content = content
-        @id = id
-        @label = label
-        @remote_id = remote_id
-        @type = type
+        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+        field :type, T.nilable(Models::Shared::JobPostingContentSectionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+
+
+        sig { params(content: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::JobPostingContentSectionType)).void }
+        def initialize(content: nil, id: nil, label: nil, remote_id: nil, type: nil)
+          @content = content
+          @id = id
+          @label = label
+          @remote_id = remote_id
+          @type = type
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content == other.content
+          return false unless @id == other.id
+          return false unless @label == other.label
+          return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

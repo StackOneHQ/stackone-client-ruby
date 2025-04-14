@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class UpsertResultDataExternalReferenceModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UpsertResultDataExternalReferenceModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The external identifier
-      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The external identifier
+        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(external_reference: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(external_reference: nil, id: nil, remote_id: nil)
-        @external_reference = external_reference
-        @id = id
-        @remote_id = remote_id
+        sig { params(external_reference: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(external_reference: nil, id: nil, remote_id: nil)
+          @external_reference = external_reference
+          @id = id
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @external_reference == other.external_reference
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

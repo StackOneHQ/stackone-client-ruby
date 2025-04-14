@@ -5,31 +5,44 @@
 
 
 module StackOne
-  module Shared
-  
-    # The advanced log request data
-    class Request < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The advanced log request data
+      class Request
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-      field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
-      # The request ID
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The request method
-      field :method, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
-      # The request URL data
-      field :url, T.nilable(::StackOne::Shared::Url), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        # The request ID
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The request method
+        field :method, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
+        # The request URL data
+        field :url, T.nilable(Models::Shared::Url), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(body: T.nilable(::Object), headers: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), method: T.nilable(::String), url: T.nilable(::StackOne::Shared::Url)).void }
-      def initialize(body: nil, headers: nil, id: nil, method: nil, url: nil)
-        @body = body
-        @headers = headers
-        @id = id
-        @method = method
-        @url = url
+        sig { params(body: T.nilable(::Object), headers: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), method: T.nilable(::String), url: T.nilable(Models::Shared::Url)).void }
+        def initialize(body: nil, headers: nil, id: nil, method: nil, url: nil)
+          @body = body
+          @headers = headers
+          @id = id
+          @method = method
+          @url = url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @body == other.body
+          return false unless @headers == other.headers
+          return false unless @id == other.id
+          return false unless @method == other.method
+          return false unless @url == other.url
+          true
+        end
       end
     end
   end

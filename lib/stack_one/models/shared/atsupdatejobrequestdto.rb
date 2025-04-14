@@ -5,57 +5,78 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsUpdateJobRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsUpdateJobRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Code of the job
-      field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
-      # Confidential status of the job
-      field :confidential, T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AtsUpdateJobRequestDtoConfidential, true) } }
-      # The job custom fields
-      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
-      # Department ids of the job
-      field :department_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_ids') } }
-      # Description of the job
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Hiring team for the job.
-      field :hiring_team, T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
-      # Interview stages for the job.
-      field :interview_stages, T.nilable(T::Array[::StackOne::Shared::InterviewStage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stages') } }
-      # Status of the job
-      field :job_status, T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoJobStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_status') } }
-      # Location ids of the job
-      field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Status of the job
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-      # Title of the job
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Code of the job
+        field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
+        # Confidential status of the job
+        field :confidential, T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Models::Shared::AtsUpdateJobRequestDtoConfidential, true) } }
+        # The job custom fields
+        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        # Department ids of the job
+        field :department_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_ids') } }
+        # Description of the job
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Hiring team for the job.
+        field :hiring_team, T.nilable(T::Array[Models::Shared::JobHiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
+        # Interview stages for the job.
+        field :interview_stages, T.nilable(T::Array[Models::Shared::InterviewStage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stages') } }
+        # Status of the job
+        field :job_status, T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_status') } }
+        # Location ids of the job
+        field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # Status of the job
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        # Title of the job
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(code: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[::StackOne::Shared::JobHiringTeam]), interview_stages: T.nilable(T::Array[::StackOne::Shared::InterviewStage]), job_status: T.nilable(::StackOne::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(code: nil, confidential: nil, custom_fields: nil, department_ids: nil, description: nil, hiring_team: nil, interview_stages: nil, job_status: nil, location_ids: nil, passthrough: nil, status: nil, title: nil, unified_custom_fields: nil)
-        @code = code
-        @confidential = confidential
-        @custom_fields = custom_fields
-        @department_ids = department_ids
-        @description = description
-        @hiring_team = hiring_team
-        @interview_stages = interview_stages
-        @job_status = job_status
-        @location_ids = location_ids
-        @passthrough = passthrough
-        @status = status
-        @title = title
-        @unified_custom_fields = unified_custom_fields
+        sig { params(code: T.nilable(::String), confidential: T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[Models::Shared::JobHiringTeam]), interview_stages: T.nilable(T::Array[Models::Shared::InterviewStage]), job_status: T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(code: nil, confidential: nil, custom_fields: nil, department_ids: nil, description: nil, hiring_team: nil, interview_stages: nil, job_status: nil, location_ids: nil, passthrough: nil, status: nil, title: nil, unified_custom_fields: nil)
+          @code = code
+          @confidential = confidential
+          @custom_fields = custom_fields
+          @department_ids = department_ids
+          @description = description
+          @hiring_team = hiring_team
+          @interview_stages = interview_stages
+          @job_status = job_status
+          @location_ids = location_ids
+          @passthrough = passthrough
+          @status = status
+          @title = title
+          @unified_custom_fields = unified_custom_fields
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @code == other.code
+          return false unless @confidential == other.confidential
+          return false unless @custom_fields == other.custom_fields
+          return false unless @department_ids == other.department_ids
+          return false unless @description == other.description
+          return false unless @hiring_team == other.hiring_team
+          return false unless @interview_stages == other.interview_stages
+          return false unless @job_status == other.job_status
+          return false unless @location_ids == other.location_ids
+          return false unless @passthrough == other.passthrough
+          return false unless @status == other.status
+          return false unless @title == other.title
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          true
+        end
       end
     end
   end

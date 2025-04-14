@@ -26,20 +26,20 @@ Creates a new Contact
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.crm.create_contact(crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(
+res = s.crm.create_contact(crm_create_contact_request_dto=Models::Shared::CrmCreateContactRequestDto.new(
   account_ids: [
     "account-123",
     "account-456",
   ],
   company_name: "Apple Inc.",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -73,14 +73,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `crm_create_contact_request_dto`                                                                    | [::StackOne::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `crm_create_contact_request_dto`                                                                | [Models::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmCreateContactResponse)](../../models/operations/crmcreatecontactresponse.md)**
+**[T.nilable(Models::Operations::CrmCreateContactResponse)](../../models/operations/crmcreatecontactresponse.md)**
 
 
 
@@ -94,13 +94,13 @@ Get Account
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmGetAccountRequest.new(
+req = Models::Operations::CrmGetAccountRequest.new(
   fields_: "id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -116,13 +116,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::StackOne::Operations::CrmGetAccountRequest](../../models/operations/crmgetaccountrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::CrmGetAccountRequest](../../models/operations/crmgetaccountrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmGetAccountResponse)](../../models/operations/crmgetaccountresponse.md)**
+**[T.nilable(Models::Operations::CrmGetAccountResponse)](../../models/operations/crmgetaccountresponse.md)**
 
 
 
@@ -136,13 +136,13 @@ Get Contact
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmGetContactRequest.new(
+req = Models::Operations::CrmGetContactRequest.new(
   fields_: "id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at",
   id: "<id>",
   include: "custom_fields",
@@ -159,13 +159,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::StackOne::Operations::CrmGetContactRequest](../../models/operations/crmgetcontactrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::CrmGetContactRequest](../../models/operations/crmgetcontactrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmGetContactResponse)](../../models/operations/crmgetcontactresponse.md)**
+**[T.nilable(Models::Operations::CrmGetContactResponse)](../../models/operations/crmgetcontactresponse.md)**
 
 
 
@@ -179,15 +179,15 @@ Get Contact Custom Field Definition
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
+req = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(
+  filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -204,13 +204,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                 | [::StackOne::Operations::CrmGetContactCustomFieldDefinitionRequest](../../models/operations/crmgetcontactcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                             | [Models::Operations::CrmGetContactCustomFieldDefinitionRequest](../../models/operations/crmgetcontactcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                    | The request object to use for the request.                                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmGetContactCustomFieldDefinitionResponse)](../../models/operations/crmgetcontactcustomfielddefinitionresponse.md)**
+**[T.nilable(Models::Operations::CrmGetContactCustomFieldDefinitionResponse)](../../models/operations/crmgetcontactcustomfielddefinitionresponse.md)**
 
 
 
@@ -224,13 +224,13 @@ Get List
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmGetListRequest.new(
+req = Models::Operations::CrmGetListRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
   id: "<id>",
   x_account_id: "<id>",
@@ -246,13 +246,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::StackOne::Operations::CrmGetListRequest](../../models/operations/crmgetlistrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [Models::Operations::CrmGetListRequest](../../models/operations/crmgetlistrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmGetListResponse)](../../models/operations/crmgetlistresponse.md)**
+**[T.nilable(Models::Operations::CrmGetListResponse)](../../models/operations/crmgetlistresponse.md)**
 
 
 
@@ -266,15 +266,15 @@ List Accounts
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmListAccountsRequest.new(
+req = Models::Operations::CrmListAccountsRequest.new(
   fields_: "id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
-  filter: ::StackOne::Operations::CrmListAccountsQueryParamFilter.new(
+  filter: Models::Operations::CrmListAccountsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -290,13 +290,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::CrmListAccountsRequest](../../models/operations/crmlistaccountsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::CrmListAccountsRequest](../../models/operations/crmlistaccountsrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmListAccountsResponse)](../../models/operations/crmlistaccountsresponse.md)**
+**[T.nilable(Models::Operations::CrmListAccountsResponse)](../../models/operations/crmlistaccountsresponse.md)**
 
 
 
@@ -310,15 +310,15 @@ List Contact Custom Field Definitions
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
+req = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(
+  filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -334,13 +334,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                     | [::StackOne::Operations::CrmListContactCustomFieldDefinitionsRequest](../../models/operations/crmlistcontactcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                 | [Models::Operations::CrmListContactCustomFieldDefinitionsRequest](../../models/operations/crmlistcontactcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmListContactCustomFieldDefinitionsResponse)](../../models/operations/crmlistcontactcustomfielddefinitionsresponse.md)**
+**[T.nilable(Models::Operations::CrmListContactCustomFieldDefinitionsResponse)](../../models/operations/crmlistcontactcustomfielddefinitionsresponse.md)**
 
 
 
@@ -354,15 +354,15 @@ List Contacts
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmListContactsRequest.new(
+req = Models::Operations::CrmListContactsRequest.new(
   fields_: "id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at",
-  filter: ::StackOne::Operations::CrmListContactsQueryParamFilter.new(
+  filter: Models::Operations::CrmListContactsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "custom_fields",
@@ -379,13 +379,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::CrmListContactsRequest](../../models/operations/crmlistcontactsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::CrmListContactsRequest](../../models/operations/crmlistcontactsrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmListContactsResponse)](../../models/operations/crmlistcontactsresponse.md)**
+**[T.nilable(Models::Operations::CrmListContactsResponse)](../../models/operations/crmlistcontactsresponse.md)**
 
 
 
@@ -399,15 +399,15 @@ Get all Lists
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::CrmListListsRequest.new(
+req = Models::Operations::CrmListListsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
-  filter: ::StackOne::Operations::CrmListListsQueryParamFilter.new(
+  filter: Models::Operations::CrmListListsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -423,13 +423,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::CrmListListsRequest](../../models/operations/crmlistlistsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::CrmListListsRequest](../../models/operations/crmlistlistsrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmListListsResponse)](../../models/operations/crmlistlistsresponse.md)**
+**[T.nilable(Models::Operations::CrmListListsResponse)](../../models/operations/crmlistlistsresponse.md)**
 
 
 
@@ -443,20 +443,20 @@ Update Contact (early access)
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.crm.update_contact(crm_create_contact_request_dto=::StackOne::Shared::CrmCreateContactRequestDto.new(
+res = s.crm.update_contact(crm_create_contact_request_dto=Models::Shared::CrmCreateContactRequestDto.new(
   account_ids: [
     "account-123",
     "account-456",
   ],
   company_name: "Apple Inc.",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -490,13 +490,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `crm_create_contact_request_dto`                                                                    | [::StackOne::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `crm_create_contact_request_dto`                                                                | [Models::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::CrmUpdateContactResponse)](../../models/operations/crmupdatecontactresponse.md)**
+**[T.nilable(Models::Operations::CrmUpdateContactResponse)](../../models/operations/crmupdatecontactresponse.md)**
 

@@ -5,16 +5,24 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class PatchAccountExternalDtoCredentials < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class PatchAccountExternalDtoCredentials
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
 
-      
-      def initialize; end
+        
+        def initialize; end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
+      end
     end
   end
 end

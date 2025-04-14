@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsUpdateCandidatesAssessmentsResultsRequestDtoScore < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsUpdateCandidatesAssessmentsResultsRequestDtoScore
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The label of the score
-      field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-      # The maximum value of the score
-      field :max, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max') } }
-      # The minimum value of the score
-      field :min, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min') } }
-      # The value is the actual score
-      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        # The label of the score
+        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # The maximum value of the score
+        field :max, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max') } }
+        # The minimum value of the score
+        field :min, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min') } }
+        # The value is the actual score
+        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(label: T.nilable(::String), max: T.nilable(::String), min: T.nilable(::String), value: T.nilable(::String)).void }
-      def initialize(label: nil, max: nil, min: nil, value: nil)
-        @label = label
-        @max = max
-        @min = min
-        @value = value
+        sig { params(label: T.nilable(::String), max: T.nilable(::String), min: T.nilable(::String), value: T.nilable(::String)).void }
+        def initialize(label: nil, max: nil, min: nil, value: nil)
+          @label = label
+          @max = max
+          @min = min
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @label == other.label
+          return false unless @max == other.max
+          return false unless @min == other.min
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

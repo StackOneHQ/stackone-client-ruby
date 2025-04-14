@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateAnswer < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateAnswer
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Type of the answer
-      field :type, T.nilable(::StackOne::Shared::CreateAnswerType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Values of the answer
-      field :values, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Type of the answer
+        field :type, T.nilable(Models::Shared::CreateAnswerType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Values of the answer
+        field :values, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 
 
-      sig { params(id: T.nilable(::String), type: T.nilable(::StackOne::Shared::CreateAnswerType), values: T.nilable(T::Array[::String])).void }
-      def initialize(id: nil, type: nil, values: nil)
-        @id = id
-        @type = type
-        @values = values
+        sig { params(id: T.nilable(::String), type: T.nilable(Models::Shared::CreateAnswerType), values: T.nilable(T::Array[::String])).void }
+        def initialize(id: nil, type: nil, values: nil)
+          @id = id
+          @type = type
+          @values = values
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @type == other.type
+          return false unless @values == other.values
+          true
+        end
       end
     end
   end

@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LinkedAccountMeta < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :category, ::StackOne::Shared::LinkedAccountMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(::StackOne::Shared::LinkedAccountMetaCategory, false) } }
-
-      field :models, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models') } }
-
-      field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+      class LinkedAccountMeta
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(category: ::StackOne::Shared::LinkedAccountMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String).void }
-      def initialize(category: nil, models: nil, provider: nil)
-        @category = category
-        @models = models
-        @provider = provider
+        field :category, Models::Shared::LinkedAccountMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountMetaCategory, false) } }
+
+        field :models, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models') } }
+
+        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+
+
+        sig { params(category: Models::Shared::LinkedAccountMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String).void }
+        def initialize(category: nil, models: nil, provider: nil)
+          @category = category
+          @models = models
+          @provider = provider
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @category == other.category
+          return false unless @models == other.models
+          return false unless @provider == other.provider
+          true
+        end
       end
     end
   end

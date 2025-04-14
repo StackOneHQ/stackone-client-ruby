@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
-    # The request URL data
-    class UnifiedLogsUrl < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The request URL data
+      class UnifiedLogsUrl
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The request URL hostname
-      field :hostname, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hostname') } }
-      # The request path
-      field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
-      # The request query parameters
-      field :query_params, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query_params') } }
-      # The request URL
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        # The request URL hostname
+        field :hostname, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hostname') } }
+        # The request path
+        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        # The request query parameters
+        field :query_params, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query_params') } }
+        # The request URL
+        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(hostname: T.nilable(::String), path: T.nilable(::String), query_params: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
-      def initialize(hostname: nil, path: nil, query_params: nil, url: nil)
-        @hostname = hostname
-        @path = path
-        @query_params = query_params
-        @url = url
+        sig { params(hostname: T.nilable(::String), path: T.nilable(::String), query_params: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
+        def initialize(hostname: nil, path: nil, query_params: nil, url: nil)
+          @hostname = hostname
+          @path = path
+          @query_params = query_params
+          @url = url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @hostname == other.hostname
+          return false unless @path == other.path
+          return false unless @query_params == other.query_params
+          return false unless @url == other.url
+          true
+        end
       end
     end
   end

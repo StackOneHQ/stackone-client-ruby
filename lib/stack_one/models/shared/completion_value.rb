@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CompletionValue < T::Enum
-      enums do
-        CONTENT = new('content')
-        COURSE = new('course')
-        COLLECTION = new('collection')
+      class CompletionValue < T::Enum
+        enums do
+          CONTENT = new('content')
+          COURSE = new('course')
+          COLLECTION = new('collection')
+        end
       end
     end
   end

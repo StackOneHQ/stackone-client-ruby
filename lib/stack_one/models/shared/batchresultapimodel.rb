@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class BatchResultApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :errors, T.nilable(T::Array[T::Array[::String]]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('errors') } }
-
-      field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
-
-      field :status_code, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
-
-      field :timestamp, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class BatchResultApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(errors: T.nilable(T::Array[T::Array[::String]]), message: T.nilable(::String), status_code: T.nilable(::Float), timestamp: T.nilable(::DateTime)).void }
-      def initialize(errors: nil, message: nil, status_code: nil, timestamp: nil)
-        @errors = errors
-        @message = message
-        @status_code = status_code
-        @timestamp = timestamp
+        field :errors, T.nilable(T::Array[T::Array[::String]]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('errors') } }
+
+        field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+
+        field :status_code, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
+
+        field :timestamp, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(errors: T.nilable(T::Array[T::Array[::String]]), message: T.nilable(::String), status_code: T.nilable(::Float), timestamp: T.nilable(::DateTime)).void }
+        def initialize(errors: nil, message: nil, status_code: nil, timestamp: nil)
+          @errors = errors
+          @message = message
+          @status_code = status_code
+          @timestamp = timestamp
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @errors == other.errors
+          return false unless @message == other.message
+          return false unless @status_code == other.status_code
+          return false unless @timestamp == other.timestamp
+          true
+        end
       end
     end
   end

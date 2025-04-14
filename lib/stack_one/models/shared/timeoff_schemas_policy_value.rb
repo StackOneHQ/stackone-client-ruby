@@ -5,18 +5,20 @@
 
 
 module StackOne
-  module Shared
-  
-    # TimeOffSchemasPolicyValue - The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
-    class TimeOffSchemasPolicyValue < T::Enum
-      enums do
-        MINUTES = new('minutes')
-        HOURS = new('hours')
-        DAYS = new('days')
-        WEEKS = new('weeks')
-        MONTHS = new('months')
-        YEARS = new('years')
-        UNKNOWN = new('unknown')
+  module Models
+    module Shared
+    
+      # TimeOffSchemasPolicyValue - The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
+      class TimeOffSchemasPolicyValue < T::Enum
+        enums do
+          MINUTES = new('minutes')
+          HOURS = new('hours')
+          DAYS = new('days')
+          WEEKS = new('weeks')
+          MONTHS = new('months')
+          YEARS = new('years')
+          UNKNOWN = new('unknown')
+        end
       end
     end
   end

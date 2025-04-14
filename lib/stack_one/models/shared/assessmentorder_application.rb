@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AssessmentOrderApplication < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :application_status, T.nilable(::StackOne::Shared::AssessmentOrderApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      class AssessmentOrderApplication
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(application_status: T.nilable(::StackOne::Shared::AssessmentOrderApplicationStatus), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
-      def initialize(application_status: nil, id: nil, passthrough: nil, remote_id: nil)
-        @application_status = application_status
-        @id = id
-        @passthrough = passthrough
-        @remote_id = remote_id
+        field :application_status, T.nilable(Models::Shared::AssessmentOrderApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+
+        sig { params(application_status: T.nilable(Models::Shared::AssessmentOrderApplicationStatus), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+        def initialize(application_status: nil, id: nil, passthrough: nil, remote_id: nil)
+          @application_status = application_status
+          @id = id
+          @passthrough = passthrough
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @application_status == other.application_status
+          return false unless @id == other.id
+          return false unless @passthrough == other.passthrough
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

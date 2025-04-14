@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The employee ethnicity
-    class HrisCreateEmployeeRequestDtoEthnicity < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The employee ethnicity
+      class HrisCreateEmployeeRequestDtoEthnicity
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicity4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, true) } }
+        field :value, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicity4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEthnicityValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

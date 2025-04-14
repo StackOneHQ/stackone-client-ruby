@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
-    # AccountAddressValue - The type of the location.
-    class AccountAddressValue < T::Enum
-      enums do
-        HOME = new('home')
-        WORK = new('work')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # AccountAddressValue - The type of the location.
+      class AccountAddressValue < T::Enum
+        enums do
+          HOME = new('home')
+          WORK = new('work')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

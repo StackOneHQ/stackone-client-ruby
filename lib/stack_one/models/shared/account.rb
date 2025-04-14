@@ -5,58 +5,80 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Account < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :addresses, T.nilable(T::Array[::StackOne::Shared::AccountAddress]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('addresses') } }
-
-      field :annual_revenue, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('annual_revenue') } }
-      # Timestamp when the account was created
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Values of the industries
-      field :industries, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('industries') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-
-      field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
-      # List of account phone numbers
-      field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the owner
-      field :remote_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # Timestamp when the account was last updated
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :website, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('website') } }
+      class Account
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(addresses: T.nilable(T::Array[::StackOne::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), industries: T.nilable(T::Array[::String]), name: T.nilable(::String), owner_id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
-      def initialize(addresses: nil, annual_revenue: nil, created_at: nil, description: nil, id: nil, industries: nil, name: nil, owner_id: nil, phone_numbers: nil, remote_id: nil, remote_owner_id: nil, unified_custom_fields: nil, updated_at: nil, website: nil)
-        @addresses = addresses
-        @annual_revenue = annual_revenue
-        @created_at = created_at
-        @description = description
-        @id = id
-        @industries = industries
-        @name = name
-        @owner_id = owner_id
-        @phone_numbers = phone_numbers
-        @remote_id = remote_id
-        @remote_owner_id = remote_owner_id
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
-        @website = website
+        field :addresses, T.nilable(T::Array[Models::Shared::AccountAddress]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('addresses') } }
+
+        field :annual_revenue, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('annual_revenue') } }
+        # Timestamp when the account was created
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Values of the industries
+        field :industries, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('industries') } }
+
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+
+        field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
+        # List of account phone numbers
+        field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's unique identifier of the owner
+        field :remote_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Timestamp when the account was last updated
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :website, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('website') } }
+
+
+        sig { params(addresses: T.nilable(T::Array[Models::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), industries: T.nilable(T::Array[::String]), name: T.nilable(::String), owner_id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
+        def initialize(addresses: nil, annual_revenue: nil, created_at: nil, description: nil, id: nil, industries: nil, name: nil, owner_id: nil, phone_numbers: nil, remote_id: nil, remote_owner_id: nil, unified_custom_fields: nil, updated_at: nil, website: nil)
+          @addresses = addresses
+          @annual_revenue = annual_revenue
+          @created_at = created_at
+          @description = description
+          @id = id
+          @industries = industries
+          @name = name
+          @owner_id = owner_id
+          @phone_numbers = phone_numbers
+          @remote_id = remote_id
+          @remote_owner_id = remote_owner_id
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+          @website = website
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @addresses == other.addresses
+          return false unless @annual_revenue == other.annual_revenue
+          return false unless @created_at == other.created_at
+          return false unless @description == other.description
+          return false unless @id == other.id
+          return false unless @industries == other.industries
+          return false unless @name == other.name
+          return false unless @owner_id == other.owner_id
+          return false unless @phone_numbers == other.phone_numbers
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_owner_id == other.remote_owner_id
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          return false unless @website == other.website
+          true
+        end
       end
     end
   end

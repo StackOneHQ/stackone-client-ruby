@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
-    # The type of employment
-    class EmploymentSchemasType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The type of employment
+      class EmploymentSchemasType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The label of the employment type
-      field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The type of employment (e.g., contractor, permanent)
-      field :type, T.nilable(::StackOne::Shared::EmploymentSchemasTypeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The label of the employment type
+        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The type of employment (e.g., contractor, permanent)
+        field :type, T.nilable(Models::Shared::EmploymentSchemasTypeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-      sig { params(id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::EmploymentSchemasTypeType)).void }
-      def initialize(id: nil, label: nil, remote_id: nil, type: nil)
-        @id = id
-        @label = label
-        @remote_id = remote_id
-        @type = type
+        sig { params(id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::EmploymentSchemasTypeType)).void }
+        def initialize(id: nil, label: nil, remote_id: nil, type: nil)
+          @id = id
+          @label = label
+          @remote_id = remote_id
+          @type = type
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @label == other.label
+          return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

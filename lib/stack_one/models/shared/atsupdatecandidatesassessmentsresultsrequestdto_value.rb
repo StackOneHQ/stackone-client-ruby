@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
-    # AtsUpdateCandidatesAssessmentsResultsRequestDtoValue - The result of the test.
-    class AtsUpdateCandidatesAssessmentsResultsRequestDtoValue < T::Enum
-      enums do
-        CANCELLED = new('cancelled')
-        COMPLETED = new('completed')
-        EXPIRED = new('expired')
-        FAILED = new('failed')
-        PASSED = new('passed')
+  module Models
+    module Shared
+    
+      # AtsUpdateCandidatesAssessmentsResultsRequestDtoValue - The result of the test.
+      class AtsUpdateCandidatesAssessmentsResultsRequestDtoValue < T::Enum
+        enums do
+          CANCELLED = new('cancelled')
+          COMPLETED = new('completed')
+          EXPIRED = new('expired')
+          FAILED = new('failed')
+          PASSED = new('passed')
+        end
       end
     end
   end

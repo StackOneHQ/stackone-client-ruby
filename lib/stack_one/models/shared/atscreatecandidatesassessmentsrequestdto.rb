@@ -5,40 +5,56 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsCreateCandidatesAssessmentsRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :application, T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application') } }
-
-      field :candidate, T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :job, T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
-
-      field :package, T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
-      field :requester, T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
-      # Results update url
-      field :results_update_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
+      class AtsCreateCandidatesAssessmentsRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(application: T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication), candidate: T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob), package: T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), requester: T.nilable(::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), results_update_url: T.nilable(::String)).void }
-      def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, passthrough: nil, requester: nil, results_update_url: nil)
-        @application = application
-        @candidate = candidate
-        @id = id
-        @job = job
-        @package = package
-        @passthrough = passthrough
-        @requester = requester
-        @results_update_url = results_update_url
+        field :application, T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application') } }
+
+        field :candidate, T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :job, T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
+
+        field :package, T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+
+        field :requester, T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
+        # Results update url
+        field :results_update_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
+
+
+        sig { params(application: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob), package: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), requester: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), results_update_url: T.nilable(::String)).void }
+        def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, passthrough: nil, requester: nil, results_update_url: nil)
+          @application = application
+          @candidate = candidate
+          @id = id
+          @job = job
+          @package = package
+          @passthrough = passthrough
+          @requester = requester
+          @results_update_url = results_update_url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @application == other.application
+          return false unless @candidate == other.candidate
+          return false unless @id == other.id
+          return false unless @job == other.job
+          return false unless @package == other.package
+          return false unless @passthrough == other.passthrough
+          return false unless @requester == other.requester
+          return false unless @results_update_url == other.results_update_url
+          true
+        end
       end
     end
   end

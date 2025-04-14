@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Internal < T::Enum
-      enums do
-        TRUE = new('true')
-        FALSE = new('false')
+      class Internal < T::Enum
+        enums do
+          TRUE = new('true')
+          FALSE = new('false')
+        end
       end
     end
   end

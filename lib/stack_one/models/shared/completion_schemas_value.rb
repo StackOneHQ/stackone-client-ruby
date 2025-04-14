@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CompletionSchemasValue < T::Enum
-      enums do
-        PASS = new('Pass')
-        FAIL = new('Fail')
+      class CompletionSchemasValue < T::Enum
+        enums do
+          PASS = new('Pass')
+          FAIL = new('Fail')
+        end
       end
     end
   end

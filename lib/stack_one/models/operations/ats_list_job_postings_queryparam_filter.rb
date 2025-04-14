@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
-    # ATS Job Postings Filter
-    class AtsListJobPostingsQueryParamFilter < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # ATS Job Postings Filter
+      class AtsListJobPostingsQueryParamFilter
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Use a string with a date to only select results created after that given date
-      field :created_after, T.nilable(::String), { 'query_param': { 'field_name': 'created_after' } }
-      # Use a string with a date to only select results updated after that given date
-      field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        # Use a string with a date to only select results created after that given date
+        field :created_after, T.nilable(::String), { 'query_param': { 'field_name': 'created_after' } }
+        # Use a string with a date to only select results updated after that given date
+        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(created_after: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(created_after: nil, updated_after: nil)
-        @created_after = created_after
-        @updated_after = updated_after
+        sig { params(created_after: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        def initialize(created_after: nil, updated_after: nil)
+          @created_after = created_after
+          @updated_after = updated_after
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_after == other.created_after
+          return false unless @updated_after == other.updated_after
+          true
+        end
       end
     end
   end

@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The duration unit of the current policy
-    class DurationUnit < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The duration unit of the current policy
+      class DurationUnit
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
-      field :value, T.nilable(::StackOne::Shared::TimeOffPoliciesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::TimeOffPoliciesValue, true) } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffPolicies4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
+        field :value, T.nilable(Models::Shared::TimeOffPoliciesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TimeOffPoliciesValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::TimeOffPoliciesValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffPolicies4, T::Array[::Object])), value: T.nilable(Models::Shared::TimeOffPoliciesValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

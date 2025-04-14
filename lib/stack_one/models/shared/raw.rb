@@ -5,16 +5,24 @@
 
 
 module StackOne
-  module Shared
-  
-    # Raw error response from the provider
-    class Raw < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Raw error response from the provider
+      class Raw
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
 
-      
-      def initialize; end
+        
+        def initialize; end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
+      end
     end
   end
 end

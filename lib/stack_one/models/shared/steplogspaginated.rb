@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class StepLogsPaginated < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :data, T::Array[::StackOne::Shared::StepLogsApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
-
-      field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+      class StepLogsPaginated
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(data: T::Array[::StackOne::Shared::StepLogsApiModel], next_: T.nilable(::String)).void }
-      def initialize(data: nil, next_: nil)
-        @data = data
-        @next_ = next_
+        field :data, T::Array[Models::Shared::StepLogsApiModel], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+
+        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+
+
+        sig { params(data: T::Array[Models::Shared::StepLogsApiModel], next_: T.nilable(::String)).void }
+        def initialize(data: nil, next_: nil)
+          @data = data
+          @next_ = next_
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          return false unless @next_ == other.next_
+          true
+        end
       end
     end
   end

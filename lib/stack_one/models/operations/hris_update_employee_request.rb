@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class HrisUpdateEmployeeRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :hris_update_employee_request_dto, ::StackOne::Shared::HrisUpdateEmployeeRequestDto, { 'request': { 'media_type': 'application/json' } }
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class HrisUpdateEmployeeRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(hris_update_employee_request_dto: ::StackOne::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String).void }
-      def initialize(hris_update_employee_request_dto: nil, id: nil, x_account_id: nil)
-        @hris_update_employee_request_dto = hris_update_employee_request_dto
-        @id = id
-        @x_account_id = x_account_id
+        field :hris_update_employee_request_dto, Models::Shared::HrisUpdateEmployeeRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(hris_update_employee_request_dto: nil, id: nil, x_account_id: nil)
+          @hris_update_employee_request_dto = hris_update_employee_request_dto
+          @id = id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @hris_update_employee_request_dto == other.hris_update_employee_request_dto
+          return false unless @id == other.id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

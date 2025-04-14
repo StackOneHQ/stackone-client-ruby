@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class AtsDeleteBackgroundCheckPackageRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class AtsDeleteBackgroundCheckPackageRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(id: ::String, x_account_id: ::String).void }
-      def initialize(id: nil, x_account_id: nil)
-        @id = id
-        @x_account_id = x_account_id
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(id: ::String, x_account_id: ::String).void }
+        def initialize(id: nil, x_account_id: nil)
+          @id = id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

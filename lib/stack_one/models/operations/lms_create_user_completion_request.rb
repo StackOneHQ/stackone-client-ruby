@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class LmsCreateUserCompletionRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
-      field :lms_create_completion_request_dto, ::StackOne::Shared::LmsCreateCompletionRequestDto, { 'request': { 'media_type': 'application/json' } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class LmsCreateUserCompletionRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(id: ::String, lms_create_completion_request_dto: ::StackOne::Shared::LmsCreateCompletionRequestDto, x_account_id: ::String).void }
-      def initialize(id: nil, lms_create_completion_request_dto: nil, x_account_id: nil)
-        @id = id
-        @lms_create_completion_request_dto = lms_create_completion_request_dto
-        @x_account_id = x_account_id
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+
+        field :lms_create_completion_request_dto, Models::Shared::LmsCreateCompletionRequestDto, { 'request': { 'media_type': 'application/json' } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(id: ::String, lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto, x_account_id: ::String).void }
+        def initialize(id: nil, lms_create_completion_request_dto: nil, x_account_id: nil)
+          @id = id
+          @lms_create_completion_request_dto = lms_create_completion_request_dto
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @lms_create_completion_request_dto == other.lms_create_completion_request_dto
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

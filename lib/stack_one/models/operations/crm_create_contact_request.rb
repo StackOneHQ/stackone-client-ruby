@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CrmCreateContactRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :crm_create_contact_request_dto, ::StackOne::Shared::CrmCreateContactRequestDto, { 'request': { 'media_type': 'application/json' } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class CrmCreateContactRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, x_account_id: ::String).void }
-      def initialize(crm_create_contact_request_dto: nil, x_account_id: nil)
-        @crm_create_contact_request_dto = crm_create_contact_request_dto
-        @x_account_id = x_account_id
+        field :crm_create_contact_request_dto, Models::Shared::CrmCreateContactRequestDto, { 'request': { 'media_type': 'application/json' } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String).void }
+        def initialize(crm_create_contact_request_dto: nil, x_account_id: nil)
+          @crm_create_contact_request_dto = crm_create_contact_request_dto
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @crm_create_contact_request_dto == other.crm_create_contact_request_dto
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

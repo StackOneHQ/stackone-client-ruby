@@ -5,22 +5,24 @@
 
 
 module StackOne
-  module Shared
-  
-    # IamMfaTypeEnumValue - The unified value for the type of multi-factor authentication. If the provider does not send back a type but does specify that MFA is set-up for this user, the value will be set to 'unknown'.'
-    class IamMfaTypeEnumValue < T::Enum
-      enums do
-        SMS = new('sms')
-        EMAIL = new('email')
-        PUSH = new('push')
-        TOTP = new('totp')
-        PHONE_CALL = new('phone_call')
-        QUESTION = new('question')
-        SOFTWARE_TOKEN = new('software_token')
-        HARDWARE_TOKEN = new('hardware_token')
-        WEB = new('web')
-        UNKNOWN = new('unknown')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # IamMfaTypeEnumValue - The unified value for the type of multi-factor authentication. If the provider does not send back a type but does specify that MFA is set-up for this user, the value will be set to 'unknown'.'
+      class IamMfaTypeEnumValue < T::Enum
+        enums do
+          SMS = new('sms')
+          EMAIL = new('email')
+          PUSH = new('push')
+          TOTP = new('totp')
+          PHONE_CALL = new('phone_call')
+          QUESTION = new('question')
+          SOFTWARE_TOKEN = new('software_token')
+          HARDWARE_TOKEN = new('hardware_token')
+          WEB = new('web')
+          UNKNOWN = new('unknown')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

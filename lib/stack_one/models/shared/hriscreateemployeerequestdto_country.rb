@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The country code
-    class HrisCreateEmployeeRequestDtoCountry < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The country code
+      class HrisCreateEmployeeRequestDtoCountry
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The ISO3166-1 Alpha2 Code of the Country
-      field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, true) } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocation4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The ISO3166-1 Alpha2 Code of the Country
+        field :value, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocation4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

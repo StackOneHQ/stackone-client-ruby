@@ -5,49 +5,68 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class PatchAccountExternalDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :authentication_config_key, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication_config_key') } }
-
-      field :credentials, T.nilable(::StackOne::Shared::PatchAccountExternalDtoCredentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
-
-      field :environment, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('environment') } }
-
-      field :label, T.nilable(::StackOne::Shared::Label), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-
-      field :metadata, T.nilable(::StackOne::Shared::PatchAccountExternalDtoMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
-
-      field :origin_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
-
-      field :origin_owner_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
-
-      field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
-
-      field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
-
-      field :secrets, T.nilable(::StackOne::Shared::Secrets), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('secrets') } }
-
-      field :setup_information, T.nilable(::StackOne::Shared::PatchAccountExternalDtoSetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
+      class PatchAccountExternalDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(::StackOne::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(::StackOne::Shared::Label), metadata: T.nilable(::StackOne::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(::StackOne::Shared::Secrets), setup_information: T.nilable(::StackOne::Shared::PatchAccountExternalDtoSetupInformation)).void }
-      def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil)
-        @authentication_config_key = authentication_config_key
-        @credentials = credentials
-        @environment = environment
-        @label = label
-        @metadata = metadata
-        @origin_owner_id = origin_owner_id
-        @origin_owner_name = origin_owner_name
-        @origin_username = origin_username
-        @provider = provider
-        @secrets = secrets
-        @setup_information = setup_information
+        field :authentication_config_key, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication_config_key') } }
+
+        field :credentials, T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
+
+        field :environment, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('environment') } }
+
+        field :label, T.nilable(Models::Shared::Label), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+
+        field :metadata, T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
+
+        field :origin_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
+
+        field :origin_owner_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
+
+        field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
+
+        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+
+        field :secrets, T.nilable(Models::Shared::Secrets), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('secrets') } }
+
+        field :setup_information, T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
+
+
+        sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation)).void }
+        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil)
+          @authentication_config_key = authentication_config_key
+          @credentials = credentials
+          @environment = environment
+          @label = label
+          @metadata = metadata
+          @origin_owner_id = origin_owner_id
+          @origin_owner_name = origin_owner_name
+          @origin_username = origin_username
+          @provider = provider
+          @secrets = secrets
+          @setup_information = setup_information
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @authentication_config_key == other.authentication_config_key
+          return false unless @credentials == other.credentials
+          return false unless @environment == other.environment
+          return false unless @label == other.label
+          return false unless @metadata == other.metadata
+          return false unless @origin_owner_id == other.origin_owner_id
+          return false unless @origin_owner_name == other.origin_owner_name
+          return false unless @origin_username == other.origin_username
+          return false unless @provider == other.provider
+          return false unless @secrets == other.secrets
+          return false unless @setup_information == other.setup_information
+          true
+        end
       end
     end
   end

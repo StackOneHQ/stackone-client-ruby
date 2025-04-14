@@ -5,40 +5,56 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HrisCreateWorkEligibilityRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :document, T.nilable(::StackOne::Shared::Document), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('document') } }
-      # The country code of the issued by authority
-      field :issued_by, T.nilable(::StackOne::Shared::IssuedBy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
-
-      field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
-      field :sub_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_type') } }
-
-      field :type, T.nilable(::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
-      field :valid_from, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_from'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :valid_to, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class HrisCreateWorkEligibilityRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(document: T.nilable(::StackOne::Shared::Document), issued_by: T.nilable(::StackOne::Shared::IssuedBy), number: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), sub_type: T.nilable(::String), type: T.nilable(::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
-      def initialize(document: nil, issued_by: nil, number: nil, passthrough: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
-        @document = document
-        @issued_by = issued_by
-        @number = number
-        @passthrough = passthrough
-        @sub_type = sub_type
-        @type = type
-        @valid_from = valid_from
-        @valid_to = valid_to
+        field :document, T.nilable(Models::Shared::Document), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('document') } }
+        # The country code of the issued by authority
+        field :issued_by, T.nilable(Models::Shared::IssuedBy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
+
+        field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+
+        field :sub_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_type') } }
+
+        field :type, T.nilable(Models::Shared::HrisCreateWorkEligibilityRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+
+        field :valid_from, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_from'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :valid_to, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(document: T.nilable(Models::Shared::Document), issued_by: T.nilable(Models::Shared::IssuedBy), number: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), sub_type: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateWorkEligibilityRequestDtoType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
+        def initialize(document: nil, issued_by: nil, number: nil, passthrough: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
+          @document = document
+          @issued_by = issued_by
+          @number = number
+          @passthrough = passthrough
+          @sub_type = sub_type
+          @type = type
+          @valid_from = valid_from
+          @valid_to = valid_to
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @document == other.document
+          return false unless @issued_by == other.issued_by
+          return false unless @number == other.number
+          return false unless @passthrough == other.passthrough
+          return false unless @sub_type == other.sub_type
+          return false unless @type == other.type
+          return false unless @valid_from == other.valid_from
+          return false unless @valid_to == other.valid_to
+          true
+        end
       end
     end
   end

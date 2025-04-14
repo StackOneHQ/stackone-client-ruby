@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Operations
-  
-    # OrderBy - The field to order the results by.
-    class OrderBy < T::Enum
-      enums do
-        PROVIDER = new('provider')
-        SERVICE = new('service')
-        STATUS = new('status')
-        EVENT_DATETIME = new('eventDatetime')
-        DURATION = new('duration')
+  module Models
+    module Operations
+    
+      # OrderBy - The field to order the results by.
+      class OrderBy < T::Enum
+        enums do
+          PROVIDER = new('provider')
+          SERVICE = new('service')
+          STATUS = new('status')
+          EVENT_DATETIME = new('eventDatetime')
+          DURATION = new('duration')
+        end
       end
     end
   end

@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
-    # Method - The method of the request
-    class Method < T::Enum
-      enums do
-        GET = new('get')
-        POST = new('post')
-        PUT = new('put')
-        DELETE = new('delete')
-        PATCH = new('patch')
+  module Models
+    module Shared
+    
+      # Method - The method of the request
+      class Method < T::Enum
+        enums do
+          GET = new('get')
+          POST = new('post')
+          PUT = new('put')
+          DELETE = new('delete')
+          PATCH = new('patch')
+        end
       end
     end
   end

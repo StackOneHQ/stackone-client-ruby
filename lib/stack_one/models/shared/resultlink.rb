@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ResultLink < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ResultLink
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The label of the result link.
-      field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-      # The URL of the result link.
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        # The label of the result link.
+        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # The URL of the result link.
+        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(label: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(label: nil, url: nil)
-        @label = label
-        @url = url
+        sig { params(label: T.nilable(::String), url: T.nilable(::String)).void }
+        def initialize(label: nil, url: nil)
+          @label = label
+          @url = url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @label == other.label
+          return false unless @url == other.url
+          true
+        end
       end
     end
   end

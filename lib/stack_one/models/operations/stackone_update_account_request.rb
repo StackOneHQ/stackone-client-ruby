@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class StackoneUpdateAccountRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
-      field :patch_account_external_dto, ::StackOne::Shared::PatchAccountExternalDto, { 'request': { 'media_type': 'application/json' } }
+      class StackoneUpdateAccountRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(id: ::String, patch_account_external_dto: ::StackOne::Shared::PatchAccountExternalDto).void }
-      def initialize(id: nil, patch_account_external_dto: nil)
-        @id = id
-        @patch_account_external_dto = patch_account_external_dto
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+
+        field :patch_account_external_dto, Models::Shared::PatchAccountExternalDto, { 'request': { 'media_type': 'application/json' } }
+
+
+        sig { params(id: ::String, patch_account_external_dto: Models::Shared::PatchAccountExternalDto).void }
+        def initialize(id: nil, patch_account_external_dto: nil)
+          @id = id
+          @patch_account_external_dto = patch_account_external_dto
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @patch_account_external_dto == other.patch_account_external_dto
+          true
+        end
       end
     end
   end

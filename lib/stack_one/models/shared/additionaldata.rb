@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AdditionalData < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AdditionalData
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The name of the additional data field. Speak to your Solutions Engineer to understand the id for the specific use case
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The value of the additional data
-      field :value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        # The name of the additional data field. Speak to your Solutions Engineer to understand the id for the specific use case
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The value of the additional data
+        field :value, T.nilable(T.any(::String, T::Array[::String])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), value: T.nilable(::Object)).void }
-      def initialize(id: nil, remote_id: nil, value: nil)
-        @id = id
-        @remote_id = remote_id
-        @value = value
+        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), value: T.nilable(T.any(::String, T::Array[::String]))).void }
+        def initialize(id: nil, remote_id: nil, value: nil)
+          @id = id
+          @remote_id = remote_id
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class RawResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :method, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
-
-      field :url, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
-      field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
-
-      field :response, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
+      class RawResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(method: ::String, url: ::String, body: T.nilable(::Object), response: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(method: nil, url: nil, body: nil, response: nil)
-        @method = method
-        @url = url
-        @body = body
-        @response = response
+        field :method, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
+
+        field :url, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+
+        field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+
+        field :response, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
+
+
+        sig { params(method: ::String, url: ::String, body: T.nilable(::Object), response: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(method: nil, url: nil, body: nil, response: nil)
+          @method = method
+          @url = url
+          @body = body
+          @response = response
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @method == other.method
+          return false unless @url == other.url
+          return false unless @body == other.body
+          return false unless @response == other.response
+          true
+        end
       end
     end
   end

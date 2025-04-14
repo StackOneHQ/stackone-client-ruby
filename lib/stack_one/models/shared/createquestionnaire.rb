@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateQuestionnaire < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :answers, T.nilable(T::Array[::StackOne::Shared::CreateAnswer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+      class CreateQuestionnaire
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(answers: T.nilable(T::Array[::StackOne::Shared::CreateAnswer]), id: T.nilable(::String)).void }
-      def initialize(answers: nil, id: nil)
-        @answers = answers
-        @id = id
+        field :answers, T.nilable(T::Array[Models::Shared::CreateAnswer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+
+        sig { params(answers: T.nilable(T::Array[Models::Shared::CreateAnswer]), id: T.nilable(::String)).void }
+        def initialize(answers: nil, id: nil)
+          @answers = answers
+          @id = id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @answers == other.answers
+          return false unless @id == other.id
+          true
+        end
       end
     end
   end

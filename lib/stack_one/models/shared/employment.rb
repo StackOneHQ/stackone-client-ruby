@@ -5,105 +5,140 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Employment < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Employment
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The employment active status
-      field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-      # The employment work schedule type
-      field :contract_type, T.nilable(::StackOne::Shared::ContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
-      # The employee cost_center
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :cost_center, T.nilable(::StackOne::Shared::CostCenter), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_center') } }
-      # The employee cost_centers
-      field :cost_centers, T.nilable(T::Array[::StackOne::Shared::HRISCostCenter]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_centers') } }
-      # The created_at date
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee department
-      field :department, T.nilable(::StackOne::Shared::EmploymentDepartment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
-      # The employee division
-      field :division, T.nilable(::StackOne::Shared::Division), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('division') } }
-      # The effective date of the employment contract
-      field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee ID associated with this employment
-      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
-      # The employment work schedule type (e.g., full-time, part-time)
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :employment_contract_type, T.nilable(::StackOne::Shared::EmploymentEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
-      # The type of employment (e.g., contractor, permanent)
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :employment_type, T.nilable(::StackOne::Shared::EmploymentEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
-      # The end_date of employment
-      field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The job of employee
-      field :job, T.nilable(::StackOne::Shared::EmploymentJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
-      # The job title of the employee
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
-      # The employee manager
-      field :manager, T.nilable(T::Array[::StackOne::Shared::EmploymentManagerApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager') } }
-      # The currency used for pay
-      field :pay_currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
-      # The pay frequency
-      field :pay_frequency, T.nilable(::StackOne::Shared::EmploymentPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
-      # The pay period
-      field :pay_period, T.nilable(::StackOne::Shared::EmploymentPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
-      # The pay rate for the employee
-      field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
-      # Provider's unique identifier of the employee associated with this employment
-      field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The start_date of employment
-      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The time worked for the employee in ISO 8601 duration format
-      field :time_worked, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_worked') } }
-      # The type of employment
-      field :type, T.nilable(::StackOne::Shared::EmploymentSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # The updated_at date
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employment active status
+        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        # The employment work schedule type
+        field :contract_type, T.nilable(Models::Shared::ContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
+        # The employee cost_center
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :cost_center, T.nilable(Models::Shared::CostCenter), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_center') } }
+        # The employee cost_centers
+        field :cost_centers, T.nilable(T::Array[Models::Shared::HRISCostCenter]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_centers') } }
+        # The created_at date
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employee department
+        field :department, T.nilable(Models::Shared::EmploymentDepartment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
+        # The employee division
+        field :division, T.nilable(Models::Shared::Division), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('division') } }
+        # The effective date of the employment contract
+        field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employee ID associated with this employment
+        field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
+        # The employment work schedule type (e.g., full-time, part-time)
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :employment_contract_type, T.nilable(Models::Shared::EmploymentEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
+        # The type of employment (e.g., contractor, permanent)
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :employment_type, T.nilable(Models::Shared::EmploymentEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
+        # The end_date of employment
+        field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The job of employee
+        field :job, T.nilable(Models::Shared::EmploymentJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
+        # The job title of the employee
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
+        # The employee manager
+        field :manager, T.nilable(T::Array[Models::Shared::EmploymentManagerApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager') } }
+        # The currency used for pay
+        field :pay_currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
+        # The pay frequency
+        field :pay_frequency, T.nilable(Models::Shared::EmploymentPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
+        # The pay period
+        field :pay_period, T.nilable(Models::Shared::EmploymentPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
+        # The pay rate for the employee
+        field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
+        # Provider's unique identifier of the employee associated with this employment
+        field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The start_date of employment
+        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The time worked for the employee in ISO 8601 duration format
+        field :time_worked, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_worked') } }
+        # The type of employment
+        field :type, T.nilable(Models::Shared::EmploymentSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # The updated_at date
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(active: T.nilable(T::Boolean), contract_type: T.nilable(::StackOne::Shared::ContractType), cost_center: T.nilable(::StackOne::Shared::CostCenter), cost_centers: T.nilable(T::Array[::StackOne::Shared::HRISCostCenter]), created_at: T.nilable(::DateTime), department: T.nilable(::StackOne::Shared::EmploymentDepartment), division: T.nilable(::StackOne::Shared::Division), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentEmploymentType), end_date: T.nilable(::DateTime), id: T.nilable(::String), job: T.nilable(::StackOne::Shared::EmploymentJob), job_title: T.nilable(::String), manager: T.nilable(T::Array[::StackOne::Shared::EmploymentManagerApiModel]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::EmploymentPayFrequency), pay_period: T.nilable(::StackOne::Shared::EmploymentPayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), time_worked: T.nilable(::String), type: T.nilable(::StackOne::Shared::EmploymentSchemasType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(active: nil, contract_type: nil, cost_center: nil, cost_centers: nil, created_at: nil, department: nil, division: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, id: nil, job: nil, job_title: nil, manager: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, time_worked: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
-        @active = active
-        @contract_type = contract_type
-        @cost_center = cost_center
-        @cost_centers = cost_centers
-        @created_at = created_at
-        @department = department
-        @division = division
-        @effective_date = effective_date
-        @employee_id = employee_id
-        @employment_contract_type = employment_contract_type
-        @employment_type = employment_type
-        @end_date = end_date
-        @id = id
-        @job = job
-        @job_title = job_title
-        @manager = manager
-        @pay_currency = pay_currency
-        @pay_frequency = pay_frequency
-        @pay_period = pay_period
-        @pay_rate = pay_rate
-        @remote_employee_id = remote_employee_id
-        @remote_id = remote_id
-        @start_date = start_date
-        @time_worked = time_worked
-        @type = type
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
+        sig { params(active: T.nilable(T::Boolean), contract_type: T.nilable(Models::Shared::ContractType), cost_center: T.nilable(Models::Shared::CostCenter), cost_centers: T.nilable(T::Array[Models::Shared::HRISCostCenter]), created_at: T.nilable(::DateTime), department: T.nilable(Models::Shared::EmploymentDepartment), division: T.nilable(Models::Shared::Division), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(Models::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(Models::Shared::EmploymentEmploymentType), end_date: T.nilable(::DateTime), id: T.nilable(::String), job: T.nilable(Models::Shared::EmploymentJob), job_title: T.nilable(::String), manager: T.nilable(T::Array[Models::Shared::EmploymentManagerApiModel]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::EmploymentPayFrequency), pay_period: T.nilable(Models::Shared::EmploymentPayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), time_worked: T.nilable(::String), type: T.nilable(Models::Shared::EmploymentSchemasType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(active: nil, contract_type: nil, cost_center: nil, cost_centers: nil, created_at: nil, department: nil, division: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, id: nil, job: nil, job_title: nil, manager: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, time_worked: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
+          @active = active
+          @contract_type = contract_type
+          @cost_center = cost_center
+          @cost_centers = cost_centers
+          @created_at = created_at
+          @department = department
+          @division = division
+          @effective_date = effective_date
+          @employee_id = employee_id
+          @employment_contract_type = employment_contract_type
+          @employment_type = employment_type
+          @end_date = end_date
+          @id = id
+          @job = job
+          @job_title = job_title
+          @manager = manager
+          @pay_currency = pay_currency
+          @pay_frequency = pay_frequency
+          @pay_period = pay_period
+          @pay_rate = pay_rate
+          @remote_employee_id = remote_employee_id
+          @remote_id = remote_id
+          @start_date = start_date
+          @time_worked = time_worked
+          @type = type
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @active == other.active
+          return false unless @contract_type == other.contract_type
+          return false unless @cost_center == other.cost_center
+          return false unless @cost_centers == other.cost_centers
+          return false unless @created_at == other.created_at
+          return false unless @department == other.department
+          return false unless @division == other.division
+          return false unless @effective_date == other.effective_date
+          return false unless @employee_id == other.employee_id
+          return false unless @employment_contract_type == other.employment_contract_type
+          return false unless @employment_type == other.employment_type
+          return false unless @end_date == other.end_date
+          return false unless @id == other.id
+          return false unless @job == other.job
+          return false unless @job_title == other.job_title
+          return false unless @manager == other.manager
+          return false unless @pay_currency == other.pay_currency
+          return false unless @pay_frequency == other.pay_frequency
+          return false unless @pay_period == other.pay_period
+          return false unless @pay_rate == other.pay_rate
+          return false unless @remote_employee_id == other.remote_employee_id
+          return false unless @remote_id == other.remote_id
+          return false unless @start_date == other.start_date
+          return false unless @time_worked == other.time_worked
+          return false unless @type == other.type
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

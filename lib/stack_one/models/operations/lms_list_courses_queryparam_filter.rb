@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
-    # LMS Courses Filter
-    class LmsListCoursesQueryParamFilter < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # LMS Courses Filter
+      class LmsListCoursesQueryParamFilter
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Filter to select courses by external_reference
-      field :external_reference, T.nilable(::String), { 'query_param': { 'field_name': 'external_reference' } }
-      # Use a string with a date to only select results updated after that given date
-      field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        # Filter to select courses by external_reference
+        field :external_reference, T.nilable(::String), { 'query_param': { 'field_name': 'external_reference' } }
+        # Use a string with a date to only select results updated after that given date
+        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(external_reference: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(external_reference: nil, updated_after: nil)
-        @external_reference = external_reference
-        @updated_after = updated_after
+        sig { params(external_reference: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        def initialize(external_reference: nil, updated_after: nil)
+          @external_reference = external_reference
+          @updated_after = updated_after
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @external_reference == other.external_reference
+          return false unless @updated_after == other.updated_after
+          true
+        end
       end
     end
   end

@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # Status of the Campaign
-    class CampaignStatus < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Status of the Campaign
+      class CampaignStatus
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The source value of the Status.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The Status of the campaign.
-      field :value, T.nilable(::StackOne::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CampaignSchemasValue, true) } }
+        # The source value of the Status.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CampaignSchemas4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The Status of the campaign.
+        field :value, T.nilable(Models::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CampaignSchemasValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CampaignSchemasValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CampaignSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::CampaignSchemasValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

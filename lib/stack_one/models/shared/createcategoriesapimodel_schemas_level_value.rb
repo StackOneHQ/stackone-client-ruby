@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateCategoriesApiModelSchemasLevelValue < T::Enum
-      enums do
-        PRIMARY = new('primary')
-        SECONDARY = new('secondary')
-        TERTIARY = new('tertiary')
+      class CreateCategoriesApiModelSchemasLevelValue < T::Enum
+        enums do
+          PRIMARY = new('primary')
+          SECONDARY = new('secondary')
+          TERTIARY = new('tertiary')
+        end
       end
     end
   end

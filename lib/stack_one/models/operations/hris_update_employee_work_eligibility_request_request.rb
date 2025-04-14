@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class HrisUpdateEmployeeWorkEligibilityRequestRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :hris_create_work_eligibility_request_dto, ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, { 'request': { 'media_type': 'application/json' } }
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
-      field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class HrisUpdateEmployeeWorkEligibilityRequestRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(hris_create_work_eligibility_request_dto: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
-      def initialize(hris_create_work_eligibility_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
-        @hris_create_work_eligibility_request_dto = hris_create_work_eligibility_request_dto
-        @id = id
-        @sub_resource_id = sub_resource_id
-        @x_account_id = x_account_id
+        field :hris_create_work_eligibility_request_dto, Models::Shared::HrisCreateWorkEligibilityRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+
+        field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
+        def initialize(hris_create_work_eligibility_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
+          @hris_create_work_eligibility_request_dto = hris_create_work_eligibility_request_dto
+          @id = id
+          @sub_resource_id = sub_resource_id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @hris_create_work_eligibility_request_dto == other.hris_create_work_eligibility_request_dto
+          return false unless @id == other.id
+          return false unless @sub_resource_id == other.sub_resource_id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Security < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :password, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'password' } }
-
-      field :username, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
+      class Security
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(password: ::String, username: ::String).void }
-      def initialize(password: nil, username: nil)
-        @password = password
-        @username = username
+        field :password, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'password' } }
+
+        field :username, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
+
+
+        sig { params(password: ::String, username: ::String).void }
+        def initialize(password: nil, username: nil)
+          @password = password
+          @username = username
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @password == other.password
+          return false unless @username == other.username
+          true
+        end
       end
     end
   end

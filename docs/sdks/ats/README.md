@@ -88,22 +88,22 @@ Create Application
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Shared::AtsCreateApplicationRequestDto.new(
-  application_status: ::StackOne::Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
+res = s.ats.create_application(ats_create_application_request_dto=Models::Shared::AtsCreateApplicationRequestDto.new(
+  application_status: Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus.new(
     source_value: "Hired",
-    value: ::StackOne::Shared::AtsCreateApplicationRequestDtoValue::HIRED,
+    value: Models::Shared::AtsCreateApplicationRequestDtoValue::HIRED,
   ),
-  candidate: ::StackOne::Shared::AtsCreateApplicationRequestDtoCandidate.new(
+  candidate: Models::Shared::AtsCreateApplicationRequestDtoCandidate.new(
     company: "Company Inc.",
     country: "United States",
     custom_fields: [
-      ::StackOne::Shared::CustomFields.new(
+      Models::Shared::CustomFields.new(
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Training Completion Status",
         remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -121,12 +121,12 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
       "other_known_names": "John Doe",
     },
     phone_numbers: [
-      ::StackOne::Shared::PhoneNumber.new(
+      Models::Shared::PhoneNumber.new(
         phone: "+447700112233",
       ),
     ],
     social_links: [
-      ::StackOne::Shared::SocialLink.new(
+      Models::Shared::SocialLink.new(
         type: "linkedin",
         url: "https://www.linkedin.com/in/romainsestier/",
       ),
@@ -145,11 +145,11 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
     "other_known_names": "John Doe",
   },
   questionnaires: [
-    ::StackOne::Shared::CreateQuestionnaire.new(
+    Models::Shared::CreateQuestionnaire.new(
       answers: [
-        ::StackOne::Shared::CreateAnswer.new(
+        Models::Shared::CreateAnswer.new(
           id: "answer1",
-          type: ::StackOne::Shared::CreateAnswerType.new(),
+          type: Models::Shared::CreateAnswerType.new(),
           values: [
             "Yes",
           ],
@@ -158,7 +158,7 @@ res = s.ats.create_application(ats_create_application_request_dto=::StackOne::Sh
       id: "right_to_work",
     ),
   ],
-  source: ::StackOne::Shared::AtsCreateApplicationRequestDtoSource.new(
+  source: Models::Shared::AtsCreateApplicationRequestDtoSource.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "LinkedIn",
   ),
@@ -172,14 +172,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `ats_create_application_request_dto`                                                                        | [::StackOne::Shared::AtsCreateApplicationRequestDto](../../models/shared/atscreateapplicationrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ats_create_application_request_dto`                                                                    | [Models::Shared::AtsCreateApplicationRequestDto](../../models/shared/atscreateapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateApplicationResponse)](../../models/operations/atscreateapplicationresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateApplicationResponse)](../../models/operations/atscreateapplicationresponse.md)**
 
 
 
@@ -193,23 +193,23 @@ Create Application Note
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_application_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
+res = s.ats.create_application_note(ats_create_notes_request_dto=Models::Shared::AtsCreateNotesRequestDto.new(
   author_id: "1234567890",
   content: [
-    ::StackOne::Shared::NoteContentApiModel.new(
+    Models::Shared::NoteContentApiModel.new(
       body: "This candidate seems like a good fit for the role",
     ),
   ],
   passthrough: {
     "other_known_names": "John Doe",
   },
-  visibility: ::StackOne::Shared::Visibility.new(),
+  visibility: Models::Shared::Visibility.new(),
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -220,15 +220,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `ats_create_notes_request_dto`                                                                  | [::StackOne::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ats_create_notes_request_dto`                                                              | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateApplicationNoteResponse)](../../models/operations/atscreateapplicationnoteresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateApplicationNoteResponse)](../../models/operations/atscreateapplicationnoteresponse.md)**
 
 
 
@@ -242,20 +242,20 @@ Create Background Check Package
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_background_check_package(ats_create_background_check_packages_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckPackagesRequestDto.new(
+res = s.ats.create_background_check_package(ats_create_background_check_packages_request_dto=Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto.new(
   description: "Skills test to gauge a candidate's proficiency in job-specific skills",
   name: "Test 1",
   passthrough: {
     "other_known_names": "John Doe",
   },
   tests: [
-    ::StackOne::Shared::CreatePackage.new(
+    Models::Shared::CreatePackage.new(
       description: "Skills test to gauge a candidate's proficiency in job-specific skills",
       name: "Test 1",
     ),
@@ -270,14 +270,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_create_background_check_packages_request_dto`                                                                                  | [::StackOne::Shared::AtsCreateBackgroundCheckPackagesRequestDto](../../models/shared/atscreatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                                  | N/A                                                                                                                                 |
-| `x_account_id`                                                                                                                      | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | The account identifier                                                                                                              |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_create_background_check_packages_request_dto`                                                                              | [Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto](../../models/shared/atscreatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateBackgroundCheckPackageResponse)](../../models/operations/atscreatebackgroundcheckpackageresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateBackgroundCheckPackageResponse)](../../models/operations/atscreatebackgroundcheckpackageresponse.md)**
 
 
 
@@ -291,17 +291,17 @@ Create Candidate
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared::AtsCreateCandidateRequestDto.new(
+res = s.ats.create_candidate(ats_create_candidate_request_dto=Models::Shared::AtsCreateCandidateRequestDto.new(
   company: "Company Inc.",
   country: "United States",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -319,12 +319,12 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto=::StackOne::Shared
     "other_known_names": "John Doe",
   },
   phone_numbers: [
-    ::StackOne::Shared::PhoneNumber.new(
+    Models::Shared::PhoneNumber.new(
       phone: "+447700112233",
     ),
   ],
   social_links: [
-    ::StackOne::Shared::SocialLink.new(
+    Models::Shared::SocialLink.new(
       type: "linkedin",
       url: "https://www.linkedin.com/in/romainsestier/",
     ),
@@ -344,14 +344,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ats_create_candidate_request_dto`                                                                      | [::StackOne::Shared::AtsCreateCandidateRequestDto](../../models/shared/atscreatecandidaterequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ats_create_candidate_request_dto`                                                                  | [Models::Shared::AtsCreateCandidateRequestDto](../../models/shared/atscreatecandidaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateCandidateResponse)](../../models/operations/atscreatecandidateresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateCandidateResponse)](../../models/operations/atscreatecandidateresponse.md)**
 
 
 
@@ -365,23 +365,23 @@ Create Candidate Note
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_candidate_note(ats_create_notes_request_dto=::StackOne::Shared::AtsCreateNotesRequestDto.new(
+res = s.ats.create_candidate_note(ats_create_notes_request_dto=Models::Shared::AtsCreateNotesRequestDto.new(
   author_id: "1234567890",
   content: [
-    ::StackOne::Shared::NoteContentApiModel.new(
+    Models::Shared::NoteContentApiModel.new(
       body: "This candidate seems like a good fit for the role",
     ),
   ],
   passthrough: {
     "other_known_names": "John Doe",
   },
-  visibility: ::StackOne::Shared::Visibility.new(),
+  visibility: Models::Shared::Visibility.new(),
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -392,15 +392,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `ats_create_notes_request_dto`                                                                  | [::StackOne::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ats_create_notes_request_dto`                                                              | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateCandidateNoteResponse)](../../models/operations/atscreatecandidatenoteresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateCandidateNoteResponse)](../../models/operations/atscreatecandidatenoteresponse.md)**
 
 
 
@@ -414,16 +414,16 @@ Create Job
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJobRequestDto.new(
+res = s.ats.create_job(ats_create_job_request_dto=Models::Shared::AtsCreateJobRequestDto.new(
   code: "184919",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -439,7 +439,7 @@ res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJ
   ],
   description: "Responsible for identifying business requirements",
   hiring_team: [
-    ::StackOne::Shared::JobHiringTeam.new(
+    Models::Shared::JobHiringTeam.new(
       email: "john.doe@gmail.com",
       first_name: "John",
       last_name: "Doe",
@@ -449,7 +449,7 @@ res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJ
     ),
   ],
   interview_stages: [
-    ::StackOne::Shared::InterviewStage.new(
+    Models::Shared::InterviewStage.new(
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -460,9 +460,9 @@ res = s.ats.create_job(ats_create_job_request_dto=::StackOne::Shared::AtsCreateJ
       updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     ),
   ],
-  job_status: ::StackOne::Shared::JobStatus.new(
+  job_status: Models::Shared::JobStatus.new(
     source_value: "Published",
-    value: ::StackOne::Shared::AtsCreateJobRequestDtoValue::PUBLISHED,
+    value: Models::Shared::AtsCreateJobRequestDtoValue::PUBLISHED,
   ),
   location_ids: [
     "668570",
@@ -487,14 +487,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_create_job_request_dto`                                                                | [::StackOne::Shared::AtsCreateJobRequestDto](../../models/shared/atscreatejobrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ats_create_job_request_dto`                                                            | [Models::Shared::AtsCreateJobRequestDto](../../models/shared/atscreatejobrequestdto.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `x_account_id`                                                                          | *::String*                                                                              | :heavy_check_mark:                                                                      | The account identifier                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateJobResponse)](../../models/operations/atscreatejobresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateJobResponse)](../../models/operations/atscreatejobresponse.md)**
 
 
 
@@ -508,23 +508,23 @@ Creates an offer
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.create_offer(ats_create_offer_request_dto=::StackOne::Shared::AtsCreateOfferRequestDto.new(
+res = s.ats.create_offer(ats_create_offer_request_dto=Models::Shared::AtsCreateOfferRequestDto.new(
   offer_history: [
-    ::StackOne::Shared::OfferHistory.new(
+    Models::Shared::OfferHistory.new(
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     ),
   ],
-  offer_status: ::StackOne::Shared::OfferStatus.new(
+  offer_status: Models::Shared::OfferStatus.new(
     source_value: "Pending",
-    value: ::StackOne::Shared::AtsCreateOfferRequestDtoValue::PENDING,
+    value: Models::Shared::AtsCreateOfferRequestDtoValue::PENDING,
   ),
   passthrough: {
     "other_known_names": "John Doe",
@@ -540,14 +540,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `ats_create_offer_request_dto`                                                                  | [::StackOne::Shared::AtsCreateOfferRequestDto](../../models/shared/atscreateofferrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ats_create_offer_request_dto`                                                              | [Models::Shared::AtsCreateOfferRequestDto](../../models/shared/atscreateofferrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsCreateOfferResponse)](../../models/operations/atscreateofferresponse.md)**
+**[T.nilable(Models::Operations::AtsCreateOfferResponse)](../../models/operations/atscreateofferresponse.md)**
 
 
 
@@ -561,7 +561,7 @@ Delete Background Check Package
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -584,7 +584,7 @@ end
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsDeleteBackgroundCheckPackageResponse)](../../models/operations/atsdeletebackgroundcheckpackageresponse.md)**
+**[T.nilable(Models::Operations::AtsDeleteBackgroundCheckPackageResponse)](../../models/operations/atsdeletebackgroundcheckpackageresponse.md)**
 
 
 
@@ -598,13 +598,21 @@ Download Application Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.download_application_document(id="<id>", sub_resource_id="<id>", x_account_id="<id>", format="base64")
+req = Models::Operations::AtsDownloadApplicationDocumentRequest.new(
+  export_format: "text/plain",
+  format: "base64",
+  id: "<id>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.ats.download_application_document(req)
 
 if ! res.bytes.nil?
   # handle response
@@ -614,16 +622,13 @@ end
 
 ### Parameters
 
-| Parameter                          | Type                               | Required                           | Description                        | Example                            |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
-| `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
-| `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
-| `format`                           | *T.nilable(::String)*              | :heavy_minus_sign:                 | The format to download the file in | base64                             |
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                     | [Models::Operations::AtsDownloadApplicationDocumentRequest](../../models/operations/atsdownloadapplicationdocumentrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsDownloadApplicationDocumentResponse)](../../models/operations/atsdownloadapplicationdocumentresponse.md)**
+**[T.nilable(Models::Operations::AtsDownloadApplicationDocumentResponse)](../../models/operations/atsdownloadapplicationdocumentresponse.md)**
 
 
 
@@ -637,13 +642,13 @@ Get Application
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationRequest.new(
+req = Models::Operations::AtsGetApplicationRequest.new(
   expand: "documents",
   fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   id: "<id>",
@@ -661,13 +666,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::AtsGetApplicationRequest](../../models/operations/atsgetapplicationrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::AtsGetApplicationRequest](../../models/operations/atsgetapplicationrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationResponse)](../../models/operations/atsgetapplicationresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationResponse)](../../models/operations/atsgetapplicationresponse.md)**
 
 
 
@@ -681,15 +686,15 @@ Get Application Custom Field Definition
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
+req = Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter.new(
+  filter: Models::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -706,13 +711,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                         | [::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionRequest](../../models/operations/atsgetapplicationcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest](../../models/operations/atsgetapplicationcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationCustomFieldDefinitionResponse)](../../models/operations/atsgetapplicationcustomfielddefinitionresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationCustomFieldDefinitionResponse)](../../models/operations/atsgetapplicationcustomfielddefinitionresponse.md)**
 
 
 
@@ -726,13 +731,13 @@ Get Application Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationDocumentRequest.new(
+req = Models::Operations::AtsGetApplicationDocumentRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -749,13 +754,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::AtsGetApplicationDocumentRequest](../../models/operations/atsgetapplicationdocumentrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::AtsGetApplicationDocumentRequest](../../models/operations/atsgetapplicationdocumentrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationDocumentResponse)](../../models/operations/atsgetapplicationdocumentresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationDocumentResponse)](../../models/operations/atsgetapplicationdocumentresponse.md)**
 
 
 
@@ -769,13 +774,13 @@ Get Application Note
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationNoteRequest.new(
+req = Models::Operations::AtsGetApplicationNoteRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -792,13 +797,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                       | [::StackOne::Operations::AtsGetApplicationNoteRequest](../../models/operations/atsgetapplicationnoterequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::AtsGetApplicationNoteRequest](../../models/operations/atsgetapplicationnoterequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationNoteResponse)](../../models/operations/atsgetapplicationnoteresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationNoteResponse)](../../models/operations/atsgetapplicationnoteresponse.md)**
 
 
 
@@ -812,13 +817,13 @@ Get Application Offer
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationOfferRequest.new(
+req = Models::Operations::AtsGetApplicationOfferRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -835,13 +840,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::AtsGetApplicationOfferRequest](../../models/operations/atsgetapplicationofferrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::AtsGetApplicationOfferRequest](../../models/operations/atsgetapplicationofferrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationOfferResponse)](../../models/operations/atsgetapplicationofferresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationOfferResponse)](../../models/operations/atsgetapplicationofferresponse.md)**
 
 
 
@@ -855,13 +860,13 @@ Get Applications scheduled interview
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest.new(
+req = Models::Operations::AtsGetApplicationScheduledInterviewRequest.new(
   fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -878,13 +883,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                   | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                   | [::StackOne::Operations::AtsGetApplicationScheduledInterviewRequest](../../models/operations/atsgetapplicationscheduledinterviewrequest.md) | :heavy_check_mark:                                                                                                                          | The request object to use for the request.                                                                                                  |
+| Parameter                                                                                                                               | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                               | [Models::Operations::AtsGetApplicationScheduledInterviewRequest](../../models/operations/atsgetapplicationscheduledinterviewrequest.md) | :heavy_check_mark:                                                                                                                      | The request object to use for the request.                                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationScheduledInterviewResponse)](../../models/operations/atsgetapplicationscheduledinterviewresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationScheduledInterviewResponse)](../../models/operations/atsgetapplicationscheduledinterviewresponse.md)**
 
 
 
@@ -898,13 +903,13 @@ Get Application Scorecard
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetApplicationScorecardRequest.new(
+req = Models::Operations::AtsGetApplicationScorecardRequest.new(
   fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -921,13 +926,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                 | [::StackOne::Operations::AtsGetApplicationScorecardRequest](../../models/operations/atsgetapplicationscorecardrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [Models::Operations::AtsGetApplicationScorecardRequest](../../models/operations/atsgetapplicationscorecardrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetApplicationScorecardResponse)](../../models/operations/atsgetapplicationscorecardresponse.md)**
+**[T.nilable(Models::Operations::AtsGetApplicationScorecardResponse)](../../models/operations/atsgetapplicationscorecardresponse.md)**
 
 
 
@@ -941,13 +946,13 @@ Get Assessments Package
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetAssessmentsPackageRequest.new(
+req = Models::Operations::AtsGetAssessmentsPackageRequest.new(
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -962,13 +967,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [::StackOne::Operations::AtsGetAssessmentsPackageRequest](../../models/operations/atsgetassessmentspackagerequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::AtsGetAssessmentsPackageRequest](../../models/operations/atsgetassessmentspackagerequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
+**[T.nilable(Models::Operations::AtsGetAssessmentsPackageResponse)](../../models/operations/atsgetassessmentspackageresponse.md)**
 
 
 
@@ -982,13 +987,13 @@ Get Assessments Requests
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetAssessmentsRequestRequest.new(
+req = Models::Operations::AtsGetAssessmentsRequestRequest.new(
   fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
   id: "<id>",
   x_account_id: "<id>",
@@ -1004,13 +1009,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [::StackOne::Operations::AtsGetAssessmentsRequestRequest](../../models/operations/atsgetassessmentsrequestrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::AtsGetAssessmentsRequestRequest](../../models/operations/atsgetassessmentsrequestrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetAssessmentsRequestResponse)](../../models/operations/atsgetassessmentsrequestresponse.md)**
+**[T.nilable(Models::Operations::AtsGetAssessmentsRequestResponse)](../../models/operations/atsgetassessmentsrequestresponse.md)**
 
 
 
@@ -1024,13 +1029,13 @@ Get Assessments Results
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetAssessmentsResultRequest.new(
+req = Models::Operations::AtsGetAssessmentsResultRequest.new(
   fields_: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<id>",
@@ -1046,13 +1051,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [::StackOne::Operations::AtsGetAssessmentsResultRequest](../../models/operations/atsgetassessmentsresultrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::AtsGetAssessmentsResultRequest](../../models/operations/atsgetassessmentsresultrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetAssessmentsResultResponse)](../../models/operations/atsgetassessmentsresultresponse.md)**
+**[T.nilable(Models::Operations::AtsGetAssessmentsResultResponse)](../../models/operations/atsgetassessmentsresultresponse.md)**
 
 
 
@@ -1066,13 +1071,13 @@ Get Background Check Package
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetBackgroundCheckPackageRequest.new(
+req = Models::Operations::AtsGetBackgroundCheckPackageRequest.new(
   fields_: "id,remote_id,name,description,tests",
   id: "<id>",
   x_account_id: "<id>",
@@ -1088,13 +1093,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                     | [::StackOne::Operations::AtsGetBackgroundCheckPackageRequest](../../models/operations/atsgetbackgroundcheckpackagerequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [Models::Operations::AtsGetBackgroundCheckPackageRequest](../../models/operations/atsgetbackgroundcheckpackagerequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetBackgroundCheckPackageResponse)](../../models/operations/atsgetbackgroundcheckpackageresponse.md)**
+**[T.nilable(Models::Operations::AtsGetBackgroundCheckPackageResponse)](../../models/operations/atsgetbackgroundcheckpackageresponse.md)**
 
 
 
@@ -1108,13 +1113,13 @@ Get Background Check Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetBackgroundCheckRequestRequest.new(
+req = Models::Operations::AtsGetBackgroundCheckRequestRequest.new(
   fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
   id: "<id>",
   x_account_id: "<id>",
@@ -1130,13 +1135,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                     | [::StackOne::Operations::AtsGetBackgroundCheckRequestRequest](../../models/operations/atsgetbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [Models::Operations::AtsGetBackgroundCheckRequestRequest](../../models/operations/atsgetbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetBackgroundCheckRequestResponse)](../../models/operations/atsgetbackgroundcheckrequestresponse.md)**
+**[T.nilable(Models::Operations::AtsGetBackgroundCheckRequestResponse)](../../models/operations/atsgetbackgroundcheckrequestresponse.md)**
 
 
 
@@ -1150,13 +1155,13 @@ Get Background Check Results
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetBackgroundCheckResultRequest.new(
+req = Models::Operations::AtsGetBackgroundCheckResultRequest.new(
   fields_: "id,remote_id,candidate,score,start_date,submission_date,summary,result,result_url,attachments",
   id: "<id>",
   x_account_id: "<id>",
@@ -1172,13 +1177,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                   | [::StackOne::Operations::AtsGetBackgroundCheckResultRequest](../../models/operations/atsgetbackgroundcheckresultrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [Models::Operations::AtsGetBackgroundCheckResultRequest](../../models/operations/atsgetbackgroundcheckresultrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetBackgroundCheckResultResponse)](../../models/operations/atsgetbackgroundcheckresultresponse.md)**
+**[T.nilable(Models::Operations::AtsGetBackgroundCheckResultResponse)](../../models/operations/atsgetbackgroundcheckresultresponse.md)**
 
 
 
@@ -1192,13 +1197,13 @@ Get Candidate
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetCandidateRequest.new(
+req = Models::Operations::AtsGetCandidateRequest.new(
   fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
   id: "<id>",
   include: "custom_fields",
@@ -1215,13 +1220,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::AtsGetCandidateRequest](../../models/operations/atsgetcandidaterequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::AtsGetCandidateRequest](../../models/operations/atsgetcandidaterequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetCandidateResponse)](../../models/operations/atsgetcandidateresponse.md)**
+**[T.nilable(Models::Operations::AtsGetCandidateResponse)](../../models/operations/atsgetcandidateresponse.md)**
 
 
 
@@ -1235,15 +1240,15 @@ Get Candidate Custom Field Definition
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
+req = Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(
+  filter: Models::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1260,13 +1265,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                     | [::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionRequest](../../models/operations/atsgetcandidatecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                 | [Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest](../../models/operations/atsgetcandidatecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetCandidateCustomFieldDefinitionResponse)](../../models/operations/atsgetcandidatecustomfielddefinitionresponse.md)**
+**[T.nilable(Models::Operations::AtsGetCandidateCustomFieldDefinitionResponse)](../../models/operations/atsgetcandidatecustomfielddefinitionresponse.md)**
 
 
 
@@ -1280,13 +1285,13 @@ Get Candidate Note
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetCandidateNoteRequest.new(
+req = Models::Operations::AtsGetCandidateNoteRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -1303,13 +1308,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [::StackOne::Operations::AtsGetCandidateNoteRequest](../../models/operations/atsgetcandidatenoterequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::AtsGetCandidateNoteRequest](../../models/operations/atsgetcandidatenoterequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetCandidateNoteResponse)](../../models/operations/atsgetcandidatenoteresponse.md)**
+**[T.nilable(Models::Operations::AtsGetCandidateNoteResponse)](../../models/operations/atsgetcandidatenoteresponse.md)**
 
 
 
@@ -1323,13 +1328,13 @@ Get Department
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetDepartmentRequest.new(
+req = Models::Operations::AtsGetDepartmentRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<id>",
@@ -1345,13 +1350,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::StackOne::Operations::AtsGetDepartmentRequest](../../models/operations/atsgetdepartmentrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::AtsGetDepartmentRequest](../../models/operations/atsgetdepartmentrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetDepartmentResponse)](../../models/operations/atsgetdepartmentresponse.md)**
+**[T.nilable(Models::Operations::AtsGetDepartmentResponse)](../../models/operations/atsgetdepartmentresponse.md)**
 
 
 
@@ -1365,13 +1370,13 @@ Get Interview
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetInterviewRequest.new(
+req = Models::Operations::AtsGetInterviewRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -1387,13 +1392,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::AtsGetInterviewRequest](../../models/operations/atsgetinterviewrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::AtsGetInterviewRequest](../../models/operations/atsgetinterviewrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetInterviewResponse)](../../models/operations/atsgetinterviewresponse.md)**
+**[T.nilable(Models::Operations::AtsGetInterviewResponse)](../../models/operations/atsgetinterviewresponse.md)**
 
 
 
@@ -1407,13 +1412,13 @@ Get Interview Stage
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetInterviewStageRequest.new(
+req = Models::Operations::AtsGetInterviewStageRequest.new(
   fields_: "id,remote_id,name,order,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -1429,13 +1434,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::AtsGetInterviewStageRequest](../../models/operations/atsgetinterviewstagerequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::AtsGetInterviewStageRequest](../../models/operations/atsgetinterviewstagerequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetInterviewStageResponse)](../../models/operations/atsgetinterviewstageresponse.md)**
+**[T.nilable(Models::Operations::AtsGetInterviewStageResponse)](../../models/operations/atsgetinterviewstageresponse.md)**
 
 
 
@@ -1449,13 +1454,13 @@ Get Job
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetJobRequest.new(
+req = Models::Operations::AtsGetJobRequest.new(
   expand: "job_postings,interview_stages",
   fields_: "id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
   id: "<id>",
@@ -1473,13 +1478,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [::StackOne::Operations::AtsGetJobRequest](../../models/operations/atsgetjobrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [Models::Operations::AtsGetJobRequest](../../models/operations/atsgetjobrequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetJobResponse)](../../models/operations/atsgetjobresponse.md)**
+**[T.nilable(Models::Operations::AtsGetJobResponse)](../../models/operations/atsgetjobresponse.md)**
 
 
 
@@ -1493,15 +1498,15 @@ Get Job Custom Field Definition
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
+req = Models::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(
+  filter: Models::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1518,13 +1523,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                         | [::StackOne::Operations::AtsGetJobCustomFieldDefinitionRequest](../../models/operations/atsgetjobcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                     | [Models::Operations::AtsGetJobCustomFieldDefinitionRequest](../../models/operations/atsgetjobcustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetJobCustomFieldDefinitionResponse)](../../models/operations/atsgetjobcustomfielddefinitionresponse.md)**
+**[T.nilable(Models::Operations::AtsGetJobCustomFieldDefinitionResponse)](../../models/operations/atsgetjobcustomfielddefinitionresponse.md)**
 
 
 
@@ -1538,13 +1543,13 @@ Get Job Posting
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetJobPostingRequest.new(
+req = Models::Operations::AtsGetJobPostingRequest.new(
   fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
   id: "<id>",
   include: "questionnaires",
@@ -1561,13 +1566,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::StackOne::Operations::AtsGetJobPostingRequest](../../models/operations/atsgetjobpostingrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::AtsGetJobPostingRequest](../../models/operations/atsgetjobpostingrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetJobPostingResponse)](../../models/operations/atsgetjobpostingresponse.md)**
+**[T.nilable(Models::Operations::AtsGetJobPostingResponse)](../../models/operations/atsgetjobpostingresponse.md)**
 
 
 
@@ -1581,13 +1586,13 @@ Get List
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetListRequest.new(
+req = Models::Operations::AtsGetListRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
   id: "<id>",
   x_account_id: "<id>",
@@ -1603,13 +1608,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::StackOne::Operations::AtsGetListRequest](../../models/operations/atsgetlistrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [Models::Operations::AtsGetListRequest](../../models/operations/atsgetlistrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetListResponse)](../../models/operations/atsgetlistresponse.md)**
+**[T.nilable(Models::Operations::AtsGetListResponse)](../../models/operations/atsgetlistresponse.md)**
 
 
 
@@ -1623,13 +1628,13 @@ Get Location
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetLocationRequest.new(
+req = Models::Operations::AtsGetLocationRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<id>",
@@ -1645,13 +1650,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::StackOne::Operations::AtsGetLocationRequest](../../models/operations/atsgetlocationrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::AtsGetLocationRequest](../../models/operations/atsgetlocationrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetLocationResponse)](../../models/operations/atsgetlocationresponse.md)**
+**[T.nilable(Models::Operations::AtsGetLocationResponse)](../../models/operations/atsgetlocationresponse.md)**
 
 
 
@@ -1665,13 +1670,13 @@ Get Offer
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetOfferRequest.new(
+req = Models::Operations::AtsGetOfferRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
   id: "<id>",
   x_account_id: "<id>",
@@ -1687,13 +1692,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::StackOne::Operations::AtsGetOfferRequest](../../models/operations/atsgetofferrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::AtsGetOfferRequest](../../models/operations/atsgetofferrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetOfferResponse)](../../models/operations/atsgetofferresponse.md)**
+**[T.nilable(Models::Operations::AtsGetOfferResponse)](../../models/operations/atsgetofferresponse.md)**
 
 
 
@@ -1707,13 +1712,13 @@ Get Rejected Reason
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetRejectedReasonRequest.new(
+req = Models::Operations::AtsGetRejectedReasonRequest.new(
   fields_: "id,remote_id,label,type,rejected_reason_type",
   id: "<id>",
   x_account_id: "<id>",
@@ -1729,13 +1734,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::AtsGetRejectedReasonRequest](../../models/operations/atsgetrejectedreasonrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::AtsGetRejectedReasonRequest](../../models/operations/atsgetrejectedreasonrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetRejectedReasonResponse)](../../models/operations/atsgetrejectedreasonresponse.md)**
+**[T.nilable(Models::Operations::AtsGetRejectedReasonResponse)](../../models/operations/atsgetrejectedreasonresponse.md)**
 
 
 
@@ -1749,13 +1754,13 @@ Get User
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsGetUserRequest.new(
+req = Models::Operations::AtsGetUserRequest.new(
   fields_: "id,remote_id,first_name,last_name,name,email,phone",
   id: "<id>",
   x_account_id: "<id>",
@@ -1771,13 +1776,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::StackOne::Operations::AtsGetUserRequest](../../models/operations/atsgetuserrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [Models::Operations::AtsGetUserRequest](../../models/operations/atsgetuserrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsGetUserResponse)](../../models/operations/atsgetuserresponse.md)**
+**[T.nilable(Models::Operations::AtsGetUserResponse)](../../models/operations/atsgetuserresponse.md)**
 
 
 
@@ -1791,15 +1796,15 @@ List Application Custom Field Definitions
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
+req = Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1815,13 +1820,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                             | [::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsRequest](../../models/operations/atslistapplicationcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                    | The request object to use for the request.                                                                                                            |
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest](../../models/operations/atslistapplicationcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationCustomFieldDefinitionsResponse)](../../models/operations/atslistapplicationcustomfielddefinitionsresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationCustomFieldDefinitionsResponse)](../../models/operations/atslistapplicationcustomfielddefinitionsresponse.md)**
 
 
 
@@ -1835,15 +1840,15 @@ List Application Documents
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationDocumentsRequest.new(
+req = Models::Operations::AtsListApplicationDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
-  filter: ::StackOne::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1860,13 +1865,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                   | [::StackOne::Operations::AtsListApplicationDocumentsRequest](../../models/operations/atslistapplicationdocumentsrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [Models::Operations::AtsListApplicationDocumentsRequest](../../models/operations/atslistapplicationdocumentsrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationDocumentsResponse)](../../models/operations/atslistapplicationdocumentsresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationDocumentsResponse)](../../models/operations/atslistapplicationdocumentsresponse.md)**
 
 
 
@@ -1880,15 +1885,15 @@ List Application Notes
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationNotesRequest.new(
+req = Models::Operations::AtsListApplicationNotesRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
-  filter: ::StackOne::Operations::AtsListApplicationNotesQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationNotesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1905,13 +1910,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [::StackOne::Operations::AtsListApplicationNotesRequest](../../models/operations/atslistapplicationnotesrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::AtsListApplicationNotesRequest](../../models/operations/atslistapplicationnotesrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationNotesResponse)](../../models/operations/atslistapplicationnotesresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationNotesResponse)](../../models/operations/atslistapplicationnotesresponse.md)**
 
 
 
@@ -1925,15 +1930,15 @@ List Application Scorecards
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationScorecardsRequest.new(
+req = Models::Operations::AtsListApplicationScorecardsRequest.new(
   fields_: "id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at",
-  filter: ::StackOne::Operations::AtsListApplicationScorecardsQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationScorecardsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1950,13 +1955,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                     | [::StackOne::Operations::AtsListApplicationScorecardsRequest](../../models/operations/atslistapplicationscorecardsrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [Models::Operations::AtsListApplicationScorecardsRequest](../../models/operations/atslistapplicationscorecardsrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationScorecardsResponse)](../../models/operations/atslistapplicationscorecardsresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationScorecardsResponse)](../../models/operations/atslistapplicationscorecardsresponse.md)**
 
 
 
@@ -1970,16 +1975,16 @@ List Applications
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationsRequest.new(
+req = Models::Operations::AtsListApplicationsRequest.new(
   expand: "documents",
   fields_: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate",
-  filter: ::StackOne::Operations::AtsListApplicationsQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationsQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1997,13 +2002,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [::StackOne::Operations::AtsListApplicationsRequest](../../models/operations/atslistapplicationsrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::AtsListApplicationsRequest](../../models/operations/atslistapplicationsrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationsResponse)](../../models/operations/atslistapplicationsresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationsResponse)](../../models/operations/atslistapplicationsresponse.md)**
 
 
 
@@ -2017,15 +2022,15 @@ List Application Offers
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationsOffersRequest.new(
+req = Models::Operations::AtsListApplicationsOffersRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
-  filter: ::StackOne::Operations::AtsListApplicationsOffersQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2042,13 +2047,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::AtsListApplicationsOffersRequest](../../models/operations/atslistapplicationsoffersrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::AtsListApplicationsOffersRequest](../../models/operations/atslistapplicationsoffersrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationsOffersResponse)](../../models/operations/atslistapplicationsoffersresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationsOffersResponse)](../../models/operations/atslistapplicationsoffersresponse.md)**
 
 
 
@@ -2062,15 +2067,15 @@ List Applications scheduled interviews
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
+req = Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
-  filter: ::StackOne::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(
+  filter: Models::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2087,13 +2092,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                         | [::StackOne::Operations::AtsListApplicationsScheduledInterviewsRequest](../../models/operations/atslistapplicationsscheduledinterviewsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [Models::Operations::AtsListApplicationsScheduledInterviewsRequest](../../models/operations/atslistapplicationsscheduledinterviewsrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListApplicationsScheduledInterviewsResponse)](../../models/operations/atslistapplicationsscheduledinterviewsresponse.md)**
+**[T.nilable(Models::Operations::AtsListApplicationsScheduledInterviewsResponse)](../../models/operations/atslistapplicationsscheduledinterviewsresponse.md)**
 
 
 
@@ -2107,14 +2112,14 @@ List Assessments Packages
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListAssessmentsPackagesRequest.new(
-  filter: ::StackOne::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(
+req = Models::Operations::AtsListAssessmentsPackagesRequest.new(
+  filter: Models::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2130,13 +2135,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                 | [::StackOne::Operations::AtsListAssessmentsPackagesRequest](../../models/operations/atslistassessmentspackagesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [Models::Operations::AtsListAssessmentsPackagesRequest](../../models/operations/atslistassessmentspackagesrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListAssessmentsPackagesResponse)](../../models/operations/atslistassessmentspackagesresponse.md)**
+**[T.nilable(Models::Operations::AtsListAssessmentsPackagesResponse)](../../models/operations/atslistassessmentspackagesresponse.md)**
 
 
 
@@ -2150,15 +2155,15 @@ List Background Check Packages
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListBackgroundCheckPackagesRequest.new(
+req = Models::Operations::AtsListBackgroundCheckPackagesRequest.new(
   fields_: "id,remote_id,name,description,tests",
-  filter: ::StackOne::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(
+  filter: Models::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2174,13 +2179,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                         | [::StackOne::Operations::AtsListBackgroundCheckPackagesRequest](../../models/operations/atslistbackgroundcheckpackagesrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                     | [Models::Operations::AtsListBackgroundCheckPackagesRequest](../../models/operations/atslistbackgroundcheckpackagesrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListBackgroundCheckPackagesResponse)](../../models/operations/atslistbackgroundcheckpackagesresponse.md)**
+**[T.nilable(Models::Operations::AtsListBackgroundCheckPackagesResponse)](../../models/operations/atslistbackgroundcheckpackagesresponse.md)**
 
 
 
@@ -2194,15 +2199,15 @@ List Background Check Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListBackgroundCheckRequestRequest.new(
+req = Models::Operations::AtsListBackgroundCheckRequestRequest.new(
   fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
-  filter: ::StackOne::Operations::AtsListBackgroundCheckRequestQueryParamFilter.new(
+  filter: Models::Operations::AtsListBackgroundCheckRequestQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2218,13 +2223,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                       | [::StackOne::Operations::AtsListBackgroundCheckRequestRequest](../../models/operations/atslistbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [Models::Operations::AtsListBackgroundCheckRequestRequest](../../models/operations/atslistbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListBackgroundCheckRequestResponse)](../../models/operations/atslistbackgroundcheckrequestresponse.md)**
+**[T.nilable(Models::Operations::AtsListBackgroundCheckRequestResponse)](../../models/operations/atslistbackgroundcheckrequestresponse.md)**
 
 
 
@@ -2238,15 +2243,15 @@ List Candidate Custom Field Definitions
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
+req = Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(
+  filter: Models::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2262,13 +2267,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                         | [::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsRequest](../../models/operations/atslistcandidatecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest](../../models/operations/atslistcandidatecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListCandidateCustomFieldDefinitionsResponse)](../../models/operations/atslistcandidatecustomfielddefinitionsresponse.md)**
+**[T.nilable(Models::Operations::AtsListCandidateCustomFieldDefinitionsResponse)](../../models/operations/atslistcandidatecustomfielddefinitionsresponse.md)**
 
 
 
@@ -2282,15 +2287,15 @@ List Candidate Notes
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListCandidateNotesRequest.new(
+req = Models::Operations::AtsListCandidateNotesRequest.new(
   fields_: "id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at",
-  filter: ::StackOne::Operations::AtsListCandidateNotesQueryParamFilter.new(
+  filter: Models::Operations::AtsListCandidateNotesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2307,13 +2312,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                       | [::StackOne::Operations::AtsListCandidateNotesRequest](../../models/operations/atslistcandidatenotesrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::AtsListCandidateNotesRequest](../../models/operations/atslistcandidatenotesrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListCandidateNotesResponse)](../../models/operations/atslistcandidatenotesresponse.md)**
+**[T.nilable(Models::Operations::AtsListCandidateNotesResponse)](../../models/operations/atslistcandidatenotesresponse.md)**
 
 
 
@@ -2327,15 +2332,15 @@ List Candidates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListCandidatesRequest.new(
+req = Models::Operations::AtsListCandidatesRequest.new(
   fields_: "id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at",
-  filter: ::StackOne::Operations::AtsListCandidatesQueryParamFilter.new(
+  filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2353,13 +2358,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::AtsListCandidatesRequest](../../models/operations/atslistcandidatesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::AtsListCandidatesRequest](../../models/operations/atslistcandidatesrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListCandidatesResponse)](../../models/operations/atslistcandidatesresponse.md)**
+**[T.nilable(Models::Operations::AtsListCandidatesResponse)](../../models/operations/atslistcandidatesresponse.md)**
 
 
 
@@ -2373,15 +2378,15 @@ List Departments
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListDepartmentsRequest.new(
+req = Models::Operations::AtsListDepartmentsRequest.new(
   fields_: "id,remote_id,name",
-  filter: ::StackOne::Operations::AtsListDepartmentsQueryParamFilter.new(
+  filter: Models::Operations::AtsListDepartmentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2397,13 +2402,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::StackOne::Operations::AtsListDepartmentsRequest](../../models/operations/atslistdepartmentsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::AtsListDepartmentsRequest](../../models/operations/atslistdepartmentsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListDepartmentsResponse)](../../models/operations/atslistdepartmentsresponse.md)**
+**[T.nilable(Models::Operations::AtsListDepartmentsResponse)](../../models/operations/atslistdepartmentsresponse.md)**
 
 
 
@@ -2417,15 +2422,15 @@ List Interview Stages
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListInterviewStagesRequest.new(
+req = Models::Operations::AtsListInterviewStagesRequest.new(
   fields_: "id,remote_id,name,order,created_at,updated_at",
-  filter: ::StackOne::Operations::AtsListInterviewStagesQueryParamFilter.new(
+  filter: Models::Operations::AtsListInterviewStagesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2441,13 +2446,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::AtsListInterviewStagesRequest](../../models/operations/atslistinterviewstagesrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::AtsListInterviewStagesRequest](../../models/operations/atslistinterviewstagesrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListInterviewStagesResponse)](../../models/operations/atslistinterviewstagesresponse.md)**
+**[T.nilable(Models::Operations::AtsListInterviewStagesResponse)](../../models/operations/atslistinterviewstagesresponse.md)**
 
 
 
@@ -2461,15 +2466,15 @@ List Interviews
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListInterviewsRequest.new(
+req = Models::Operations::AtsListInterviewsRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at",
-  filter: ::StackOne::Operations::AtsListInterviewsQueryParamFilter.new(
+  filter: Models::Operations::AtsListInterviewsQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2486,13 +2491,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::AtsListInterviewsRequest](../../models/operations/atslistinterviewsrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::AtsListInterviewsRequest](../../models/operations/atslistinterviewsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListInterviewsResponse)](../../models/operations/atslistinterviewsresponse.md)**
+**[T.nilable(Models::Operations::AtsListInterviewsResponse)](../../models/operations/atslistinterviewsresponse.md)**
 
 
 
@@ -2506,15 +2511,15 @@ List Job Custom Field Definitions
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
+req = Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(
+  filter: Models::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2530,13 +2535,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                             | [::StackOne::Operations::AtsListJobCustomFieldDefinitionsRequest](../../models/operations/atslistjobcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                    | The request object to use for the request.                                                                                            |
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                         | [Models::Operations::AtsListJobCustomFieldDefinitionsRequest](../../models/operations/atslistjobcustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListJobCustomFieldDefinitionsResponse)](../../models/operations/atslistjobcustomfielddefinitionsresponse.md)**
+**[T.nilable(Models::Operations::AtsListJobCustomFieldDefinitionsResponse)](../../models/operations/atslistjobcustomfielddefinitionsresponse.md)**
 
 
 
@@ -2550,15 +2555,15 @@ List Job Postings
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListJobPostingsRequest.new(
+req = Models::Operations::AtsListJobPostingsRequest.new(
   fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
-  filter: ::StackOne::Operations::AtsListJobPostingsQueryParamFilter.new(
+  filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2576,13 +2581,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::StackOne::Operations::AtsListJobPostingsRequest](../../models/operations/atslistjobpostingsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::AtsListJobPostingsRequest](../../models/operations/atslistjobpostingsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListJobPostingsResponse)](../../models/operations/atslistjobpostingsresponse.md)**
+**[T.nilable(Models::Operations::AtsListJobPostingsResponse)](../../models/operations/atslistjobpostingsresponse.md)**
 
 
 
@@ -2596,16 +2601,16 @@ List Jobs
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListJobsRequest.new(
+req = Models::Operations::AtsListJobsRequest.new(
   expand: "job_postings,interview_stages",
   fields_: "id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at",
-  filter: ::StackOne::Operations::AtsListJobsQueryParamFilter.new(
+  filter: Models::Operations::AtsListJobsQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2623,13 +2628,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::StackOne::Operations::AtsListJobsRequest](../../models/operations/atslistjobsrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::AtsListJobsRequest](../../models/operations/atslistjobsrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListJobsResponse)](../../models/operations/atslistjobsresponse.md)**
+**[T.nilable(Models::Operations::AtsListJobsResponse)](../../models/operations/atslistjobsresponse.md)**
 
 
 
@@ -2643,15 +2648,15 @@ Get all Lists
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListListsRequest.new(
+req = Models::Operations::AtsListListsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
-  filter: ::StackOne::Operations::AtsListListsQueryParamFilter.new(
+  filter: Models::Operations::AtsListListsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2667,13 +2672,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::AtsListListsRequest](../../models/operations/atslistlistsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::AtsListListsRequest](../../models/operations/atslistlistsrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListListsResponse)](../../models/operations/atslistlistsresponse.md)**
+**[T.nilable(Models::Operations::AtsListListsResponse)](../../models/operations/atslistlistsresponse.md)**
 
 
 
@@ -2687,15 +2692,15 @@ List locations
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListLocationsRequest.new(
+req = Models::Operations::AtsListLocationsRequest.new(
   fields_: "id,remote_id,name",
-  filter: ::StackOne::Operations::AtsListLocationsQueryParamFilter.new(
+  filter: Models::Operations::AtsListLocationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2711,13 +2716,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::StackOne::Operations::AtsListLocationsRequest](../../models/operations/atslistlocationsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::AtsListLocationsRequest](../../models/operations/atslistlocationsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListLocationsResponse)](../../models/operations/atslistlocationsresponse.md)**
+**[T.nilable(Models::Operations::AtsListLocationsResponse)](../../models/operations/atslistlocationsresponse.md)**
 
 
 
@@ -2731,15 +2736,15 @@ List Offers
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListOffersRequest.new(
+req = Models::Operations::AtsListOffersRequest.new(
   fields_: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history",
-  filter: ::StackOne::Operations::AtsListOffersQueryParamFilter.new(
+  filter: Models::Operations::AtsListOffersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2755,13 +2760,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::StackOne::Operations::AtsListOffersRequest](../../models/operations/atslistoffersrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::AtsListOffersRequest](../../models/operations/atslistoffersrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListOffersResponse)](../../models/operations/atslistoffersresponse.md)**
+**[T.nilable(Models::Operations::AtsListOffersResponse)](../../models/operations/atslistoffersresponse.md)**
 
 
 
@@ -2775,15 +2780,15 @@ List Rejected Reasons
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListRejectedReasonsRequest.new(
+req = Models::Operations::AtsListRejectedReasonsRequest.new(
   fields_: "id,remote_id,label,type,rejected_reason_type",
-  filter: ::StackOne::Operations::AtsListRejectedReasonsQueryParamFilter.new(
+  filter: Models::Operations::AtsListRejectedReasonsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2799,13 +2804,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::AtsListRejectedReasonsRequest](../../models/operations/atslistrejectedreasonsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::AtsListRejectedReasonsRequest](../../models/operations/atslistrejectedreasonsrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListRejectedReasonsResponse)](../../models/operations/atslistrejectedreasonsresponse.md)**
+**[T.nilable(Models::Operations::AtsListRejectedReasonsResponse)](../../models/operations/atslistrejectedreasonsresponse.md)**
 
 
 
@@ -2819,15 +2824,15 @@ List Users
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::AtsListUsersRequest.new(
+req = Models::Operations::AtsListUsersRequest.new(
   fields_: "id,remote_id,first_name,last_name,name,email,phone",
-  filter: ::StackOne::Operations::AtsListUsersQueryParamFilter.new(
+  filter: Models::Operations::AtsListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2843,13 +2848,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::AtsListUsersRequest](../../models/operations/atslistusersrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::AtsListUsersRequest](../../models/operations/atslistusersrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsListUsersResponse)](../../models/operations/atslistusersresponse.md)**
+**[T.nilable(Models::Operations::AtsListUsersResponse)](../../models/operations/atslistusersresponse.md)**
 
 
 
@@ -2863,13 +2868,13 @@ Move Application
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.move_application(ats_move_application_request_dto=::StackOne::Shared::AtsMoveApplicationRequestDto.new(
+res = s.ats.move_application(ats_move_application_request_dto=Models::Shared::AtsMoveApplicationRequestDto.new(
   interview_stage_id: "f223d7f6-908b-48f0-9237-b201c307f609",
   passthrough: {
     "other_known_names": "John Doe",
@@ -2884,15 +2889,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ats_move_application_request_dto`                                                                      | [::StackOne::Shared::AtsMoveApplicationRequestDto](../../models/shared/atsmoveapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ats_move_application_request_dto`                                                                  | [Models::Shared::AtsMoveApplicationRequestDto](../../models/shared/atsmoveapplicationrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsMoveApplicationResponse)](../../models/operations/atsmoveapplicationresponse.md)**
+**[T.nilable(Models::Operations::AtsMoveApplicationResponse)](../../models/operations/atsmoveapplicationresponse.md)**
 
 
 
@@ -2906,17 +2911,17 @@ Order Assessments Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_dto=::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDto.new(
-  application: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication.new(
-    application_status: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus.new(
+res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_dto=Models::Shared::AtsCreateCandidatesAssessmentsRequestDto.new(
+  application: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication.new(
+    application_status: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus.new(
       source_value: "Hired",
-      value: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoValue::HIRED,
+      value: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoValue::HIRED,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     passthrough: {
@@ -2924,9 +2929,9 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
     },
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
-  candidate: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate.new(
+  candidate: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate.new(
     emails: [
-      ::StackOne::Shared::CandidateEmail.new(
+      Models::Shared::CandidateEmail.new(
         type: "personal",
         value: "sestier.romain123@gmail.com",
       ),
@@ -2941,9 +2946,9 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  job: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob.new(
+  job: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob.new(
     hiring_team: [
-      ::StackOne::Shared::JobHiringTeam.new(
+      Models::Shared::JobHiringTeam.new(
         email: "john.doe@gmail.com",
         first_name: "John",
         last_name: "Doe",
@@ -2959,7 +2964,7 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     title: "Software Engineer",
   ),
-  package: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage.new(
+  package: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage.new(
     description: "Skills test to gauge a candidate's proficiency in job-specific skills",
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Test 1",
@@ -2968,7 +2973,7 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
   passthrough: {
     "other_known_names": "John Doe",
   },
-  requester: ::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester.new(
+  requester: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester.new(
     email: "john.doe@gmail.com",
     first_name: "John",
     last_name: "Doe",
@@ -2987,14 +2992,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_create_candidates_assessments_request_dto`                                                                                 | [::StackOne::Shared::AtsCreateCandidatesAssessmentsRequestDto](../../models/shared/atscreatecandidatesassessmentsrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `ats_create_candidates_assessments_request_dto`                                                                             | [Models::Shared::AtsCreateCandidatesAssessmentsRequestDto](../../models/shared/atscreatecandidatesassessmentsrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsOrderAssessmentsRequestResponse)](../../models/operations/atsorderassessmentsrequestresponse.md)**
+**[T.nilable(Models::Operations::AtsOrderAssessmentsRequestResponse)](../../models/operations/atsorderassessmentsrequestresponse.md)**
 
 
 
@@ -3008,17 +3013,17 @@ Order Background Check Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.order_background_check_request(ats_create_background_check_order_request_dto=::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto.new(
-  application: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication.new(
-    application_status: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus.new(
+res = s.ats.order_background_check_request(ats_create_background_check_order_request_dto=Models::Shared::AtsCreateBackgroundCheckOrderRequestDto.new(
+  application: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication.new(
+    application_status: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus.new(
       source_value: "Hired",
-      value: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue::HIRED,
+      value: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue::HIRED,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     passthrough: {
@@ -3026,9 +3031,9 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     },
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
-  candidate: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate.new(
+  candidate: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate.new(
     emails: [
-      ::StackOne::Shared::CandidateEmail.new(
+      Models::Shared::CandidateEmail.new(
         type: "personal",
         value: "sestier.romain123@gmail.com",
       ),
@@ -3043,9 +3048,9 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  job: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob.new(
+  job: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob.new(
     hiring_team: [
-      ::StackOne::Shared::JobHiringTeam.new(
+      Models::Shared::JobHiringTeam.new(
         email: "john.doe@gmail.com",
         first_name: "John",
         last_name: "Doe",
@@ -3061,13 +3066,13 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     title: "Software Engineer",
   ),
-  package: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage.new(
+  package: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage.new(
     description: "Skills test to gauge a candidate's proficiency in job-specific skills",
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Test 1",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     tests: [
-      ::StackOne::Shared::Package.new(
+      Models::Shared::Package.new(
         description: "Skills test to gauge a candidate's proficiency in job-specific skills",
         id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
         name: "Test 1",
@@ -3079,7 +3084,7 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     "other_known_names": "John Doe",
   },
   remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  requester: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoRequester.new(
+  requester: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoRequester.new(
     email: "john.doe@gmail.com",
     first_name: "John",
     last_name: "Doe",
@@ -3098,14 +3103,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `ats_create_background_check_order_request_dto`                                                                               | [::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto](../../models/shared/atscreatebackgroundcheckorderrequestdto.md) | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
-| `x_account_id`                                                                                                                | *::String*                                                                                                                    | :heavy_check_mark:                                                                                                            | The account identifier                                                                                                        |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `ats_create_background_check_order_request_dto`                                                                           | [Models::Shared::AtsCreateBackgroundCheckOrderRequestDto](../../models/shared/atscreatebackgroundcheckorderrequestdto.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
+| `x_account_id`                                                                                                            | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | The account identifier                                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsOrderBackgroundCheckRequestResponse)](../../models/operations/atsorderbackgroundcheckrequestresponse.md)**
+**[T.nilable(Models::Operations::AtsOrderBackgroundCheckRequestResponse)](../../models/operations/atsorderbackgroundcheckrequestresponse.md)**
 
 
 
@@ -3119,13 +3124,13 @@ Reject Application
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.reject_application(ats_reject_application_request_dto=::StackOne::Shared::AtsRejectApplicationRequestDto.new(
+res = s.ats.reject_application(ats_reject_application_request_dto=Models::Shared::AtsRejectApplicationRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
   },
@@ -3140,15 +3145,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `ats_reject_application_request_dto`                                                                        | [::StackOne::Shared::AtsRejectApplicationRequestDto](../../models/shared/atsrejectapplicationrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ats_reject_application_request_dto`                                                                    | [Models::Shared::AtsRejectApplicationRequestDto](../../models/shared/atsrejectapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsRejectApplicationResponse)](../../models/operations/atsrejectapplicationresponse.md)**
+**[T.nilable(Models::Operations::AtsRejectApplicationResponse)](../../models/operations/atsrejectapplicationresponse.md)**
 
 
 
@@ -3162,19 +3167,19 @@ Update an Application
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Shared::AtsUpdateApplicationRequestDto.new(
-  application_status: ::StackOne::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
+res = s.ats.update_application(ats_update_application_request_dto=Models::Shared::AtsUpdateApplicationRequestDto.new(
+  application_status: Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
     source_value: "Hired",
-    value: ::StackOne::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
+    value: Models::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
   ),
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -3186,7 +3191,7 @@ res = s.ats.update_application(ats_update_application_request_dto=::StackOne::Sh
   passthrough: {
     "other_known_names": "John Doe",
   },
-  source: ::StackOne::Shared::AtsUpdateApplicationRequestDtoSource.new(
+  source: Models::Shared::AtsUpdateApplicationRequestDtoSource.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "LinkedIn",
   ),
@@ -3200,15 +3205,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `ats_update_application_request_dto`                                                                        | [::StackOne::Shared::AtsUpdateApplicationRequestDto](../../models/shared/atsupdateapplicationrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ats_update_application_request_dto`                                                                    | [Models::Shared::AtsUpdateApplicationRequestDto](../../models/shared/atsupdateapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateApplicationResponse)](../../models/operations/atsupdateapplicationresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateApplicationResponse)](../../models/operations/atsupdateapplicationresponse.md)**
 
 
 
@@ -3222,23 +3227,23 @@ Update an Application Note
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_application_note(ats_update_notes_request_dto=::StackOne::Shared::AtsUpdateNotesRequestDto.new(
+res = s.ats.update_application_note(ats_update_notes_request_dto=Models::Shared::AtsUpdateNotesRequestDto.new(
   author_id: "1234567890",
   content: [
-    ::StackOne::Shared::NoteContentApiModel.new(
+    Models::Shared::NoteContentApiModel.new(
       body: "This candidate seems like a good fit for the role",
     ),
   ],
   passthrough: {
     "other_known_names": "John Doe",
   },
-  visibility: ::StackOne::Shared::AtsUpdateNotesRequestDtoVisibility.new(),
+  visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(),
 ), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
 
 if ! res.update_result.nil?
@@ -3249,16 +3254,16 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `ats_update_notes_request_dto`                                                                  | [::StackOne::Shared::AtsUpdateNotesRequestDto](../../models/shared/atsupdatenotesrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `sub_resource_id`                                                                               | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ats_update_notes_request_dto`                                                              | [Models::Shared::AtsUpdateNotesRequestDto](../../models/shared/atsupdatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `sub_resource_id`                                                                           | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateApplicationNoteResponse)](../../models/operations/atsupdateapplicationnoteresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateApplicationNoteResponse)](../../models/operations/atsupdateapplicationnoteresponse.md)**
 
 
 
@@ -3272,23 +3277,23 @@ Update Assessments Result
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_request_dto=::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto.new(
+res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_request_dto=Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto.new(
   attachments: [
-    ::StackOne::Shared::Attachment.new(
-      content_type: ::StackOne::Shared::AttachmentContentType.new(
+    Models::Shared::Attachment.new(
+      content_type: Models::Shared::AttachmentContentType.new(
         source_value: "Text",
-        value: ::StackOne::Shared::AttachmentValue::TEXT,
+        value: Models::Shared::AttachmentValue::TEXT,
       ),
       url: "http://example.com/resume.pdf",
     ),
   ],
-  candidate: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate.new(
+  candidate: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     profile_url: "https://exmaple.com/candidate?id=xyz",
   ),
@@ -3296,12 +3301,12 @@ res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_
   passthrough: {
     "other_known_names": "John Doe",
   },
-  result: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoResult.new(
+  result: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoResult.new(
     source_value: "Passed",
-    value: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoValue::PASSED,
+    value: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoValue::PASSED,
   ),
   result_url: "https://exmaple.com/result?id=xyz",
-  score: ::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoScore.new(
+  score: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoScore.new(
     label: "Percentage",
     max: "100",
     min: "0",
@@ -3320,15 +3325,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_update_candidates_assessments_results_request_dto`                                                                                       | [::StackOne::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto](../../models/shared/atsupdatecandidatesassessmentsresultsrequestdto.md) | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |
-| `id`                                                                                                                                          | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | N/A                                                                                                                                           |
-| `x_account_id`                                                                                                                                | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | The account identifier                                                                                                                        |
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_update_candidates_assessments_results_request_dto`                                                                                   | [Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto](../../models/shared/atsupdatecandidatesassessmentsresultsrequestdto.md) | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |
+| `id`                                                                                                                                      | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |
+| `x_account_id`                                                                                                                            | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | The account identifier                                                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateAssessmentsResultResponse)](../../models/operations/atsupdateassessmentsresultresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateAssessmentsResultResponse)](../../models/operations/atsupdateassessmentsresultresponse.md)**
 
 
 
@@ -3342,20 +3347,20 @@ Update Background Check Package
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_background_check_package(ats_update_background_check_packages_request_dto=::StackOne::Shared::AtsUpdateBackgroundCheckPackagesRequestDto.new(
+res = s.ats.update_background_check_package(ats_update_background_check_packages_request_dto=Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto.new(
   description: "Skills test to gauge a candidate's proficiency in job-specific skills",
   name: "Test 1",
   passthrough: {
     "other_known_names": "John Doe",
   },
   tests: [
-    ::StackOne::Shared::UpdatePackage.new(
+    Models::Shared::UpdatePackage.new(
       description: "Skills test to gauge a candidate's proficiency in job-specific skills",
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Test 1",
@@ -3371,15 +3376,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_update_background_check_packages_request_dto`                                                                                  | [::StackOne::Shared::AtsUpdateBackgroundCheckPackagesRequestDto](../../models/shared/atsupdatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                                  | N/A                                                                                                                                 |
-| `id`                                                                                                                                | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | N/A                                                                                                                                 |
-| `x_account_id`                                                                                                                      | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | The account identifier                                                                                                              |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `ats_update_background_check_packages_request_dto`                                                                              | [Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto](../../models/shared/atsupdatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `id`                                                                                                                            | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateBackgroundCheckPackageResponse)](../../models/operations/atsupdatebackgroundcheckpackageresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateBackgroundCheckPackageResponse)](../../models/operations/atsupdatebackgroundcheckpackageresponse.md)**
 
 
 
@@ -3393,23 +3398,23 @@ Update Background Check Result
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_background_check_result(ats_update_background_check_result_request_dto=::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDto.new(
+res = s.ats.update_background_check_result(ats_update_background_check_result_request_dto=Models::Shared::AtsUpdateBackgroundCheckResultRequestDto.new(
   attachments: [
-    ::StackOne::Shared::Attachment.new(
-      content_type: ::StackOne::Shared::AttachmentContentType.new(
+    Models::Shared::Attachment.new(
+      content_type: Models::Shared::AttachmentContentType.new(
         source_value: "Text",
-        value: ::StackOne::Shared::AttachmentValue::TEXT,
+        value: Models::Shared::AttachmentValue::TEXT,
       ),
       url: "http://example.com/resume.pdf",
     ),
   ],
-  candidate: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate.new(
+  candidate: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     profile_url: "https://exmaple.com/candidate?id=xyz",
   ),
@@ -3417,12 +3422,12 @@ res = s.ats.update_background_check_result(ats_update_background_check_result_re
   passthrough: {
     "other_known_names": "John Doe",
   },
-  result: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult.new(
+  result: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult.new(
     source_value: "Passed",
-    value: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoValue::PASSED,
+    value: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoValue::PASSED,
   ),
   result_url: "https://exmaple.com/result?id=xyz",
-  score: ::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDtoScore.new(
+  score: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoScore.new(
     label: "Percentage",
     max: "100",
     min: "0",
@@ -3441,15 +3446,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_update_background_check_result_request_dto`                                                                                | [::StackOne::Shared::AtsUpdateBackgroundCheckResultRequestDto](../../models/shared/atsupdatebackgroundcheckresultrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `id`                                                                                                                            | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `ats_update_background_check_result_request_dto`                                                                            | [Models::Shared::AtsUpdateBackgroundCheckResultRequestDto](../../models/shared/atsupdatebackgroundcheckresultrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateBackgroundCheckResultResponse)](../../models/operations/atsupdatebackgroundcheckresultresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateBackgroundCheckResultResponse)](../../models/operations/atsupdatebackgroundcheckresultresponse.md)**
 
 
 
@@ -3463,13 +3468,13 @@ Update Candidate
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared::AtsUpdateCandidateRequestDto.new(
+res = s.ats.update_candidate(ats_update_candidate_request_dto=Models::Shared::AtsUpdateCandidateRequestDto.new(
   application_ids: [
     "123e4567-e89b-12d3-a456-426614174000",
     "523e1234-e89b-fdd2-a456-762545121101",
@@ -3477,7 +3482,7 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
   company: "Company Inc.",
   country: "United States",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -3488,7 +3493,7 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
   ],
   email: "sestier.romain123@gmail.com",
   emails: [
-    ::StackOne::Shared::CandidateEmail.new(
+    Models::Shared::CandidateEmail.new(
       type: "personal",
       value: "sestier.romain123@gmail.com",
     ),
@@ -3501,12 +3506,12 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto=::StackOne::Shared
     "other_known_names": "John Doe",
   },
   phone_numbers: [
-    ::StackOne::Shared::PhoneNumber.new(
+    Models::Shared::PhoneNumber.new(
       phone: "+447700112233",
     ),
   ],
   social_links: [
-    ::StackOne::Shared::SocialLink.new(
+    Models::Shared::SocialLink.new(
       type: "linkedin",
       url: "https://www.linkedin.com/in/romainsestier/",
     ),
@@ -3526,15 +3531,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ats_update_candidate_request_dto`                                                                      | [::StackOne::Shared::AtsUpdateCandidateRequestDto](../../models/shared/atsupdatecandidaterequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ats_update_candidate_request_dto`                                                                  | [Models::Shared::AtsUpdateCandidateRequestDto](../../models/shared/atsupdatecandidaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateCandidateResponse)](../../models/operations/atsupdatecandidateresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateCandidateResponse)](../../models/operations/atsupdatecandidateresponse.md)**
 
 
 
@@ -3548,16 +3553,16 @@ Update Job
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJobRequestDto.new(
+res = s.ats.update_job(ats_update_job_request_dto=Models::Shared::AtsUpdateJobRequestDto.new(
   code: "184919",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -3573,7 +3578,7 @@ res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJ
   ],
   description: "Responsible for identifying business requirements",
   hiring_team: [
-    ::StackOne::Shared::JobHiringTeam.new(
+    Models::Shared::JobHiringTeam.new(
       email: "john.doe@gmail.com",
       first_name: "John",
       last_name: "Doe",
@@ -3583,7 +3588,7 @@ res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJ
     ),
   ],
   interview_stages: [
-    ::StackOne::Shared::InterviewStage.new(
+    Models::Shared::InterviewStage.new(
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -3594,9 +3599,9 @@ res = s.ats.update_job(ats_update_job_request_dto=::StackOne::Shared::AtsUpdateJ
       updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     ),
   ],
-  job_status: ::StackOne::Shared::AtsUpdateJobRequestDtoJobStatus.new(
+  job_status: Models::Shared::AtsUpdateJobRequestDtoJobStatus.new(
     source_value: "Published",
-    value: ::StackOne::Shared::AtsUpdateJobRequestDtoValue::PUBLISHED,
+    value: Models::Shared::AtsUpdateJobRequestDtoValue::PUBLISHED,
   ),
   location_ids: [
     "668570",
@@ -3621,15 +3626,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_update_job_request_dto`                                                                | [::StackOne::Shared::AtsUpdateJobRequestDto](../../models/shared/atsupdatejobrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ats_update_job_request_dto`                                                            | [Models::Shared::AtsUpdateJobRequestDto](../../models/shared/atsupdatejobrequestdto.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `id`                                                                                    | *::String*                                                                              | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `x_account_id`                                                                          | *::String*                                                                              | :heavy_check_mark:                                                                      | The account identifier                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUpdateJobResponse)](../../models/operations/atsupdatejobresponse.md)**
+**[T.nilable(Models::Operations::AtsUpdateJobResponse)](../../models/operations/atsupdatejobresponse.md)**
 
 
 
@@ -3643,26 +3648,26 @@ Upload Application Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.ats.upload_application_document(unified_upload_request_dto=::StackOne::Shared::UnifiedUploadRequestDto.new(
-  category: ::StackOne::Shared::UnifiedUploadRequestDtoCategory.new(
+res = s.ats.upload_application_document(unified_upload_request_dto=Models::Shared::UnifiedUploadRequestDto.new(
+  category: Models::Shared::UnifiedUploadRequestDtoCategory.new(
     source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
     value: "reports, resumes",
   ),
   category_id: "6530",
-  confidential: ::StackOne::Shared::UnifiedUploadRequestDtoConfidential.new(
+  confidential: Models::Shared::UnifiedUploadRequestDtoConfidential.new(
     source_value: "public",
-    value: ::StackOne::Shared::UnifiedUploadRequestDtoValue::TRUE,
+    value: Models::Shared::UnifiedUploadRequestDtoValue::TRUE,
   ),
   content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
-  file_format: ::StackOne::Shared::UnifiedUploadRequestDtoFileFormat.new(
+  file_format: Models::Shared::UnifiedUploadRequestDtoFileFormat.new(
     source_value: "abc",
-    value: ::StackOne::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+    value: Models::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
   ),
   name: "weather-forecast",
   path: "/path/to/file",
@@ -3676,13 +3681,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `unified_upload_request_dto`                                                                  | [::StackOne::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `unified_upload_request_dto`                                                              | [Models::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `id`                                                                                      | *::String*                                                                                | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `x_account_id`                                                                            | *::String*                                                                                | :heavy_check_mark:                                                                        | The account identifier                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::AtsUploadApplicationDocumentResponse)](../../models/operations/atsuploadapplicationdocumentresponse.md)**
+**[T.nilable(Models::Operations::AtsUploadApplicationDocumentResponse)](../../models/operations/atsuploadapplicationdocumentresponse.md)**
 

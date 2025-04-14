@@ -5,67 +5,44 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class HrisListEmployeeTimeOffPoliciesResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class HrisListEmployeeTimeOffPoliciesResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # HTTP response content type for this operation
-      field :content_type, ::String
+        # HTTP response content type for this operation
+        field :content_type, ::String
 
-      field :headers, T::Hash[Symbol, T::Array[::String]]
-      # Raw HTTP response; suitable for custom response parsing
-      field :raw_response, ::Faraday::Response
-      # HTTP response status code for this operation
-      field :status_code, ::Integer
-      # Bad gateway error.
-      field :bad_gateway_response, T.nilable(::StackOne::Shared::BadGatewayResponse)
-      # Invalid request.
-      field :bad_request_response, T.nilable(::StackOne::Shared::BadRequestResponse)
-      # Conflict with current state.
-      field :conflict_response, T.nilable(::StackOne::Shared::ConflictResponse)
-      # Forbidden.
-      field :forbidden_response, T.nilable(::StackOne::Shared::ForbiddenResponse)
-      # Server error while executing the request.
-      field :internal_server_error_response, T.nilable(::StackOne::Shared::InternalServerErrorResponse)
-      # Resource not found.
-      field :not_found_response, T.nilable(::StackOne::Shared::NotFoundResponse)
-      # This functionality is not implemented.
-      field :not_implemented_response, T.nilable(::StackOne::Shared::NotImplementedResponse)
-      # Precondition failed: linked account belongs to a disabled integration.
-      field :precondition_failed_response, T.nilable(::StackOne::Shared::PreconditionFailedResponse)
-      # The request has timed out.
-      field :request_timed_out_response, T.nilable(::StackOne::Shared::RequestTimedOutResponse)
-      # The time off policies related to the employee with the given identifier were retrieved.
-      field :time_off_policies_paginated, T.nilable(::StackOne::Shared::TimeOffPoliciesPaginated)
-      # Too many requests.
-      field :too_many_requests_response, T.nilable(::StackOne::Shared::TooManyRequestsResponse)
-      # Unauthorized access.
-      field :unauthorized_response, T.nilable(::StackOne::Shared::UnauthorizedResponse)
-      # Validation error.
-      field :unprocessable_entity_response, T.nilable(::StackOne::Shared::UnprocessableEntityResponse)
+        field :headers, T::Hash[Symbol, T::Array[::String]]
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
+        # HTTP response status code for this operation
+        field :status_code, ::Integer
+        # The time off policies related to the employee with the given identifier were retrieved.
+        field :time_off_policies_paginated, T.nilable(Models::Shared::TimeOffPoliciesPaginated)
 
 
-      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, bad_gateway_response: T.nilable(::StackOne::Shared::BadGatewayResponse), bad_request_response: T.nilable(::StackOne::Shared::BadRequestResponse), conflict_response: T.nilable(::StackOne::Shared::ConflictResponse), forbidden_response: T.nilable(::StackOne::Shared::ForbiddenResponse), internal_server_error_response: T.nilable(::StackOne::Shared::InternalServerErrorResponse), not_found_response: T.nilable(::StackOne::Shared::NotFoundResponse), not_implemented_response: T.nilable(::StackOne::Shared::NotImplementedResponse), precondition_failed_response: T.nilable(::StackOne::Shared::PreconditionFailedResponse), request_timed_out_response: T.nilable(::StackOne::Shared::RequestTimedOutResponse), time_off_policies_paginated: T.nilable(::StackOne::Shared::TimeOffPoliciesPaginated), too_many_requests_response: T.nilable(::StackOne::Shared::TooManyRequestsResponse), unauthorized_response: T.nilable(::StackOne::Shared::UnauthorizedResponse), unprocessable_entity_response: T.nilable(::StackOne::Shared::UnprocessableEntityResponse)).void }
-      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, bad_gateway_response: nil, bad_request_response: nil, conflict_response: nil, forbidden_response: nil, internal_server_error_response: nil, not_found_response: nil, not_implemented_response: nil, precondition_failed_response: nil, request_timed_out_response: nil, time_off_policies_paginated: nil, too_many_requests_response: nil, unauthorized_response: nil, unprocessable_entity_response: nil)
-        @content_type = content_type
-        @headers = headers
-        @raw_response = raw_response
-        @status_code = status_code
-        @bad_gateway_response = bad_gateway_response
-        @bad_request_response = bad_request_response
-        @conflict_response = conflict_response
-        @forbidden_response = forbidden_response
-        @internal_server_error_response = internal_server_error_response
-        @not_found_response = not_found_response
-        @not_implemented_response = not_implemented_response
-        @precondition_failed_response = precondition_failed_response
-        @request_timed_out_response = request_timed_out_response
-        @time_off_policies_paginated = time_off_policies_paginated
-        @too_many_requests_response = too_many_requests_response
-        @unauthorized_response = unauthorized_response
-        @unprocessable_entity_response = unprocessable_entity_response
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, time_off_policies_paginated: T.nilable(Models::Shared::TimeOffPoliciesPaginated)).void }
+        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, time_off_policies_paginated: nil)
+          @content_type = content_type
+          @headers = headers
+          @raw_response = raw_response
+          @status_code = status_code
+          @time_off_policies_paginated = time_off_policies_paginated
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content_type == other.content_type
+          return false unless @headers == other.headers
+          return false unless @raw_response == other.raw_response
+          return false unless @status_code == other.status_code
+          return false unless @time_off_policies_paginated == other.time_off_policies_paginated
+          true
+        end
       end
     end
   end

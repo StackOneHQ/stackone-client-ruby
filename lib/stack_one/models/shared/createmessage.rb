@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateMessage < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateMessage
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :message_content, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
-      # Stackone enum identifying the type of message associated with the content.
-      field :message_type, T.nilable(::StackOne::Shared::MessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
+        field :message_content, T.nilable(T.any(Models::Shared::SmsMessageContentsSchemas, Models::Shared::Schemas, Models::Shared::PushMessageContentsSchemas)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
+        # Stackone enum identifying the type of message associated with the content.
+        field :message_type, T.nilable(Models::Shared::MessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
 
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(id: T.nilable(::String), message_content: T.nilable(::Object), message_type: T.nilable(::StackOne::Shared::MessageType), name: T.nilable(::String)).void }
-      def initialize(id: nil, message_content: nil, message_type: nil, name: nil)
-        @id = id
-        @message_content = message_content
-        @message_type = message_type
-        @name = name
+        sig { params(id: T.nilable(::String), message_content: T.nilable(T.any(Models::Shared::SmsMessageContentsSchemas, Models::Shared::Schemas, Models::Shared::PushMessageContentsSchemas)), message_type: T.nilable(Models::Shared::MessageType), name: T.nilable(::String)).void }
+        def initialize(id: nil, message_content: nil, message_type: nil, name: nil)
+          @id = id
+          @message_content = message_content
+          @message_type = message_type
+          @name = name
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @message_content == other.message_content
+          return false unless @message_type == other.message_type
+          return false unless @name == other.name
+          true
+        end
       end
     end
   end

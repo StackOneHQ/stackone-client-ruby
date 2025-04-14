@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LmsUpsertContentRequestDtoValue < T::Enum
-      enums do
-        VIDEO = new('video')
-        QUIZ = new('quiz')
-        DOCUMENT = new('document')
-        AUDIO = new('audio')
-        ARTICLE = new('article')
+      class LmsUpsertContentRequestDtoValue < T::Enum
+        enums do
+          VIDEO = new('video')
+          QUIZ = new('quiz')
+          DOCUMENT = new('document')
+          AUDIO = new('audio')
+          ARTICLE = new('article')
+        end
       end
     end
   end

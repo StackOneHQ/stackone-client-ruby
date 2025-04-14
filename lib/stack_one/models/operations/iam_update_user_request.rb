@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class IamUpdateUserRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :iam_update_user_request_dto, ::StackOne::Shared::IamUpdateUserRequestDto, { 'request': { 'media_type': 'application/json' } }
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class IamUpdateUserRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(iam_update_user_request_dto: ::StackOne::Shared::IamUpdateUserRequestDto, id: ::String, x_account_id: ::String).void }
-      def initialize(iam_update_user_request_dto: nil, id: nil, x_account_id: nil)
-        @iam_update_user_request_dto = iam_update_user_request_dto
-        @id = id
-        @x_account_id = x_account_id
+        field :iam_update_user_request_dto, Models::Shared::IamUpdateUserRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(iam_update_user_request_dto: Models::Shared::IamUpdateUserRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(iam_update_user_request_dto: nil, id: nil, x_account_id: nil)
+          @iam_update_user_request_dto = iam_update_user_request_dto
+          @id = id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @iam_update_user_request_dto == other.iam_update_user_request_dto
+          return false unless @id == other.id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

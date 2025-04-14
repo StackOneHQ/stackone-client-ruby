@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CostCenters < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :distribution_percentage, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      class CostCenters
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(distribution_percentage: nil, id: nil, name: nil, remote_id: nil)
-        @distribution_percentage = distribution_percentage
-        @id = id
-        @name = name
-        @remote_id = remote_id
+        field :distribution_percentage, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+
+        sig { params(distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(distribution_percentage: nil, id: nil, name: nil, remote_id: nil)
+          @distribution_percentage = distribution_percentage
+          @id = id
+          @name = name
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @distribution_percentage == other.distribution_percentage
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

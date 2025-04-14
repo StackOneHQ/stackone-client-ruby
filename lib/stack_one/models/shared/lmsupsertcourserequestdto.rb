@@ -5,55 +5,76 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LmsUpsertCourseRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class LmsUpsertCourseRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Whether the course is active and available for users.
-      field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-      # The categories associated with this content
-      field :categories, T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
-      # The content associated with this course
-      field :content, T.nilable(T::Array[::StackOne::Shared::CreateContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-      # The URL of the thumbnail image associated with the course.
-      field :cover_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
-      # The description of the course
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # The duration of the course following the ISO8601 standard. If duration_unit is applicable we will derive this from the smallest unit given in the duration string
-      field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
-      # The external ID associated with this course
-      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
-      # The languages associated with this course
-      field :languages, T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
-      # The localization data for this course
-      field :localizations, T.nilable(T::Array[::StackOne::Shared::LocalizationModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('localizations') } }
-      # The skills associated with this content
-      field :skills, T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
-      # The title of the course
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # The redirect URL of the course.
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        # Whether the course is active and available for users.
+        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        # The categories associated with this content
+        field :categories, T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        # The content associated with this course
+        field :content, T.nilable(T::Array[Models::Shared::CreateContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        # The URL of the thumbnail image associated with the course.
+        field :cover_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
+        # The description of the course
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # The duration of the course following the ISO8601 standard. If duration_unit is applicable we will derive this from the smallest unit given in the duration string
+        field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        # The external ID associated with this course
+        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        # The languages associated with this course
+        field :languages, T.nilable(T::Array[Models::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
+        # The localization data for this course
+        field :localizations, T.nilable(T::Array[Models::Shared::LocalizationModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('localizations') } }
+        # The skills associated with this content
+        field :skills, T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
+        # The title of the course
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # The redirect URL of the course.
+        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), categories: T.nilable(T::Array[::StackOne::Shared::CreateCategoriesApiModel]), content: T.nilable(T::Array[::StackOne::Shared::CreateContentApiModel]), cover_url: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[::StackOne::Shared::LanguageEnum]), localizations: T.nilable(T::Array[::StackOne::Shared::LocalizationModel]), skills: T.nilable(T::Array[::StackOne::Shared::CreateSkillsApiModel]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
-      def initialize(active: nil, categories: nil, content: nil, cover_url: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, skills: nil, title: nil, unified_custom_fields: nil, url: nil)
-        @active = active
-        @categories = categories
-        @content = content
-        @cover_url = cover_url
-        @description = description
-        @duration = duration
-        @external_reference = external_reference
-        @languages = languages
-        @localizations = localizations
-        @skills = skills
-        @title = title
-        @unified_custom_fields = unified_custom_fields
-        @url = url
+        sig { params(active: T.nilable(T::Boolean), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content: T.nilable(T::Array[Models::Shared::CreateContentApiModel]), cover_url: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
+        def initialize(active: nil, categories: nil, content: nil, cover_url: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, skills: nil, title: nil, unified_custom_fields: nil, url: nil)
+          @active = active
+          @categories = categories
+          @content = content
+          @cover_url = cover_url
+          @description = description
+          @duration = duration
+          @external_reference = external_reference
+          @languages = languages
+          @localizations = localizations
+          @skills = skills
+          @title = title
+          @unified_custom_fields = unified_custom_fields
+          @url = url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @active == other.active
+          return false unless @categories == other.categories
+          return false unless @content == other.content
+          return false unless @cover_url == other.cover_url
+          return false unless @description == other.description
+          return false unless @duration == other.duration
+          return false unless @external_reference == other.external_reference
+          return false unless @languages == other.languages
+          return false unless @localizations == other.localizations
+          return false unless @skills == other.skills
+          return false unless @title == other.title
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @url == other.url
+          true
+        end
       end
     end
   end

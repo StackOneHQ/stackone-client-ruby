@@ -5,34 +5,48 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class StackoneListLogsRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class StackoneListLogsRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Filter parameters that allow greater customisation of the list response
-      field :filter, T.nilable(::StackOne::Operations::Filter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
-      # The include parameter allows you to include additional data in the response.
-      field :include, T.nilable(::StackOne::Operations::QueryParamInclude), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
-      # The unified cursor
-      field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
-      # The field to order the results by.
-      field :order_by, T.nilable(::StackOne::Operations::OrderBy), { 'query_param': { 'field_name': 'order_by', 'style': 'form', 'explode': true } }
-      # The direction to order the results by.
-      field :order_direction, T.nilable(::StackOne::Operations::OrderDirection), { 'query_param': { 'field_name': 'order_direction', 'style': 'form', 'explode': true } }
-      # The number of results per page (default value is 25)
-      field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
+        # Filter parameters that allow greater customisation of the list response
+        field :filter, T.nilable(Models::Operations::Filter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
+        # The include parameter allows you to include additional data in the response.
+        field :include, T.nilable(Models::Operations::QueryParamInclude), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
+        # The unified cursor
+        field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
+        # The field to order the results by.
+        field :order_by, T.nilable(Models::Operations::OrderBy), { 'query_param': { 'field_name': 'order_by', 'style': 'form', 'explode': true } }
+        # The direction to order the results by.
+        field :order_direction, T.nilable(Models::Operations::OrderDirection), { 'query_param': { 'field_name': 'order_direction', 'style': 'form', 'explode': true } }
+        # The number of results per page (default value is 25)
+        field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
 
-      sig { params(filter: T.nilable(::StackOne::Operations::Filter), include: T.nilable(::StackOne::Operations::QueryParamInclude), next_: T.nilable(::String), order_by: T.nilable(::StackOne::Operations::OrderBy), order_direction: T.nilable(::StackOne::Operations::OrderDirection), page_size: T.nilable(::Float)).void }
-      def initialize(filter: nil, include: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
-        @filter = filter
-        @include = include
-        @next_ = next_
-        @order_by = order_by
-        @order_direction = order_direction
-        @page_size = page_size
+        sig { params(filter: T.nilable(Models::Operations::Filter), include: T.nilable(Models::Operations::QueryParamInclude), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::OrderBy), order_direction: T.nilable(Models::Operations::OrderDirection), page_size: T.nilable(::Float)).void }
+        def initialize(filter: nil, include: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
+          @filter = filter
+          @include = include
+          @next_ = next_
+          @order_by = order_by
+          @order_direction = order_direction
+          @page_size = page_size
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @filter == other.filter
+          return false unless @include == other.include
+          return false unless @next_ == other.next_
+          return false unless @order_by == other.order_by
+          return false unless @order_direction == other.order_direction
+          return false unless @page_size == other.page_size
+          true
+        end
       end
     end
   end

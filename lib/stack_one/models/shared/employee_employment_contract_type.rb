@@ -5,24 +5,34 @@
 
 
 module StackOne
-  module Shared
-  
-    # The employment work schedule type (e.g., full-time, part-time)
-    # 
-    # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
-    class EmployeeEmploymentContractType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The employment work schedule type (e.g., full-time, part-time)
+      # 
+      # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+      class EmployeeEmploymentContractType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Employee4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::EmployeeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::EmployeeValue, true) } }
+        field :value, T.nilable(Models::Shared::EmployeeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EmployeeValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::EmployeeValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Employee4, T::Array[::Object])), value: T.nilable(Models::Shared::EmployeeValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

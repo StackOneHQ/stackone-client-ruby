@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
-    # CampaignSchemasValue - The Status of the campaign.
-    class CampaignSchemasValue < T::Enum
-      enums do
-        DRAFT = new('draft')
-        ARCHIVED = new('archived')
-        LIVE = new('live')
+  module Models
+    module Shared
+    
+      # CampaignSchemasValue - The Status of the campaign.
+      class CampaignSchemasValue < T::Enum
+        enums do
+          DRAFT = new('draft')
+          ARCHIVED = new('archived')
+          LIVE = new('live')
+        end
       end
     end
   end

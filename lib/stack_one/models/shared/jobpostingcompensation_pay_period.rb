@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class JobPostingCompensationPayPeriod < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class JobPostingCompensationPayPeriod
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The source value of the pay period.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The pay period of the job postings.
-      field :value, T.nilable(::StackOne::Shared::JobPostingCompensationSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::JobPostingCompensationSchemasValue, true) } }
+        # The source value of the pay period.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::JobPostingCompensationSchemas4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The pay period of the job postings.
+        field :value, T.nilable(Models::Shared::JobPostingCompensationSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::JobPostingCompensationSchemasValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::JobPostingCompensationSchemasValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::JobPostingCompensationSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::JobPostingCompensationSchemasValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

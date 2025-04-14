@@ -5,40 +5,56 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class List < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class List
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Timestamp when the list was created
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Timestamp when the list was created
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :items, T.nilable(T::Array[::StackOne::Shared::ListItem]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
+        field :items, T.nilable(T::Array[Models::Shared::ListItem]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
 
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The list type
-      field :type, T.nilable(::StackOne::Shared::ListType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # Timestamp when the list was last updated
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The list type
+        field :type, T.nilable(Models::Shared::ListType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Timestamp when the list was last updated
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[::StackOne::Shared::ListItem]), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::ListType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, id: nil, items: nil, name: nil, remote_id: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
-        @created_at = created_at
-        @id = id
-        @items = items
-        @name = name
-        @remote_id = remote_id
-        @type = type
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
+        sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), items: T.nilable(T::Array[Models::Shared::ListItem]), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::ListType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, id: nil, items: nil, name: nil, remote_id: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
+          @created_at = created_at
+          @id = id
+          @items = items
+          @name = name
+          @remote_id = remote_id
+          @type = type
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_at == other.created_at
+          return false unless @id == other.id
+          return false unless @items == other.items
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

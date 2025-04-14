@@ -5,31 +5,23 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class MessageContent < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
-
-      field :from, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('from') } }
-
-      field :preheader, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preheader') } }
-
-      field :reply_to, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reply-to') } }
-
-      field :subject, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subject') } }
+      class MessageContent
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(body: T.nilable(::String), from: T.nilable(::String), preheader: T.nilable(::String), reply_to: T.nilable(::String), subject: T.nilable(::String)).void }
-      def initialize(body: nil, from: nil, preheader: nil, reply_to: nil, subject: nil)
-        @body = body
-        @from = from
-        @preheader = preheader
-        @reply_to = reply_to
-        @subject = subject
+
+        
+        def initialize; end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
       end
     end
   end

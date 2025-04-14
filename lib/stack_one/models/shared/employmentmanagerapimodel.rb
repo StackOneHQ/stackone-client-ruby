@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class EmploymentManagerApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class EmploymentManagerApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The role of manager
-      field :role, T.nilable(::StackOne::Shared::Role), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The role of manager
+        field :role, T.nilable(Models::Shared::Role), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
 
 
-      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), role: T.nilable(::StackOne::Shared::Role)).void }
-      def initialize(id: nil, remote_id: nil, role: nil)
-        @id = id
-        @remote_id = remote_id
-        @role = role
+        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), role: T.nilable(Models::Shared::Role)).void }
+        def initialize(id: nil, remote_id: nil, role: nil)
+          @id = id
+          @remote_id = remote_id
+          @role = role
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          return false unless @role == other.role
+          true
+        end
       end
     end
   end

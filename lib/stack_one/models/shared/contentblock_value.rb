@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
-    # ContentBlockValue - The Status of the content blocks.
-    class ContentBlockValue < T::Enum
-      enums do
-        DRAFT = new('draft')
-        LIVE = new('live')
-        ARCHIVED = new('archived')
+  module Models
+    module Shared
+    
+      # ContentBlockValue - The Status of the content blocks.
+      class ContentBlockValue < T::Enum
+        enums do
+          DRAFT = new('draft')
+          LIVE = new('live')
+          ARCHIVED = new('archived')
+        end
       end
     end
   end

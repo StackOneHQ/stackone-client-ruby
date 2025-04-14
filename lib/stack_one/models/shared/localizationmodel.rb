@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LocalizationModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class LocalizationModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The description of the content
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # The language associated with the localization details
-      field :language, T.nilable(::StackOne::Shared::LocalizationModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
-      # The title of the content
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        # The description of the content
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # The language associated with the localization details
+        field :language, T.nilable(Models::Shared::LocalizationModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        # The title of the content
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(description: T.nilable(::String), language: T.nilable(::StackOne::Shared::LocalizationModelLanguage), title: T.nilable(::String)).void }
-      def initialize(description: nil, language: nil, title: nil)
-        @description = description
-        @language = language
-        @title = title
+        sig { params(description: T.nilable(::String), language: T.nilable(Models::Shared::LocalizationModelLanguage), title: T.nilable(::String)).void }
+        def initialize(description: nil, language: nil, title: nil)
+          @description = description
+          @language = language
+          @title = title
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @description == other.description
+          return false unless @language == other.language
+          return false unless @title == other.title
+          true
+        end
       end
     end
   end

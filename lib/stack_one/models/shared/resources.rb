@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
-    # Resources for this provider, such as image assets
-    class Resources < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Resources for this provider, such as image assets
+      class Resources
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Image assets for this provider
-      field :images, T.nilable(::StackOne::Shared::Images), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('images') } }
+        # Image assets for this provider
+        field :images, T.nilable(Models::Shared::Images), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('images') } }
 
 
-      sig { params(images: T.nilable(::StackOne::Shared::Images)).void }
-      def initialize(images: nil)
-        @images = images
+        sig { params(images: T.nilable(Models::Shared::Images)).void }
+        def initialize(images: nil)
+          @images = images
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @images == other.images
+          true
+        end
       end
     end
   end

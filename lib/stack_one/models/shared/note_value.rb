@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
-    # NoteValue - The visibility of the notes.
-    class NoteValue < T::Enum
-      enums do
-        PRIVATE = new('private')
-        PUBLIC = new('public')
+  module Models
+    module Shared
+    
+      # NoteValue - The visibility of the notes.
+      class NoteValue < T::Enum
+        enums do
+          PRIVATE = new('private')
+          PUBLIC = new('public')
+        end
       end
     end
   end

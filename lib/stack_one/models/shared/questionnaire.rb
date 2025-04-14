@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Questionnaire < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :answers, T.nilable(T::Array[::StackOne::Shared::Answer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+      class Questionnaire
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(answers: T.nilable(T::Array[::StackOne::Shared::Answer]), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(answers: nil, id: nil, remote_id: nil)
-        @answers = answers
-        @id = id
-        @remote_id = remote_id
+        field :answers, T.nilable(T::Array[Models::Shared::Answer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+
+        sig { params(answers: T.nilable(T::Array[Models::Shared::Answer]), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(answers: nil, id: nil, remote_id: nil)
+          @answers = answers
+          @id = id
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @answers == other.answers
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

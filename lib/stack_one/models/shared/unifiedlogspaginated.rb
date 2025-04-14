@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class UnifiedLogsPaginated < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :data, T::Array[::StackOne::Shared::UnifiedLogs], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
-
-      field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+      class UnifiedLogsPaginated
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(data: T::Array[::StackOne::Shared::UnifiedLogs], next_: T.nilable(::String)).void }
-      def initialize(data: nil, next_: nil)
-        @data = data
-        @next_ = next_
+        field :data, T::Array[Models::Shared::UnifiedLogs], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+
+        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+
+
+        sig { params(data: T::Array[Models::Shared::UnifiedLogs], next_: T.nilable(::String)).void }
+        def initialize(data: nil, next_: nil)
+          @data = data
+          @next_ = next_
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          return false unless @next_ == other.next_
+          true
+        end
       end
     end
   end

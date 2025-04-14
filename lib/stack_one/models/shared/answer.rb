@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Answer < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Answer
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Type of the answer
-      field :type, T.nilable(::StackOne::Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Values of the answer
-      field :values, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Type of the answer
+        field :type, T.nilable(Models::Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Values of the answer
+        field :values, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 
 
-      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::Type), values: T.nilable(T::Array[::String])).void }
-      def initialize(id: nil, remote_id: nil, type: nil, values: nil)
-        @id = id
-        @remote_id = remote_id
-        @type = type
-        @values = values
+        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::Type), values: T.nilable(T::Array[::String])).void }
+        def initialize(id: nil, remote_id: nil, type: nil, values: nil)
+          @id = id
+          @remote_id = remote_id
+          @type = type
+          @values = values
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
+          return false unless @values == other.values
+          true
+        end
       end
     end
   end

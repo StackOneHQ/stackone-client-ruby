@@ -18,14 +18,16 @@ module StackOne
   ].freeze
   # Contains the list of servers available to the SDK
 
-  class SDKConfiguration < ::Crystalline::FieldAugmented
+  class SDKConfiguration
     extend T::Sig
+    include Crystalline::MetadataFields
+
 
     field :client, T.nilable(Faraday::Connection)
     field :hooks, ::StackOne::SDKHooks::Hooks
     field :retry_config, T.nilable(::StackOne::Utils::RetryConfig)
     field :timeout, T.nilable(Float)
-    field :security_source, T.nilable(T.proc.returns(T.nilable(::StackOne::Shared::Security)))
+    field :security_source, T.nilable(T.proc.returns(T.nilable(Models::Shared::Security)))
     field :server_url, T.nilable(String)
     field :server_idx, T.nilable(Integer)
     field :language, String
@@ -40,8 +42,8 @@ module StackOne
         hooks: ::StackOne::SDKHooks::Hooks,
         retry_config: T.nilable(::StackOne::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        security: T.nilable(::StackOne::Shared::Security),
-        security_source: T.nilable(T.proc.returns(::StackOne::Shared::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         server_url: T.nilable(String),
         server_idx: T.nilable(Integer)
       ).void
@@ -61,9 +63,9 @@ module StackOne
       end
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.7.2'
-      @gen_version = '2.565.1'
-      @user_agent = 'speakeasy-sdk/ruby 0.7.2 2.565.1 1.0.0 stackone_client'
+      @sdk_version = '0.8.0'
+      @gen_version = '2.570.4'
+      @user_agent = 'speakeasy-sdk/ruby 0.8.0 2.570.4 1.0.0 stackone_client'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

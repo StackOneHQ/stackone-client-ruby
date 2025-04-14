@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class NoteContentApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class NoteContentApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Body of the note
-      field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        # Body of the note
+        field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
 
-      sig { params(body: T.nilable(::String)).void }
-      def initialize(body: nil)
-        @body = body
+        sig { params(body: T.nilable(::String)).void }
+        def initialize(body: nil)
+          @body = body
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @body == other.body
+          true
+        end
       end
     end
   end

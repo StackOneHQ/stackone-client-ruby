@@ -5,34 +5,48 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateContentApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateContentApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The external URL of the content
-      field :content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_url') } }
-      # The description of the content
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # The external ID associated with this content
-      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
-      # The mobile friendly URL of the content
-      field :mobile_launch_content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('mobile_launch_content_url') } }
-      # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
-      field :order, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
-      # The title of the content
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        # The external URL of the content
+        field :content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_url') } }
+        # The description of the content
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # The external ID associated with this content
+        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        # The mobile friendly URL of the content
+        field :mobile_launch_content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('mobile_launch_content_url') } }
+        # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
+        field :order, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
+        # The title of the content
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(content_url: T.nilable(::String), description: T.nilable(::String), external_reference: T.nilable(::String), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), title: T.nilable(::String)).void }
-      def initialize(content_url: nil, description: nil, external_reference: nil, mobile_launch_content_url: nil, order: nil, title: nil)
-        @content_url = content_url
-        @description = description
-        @external_reference = external_reference
-        @mobile_launch_content_url = mobile_launch_content_url
-        @order = order
-        @title = title
+        sig { params(content_url: T.nilable(::String), description: T.nilable(::String), external_reference: T.nilable(::String), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), title: T.nilable(::String)).void }
+        def initialize(content_url: nil, description: nil, external_reference: nil, mobile_launch_content_url: nil, order: nil, title: nil)
+          @content_url = content_url
+          @description = description
+          @external_reference = external_reference
+          @mobile_launch_content_url = mobile_launch_content_url
+          @order = order
+          @title = title
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content_url == other.content_url
+          return false unless @description == other.description
+          return false unless @external_reference == other.external_reference
+          return false unless @mobile_launch_content_url == other.mobile_launch_content_url
+          return false unless @order == other.order
+          return false unless @title == other.title
+          true
+        end
       end
     end
   end

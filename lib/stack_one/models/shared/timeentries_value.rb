@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class TimeEntriesValue < T::Enum
-      enums do
-        APPROVED = new('approved')
-        UNMAPPED_VALUE = new('unmapped_value')
+      class TimeEntriesValue < T::Enum
+        enums do
+          APPROVED = new('approved')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

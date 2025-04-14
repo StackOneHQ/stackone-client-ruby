@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The type of this policy
-    class TimeOffBalancesType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The type of this policy
+      class TimeOffBalancesType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
-      field :value, T.nilable(::StackOne::Shared::TimeOffBalancesSchemasPolicyValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::TimeOffBalancesSchemasPolicyValue, true) } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffBalancesSchemasPolicy4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
+        field :value, T.nilable(Models::Shared::TimeOffBalancesSchemasPolicyValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TimeOffBalancesSchemasPolicyValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::TimeOffBalancesSchemasPolicyValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffBalancesSchemasPolicy4, T::Array[::Object])), value: T.nilable(Models::Shared::TimeOffBalancesSchemasPolicyValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

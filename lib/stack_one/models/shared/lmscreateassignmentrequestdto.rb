@@ -5,42 +5,58 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LmsCreateAssignmentRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class LmsCreateAssignmentRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The date the assignment was created
-      field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
-      # The date the assignment is due to be completed
-      field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
-      # The external reference associated with this assignment
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
-      # The external reference of the learning object associated with this assignment, this is the main identifier for creating assignments.
-      field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
-      # The learning_object_id associated with this assignment. This is not required unless specified in an integration.
-      field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # The progress associated with this assigment
-      field :progress, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
-      # The status of the assignment
-      field :status, T.nilable(::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        # The date the assignment was created
+        field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
+        # The date the assignment is due to be completed
+        field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
+        # The external reference associated with this assignment
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        # The external reference of the learning object associated with this assignment, this is the main identifier for creating assignments.
+        field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
+        # The learning_object_id associated with this assignment. This is not required unless specified in an integration.
+        field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # The progress associated with this assigment
+        field :progress, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
+        # The status of the assignment
+        field :status, T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
 
-      sig { params(created_at: T.nilable(::String), due_date: T.nilable(::String), external_reference: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(::StackOne::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
-      def initialize(created_at: nil, due_date: nil, external_reference: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
-        @created_at = created_at
-        @due_date = due_date
-        @external_reference = external_reference
-        @learning_object_external_reference = learning_object_external_reference
-        @learning_object_id = learning_object_id
-        @passthrough = passthrough
-        @progress = progress
-        @status = status
+        sig { params(created_at: T.nilable(::String), due_date: T.nilable(::String), external_reference: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
+        def initialize(created_at: nil, due_date: nil, external_reference: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
+          @created_at = created_at
+          @due_date = due_date
+          @external_reference = external_reference
+          @learning_object_external_reference = learning_object_external_reference
+          @learning_object_id = learning_object_id
+          @passthrough = passthrough
+          @progress = progress
+          @status = status
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_at == other.created_at
+          return false unless @due_date == other.due_date
+          return false unless @external_reference == other.external_reference
+          return false unless @learning_object_external_reference == other.learning_object_external_reference
+          return false unless @learning_object_id == other.learning_object_id
+          return false unless @passthrough == other.passthrough
+          return false unless @progress == other.progress
+          return false unless @status == other.status
+          true
+        end
       end
     end
   end

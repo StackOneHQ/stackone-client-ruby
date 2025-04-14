@@ -5,17 +5,19 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HRISDepartmentValue < T::Enum
-      enums do
-        DEPARTMENT = new('department')
-        COMPANY = new('company')
-        DIVISION = new('division')
-        GROUP = new('group')
-        PROJECT = new('project')
-        TEAM = new('team')
+      class HRISDepartmentValue < T::Enum
+        enums do
+          DEPARTMENT = new('department')
+          COMPANY = new('company')
+          DIVISION = new('division')
+          GROUP = new('group')
+          PROJECT = new('project')
+          TEAM = new('team')
+        end
       end
     end
   end

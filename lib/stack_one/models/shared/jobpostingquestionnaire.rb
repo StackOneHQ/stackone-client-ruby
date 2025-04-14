@@ -5,31 +5,44 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class JobPostingQuestionnaire < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class JobPostingQuestionnaire
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :internal, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal') } }
+        field :internal, T.nilable(T.any(T::Boolean, Models::Shared::JobPostingQuestionnaire2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal') } }
 
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-      field :questions, T.nilable(T::Array[::StackOne::Shared::Question]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questions') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :questions, T.nilable(T::Array[Models::Shared::Question]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questions') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), internal: T.nilable(::Object), name: T.nilable(::String), questions: T.nilable(T::Array[::StackOne::Shared::Question]), remote_id: T.nilable(::String)).void }
-      def initialize(id: nil, internal: nil, name: nil, questions: nil, remote_id: nil)
-        @id = id
-        @internal = internal
-        @name = name
-        @questions = questions
-        @remote_id = remote_id
+        sig { params(id: T.nilable(::String), internal: T.nilable(T.any(T::Boolean, Models::Shared::JobPostingQuestionnaire2)), name: T.nilable(::String), questions: T.nilable(T::Array[Models::Shared::Question]), remote_id: T.nilable(::String)).void }
+        def initialize(id: nil, internal: nil, name: nil, questions: nil, remote_id: nil)
+          @id = id
+          @internal = internal
+          @name = name
+          @questions = questions
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @internal == other.internal
+          return false unless @name == other.name
+          return false unless @questions == other.questions
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

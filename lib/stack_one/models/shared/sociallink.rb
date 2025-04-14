@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class SocialLink < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class SocialLink
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Type of the social link
-      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # URL of the social link
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        # Type of the social link
+        field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # URL of the social link
+        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(type: T.nilable(::String), url: T.nilable(::String)).void }
-      def initialize(type: nil, url: nil)
-        @type = type
-        @url = url
+        sig { params(type: T.nilable(::String), url: T.nilable(::String)).void }
+        def initialize(type: nil, url: nil)
+          @type = type
+          @url = url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @type == other.type
+          return false unless @url == other.url
+          true
+        end
       end
     end
   end

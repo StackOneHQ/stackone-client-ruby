@@ -5,37 +5,52 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class UnifiedUploadRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UnifiedUploadRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.
-      field :category, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
-      # The categoryId of the documents
-      field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
-      # The confidentiality level of the file to be uploaded
-      field :confidential, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential') } }
-      # The base64 encoded content of the file to upload
-      field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-      # The file format of the file
-      field :file_format, T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
-      # The filename of the file to upload
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The path for the file to be uploaded to
-      field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.
+        field :category, T.nilable(Models::Shared::UnifiedUploadRequestDtoCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+        # The categoryId of the documents
+        field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
+        # The confidentiality level of the file to be uploaded
+        field :confidential, T.nilable(Models::Shared::UnifiedUploadRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential') } }
+        # The base64 encoded content of the file to upload
+        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        # The file format of the file
+        field :file_format, T.nilable(Models::Shared::UnifiedUploadRequestDtoFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
+        # The filename of the file to upload
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The path for the file to be uploaded to
+        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
 
 
-      sig { params(category: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoCategory), category_id: T.nilable(::String), confidential: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(::StackOne::Shared::UnifiedUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
-      def initialize(category: nil, category_id: nil, confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
-        @category = category
-        @category_id = category_id
-        @confidential = confidential
-        @content = content
-        @file_format = file_format
-        @name = name
-        @path = path
+        sig { params(category: T.nilable(Models::Shared::UnifiedUploadRequestDtoCategory), category_id: T.nilable(::String), confidential: T.nilable(Models::Shared::UnifiedUploadRequestDtoConfidential), content: T.nilable(::String), file_format: T.nilable(Models::Shared::UnifiedUploadRequestDtoFileFormat), name: T.nilable(::String), path: T.nilable(::String)).void }
+        def initialize(category: nil, category_id: nil, confidential: nil, content: nil, file_format: nil, name: nil, path: nil)
+          @category = category
+          @category_id = category_id
+          @confidential = confidential
+          @content = content
+          @file_format = file_format
+          @name = name
+          @path = path
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @category == other.category
+          return false unless @category_id == other.category_id
+          return false unless @confidential == other.confidential
+          return false unless @content == other.content
+          return false unless @file_format == other.file_format
+          return false unless @name == other.name
+          return false unless @path == other.path
+          true
+        end
       end
     end
   end

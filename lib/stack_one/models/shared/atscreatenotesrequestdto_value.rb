@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
-    # AtsCreateNotesRequestDtoValue - The visibility of the notes.
-    class AtsCreateNotesRequestDtoValue < T::Enum
-      enums do
-        PRIVATE = new('private')
-        PUBLIC = new('public')
+  module Models
+    module Shared
+    
+      # AtsCreateNotesRequestDtoValue - The visibility of the notes.
+      class AtsCreateNotesRequestDtoValue < T::Enum
+        enums do
+          PRIVATE = new('private')
+          PUBLIC = new('public')
+        end
       end
     end
   end

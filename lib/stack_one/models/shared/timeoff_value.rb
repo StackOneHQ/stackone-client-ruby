@@ -5,17 +5,19 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class TimeOffValue < T::Enum
-      enums do
-        APPROVED = new('approved')
-        CANCELLED = new('cancelled')
-        REJECTED = new('rejected')
-        PENDING = new('pending')
-        DELETED = new('deleted')
-        UNMAPPED_VALUE = new('unmapped_value')
+      class TimeOffValue < T::Enum
+        enums do
+          APPROVED = new('approved')
+          CANCELLED = new('cancelled')
+          REJECTED = new('rejected')
+          PENDING = new('pending')
+          DELETED = new('deleted')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

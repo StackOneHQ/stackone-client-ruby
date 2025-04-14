@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class AtsRejectApplicationRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :ats_reject_application_request_dto, ::StackOne::Shared::AtsRejectApplicationRequestDto, { 'request': { 'media_type': 'application/json' } }
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class AtsRejectApplicationRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(ats_reject_application_request_dto: ::StackOne::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String).void }
-      def initialize(ats_reject_application_request_dto: nil, id: nil, x_account_id: nil)
-        @ats_reject_application_request_dto = ats_reject_application_request_dto
-        @id = id
-        @x_account_id = x_account_id
+        field :ats_reject_application_request_dto, Models::Shared::AtsRejectApplicationRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(ats_reject_application_request_dto: Models::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(ats_reject_application_request_dto: nil, id: nil, x_account_id: nil)
+          @ats_reject_application_request_dto = ats_reject_application_request_dto
+          @id = id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @ats_reject_application_request_dto == other.ats_reject_application_request_dto
+          return false unless @id == other.id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

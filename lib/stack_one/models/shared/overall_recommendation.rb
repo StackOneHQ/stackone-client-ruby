@@ -5,17 +5,19 @@
 
 
 module StackOne
-  module Shared
-  
-    # OverallRecommendation - The overall recommendation
-    class OverallRecommendation < T::Enum
-      enums do
-        STRONG_YES = new('strong_yes')
-        YES = new('yes')
-        NO = new('no')
-        STRONG_NO = new('strong_no')
-        NO_DECISION = new('no_decision')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # OverallRecommendation - The overall recommendation
+      class OverallRecommendation < T::Enum
+        enums do
+          STRONG_YES = new('strong_yes')
+          YES = new('yes')
+          NO = new('no')
+          STRONG_NO = new('strong_no')
+          NO_DECISION = new('no_decision')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

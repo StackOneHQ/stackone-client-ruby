@@ -5,46 +5,64 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class IamGroup < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The parent group id for when a group belongs to another group.
-      field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the parent group id for when a group belongs to another group.
-      field :remote_parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_id') } }
-
-      field :roles, T.nilable(T::Array[::StackOne::Shared::IamRole]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('roles') } }
-
-      field :type, T.nilable(::StackOne::Shared::IamGroupType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class IamGroup
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), remote_parent_id: T.nilable(::String), roles: T.nilable(T::Array[::StackOne::Shared::IamRole]), type: T.nilable(::StackOne::Shared::IamGroupType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, description: nil, id: nil, name: nil, parent_id: nil, remote_id: nil, remote_parent_id: nil, roles: nil, type: nil, updated_at: nil)
-        @created_at = created_at
-        @description = description
-        @id = id
-        @name = name
-        @parent_id = parent_id
-        @remote_id = remote_id
-        @remote_parent_id = remote_parent_id
-        @roles = roles
-        @type = type
-        @updated_at = updated_at
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The parent group id for when a group belongs to another group.
+        field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's unique identifier of the parent group id for when a group belongs to another group.
+        field :remote_parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_id') } }
+
+        field :roles, T.nilable(T::Array[Models::Shared::IamRole]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('roles') } }
+
+        field :type, T.nilable(Models::Shared::IamGroupType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), remote_parent_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), type: T.nilable(Models::Shared::IamGroupType), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, description: nil, id: nil, name: nil, parent_id: nil, remote_id: nil, remote_parent_id: nil, roles: nil, type: nil, updated_at: nil)
+          @created_at = created_at
+          @description = description
+          @id = id
+          @name = name
+          @parent_id = parent_id
+          @remote_id = remote_id
+          @remote_parent_id = remote_parent_id
+          @roles = roles
+          @type = type
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_at == other.created_at
+          return false unless @description == other.description
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @parent_id == other.parent_id
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_parent_id == other.remote_parent_id
+          return false unless @roles == other.roles
+          return false unless @type == other.type
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
-    # ApplicationAttachmentValue - The content type of the attachment.
-    class ApplicationAttachmentValue < T::Enum
-      enums do
-        TEXT = new('text')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # ApplicationAttachmentValue - The content type of the attachment.
+      class ApplicationAttachmentValue < T::Enum
+        enums do
+          TEXT = new('text')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

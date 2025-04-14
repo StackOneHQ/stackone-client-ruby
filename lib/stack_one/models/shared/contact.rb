@@ -5,61 +5,84 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Contact < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Contact
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # List of associated account IDs
-      field :account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
-      # The contact company name
-      field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
-      # Timestamp when the contact was created
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Contact custom fields
-      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
-      # List of associated deal IDs
-      field :deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
-      # List of contact email addresses
-      field :emails, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
-      # The contact first name
-      field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The contact last name
-      field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-      # List of contact phone numbers
-      field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
-      # Provider's list of associated account IDs
-      field :remote_account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_account_ids') } }
-      # Provider's list of associated deal IDs
-      field :remote_deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_deal_ids') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # Timestamp when the contact was last updated
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # List of associated account IDs
+        field :account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
+        # The contact company name
+        field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
+        # Timestamp when the contact was created
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Contact custom fields
+        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        # List of associated deal IDs
+        field :deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
+        # List of contact email addresses
+        field :emails, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
+        # The contact first name
+        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The contact last name
+        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        # List of contact phone numbers
+        field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        # Provider's list of associated account IDs
+        field :remote_account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_account_ids') } }
+        # Provider's list of associated deal IDs
+        field :remote_deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_deal_ids') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Timestamp when the contact was last updated
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_account_ids: T.nilable(T::Array[::String]), remote_deal_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(account_ids: nil, company_name: nil, created_at: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, id: nil, last_name: nil, phone_numbers: nil, remote_account_ids: nil, remote_deal_ids: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
-        @account_ids = account_ids
-        @company_name = company_name
-        @created_at = created_at
-        @custom_fields = custom_fields
-        @deal_ids = deal_ids
-        @emails = emails
-        @first_name = first_name
-        @id = id
-        @last_name = last_name
-        @phone_numbers = phone_numbers
-        @remote_account_ids = remote_account_ids
-        @remote_deal_ids = remote_deal_ids
-        @remote_id = remote_id
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
+        sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_account_ids: T.nilable(T::Array[::String]), remote_deal_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(account_ids: nil, company_name: nil, created_at: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, id: nil, last_name: nil, phone_numbers: nil, remote_account_ids: nil, remote_deal_ids: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
+          @account_ids = account_ids
+          @company_name = company_name
+          @created_at = created_at
+          @custom_fields = custom_fields
+          @deal_ids = deal_ids
+          @emails = emails
+          @first_name = first_name
+          @id = id
+          @last_name = last_name
+          @phone_numbers = phone_numbers
+          @remote_account_ids = remote_account_ids
+          @remote_deal_ids = remote_deal_ids
+          @remote_id = remote_id
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @account_ids == other.account_ids
+          return false unless @company_name == other.company_name
+          return false unless @created_at == other.created_at
+          return false unless @custom_fields == other.custom_fields
+          return false unless @deal_ids == other.deal_ids
+          return false unless @emails == other.emails
+          return false unless @first_name == other.first_name
+          return false unless @id == other.id
+          return false unless @last_name == other.last_name
+          return false unless @phone_numbers == other.phone_numbers
+          return false unless @remote_account_ids == other.remote_account_ids
+          return false unless @remote_deal_ids == other.remote_deal_ids
+          return false unless @remote_id == other.remote_id
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

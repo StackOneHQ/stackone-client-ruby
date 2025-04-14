@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LmsBatchUpsertCourseRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class LmsBatchUpsertCourseRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The batch of items to upsert
-      field :items, T::Array[::StackOne::Shared::LmsUpsertCourseRequestDto], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
+        # The batch of items to upsert
+        field :items, T::Array[Models::Shared::LmsUpsertCourseRequestDto], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
 
 
-      sig { params(items: T::Array[::StackOne::Shared::LmsUpsertCourseRequestDto]).void }
-      def initialize(items: nil)
-        @items = items
+        sig { params(items: T::Array[Models::Shared::LmsUpsertCourseRequestDto]).void }
+        def initialize(items: nil)
+          @items = items
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @items == other.items
+          true
+        end
       end
     end
   end

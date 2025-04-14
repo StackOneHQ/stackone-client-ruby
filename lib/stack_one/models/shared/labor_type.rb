@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
-    # The labor type associated with this time entry
-    class LaborType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The labor type associated with this time entry
+      class LaborType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
+        field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
 
 
-      sig { params(code: T.nilable(::String)).void }
-      def initialize(code: nil)
-        @code = code
+        sig { params(code: T.nilable(::String)).void }
+        def initialize(code: nil)
+          @code = code
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @code == other.code
+          true
+        end
       end
     end
   end

@@ -5,18 +5,20 @@
 
 
 module StackOne
-  module Shared
-  
-    # JobPostingCompensationSchemasTypeValue - The type of the compensation.
-    class JobPostingCompensationSchemasTypeValue < T::Enum
-      enums do
-        SALARY = new('salary')
-        HOURLY = new('hourly')
-        COMMISSION = new('commission')
-        BONUS = new('bonus')
-        EQUITY = new('equity')
-        OTHER = new('other')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # JobPostingCompensationSchemasTypeValue - The type of the compensation.
+      class JobPostingCompensationSchemasTypeValue < T::Enum
+        enums do
+          SALARY = new('salary')
+          HOURLY = new('hourly')
+          COMMISSION = new('commission')
+          BONUS = new('bonus')
+          EQUITY = new('equity')
+          OTHER = new('other')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

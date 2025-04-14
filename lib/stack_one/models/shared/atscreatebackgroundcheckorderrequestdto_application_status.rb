@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The source value of the application status.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The status of the application.
-      field :value, T.nilable(::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue, true) } }
+        # The source value of the application status.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AtsCreateBackgroundCheckOrderRequestDto4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The status of the application.
+        field :value, T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AtsCreateBackgroundCheckOrderRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

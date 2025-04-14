@@ -5,22 +5,24 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CustomFieldDefinitionValue < T::Enum
-      enums do
-        DATE = new('date')
-        FLOAT = new('float')
-        INTEGER = new('integer')
-        LIST = new('list')
-        CHECKBOX = new('checkbox')
-        TEXT = new('text')
-        BOOLEAN = new('boolean')
-        SINGLE_SELECT = new('single_select')
-        MULTI_SELECT = new('multi_select')
-        URL = new('url')
-        OTHER = new('other')
+      class CustomFieldDefinitionValue < T::Enum
+        enums do
+          DATE = new('date')
+          FLOAT = new('float')
+          INTEGER = new('integer')
+          LIST = new('list')
+          CHECKBOX = new('checkbox')
+          TEXT = new('text')
+          BOOLEAN = new('boolean')
+          SINGLE_SELECT = new('single_select')
+          MULTI_SELECT = new('multi_select')
+          URL = new('url')
+          OTHER = new('other')
+        end
       end
     end
   end

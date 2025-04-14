@@ -5,37 +5,52 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AccountAddress < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
-      # The country code
-      field :country, T.nilable(::StackOne::Shared::Country), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
-      # The location type
-      field :location_type, T.nilable(::StackOne::Shared::LocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
-
-      field :state, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
-
-      field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
-
-      field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
-
-      field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
+      class AccountAddress
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(city: T.nilable(::String), country: T.nilable(::StackOne::Shared::Country), location_type: T.nilable(::StackOne::Shared::LocationType), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
-      def initialize(city: nil, country: nil, location_type: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
-        @city = city
-        @country = country
-        @location_type = location_type
-        @state = state
-        @street_1 = street_1
-        @street_2 = street_2
-        @zip_code = zip_code
+        field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
+        # The country code
+        field :country, T.nilable(Models::Shared::Country), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+        # The location type
+        field :location_type, T.nilable(Models::Shared::LocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
+
+        field :state, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
+
+        field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
+
+        field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
+
+        field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
+
+
+        sig { params(city: T.nilable(::String), country: T.nilable(Models::Shared::Country), location_type: T.nilable(Models::Shared::LocationType), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
+        def initialize(city: nil, country: nil, location_type: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
+          @city = city
+          @country = country
+          @location_type = location_type
+          @state = state
+          @street_1 = street_1
+          @street_2 = street_2
+          @zip_code = zip_code
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @city == other.city
+          return false unless @country == other.country
+          return false unless @location_type == other.location_type
+          return false unless @state == other.state
+          return false unless @street_1 == other.street_1
+          return false unless @street_2 == other.street_2
+          return false unless @zip_code == other.zip_code
+          true
+        end
       end
     end
   end

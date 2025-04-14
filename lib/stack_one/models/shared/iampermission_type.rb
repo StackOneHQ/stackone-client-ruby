@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class IamPermissionType < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the permission, e.g. read, read_write, delete, etc.
-      field :value, T.nilable(::StackOne::Shared::IamPermissionValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::IamPermissionValue, true) } }
+      class IamPermissionType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::IamPermissionValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::IamPermission4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The type of the permission, e.g. read, read_write, delete, etc.
+        field :value, T.nilable(Models::Shared::IamPermissionValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::IamPermissionValue, true) } }
+
+
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::IamPermission4, T::Array[::Object])), value: T.nilable(Models::Shared::IamPermissionValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

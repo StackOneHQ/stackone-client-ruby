@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateSkillsApiModelValue < T::Enum
-      enums do
-        PRIMARY = new('primary')
-        SECONDARY = new('secondary')
-        TERTIARY = new('tertiary')
+      class CreateSkillsApiModelValue < T::Enum
+        enums do
+          PRIMARY = new('primary')
+          SECONDARY = new('secondary')
+          TERTIARY = new('tertiary')
+        end
       end
     end
   end

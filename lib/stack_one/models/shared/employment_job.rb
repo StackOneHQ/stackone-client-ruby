@@ -5,34 +5,48 @@
 
 
 module StackOne
-  module Shared
-  
-    # The job of employee
-    class EmploymentJob < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The job of employee
+      class EmploymentJob
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The employee job description
-      field :description, T.nilable(::StackOne::Shared::Description), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The owner_id of the job
-      field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
-      # The parent_id of the job
-      field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Title of the job
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        # The employee job description
+        field :description, T.nilable(Models::Shared::Description), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The owner_id of the job
+        field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
+        # The parent_id of the job
+        field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Title of the job
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(description: T.nilable(::StackOne::Shared::Description), id: T.nilable(::String), owner_id: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
-      def initialize(description: nil, id: nil, owner_id: nil, parent_id: nil, remote_id: nil, title: nil)
-        @description = description
-        @id = id
-        @owner_id = owner_id
-        @parent_id = parent_id
-        @remote_id = remote_id
-        @title = title
+        sig { params(description: T.nilable(Models::Shared::Description), id: T.nilable(::String), owner_id: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
+        def initialize(description: nil, id: nil, owner_id: nil, parent_id: nil, remote_id: nil, title: nil)
+          @description = description
+          @id = id
+          @owner_id = owner_id
+          @parent_id = parent_id
+          @remote_id = remote_id
+          @title = title
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @description == other.description
+          return false unless @id == other.id
+          return false unless @owner_id == other.owner_id
+          return false unless @parent_id == other.parent_id
+          return false unless @remote_id == other.remote_id
+          return false unless @title == other.title
+          true
+        end
       end
     end
   end

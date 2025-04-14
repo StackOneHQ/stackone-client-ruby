@@ -5,31 +5,44 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class MarketingCreateContentBlocksRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
-      field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
-      # Stackone enum identifying the type of content block.
-      field :type, T.nilable(::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+      class MarketingCreateContentBlocksRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(content: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType)).void }
-      def initialize(content: nil, name: nil, passthrough: nil, tags: nil, type: nil)
-        @content = content
-        @name = name
-        @passthrough = passthrough
-        @tags = tags
-        @type = type
+        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+
+        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+        # Stackone enum identifying the type of content block.
+        field :type, T.nilable(Models::Shared::MarketingCreateContentBlocksRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+
+
+        sig { params(content: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::MarketingCreateContentBlocksRequestDtoType)).void }
+        def initialize(content: nil, name: nil, passthrough: nil, tags: nil, type: nil)
+          @content = content
+          @name = name
+          @passthrough = passthrough
+          @tags = tags
+          @type = type
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content == other.content
+          return false unless @name == other.name
+          return false unless @passthrough == other.passthrough
+          return false unless @tags == other.tags
+          return false unless @type == other.type
+          true
+        end
       end
     end
   end

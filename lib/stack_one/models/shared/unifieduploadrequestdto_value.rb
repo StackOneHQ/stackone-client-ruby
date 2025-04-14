@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
-    # UnifiedUploadRequestDtoValue - Whether the file is confidential or not
-    class UnifiedUploadRequestDtoValue < T::Enum
-      enums do
-        TRUE = new('true')
-        FALSE = new('false')
+  module Models
+    module Shared
+    
+      # UnifiedUploadRequestDtoValue - Whether the file is confidential or not
+      class UnifiedUploadRequestDtoValue < T::Enum
+        enums do
+          TRUE = new('true')
+          FALSE = new('false')
+        end
       end
     end
   end

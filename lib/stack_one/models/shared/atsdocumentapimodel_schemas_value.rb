@@ -5,26 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
-    # AtsDocumentApiModelSchemasValue - The category of the file
-    class AtsDocumentApiModelSchemasValue < T::Enum
-      enums do
-        RESUME = new('resume')
-        AVATAR = new('avatar')
-        COVER_LETTER = new('cover_letter')
-        PROFILE_PICTURE = new('profile_picture')
-        POLICY = new('policy')
-        PASSPORT = new('passport')
-        ASSESSMENT = new('assessment')
-        INTERVIEW_ATTACHMENT = new('interview_attachment')
-        TAKE_HOME_TEST = new('take_home_test')
-        OFFER_LETTER = new('offer_letter')
-        SIGNED_OFFER_LETTER = new('signed_offer_letter')
-        NATIONAL_ID = new('national_id')
-        OFFER_PACKET = new('offer_packet')
-        OTHER = new('other')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # AtsDocumentApiModelSchemasValue - The category of the file
+      class AtsDocumentApiModelSchemasValue < T::Enum
+        enums do
+          RESUME = new('resume')
+          AVATAR = new('avatar')
+          COVER_LETTER = new('cover_letter')
+          PROFILE_PICTURE = new('profile_picture')
+          POLICY = new('policy')
+          PASSPORT = new('passport')
+          ASSESSMENT = new('assessment')
+          INTERVIEW_ATTACHMENT = new('interview_attachment')
+          TAKE_HOME_TEST = new('take_home_test')
+          OFFER_LETTER = new('offer_letter')
+          SIGNED_OFFER_LETTER = new('signed_offer_letter')
+          NATIONAL_ID = new('national_id')
+          OFFER_PACKET = new('offer_packet')
+          OTHER = new('other')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

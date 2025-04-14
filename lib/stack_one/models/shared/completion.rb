@@ -5,95 +5,124 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Completion < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Completion
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The date the content was completed
-      field :completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at') } }
-      # The external reference associated with this content
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :content_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_external_reference') } }
-      # The content ID associated with this completion
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }
-      # The course ID associated with this completion
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('course_id') } }
-      # The created date of the completion
-      field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
-      # The external ID associated with this completion
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
-      # The external reference associated with this completion
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
-      # The ID associated with this completion
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The external reference of the learning object associated with this completion, this is the main identifier for creating completions.
-      field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
-      # The id of the learning object associated with this completion. This is not required unless specified in an integration.
-      field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
-      # The learning object type of the completion
-      field :learning_object_type, T.nilable(::StackOne::Shared::CompletionLearningObjectType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }
-      # Provider's unique identifier of the content associated with the completion
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :remote_content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_content_id') } }
-      # Provider's unique identifier of the course associated with the completion
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :remote_course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_course_id') } }
-      # Provider's unique identifier of the content external reference
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :remote_external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_external_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the learning object related to the completion
-      field :remote_learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_learning_object_id') } }
-      # Provider's unique identifier of the user related to the completion
-      field :remote_user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
-      # The result of the completion
-      field :result, T.nilable(::StackOne::Shared::CompletionSchemasResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # The updated date of the completion
-      field :updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at') } }
-      # The user ID associated with this completion
-      field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
+        # The date the content was completed
+        field :completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at') } }
+        # The external reference associated with this content
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :content_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_external_reference') } }
+        # The content ID associated with this completion
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }
+        # The course ID associated with this completion
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('course_id') } }
+        # The created date of the completion
+        field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
+        # The external ID associated with this completion
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_id') } }
+        # The external reference associated with this completion
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        # The ID associated with this completion
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The external reference of the learning object associated with this completion, this is the main identifier for creating completions.
+        field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
+        # The id of the learning object associated with this completion. This is not required unless specified in an integration.
+        field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
+        # The learning object type of the completion
+        field :learning_object_type, T.nilable(Models::Shared::CompletionLearningObjectType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_type') } }
+        # Provider's unique identifier of the content associated with the completion
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :remote_content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_content_id') } }
+        # Provider's unique identifier of the course associated with the completion
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :remote_course_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_course_id') } }
+        # Provider's unique identifier of the content external reference
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :remote_external_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_external_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's unique identifier of the learning object related to the completion
+        field :remote_learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_learning_object_id') } }
+        # Provider's unique identifier of the user related to the completion
+        field :remote_user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
+        # The result of the completion
+        field :result, T.nilable(Models::Shared::CompletionSchemasResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # The updated date of the completion
+        field :updated_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at') } }
+        # The user ID associated with this completion
+        field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-      sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::String), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(::StackOne::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(::StackOne::Shared::CompletionSchemasResult), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
-      def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
-        @completed_at = completed_at
-        @content_external_reference = content_external_reference
-        @content_id = content_id
-        @course_id = course_id
-        @created_at = created_at
-        @external_id = external_id
-        @external_reference = external_reference
-        @id = id
-        @learning_object_external_reference = learning_object_external_reference
-        @learning_object_id = learning_object_id
-        @learning_object_type = learning_object_type
-        @remote_content_id = remote_content_id
-        @remote_course_id = remote_course_id
-        @remote_external_id = remote_external_id
-        @remote_id = remote_id
-        @remote_learning_object_id = remote_learning_object_id
-        @remote_user_id = remote_user_id
-        @result = result
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
-        @user_id = user_id
+        sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::String), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::CompletionSchemasResult), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
+        def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+          @completed_at = completed_at
+          @content_external_reference = content_external_reference
+          @content_id = content_id
+          @course_id = course_id
+          @created_at = created_at
+          @external_id = external_id
+          @external_reference = external_reference
+          @id = id
+          @learning_object_external_reference = learning_object_external_reference
+          @learning_object_id = learning_object_id
+          @learning_object_type = learning_object_type
+          @remote_content_id = remote_content_id
+          @remote_course_id = remote_course_id
+          @remote_external_id = remote_external_id
+          @remote_id = remote_id
+          @remote_learning_object_id = remote_learning_object_id
+          @remote_user_id = remote_user_id
+          @result = result
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+          @user_id = user_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @completed_at == other.completed_at
+          return false unless @content_external_reference == other.content_external_reference
+          return false unless @content_id == other.content_id
+          return false unless @course_id == other.course_id
+          return false unless @created_at == other.created_at
+          return false unless @external_id == other.external_id
+          return false unless @external_reference == other.external_reference
+          return false unless @id == other.id
+          return false unless @learning_object_external_reference == other.learning_object_external_reference
+          return false unless @learning_object_id == other.learning_object_id
+          return false unless @learning_object_type == other.learning_object_type
+          return false unless @remote_content_id == other.remote_content_id
+          return false unless @remote_course_id == other.remote_course_id
+          return false unless @remote_external_id == other.remote_external_id
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_learning_object_id == other.remote_learning_object_id
+          return false unless @remote_user_id == other.remote_user_id
+          return false unless @result == other.result
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          return false unless @user_id == other.user_id
+          true
+        end
       end
     end
   end
