@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Operations
-  
-    # StackoneListStepLogsQueryParamRequestLogsOrderDirection - The direction to order the results by.
-    class StackoneListStepLogsQueryParamRequestLogsOrderDirection < T::Enum
-      enums do
-        ASC = new('asc')
-        DESC = new('desc')
+  module Models
+    module Operations
+    
+      # StackoneListStepLogsQueryParamRequestLogsOrderDirection - The direction to order the results by.
+      class StackoneListStepLogsQueryParamRequestLogsOrderDirection < T::Enum
+        enums do
+          ASC = new('asc')
+          DESC = new('desc')
+        end
       end
     end
   end

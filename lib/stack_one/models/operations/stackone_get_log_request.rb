@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class StackoneGetLogRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # The include parameter allows you to include additional data in the response.
-      field :include, T.nilable(::StackOne::Operations::Include), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
+      class StackoneGetLogRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(id: ::String, include: T.nilable(::StackOne::Operations::Include)).void }
-      def initialize(id: nil, include: nil)
-        @id = id
-        @include = include
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The include parameter allows you to include additional data in the response.
+        field :include, T.nilable(Models::Operations::Include), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
+
+
+        sig { params(id: ::String, include: T.nilable(Models::Operations::Include)).void }
+        def initialize(id: nil, include: nil)
+          @id = id
+          @include = include
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @include == other.include
+          true
+        end
       end
     end
   end

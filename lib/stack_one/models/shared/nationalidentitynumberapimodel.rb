@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class NationalIdentityNumberApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class NationalIdentityNumberApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The country code
-      field :country, T.nilable(::StackOne::Shared::NationalIdentityNumberApiModelCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+        # The country code
+        field :country, T.nilable(Models::Shared::NationalIdentityNumberApiModelCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
 
-      field :type, T.nilable(::StackOne::Shared::NationalIdentityNumberApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, T.nilable(Models::Shared::NationalIdentityNumberApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(country: T.nilable(::StackOne::Shared::NationalIdentityNumberApiModelCountry), type: T.nilable(::StackOne::Shared::NationalIdentityNumberApiModelType), value: T.nilable(::String)).void }
-      def initialize(country: nil, type: nil, value: nil)
-        @country = country
-        @type = type
-        @value = value
+        sig { params(country: T.nilable(Models::Shared::NationalIdentityNumberApiModelCountry), type: T.nilable(Models::Shared::NationalIdentityNumberApiModelType), value: T.nilable(::String)).void }
+        def initialize(country: nil, type: nil, value: nil)
+          @country = country
+          @type = type
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @country == other.country
+          return false unless @type == other.type
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsCreateNotesRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsCreateNotesRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier of the author
-      field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
+        # Unique identifier of the author
+        field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
 
-      field :content, T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Visibility of the note
-      field :visibility, T.nilable(::StackOne::Shared::Visibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
+        field :content, T.nilable(T::Array[Models::Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # Visibility of the note
+        field :visibility, T.nilable(Models::Shared::Visibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), visibility: T.nilable(::StackOne::Shared::Visibility)).void }
-      def initialize(author_id: nil, content: nil, passthrough: nil, visibility: nil)
-        @author_id = author_id
-        @content = content
-        @passthrough = passthrough
-        @visibility = visibility
+        sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::NoteContentApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), visibility: T.nilable(Models::Shared::Visibility)).void }
+        def initialize(author_id: nil, content: nil, passthrough: nil, visibility: nil)
+          @author_id = author_id
+          @content = content
+          @passthrough = passthrough
+          @visibility = visibility
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @author_id == other.author_id
+          return false unless @content == other.content
+          return false unless @passthrough == other.passthrough
+          return false unless @visibility == other.visibility
+          true
+        end
       end
     end
   end

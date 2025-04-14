@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class SmsMessagesMessageType < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class SmsMessagesMessageType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The original value from the provider used to derive the unified message type.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The unified message type.
-      field :value, T.nilable(::StackOne::Shared::SmsMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::SmsMessagesValue, true) } }
+        # The original value from the provider used to derive the unified message type.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::SmsMessages4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The unified message type.
+        field :value, T.nilable(Models::Shared::SmsMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::SmsMessagesValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::SmsMessagesValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::SmsMessages4, T::Array[::Object])), value: T.nilable(Models::Shared::SmsMessagesValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

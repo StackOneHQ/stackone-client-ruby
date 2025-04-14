@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class AtsUpdateApplicationNoteRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :ats_update_notes_request_dto, ::StackOne::Shared::AtsUpdateNotesRequestDto, { 'request': { 'media_type': 'application/json' } }
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
-      field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class AtsUpdateApplicationNoteRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(ats_update_notes_request_dto: ::StackOne::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
-      def initialize(ats_update_notes_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
-        @ats_update_notes_request_dto = ats_update_notes_request_dto
-        @id = id
-        @sub_resource_id = sub_resource_id
-        @x_account_id = x_account_id
+        field :ats_update_notes_request_dto, Models::Shared::AtsUpdateNotesRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+
+        field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
+        def initialize(ats_update_notes_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
+          @ats_update_notes_request_dto = ats_update_notes_request_dto
+          @id = id
+          @sub_resource_id = sub_resource_id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @ats_update_notes_request_dto == other.ats_update_notes_request_dto
+          return false unless @id == other.id
+          return false unless @sub_resource_id == other.sub_resource_id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

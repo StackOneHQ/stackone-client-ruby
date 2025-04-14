@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class JobPostingLocation < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class JobPostingLocation
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(id: nil, name: nil, remote_id: nil)
-        @id = id
-        @name = name
-        @remote_id = remote_id
+        sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(id: nil, name: nil, remote_id: nil)
+          @id = id
+          @name = name
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

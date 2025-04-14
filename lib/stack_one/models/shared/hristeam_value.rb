@@ -5,12 +5,14 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HRISTeamValue < T::Enum
-      enums do
-        TEAM = new('team')
+      class HRISTeamValue < T::Enum
+        enums do
+          TEAM = new('team')
+        end
       end
     end
   end

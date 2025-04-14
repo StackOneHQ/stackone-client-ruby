@@ -5,21 +5,23 @@
 
 
 module StackOne
-  module Shared
-  
-    # JobValue - The status of the job.
-    class JobValue < T::Enum
-      enums do
-        PUBLISHED = new('published')
-        DRAFT = new('draft')
-        PENDING = new('pending')
-        INTERNAL = new('internal')
-        ARCHIVED = new('archived')
-        CLOSED = new('closed')
-        OPEN = new('open')
-        DELETED = new('deleted')
-        ON_HOLD = new('on_hold')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # JobValue - The status of the job.
+      class JobValue < T::Enum
+        enums do
+          PUBLISHED = new('published')
+          DRAFT = new('draft')
+          PENDING = new('pending')
+          INTERNAL = new('internal')
+          ARCHIVED = new('archived')
+          CLOSED = new('closed')
+          OPEN = new('open')
+          DELETED = new('deleted')
+          ON_HOLD = new('on_hold')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

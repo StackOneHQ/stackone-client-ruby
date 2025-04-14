@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The employment work schedule type (e.g., full-time, part-time)
-    class HrisCreateEmployeeRequestDtoEmploymentContractType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The employment work schedule type (e.g., full-time, part-time)
+      class HrisCreateEmployeeRequestDtoEmploymentContractType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDto4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisCreateEmployeeRequestDtoValue, true) } }
+        field :value, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisCreateEmployeeRequestDtoValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::HrisCreateEmployeeRequestDtoValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

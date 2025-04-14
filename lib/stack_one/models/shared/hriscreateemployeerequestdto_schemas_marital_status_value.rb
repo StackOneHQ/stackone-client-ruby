@@ -5,21 +5,23 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue < T::Enum
-      enums do
-        SINGLE = new('single')
-        MARRIED = new('married')
-        COMMON_LAW = new('common_law')
-        DIVORCED = new('divorced')
-        WIDOWED = new('widowed')
-        DOMESTIC_PARTNERSHIP = new('domestic_partnership')
-        SEPARATED = new('separated')
-        OTHER = new('other')
-        NOT_DISCLOSED = new('not_disclosed')
-        UNMAPPED_VALUE = new('unmapped_value')
+      class HrisCreateEmployeeRequestDtoSchemasMaritalStatusValue < T::Enum
+        enums do
+          SINGLE = new('single')
+          MARRIED = new('married')
+          COMMON_LAW = new('common_law')
+          DIVORCED = new('divorced')
+          WIDOWED = new('widowed')
+          DOMESTIC_PARTNERSHIP = new('domestic_partnership')
+          SEPARATED = new('separated')
+          OTHER = new('other')
+          NOT_DISCLOSED = new('not_disclosed')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

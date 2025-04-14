@@ -5,52 +5,72 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Offer < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
-      # Date of creation
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :offer_history, T.nilable(T::Array[::StackOne::Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
-
-      field :offer_status, T.nilable(::StackOne::Shared::OfferOfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
-      # Provider's unique identifier of the application
-      field :remote_application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
-      field :salary, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
-      # Date of creation
-      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # Date of last update
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class Offer
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), id: T.nilable(::String), offer_history: T.nilable(T::Array[::StackOne::Shared::OfferHistory]), offer_status: T.nilable(::StackOne::Shared::OfferOfferStatus), remote_application_id: T.nilable(::String), remote_id: T.nilable(::String), salary: T.nilable(::Float), start_date: T.nilable(::DateTime), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, remote_application_id: nil, remote_id: nil, salary: nil, start_date: nil, unified_custom_fields: nil, updated_at: nil)
-        @application_id = application_id
-        @created_at = created_at
-        @currency = currency
-        @id = id
-        @offer_history = offer_history
-        @offer_status = offer_status
-        @remote_application_id = remote_application_id
-        @remote_id = remote_id
-        @salary = salary
-        @start_date = start_date
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
+        field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
+        # Date of creation
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :offer_history, T.nilable(T::Array[Models::Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
+
+        field :offer_status, T.nilable(Models::Shared::OfferOfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
+        # Provider's unique identifier of the application
+        field :remote_application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+        field :salary, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
+        # Date of creation
+        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Date of last update
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), currency: T.nilable(::String), id: T.nilable(::String), offer_history: T.nilable(T::Array[Models::Shared::OfferHistory]), offer_status: T.nilable(Models::Shared::OfferOfferStatus), remote_application_id: T.nilable(::String), remote_id: T.nilable(::String), salary: T.nilable(::Float), start_date: T.nilable(::DateTime), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(application_id: nil, created_at: nil, currency: nil, id: nil, offer_history: nil, offer_status: nil, remote_application_id: nil, remote_id: nil, salary: nil, start_date: nil, unified_custom_fields: nil, updated_at: nil)
+          @application_id = application_id
+          @created_at = created_at
+          @currency = currency
+          @id = id
+          @offer_history = offer_history
+          @offer_status = offer_status
+          @remote_application_id = remote_application_id
+          @remote_id = remote_id
+          @salary = salary
+          @start_date = start_date
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @application_id == other.application_id
+          return false unless @created_at == other.created_at
+          return false unless @currency == other.currency
+          return false unless @id == other.id
+          return false unless @offer_history == other.offer_history
+          return false unless @offer_status == other.offer_status
+          return false unless @remote_application_id == other.remote_application_id
+          return false unless @remote_id == other.remote_id
+          return false unless @salary == other.salary
+          return false unless @start_date == other.start_date
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

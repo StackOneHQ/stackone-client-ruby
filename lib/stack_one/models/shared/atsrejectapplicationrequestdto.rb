@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsRejectApplicationRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsRejectApplicationRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Unique identifier of the rejection reason
-      field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # Unique identifier of the rejection reason
+        field :rejected_reason_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_id') } }
 
 
-      sig { params(passthrough: T.nilable(T::Hash[Symbol, ::Object]), rejected_reason_id: T.nilable(::String)).void }
-      def initialize(passthrough: nil, rejected_reason_id: nil)
-        @passthrough = passthrough
-        @rejected_reason_id = rejected_reason_id
+        sig { params(passthrough: T.nilable(T::Hash[Symbol, ::Object]), rejected_reason_id: T.nilable(::String)).void }
+        def initialize(passthrough: nil, rejected_reason_id: nil)
+          @passthrough = passthrough
+          @rejected_reason_id = rejected_reason_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @passthrough == other.passthrough
+          return false unless @rejected_reason_id == other.rejected_reason_id
+          true
+        end
       end
     end
   end

@@ -19,13 +19,13 @@ Get a Log
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.request_logs.get_log(id="<id>", include=::StackOne::Operations::Include::STEP_LOGS)
+res = s.request_logs.get_log(id="<id>", include=Models::Operations::Include::STEP_LOGS)
 
 if ! res.unified_log_result.nil?
   # handle response
@@ -35,14 +35,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `id`                                                                             | *::String*                                                                       | :heavy_check_mark:                                                               | N/A                                                                              |                                                                                  |
-| `include`                                                                        | [T.nilable(::StackOne::Operations::Include)](../../models/operations/include.md) | :heavy_minus_sign:                                                               | The include parameter allows you to include additional data in the response.     | step_logs                                                                        |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `id`                                                                         | *::String*                                                                   | :heavy_check_mark:                                                           | N/A                                                                          |                                                                              |
+| `include`                                                                    | [T.nilable(Models::Operations::Include)](../../models/operations/include.md) | :heavy_minus_sign:                                                           | The include parameter allows you to include additional data in the response. | step_logs                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::StackoneGetLogResponse)](../../models/operations/stackonegetlogresponse.md)**
+**[T.nilable(Models::Operations::StackoneGetLogResponse)](../../models/operations/stackonegetlogresponse.md)**
 
 
 
@@ -56,21 +56,21 @@ List Logs
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::StackoneListLogsRequest.new(
-  filter: ::StackOne::Operations::Filter.new(
+req = Models::Operations::StackoneListLogsRequest.new(
+  filter: Models::Operations::Filter.new(
     account_ids: "45355976281015164504,45355976281015164505",
     actions: "download,upload",
     child_resources: "documents,time-off",
     end_date: "2020-01-01T00:00:00.000Z",
     http_methods: "GET,POST",
-    order_by: ::StackOne::Operations::QueryParamOrderBy::SERVICE,
-    order_direction: ::StackOne::Operations::QueryParamOrderDirection::ASC,
+    order_by: Models::Operations::QueryParamOrderBy::SERVICE,
+    order_direction: Models::Operations::QueryParamOrderDirection::ASC,
     providers: "ashby,greenhouse",
     request_ids: "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c",
     resources: "employees,users",
@@ -81,9 +81,9 @@ req = ::StackOne::Operations::StackoneListLogsRequest.new(
     sub_resources: "documents,employees",
     success: true,
   ),
-  include: ::StackOne::Operations::QueryParamInclude::STEP_LOGS,
-  order_by: ::StackOne::Operations::OrderBy::SERVICE,
-  order_direction: ::StackOne::Operations::OrderDirection::ASC,
+  include: Models::Operations::QueryParamInclude::STEP_LOGS,
+  order_by: Models::Operations::OrderBy::SERVICE,
+  order_direction: Models::Operations::OrderDirection::ASC,
 )
 
 res = s.request_logs.list_logs(req)
@@ -96,13 +96,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::StackOne::Operations::StackoneListLogsRequest](../../models/operations/stackonelistlogsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::StackoneListLogsRequest](../../models/operations/stackonelistlogsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::StackoneListLogsResponse)](../../models/operations/stackonelistlogsresponse.md)**
+**[T.nilable(Models::Operations::StackoneListLogsResponse)](../../models/operations/stackonelistlogsresponse.md)**
 
 
 
@@ -116,21 +116,21 @@ List Step Logs
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::StackoneListStepLogsRequest.new(
-  filter: ::StackOne::Operations::QueryParamFilter.new(
+req = Models::Operations::StackoneListStepLogsRequest.new(
+  filter: Models::Operations::QueryParamFilter.new(
     account_ids: "45355976281015164504,45355976281015164505",
     actions: "download,upload",
     child_resources: "documents,time-off",
     end_date: "2020-01-01T00:00:00.000Z",
     http_methods: "GET,POST",
-    order_by: ::StackOne::Operations::StackoneListStepLogsQueryParamRequestLogsOrderBy::STATUS,
-    order_direction: ::StackOne::Operations::StackoneListStepLogsQueryParamRequestLogsOrderDirection::ASC,
+    order_by: Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderBy::STATUS,
+    order_direction: Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderDirection::ASC,
     providers: "ashby,greenhouse",
     request_ids: "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c",
     resources: "employees,users",
@@ -140,9 +140,9 @@ req = ::StackOne::Operations::StackoneListStepLogsRequest.new(
     sub_resources: "documents,employees",
     success: true,
   ),
-  include: ::StackOne::Operations::StackoneListStepLogsQueryParamInclude::STEP_LOGS,
-  order_by: ::StackOne::Operations::StackoneListStepLogsQueryParamOrderBy::STATUS,
-  order_direction: ::StackOne::Operations::StackoneListStepLogsQueryParamOrderDirection::ASC,
+  include: Models::Operations::StackoneListStepLogsQueryParamInclude::STEP_LOGS,
+  order_by: Models::Operations::StackoneListStepLogsQueryParamOrderBy::STATUS,
+  order_direction: Models::Operations::StackoneListStepLogsQueryParamOrderDirection::ASC,
 )
 
 res = s.request_logs.list_step_logs(req)
@@ -155,11 +155,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::StackoneListStepLogsRequest](../../models/operations/stackoneliststeplogsrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::StackoneListStepLogsRequest](../../models/operations/stackoneliststeplogsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::StackoneListStepLogsResponse)](../../models/operations/stackoneliststeplogsresponse.md)**
+**[T.nilable(Models::Operations::StackoneListStepLogsResponse)](../../models/operations/stackoneliststeplogsresponse.md)**
 

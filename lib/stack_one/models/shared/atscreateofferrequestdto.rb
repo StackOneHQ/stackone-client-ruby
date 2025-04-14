@@ -5,37 +5,52 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsCreateOfferRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
-
-      field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
-
-      field :offer_history, T.nilable(T::Array[::StackOne::Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
-
-      field :offer_status, T.nilable(::StackOne::Shared::OfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
-      field :salary, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
-      # Date of creation
-      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class AtsCreateOfferRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(application_id: T.nilable(::String), currency: T.nilable(::String), offer_history: T.nilable(T::Array[::StackOne::Shared::OfferHistory]), offer_status: T.nilable(::StackOne::Shared::OfferStatus), passthrough: T.nilable(T::Hash[Symbol, ::Object]), salary: T.nilable(::Float), start_date: T.nilable(::DateTime)).void }
-      def initialize(application_id: nil, currency: nil, offer_history: nil, offer_status: nil, passthrough: nil, salary: nil, start_date: nil)
-        @application_id = application_id
-        @currency = currency
-        @offer_history = offer_history
-        @offer_status = offer_status
-        @passthrough = passthrough
-        @salary = salary
-        @start_date = start_date
+        field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
+
+        field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
+
+        field :offer_history, T.nilable(T::Array[Models::Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
+
+        field :offer_status, T.nilable(Models::Shared::OfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+
+        field :salary, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
+        # Date of creation
+        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(application_id: T.nilable(::String), currency: T.nilable(::String), offer_history: T.nilable(T::Array[Models::Shared::OfferHistory]), offer_status: T.nilable(Models::Shared::OfferStatus), passthrough: T.nilable(T::Hash[Symbol, ::Object]), salary: T.nilable(::Float), start_date: T.nilable(::DateTime)).void }
+        def initialize(application_id: nil, currency: nil, offer_history: nil, offer_status: nil, passthrough: nil, salary: nil, start_date: nil)
+          @application_id = application_id
+          @currency = currency
+          @offer_history = offer_history
+          @offer_status = offer_status
+          @passthrough = passthrough
+          @salary = salary
+          @start_date = start_date
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @application_id == other.application_id
+          return false unless @currency == other.currency
+          return false unless @offer_history == other.offer_history
+          return false unless @offer_status == other.offer_status
+          return false unless @passthrough == other.passthrough
+          return false unless @salary == other.salary
+          return false unless @start_date == other.start_date
+          true
+        end
       end
     end
   end

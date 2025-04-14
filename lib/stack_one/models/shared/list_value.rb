@@ -5,15 +5,17 @@
 
 
 module StackOne
-  module Shared
-  
-    # ListValue - The type of the list.
-    class ListValue < T::Enum
-      enums do
-        CANDIDATES = new('candidates')
-        CONTACTS = new('contacts')
-        COMPANIES = new('companies')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # ListValue - The type of the list.
+      class ListValue < T::Enum
+        enums do
+          CANDIDATES = new('candidates')
+          CONTACTS = new('contacts')
+          COMPANIES = new('companies')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

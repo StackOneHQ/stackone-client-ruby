@@ -5,40 +5,56 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class IamResource < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The location of the resource.
-      field :location, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location') } }
-      # The name of the resource.
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
-      field :type, T.nilable(::StackOne::Shared::IamResourceType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class IamResource
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), location: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::IamResourceType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, description: nil, id: nil, location: nil, name: nil, remote_id: nil, type: nil, updated_at: nil)
-        @created_at = created_at
-        @description = description
-        @id = id
-        @location = location
-        @name = name
-        @remote_id = remote_id
-        @type = type
-        @updated_at = updated_at
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The location of the resource.
+        field :location, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location') } }
+        # The name of the resource.
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+        field :type, T.nilable(Models::Shared::IamResourceType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), location: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::IamResourceType), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, description: nil, id: nil, location: nil, name: nil, remote_id: nil, type: nil, updated_at: nil)
+          @created_at = created_at
+          @description = description
+          @id = id
+          @location = location
+          @name = name
+          @remote_id = remote_id
+          @type = type
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_at == other.created_at
+          return false unless @description == other.description
+          return false unless @id == other.id
+          return false unless @location == other.location
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

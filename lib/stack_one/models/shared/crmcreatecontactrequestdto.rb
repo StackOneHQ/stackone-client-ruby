@@ -5,43 +5,60 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CrmCreateContactRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CrmCreateContactRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # List of associated account IDs
-      field :account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
-      # The contact company name
-      field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
-      # Contact custom fields
-      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
-      # List of associated deal IDs
-      field :deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
-      # List of contact email addresses
-      field :emails, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
-      # The contact first name
-      field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-      # The contact last name
-      field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # List of contact phone numbers
-      field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        # List of associated account IDs
+        field :account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
+        # The contact company name
+        field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
+        # Contact custom fields
+        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        # List of associated deal IDs
+        field :deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
+        # List of contact email addresses
+        field :emails, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
+        # The contact first name
+        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        # The contact last name
+        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # List of contact phone numbers
+        field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
 
 
-      sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_numbers: T.nilable(T::Array[::String])).void }
-      def initialize(account_ids: nil, company_name: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, last_name: nil, passthrough: nil, phone_numbers: nil)
-        @account_ids = account_ids
-        @company_name = company_name
-        @custom_fields = custom_fields
-        @deal_ids = deal_ids
-        @emails = emails
-        @first_name = first_name
-        @last_name = last_name
-        @passthrough = passthrough
-        @phone_numbers = phone_numbers
+        sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_numbers: T.nilable(T::Array[::String])).void }
+        def initialize(account_ids: nil, company_name: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, last_name: nil, passthrough: nil, phone_numbers: nil)
+          @account_ids = account_ids
+          @company_name = company_name
+          @custom_fields = custom_fields
+          @deal_ids = deal_ids
+          @emails = emails
+          @first_name = first_name
+          @last_name = last_name
+          @passthrough = passthrough
+          @phone_numbers = phone_numbers
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @account_ids == other.account_ids
+          return false unless @company_name == other.company_name
+          return false unless @custom_fields == other.custom_fields
+          return false unless @deal_ids == other.deal_ids
+          return false unless @emails == other.emails
+          return false unless @first_name == other.first_name
+          return false unless @last_name == other.last_name
+          return false unless @passthrough == other.passthrough
+          return false unless @phone_numbers == other.phone_numbers
+          true
+        end
       end
     end
   end

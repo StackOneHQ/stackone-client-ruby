@@ -5,37 +5,52 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class SmsTemplate < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class SmsTemplate
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Date of creation
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Date of creation
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-      field :messages, T.nilable(T::Array[::StackOne::Shared::SmsMessages]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
+        field :messages, T.nilable(T::Array[Models::Shared::SmsMessages]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
 
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-      field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
-      # Date of last update
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+        # Date of last update
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), messages: T.nilable(T::Array[::StackOne::Shared::SmsMessages]), name: T.nilable(::String), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(created_at: nil, id: nil, messages: nil, name: nil, remote_id: nil, tags: nil, updated_at: nil)
-        @created_at = created_at
-        @id = id
-        @messages = messages
-        @name = name
-        @remote_id = remote_id
-        @tags = tags
-        @updated_at = updated_at
+        sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), messages: T.nilable(T::Array[Models::Shared::SmsMessages]), name: T.nilable(::String), remote_id: T.nilable(::String), tags: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, id: nil, messages: nil, name: nil, remote_id: nil, tags: nil, updated_at: nil)
+          @created_at = created_at
+          @id = id
+          @messages = messages
+          @name = name
+          @remote_id = remote_id
+          @tags = tags
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_at == other.created_at
+          return false unless @id == other.id
+          return false unless @messages == other.messages
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          return false unless @tags == other.tags
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

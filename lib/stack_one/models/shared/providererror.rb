@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ProviderError < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ProviderError
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Response headers
-      field :headers, T.nilable(::StackOne::Shared::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
-      # Raw error response from the provider
-      field :raw, T.nilable(::StackOne::Shared::Raw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
-      # HTTP status code of the provider error
-      field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-      # URL that caused the error
-      field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        # Response headers
+        field :headers, T.nilable(Models::Shared::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        # Raw error response from the provider
+        field :raw, T.nilable(Models::Shared::Raw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+        # HTTP status code of the provider error
+        field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        # URL that caused the error
+        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-      sig { params(headers: T.nilable(::StackOne::Shared::Headers), raw: T.nilable(::StackOne::Shared::Raw), status: T.nilable(::Float), url: T.nilable(::String)).void }
-      def initialize(headers: nil, raw: nil, status: nil, url: nil)
-        @headers = headers
-        @raw = raw
-        @status = status
-        @url = url
+        sig { params(headers: T.nilable(Models::Shared::Headers), raw: T.nilable(Models::Shared::Raw), status: T.nilable(::Float), url: T.nilable(::String)).void }
+        def initialize(headers: nil, raw: nil, status: nil, url: nil)
+          @headers = headers
+          @raw = raw
+          @status = status
+          @url = url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @headers == other.headers
+          return false unless @raw == other.raw
+          return false unless @status == other.status
+          return false unless @url == other.url
+          true
+        end
       end
     end
   end

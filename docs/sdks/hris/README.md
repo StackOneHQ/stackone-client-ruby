@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [batch_upload_employee_document](#batch_upload_employee_document) - Batch Upload Employee Document
+* [cancel_employee_time_off_request](#cancel_employee_time_off_request) - Cancel Employee Time Off Request
 * [create_employee](#create_employee) - Creates an employee
 * [create_employee_employment](#create_employee_employment) - Create Employee Employment
 * [create_employee_skill](#create_employee_skill) - Create Employee Skill
@@ -76,25 +77,25 @@ Batch Upload Employee Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_dto=::StackOne::Shared::HrisBatchDocumentUploadRequestDto.new(
+res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_dto=Models::Shared::HrisBatchDocumentUploadRequestDto.new(
   items: [
-    ::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
-      category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
+    Models::Shared::HrisDocumentsUploadRequestDto.new(
+      category: Models::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
       category_id: "6530",
-      confidential: ::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
+      confidential: Models::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
         source_value: "public",
-        value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
+        value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
       ),
       content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
-      file_format: ::StackOne::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
+      file_format: Models::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
         source_value: "abc",
-        value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
+        value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
       ),
       name: "weather-forecast",
       path: "/path/to/file",
@@ -110,15 +111,53 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `hris_batch_document_upload_request_dto`                                                                          | [::StackOne::Shared::HrisBatchDocumentUploadRequestDto](../../models/shared/hrisbatchdocumentuploadrequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `hris_batch_document_upload_request_dto`                                                                      | [Models::Shared::HrisBatchDocumentUploadRequestDto](../../models/shared/hrisbatchdocumentuploadrequestdto.md) | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `id`                                                                                                          | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `x_account_id`                                                                                                | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The account identifier                                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisBatchUploadEmployeeDocumentResponse)](../../models/operations/hrisbatchuploademployeedocumentresponse.md)**
+**[T.nilable(Models::Operations::HrisBatchUploadEmployeeDocumentResponse)](../../models/operations/hrisbatchuploademployeedocumentresponse.md)**
+
+
+
+## cancel_employee_time_off_request
+
+Cancel Employee Time Off Request
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.hris.cancel_employee_time_off_request(id="<id>", sub_resource_id="<id>", x_account_id="<id>")
+
+if ! res.delete_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
+| `sub_resource_id`      | *::String*             | :heavy_check_mark:     | N/A                    |
+| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisCancelEmployeeTimeOffRequestResponse)](../../models/operations/hriscancelemployeetimeoffrequestresponse.md)**
 
 
 
@@ -132,17 +171,17 @@ Creates an employee
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared::HrisCreateEmployeeRequestDto.new(
-  avatar: ::StackOne::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
+res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::HrisCreateEmployeeRequestDto.new(
+  avatar: Models::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
   benefits: [
-    ::StackOne::Shared::CreateHRISBenefit.new(
+    Models::Shared::CreateHRISBenefit.new(
       created_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
       description: "Health insurance for employees",
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -153,20 +192,20 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   ],
   birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
   citizenships: [
-    ::StackOne::Shared::CountryCodeEnum.new(
-      value: ::StackOne::Shared::CountryCodeEnumValue::US,
+    Models::Shared::CountryCodeEnum.new(
+      value: Models::Shared::CountryCodeEnumValue::US,
     ),
   ],
   company_id: "1234567890",
   cost_centers: [
-    ::StackOne::Shared::CreateCostCenterApiModel.new(
+    Models::Shared::CreateCostCenterApiModel.new(
       distribution_percentage: 100.0,
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "R&D",
     ),
   ],
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -180,14 +219,14 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   department_id: "3093",
   display_name: "Sir Isaac Newton",
   employee_number: "125",
-  employment: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
-    employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType.new(),
-    employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType.new(),
+  employment: Models::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
+    employment_contract_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType.new(),
+    employment_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType.new(),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     job_title: "Software Engineer",
     pay_currency: "USD",
-    pay_frequency: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPayFrequency.new(),
-    pay_period: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPayPeriod.new(),
+    pay_frequency: Models::Shared::HrisCreateEmployeeRequestDtoPayFrequency.new(),
+    pay_period: Models::Shared::HrisCreateEmployeeRequestDtoPayPeriod.new(),
     pay_rate: "40.00",
     time_worked: "P0Y0M0DT8H0M0S",
     unified_custom_fields: {
@@ -195,17 +234,17 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       "my_project_custom_field_2": "some other value",
     },
   ),
-  employment_contract_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
-  employment_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
-  ethnicity: ::StackOne::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
+  employment_contract_type: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
+  employment_status: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
+  employment_type: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
+  ethnicity: Models::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
   first_name: "Isaac",
-  gender: ::StackOne::Shared::HrisCreateEmployeeRequestDtoGender.new(),
+  gender: Models::Shared::HrisCreateEmployeeRequestDtoGender.new(),
   hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  home_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
+  home_location: Models::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoCountry.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
+    country: Models::Shared::HrisCreateEmployeeRequestDtoCountry.new(
+      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Woolsthorpe Manor",
@@ -213,7 +252,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       "other_known_names": "John Doe",
     },
     phone_number: "+44 1476 860 364",
-    state: ::StackOne::Shared::State.new(),
+    state: Models::Shared::State.new(),
     street_1: "Water Lane",
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
@@ -222,15 +261,15 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   job_title: "Physicist",
   last_name: "Newton",
   manager_id: "67890",
-  marital_status: ::StackOne::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
+  marital_status: Models::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
   name: "Isaac Newton",
   national_identity_numbers: [
-    ::StackOne::Shared::NationalIdentityNumberApiModel.new(
-      country: ::StackOne::Shared::NationalIdentityNumberApiModelCountry.new(
-        value: ::StackOne::Shared::NationalIdentityNumberApiModelValue::US,
+    Models::Shared::NationalIdentityNumberApiModel.new(
+      country: Models::Shared::NationalIdentityNumberApiModelCountry.new(
+        value: Models::Shared::NationalIdentityNumberApiModelValue::US,
       ),
-      type: ::StackOne::Shared::NationalIdentityNumberApiModelType.new(
-        value: ::StackOne::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
+      type: Models::Shared::NationalIdentityNumberApiModelType.new(
+        value: Models::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
       ),
       value: "123456789",
     ),
@@ -240,15 +279,15 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
   },
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
-  preferred_language: ::StackOne::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
+  preferred_language: Models::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   team_id: "2913",
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
-  work_location: ::StackOne::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
+  work_location: Models::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry.new(
-      value: ::StackOne::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
+    country: Models::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry.new(
+      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Woolsthorpe Manor",
@@ -256,7 +295,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=::StackOne::Shared
       "other_known_names": "John Doe",
     },
     phone_number: "+44 1476 860 364",
-    state: ::StackOne::Shared::HrisCreateEmployeeRequestDtoState.new(),
+    state: Models::Shared::HrisCreateEmployeeRequestDtoState.new(),
     street_1: "Water Lane",
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
@@ -272,14 +311,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_create_employee_request_dto`                                                                      | [::StackOne::Shared::HrisCreateEmployeeRequestDto](../../models/shared/hriscreateemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `hris_create_employee_request_dto`                                                                  | [Models::Shared::HrisCreateEmployeeRequestDto](../../models/shared/hriscreateemployeerequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisCreateEmployeeResponse)](../../models/operations/hriscreateemployeeresponse.md)**
+**[T.nilable(Models::Operations::HrisCreateEmployeeResponse)](../../models/operations/hriscreateemployeeresponse.md)**
 
 
 
@@ -293,23 +332,23 @@ Create Employee Employment
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.create_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
-  employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
+res = s.hris.create_employee_employment(hris_create_employment_request_dto=Models::Shared::HrisCreateEmploymentRequestDto.new(
+  employment_contract_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
+  employment_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
   },
   pay_currency: "USD",
-  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
-  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
+  pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
+  pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
   time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
@@ -326,15 +365,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `hris_create_employment_request_dto`                                                                        | [::StackOne::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `hris_create_employment_request_dto`                                                                    | [Models::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisCreateEmployeeEmploymentResponse)](../../models/operations/hriscreateemployeeemploymentresponse.md)**
+**[T.nilable(Models::Operations::HrisCreateEmployeeEmploymentResponse)](../../models/operations/hriscreateemployeeemploymentresponse.md)**
 
 
 
@@ -348,20 +387,20 @@ Create Employee Skill
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.create_employee_skill(entity_skills_create_request_dto=::StackOne::Shared::EntitySkillsCreateRequestDto.new(
+res = s.hris.create_employee_skill(entity_skills_create_request_dto=Models::Shared::EntitySkillsCreateRequestDto.new(
   id: "16873-IT345",
-  maximum_proficiency: ::StackOne::Shared::EntitySkillsCreateRequestDtoMaximumProficiency.new(
+  maximum_proficiency: Models::Shared::EntitySkillsCreateRequestDtoMaximumProficiency.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Expert",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
-  minimum_proficiency: ::StackOne::Shared::EntitySkillsCreateRequestDtoMinimumProficiency.new(
+  minimum_proficiency: Models::Shared::EntitySkillsCreateRequestDtoMinimumProficiency.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Expert",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -377,15 +416,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `entity_skills_create_request_dto`                                                                      | [::StackOne::Shared::EntitySkillsCreateRequestDto](../../models/shared/entityskillscreaterequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `entity_skills_create_request_dto`                                                                  | [Models::Shared::EntitySkillsCreateRequestDto](../../models/shared/entityskillscreaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisCreateEmployeeSkillResponse)](../../models/operations/hriscreateemployeeskillresponse.md)**
+**[T.nilable(Models::Operations::HrisCreateEmployeeSkillResponse)](../../models/operations/hriscreateemployeeskillresponse.md)**
 
 
 
@@ -399,13 +438,13 @@ Create Employee Time Off Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
+res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -413,7 +452,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=:
   passthrough: {
     "other_known_names": "John Doe",
   },
-  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
@@ -430,15 +469,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                    | [::StackOne::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisCreateEmployeeTimeOffRequestResponse)](../../models/operations/hriscreateemployeetimeoffrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisCreateEmployeeTimeOffRequestResponse)](../../models/operations/hriscreateemployeetimeoffrequestresponse.md)**
 
 
 
@@ -452,20 +491,20 @@ Create Employee Work Eligibility Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
-  document: ::StackOne::Shared::Document.new(
-    category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=Models::Shared::HrisCreateWorkEligibilityRequestDto.new(
+  document: Models::Shared::Document.new(
+    category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
     category_id: "6530",
     created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    file_format: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
+    file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
       source_value: "abc",
-      value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+      value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "My Document",
@@ -474,15 +513,15 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
     remote_url: "https://example.com/file.pdf",
     updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
   ),
-  issued_by: ::StackOne::Shared::IssuedBy.new(
-    value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+  issued_by: Models::Shared::IssuedBy.new(
+    value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
   ),
   number: "1234567890",
   passthrough: {
     "other_known_names": "John Doe",
   },
   sub_type: "H1B",
-  type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+  type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
   valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
   valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
 ), id="<id>", x_account_id="<id>")
@@ -495,15 +534,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `hris_create_work_eligibility_request_dto`                                                                            | [::StackOne::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `id`                                                                                                                  | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `hris_create_work_eligibility_request_dto`                                                                        | [Models::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hriscreateemployeeworkeligibilityrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hriscreateemployeeworkeligibilityrequestresponse.md)**
 
 
 
@@ -519,13 +558,13 @@ Creates a time off request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
+res = s.hris.create_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -533,7 +572,7 @@ res = s.hris.create_time_off_request(hris_create_time_off_request_dto=::StackOne
   passthrough: {
     "other_known_names": "John Doe",
   },
-  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
@@ -550,14 +589,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                    | [::StackOne::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisCreateTimeOffRequestResponse)](../../models/operations/hriscreatetimeoffrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisCreateTimeOffRequestResponse)](../../models/operations/hriscreatetimeoffrequestresponse.md)**
 
 
 
@@ -571,13 +610,21 @@ Download Employee Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.download_employee_document(id="<id>", sub_resource_id="<id>", x_account_id="<id>", format="base64")
+req = Models::Operations::HrisDownloadEmployeeDocumentRequest.new(
+  export_format: "text/plain",
+  format: "base64",
+  id: "<id>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.download_employee_document(req)
 
 if ! res.bytes.nil?
   # handle response
@@ -587,16 +634,13 @@ end
 
 ### Parameters
 
-| Parameter                          | Type                               | Required                           | Description                        | Example                            |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| `id`                               | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
-| `sub_resource_id`                  | *::String*                         | :heavy_check_mark:                 | N/A                                |                                    |
-| `x_account_id`                     | *::String*                         | :heavy_check_mark:                 | The account identifier             |                                    |
-| `format`                           | *T.nilable(::String)*              | :heavy_minus_sign:                 | The format to download the file in | base64                             |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [Models::Operations::HrisDownloadEmployeeDocumentRequest](../../models/operations/hrisdownloademployeedocumentrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisDownloadEmployeeDocumentResponse)](../../models/operations/hrisdownloademployeedocumentresponse.md)**
+**[T.nilable(Models::Operations::HrisDownloadEmployeeDocumentResponse)](../../models/operations/hrisdownloademployeedocumentresponse.md)**
 
 
 
@@ -610,13 +654,13 @@ Get Benefit
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetBenefitRequest.new(
+req = Models::Operations::HrisGetBenefitRequest.new(
   fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -632,13 +676,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::StackOne::Operations::HrisGetBenefitRequest](../../models/operations/hrisgetbenefitrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::HrisGetBenefitRequest](../../models/operations/hrisgetbenefitrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetBenefitResponse)](../../models/operations/hrisgetbenefitresponse.md)**
+**[T.nilable(Models::Operations::HrisGetBenefitResponse)](../../models/operations/hrisgetbenefitresponse.md)**
 
 
 
@@ -652,13 +696,13 @@ Get Company
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetCompanyRequest.new(
+req = Models::Operations::HrisGetCompanyRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -674,13 +718,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::StackOne::Operations::HrisGetCompanyRequest](../../models/operations/hrisgetcompanyrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::HrisGetCompanyRequest](../../models/operations/hrisgetcompanyrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetCompanyResponse)](../../models/operations/hrisgetcompanyresponse.md)**
+**[T.nilable(Models::Operations::HrisGetCompanyResponse)](../../models/operations/hrisgetcompanyresponse.md)**
 
 
 
@@ -694,13 +738,13 @@ Get Cost Center Group
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetCostCenterGroupRequest.new(
+req = Models::Operations::HrisGetCostCenterGroupRequest.new(
   fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
@@ -716,13 +760,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::HrisGetCostCenterGroupRequest](../../models/operations/hrisgetcostcentergrouprequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::HrisGetCostCenterGroupRequest](../../models/operations/hrisgetcostcentergrouprequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetCostCenterGroupResponse)](../../models/operations/hrisgetcostcentergroupresponse.md)**
+**[T.nilable(Models::Operations::HrisGetCostCenterGroupResponse)](../../models/operations/hrisgetcostcentergroupresponse.md)**
 
 
 
@@ -736,13 +780,13 @@ Get Department Group
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetDepartmentGroupRequest.new(
+req = Models::Operations::HrisGetDepartmentGroupRequest.new(
   fields_: "id,remote_id,name",
   id: "<id>",
   x_account_id: "<id>",
@@ -758,13 +802,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::HrisGetDepartmentGroupRequest](../../models/operations/hrisgetdepartmentgrouprequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::HrisGetDepartmentGroupRequest](../../models/operations/hrisgetdepartmentgrouprequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetDepartmentGroupResponse)](../../models/operations/hrisgetdepartmentgroupresponse.md)**
+**[T.nilable(Models::Operations::HrisGetDepartmentGroupResponse)](../../models/operations/hrisgetdepartmentgroupresponse.md)**
 
 
 
@@ -778,13 +822,13 @@ Get Employee
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeRequest.new(
+req = Models::Operations::HrisGetEmployeeRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
   id: "<id>",
@@ -802,13 +846,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::HrisGetEmployeeRequest](../../models/operations/hrisgetemployeerequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::HrisGetEmployeeRequest](../../models/operations/hrisgetemployeerequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeResponse)](../../models/operations/hrisgetemployeeresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeResponse)](../../models/operations/hrisgetemployeeresponse.md)**
 
 
 
@@ -822,15 +866,15 @@ Get employee Custom Field Definition
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
+req = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
+  filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -847,13 +891,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                     | [::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionRequest](../../models/operations/hrisgetemployeecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                 | [Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest](../../models/operations/hrisgetemployeecustomfielddefinitionrequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeCustomFieldDefinitionResponse)](../../models/operations/hrisgetemployeecustomfielddefinitionresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeCustomFieldDefinitionResponse)](../../models/operations/hrisgetemployeecustomfielddefinitionresponse.md)**
 
 
 
@@ -867,13 +911,13 @@ Get Employee Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeDocumentRequest.new(
+req = Models::Operations::HrisGetEmployeeDocumentRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -890,13 +934,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [::StackOne::Operations::HrisGetEmployeeDocumentRequest](../../models/operations/hrisgetemployeedocumentrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::HrisGetEmployeeDocumentRequest](../../models/operations/hrisgetemployeedocumentrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentResponse)](../../models/operations/hrisgetemployeedocumentresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeDocumentResponse)](../../models/operations/hrisgetemployeedocumentresponse.md)**
 
 
 
@@ -910,13 +954,13 @@ Get Employee Document Category
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
+req = Models::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
   fields_: "id,remote_id,name,active",
   id: "<id>",
   x_account_id: "<id>",
@@ -932,13 +976,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::HrisGetEmployeeDocumentCategoryRequest](../../models/operations/hrisgetemployeedocumentcategoryrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::HrisGetEmployeeDocumentCategoryRequest](../../models/operations/hrisgetemployeedocumentcategoryrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeDocumentCategoryResponse)](../../models/operations/hrisgetemployeedocumentcategoryresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeDocumentCategoryResponse)](../../models/operations/hrisgetemployeedocumentcategoryresponse.md)**
 
 
 
@@ -952,13 +996,13 @@ Get Employee Employment
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeEmploymentRequest.new(
+req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
@@ -976,13 +1020,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::HrisGetEmployeeEmploymentRequest](../../models/operations/hrisgetemployeeemploymentrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::HrisGetEmployeeEmploymentRequest](../../models/operations/hrisgetemployeeemploymentrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeEmploymentResponse)](../../models/operations/hrisgetemployeeemploymentresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeEmploymentResponse)](../../models/operations/hrisgetemployeeemploymentresponse.md)**
 
 
 
@@ -996,13 +1040,13 @@ Get Employee Skill
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeSkillRequest.new(
+req = Models::Operations::HrisGetEmployeeSkillRequest.new(
   fields_: "id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -1019,13 +1063,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::HrisGetEmployeeSkillRequest](../../models/operations/hrisgetemployeeskillrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::HrisGetEmployeeSkillRequest](../../models/operations/hrisgetemployeeskillrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeSkillResponse)](../../models/operations/hrisgetemployeeskillresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeSkillResponse)](../../models/operations/hrisgetemployeeskillresponse.md)**
 
 
 
@@ -1039,13 +1083,13 @@ Get Employee Time Off Balance
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
+req = Models::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at",
   id: "<id>",
@@ -1063,13 +1107,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                       | [::StackOne::Operations::HrisGetEmployeeTimeOffBalanceRequest](../../models/operations/hrisgetemployeetimeoffbalancerequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [Models::Operations::HrisGetEmployeeTimeOffBalanceRequest](../../models/operations/hrisgetemployeetimeoffbalancerequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeeTimeOffBalanceResponse)](../../models/operations/hrisgetemployeetimeoffbalanceresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeeTimeOffBalanceResponse)](../../models/operations/hrisgetemployeetimeoffbalanceresponse.md)**
 
 
 
@@ -1083,13 +1127,13 @@ Get Employees Time Off Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
+req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
   id: "<id>",
@@ -1107,13 +1151,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                         | [::StackOne::Operations::HrisGetEmployeesTimeOffRequestRequest](../../models/operations/hrisgetemployeestimeoffrequestrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                     | [Models::Operations::HrisGetEmployeesTimeOffRequestRequest](../../models/operations/hrisgetemployeestimeoffrequestrequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeesTimeOffRequestResponse)](../../models/operations/hrisgetemployeestimeoffrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeesTimeOffRequestResponse)](../../models/operations/hrisgetemployeestimeoffrequestresponse.md)**
 
 
 
@@ -1127,13 +1171,13 @@ Get Employees Work Eligibility
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
+req = Models::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
   fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   id: "<id>",
   sub_resource_id: "<id>",
@@ -1150,13 +1194,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::HrisGetEmployeesWorkEligibilityRequest](../../models/operations/hrisgetemployeesworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::HrisGetEmployeesWorkEligibilityRequest](../../models/operations/hrisgetemployeesworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmployeesWorkEligibilityResponse)](../../models/operations/hrisgetemployeesworkeligibilityresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmployeesWorkEligibilityResponse)](../../models/operations/hrisgetemployeesworkeligibilityresponse.md)**
 
 
 
@@ -1170,13 +1214,13 @@ Get Employment
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetEmploymentRequest.new(
+req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
@@ -1193,13 +1237,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::HrisGetEmploymentRequest](../../models/operations/hrisgetemploymentrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::HrisGetEmploymentRequest](../../models/operations/hrisgetemploymentrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetEmploymentResponse)](../../models/operations/hrisgetemploymentresponse.md)**
+**[T.nilable(Models::Operations::HrisGetEmploymentResponse)](../../models/operations/hrisgetemploymentresponse.md)**
 
 
 
@@ -1213,14 +1257,14 @@ Get Group
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetGroupRequest.new(
-  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+req = Models::Operations::HrisGetGroupRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1235,13 +1279,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::HrisGetGroupRequest](../../models/operations/hrisgetgrouprequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::HrisGetGroupRequest](../../models/operations/hrisgetgrouprequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetGroupResponse)](../../models/operations/hrisgetgroupresponse.md)**
+**[T.nilable(Models::Operations::HrisGetGroupResponse)](../../models/operations/hrisgetgroupresponse.md)**
 
 
 
@@ -1255,14 +1299,14 @@ Get Job
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetJobRequest.new(
-  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+req = Models::Operations::HrisGetJobRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1277,13 +1321,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::StackOne::Operations::HrisGetJobRequest](../../models/operations/hrisgetjobrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [Models::Operations::HrisGetJobRequest](../../models/operations/hrisgetjobrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetJobResponse)](../../models/operations/hrisgetjobresponse.md)**
+**[T.nilable(Models::Operations::HrisGetJobResponse)](../../models/operations/hrisgetjobresponse.md)**
 
 
 
@@ -1297,13 +1341,13 @@ Get Work Location
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetLocationRequest.new(
+req = Models::Operations::HrisGetLocationRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -1319,13 +1363,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::HrisGetLocationRequest](../../models/operations/hrisgetlocationrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::HrisGetLocationRequest](../../models/operations/hrisgetlocationrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetLocationResponse)](../../models/operations/hrisgetlocationresponse.md)**
+**[T.nilable(Models::Operations::HrisGetLocationResponse)](../../models/operations/hrisgetlocationresponse.md)**
 
 
 
@@ -1339,13 +1383,13 @@ Get Team Group
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetTeamGroupRequest.new(
+req = Models::Operations::HrisGetTeamGroupRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   id: "<id>",
   x_account_id: "<id>",
@@ -1361,13 +1405,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::StackOne::Operations::HrisGetTeamGroupRequest](../../models/operations/hrisgetteamgrouprequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::HrisGetTeamGroupRequest](../../models/operations/hrisgetteamgrouprequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetTeamGroupResponse)](../../models/operations/hrisgetteamgroupresponse.md)**
+**[T.nilable(Models::Operations::HrisGetTeamGroupResponse)](../../models/operations/hrisgetteamgroupresponse.md)**
 
 
 
@@ -1381,13 +1425,13 @@ Get Time Entry
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetTimeEntriesRequest.new(
+req = Models::Operations::HrisGetTimeEntriesRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -1403,13 +1447,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::StackOne::Operations::HrisGetTimeEntriesRequest](../../models/operations/hrisgettimeentriesrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::HrisGetTimeEntriesRequest](../../models/operations/hrisgettimeentriesrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetTimeEntriesResponse)](../../models/operations/hrisgettimeentriesresponse.md)**
+**[T.nilable(Models::Operations::HrisGetTimeEntriesResponse)](../../models/operations/hrisgettimeentriesresponse.md)**
 
 
 
@@ -1423,13 +1467,13 @@ Get Time Off Policy
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetTimeOffPolicyRequest.new(
+req = Models::Operations::HrisGetTimeOffPolicyRequest.new(
   fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -1445,13 +1489,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::HrisGetTimeOffPolicyRequest](../../models/operations/hrisgettimeoffpolicyrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::HrisGetTimeOffPolicyRequest](../../models/operations/hrisgettimeoffpolicyrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetTimeOffPolicyResponse)](../../models/operations/hrisgettimeoffpolicyresponse.md)**
+**[T.nilable(Models::Operations::HrisGetTimeOffPolicyResponse)](../../models/operations/hrisgettimeoffpolicyresponse.md)**
 
 
 
@@ -1465,13 +1509,13 @@ Get time off request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetTimeOffRequestRequest.new(
+req = Models::Operations::HrisGetTimeOffRequestRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
   id: "<id>",
@@ -1488,13 +1532,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                       | [::StackOne::Operations::HrisGetTimeOffRequestRequest](../../models/operations/hrisgettimeoffrequestrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::HrisGetTimeOffRequestRequest](../../models/operations/hrisgettimeoffrequestrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetTimeOffRequestResponse)](../../models/operations/hrisgettimeoffrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisGetTimeOffRequestResponse)](../../models/operations/hrisgettimeoffrequestresponse.md)**
 
 
 
@@ -1510,13 +1554,13 @@ Get time off type
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisGetTimeOffTypeRequest.new(
+req = Models::Operations::HrisGetTimeOffTypeRequest.new(
   fields_: "id,remote_id,name,active",
   id: "<id>",
   x_account_id: "<id>",
@@ -1532,13 +1576,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::StackOne::Operations::HrisGetTimeOffTypeRequest](../../models/operations/hrisgettimeofftyperequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::HrisGetTimeOffTypeRequest](../../models/operations/hrisgettimeofftyperequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisGetTimeOffTypeResponse)](../../models/operations/hrisgettimeofftyperesponse.md)**
+**[T.nilable(Models::Operations::HrisGetTimeOffTypeResponse)](../../models/operations/hrisgettimeofftyperesponse.md)**
 
 
 
@@ -1552,13 +1596,13 @@ Invite Employee
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.invite_employee(hris_invite_employee_request_dto=::StackOne::Shared::HrisInviteEmployeeRequestDto.new(
+res = s.hris.invite_employee(hris_invite_employee_request_dto=Models::Shared::HrisInviteEmployeeRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
   },
@@ -1572,15 +1616,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_invite_employee_request_dto`                                                                      | [::StackOne::Shared::HrisInviteEmployeeRequestDto](../../models/shared/hrisinviteemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `hris_invite_employee_request_dto`                                                                  | [Models::Shared::HrisInviteEmployeeRequestDto](../../models/shared/hrisinviteemployeerequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisInviteEmployeeResponse)](../../models/operations/hrisinviteemployeeresponse.md)**
+**[T.nilable(Models::Operations::HrisInviteEmployeeResponse)](../../models/operations/hrisinviteemployeeresponse.md)**
 
 
 
@@ -1594,15 +1638,15 @@ List benefits
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListBenefitsRequest.new(
+req = Models::Operations::HrisListBenefitsRequest.new(
   fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
-  filter: ::StackOne::Operations::HrisListBenefitsQueryParamFilter.new(
+  filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1618,13 +1662,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [::StackOne::Operations::HrisListBenefitsRequest](../../models/operations/hrislistbenefitsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::HrisListBenefitsRequest](../../models/operations/hrislistbenefitsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListBenefitsResponse)](../../models/operations/hrislistbenefitsresponse.md)**
+**[T.nilable(Models::Operations::HrisListBenefitsResponse)](../../models/operations/hrislistbenefitsresponse.md)**
 
 
 
@@ -1638,15 +1682,15 @@ List Companies
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListCompaniesRequest.new(
+req = Models::Operations::HrisListCompaniesRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
-  filter: ::StackOne::Operations::HrisListCompaniesQueryParamFilter.new(
+  filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1662,13 +1706,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::HrisListCompaniesRequest](../../models/operations/hrislistcompaniesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::HrisListCompaniesRequest](../../models/operations/hrislistcompaniesrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
+**[T.nilable(Models::Operations::HrisListCompaniesResponse)](../../models/operations/hrislistcompaniesresponse.md)**
 
 
 
@@ -1682,15 +1726,15 @@ List Cost Center Groups
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListCostCenterGroupsRequest.new(
+req = Models::Operations::HrisListCostCenterGroupsRequest.new(
   fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
-  filter: ::StackOne::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
+  filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1706,13 +1750,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [::StackOne::Operations::HrisListCostCenterGroupsRequest](../../models/operations/hrislistcostcentergroupsrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::HrisListCostCenterGroupsRequest](../../models/operations/hrislistcostcentergroupsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListCostCenterGroupsResponse)](../../models/operations/hrislistcostcentergroupsresponse.md)**
+**[T.nilable(Models::Operations::HrisListCostCenterGroupsResponse)](../../models/operations/hrislistcostcentergroupsresponse.md)**
 
 
 
@@ -1726,15 +1770,15 @@ List Department Groups
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListDepartmentGroupsRequest.new(
+req = Models::Operations::HrisListDepartmentGroupsRequest.new(
   fields_: "id,remote_id,name",
-  filter: ::StackOne::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
+  filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1750,13 +1794,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [::StackOne::Operations::HrisListDepartmentGroupsRequest](../../models/operations/hrislistdepartmentgroupsrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::HrisListDepartmentGroupsRequest](../../models/operations/hrislistdepartmentgroupsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListDepartmentGroupsResponse)](../../models/operations/hrislistdepartmentgroupsresponse.md)**
+**[T.nilable(Models::Operations::HrisListDepartmentGroupsResponse)](../../models/operations/hrislistdepartmentgroupsresponse.md)**
 
 
 
@@ -1770,15 +1814,15 @@ List Employee Document Categories
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeCategoriesRequest.new(
+req = Models::Operations::HrisListEmployeeCategoriesRequest.new(
   fields_: "id,remote_id,name,active",
-  filter: ::StackOne::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1794,13 +1838,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                 | [::StackOne::Operations::HrisListEmployeeCategoriesRequest](../../models/operations/hrislistemployeecategoriesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [Models::Operations::HrisListEmployeeCategoriesRequest](../../models/operations/hrislistemployeecategoriesrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeCategoriesResponse)](../../models/operations/hrislistemployeecategoriesresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeCategoriesResponse)](../../models/operations/hrislistemployeecategoriesresponse.md)**
 
 
 
@@ -1814,15 +1858,15 @@ List employee Custom Field Definitions
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
+req = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
-  filter: ::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -1838,13 +1882,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                         | [::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsRequest](../../models/operations/hrislistemployeecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                     | [Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest](../../models/operations/hrislistemployeecustomfielddefinitionsrequest.md) | :heavy_check_mark:                                                                                                                            | The request object to use for the request.                                                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeCustomFieldDefinitionsResponse)](../../models/operations/hrislistemployeecustomfielddefinitionsresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeCustomFieldDefinitionsResponse)](../../models/operations/hrislistemployeecustomfielddefinitionsresponse.md)**
 
 
 
@@ -1858,15 +1902,15 @@ List Employee Documents
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeDocumentsRequest.new(
+req = Models::Operations::HrisListEmployeeDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
-  filter: ::StackOne::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1883,13 +1927,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::HrisListEmployeeDocumentsRequest](../../models/operations/hrislistemployeedocumentsrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::HrisListEmployeeDocumentsRequest](../../models/operations/hrislistemployeedocumentsrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeDocumentsResponse)](../../models/operations/hrislistemployeedocumentsresponse.md)**
 
 
 
@@ -1903,16 +1947,16 @@ List Employee Employments
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeEmploymentsRequest.new(
+req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
-  filter: ::StackOne::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1929,13 +1973,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                   | [::StackOne::Operations::HrisListEmployeeEmploymentsRequest](../../models/operations/hrislistemployeeemploymentsrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [Models::Operations::HrisListEmployeeEmploymentsRequest](../../models/operations/hrislistemployeeemploymentsrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeEmploymentsResponse)](../../models/operations/hrislistemployeeemploymentsresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeEmploymentsResponse)](../../models/operations/hrislistemployeeemploymentsresponse.md)**
 
 
 
@@ -1949,15 +1993,15 @@ List Employee Skills
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeSkillsRequest.new(
+req = Models::Operations::HrisListEmployeeSkillsRequest.new(
   fields_: "id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency",
-  filter: ::StackOne::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -1974,13 +2018,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::HrisListEmployeeSkillsRequest](../../models/operations/hrislistemployeeskillsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::HrisListEmployeeSkillsRequest](../../models/operations/hrislistemployeeskillsrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeSkillsResponse)](../../models/operations/hrislistemployeeskillsresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeSkillsResponse)](../../models/operations/hrislistemployeeskillsresponse.md)**
 
 
 
@@ -1994,16 +2038,16 @@ List Employee Time Off Balances
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
+req = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at",
-  filter: ::StackOne::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2020,13 +2064,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeTimeOffBalancesRequest](../../models/operations/hrislistemployeetimeoffbalancesrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::HrisListEmployeeTimeOffBalancesRequest](../../models/operations/hrislistemployeetimeoffbalancesrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffBalancesResponse)](../../models/operations/hrislistemployeetimeoffbalancesresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeTimeOffBalancesResponse)](../../models/operations/hrislistemployeetimeoffbalancesresponse.md)**
 
 
 
@@ -2040,15 +2084,15 @@ List Assigned Time Off Policies
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
+req = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
   fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
-  filter: ::StackOne::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2065,13 +2109,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeTimeOffPoliciesRequest](../../models/operations/hrislistemployeetimeoffpoliciesrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::HrisListEmployeeTimeOffPoliciesRequest](../../models/operations/hrislistemployeetimeoffpoliciesrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffPoliciesResponse)](../../models/operations/hrislistemployeetimeoffpoliciesresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeTimeOffPoliciesResponse)](../../models/operations/hrislistemployeetimeoffpoliciesresponse.md)**
 
 
 
@@ -2085,16 +2129,16 @@ List Employee Time Off Requests
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
+req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
-  filter: ::StackOne::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2111,13 +2155,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeTimeOffRequestsRequest](../../models/operations/hrislistemployeetimeoffrequestsrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::HrisListEmployeeTimeOffRequestsRequest](../../models/operations/hrislistemployeetimeoffrequestsrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeTimeOffRequestsResponse)](../../models/operations/hrislistemployeetimeoffrequestsresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeTimeOffRequestsResponse)](../../models/operations/hrislistemployeetimeoffrequestsresponse.md)**
 
 
 
@@ -2131,15 +2175,15 @@ List Employee Work Eligibility
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest.new(
+req = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
-  filter: ::StackOne::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   id: "<id>",
@@ -2156,13 +2200,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::HrisListEmployeeWorkEligibilityRequest](../../models/operations/hrislistemployeeworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::HrisListEmployeeWorkEligibilityRequest](../../models/operations/hrislistemployeeworkeligibilityrequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeeWorkEligibilityResponse)](../../models/operations/hrislistemployeeworkeligibilityresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeeWorkEligibilityResponse)](../../models/operations/hrislistemployeeworkeligibilityresponse.md)**
 
 
 
@@ -2176,16 +2220,16 @@ List Employees
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeesRequest.new(
+req = Models::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
-  filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
@@ -2202,13 +2246,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::HrisListEmployeesRequest](../../models/operations/hrislistemployeesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::HrisListEmployeesRequest](../../models/operations/hrislistemployeesrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmployeesResponse)](../../models/operations/hrislistemployeesresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmployeesResponse)](../../models/operations/hrislistemployeesresponse.md)**
 
 
 
@@ -2222,16 +2266,16 @@ List Employments
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmploymentsRequest.new(
+req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
-  filter: ::StackOne::Operations::HrisListEmploymentsQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2247,13 +2291,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [::StackOne::Operations::HrisListEmploymentsRequest](../../models/operations/hrislistemploymentsrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::HrisListEmploymentsRequest](../../models/operations/hrislistemploymentsrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListEmploymentsResponse)](../../models/operations/hrislistemploymentsresponse.md)**
+**[T.nilable(Models::Operations::HrisListEmploymentsResponse)](../../models/operations/hrislistemploymentsresponse.md)**
 
 
 
@@ -2267,15 +2311,15 @@ List Groups
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListGroupsRequest.new(
-  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
-  filter: ::StackOne::Operations::HrisListGroupsQueryParamFilter.new(
+req = Models::Operations::HrisListGroupsRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
+  filter: Models::Operations::HrisListGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2291,13 +2335,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [::StackOne::Operations::HrisListGroupsRequest](../../models/operations/hrislistgroupsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::HrisListGroupsRequest](../../models/operations/hrislistgroupsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListGroupsResponse)](../../models/operations/hrislistgroupsresponse.md)**
+**[T.nilable(Models::Operations::HrisListGroupsResponse)](../../models/operations/hrislistgroupsresponse.md)**
 
 
 
@@ -2311,15 +2355,15 @@ List Jobs
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListJobsRequest.new(
-  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
-  filter: ::StackOne::Operations::HrisListJobsQueryParamFilter.new(
+req = Models::Operations::HrisListJobsRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
+  filter: Models::Operations::HrisListJobsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2335,13 +2379,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::HrisListJobsRequest](../../models/operations/hrislistjobsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::HrisListJobsRequest](../../models/operations/hrislistjobsrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListJobsResponse)](../../models/operations/hrislistjobsresponse.md)**
+**[T.nilable(Models::Operations::HrisListJobsResponse)](../../models/operations/hrislistjobsresponse.md)**
 
 
 
@@ -2355,15 +2399,15 @@ List Work Locations
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListLocationsRequest.new(
+req = Models::Operations::HrisListLocationsRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
-  filter: ::StackOne::Operations::HrisListLocationsQueryParamFilter.new(
+  filter: Models::Operations::HrisListLocationsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2379,13 +2423,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [::StackOne::Operations::HrisListLocationsRequest](../../models/operations/hrislistlocationsrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::HrisListLocationsRequest](../../models/operations/hrislistlocationsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListLocationsResponse)](../../models/operations/hrislistlocationsresponse.md)**
+**[T.nilable(Models::Operations::HrisListLocationsResponse)](../../models/operations/hrislistlocationsresponse.md)**
 
 
 
@@ -2399,15 +2443,15 @@ List Team Groups
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListTeamGroupsRequest.new(
+req = Models::Operations::HrisListTeamGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
-  filter: ::StackOne::Operations::HrisListTeamGroupsQueryParamFilter.new(
+  filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2423,13 +2467,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [::StackOne::Operations::HrisListTeamGroupsRequest](../../models/operations/hrislistteamgroupsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::HrisListTeamGroupsRequest](../../models/operations/hrislistteamgroupsrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListTeamGroupsResponse)](../../models/operations/hrislistteamgroupsresponse.md)**
+**[T.nilable(Models::Operations::HrisListTeamGroupsResponse)](../../models/operations/hrislistteamgroupsresponse.md)**
 
 
 
@@ -2443,15 +2487,15 @@ List Time Entries
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListTimeEntriesRequest.new(
+req = Models::Operations::HrisListTimeEntriesRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at",
-  filter: ::StackOne::Operations::HrisListTimeEntriesQueryParamFilter.new(
+  filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(
     end_time: "2020-01-01T00:00:00.000Z",
     start_time: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
@@ -2469,13 +2513,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [::StackOne::Operations::HrisListTimeEntriesRequest](../../models/operations/hrislisttimeentriesrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::HrisListTimeEntriesRequest](../../models/operations/hrislisttimeentriesrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListTimeEntriesResponse)](../../models/operations/hrislisttimeentriesresponse.md)**
+**[T.nilable(Models::Operations::HrisListTimeEntriesResponse)](../../models/operations/hrislisttimeentriesresponse.md)**
 
 
 
@@ -2489,15 +2533,15 @@ List Time Off Policies
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListTimeOffPoliciesRequest.new(
+req = Models::Operations::HrisListTimeOffPoliciesRequest.new(
   fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
-  filter: ::StackOne::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
+  filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2513,13 +2557,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [::StackOne::Operations::HrisListTimeOffPoliciesRequest](../../models/operations/hrislisttimeoffpoliciesrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::HrisListTimeOffPoliciesRequest](../../models/operations/hrislisttimeoffpoliciesrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListTimeOffPoliciesResponse)](../../models/operations/hrislisttimeoffpoliciesresponse.md)**
+**[T.nilable(Models::Operations::HrisListTimeOffPoliciesResponse)](../../models/operations/hrislisttimeoffpoliciesresponse.md)**
 
 
 
@@ -2533,16 +2577,16 @@ List time off requests
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListTimeOffRequestsRequest.new(
+req = Models::Operations::HrisListTimeOffRequestsRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
-  filter: ::StackOne::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
+  filter: Models::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2558,13 +2602,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [::StackOne::Operations::HrisListTimeOffRequestsRequest](../../models/operations/hrislisttimeoffrequestsrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::HrisListTimeOffRequestsRequest](../../models/operations/hrislisttimeoffrequestsrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListTimeOffRequestsResponse)](../../models/operations/hrislisttimeoffrequestsresponse.md)**
+**[T.nilable(Models::Operations::HrisListTimeOffRequestsResponse)](../../models/operations/hrislisttimeoffrequestsresponse.md)**
 
 
 
@@ -2580,15 +2624,15 @@ List time off types
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListTimeOffTypesRequest.new(
+req = Models::Operations::HrisListTimeOffTypesRequest.new(
   fields_: "id,remote_id,name,active",
-  filter: ::StackOne::Operations::HrisListTimeOffTypesQueryParamFilter.new(
+  filter: Models::Operations::HrisListTimeOffTypesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -2604,13 +2648,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::HrisListTimeOffTypesRequest](../../models/operations/hrislisttimeofftypesrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::HrisListTimeOffTypesRequest](../../models/operations/hrislisttimeofftypesrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisListTimeOffTypesResponse)](../../models/operations/hrislisttimeofftypesresponse.md)**
+**[T.nilable(Models::Operations::HrisListTimeOffTypesResponse)](../../models/operations/hrislisttimeofftypesresponse.md)**
 
 
 
@@ -2624,17 +2668,17 @@ Updates an employee
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared::HrisUpdateEmployeeRequestDto.new(
-  avatar: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoAvatar.new(),
+res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::HrisUpdateEmployeeRequestDto.new(
+  avatar: Models::Shared::HrisUpdateEmployeeRequestDtoAvatar.new(),
   avatar_url: "https://example.com/avatar.png",
   benefits: [
-    ::StackOne::Shared::CreateHRISBenefit.new(
+    Models::Shared::CreateHRISBenefit.new(
       created_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
       description: "Health insurance for employees",
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -2645,13 +2689,13 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   ],
   birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
   citizenships: [
-    ::StackOne::Shared::CountryCodeEnum.new(
-      value: ::StackOne::Shared::CountryCodeEnumValue::US,
+    Models::Shared::CountryCodeEnum.new(
+      value: Models::Shared::CountryCodeEnumValue::US,
     ),
   ],
   company_id: "1234567890",
   custom_fields: [
-    ::StackOne::Shared::CustomFields.new(
+    Models::Shared::CustomFields.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       name: "Training Completion Status",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -2665,14 +2709,14 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   department_id: "3093",
   display_name: "Sir Isaac Newton",
   employee_number: "125",
-  employment: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmployment.new(
-    employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType.new(),
-    employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType.new(),
+  employment: Models::Shared::HrisUpdateEmployeeRequestDtoEmployment.new(
+    employment_contract_type: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType.new(),
+    employment_type: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType.new(),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     job_title: "Software Engineer",
     pay_currency: "USD",
-    pay_frequency: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPayFrequency.new(),
-    pay_period: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPayPeriod.new(),
+    pay_frequency: Models::Shared::HrisUpdateEmployeeRequestDtoPayFrequency.new(),
+    pay_period: Models::Shared::HrisUpdateEmployeeRequestDtoPayPeriod.new(),
     pay_rate: "40.00",
     time_worked: "P0Y0M0DT8H0M0S",
     unified_custom_fields: {
@@ -2680,17 +2724,17 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
       "my_project_custom_field_2": "some other value",
     },
   ),
-  employment_contract_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
-  employment_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
-  ethnicity: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
+  employment_contract_type: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
+  employment_status: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
+  employment_type: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
+  ethnicity: Models::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
   first_name: "Isaac",
-  gender: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoGender.new(),
+  gender: Models::Shared::HrisUpdateEmployeeRequestDtoGender.new(),
   hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  home_location: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoHomeLocation.new(
+  home_location: Models::Shared::HrisUpdateEmployeeRequestDtoHomeLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoCountry.new(
-      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue::US,
+    country: Models::Shared::HrisUpdateEmployeeRequestDtoCountry.new(
+      value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Woolsthorpe Manor",
@@ -2698,7 +2742,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
       "other_known_names": "John Doe",
     },
     phone_number: "+44 1476 860 364",
-    state: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoState.new(),
+    state: Models::Shared::HrisUpdateEmployeeRequestDtoState.new(),
     street_1: "Water Lane",
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
@@ -2707,15 +2751,15 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   job_title: "Physicist",
   last_name: "Newton",
   manager_id: "67890",
-  marital_status: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new(),
+  marital_status: Models::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new(),
   name: "Isaac Newton",
   national_identity_numbers: [
-    ::StackOne::Shared::NationalIdentityNumberApiModel.new(
-      country: ::StackOne::Shared::NationalIdentityNumberApiModelCountry.new(
-        value: ::StackOne::Shared::NationalIdentityNumberApiModelValue::US,
+    Models::Shared::NationalIdentityNumberApiModel.new(
+      country: Models::Shared::NationalIdentityNumberApiModelCountry.new(
+        value: Models::Shared::NationalIdentityNumberApiModelValue::US,
       ),
-      type: ::StackOne::Shared::NationalIdentityNumberApiModelType.new(
-        value: ::StackOne::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
+      type: Models::Shared::NationalIdentityNumberApiModelType.new(
+        value: Models::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
       ),
       value: "123456789",
     ),
@@ -2725,15 +2769,15 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
   },
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
-  preferred_language: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage.new(),
+  preferred_language: Models::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage.new(),
   start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
   team_id: "2913",
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
-  work_location: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoWorkLocation.new(
+  work_location: Models::Shared::HrisUpdateEmployeeRequestDtoWorkLocation.new(
     city: "Grantham",
-    country: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationCountry.new(
-      value: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue::US,
+    country: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationCountry.new(
+      value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue::US,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "Woolsthorpe Manor",
@@ -2741,7 +2785,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=::StackOne::Shared
       "other_known_names": "John Doe",
     },
     phone_number: "+44 1476 860 364",
-    state: ::StackOne::Shared::HrisUpdateEmployeeRequestDtoSchemasState.new(),
+    state: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasState.new(),
     street_1: "Water Lane",
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
@@ -2757,15 +2801,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_update_employee_request_dto`                                                                      | [::StackOne::Shared::HrisUpdateEmployeeRequestDto](../../models/shared/hrisupdateemployeerequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `hris_update_employee_request_dto`                                                                  | [Models::Shared::HrisUpdateEmployeeRequestDto](../../models/shared/hrisupdateemployeerequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeResponse)](../../models/operations/hrisupdateemployeeresponse.md)**
+**[T.nilable(Models::Operations::HrisUpdateEmployeeResponse)](../../models/operations/hrisupdateemployeeresponse.md)**
 
 
 
@@ -2779,23 +2823,23 @@ Update Employee Employment
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.update_employee_employment(hris_create_employment_request_dto=::StackOne::Shared::HrisCreateEmploymentRequestDto.new(
-  employment_contract_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
-  employment_type: ::StackOne::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
+res = s.hris.update_employee_employment(hris_create_employment_request_dto=Models::Shared::HrisCreateEmploymentRequestDto.new(
+  employment_contract_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
+  employment_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
   },
   pay_currency: "USD",
-  pay_frequency: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
-  pay_period: ::StackOne::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
+  pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
+  pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
   time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
@@ -2812,16 +2856,16 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `hris_create_employment_request_dto`                                                                        | [::StackOne::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `id`                                                                                                        | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `sub_resource_id`                                                                                           | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
-| `x_account_id`                                                                                              | *::String*                                                                                                  | :heavy_check_mark:                                                                                          | The account identifier                                                                                      |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `hris_create_employment_request_dto`                                                                    | [Models::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `sub_resource_id`                                                                                       | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeEmploymentResponse)](../../models/operations/hrisupdateemployeeemploymentresponse.md)**
+**[T.nilable(Models::Operations::HrisUpdateEmployeeEmploymentResponse)](../../models/operations/hrisupdateemployeeemploymentresponse.md)**
 
 
 
@@ -2835,13 +2879,13 @@ Update Employee Time Off Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
+res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -2849,7 +2893,7 @@ res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=:
   passthrough: {
     "other_known_names": "John Doe",
   },
-  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
@@ -2866,16 +2910,16 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                    | [::StackOne::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `sub_resource_id`                                                                                     | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `sub_resource_id`                                                                                 | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeTimeOffRequestResponse)](../../models/operations/hrisupdateemployeetimeoffrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisUpdateEmployeeTimeOffRequestResponse)](../../models/operations/hrisupdateemployeetimeoffrequestresponse.md)**
 
 
 
@@ -2889,20 +2933,20 @@ Update Employee Work Eligibility Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=::StackOne::Shared::HrisCreateWorkEligibilityRequestDto.new(
-  document: ::StackOne::Shared::Document.new(
-    category: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto=Models::Shared::HrisCreateWorkEligibilityRequestDto.new(
+  document: Models::Shared::Document.new(
+    category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
     category_id: "6530",
     created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    file_format: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
+    file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
       source_value: "abc",
-      value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+      value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     name: "My Document",
@@ -2911,15 +2955,15 @@ res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibili
     remote_url: "https://example.com/file.pdf",
     updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
   ),
-  issued_by: ::StackOne::Shared::IssuedBy.new(
-    value: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+  issued_by: Models::Shared::IssuedBy.new(
+    value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
   ),
   number: "1234567890",
   passthrough: {
     "other_known_names": "John Doe",
   },
   sub_type: "H1B",
-  type: ::StackOne::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+  type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
   valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
   valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
 ), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
@@ -2932,16 +2976,16 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `hris_create_work_eligibility_request_dto`                                                                            | [::StackOne::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `id`                                                                                                                  | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `sub_resource_id`                                                                                                     | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `hris_create_work_eligibility_request_dto`                                                                        | [Models::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `sub_resource_id`                                                                                                 | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md)**
 
 
 
@@ -2957,13 +3001,13 @@ Update time off request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne::Shared::HrisCreateTimeOffRequestDto.new(
+res = s.hris.update_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
   employee_id: "1687-3",
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -2971,7 +3015,7 @@ res = s.hris.update_time_off_request(hris_create_time_off_request_dto=::StackOne
   passthrough: {
     "other_known_names": "John Doe",
   },
-  reason: ::StackOne::Shared::HrisCreateTimeOffRequestDtoReason.new(
+  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
@@ -2988,15 +3032,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                    | [::StackOne::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisUpdateTimeOffRequestResponse)](../../models/operations/hrisupdatetimeoffrequestresponse.md)**
+**[T.nilable(Models::Operations::HrisUpdateTimeOffRequestResponse)](../../models/operations/hrisupdatetimeoffrequestresponse.md)**
 
 
 
@@ -3010,23 +3054,23 @@ Upload Employee Document
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.hris.upload_employee_document(hris_documents_upload_request_dto=::StackOne::Shared::HrisDocumentsUploadRequestDto.new(
-  category: ::StackOne::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
+res = s.hris.upload_employee_document(hris_documents_upload_request_dto=Models::Shared::HrisDocumentsUploadRequestDto.new(
+  category: Models::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
   category_id: "6530",
-  confidential: ::StackOne::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
+  confidential: Models::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
     source_value: "public",
-    value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
+    value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
   ),
   content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
-  file_format: ::StackOne::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
+  file_format: Models::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
     source_value: "abc",
-    value: ::StackOne::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
+    value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
   ),
   name: "weather-forecast",
   path: "/path/to/file",
@@ -3040,13 +3084,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `hris_documents_upload_request_dto`                                                                       | [::StackOne::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `hris_documents_upload_request_dto`                                                                   | [Models::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::HrisUploadEmployeeDocumentResponse)](../../models/operations/hrisuploademployeedocumentresponse.md)**
+**[T.nilable(Models::Operations::HrisUploadEmployeeDocumentResponse)](../../models/operations/hrisuploademployeedocumentresponse.md)**
 

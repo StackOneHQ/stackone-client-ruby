@@ -17,13 +17,13 @@ Proxy Request
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.proxy.proxy_request(proxy_request_body=::StackOne::Shared::ProxyRequestBody.new(
+res = s.proxy.proxy_request(proxy_request_body=Models::Shared::ProxyRequestBody.new(
   headers: {
     "Content-Type": "application/json",
   },
@@ -39,12 +39,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `proxy_request_body`                                                            | [::StackOne::Shared::ProxyRequestBody](../../models/shared/proxyrequestbody.md) | :heavy_check_mark:                                                              | The request body                                                                |
-| `x_account_id`                                                                  | *::String*                                                                      | :heavy_check_mark:                                                              | The account identifier                                                          |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `proxy_request_body`                                                        | [Models::Shared::ProxyRequestBody](../../models/shared/proxyrequestbody.md) | :heavy_check_mark:                                                          | The request body                                                            |
+| `x_account_id`                                                              | *::String*                                                                  | :heavy_check_mark:                                                          | The account identifier                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::StackoneProxyRequestResponse)](../../models/operations/stackoneproxyrequestresponse.md)**
+**[T.nilable(Models::Operations::StackoneProxyRequestResponse)](../../models/operations/stackoneproxyrequestresponse.md)**
 

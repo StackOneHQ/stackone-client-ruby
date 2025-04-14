@@ -5,23 +5,25 @@
 
 
 module StackOne
-  module Shared
-  
-    # InAppMessagesValue - The unified message type.
-    class InAppMessagesValue < T::Enum
-      enums do
-        EMAIL = new('email')
-        SMS = new('sms')
-        PUSH = new('push')
-        WEB_PUSH = new('web_push')
-        IOS_PUSH = new('ios_push')
-        ANDROID_PUSH = new('android_push')
-        APP_PUSH = new('app_push')
-        OMNI_CHANNEL = new('omni_channel')
-        CONTENT_BLOCK = new('content_block')
-        IN_APP = new('in_app')
-        UNKNOWN = new('unknown')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # InAppMessagesValue - The unified message type.
+      class InAppMessagesValue < T::Enum
+        enums do
+          EMAIL = new('email')
+          SMS = new('sms')
+          PUSH = new('push')
+          WEB_PUSH = new('web_push')
+          IOS_PUSH = new('ios_push')
+          ANDROID_PUSH = new('android_push')
+          APP_PUSH = new('app_push')
+          OMNI_CHANNEL = new('omni_channel')
+          CONTENT_BLOCK = new('content_block')
+          IN_APP = new('in_app')
+          UNKNOWN = new('unknown')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

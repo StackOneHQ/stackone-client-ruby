@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CompaniesPaginated < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :data, T::Array[::StackOne::Shared::Company], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
-
-      field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :next_page, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
-
-      field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+      class CompaniesPaginated
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(data: T::Array[::StackOne::Shared::Company], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
-      def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
-        @data = data
-        @next_ = next_
-        @next_page = next_page
-        @raw = raw
+        field :data, T::Array[Models::Shared::Company], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+
+        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :next_page, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
+
+        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+
+
+        sig { params(data: T::Array[Models::Shared::Company], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
+        def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
+          @data = data
+          @next_ = next_
+          @next_page = next_page
+          @raw = raw
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          return false unless @next_ == other.next_
+          return false unless @next_page == other.next_page
+          return false unless @raw == other.raw
+          true
+        end
       end
     end
   end

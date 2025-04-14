@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CustomMappingError < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CustomMappingError
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The custom mapping identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The error message
-      field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
-      # The target field where the error occurred
-      field :target_field, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('targetField') } }
+        # The custom mapping identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The error message
+        field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+        # The target field where the error occurred
+        field :target_field, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('targetField') } }
 
 
-      sig { params(id: T.nilable(::String), message: T.nilable(::String), target_field: T.nilable(::String)).void }
-      def initialize(id: nil, message: nil, target_field: nil)
-        @id = id
-        @message = message
-        @target_field = target_field
+        sig { params(id: T.nilable(::String), message: T.nilable(::String), target_field: T.nilable(::String)).void }
+        def initialize(id: nil, message: nil, target_field: nil)
+          @id = id
+          @message = message
+          @target_field = target_field
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @message == other.message
+          return false unless @target_field == other.target_field
+          true
+        end
       end
     end
   end

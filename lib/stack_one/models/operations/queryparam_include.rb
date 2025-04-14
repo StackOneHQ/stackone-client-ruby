@@ -5,12 +5,14 @@
 
 
 module StackOne
-  module Operations
-  
-    # QueryParamInclude - The include parameter allows you to include additional data in the response.
-    class QueryParamInclude < T::Enum
-      enums do
-        STEP_LOGS = new('step_logs')
+  module Models
+    module Operations
+    
+      # QueryParamInclude - The include parameter allows you to include additional data in the response.
+      class QueryParamInclude < T::Enum
+        enums do
+          STEP_LOGS = new('step_logs')
+        end
       end
     end
   end

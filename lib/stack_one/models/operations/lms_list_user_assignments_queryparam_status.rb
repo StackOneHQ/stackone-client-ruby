@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Operations
-  
-    # LmsListUserAssignmentsQueryParamStatus - Filter to select assignment by status
-    class LmsListUserAssignmentsQueryParamStatus < T::Enum
-      enums do
-        PENDING = new('pending')
-        IN_PROGRESS = new('in_progress')
-        COMPLETED = new('completed')
+  module Models
+    module Operations
+    
+      # LmsListUserAssignmentsQueryParamStatus - Filter to select assignment by status
+      class LmsListUserAssignmentsQueryParamStatus < T::Enum
+        enums do
+          PENDING = new('pending')
+          IN_PROGRESS = new('in_progress')
+          COMPLETED = new('completed')
+        end
       end
     end
   end

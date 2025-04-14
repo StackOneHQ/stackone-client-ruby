@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Reference < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Reference
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The reference status
-      field :active, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-      # The reference id
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The reference name
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The reference status
+        field :active, T.nilable(T.any(T::Boolean, Models::Shared::Reference2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        # The reference id
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The reference name
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(active: T.nilable(::Object), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(active: nil, id: nil, name: nil, remote_id: nil)
-        @active = active
-        @id = id
-        @name = name
-        @remote_id = remote_id
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Reference2)), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(active: nil, id: nil, name: nil, remote_id: nil)
+          @active = active
+          @id = id
+          @name = name
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @active == other.active
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

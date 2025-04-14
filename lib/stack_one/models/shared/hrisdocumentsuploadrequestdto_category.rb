@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The category to be associated with the file to be uploaded. Id will take precedence over name.
-    class HrisDocumentsUploadRequestDtoCategory < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The category to be associated with the file to be uploaded. Id will take precedence over name.
+      class HrisDocumentsUploadRequestDtoCategory
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The provider specific category for associating uploaded files, if provided, the value will be ignored.
-      field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The category name to associate with the file
-      field :value, T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::HrisDocumentsUploadRequestDtoValue, true) } }
+        # The provider specific category for associating uploaded files, if provided, the value will be ignored.
+        field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The category name to associate with the file
+        field :value, T.nilable(Models::Shared::HrisDocumentsUploadRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisDocumentsUploadRequestDtoValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::String), value: T.nilable(::StackOne::Shared::HrisDocumentsUploadRequestDtoValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(::String), value: T.nilable(Models::Shared::HrisDocumentsUploadRequestDtoValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Operations
-  
-    # ATS Application Filter
-    class AtsListApplicationsQueryParamFilter < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # ATS Application Filter
+      class AtsListApplicationsQueryParamFilter
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Use a string with a date to only select results created after that given date
-      field :created_after, T.nilable(::String), { 'query_param': { 'field_name': 'created_after' } }
-      # Filter to select applications by job_id
-      field :job_id, T.nilable(::String), { 'query_param': { 'field_name': 'job_id' } }
-      # Filter to select applications by stage and sub-stage
-      field :stage, T.nilable(::String), { 'query_param': { 'field_name': 'stage' } }
-      # Use a string with a date to only select results updated after that given date
-      field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        # Use a string with a date to only select results created after that given date
+        field :created_after, T.nilable(::String), { 'query_param': { 'field_name': 'created_after' } }
+        # Filter to select applications by job_id
+        field :job_id, T.nilable(::String), { 'query_param': { 'field_name': 'job_id' } }
+        # Filter to select applications by stage and sub-stage
+        field :stage, T.nilable(::String), { 'query_param': { 'field_name': 'stage' } }
+        # Use a string with a date to only select results updated after that given date
+        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(created_after: T.nilable(::String), job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::String)).void }
-      def initialize(created_after: nil, job_id: nil, stage: nil, updated_after: nil)
-        @created_after = created_after
-        @job_id = job_id
-        @stage = stage
-        @updated_after = updated_after
+        sig { params(created_after: T.nilable(::String), job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        def initialize(created_after: nil, job_id: nil, stage: nil, updated_after: nil)
+          @created_after = created_after
+          @job_id = job_id
+          @stage = stage
+          @updated_after = updated_after
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @created_after == other.created_after
+          return false unless @job_id == other.job_id
+          return false unless @stage == other.stage
+          return false unless @updated_after == other.updated_after
+          true
+        end
       end
     end
   end

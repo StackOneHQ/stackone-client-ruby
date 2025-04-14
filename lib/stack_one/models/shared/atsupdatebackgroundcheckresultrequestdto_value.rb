@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
-    # AtsUpdateBackgroundCheckResultRequestDtoValue - The result of the test.
-    class AtsUpdateBackgroundCheckResultRequestDtoValue < T::Enum
-      enums do
-        CANCELLED = new('cancelled')
-        COMPLETED = new('completed')
-        EXPIRED = new('expired')
-        FAILED = new('failed')
-        PASSED = new('passed')
+  module Models
+    module Shared
+    
+      # AtsUpdateBackgroundCheckResultRequestDtoValue - The result of the test.
+      class AtsUpdateBackgroundCheckResultRequestDtoValue < T::Enum
+        enums do
+          CANCELLED = new('cancelled')
+          COMPLETED = new('completed')
+          EXPIRED = new('expired')
+          FAILED = new('failed')
+          PASSED = new('passed')
+        end
       end
     end
   end

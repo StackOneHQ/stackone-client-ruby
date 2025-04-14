@@ -5,75 +5,102 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class TimeOff < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class TimeOff
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The approver ID
-      field :approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
-      # The created date of the time off request
-      field :created_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The duration of the time off request
-      field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
-      # The employee ID
-      field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
-      # The end date of the time off request
-      field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # True if the end of the time off request ends half way through the day
-      field :end_half_day, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The time off policy associated with Time Off
-      field :policy, T.nilable(::StackOne::Shared::Policy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('policy') } }
+        # The approver ID
+        field :approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
+        # The created date of the time off request
+        field :created_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The duration of the time off request
+        field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        # The employee ID
+        field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
+        # The end date of the time off request
+        field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # True if the end of the time off request ends half way through the day
+        field :end_half_day, T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The time off policy associated with Time Off
+        field :policy, T.nilable(Models::Shared::Policy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('policy') } }
 
-      field :reason, T.nilable(::StackOne::Shared::TimeOffReason), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reason') } }
-      # Provider's unique identifier of the approver
-      field :remote_approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_approver_id') } }
-      # Provider's unique identifier of the employee
-      field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier of the time off policy id associated with this time off request
-      field :remote_time_off_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_time_off_policy_id') } }
-      # The start date of the time off request
-      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # True if the start of the time off request begins half way through the day
-      field :start_half_day, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
-      # The status of the time off request
-      field :status, T.nilable(::StackOne::Shared::TimeOffStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-      # The time off policy id associated with this time off request
-      field :time_off_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_off_policy_id') } }
-      # The type of the time off request
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :type, T.nilable(::StackOne::Shared::TimeOffType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # The updated date of the time off request
-      field :updated_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :reason, T.nilable(Models::Shared::TimeOffReason), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reason') } }
+        # Provider's unique identifier of the approver
+        field :remote_approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_approver_id') } }
+        # Provider's unique identifier of the employee
+        field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's unique identifier of the time off policy id associated with this time off request
+        field :remote_time_off_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_time_off_policy_id') } }
+        # The start date of the time off request
+        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # True if the start of the time off request begins half way through the day
+        field :start_half_day, T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
+        # The status of the time off request
+        field :status, T.nilable(Models::Shared::TimeOffStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        # The time off policy id associated with this time off request
+        field :time_off_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_off_policy_id') } }
+        # The type of the time off request
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :type, T.nilable(Models::Shared::TimeOffType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # The updated date of the time off request
+        field :updated_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(::Object), id: T.nilable(::String), policy: T.nilable(::StackOne::Shared::Policy), reason: T.nilable(::StackOne::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(::Object), status: T.nilable(::StackOne::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(::StackOne::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
-      def initialize(approver_id: nil, created_date: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, policy: nil, reason: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, remote_time_off_policy_id: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil, updated_date: nil)
-        @approver_id = approver_id
-        @created_date = created_date
-        @duration = duration
-        @employee_id = employee_id
-        @end_date = end_date
-        @end_half_day = end_half_day
-        @id = id
-        @policy = policy
-        @reason = reason
-        @remote_approver_id = remote_approver_id
-        @remote_employee_id = remote_employee_id
-        @remote_id = remote_id
-        @remote_time_off_policy_id = remote_time_off_policy_id
-        @start_date = start_date
-        @start_half_day = start_half_day
-        @status = status
-        @time_off_policy_id = time_off_policy_id
-        @type = type
-        @updated_date = updated_date
+        sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), id: T.nilable(::String), policy: T.nilable(Models::Shared::Policy), reason: T.nilable(Models::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), status: T.nilable(Models::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
+        def initialize(approver_id: nil, created_date: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, policy: nil, reason: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, remote_time_off_policy_id: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil, updated_date: nil)
+          @approver_id = approver_id
+          @created_date = created_date
+          @duration = duration
+          @employee_id = employee_id
+          @end_date = end_date
+          @end_half_day = end_half_day
+          @id = id
+          @policy = policy
+          @reason = reason
+          @remote_approver_id = remote_approver_id
+          @remote_employee_id = remote_employee_id
+          @remote_id = remote_id
+          @remote_time_off_policy_id = remote_time_off_policy_id
+          @start_date = start_date
+          @start_half_day = start_half_day
+          @status = status
+          @time_off_policy_id = time_off_policy_id
+          @type = type
+          @updated_date = updated_date
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @approver_id == other.approver_id
+          return false unless @created_date == other.created_date
+          return false unless @duration == other.duration
+          return false unless @employee_id == other.employee_id
+          return false unless @end_date == other.end_date
+          return false unless @end_half_day == other.end_half_day
+          return false unless @id == other.id
+          return false unless @policy == other.policy
+          return false unless @reason == other.reason
+          return false unless @remote_approver_id == other.remote_approver_id
+          return false unless @remote_employee_id == other.remote_employee_id
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_time_off_policy_id == other.remote_time_off_policy_id
+          return false unless @start_date == other.start_date
+          return false unless @start_half_day == other.start_half_day
+          return false unless @status == other.status
+          return false unless @time_off_policy_id == other.time_off_policy_id
+          return false unless @type == other.type
+          return false unless @updated_date == other.updated_date
+          true
+        end
       end
     end
   end

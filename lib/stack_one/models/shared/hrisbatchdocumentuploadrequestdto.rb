@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HrisBatchDocumentUploadRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class HrisBatchDocumentUploadRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The batch of items to create
-      field :items, T::Array[::StackOne::Shared::HrisDocumentsUploadRequestDto], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
+        # The batch of items to create
+        field :items, T::Array[Models::Shared::HrisDocumentsUploadRequestDto], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
 
 
-      sig { params(items: T::Array[::StackOne::Shared::HrisDocumentsUploadRequestDto]).void }
-      def initialize(items: nil)
-        @items = items
+        sig { params(items: T::Array[Models::Shared::HrisDocumentsUploadRequestDto]).void }
+        def initialize(items: nil)
+          @items = items
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @items == other.items
+          true
+        end
       end
     end
   end

@@ -5,18 +5,20 @@
 
 
 module StackOne
-  module Shared
-  
-    # IamResourceValue - The type of the resource, e.g. user, group, permission, etc.
-    class IamResourceValue < T::Enum
-      enums do
-        PROJECT = new('project')
-        FILE = new('file')
-        FOLDER = new('folder')
-        PRODUCT = new('product')
-        PROPERTY = new('property')
-        USER = new('user')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # IamResourceValue - The type of the resource, e.g. user, group, permission, etc.
+      class IamResourceValue < T::Enum
+        enums do
+          PROJECT = new('project')
+          FILE = new('file')
+          FOLDER = new('folder')
+          PRODUCT = new('product')
+          PROPERTY = new('property')
+          USER = new('user')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

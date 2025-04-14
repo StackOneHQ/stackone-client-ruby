@@ -5,18 +5,23 @@
 
 
 module StackOne
-  module Shared
-  
-    # Value - The Channels of the campaign.
-    class Value < T::Enum
-      enums do
-        EMAIL = new('email')
-        SMS = new('sms')
-        WEB_PUSH = new('web_push')
-        IOS_PUSH = new('ios_push')
-        ANDROID_PUSH = new('android_push')
-        UNKNOWN = new('unknown')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # The value of the additional data
+      class Value
+        extend T::Sig
+        include Crystalline::MetadataFields
+
+
+
+        
+        def initialize; end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
       end
     end
   end

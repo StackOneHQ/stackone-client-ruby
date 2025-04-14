@@ -26,7 +26,7 @@ Delete User
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -49,7 +49,7 @@ end
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamDeleteUserResponse)](../../models/operations/iamdeleteuserresponse.md)**
+**[T.nilable(Models::Operations::IamDeleteUserResponse)](../../models/operations/iamdeleteuserresponse.md)**
 
 
 
@@ -63,13 +63,13 @@ Get Group
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamGetGroupRequest.new(
+req = Models::Operations::IamGetGroupRequest.new(
   expand: "roles",
   fields_: "id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at",
   id: "<id>",
@@ -86,13 +86,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [::StackOne::Operations::IamGetGroupRequest](../../models/operations/iamgetgrouprequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::IamGetGroupRequest](../../models/operations/iamgetgrouprequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamGetGroupResponse)](../../models/operations/iamgetgroupresponse.md)**
+**[T.nilable(Models::Operations::IamGetGroupResponse)](../../models/operations/iamgetgroupresponse.md)**
 
 
 
@@ -106,13 +106,13 @@ Get Policy
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamGetPolicyRequest.new(
+req = Models::Operations::IamGetPolicyRequest.new(
   expand: "permissions",
   fields_: "id,remote_id,name,permissions,description,created_at,updated_at",
   id: "<id>",
@@ -129,13 +129,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::IamGetPolicyRequest](../../models/operations/iamgetpolicyrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::IamGetPolicyRequest](../../models/operations/iamgetpolicyrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamGetPolicyResponse)](../../models/operations/iamgetpolicyresponse.md)**
+**[T.nilable(Models::Operations::IamGetPolicyResponse)](../../models/operations/iamgetpolicyresponse.md)**
 
 
 
@@ -149,13 +149,13 @@ Get Role
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamGetRoleRequest.new(
+req = Models::Operations::IamGetRoleRequest.new(
   expand: "policies",
   fields_: "id,remote_id,name,type,policies,description,created_at,updated_at",
   id: "<id>",
@@ -172,13 +172,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::StackOne::Operations::IamGetRoleRequest](../../models/operations/iamgetrolerequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [Models::Operations::IamGetRoleRequest](../../models/operations/iamgetrolerequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamGetRoleResponse)](../../models/operations/iamgetroleresponse.md)**
+**[T.nilable(Models::Operations::IamGetRoleResponse)](../../models/operations/iamgetroleresponse.md)**
 
 
 
@@ -192,13 +192,13 @@ Get User
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamGetUserRequest.new(
+req = Models::Operations::IamGetUserRequest.new(
   expand: "roles,groups",
   fields_: "id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled",
   id: "<id>",
@@ -215,13 +215,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [::StackOne::Operations::IamGetUserRequest](../../models/operations/iamgetuserrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [Models::Operations::IamGetUserRequest](../../models/operations/iamgetuserrequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamGetUserResponse)](../../models/operations/iamgetuserresponse.md)**
+**[T.nilable(Models::Operations::IamGetUserResponse)](../../models/operations/iamgetuserresponse.md)**
 
 
 
@@ -235,16 +235,16 @@ List Groups
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamListGroupsRequest.new(
+req = Models::Operations::IamListGroupsRequest.new(
   expand: "roles",
   fields_: "id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at",
-  filter: ::StackOne::Operations::IamListGroupsQueryParamFilter.new(
+  filter: Models::Operations::IamListGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -260,13 +260,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [::StackOne::Operations::IamListGroupsRequest](../../models/operations/iamlistgroupsrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::IamListGroupsRequest](../../models/operations/iamlistgroupsrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamListGroupsResponse)](../../models/operations/iamlistgroupsresponse.md)**
+**[T.nilable(Models::Operations::IamListGroupsResponse)](../../models/operations/iamlistgroupsresponse.md)**
 
 
 
@@ -280,16 +280,16 @@ List Policies
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamListPoliciesRequest.new(
+req = Models::Operations::IamListPoliciesRequest.new(
   expand: "permissions",
   fields_: "id,remote_id,name,permissions,description,created_at,updated_at",
-  filter: ::StackOne::Operations::IamListPoliciesQueryParamFilter.new(
+  filter: Models::Operations::IamListPoliciesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -305,13 +305,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [::StackOne::Operations::IamListPoliciesRequest](../../models/operations/iamlistpoliciesrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::IamListPoliciesRequest](../../models/operations/iamlistpoliciesrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamListPoliciesResponse)](../../models/operations/iamlistpoliciesresponse.md)**
+**[T.nilable(Models::Operations::IamListPoliciesResponse)](../../models/operations/iamlistpoliciesresponse.md)**
 
 
 
@@ -325,16 +325,16 @@ List Roles
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamListRolesRequest.new(
+req = Models::Operations::IamListRolesRequest.new(
   expand: "policies",
   fields_: "id,remote_id,name,type,policies,description,created_at,updated_at",
-  filter: ::StackOne::Operations::IamListRolesQueryParamFilter.new(
+  filter: Models::Operations::IamListRolesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -350,13 +350,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::IamListRolesRequest](../../models/operations/iamlistrolesrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::IamListRolesRequest](../../models/operations/iamlistrolesrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamListRolesResponse)](../../models/operations/iamlistrolesresponse.md)**
+**[T.nilable(Models::Operations::IamListRolesResponse)](../../models/operations/iamlistrolesresponse.md)**
 
 
 
@@ -370,16 +370,16 @@ List Users
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::IamListUsersRequest.new(
+req = Models::Operations::IamListUsersRequest.new(
   expand: "roles,groups",
   fields_: "id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled",
-  filter: ::StackOne::Operations::IamListUsersQueryParamFilter.new(
+  filter: Models::Operations::IamListUsersQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -395,13 +395,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [::StackOne::Operations::IamListUsersRequest](../../models/operations/iamlistusersrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::IamListUsersRequest](../../models/operations/iamlistusersrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamListUsersResponse)](../../models/operations/iamlistusersresponse.md)**
+**[T.nilable(Models::Operations::IamListUsersResponse)](../../models/operations/iamlistusersresponse.md)**
 
 
 
@@ -415,13 +415,13 @@ Update User
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.iam.update_user(iam_update_user_request_dto=::StackOne::Shared::IamUpdateUserRequestDto.new(
+res = s.iam.update_user(iam_update_user_request_dto=Models::Shared::IamUpdateUserRequestDto.new(
   first_name: "Han",
   is_bot_user: true,
   last_name: "Solo",
@@ -430,8 +430,8 @@ res = s.iam.update_user(iam_update_user_request_dto=::StackOne::Shared::IamUpdat
     "other_known_names": "John Doe",
   },
   primary_email_address: "han@stackone.com",
-  status: ::StackOne::Shared::IamUpdateUserRequestDtoStatus.new(
-    value: ::StackOne::Shared::IamUpdateUserRequestDtoValue::ENABLED,
+  status: Models::Shared::IamUpdateUserRequestDtoStatus.new(
+    value: Models::Shared::IamUpdateUserRequestDtoValue::ENABLED,
   ),
   username: "hansolo1977",
 ), id="<id>", x_account_id="<id>")
@@ -444,13 +444,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `iam_update_user_request_dto`                                                                 | [::StackOne::Shared::IamUpdateUserRequestDto](../../models/shared/iamupdateuserrequestdto.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `id`                                                                                          | *::String*                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `x_account_id`                                                                                | *::String*                                                                                    | :heavy_check_mark:                                                                            | The account identifier                                                                        |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `iam_update_user_request_dto`                                                             | [Models::Shared::IamUpdateUserRequestDto](../../models/shared/iamupdateuserrequestdto.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `id`                                                                                      | *::String*                                                                                | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `x_account_id`                                                                            | *::String*                                                                                | :heavy_check_mark:                                                                        | The account identifier                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::IamUpdateUserResponse)](../../models/operations/iamupdateuserresponse.md)**
+**[T.nilable(Models::Operations::IamUpdateUserResponse)](../../models/operations/iamupdateuserresponse.md)**
 

@@ -5,34 +5,48 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CustomFields < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CustomFields
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name of the custom field.
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's unique identifier for the value of the custom field.
-      field :remote_value_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_value_id') } }
-      # The value associated with the custom field.
-      field :value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
-      # The unique identifier for the value of the custom field.
-      field :value_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value_id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The name of the custom field.
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's unique identifier for the value of the custom field.
+        field :remote_value_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_value_id') } }
+        # The value associated with the custom field.
+        field :value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFields4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        # The unique identifier for the value of the custom field.
+        field :value_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value_id') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_value_id: T.nilable(::String), value: T.nilable(::Object), value_id: T.nilable(::String)).void }
-      def initialize(id: nil, name: nil, remote_id: nil, remote_value_id: nil, value: nil, value_id: nil)
-        @id = id
-        @name = name
-        @remote_id = remote_id
-        @remote_value_id = remote_value_id
-        @value = value
-        @value_id = value_id
+        sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_value_id: T.nilable(::String), value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFields4, T::Array[::Object])), value_id: T.nilable(::String)).void }
+        def initialize(id: nil, name: nil, remote_id: nil, remote_value_id: nil, value: nil, value_id: nil)
+          @id = id
+          @name = name
+          @remote_id = remote_id
+          @remote_value_id = remote_value_id
+          @value = value
+          @value_id = value_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_value_id == other.remote_value_id
+          return false unless @value == other.value
+          return false unless @value_id == other.value_id
+          true
+        end
       end
     end
   end

@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Operations
-  
-    # JobStatus - The job_status of the job
-    class JobStatus < T::Enum
-      enums do
-        OPEN = new('open')
-        DRAFT = new('draft')
+  module Models
+    module Operations
+    
+      # JobStatus - The job_status of the job
+      class JobStatus < T::Enum
+        enums do
+          OPEN = new('open')
+          DRAFT = new('draft')
+        end
       end
     end
   end

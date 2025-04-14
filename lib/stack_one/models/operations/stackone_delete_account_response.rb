@@ -5,64 +5,44 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class StackoneDeleteAccountResponse < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class StackoneDeleteAccountResponse
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # HTTP response content type for this operation
-      field :content_type, ::String
+        # HTTP response content type for this operation
+        field :content_type, ::String
 
-      field :headers, T::Hash[Symbol, T::Array[::String]]
-      # Raw HTTP response; suitable for custom response parsing
-      field :raw_response, ::Faraday::Response
-      # HTTP response status code for this operation
-      field :status_code, ::Integer
-      # Bad gateway error.
-      field :bad_gateway_response, T.nilable(::StackOne::Shared::BadGatewayResponse)
-      # Invalid request.
-      field :bad_request_response, T.nilable(::StackOne::Shared::BadRequestResponse)
-      # Conflict with current state.
-      field :conflict_response, T.nilable(::StackOne::Shared::ConflictResponse)
-      # Forbidden.
-      field :forbidden_response, T.nilable(::StackOne::Shared::ForbiddenResponse)
-      # Server error while executing the request.
-      field :internal_server_error_response, T.nilable(::StackOne::Shared::InternalServerErrorResponse)
-      # The account with the given identifier was deleted.
-      field :linked_account, T.nilable(::StackOne::Shared::LinkedAccount)
-      # Resource not found.
-      field :not_found_response, T.nilable(::StackOne::Shared::NotFoundResponse)
-      # This functionality is not implemented.
-      field :not_implemented_response, T.nilable(::StackOne::Shared::NotImplementedResponse)
-      # The request has timed out.
-      field :request_timed_out_response, T.nilable(::StackOne::Shared::RequestTimedOutResponse)
-      # Too many requests.
-      field :too_many_requests_response, T.nilable(::StackOne::Shared::TooManyRequestsResponse)
-      # Unauthorized access.
-      field :unauthorized_response, T.nilable(::StackOne::Shared::UnauthorizedResponse)
-      # Validation error.
-      field :unprocessable_entity_response, T.nilable(::StackOne::Shared::UnprocessableEntityResponse)
+        field :headers, T::Hash[Symbol, T::Array[::String]]
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
+        # HTTP response status code for this operation
+        field :status_code, ::Integer
+        # The account with the given identifier was deleted.
+        field :linked_account, T.nilable(Models::Shared::LinkedAccount)
 
 
-      sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, bad_gateway_response: T.nilable(::StackOne::Shared::BadGatewayResponse), bad_request_response: T.nilable(::StackOne::Shared::BadRequestResponse), conflict_response: T.nilable(::StackOne::Shared::ConflictResponse), forbidden_response: T.nilable(::StackOne::Shared::ForbiddenResponse), internal_server_error_response: T.nilable(::StackOne::Shared::InternalServerErrorResponse), linked_account: T.nilable(::StackOne::Shared::LinkedAccount), not_found_response: T.nilable(::StackOne::Shared::NotFoundResponse), not_implemented_response: T.nilable(::StackOne::Shared::NotImplementedResponse), request_timed_out_response: T.nilable(::StackOne::Shared::RequestTimedOutResponse), too_many_requests_response: T.nilable(::StackOne::Shared::TooManyRequestsResponse), unauthorized_response: T.nilable(::StackOne::Shared::UnauthorizedResponse), unprocessable_entity_response: T.nilable(::StackOne::Shared::UnprocessableEntityResponse)).void }
-      def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, bad_gateway_response: nil, bad_request_response: nil, conflict_response: nil, forbidden_response: nil, internal_server_error_response: nil, linked_account: nil, not_found_response: nil, not_implemented_response: nil, request_timed_out_response: nil, too_many_requests_response: nil, unauthorized_response: nil, unprocessable_entity_response: nil)
-        @content_type = content_type
-        @headers = headers
-        @raw_response = raw_response
-        @status_code = status_code
-        @bad_gateway_response = bad_gateway_response
-        @bad_request_response = bad_request_response
-        @conflict_response = conflict_response
-        @forbidden_response = forbidden_response
-        @internal_server_error_response = internal_server_error_response
-        @linked_account = linked_account
-        @not_found_response = not_found_response
-        @not_implemented_response = not_implemented_response
-        @request_timed_out_response = request_timed_out_response
-        @too_many_requests_response = too_many_requests_response
-        @unauthorized_response = unauthorized_response
-        @unprocessable_entity_response = unprocessable_entity_response
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, linked_account: T.nilable(Models::Shared::LinkedAccount)).void }
+        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, linked_account: nil)
+          @content_type = content_type
+          @headers = headers
+          @raw_response = raw_response
+          @status_code = status_code
+          @linked_account = linked_account
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content_type == other.content_type
+          return false unless @headers == other.headers
+          return false unless @raw_response == other.raw_response
+          return false unless @status_code == other.status_code
+          return false unless @linked_account == other.linked_account
+          true
+        end
       end
     end
   end

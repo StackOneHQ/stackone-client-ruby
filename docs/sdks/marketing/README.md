@@ -42,19 +42,19 @@ Create Content Block
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.create_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
+res = s.marketing.create_content_block(marketing_create_content_blocks_request_dto=Models::Shared::MarketingCreateContentBlocksRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
   },
-  type: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType.new(
+  type: Models::Shared::MarketingCreateContentBlocksRequestDtoType.new(
     source_value: "text",
-    value: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
+    value: Models::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
   ),
 ), x_account_id="<id>")
 
@@ -66,14 +66,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_content_blocks_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_content_blocks_request_dto`                                                                           | [Models::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingCreateContentBlockResponse)](../../models/operations/marketingcreatecontentblockresponse.md)**
+**[T.nilable(Models::Operations::MarketingCreateContentBlockResponse)](../../models/operations/marketingcreatecontentblockresponse.md)**
 
 
 
@@ -87,19 +87,19 @@ Create Email Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.create_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
+res = s.marketing.create_email_template(marketing_create_email_template_request_dto=Models::Shared::MarketingCreateEmailTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::EmailMessages.new(
+    Models::Shared::EmailMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::EmailMessagesMessageType.new(
+      message_type: Models::Shared::EmailMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::EmailMessagesValue::EMAIL,
+        value: Models::Shared::EmailMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -117,14 +117,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_email_template_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateEmailTemplateRequestDto](../../models/shared/marketingcreateemailtemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_email_template_request_dto`                                                                           | [Models::Shared::MarketingCreateEmailTemplateRequestDto](../../models/shared/marketingcreateemailtemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingCreateEmailTemplateResponse)](../../models/operations/marketingcreateemailtemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingCreateEmailTemplateResponse)](../../models/operations/marketingcreateemailtemplateresponse.md)**
 
 
 
@@ -138,19 +138,19 @@ Create In-App Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.create_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
+res = s.marketing.create_in_app_template(marketing_create_in_app_template_request_dto=Models::Shared::MarketingCreateInAppTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::InAppMessages.new(
+    Models::Shared::InAppMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
+      message_type: Models::Shared::InAppMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::InAppMessagesValue::EMAIL,
+        value: Models::Shared::InAppMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -168,14 +168,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_in_app_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_in_app_template_request_dto`                                                                          | [Models::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingCreateInAppTemplateResponse)](../../models/operations/marketingcreateinapptemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingCreateInAppTemplateResponse)](../../models/operations/marketingcreateinapptemplateresponse.md)**
 
 
 
@@ -191,19 +191,19 @@ Create Omni-Channel Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
+res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto=Models::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::CreateMessage.new(
+    Models::Shared::CreateMessage.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::MessageType.new(
+      message_type: Models::Shared::MessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::CreateMessageValue::EMAIL,
+        value: Models::Shared::CreateMessageValue::EMAIL,
       ),
     ),
   ],
@@ -220,14 +220,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_template_request_dto`                                                                           | [::StackOne::Shared::MarketingCreateTemplateRequestDto](../../models/shared/marketingcreatetemplaterequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_template_request_dto`                                                                       | [Models::Shared::MarketingCreateTemplateRequestDto](../../models/shared/marketingcreatetemplaterequestdto.md) | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `x_account_id`                                                                                                | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The account identifier                                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingCreateOmniChannelTemplateResponse)](../../models/operations/marketingcreateomnichanneltemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingCreateOmniChannelTemplateResponse)](../../models/operations/marketingcreateomnichanneltemplateresponse.md)**
 
 
 
@@ -241,19 +241,19 @@ Create Push Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.create_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
+res = s.marketing.create_push_template(marketing_create_push_template_request_dto=Models::Shared::MarketingCreatePushTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::PushMessages.new(
+    Models::Shared::PushMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::PushMessagesMessageType.new(
+      message_type: Models::Shared::PushMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::PushMessagesValue::EMAIL,
+        value: Models::Shared::PushMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -271,14 +271,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_push_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreatePushTemplateRequestDto](../../models/shared/marketingcreatepushtemplaterequestdto.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
-| `x_account_id`                                                                                                            | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | The account identifier                                                                                                    |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_push_template_request_dto`                                                                          | [Models::Shared::MarketingCreatePushTemplateRequestDto](../../models/shared/marketingcreatepushtemplaterequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingCreatePushTemplateResponse)](../../models/operations/marketingcreatepushtemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingCreatePushTemplateResponse)](../../models/operations/marketingcreatepushtemplateresponse.md)**
 
 
 
@@ -292,19 +292,19 @@ Create SMS Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
+res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto=Models::Shared::MarketingCreateSmsTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::SmsMessages.new(
+    Models::Shared::SmsMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
+      message_type: Models::Shared::SmsMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::SmsMessagesValue::EMAIL,
+        value: Models::Shared::SmsMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -322,14 +322,14 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_sms_template_request_dto`                                                                             | [::StackOne::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_sms_template_request_dto`                                                                         | [Models::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |
+| `x_account_id`                                                                                                      | *::String*                                                                                                          | :heavy_check_mark:                                                                                                  | The account identifier                                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingCreateSmsTemplateResponse)](../../models/operations/marketingcreatesmstemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingCreateSmsTemplateResponse)](../../models/operations/marketingcreatesmstemplateresponse.md)**
 
 
 
@@ -343,13 +343,13 @@ Get campaign
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetCampaignRequest.new(
+req = Models::Operations::MarketingGetCampaignRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
   id: "<id>",
   x_account_id: "<id>",
@@ -365,13 +365,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [::StackOne::Operations::MarketingGetCampaignRequest](../../models/operations/marketinggetcampaignrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::MarketingGetCampaignRequest](../../models/operations/marketinggetcampaignrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetCampaignResponse)](../../models/operations/marketinggetcampaignresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetCampaignResponse)](../../models/operations/marketinggetcampaignresponse.md)**
 
 
 
@@ -385,13 +385,13 @@ Get Content Blocks
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetContentBlockRequest.new(
+req = Models::Operations::MarketingGetContentBlockRequest.new(
   fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
   id: "<id>",
   x_account_id: "<id>",
@@ -407,13 +407,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [::StackOne::Operations::MarketingGetContentBlockRequest](../../models/operations/marketinggetcontentblockrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::MarketingGetContentBlockRequest](../../models/operations/marketinggetcontentblockrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetContentBlockResponse)](../../models/operations/marketinggetcontentblockresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetContentBlockResponse)](../../models/operations/marketinggetcontentblockresponse.md)**
 
 
 
@@ -427,13 +427,13 @@ Get Email Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetEmailTemplateRequest.new(
+req = Models::Operations::MarketingGetEmailTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
@@ -449,13 +449,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::MarketingGetEmailTemplateRequest](../../models/operations/marketinggetemailtemplaterequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::MarketingGetEmailTemplateRequest](../../models/operations/marketinggetemailtemplaterequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetEmailTemplateResponse)](../../models/operations/marketinggetemailtemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetEmailTemplateResponse)](../../models/operations/marketinggetemailtemplateresponse.md)**
 
 
 
@@ -469,13 +469,13 @@ Get In-App Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetInAppTemplateRequest.new(
+req = Models::Operations::MarketingGetInAppTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
@@ -491,13 +491,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::MarketingGetInAppTemplateRequest](../../models/operations/marketinggetinapptemplaterequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::MarketingGetInAppTemplateRequest](../../models/operations/marketinggetinapptemplaterequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetInAppTemplateResponse)](../../models/operations/marketinggetinapptemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetInAppTemplateResponse)](../../models/operations/marketinggetinapptemplateresponse.md)**
 
 
 
@@ -513,13 +513,13 @@ Get Omni-Channel Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetOmniChannelTemplateRequest.new(
+req = Models::Operations::MarketingGetOmniChannelTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
@@ -535,13 +535,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                           | [::StackOne::Operations::MarketingGetOmniChannelTemplateRequest](../../models/operations/marketinggetomnichanneltemplaterequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                       | [Models::Operations::MarketingGetOmniChannelTemplateRequest](../../models/operations/marketinggetomnichanneltemplaterequest.md) | :heavy_check_mark:                                                                                                              | The request object to use for the request.                                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetOmniChannelTemplateResponse)](../../models/operations/marketinggetomnichanneltemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetOmniChannelTemplateResponse)](../../models/operations/marketinggetomnichanneltemplateresponse.md)**
 
 
 
@@ -555,13 +555,13 @@ Get Push Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetPushTemplateRequest.new(
+req = Models::Operations::MarketingGetPushTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
@@ -577,13 +577,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [::StackOne::Operations::MarketingGetPushTemplateRequest](../../models/operations/marketinggetpushtemplaterequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::MarketingGetPushTemplateRequest](../../models/operations/marketinggetpushtemplaterequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetPushTemplateResponse)](../../models/operations/marketinggetpushtemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetPushTemplateResponse)](../../models/operations/marketinggetpushtemplateresponse.md)**
 
 
 
@@ -597,13 +597,13 @@ Get SMS Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingGetSmsTemplateRequest.new(
+req = Models::Operations::MarketingGetSmsTemplateRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   id: "<id>",
   x_account_id: "<id>",
@@ -619,13 +619,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [::StackOne::Operations::MarketingGetSmsTemplateRequest](../../models/operations/marketinggetsmstemplaterequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::MarketingGetSmsTemplateRequest](../../models/operations/marketinggetsmstemplaterequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingGetSmsTemplateResponse)](../../models/operations/marketinggetsmstemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingGetSmsTemplateResponse)](../../models/operations/marketinggetsmstemplateresponse.md)**
 
 
 
@@ -639,15 +639,15 @@ List campaigns
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListCampaignsRequest.new(
+req = Models::Operations::MarketingListCampaignsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
-  filter: ::StackOne::Operations::MarketingListCampaignsQueryParamFilter.new(
+  filter: Models::Operations::MarketingListCampaignsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -663,13 +663,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [::StackOne::Operations::MarketingListCampaignsRequest](../../models/operations/marketinglistcampaignsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::MarketingListCampaignsRequest](../../models/operations/marketinglistcampaignsrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListCampaignsResponse)](../../models/operations/marketinglistcampaignsresponse.md)**
+**[T.nilable(Models::Operations::MarketingListCampaignsResponse)](../../models/operations/marketinglistcampaignsresponse.md)**
 
 
 
@@ -683,15 +683,15 @@ List Content Blocks
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListContentBlocksRequest.new(
+req = Models::Operations::MarketingListContentBlocksRequest.new(
   fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
-  filter: ::StackOne::Operations::MarketingListContentBlocksQueryParamFilter.new(
+  filter: Models::Operations::MarketingListContentBlocksQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -707,13 +707,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                 | [::StackOne::Operations::MarketingListContentBlocksRequest](../../models/operations/marketinglistcontentblocksrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [Models::Operations::MarketingListContentBlocksRequest](../../models/operations/marketinglistcontentblocksrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListContentBlocksResponse)](../../models/operations/marketinglistcontentblocksresponse.md)**
+**[T.nilable(Models::Operations::MarketingListContentBlocksResponse)](../../models/operations/marketinglistcontentblocksresponse.md)**
 
 
 
@@ -727,15 +727,15 @@ List Email Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListEmailTemplatesRequest.new(
+req = Models::Operations::MarketingListEmailTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
-  filter: ::StackOne::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
+  filter: Models::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -751,13 +751,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                   | [::StackOne::Operations::MarketingListEmailTemplatesRequest](../../models/operations/marketinglistemailtemplatesrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [Models::Operations::MarketingListEmailTemplatesRequest](../../models/operations/marketinglistemailtemplatesrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListEmailTemplatesResponse)](../../models/operations/marketinglistemailtemplatesresponse.md)**
+**[T.nilable(Models::Operations::MarketingListEmailTemplatesResponse)](../../models/operations/marketinglistemailtemplatesresponse.md)**
 
 
 
@@ -771,15 +771,15 @@ List In-App Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListInAppTemplatesRequest.new(
+req = Models::Operations::MarketingListInAppTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
-  filter: ::StackOne::Operations::MarketingListInAppTemplatesQueryParamFilter.new(
+  filter: Models::Operations::MarketingListInAppTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -795,13 +795,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                   | [::StackOne::Operations::MarketingListInAppTemplatesRequest](../../models/operations/marketinglistinapptemplatesrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [Models::Operations::MarketingListInAppTemplatesRequest](../../models/operations/marketinglistinapptemplatesrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListInAppTemplatesResponse)](../../models/operations/marketinglistinapptemplatesresponse.md)**
+**[T.nilable(Models::Operations::MarketingListInAppTemplatesResponse)](../../models/operations/marketinglistinapptemplatesresponse.md)**
 
 
 
@@ -817,15 +817,15 @@ List Omni-Channel Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListOmniChannelTemplatesRequest.new(
+req = Models::Operations::MarketingListOmniChannelTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
-  filter: ::StackOne::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
+  filter: Models::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -841,13 +841,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                               | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                               | [::StackOne::Operations::MarketingListOmniChannelTemplatesRequest](../../models/operations/marketinglistomnichanneltemplatesrequest.md) | :heavy_check_mark:                                                                                                                      | The request object to use for the request.                                                                                              |
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [Models::Operations::MarketingListOmniChannelTemplatesRequest](../../models/operations/marketinglistomnichanneltemplatesrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListOmniChannelTemplatesResponse)](../../models/operations/marketinglistomnichanneltemplatesresponse.md)**
+**[T.nilable(Models::Operations::MarketingListOmniChannelTemplatesResponse)](../../models/operations/marketinglistomnichanneltemplatesresponse.md)**
 
 
 
@@ -861,15 +861,15 @@ List Push Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListPushTemplatesRequest.new(
+req = Models::Operations::MarketingListPushTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
-  filter: ::StackOne::Operations::MarketingListPushTemplatesQueryParamFilter.new(
+  filter: Models::Operations::MarketingListPushTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -885,13 +885,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                 | [::StackOne::Operations::MarketingListPushTemplatesRequest](../../models/operations/marketinglistpushtemplatesrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [Models::Operations::MarketingListPushTemplatesRequest](../../models/operations/marketinglistpushtemplatesrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListPushTemplatesResponse)](../../models/operations/marketinglistpushtemplatesresponse.md)**
+**[T.nilable(Models::Operations::MarketingListPushTemplatesResponse)](../../models/operations/marketinglistpushtemplatesresponse.md)**
 
 
 
@@ -905,15 +905,15 @@ List SMS Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::MarketingListSmsTemplatesRequest.new(
+req = Models::Operations::MarketingListSmsTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
-  filter: ::StackOne::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
+  filter: Models::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   x_account_id: "<id>",
@@ -929,13 +929,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [::StackOne::Operations::MarketingListSmsTemplatesRequest](../../models/operations/marketinglistsmstemplatesrequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::MarketingListSmsTemplatesRequest](../../models/operations/marketinglistsmstemplatesrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingListSmsTemplatesResponse)](../../models/operations/marketinglistsmstemplatesresponse.md)**
+**[T.nilable(Models::Operations::MarketingListSmsTemplatesResponse)](../../models/operations/marketinglistsmstemplatesresponse.md)**
 
 
 
@@ -949,19 +949,19 @@ Update Content Block
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.update_content_block(marketing_create_content_blocks_request_dto=::StackOne::Shared::MarketingCreateContentBlocksRequestDto.new(
+res = s.marketing.update_content_block(marketing_create_content_blocks_request_dto=Models::Shared::MarketingCreateContentBlocksRequestDto.new(
   passthrough: {
     "other_known_names": "John Doe",
   },
-  type: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoType.new(
+  type: Models::Shared::MarketingCreateContentBlocksRequestDtoType.new(
     source_value: "text",
-    value: ::StackOne::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
+    value: Models::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
   ),
 ), id="<id>", x_account_id="<id>")
 
@@ -973,15 +973,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_content_blocks_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_content_blocks_request_dto`                                                                           | [Models::Shared::MarketingCreateContentBlocksRequestDto](../../models/shared/marketingcreatecontentblocksrequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingUpdateContentBlockResponse)](../../models/operations/marketingupdatecontentblockresponse.md)**
+**[T.nilable(Models::Operations::MarketingUpdateContentBlockResponse)](../../models/operations/marketingupdatecontentblockresponse.md)**
 
 
 
@@ -995,19 +995,19 @@ Update Email Templates
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.update_email_template(marketing_create_email_template_request_dto=::StackOne::Shared::MarketingCreateEmailTemplateRequestDto.new(
+res = s.marketing.update_email_template(marketing_create_email_template_request_dto=Models::Shared::MarketingCreateEmailTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::EmailMessages.new(
+    Models::Shared::EmailMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::EmailMessagesMessageType.new(
+      message_type: Models::Shared::EmailMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::EmailMessagesValue::EMAIL,
+        value: Models::Shared::EmailMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1025,15 +1025,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_email_template_request_dto`                                                                               | [::StackOne::Shared::MarketingCreateEmailTemplateRequestDto](../../models/shared/marketingcreateemailtemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_email_template_request_dto`                                                                           | [Models::Shared::MarketingCreateEmailTemplateRequestDto](../../models/shared/marketingcreateemailtemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingUpdateEmailTemplateResponse)](../../models/operations/marketingupdateemailtemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingUpdateEmailTemplateResponse)](../../models/operations/marketingupdateemailtemplateresponse.md)**
 
 
 
@@ -1047,19 +1047,19 @@ Update In-App Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.update_in_app_template(marketing_create_in_app_template_request_dto=::StackOne::Shared::MarketingCreateInAppTemplateRequestDto.new(
+res = s.marketing.update_in_app_template(marketing_create_in_app_template_request_dto=Models::Shared::MarketingCreateInAppTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::InAppMessages.new(
+    Models::Shared::InAppMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::InAppMessagesMessageType.new(
+      message_type: Models::Shared::InAppMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::InAppMessagesValue::EMAIL,
+        value: Models::Shared::InAppMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1077,15 +1077,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_in_app_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_in_app_template_request_dto`                                                                          | [Models::Shared::MarketingCreateInAppTemplateRequestDto](../../models/shared/marketingcreateinapptemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingUpdateInAppTemplateResponse)](../../models/operations/marketingupdateinapptemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingUpdateInAppTemplateResponse)](../../models/operations/marketingupdateinapptemplateresponse.md)**
 
 
 
@@ -1101,19 +1101,19 @@ Update Omni-Channel Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=::StackOne::Shared::MarketingCreateTemplateRequestDto.new(
+res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto=Models::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::CreateMessage.new(
+    Models::Shared::CreateMessage.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::MessageType.new(
+      message_type: Models::Shared::MessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::CreateMessageValue::EMAIL,
+        value: Models::Shared::CreateMessageValue::EMAIL,
       ),
     ),
   ],
@@ -1130,15 +1130,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_template_request_dto`                                                                           | [::StackOne::Shared::MarketingCreateTemplateRequestDto](../../models/shared/marketingcreatetemplaterequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_template_request_dto`                                                                       | [Models::Shared::MarketingCreateTemplateRequestDto](../../models/shared/marketingcreatetemplaterequestdto.md) | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `id`                                                                                                          | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `x_account_id`                                                                                                | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The account identifier                                                                                        |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingUpdateOmniChannelTemplateResponse)](../../models/operations/marketingupdateomnichanneltemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingUpdateOmniChannelTemplateResponse)](../../models/operations/marketingupdateomnichanneltemplateresponse.md)**
 
 
 
@@ -1152,19 +1152,19 @@ Update Push Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.update_push_template(marketing_create_push_template_request_dto=::StackOne::Shared::MarketingCreatePushTemplateRequestDto.new(
+res = s.marketing.update_push_template(marketing_create_push_template_request_dto=Models::Shared::MarketingCreatePushTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::PushMessages.new(
+    Models::Shared::PushMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::PushMessagesMessageType.new(
+      message_type: Models::Shared::PushMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::PushMessagesValue::EMAIL,
+        value: Models::Shared::PushMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1182,15 +1182,15 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_push_template_request_dto`                                                                              | [::StackOne::Shared::MarketingCreatePushTemplateRequestDto](../../models/shared/marketingcreatepushtemplaterequestdto.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
-| `id`                                                                                                                      | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
-| `x_account_id`                                                                                                            | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | The account identifier                                                                                                    |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_push_template_request_dto`                                                                          | [Models::Shared::MarketingCreatePushTemplateRequestDto](../../models/shared/marketingcreatepushtemplaterequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `id`                                                                                                                  | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingUpdatePushTemplateResponse)](../../models/operations/marketingupdatepushtemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingUpdatePushTemplateResponse)](../../models/operations/marketingupdatepushtemplateresponse.md)**
 
 
 
@@ -1204,19 +1204,19 @@ Update SMS Template
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=::StackOne::Shared::MarketingCreateSmsTemplateRequestDto.new(
+res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto=Models::Shared::MarketingCreateSmsTemplateRequestDto.new(
   messages: [
-    ::StackOne::Shared::SmsMessages.new(
+    Models::Shared::SmsMessages.new(
       id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-      message_type: ::StackOne::Shared::SmsMessagesMessageType.new(
+      message_type: Models::Shared::SmsMessagesMessageType.new(
         source_value: "Email",
-        value: ::StackOne::Shared::SmsMessagesValue::EMAIL,
+        value: Models::Shared::SmsMessagesValue::EMAIL,
       ),
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     ),
@@ -1234,13 +1234,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `marketing_create_sms_template_request_dto`                                                                             | [::StackOne::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `marketing_create_sms_template_request_dto`                                                                         | [Models::Shared::MarketingCreateSmsTemplateRequestDto](../../models/shared/marketingcreatesmstemplaterequestdto.md) | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |
+| `id`                                                                                                                | *::String*                                                                                                          | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |
+| `x_account_id`                                                                                                      | *::String*                                                                                                          | :heavy_check_mark:                                                                                                  | The account identifier                                                                                              |
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::MarketingUpdateSmsTemplateResponse)](../../models/operations/marketingupdatesmstemplateresponse.md)**
+**[T.nilable(Models::Operations::MarketingUpdateSmsTemplateResponse)](../../models/operations/marketingupdatesmstemplateresponse.md)**
 

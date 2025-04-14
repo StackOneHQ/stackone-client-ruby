@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class UnifiedWarningApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class UnifiedWarningApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+        field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
 
 
-      sig { params(message: T.nilable(::String)).void }
-      def initialize(message: nil)
-        @message = message
+        sig { params(message: T.nilable(::String)).void }
+        def initialize(message: nil)
+          @message = message
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @message == other.message
+          true
+        end
       end
     end
   end

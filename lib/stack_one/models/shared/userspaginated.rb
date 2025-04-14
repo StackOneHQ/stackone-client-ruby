@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class UsersPaginated < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :data, T::Array[::StackOne::Shared::LmsUser], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
-
-      field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
-
-      field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+      class UsersPaginated
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(data: T::Array[::StackOne::Shared::LmsUser], next_: T.nilable(::String), raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
-      def initialize(data: nil, next_: nil, raw: nil)
-        @data = data
-        @next_ = next_
-        @raw = raw
+        field :data, T::Array[Models::Shared::LmsUser], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+
+        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+
+        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+
+
+        sig { params(data: T::Array[Models::Shared::LmsUser], next_: T.nilable(::String), raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
+        def initialize(data: nil, next_: nil, raw: nil)
+          @data = data
+          @next_ = next_
+          @raw = raw
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          return false unless @next_ == other.next_
+          return false unless @raw == other.raw
+          true
+        end
       end
     end
   end

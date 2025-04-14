@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class LinkedAccountStatus < T::Enum
-      enums do
-        ACTIVE = new('active')
-        INACTIVE = new('inactive')
-        ERROR = new('error')
+      class LinkedAccountStatus < T::Enum
+        enums do
+          ACTIVE = new('active')
+          INACTIVE = new('inactive')
+          ERROR = new('error')
+        end
       end
     end
   end

@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class MarketingCreatePushTemplateRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :messages, T.nilable(T::Array[::StackOne::Shared::PushMessages]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
-      field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+      class MarketingCreatePushTemplateRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(messages: T.nilable(T::Array[::StackOne::Shared::PushMessages]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
-      def initialize(messages: nil, name: nil, passthrough: nil, tags: nil)
-        @messages = messages
-        @name = name
-        @passthrough = passthrough
-        @tags = tags
+        field :messages, T.nilable(T::Array[Models::Shared::PushMessages]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
+
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+
+        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+
+
+        sig { params(messages: T.nilable(T::Array[Models::Shared::PushMessages]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
+        def initialize(messages: nil, name: nil, passthrough: nil, tags: nil)
+          @messages = messages
+          @name = name
+          @passthrough = passthrough
+          @tags = tags
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @messages == other.messages
+          return false unless @name == other.name
+          return false unless @passthrough == other.passthrough
+          return false unless @tags == other.tags
+          true
+        end
       end
     end
   end

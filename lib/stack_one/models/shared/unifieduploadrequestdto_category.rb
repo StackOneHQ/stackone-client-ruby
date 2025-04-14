@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.
-    class UnifiedUploadRequestDtoCategory < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.
+      class UnifiedUploadRequestDtoCategory
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The provider specific category for associating uploaded files, if provided, the value will be ignored.
-      field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The category name for associating uploaded files.
-      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        # The provider specific category for associating uploaded files, if provided, the value will be ignored.
+        field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The category name for associating uploaded files.
+        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(source_value: T.nilable(::String), value: T.nilable(::String)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(::String), value: T.nilable(::String)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

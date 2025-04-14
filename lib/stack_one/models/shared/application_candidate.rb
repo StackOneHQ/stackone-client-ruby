@@ -5,43 +5,60 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ApplicationCandidate < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ApplicationCandidate
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Candidate company
-      field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
-      # Email of the candidate
-      field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
-      # List of candidate emails
-      field :emails, T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
-      # First name of the candidate
-      field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-      # Last name of the candidate
-      field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-      # Candidate name
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # List of candidate phone numbers including the type of the number when available
-      field :phone_numbers, T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
-      # List of candidate social links
-      field :social_links, T.nilable(T::Array[::StackOne::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
-      # Candidate title
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        # Candidate company
+        field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
+        # Email of the candidate
+        field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+        # List of candidate emails
+        field :emails, T.nilable(T::Array[Models::Shared::CandidateEmail]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
+        # First name of the candidate
+        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        # Last name of the candidate
+        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        # Candidate name
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # List of candidate phone numbers including the type of the number when available
+        field :phone_numbers, T.nilable(T::Array[Models::Shared::PhoneNumber]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        # List of candidate social links
+        field :social_links, T.nilable(T::Array[Models::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
+        # Candidate title
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-      sig { params(company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[::StackOne::Shared::CandidateEmail]), first_name: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone_numbers: T.nilable(T::Array[::StackOne::Shared::PhoneNumber]), social_links: T.nilable(T::Array[::StackOne::Shared::SocialLink]), title: T.nilable(::String)).void }
-      def initialize(company: nil, email: nil, emails: nil, first_name: nil, last_name: nil, name: nil, phone_numbers: nil, social_links: nil, title: nil)
-        @company = company
-        @email = email
-        @emails = emails
-        @first_name = first_name
-        @last_name = last_name
-        @name = name
-        @phone_numbers = phone_numbers
-        @social_links = social_links
-        @title = title
+        sig { params(company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), title: T.nilable(::String)).void }
+        def initialize(company: nil, email: nil, emails: nil, first_name: nil, last_name: nil, name: nil, phone_numbers: nil, social_links: nil, title: nil)
+          @company = company
+          @email = email
+          @emails = emails
+          @first_name = first_name
+          @last_name = last_name
+          @name = name
+          @phone_numbers = phone_numbers
+          @social_links = social_links
+          @title = title
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @company == other.company
+          return false unless @email == other.email
+          return false unless @emails == other.emails
+          return false unless @first_name == other.first_name
+          return false unless @last_name == other.last_name
+          return false unless @name == other.name
+          return false unless @phone_numbers == other.phone_numbers
+          return false unless @social_links == other.social_links
+          return false unless @title == other.title
+          true
+        end
       end
     end
   end

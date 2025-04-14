@@ -5,37 +5,52 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class EntitySkills < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class EntitySkills
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Whether the skill is active and therefore available for use
-      field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
-      # The ID associated with this skill
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The language associated with this skill
-      field :language, T.nilable(::StackOne::Shared::EntitySkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
-      # The proficiency level of the skill
-      field :maximum_proficiency, T.nilable(::StackOne::Shared::MaximumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('maximum_proficiency') } }
-      # The proficiency level of the skill
-      field :minimum_proficiency, T.nilable(::StackOne::Shared::MinimumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('minimum_proficiency') } }
-      # The name associated with this skill
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Whether the skill is active and therefore available for use
+        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        # The ID associated with this skill
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The language associated with this skill
+        field :language, T.nilable(Models::Shared::EntitySkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        # The proficiency level of the skill
+        field :maximum_proficiency, T.nilable(Models::Shared::MaximumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('maximum_proficiency') } }
+        # The proficiency level of the skill
+        field :minimum_proficiency, T.nilable(Models::Shared::MinimumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('minimum_proficiency') } }
+        # The name associated with this skill
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), language: T.nilable(::StackOne::Shared::EntitySkillsLanguage), maximum_proficiency: T.nilable(::StackOne::Shared::MaximumProficiency), minimum_proficiency: T.nilable(::StackOne::Shared::MinimumProficiency), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(active: nil, id: nil, language: nil, maximum_proficiency: nil, minimum_proficiency: nil, name: nil, remote_id: nil)
-        @active = active
-        @id = id
-        @language = language
-        @maximum_proficiency = maximum_proficiency
-        @minimum_proficiency = minimum_proficiency
-        @name = name
-        @remote_id = remote_id
+        sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), language: T.nilable(Models::Shared::EntitySkillsLanguage), maximum_proficiency: T.nilable(Models::Shared::MaximumProficiency), minimum_proficiency: T.nilable(Models::Shared::MinimumProficiency), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(active: nil, id: nil, language: nil, maximum_proficiency: nil, minimum_proficiency: nil, name: nil, remote_id: nil)
+          @active = active
+          @id = id
+          @language = language
+          @maximum_proficiency = maximum_proficiency
+          @minimum_proficiency = minimum_proficiency
+          @name = name
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @active == other.active
+          return false unless @id == other.id
+          return false unless @language == other.language
+          return false unless @maximum_proficiency == other.maximum_proficiency
+          return false unless @minimum_proficiency == other.minimum_proficiency
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class HrisCreateTimeOffRequestRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :hris_create_time_off_request_dto, ::StackOne::Shared::HrisCreateTimeOffRequestDto, { 'request': { 'media_type': 'application/json' } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class HrisCreateTimeOffRequestRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(hris_create_time_off_request_dto: ::StackOne::Shared::HrisCreateTimeOffRequestDto, x_account_id: ::String).void }
-      def initialize(hris_create_time_off_request_dto: nil, x_account_id: nil)
-        @hris_create_time_off_request_dto = hris_create_time_off_request_dto
-        @x_account_id = x_account_id
+        field :hris_create_time_off_request_dto, Models::Shared::HrisCreateTimeOffRequestDto, { 'request': { 'media_type': 'application/json' } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto, x_account_id: ::String).void }
+        def initialize(hris_create_time_off_request_dto: nil, x_account_id: nil)
+          @hris_create_time_off_request_dto = hris_create_time_off_request_dto
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @hris_create_time_off_request_dto == other.hris_create_time_off_request_dto
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

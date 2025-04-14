@@ -5,59 +5,80 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsDocumentApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsDocumentApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The category of the the document
-      field :category, T.nilable(::StackOne::Shared::AtsDocumentApiModelCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
-      # The categoryId of the documents
-      field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
-      # The content of the file. Deprecated, use `url` and `file_format` one level up instead
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :contents, T.nilable(T::Array[::StackOne::Shared::Content]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
-      # The creation date of the file
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The file format of the file
-      field :file_format, T.nilable(::StackOne::Shared::FileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name of the file
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The path where the file is stored
-      field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # URL where the file content is located
-      field :remote_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_url') } }
-      # The content type of the document
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :type, T.nilable(::StackOne::Shared::AtsDocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # The update date of the file
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The category of the the document
+        field :category, T.nilable(Models::Shared::AtsDocumentApiModelCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+        # The categoryId of the documents
+        field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
+        # The content of the file. Deprecated, use `url` and `file_format` one level up instead
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :contents, T.nilable(T::Array[Models::Shared::Content]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
+        # The creation date of the file
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The file format of the file
+        field :file_format, T.nilable(Models::Shared::FileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The name of the file
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The path where the file is stored
+        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # URL where the file content is located
+        field :remote_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_url') } }
+        # The content type of the document
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :type, T.nilable(Models::Shared::AtsDocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # The update date of the file
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-      sig { params(category: T.nilable(::StackOne::Shared::AtsDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[::StackOne::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(::StackOne::Shared::FileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(::StackOne::Shared::AtsDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-      def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
-        @category = category
-        @category_id = category_id
-        @contents = contents
-        @created_at = created_at
-        @file_format = file_format
-        @id = id
-        @name = name
-        @path = path
-        @remote_id = remote_id
-        @remote_url = remote_url
-        @type = type
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
+        sig { params(category: T.nilable(Models::Shared::AtsDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::FileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(Models::Shared::AtsDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
+          @category = category
+          @category_id = category_id
+          @contents = contents
+          @created_at = created_at
+          @file_format = file_format
+          @id = id
+          @name = name
+          @path = path
+          @remote_id = remote_id
+          @remote_url = remote_url
+          @type = type
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @category == other.category
+          return false unless @category_id == other.category_id
+          return false unless @contents == other.contents
+          return false unless @created_at == other.created_at
+          return false unless @file_format == other.file_format
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @path == other.path
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_url == other.remote_url
+          return false unless @type == other.type
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

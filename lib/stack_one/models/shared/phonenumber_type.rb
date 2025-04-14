@@ -5,17 +5,19 @@
 
 
 module StackOne
-  module Shared
-  
-    # PhoneNumberType - Type of phone number
-    class PhoneNumberType < T::Enum
-      enums do
-        PERSONAL = new('personal')
-        WORK = new('work')
-        MOBILE = new('mobile')
-        HOME = new('home')
-        UNKNOWN = new('unknown')
-        OTHER = new('other')
+  module Models
+    module Shared
+    
+      # PhoneNumberType - Type of phone number
+      class PhoneNumberType < T::Enum
+        enums do
+          PERSONAL = new('personal')
+          WORK = new('work')
+          MOBILE = new('mobile')
+          HOME = new('home')
+          UNKNOWN = new('unknown')
+          OTHER = new('other')
+        end
       end
     end
   end

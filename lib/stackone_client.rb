@@ -5,8 +5,6 @@
 
 module StackOne
   autoload :StackOne, 'stack_one/stackone'
-  autoload :Shared, 'stack_one/models/shared'
-  autoload :Operations, 'stack_one/models/operations'
   autoload :Accounts, 'stack_one/accounts'
   autoload :ConnectSessions, 'stack_one/connect_sessions'
   autoload :Connectors, 'stack_one/connectors'
@@ -18,6 +16,11 @@ module StackOne
   autoload :Lms, 'stack_one/lms'
   autoload :Marketing, 'stack_one/marketing'
   autoload :Proxy, 'stack_one/proxy'
+  module Models
+    autoload :Shared, 'stack_one/models/shared'
+    autoload :Operations, 'stack_one/models/operations'
+    autoload :Errors, 'stack_one/models/errors'
+  end
 end
 
 require_relative 'stack_one/utils/utils'

@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AtsCreateBackgroundCheckPackagesRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class AtsCreateBackgroundCheckPackagesRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Package description
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Package name
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Package tests
-      field :tests, T.nilable(T::Array[::StackOne::Shared::CreatePackage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
+        # Package description
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Package name
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # Package tests
+        field :tests, T.nilable(T::Array[Models::Shared::CreatePackage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
 
 
-      sig { params(description: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tests: T.nilable(T::Array[::StackOne::Shared::CreatePackage])).void }
-      def initialize(description: nil, name: nil, passthrough: nil, tests: nil)
-        @description = description
-        @name = name
-        @passthrough = passthrough
-        @tests = tests
+        sig { params(description: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tests: T.nilable(T::Array[Models::Shared::CreatePackage])).void }
+        def initialize(description: nil, name: nil, passthrough: nil, tests: nil)
+          @description = description
+          @name = name
+          @passthrough = passthrough
+          @tests = tests
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @description == other.description
+          return false unless @name == other.name
+          return false unless @passthrough == other.passthrough
+          return false unless @tests == other.tests
+          true
+        end
       end
     end
   end

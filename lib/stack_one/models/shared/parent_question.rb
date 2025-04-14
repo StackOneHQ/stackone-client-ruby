@@ -5,31 +5,44 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ParentQuestion < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :condition_type, T.nilable(::StackOne::Shared::ConditionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('condition_type') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # List of parent questions's option IDs
-      field :option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('option_ids') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Provider's list of parent questions's option IDs
-      field :remote_option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_option_ids') } }
+      class ParentQuestion
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(condition_type: T.nilable(::StackOne::Shared::ConditionType), id: T.nilable(::String), option_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_option_ids: T.nilable(T::Array[::String])).void }
-      def initialize(condition_type: nil, id: nil, option_ids: nil, remote_id: nil, remote_option_ids: nil)
-        @condition_type = condition_type
-        @id = id
-        @option_ids = option_ids
-        @remote_id = remote_id
-        @remote_option_ids = remote_option_ids
+        field :condition_type, T.nilable(Models::Shared::ConditionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('condition_type') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # List of parent questions's option IDs
+        field :option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('option_ids') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Provider's list of parent questions's option IDs
+        field :remote_option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_option_ids') } }
+
+
+        sig { params(condition_type: T.nilable(Models::Shared::ConditionType), id: T.nilable(::String), option_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_option_ids: T.nilable(T::Array[::String])).void }
+        def initialize(condition_type: nil, id: nil, option_ids: nil, remote_id: nil, remote_option_ids: nil)
+          @condition_type = condition_type
+          @id = id
+          @option_ids = option_ids
+          @remote_id = remote_id
+          @remote_option_ids = remote_option_ids
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @condition_type == other.condition_type
+          return false unless @id == other.id
+          return false unless @option_ids == other.option_ids
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_option_ids == other.remote_option_ids
+          true
+        end
       end
     end
   end

@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The status of the time entry
-    class TimeEntriesStatus < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The status of the time entry
+      class TimeEntriesStatus
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeEntries4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-      field :value, T.nilable(::StackOne::Shared::TimeEntriesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::TimeEntriesValue, true) } }
+        field :value, T.nilable(Models::Shared::TimeEntriesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TimeEntriesValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::TimeEntriesValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeEntries4, T::Array[::Object])), value: T.nilable(Models::Shared::TimeEntriesValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

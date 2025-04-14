@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CandidateEmail < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CandidateEmail
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Type of the email
-      field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Email value
-      field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        # Type of the email
+        field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Email value
+        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
 
-      sig { params(type: T.nilable(::String), value: T.nilable(::String)).void }
-      def initialize(type: nil, value: nil)
-        @type = type
-        @value = value
+        sig { params(type: T.nilable(::String), value: T.nilable(::String)).void }
+        def initialize(type: nil, value: nil)
+          @type = type
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @type == other.type
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

@@ -22,17 +22,17 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneDeleteAccountResponse) }
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneDeleteAccountResponse) }
     def delete_account(id, retries = nil, timeout_ms = nil)
       # delete_account - Delete Account
-      request = ::StackOne::Operations::StackoneDeleteAccountRequest.new(
+      request = Models::Operations::StackoneDeleteAccountRequest.new(
         
         id: id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::StackOne::Operations::StackoneDeleteAccountRequest,
+        Models::Operations::StackoneDeleteAccountRequest,
         base_url,
         '/accounts/{id}',
         request
@@ -64,16 +64,17 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'stackone_delete_account',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
-      r = T.let(nil, T.nilable(Faraday::Response))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
       
       begin
-        r = connection.delete(url) do |req|
+        http_response = connection.delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
@@ -88,112 +89,215 @@ module StackOne
       rescue StandardError => e
         error = e
       ensure
-        if r.nil? || Utils.error_status?(r.status)
-          r = @sdk_configuration.hooks.after_error(
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
             error: error,
             hook_ctx: SDKHooks::AfterErrorHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         else
-          r = @sdk_configuration.hooks.after_success(
+          http_response = @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         end
         
-        if r.nil?
+        if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::LinkedAccount)
+          response = Models::Operations::StackoneDeleteAccountResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            linked_account: obj
+          )
 
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+          return response
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['400'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadRequestResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['401'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnauthorizedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['403'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ForbiddenResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['404'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotFoundResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['408'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::RequestTimedOutResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['409'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ConflictResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['422'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnprocessableEntityResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['429'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::TooManyRequestsResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['500'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::InternalServerErrorResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['501'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotImplementedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['502'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadGatewayResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      else
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
 
-      res = ::StackOne::Operations::StackoneDeleteAccountResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccount)
-          res.linked_account = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
-          res.bad_request_response = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
-          res.unauthorized_response = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
-          res.forbidden_response = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
-          res.not_found_response = out
-        end
-      elsif r.status == 408
-        res.headers = r.headers
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
-          res.request_timed_out_response = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
-          res.conflict_response = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
-          res.unprocessable_entity_response = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
-          res.too_many_requests_response = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
-          res.internal_server_error_response = out
-        end
-      elsif r.status == 501
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
-          res.not_implemented_response = out
-        end
-      elsif r.status == 502
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
-          res.bad_gateway_response = out
-        end
       end
-
-      res
     end
 
 
-    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneGetAccountResponse) }
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetAccountResponse) }
     def get_account(id, retries = nil, timeout_ms = nil)
       # get_account - Get Account
-      request = ::StackOne::Operations::StackoneGetAccountRequest.new(
+      request = Models::Operations::StackoneGetAccountRequest.new(
         
         id: id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::StackOne::Operations::StackoneGetAccountRequest,
+        Models::Operations::StackoneGetAccountRequest,
         base_url,
         '/accounts/{id}',
         request
@@ -225,16 +329,17 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'stackone_get_account',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
-      r = T.let(nil, T.nilable(Faraday::Response))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
       
       begin
-        r = connection.get(url) do |req|
+        http_response = connection.get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
@@ -249,112 +354,215 @@ module StackOne
       rescue StandardError => e
         error = e
       ensure
-        if r.nil? || Utils.error_status?(r.status)
-          r = @sdk_configuration.hooks.after_error(
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
             error: error,
             hook_ctx: SDKHooks::AfterErrorHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         else
-          r = @sdk_configuration.hooks.after_success(
+          http_response = @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         end
         
-        if r.nil?
+        if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::LinkedAccount)
+          response = Models::Operations::StackoneGetAccountResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            linked_account: obj
+          )
 
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+          return response
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['400'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadRequestResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['401'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnauthorizedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['403'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ForbiddenResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['404'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotFoundResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['408'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::RequestTimedOutResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['409'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ConflictResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['422'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnprocessableEntityResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['429'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::TooManyRequestsResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['500'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::InternalServerErrorResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['501'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotImplementedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['502'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadGatewayResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      else
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
 
-      res = ::StackOne::Operations::StackoneGetAccountResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccount)
-          res.linked_account = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
-          res.bad_request_response = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
-          res.unauthorized_response = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
-          res.forbidden_response = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
-          res.not_found_response = out
-        end
-      elsif r.status == 408
-        res.headers = r.headers
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
-          res.request_timed_out_response = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
-          res.conflict_response = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
-          res.unprocessable_entity_response = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
-          res.too_many_requests_response = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
-          res.internal_server_error_response = out
-        end
-      elsif r.status == 501
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
-          res.not_implemented_response = out
-        end
-      elsif r.status == 502
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
-          res.bad_gateway_response = out
-        end
       end
-
-      res
     end
 
 
-    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneGetAccountMetaInfoResponse) }
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetAccountMetaInfoResponse) }
     def get_account_meta_info(id, retries = nil, timeout_ms = nil)
       # get_account_meta_info - Get meta information of the account
-      request = ::StackOne::Operations::StackoneGetAccountMetaInfoRequest.new(
+      request = Models::Operations::StackoneGetAccountMetaInfoRequest.new(
         
         id: id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::StackOne::Operations::StackoneGetAccountMetaInfoRequest,
+        Models::Operations::StackoneGetAccountMetaInfoRequest,
         base_url,
         '/accounts/{id}/meta',
         request
@@ -386,16 +594,17 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'stackone_get_account_meta_info',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
-      r = T.let(nil, T.nilable(Faraday::Response))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
       
       begin
-        r = connection.get(url) do |req|
+        http_response = connection.get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
@@ -410,109 +619,212 @@ module StackOne
       rescue StandardError => e
         error = e
       ensure
-        if r.nil? || Utils.error_status?(r.status)
-          r = @sdk_configuration.hooks.after_error(
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
             error: error,
             hook_ctx: SDKHooks::AfterErrorHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         else
-          r = @sdk_configuration.hooks.after_success(
+          http_response = @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         end
         
-        if r.nil?
+        if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::LinkedAccountMeta)
+          response = Models::Operations::StackoneGetAccountMetaInfoResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            linked_account_meta: obj
+          )
 
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+          return response
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['400'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadRequestResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['401'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnauthorizedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['403'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ForbiddenResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['404'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotFoundResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['408'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::RequestTimedOutResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['409'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ConflictResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['422'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnprocessableEntityResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['429'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::TooManyRequestsResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['500'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::InternalServerErrorResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['501'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotImplementedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['502'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadGatewayResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      else
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
 
-      res = ::StackOne::Operations::StackoneGetAccountMetaInfoResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccountMeta)
-          res.linked_account_meta = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
-          res.bad_request_response = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
-          res.unauthorized_response = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
-          res.forbidden_response = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
-          res.not_found_response = out
-        end
-      elsif r.status == 408
-        res.headers = r.headers
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
-          res.request_timed_out_response = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
-          res.conflict_response = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
-          res.unprocessable_entity_response = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
-          res.too_many_requests_response = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
-          res.internal_server_error_response = out
-        end
-      elsif r.status == 501
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
-          res.not_implemented_response = out
-        end
-      elsif r.status == 502
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
-          res.bad_gateway_response = out
-        end
       end
-
-      res
     end
 
 
-    sig { params(request: T.nilable(::StackOne::Operations::StackoneListLinkedAccountsRequest), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneListLinkedAccountsResponse) }
+    sig { params(request: T.nilable(Models::Operations::StackoneListLinkedAccountsRequest), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListLinkedAccountsResponse) }
     def list_linked_accounts(request, retries = nil, timeout_ms = nil)
       # list_linked_accounts - List Accounts
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/accounts"
       headers = {}
-      query_params = Utils.get_query_params(::StackOne::Operations::StackoneListLinkedAccountsRequest, request)
+      query_params = Utils.get_query_params(Models::Operations::StackoneListLinkedAccountsRequest, request)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
@@ -539,16 +851,17 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'stackone_list_linked_accounts',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
-      r = T.let(nil, T.nilable(Faraday::Response))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
       
       begin
-        r = connection.get(url) do |req|
+        http_response = connection.get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
@@ -564,105 +877,208 @@ module StackOne
       rescue StandardError => e
         error = e
       ensure
-        if r.nil? || Utils.error_status?(r.status)
-          r = @sdk_configuration.hooks.after_error(
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
             error: error,
             hook_ctx: SDKHooks::AfterErrorHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         else
-          r = @sdk_configuration.hooks.after_success(
+          http_response = @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         end
         
-        if r.nil?
+        if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), T::Array[Models::Shared::LinkedAccount])
+          response = Models::Operations::StackoneListLinkedAccountsResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            linked_accounts: obj
+          )
 
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+          return response
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['400'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadRequestResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['401'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnauthorizedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['403'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ForbiddenResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['404'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotFoundResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['408'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::RequestTimedOutResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['409'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ConflictResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['422'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnprocessableEntityResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['429'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::TooManyRequestsResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['500'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::InternalServerErrorResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['501'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotImplementedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['502'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadGatewayResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      else
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
 
-      res = ::StackOne::Operations::StackoneListLinkedAccountsResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), T::Array[::StackOne::Shared::LinkedAccount])
-          res.linked_accounts = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
-          res.bad_request_response = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
-          res.unauthorized_response = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
-          res.forbidden_response = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
-          res.not_found_response = out
-        end
-      elsif r.status == 408
-        res.headers = r.headers
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
-          res.request_timed_out_response = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
-          res.conflict_response = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
-          res.unprocessable_entity_response = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
-          res.too_many_requests_response = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
-          res.internal_server_error_response = out
-        end
-      elsif r.status == 501
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
-          res.not_implemented_response = out
-        end
-      elsif r.status == 502
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
-          res.bad_gateway_response = out
-        end
       end
-
-      res
     end
 
 
-    sig { params(patch_account_external_dto: ::StackOne::Shared::PatchAccountExternalDto, id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(::StackOne::Operations::StackoneUpdateAccountResponse) }
+    sig { params(patch_account_external_dto: Models::Shared::PatchAccountExternalDto, id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneUpdateAccountResponse) }
     def update_account(patch_account_external_dto, id, retries = nil, timeout_ms = nil)
       # update_account - Update Account
-      request = ::StackOne::Operations::StackoneUpdateAccountRequest.new(
+      request = Models::Operations::StackoneUpdateAccountRequest.new(
         
         patch_account_external_dto: patch_account_external_dto,
         id: id
@@ -670,7 +1086,7 @@ module StackOne
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
-        ::StackOne::Operations::StackoneUpdateAccountRequest,
+        Models::Operations::StackoneUpdateAccountRequest,
         base_url,
         '/accounts/{id}',
         request
@@ -713,16 +1129,17 @@ module StackOne
 
       hook_ctx = SDKHooks::HookContext.new(
         base_url: base_url,
-        oauth2_scopes: nil,
+        oauth2_scopes: [],
         operation_id: 'stackone_update_account',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
-      r = T.let(nil, T.nilable(Faraday::Response))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
       
       begin
-        r = connection.patch(url) do |req|
+        http_response = connection.patch(url) do |req|
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
@@ -738,98 +1155,201 @@ module StackOne
       rescue StandardError => e
         error = e
       ensure
-        if r.nil? || Utils.error_status?(r.status)
-          r = @sdk_configuration.hooks.after_error(
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
             error: error,
             hook_ctx: SDKHooks::AfterErrorHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         else
-          r = @sdk_configuration.hooks.after_success(
+          http_response = @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
-            response: r
+            response: http_response
           )
         end
         
-        if r.nil?
+        if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::LinkedAccount)
+          response = Models::Operations::StackoneUpdateAccountResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            linked_account: obj
+          )
 
-      content_type = r.headers.fetch('Content-Type', 'application/octet-stream')
+          return response
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['400'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadRequestResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['401'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnauthorizedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['403'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ForbiddenResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['404'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotFoundResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['408'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::RequestTimedOutResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['409'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::ConflictResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['422'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::UnprocessableEntityResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['429'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::TooManyRequestsResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['500'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::InternalServerErrorResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['501'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::NotImplementedResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['502'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Errors::BadGatewayResponse)
+          throw obj
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      elsif Utils.match_status_code(http_response.status, ['4XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      elsif Utils.match_status_code(http_response.status, ['5XX'])
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'API error occurred'
+      else
+        raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown status code received'
 
-      res = ::StackOne::Operations::StackoneUpdateAccountResponse.new(
-        status_code: r.status, content_type: content_type, raw_response: r
-      )
-      if r.status == 200
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::LinkedAccount)
-          res.linked_account = out
-        end
-      elsif r.status == 400
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadRequestResponse)
-          res.bad_request_response = out
-        end
-      elsif r.status == 401
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnauthorizedResponse)
-          res.unauthorized_response = out
-        end
-      elsif r.status == 403
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ForbiddenResponse)
-          res.forbidden_response = out
-        end
-      elsif r.status == 404
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotFoundResponse)
-          res.not_found_response = out
-        end
-      elsif r.status == 408
-        res.headers = r.headers
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::RequestTimedOutResponse)
-          res.request_timed_out_response = out
-        end
-      elsif r.status == 409
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::ConflictResponse)
-          res.conflict_response = out
-        end
-      elsif r.status == 422
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::UnprocessableEntityResponse)
-          res.unprocessable_entity_response = out
-        end
-      elsif r.status == 429
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::TooManyRequestsResponse)
-          res.too_many_requests_response = out
-        end
-      elsif r.status == 500
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::InternalServerErrorResponse)
-          res.internal_server_error_response = out
-        end
-      elsif r.status == 501
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::NotImplementedResponse)
-          res.not_implemented_response = out
-        end
-      elsif r.status == 502
-        if Utils.match_content_type(content_type, 'application/json')
-          out = Crystalline.unmarshal_json(JSON.parse(r.env.response_body), ::StackOne::Shared::BadGatewayResponse)
-          res.bad_gateway_response = out
-        end
       end
-
-      res
     end
   end
 end

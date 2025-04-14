@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
-    # LMS Assignment Filter
-    class LmsListUserAssignmentsQueryParamFilter < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # LMS Assignment Filter
+      class LmsListUserAssignmentsQueryParamFilter
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Filter to select assignment by status
-      field :status, T.nilable(::StackOne::Operations::LmsListUserAssignmentsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
-      # Use a string with a date to only select results updated after that given date
-      field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        # Filter to select assignment by status
+        field :status, T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
+        # Use a string with a date to only select results updated after that given date
+        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(status: T.nilable(::StackOne::Operations::LmsListUserAssignmentsQueryParamStatus), updated_after: T.nilable(::String)).void }
-      def initialize(status: nil, updated_after: nil)
-        @status = status
-        @updated_after = updated_after
+        sig { params(status: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamStatus), updated_after: T.nilable(::String)).void }
+        def initialize(status: nil, updated_after: nil)
+          @status = status
+          @updated_after = updated_after
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @status == other.status
+          return false unless @updated_after == other.updated_after
+          true
+        end
       end
     end
   end

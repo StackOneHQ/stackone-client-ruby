@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class PushMessagesMessageContent < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
-
-      field :subtitle, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subtitle') } }
-
-      field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+      class PushMessagesMessageContent
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(body: T.nilable(::String), subtitle: T.nilable(::String), title: T.nilable(::String)).void }
-      def initialize(body: nil, subtitle: nil, title: nil)
-        @body = body
-        @subtitle = subtitle
-        @title = title
+        field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+
+        field :subtitle, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subtitle') } }
+
+        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+
+
+        sig { params(body: T.nilable(::String), subtitle: T.nilable(::String), title: T.nilable(::String)).void }
+        def initialize(body: nil, subtitle: nil, title: nil)
+          @body = body
+          @subtitle = subtitle
+          @title = title
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @body == other.body
+          return false unless @subtitle == other.subtitle
+          return false unless @title == other.title
+          true
+        end
       end
     end
   end

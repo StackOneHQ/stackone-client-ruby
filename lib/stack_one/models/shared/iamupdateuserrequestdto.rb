@@ -5,40 +5,56 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class IamUpdateUserRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-      # Indicates if the user is a bot or service user
-      field :is_bot_user, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_bot_user') } }
-
-      field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-      # User's name which (can be a full name or display name)
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # Primary email address of the user. This is generally a work email address.
-      field :primary_email_address, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email_address') } }
-
-      field :status, T.nilable(::StackOne::Shared::IamUpdateUserRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-
-      field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
+      class IamUpdateUserRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(first_name: T.nilable(::String), is_bot_user: T.nilable(::Object), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), primary_email_address: T.nilable(::String), status: T.nilable(::StackOne::Shared::IamUpdateUserRequestDtoStatus), username: T.nilable(::String)).void }
-      def initialize(first_name: nil, is_bot_user: nil, last_name: nil, name: nil, passthrough: nil, primary_email_address: nil, status: nil, username: nil)
-        @first_name = first_name
-        @is_bot_user = is_bot_user
-        @last_name = last_name
-        @name = name
-        @passthrough = passthrough
-        @primary_email_address = primary_email_address
-        @status = status
-        @username = username
+        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        # Indicates if the user is a bot or service user
+        field :is_bot_user, T.nilable(T.any(T::Boolean, Models::Shared::IamUpdateUserRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_bot_user') } }
+
+        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        # User's name which (can be a full name or display name)
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # Primary email address of the user. This is generally a work email address.
+        field :primary_email_address, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email_address') } }
+
+        field :status, T.nilable(Models::Shared::IamUpdateUserRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+
+        field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
+
+
+        sig { params(first_name: T.nilable(::String), is_bot_user: T.nilable(T.any(T::Boolean, Models::Shared::IamUpdateUserRequestDto2)), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), primary_email_address: T.nilable(::String), status: T.nilable(Models::Shared::IamUpdateUserRequestDtoStatus), username: T.nilable(::String)).void }
+        def initialize(first_name: nil, is_bot_user: nil, last_name: nil, name: nil, passthrough: nil, primary_email_address: nil, status: nil, username: nil)
+          @first_name = first_name
+          @is_bot_user = is_bot_user
+          @last_name = last_name
+          @name = name
+          @passthrough = passthrough
+          @primary_email_address = primary_email_address
+          @status = status
+          @username = username
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @first_name == other.first_name
+          return false unless @is_bot_user == other.is_bot_user
+          return false unless @last_name == other.last_name
+          return false unless @name == other.name
+          return false unless @passthrough == other.passthrough
+          return false unless @primary_email_address == other.primary_email_address
+          return false unless @status == other.status
+          return false unless @username == other.username
+          true
+        end
       end
     end
   end

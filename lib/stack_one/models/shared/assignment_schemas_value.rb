@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AssignmentSchemasValue < T::Enum
-      enums do
-        PENDING = new('pending')
-        IN_PROGRESS = new('in_progress')
-        COMPLETED = new('completed')
+      class AssignmentSchemasValue < T::Enum
+        enums do
+          PENDING = new('pending')
+          IN_PROGRESS = new('in_progress')
+          COMPLETED = new('completed')
+        end
       end
     end
   end

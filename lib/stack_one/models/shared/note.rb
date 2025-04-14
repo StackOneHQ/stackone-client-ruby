@@ -5,46 +5,64 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class Note < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class Note
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier of the author
-      field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
+        # Unique identifier of the author
+        field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
 
-      field :content, T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-      # Date of creation
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Date of Deletion
-      field :deleted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deleted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier of the author
-      field :remote_author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_author_id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-      # Date of last update
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Visibility of the note
-      field :visibility, T.nilable(::StackOne::Shared::NoteVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
+        field :content, T.nilable(T::Array[Models::Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        # Date of creation
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Date of Deletion
+        field :deleted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deleted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier of the author
+        field :remote_author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_author_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # Date of last update
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Visibility of the note
+        field :visibility, T.nilable(Models::Shared::NoteVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
 
-      sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[::StackOne::Shared::NoteContentApiModel]), created_at: T.nilable(::DateTime), deleted_at: T.nilable(::DateTime), id: T.nilable(::String), remote_author_id: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), visibility: T.nilable(::StackOne::Shared::NoteVisibility)).void }
-      def initialize(author_id: nil, content: nil, created_at: nil, deleted_at: nil, id: nil, remote_author_id: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil, visibility: nil)
-        @author_id = author_id
-        @content = content
-        @created_at = created_at
-        @deleted_at = deleted_at
-        @id = id
-        @remote_author_id = remote_author_id
-        @remote_id = remote_id
-        @unified_custom_fields = unified_custom_fields
-        @updated_at = updated_at
-        @visibility = visibility
+        sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::NoteContentApiModel]), created_at: T.nilable(::DateTime), deleted_at: T.nilable(::DateTime), id: T.nilable(::String), remote_author_id: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), visibility: T.nilable(Models::Shared::NoteVisibility)).void }
+        def initialize(author_id: nil, content: nil, created_at: nil, deleted_at: nil, id: nil, remote_author_id: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil, visibility: nil)
+          @author_id = author_id
+          @content = content
+          @created_at = created_at
+          @deleted_at = deleted_at
+          @id = id
+          @remote_author_id = remote_author_id
+          @remote_id = remote_id
+          @unified_custom_fields = unified_custom_fields
+          @updated_at = updated_at
+          @visibility = visibility
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @author_id == other.author_id
+          return false unless @content == other.content
+          return false unless @created_at == other.created_at
+          return false unless @deleted_at == other.deleted_at
+          return false unless @id == other.id
+          return false unless @remote_author_id == other.remote_author_id
+          return false unless @remote_id == other.remote_id
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @updated_at == other.updated_at
+          return false unless @visibility == other.visibility
+          true
+        end
       end
     end
   end

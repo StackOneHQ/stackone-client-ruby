@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # The country code
-    class Country < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # The country code
+      class Country
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The source value of the ISO 3166-1 alpha-2 code of the country.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The ISO 3166-1 alpha-2 code of the country.
-      field :value, T.nilable(::StackOne::Shared::AccountAddressSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::AccountAddressSchemasValue, true) } }
+        # The source value of the ISO 3166-1 alpha-2 code of the country.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountAddressSchemas4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The ISO 3166-1 alpha-2 code of the country.
+        field :value, T.nilable(Models::Shared::AccountAddressSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AccountAddressSchemasValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::AccountAddressSchemasValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountAddressSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::AccountAddressSchemasValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

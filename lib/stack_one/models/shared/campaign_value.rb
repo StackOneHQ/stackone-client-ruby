@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
-    # CampaignValue - The schedule type of the campaign.
-    class CampaignValue < T::Enum
-      enums do
-        IMMEDIATE = new('immediate')
-        SCHEDULED = new('scheduled')
-        RECURRING = new('recurring')
-        CUSTOM = new('custom')
-        TRIGGERED = new('triggered')
+  module Models
+    module Shared
+    
+      # CampaignValue - The schedule type of the campaign.
+      class CampaignValue < T::Enum
+        enums do
+          IMMEDIATE = new('immediate')
+          SCHEDULED = new('scheduled')
+          RECURRING = new('recurring')
+          CUSTOM = new('custom')
+          TRIGGERED = new('triggered')
+        end
       end
     end
   end

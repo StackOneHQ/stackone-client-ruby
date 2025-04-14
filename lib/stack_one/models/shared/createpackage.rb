@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreatePackage < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreatePackage
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Package description
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Package name
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Package description
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Package name
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
 
-      sig { params(description: T.nilable(::String), name: T.nilable(::String)).void }
-      def initialize(description: nil, name: nil)
-        @description = description
-        @name = name
+        sig { params(description: T.nilable(::String), name: T.nilable(::String)).void }
+        def initialize(description: nil, name: nil)
+          @description = description
+          @name = name
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @description == other.description
+          return false unless @name == other.name
+          true
+        end
       end
     end
   end

@@ -5,16 +5,24 @@
 
 
 module StackOne
-  module Shared
-  
-    # Response headers
-    class Headers < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Response headers
+      class Headers
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
 
-      
-      def initialize; end
+        
+        def initialize; end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          true
+        end
+      end
     end
   end
 end

@@ -5,16 +5,18 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HrisCreateWorkEligibilityRequestDtoSchemasValue < T::Enum
-      enums do
-        VISA = new('visa')
-        PASSPORT = new('passport')
-        DRIVER_LICENSE = new('driver_license')
-        BIRTH_CERTIFICATE = new('birth_certificate')
-        OTHER = new('other')
+      class HrisCreateWorkEligibilityRequestDtoSchemasValue < T::Enum
+        enums do
+          VISA = new('visa')
+          PASSPORT = new('passport')
+          DRIVER_LICENSE = new('driver_license')
+          BIRTH_CERTIFICATE = new('birth_certificate')
+          OTHER = new('other')
+        end
       end
     end
   end

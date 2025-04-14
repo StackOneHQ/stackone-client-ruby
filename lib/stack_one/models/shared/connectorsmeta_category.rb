@@ -5,22 +5,24 @@
 
 
 module StackOne
-  module Shared
-  
-    # ConnectorsMetaCategory - The provider service category
-    class ConnectorsMetaCategory < T::Enum
-      enums do
-        ATS = new('ats')
-        HRIS = new('hris')
-        HRIS_LEGACY = new('hris-legacy')
-        CRM = new('crm')
-        IAM = new('iam')
-        MARKETING = new('marketing')
-        LMS = new('lms')
-        STACKONE = new('stackone')
-        DOCUMENTS = new('documents')
-        TICKETING = new('ticketing')
-        SCREENING = new('screening')
+  module Models
+    module Shared
+    
+      # ConnectorsMetaCategory - The provider service category
+      class ConnectorsMetaCategory < T::Enum
+        enums do
+          ATS = new('ats')
+          HRIS = new('hris')
+          HRIS_LEGACY = new('hris-legacy')
+          CRM = new('crm')
+          IAM = new('iam')
+          MARKETING = new('marketing')
+          LMS = new('lms')
+          STACKONE = new('stackone')
+          DOCUMENTS = new('documents')
+          TICKETING = new('ticketing')
+          SCREENING = new('screening')
+        end
       end
     end
   end

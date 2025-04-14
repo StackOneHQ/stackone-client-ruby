@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class JobPostingResult < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :data, ::StackOne::Shared::JobPosting, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
-
-      field :raw, T.nilable(T::Array[::StackOne::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+      class JobPostingResult
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(data: ::StackOne::Shared::JobPosting, raw: T.nilable(T::Array[::StackOne::Shared::RawResponse])).void }
-      def initialize(data: nil, raw: nil)
-        @data = data
-        @raw = raw
+        field :data, Models::Shared::JobPosting, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+
+        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+
+
+        sig { params(data: Models::Shared::JobPosting, raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
+        def initialize(data: nil, raw: nil)
+          @data = data
+          @raw = raw
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @data == other.data
+          return false unless @raw == other.raw
+          true
+        end
       end
     end
   end

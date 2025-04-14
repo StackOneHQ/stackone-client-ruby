@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
-    # JobConfidential - Confidential status of the job
-    class JobConfidential < T::Enum
-      enums do
-        TRUE = new('true')
-        FALSE = new('false')
+  module Models
+    module Shared
+    
+      # JobConfidential - Confidential status of the job
+      class JobConfidential < T::Enum
+        enums do
+          TRUE = new('true')
+          FALSE = new('false')
+        end
       end
     end
   end

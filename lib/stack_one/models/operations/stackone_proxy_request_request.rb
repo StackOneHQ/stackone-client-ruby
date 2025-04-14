@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class StackoneProxyRequestRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class StackoneProxyRequestRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The request body
-      field :proxy_request_body, ::StackOne::Shared::ProxyRequestBody, { 'request': { 'media_type': 'application/json' } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # The request body
+        field :proxy_request_body, Models::Shared::ProxyRequestBody, { 'request': { 'media_type': 'application/json' } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
 
-      sig { params(proxy_request_body: ::StackOne::Shared::ProxyRequestBody, x_account_id: ::String).void }
-      def initialize(proxy_request_body: nil, x_account_id: nil)
-        @proxy_request_body = proxy_request_body
-        @x_account_id = x_account_id
+        sig { params(proxy_request_body: Models::Shared::ProxyRequestBody, x_account_id: ::String).void }
+        def initialize(proxy_request_body: nil, x_account_id: nil)
+          @proxy_request_body = proxy_request_body
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @proxy_request_body == other.proxy_request_body
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

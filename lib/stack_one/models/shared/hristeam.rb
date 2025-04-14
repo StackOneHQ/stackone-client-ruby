@@ -5,43 +5,68 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HRISTeam < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class HRISTeam
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The name of the group
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The list of group owner ids of the given group
-      field :owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_ids') } }
-      # The list of parent group ids of the given group
-      field :parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_ids') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # The list of remote group owner ids of the given group
-      field :remote_owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_ids') } }
-      # Provider's list of parent group remote ids of the given group
-      field :remote_parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_ids') } }
-      # The type of the team group
-      field :type, T.nilable(::StackOne::Shared::HRISTeamType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # The id of the company that the group belongs to
+        field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The name of the group
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The list of group owner ids of the given group
+        field :owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_ids') } }
+        # The list of parent group ids of the given group
+        field :parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_ids') } }
+        # Provider's id of the company that the group belongs to
+        field :remote_company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_company_id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The list of remote group owner ids of the given group
+        field :remote_owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_ids') } }
+        # Provider's list of parent group remote ids of the given group
+        field :remote_parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_ids') } }
+        # The type of the team group
+        field :type, T.nilable(Models::Shared::HRISTeamType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::HRISTeamType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
-        @id = id
-        @name = name
-        @owner_ids = owner_ids
-        @parent_ids = parent_ids
-        @remote_id = remote_id
-        @remote_owner_ids = remote_owner_ids
-        @remote_parent_ids = remote_parent_ids
-        @type = type
-        @unified_custom_fields = unified_custom_fields
+        sig { params(company_id: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_company_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::HRISTeamType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(company_id: nil, id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_company_id: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
+          @company_id = company_id
+          @id = id
+          @name = name
+          @owner_ids = owner_ids
+          @parent_ids = parent_ids
+          @remote_company_id = remote_company_id
+          @remote_id = remote_id
+          @remote_owner_ids = remote_owner_ids
+          @remote_parent_ids = remote_parent_ids
+          @type = type
+          @unified_custom_fields = unified_custom_fields
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @company_id == other.company_id
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @owner_ids == other.owner_ids
+          return false unless @parent_ids == other.parent_ids
+          return false unless @remote_company_id == other.remote_company_id
+          return false unless @remote_id == other.remote_id
+          return false unless @remote_owner_ids == other.remote_owner_ids
+          return false unless @remote_parent_ids == other.remote_parent_ids
+          return false unless @type == other.type
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          true
+        end
       end
     end
   end

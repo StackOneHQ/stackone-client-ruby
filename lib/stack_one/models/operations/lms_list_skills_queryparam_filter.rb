@@ -5,19 +5,28 @@
 
 
 module StackOne
-  module Operations
-  
-    # Filter parameters that allow greater customisation of the list response
-    class LmsListSkillsQueryParamFilter < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Operations
+    
+      # Filter parameters that allow greater customisation of the list response
+      class LmsListSkillsQueryParamFilter
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Use a string with a date to only select results updated after that given date
-      field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        # Use a string with a date to only select results updated after that given date
+        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-      sig { params(updated_after: T.nilable(::String)).void }
-      def initialize(updated_after: nil)
-        @updated_after = updated_after
+        sig { params(updated_after: T.nilable(::String)).void }
+        def initialize(updated_after: nil)
+          @updated_after = updated_after
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @updated_after == other.updated_after
+          true
+        end
       end
     end
   end

@@ -48,16 +48,16 @@ gem install stackone_client
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
     )
 
-req = ::StackOne::Operations::HrisListEmployeesRequest.new(
+req = Models::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
-  filter: ::StackOne::Operations::HrisListEmployeesQueryParamFilter.new(
+  filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
@@ -89,7 +89,7 @@ You can set the security parameters through the `security` optional parameter wh
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -219,6 +219,7 @@ end
 ### [hris](docs/sdks/hris/README.md)
 
 * [batch_upload_employee_document](docs/sdks/hris/README.md#batch_upload_employee_document) - Batch Upload Employee Document
+* [cancel_employee_time_off_request](docs/sdks/hris/README.md#cancel_employee_time_off_request) - Cancel Employee Time Off Request
 * [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
 * [create_employee_employment](docs/sdks/hris/README.md#create_employee_employment) - Create Employee Employment
 * [create_employee_skill](docs/sdks/hris/README.md#create_employee_skill) - Create Employee Skill
@@ -375,7 +376,7 @@ To change the default retry strategy for a single API call, simply provide a `Re
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -404,7 +405,7 @@ s = ::StackOne::StackOne.new(
         retry_connection_errors: false,
         strategy: 'backoff'
       ),
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -430,7 +431,7 @@ require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
       server_url: "https://api.stackone.com",
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),

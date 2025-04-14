@@ -5,28 +5,40 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ScorecardSection < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ScorecardSection
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The fields within the section
-      field :fields_, T.nilable(T::Array[::StackOne::Shared::Field]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('fields') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The label of the section
-      field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The fields within the section
+        field :fields_, T.nilable(T::Array[Models::Shared::Field]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('fields') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The label of the section
+        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(fields_: T.nilable(T::Array[::StackOne::Shared::Field]), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(fields_: nil, id: nil, label: nil, remote_id: nil)
-        @fields_ = fields_
-        @id = id
-        @label = label
-        @remote_id = remote_id
+        sig { params(fields_: T.nilable(T::Array[Models::Shared::Field]), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(fields_: nil, id: nil, label: nil, remote_id: nil)
+          @fields_ = fields_
+          @id = id
+          @label = label
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @fields_ == other.fields_
+          return false unless @id == other.id
+          return false unless @label == other.label
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

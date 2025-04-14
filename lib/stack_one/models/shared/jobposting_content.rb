@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class JobPostingContent < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :html, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
-
-      field :plain, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
-
-      field :sections, T.nilable(T::Array[::StackOne::Shared::JobPostingContentSection]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
+      class JobPostingContent
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(html: T.nilable(::String), plain: T.nilable(::String), sections: T.nilable(T::Array[::StackOne::Shared::JobPostingContentSection])).void }
-      def initialize(html: nil, plain: nil, sections: nil)
-        @html = html
-        @plain = plain
-        @sections = sections
+        field :html, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
+
+        field :plain, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
+
+        field :sections, T.nilable(T::Array[Models::Shared::JobPostingContentSection]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
+
+
+        sig { params(html: T.nilable(::String), plain: T.nilable(::String), sections: T.nilable(T::Array[Models::Shared::JobPostingContentSection])).void }
+        def initialize(html: nil, plain: nil, sections: nil)
+          @html = html
+          @plain = plain
+          @sections = sections
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @html == other.html
+          return false unless @plain == other.plain
+          return false unless @sections == other.sections
+          true
+        end
       end
     end
   end

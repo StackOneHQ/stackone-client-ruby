@@ -5,140 +5,188 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HrisUpdateEmployeeRequestDto < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class HrisUpdateEmployeeRequestDto
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The employee avatar
-      field :avatar, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoAvatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
-      # The employee avatar Url
-      field :avatar_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar_url') } }
-      # Current benefits of the employee
-      field :benefits, T.nilable(T::Array[::StackOne::Shared::CreateHRISBenefit]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('benefits') } }
-      # The employee birthday
-      field :birthday, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('birthday'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The citizenships of the Employee
-      field :citizenships, T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('citizenships') } }
-      # The employee company id
-      field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
-      # The employee company name
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
-      # The employee custom fields
-      field :custom_fields, T.nilable(T::Array[::StackOne::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
-      # The employee date_of_birth
-      field :date_of_birth, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee department
-      field :department, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
-      # The employee department id
-      field :department_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_id') } }
-      # The employee display name
-      field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
-      # The assigned employee number
-      field :employee_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_number') } }
-      # The employee employment
-      field :employment, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmployment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment') } }
-      # The employment work schedule type (e.g., full-time, part-time)
-      field :employment_contract_type, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
-      # The employee employment status
-      field :employment_status, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_status') } }
-      # The employee employment type
-      field :employment_type, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
-      # The employee ethnicity
-      field :ethnicity, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEthnicity), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ethnicity') } }
-      # The employee first name
-      field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
-      # The employee gender
-      field :gender, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoGender), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('gender') } }
-      # The employee hire date
-      field :hire_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hire_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee home location
-      field :home_location, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
-      # The employee job id
-      field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
-      # The employee job title
-      field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
-      # The employee last name
-      field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
-      # The employee manager ID
-      field :manager_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager_id') } }
-      # The employee marital status
-      field :marital_status, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('marital_status') } }
-      # The employee name
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # The national identity number
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :national_identity_number, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoNationalIdentityNumber), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_number') } }
-      # The national identity numbers
-      field :national_identity_numbers, T.nilable(T::Array[::StackOne::Shared::NationalIdentityNumberApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_numbers') } }
-      # Value to pass through to the provider
-      field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-      # The employee personal email
-      field :personal_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('personal_email') } }
-      # The employee personal phone number
-      field :personal_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('personal_phone_number') } }
-      # The employee preferred language
-      field :preferred_language, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preferred_language') } }
-      # The employee start date
-      field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee team id
-      field :team_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('team_id') } }
-      # The employee termination date
-      field :termination_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employee work email
-      field :work_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
-      # The employee work location
-      field :work_location, T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoWorkLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_location') } }
-      # The employee work phone number
-      field :work_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
+        # The employee avatar
+        field :avatar, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoAvatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
+        # The employee avatar Url
+        field :avatar_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar_url') } }
+        # Current benefits of the employee
+        field :benefits, T.nilable(T::Array[Models::Shared::CreateHRISBenefit]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('benefits') } }
+        # The employee birthday
+        field :birthday, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('birthday'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The citizenships of the Employee
+        field :citizenships, T.nilable(T::Array[Models::Shared::CountryCodeEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('citizenships') } }
+        # The employee company id
+        field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
+        # The employee company name
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
+        # The employee custom fields
+        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        # The employee date_of_birth
+        field :date_of_birth, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employee department
+        field :department, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
+        # The employee department id
+        field :department_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_id') } }
+        # The employee display name
+        field :display_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('display_name') } }
+        # The assigned employee number
+        field :employee_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_number') } }
+        # The employee employment
+        field :employment, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmployment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment') } }
+        # The employment work schedule type (e.g., full-time, part-time)
+        field :employment_contract_type, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
+        # The employee employment status
+        field :employment_status, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_status') } }
+        # The employee employment type
+        field :employment_type, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
+        # The employee ethnicity
+        field :ethnicity, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEthnicity), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ethnicity') } }
+        # The employee first name
+        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        # The employee gender
+        field :gender, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoGender), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('gender') } }
+        # The employee hire date
+        field :hire_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hire_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employee home location
+        field :home_location, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
+        # The employee job id
+        field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
+        # The employee job title
+        field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
+        # The employee last name
+        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        # The employee manager ID
+        field :manager_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('manager_id') } }
+        # The employee marital status
+        field :marital_status, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('marital_status') } }
+        # The employee name
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The national identity number
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :national_identity_number, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoNationalIdentityNumber), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_number') } }
+        # The national identity numbers
+        field :national_identity_numbers, T.nilable(T::Array[Models::Shared::NationalIdentityNumberApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_numbers') } }
+        # Value to pass through to the provider
+        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        # The employee personal email
+        field :personal_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('personal_email') } }
+        # The employee personal phone number
+        field :personal_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('personal_phone_number') } }
+        # The employee preferred language
+        field :preferred_language, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preferred_language') } }
+        # The employee start date
+        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employee team id
+        field :team_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('team_id') } }
+        # The employee termination date
+        field :termination_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employee work email
+        field :work_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_email') } }
+        # The employee work location
+        field :work_location, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoWorkLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_location') } }
+        # The employee work phone number
+        field :work_phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_phone_number') } }
 
 
-      sig { params(avatar: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoAvatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[::StackOne::Shared::CreateHRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[::StackOne::Shared::CountryCodeEnum]), company_id: T.nilable(::String), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[::StackOne::Shared::CustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), department_id: T.nilable(::String), display_name: T.nilable(::String), employee_number: T.nilable(::String), employment: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmployment), employment_contract_type: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEmploymentType), ethnicity: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoEthnicity), first_name: T.nilable(::String), gender: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoGender), hire_date: T.nilable(::DateTime), home_location: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoHomeLocation), job_id: T.nilable(::String), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus), name: T.nilable(::String), national_identity_number: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoNationalIdentityNumber), national_identity_numbers: T.nilable(T::Array[::StackOne::Shared::NationalIdentityNumberApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), preferred_language: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage), start_date: T.nilable(::DateTime), team_id: T.nilable(::String), termination_date: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(::StackOne::Shared::HrisUpdateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(::String)).void }
-      def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company_id: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, department_id: nil, display_name: nil, employee_number: nil, employment: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_id: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, national_identity_number: nil, national_identity_numbers: nil, passthrough: nil, personal_email: nil, personal_phone_number: nil, preferred_language: nil, start_date: nil, team_id: nil, termination_date: nil, work_email: nil, work_location: nil, work_phone_number: nil)
-        @avatar = avatar
-        @avatar_url = avatar_url
-        @benefits = benefits
-        @birthday = birthday
-        @citizenships = citizenships
-        @company_id = company_id
-        @company_name = company_name
-        @custom_fields = custom_fields
-        @date_of_birth = date_of_birth
-        @department = department
-        @department_id = department_id
-        @display_name = display_name
-        @employee_number = employee_number
-        @employment = employment
-        @employment_contract_type = employment_contract_type
-        @employment_status = employment_status
-        @employment_type = employment_type
-        @ethnicity = ethnicity
-        @first_name = first_name
-        @gender = gender
-        @hire_date = hire_date
-        @home_location = home_location
-        @job_id = job_id
-        @job_title = job_title
-        @last_name = last_name
-        @manager_id = manager_id
-        @marital_status = marital_status
-        @name = name
-        @national_identity_number = national_identity_number
-        @national_identity_numbers = national_identity_numbers
-        @passthrough = passthrough
-        @personal_email = personal_email
-        @personal_phone_number = personal_phone_number
-        @preferred_language = preferred_language
-        @start_date = start_date
-        @team_id = team_id
-        @termination_date = termination_date
-        @work_email = work_email
-        @work_location = work_location
-        @work_phone_number = work_phone_number
+        sig { params(avatar: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoAvatar), avatar_url: T.nilable(::String), benefits: T.nilable(T::Array[Models::Shared::CreateHRISBenefit]), birthday: T.nilable(::DateTime), citizenships: T.nilable(T::Array[Models::Shared::CountryCodeEnum]), company_id: T.nilable(::String), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), date_of_birth: T.nilable(::DateTime), department: T.nilable(::String), department_id: T.nilable(::String), display_name: T.nilable(::String), employee_number: T.nilable(::String), employment: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmployment), employment_contract_type: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType), employment_status: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus), employment_type: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentType), ethnicity: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoEthnicity), first_name: T.nilable(::String), gender: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoGender), hire_date: T.nilable(::DateTime), home_location: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoHomeLocation), job_id: T.nilable(::String), job_title: T.nilable(::String), last_name: T.nilable(::String), manager_id: T.nilable(::String), marital_status: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus), name: T.nilable(::String), national_identity_number: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoNationalIdentityNumber), national_identity_numbers: T.nilable(T::Array[Models::Shared::NationalIdentityNumberApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), personal_email: T.nilable(::String), personal_phone_number: T.nilable(::String), preferred_language: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage), start_date: T.nilable(::DateTime), team_id: T.nilable(::String), termination_date: T.nilable(::DateTime), work_email: T.nilable(::String), work_location: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoWorkLocation), work_phone_number: T.nilable(::String)).void }
+        def initialize(avatar: nil, avatar_url: nil, benefits: nil, birthday: nil, citizenships: nil, company_id: nil, company_name: nil, custom_fields: nil, date_of_birth: nil, department: nil, department_id: nil, display_name: nil, employee_number: nil, employment: nil, employment_contract_type: nil, employment_status: nil, employment_type: nil, ethnicity: nil, first_name: nil, gender: nil, hire_date: nil, home_location: nil, job_id: nil, job_title: nil, last_name: nil, manager_id: nil, marital_status: nil, name: nil, national_identity_number: nil, national_identity_numbers: nil, passthrough: nil, personal_email: nil, personal_phone_number: nil, preferred_language: nil, start_date: nil, team_id: nil, termination_date: nil, work_email: nil, work_location: nil, work_phone_number: nil)
+          @avatar = avatar
+          @avatar_url = avatar_url
+          @benefits = benefits
+          @birthday = birthday
+          @citizenships = citizenships
+          @company_id = company_id
+          @company_name = company_name
+          @custom_fields = custom_fields
+          @date_of_birth = date_of_birth
+          @department = department
+          @department_id = department_id
+          @display_name = display_name
+          @employee_number = employee_number
+          @employment = employment
+          @employment_contract_type = employment_contract_type
+          @employment_status = employment_status
+          @employment_type = employment_type
+          @ethnicity = ethnicity
+          @first_name = first_name
+          @gender = gender
+          @hire_date = hire_date
+          @home_location = home_location
+          @job_id = job_id
+          @job_title = job_title
+          @last_name = last_name
+          @manager_id = manager_id
+          @marital_status = marital_status
+          @name = name
+          @national_identity_number = national_identity_number
+          @national_identity_numbers = national_identity_numbers
+          @passthrough = passthrough
+          @personal_email = personal_email
+          @personal_phone_number = personal_phone_number
+          @preferred_language = preferred_language
+          @start_date = start_date
+          @team_id = team_id
+          @termination_date = termination_date
+          @work_email = work_email
+          @work_location = work_location
+          @work_phone_number = work_phone_number
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @avatar == other.avatar
+          return false unless @avatar_url == other.avatar_url
+          return false unless @benefits == other.benefits
+          return false unless @birthday == other.birthday
+          return false unless @citizenships == other.citizenships
+          return false unless @company_id == other.company_id
+          return false unless @company_name == other.company_name
+          return false unless @custom_fields == other.custom_fields
+          return false unless @date_of_birth == other.date_of_birth
+          return false unless @department == other.department
+          return false unless @department_id == other.department_id
+          return false unless @display_name == other.display_name
+          return false unless @employee_number == other.employee_number
+          return false unless @employment == other.employment
+          return false unless @employment_contract_type == other.employment_contract_type
+          return false unless @employment_status == other.employment_status
+          return false unless @employment_type == other.employment_type
+          return false unless @ethnicity == other.ethnicity
+          return false unless @first_name == other.first_name
+          return false unless @gender == other.gender
+          return false unless @hire_date == other.hire_date
+          return false unless @home_location == other.home_location
+          return false unless @job_id == other.job_id
+          return false unless @job_title == other.job_title
+          return false unless @last_name == other.last_name
+          return false unless @manager_id == other.manager_id
+          return false unless @marital_status == other.marital_status
+          return false unless @name == other.name
+          return false unless @national_identity_number == other.national_identity_number
+          return false unless @national_identity_numbers == other.national_identity_numbers
+          return false unless @passthrough == other.passthrough
+          return false unless @personal_email == other.personal_email
+          return false unless @personal_phone_number == other.personal_phone_number
+          return false unless @preferred_language == other.preferred_language
+          return false unless @start_date == other.start_date
+          return false unless @team_id == other.team_id
+          return false unless @termination_date == other.termination_date
+          return false unless @work_email == other.work_email
+          return false unless @work_location == other.work_location
+          return false unless @work_phone_number == other.work_phone_number
+          true
+        end
       end
     end
   end

@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AssignmentValue < T::Enum
-      enums do
-        CONTENT = new('content')
-        COURSE = new('course')
-        COLLECTION = new('collection')
+      class AssignmentValue < T::Enum
+        enums do
+          CONTENT = new('content')
+          COURSE = new('course')
+          COLLECTION = new('collection')
+        end
       end
     end
   end

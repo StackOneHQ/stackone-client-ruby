@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class BackgroundCheckResultCandidate < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class BackgroundCheckResultCandidate
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Candidate profile url
-      field :profile_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('profile_url') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Candidate profile url
+        field :profile_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('profile_url') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), profile_url: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(id: nil, profile_url: nil, remote_id: nil)
-        @id = id
-        @profile_url = profile_url
-        @remote_id = remote_id
+        sig { params(id: T.nilable(::String), profile_url: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(id: nil, profile_url: nil, remote_id: nil)
+          @id = id
+          @profile_url = profile_url
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @profile_url == other.profile_url
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

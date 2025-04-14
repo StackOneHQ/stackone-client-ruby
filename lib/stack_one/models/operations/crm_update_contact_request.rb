@@ -5,25 +5,36 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class CrmUpdateContactRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :crm_create_contact_request_dto, ::StackOne::Shared::CrmCreateContactRequestDto, { 'request': { 'media_type': 'application/json' } }
-
-      field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class CrmUpdateContactRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(crm_create_contact_request_dto: ::StackOne::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String).void }
-      def initialize(crm_create_contact_request_dto: nil, id: nil, x_account_id: nil)
-        @crm_create_contact_request_dto = crm_create_contact_request_dto
-        @id = id
-        @x_account_id = x_account_id
+        field :crm_create_contact_request_dto, Models::Shared::CrmCreateContactRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(crm_create_contact_request_dto: nil, id: nil, x_account_id: nil)
+          @crm_create_contact_request_dto = crm_create_contact_request_dto
+          @id = id
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @crm_create_contact_request_dto == other.crm_create_contact_request_dto
+          return false unless @id == other.id
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

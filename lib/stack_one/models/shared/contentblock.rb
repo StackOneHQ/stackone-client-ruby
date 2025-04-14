@@ -5,43 +5,60 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ContentBlock < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
-      # Date of creation
-      field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Stackone enum identifying the status of content block.
-      field :status, T.nilable(::StackOne::Shared::ContentBlockStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-
-      field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
-      # Stackone enum identifying the type of content block.
-      field :type, T.nilable(::StackOne::Shared::ContentBlockType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-      # Date of last update
-      field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+      class ContentBlock
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(content: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(::StackOne::Shared::ContentBlockStatus), tags: T.nilable(T::Array[::String]), type: T.nilable(::StackOne::Shared::ContentBlockType), updated_at: T.nilable(::DateTime)).void }
-      def initialize(content: nil, created_at: nil, id: nil, name: nil, remote_id: nil, status: nil, tags: nil, type: nil, updated_at: nil)
-        @content = content
-        @created_at = created_at
-        @id = id
-        @name = name
-        @remote_id = remote_id
-        @status = status
-        @tags = tags
-        @type = type
-        @updated_at = updated_at
+        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        # Date of creation
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Stackone enum identifying the status of content block.
+        field :status, T.nilable(Models::Shared::ContentBlockStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+
+        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+        # Stackone enum identifying the type of content block.
+        field :type, T.nilable(Models::Shared::ContentBlockType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # Date of last update
+        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+
+
+        sig { params(content: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(Models::Shared::ContentBlockStatus), tags: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::ContentBlockType), updated_at: T.nilable(::DateTime)).void }
+        def initialize(content: nil, created_at: nil, id: nil, name: nil, remote_id: nil, status: nil, tags: nil, type: nil, updated_at: nil)
+          @content = content
+          @created_at = created_at
+          @id = id
+          @name = name
+          @remote_id = remote_id
+          @status = status
+          @tags = tags
+          @type = type
+          @updated_at = updated_at
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @content == other.content
+          return false unless @created_at == other.created_at
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          return false unless @status == other.status
+          return false unless @tags == other.tags
+          return false unless @type == other.type
+          return false unless @updated_at == other.updated_at
+          true
+        end
       end
     end
   end

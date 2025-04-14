@@ -5,18 +5,20 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class HRISCostCenterValue < T::Enum
-      enums do
-        WORKSPACE = new('workspace')
-        TEAM = new('team')
-        DEPARTMENT = new('department')
-        GROUP = new('group')
-        ORGANIZATION = new('organization')
-        UNMAPPED_VALUE = new('unmapped_value')
-        COST_CENTER = new('cost_center')
+      class HRISCostCenterValue < T::Enum
+        enums do
+          WORKSPACE = new('workspace')
+          TEAM = new('team')
+          DEPARTMENT = new('department')
+          GROUP = new('group')
+          ORGANIZATION = new('organization')
+          UNMAPPED_VALUE = new('unmapped_value')
+          COST_CENTER = new('cost_center')
+        end
       end
     end
   end

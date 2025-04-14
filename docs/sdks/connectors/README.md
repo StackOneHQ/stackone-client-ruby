@@ -18,7 +18,7 @@ Get Connector Meta information for the given provider key
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -41,7 +41,7 @@ end
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::StackoneGetConnectorMetaResponse)](../../models/operations/stackonegetconnectormetaresponse.md)**
+**[T.nilable(Models::Operations::StackoneGetConnectorMetaResponse)](../../models/operations/stackonegetconnectormetaresponse.md)**
 
 
 
@@ -55,7 +55,7 @@ List Connectors Meta Information for all providers
 require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
-      security: ::StackOne::Shared::Security.new(
+      security: Models::Shared::Security.new(
         password: "",
         username: "",
       ),
@@ -77,5 +77,5 @@ end
 
 ### Response
 
-**[T.nilable(::StackOne::Operations::StackoneListConnectorsMetaResponse)](../../models/operations/stackonelistconnectorsmetaresponse.md)**
+**[T.nilable(Models::Operations::StackoneListConnectorsMetaResponse)](../../models/operations/stackonelistconnectorsmetaresponse.md)**
 

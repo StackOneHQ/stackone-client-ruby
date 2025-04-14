@@ -5,40 +5,56 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class AssessmentOrder < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :application, T.nilable(::StackOne::Shared::AssessmentOrderApplication), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application') } }
-
-      field :candidate, T.nilable(::StackOne::Shared::AssessmentOrderCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
-      field :job, T.nilable(::StackOne::Shared::AssessmentOrderJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
-
-      field :package, T.nilable(::StackOne::Shared::AssessmentOrderPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
-      field :requester, T.nilable(::StackOne::Shared::Requester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
-      # Results update url
-      field :results_update_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
+      class AssessmentOrder
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(application: T.nilable(::StackOne::Shared::AssessmentOrderApplication), candidate: T.nilable(::StackOne::Shared::AssessmentOrderCandidate), id: T.nilable(::String), job: T.nilable(::StackOne::Shared::AssessmentOrderJob), package: T.nilable(::StackOne::Shared::AssessmentOrderPackage), remote_id: T.nilable(::String), requester: T.nilable(::StackOne::Shared::Requester), results_update_url: T.nilable(::String)).void }
-      def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, remote_id: nil, requester: nil, results_update_url: nil)
-        @application = application
-        @candidate = candidate
-        @id = id
-        @job = job
-        @package = package
-        @remote_id = remote_id
-        @requester = requester
-        @results_update_url = results_update_url
+        field :application, T.nilable(Models::Shared::AssessmentOrderApplication), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application') } }
+
+        field :candidate, T.nilable(Models::Shared::AssessmentOrderCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+
+        field :job, T.nilable(Models::Shared::AssessmentOrderJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
+
+        field :package, T.nilable(Models::Shared::AssessmentOrderPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+
+        field :requester, T.nilable(Models::Shared::Requester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
+        # Results update url
+        field :results_update_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
+
+
+        sig { params(application: T.nilable(Models::Shared::AssessmentOrderApplication), candidate: T.nilable(Models::Shared::AssessmentOrderCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AssessmentOrderJob), package: T.nilable(Models::Shared::AssessmentOrderPackage), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::Requester), results_update_url: T.nilable(::String)).void }
+        def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, remote_id: nil, requester: nil, results_update_url: nil)
+          @application = application
+          @candidate = candidate
+          @id = id
+          @job = job
+          @package = package
+          @remote_id = remote_id
+          @requester = requester
+          @results_update_url = results_update_url
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @application == other.application
+          return false unless @candidate == other.candidate
+          return false unless @id == other.id
+          return false unless @job == other.job
+          return false unless @package == other.package
+          return false unless @remote_id == other.remote_id
+          return false unless @requester == other.requester
+          return false unless @results_update_url == other.results_update_url
+          true
+        end
       end
     end
   end

@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class ListItem < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class ListItem
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-      sig { params(id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-      def initialize(id: nil, remote_id: nil)
-        @id = id
-        @remote_id = remote_id
+        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(id: nil, remote_id: nil)
+          @id = id
+          @remote_id = remote_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @id == other.id
+          return false unless @remote_id == other.remote_id
+          true
+        end
       end
     end
   end

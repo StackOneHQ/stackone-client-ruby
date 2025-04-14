@@ -5,31 +5,44 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class BackgroundCheckPackage < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class BackgroundCheckPackage
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # Package description
-      field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # Package name
-      field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-      # Provider's unique identifier
-      field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-      # Package tests
-      field :tests, T.nilable(T::Array[::StackOne::Shared::Package]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
+        # Package description
+        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Package name
+        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Provider's unique identifier
+        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Package tests
+        field :tests, T.nilable(T::Array[Models::Shared::Package]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
 
 
-      sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), tests: T.nilable(T::Array[::StackOne::Shared::Package])).void }
-      def initialize(description: nil, id: nil, name: nil, remote_id: nil, tests: nil)
-        @description = description
-        @id = id
-        @name = name
-        @remote_id = remote_id
-        @tests = tests
+        sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), tests: T.nilable(T::Array[Models::Shared::Package])).void }
+        def initialize(description: nil, id: nil, name: nil, remote_id: nil, tests: nil)
+          @description = description
+          @id = id
+          @name = name
+          @remote_id = remote_id
+          @tests = tests
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @description == other.description
+          return false unless @id == other.id
+          return false unless @name == other.name
+          return false unless @remote_id == other.remote_id
+          return false unless @tests == other.tests
+          true
+        end
       end
     end
   end

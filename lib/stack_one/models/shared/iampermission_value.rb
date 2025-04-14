@@ -5,18 +5,20 @@
 
 
 module StackOne
-  module Shared
-  
-    # IamPermissionValue - The type of the permission, e.g. read, read_write, delete, etc.
-    class IamPermissionValue < T::Enum
-      enums do
-        READ = new('read')
-        READ_WRITE = new('read_write')
-        APPROVE = new('approve')
-        DELETE = new('delete')
-        USE = new('use')
-        EXPORT = new('export')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # IamPermissionValue - The type of the permission, e.g. read, read_write, delete, etc.
+      class IamPermissionValue < T::Enum
+        enums do
+          READ = new('read')
+          READ_WRITE = new('read_write')
+          APPROVE = new('approve')
+          DELETE = new('delete')
+          USE = new('use')
+          EXPORT = new('export')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

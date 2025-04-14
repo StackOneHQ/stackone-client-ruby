@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Shared
-  
-    # Type of the answer
-    class CreateAnswerType < ::Crystalline::FieldAugmented
-      extend T::Sig
+  module Models
+    module Shared
+    
+      # Type of the answer
+      class CreateAnswerType
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The source value of the answer type.
-      field :source_value, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-      # The type of the answer.
-      field :value, T.nilable(::StackOne::Shared::CreateAnswerValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(::StackOne::Shared::CreateAnswerValue, true) } }
+        # The source value of the answer type.
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CreateAnswer4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The type of the answer.
+        field :value, T.nilable(Models::Shared::CreateAnswerValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CreateAnswerValue, true) } }
 
 
-      sig { params(source_value: T.nilable(::Object), value: T.nilable(::StackOne::Shared::CreateAnswerValue)).void }
-      def initialize(source_value: nil, value: nil)
-        @source_value = source_value
-        @value = value
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CreateAnswer4, T::Array[::Object])), value: T.nilable(Models::Shared::CreateAnswerValue)).void }
+        def initialize(source_value: nil, value: nil)
+          @source_value = source_value
+          @value = value
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @source_value == other.source_value
+          return false unless @value == other.value
+          true
+        end
       end
     end
   end

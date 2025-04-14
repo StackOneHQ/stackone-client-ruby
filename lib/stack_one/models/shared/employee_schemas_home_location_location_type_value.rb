@@ -5,14 +5,16 @@
 
 
 module StackOne
-  module Shared
-  
-    # EmployeeSchemasHomeLocationLocationTypeValue - The type of the location.
-    class EmployeeSchemasHomeLocationLocationTypeValue < T::Enum
-      enums do
-        HOME = new('home')
-        WORK = new('work')
-        UNMAPPED_VALUE = new('unmapped_value')
+  module Models
+    module Shared
+    
+      # EmployeeSchemasHomeLocationLocationTypeValue - The type of the location.
+      class EmployeeSchemasHomeLocationLocationTypeValue < T::Enum
+        enums do
+          HOME = new('home')
+          WORK = new('work')
+          UNMAPPED_VALUE = new('unmapped_value')
+        end
       end
     end
   end

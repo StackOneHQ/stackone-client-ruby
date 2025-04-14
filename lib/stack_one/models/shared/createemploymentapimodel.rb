@@ -5,51 +5,70 @@
 
 
 module StackOne
-  module Shared
-  
+  module Models
+    module Shared
+    
 
-    class CreateEmploymentApiModel < ::Crystalline::FieldAugmented
-      extend T::Sig
+      class CreateEmploymentApiModel
+        extend T::Sig
+        include Crystalline::MetadataFields
 
-      # The effective date of the employment contract
-      # 
-      # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-      field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-      # The employment work schedule type (e.g., full-time, part-time)
-      field :employment_contract_type, T.nilable(::StackOne::Shared::EmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
-      # The type of employment (e.g., contractor, permanent)
-      field :employment_type, T.nilable(::StackOne::Shared::EmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
-      # Unique identifier
-      field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-      # The job title of the employee
-      field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
-      # The currency used for pay
-      field :pay_currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
-      # The pay frequency
-      field :pay_frequency, T.nilable(::StackOne::Shared::PayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
-      # The pay period
-      field :pay_period, T.nilable(::StackOne::Shared::PayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
-      # The pay rate for the employee
-      field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
-      # The time worked for the employee in ISO 8601 duration format
-      field :time_worked, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_worked') } }
-      # Custom Unified Fields configured in your StackOne project
-      field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        # The effective date of the employment contract
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The employment work schedule type (e.g., full-time, part-time)
+        field :employment_contract_type, T.nilable(Models::Shared::EmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
+        # The type of employment (e.g., contractor, permanent)
+        field :employment_type, T.nilable(Models::Shared::EmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
+        # Unique identifier
+        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The job title of the employee
+        field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
+        # The currency used for pay
+        field :pay_currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
+        # The pay frequency
+        field :pay_frequency, T.nilable(Models::Shared::PayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
+        # The pay period
+        field :pay_period, T.nilable(Models::Shared::PayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
+        # The pay rate for the employee
+        field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
+        # The time worked for the employee in ISO 8601 duration format
+        field :time_worked, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_worked') } }
+        # Custom Unified Fields configured in your StackOne project
+        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
 
-      sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(::StackOne::Shared::EmploymentContractType), employment_type: T.nilable(::StackOne::Shared::EmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(::StackOne::Shared::PayFrequency), pay_period: T.nilable(::StackOne::Shared::PayPeriod), pay_rate: T.nilable(::String), time_worked: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-      def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, time_worked: nil, unified_custom_fields: nil)
-        @effective_date = effective_date
-        @employment_contract_type = employment_contract_type
-        @employment_type = employment_type
-        @id = id
-        @job_title = job_title
-        @pay_currency = pay_currency
-        @pay_frequency = pay_frequency
-        @pay_period = pay_period
-        @pay_rate = pay_rate
-        @time_worked = time_worked
-        @unified_custom_fields = unified_custom_fields
+        sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::EmploymentContractType), employment_type: T.nilable(Models::Shared::EmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::PayFrequency), pay_period: T.nilable(Models::Shared::PayPeriod), pay_rate: T.nilable(::String), time_worked: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, time_worked: nil, unified_custom_fields: nil)
+          @effective_date = effective_date
+          @employment_contract_type = employment_contract_type
+          @employment_type = employment_type
+          @id = id
+          @job_title = job_title
+          @pay_currency = pay_currency
+          @pay_frequency = pay_frequency
+          @pay_period = pay_period
+          @pay_rate = pay_rate
+          @time_worked = time_worked
+          @unified_custom_fields = unified_custom_fields
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @effective_date == other.effective_date
+          return false unless @employment_contract_type == other.employment_contract_type
+          return false unless @employment_type == other.employment_type
+          return false unless @id == other.id
+          return false unless @job_title == other.job_title
+          return false unless @pay_currency == other.pay_currency
+          return false unless @pay_frequency == other.pay_frequency
+          return false unless @pay_period == other.pay_period
+          return false unless @pay_rate == other.pay_rate
+          return false unless @time_worked == other.time_worked
+          return false unless @unified_custom_fields == other.unified_custom_fields
+          true
+        end
       end
     end
   end

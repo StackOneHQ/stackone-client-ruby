@@ -5,22 +5,32 @@
 
 
 module StackOne
-  module Operations
-  
+  module Models
+    module Operations
+    
 
-    class AtsOrderBackgroundCheckRequestRequest < ::Crystalline::FieldAugmented
-      extend T::Sig
-
-
-      field :ats_create_background_check_order_request_dto, ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto, { 'request': { 'media_type': 'application/json' } }
-      # The account identifier
-      field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+      class AtsOrderBackgroundCheckRequestRequest
+        extend T::Sig
+        include Crystalline::MetadataFields
 
 
-      sig { params(ats_create_background_check_order_request_dto: ::StackOne::Shared::AtsCreateBackgroundCheckOrderRequestDto, x_account_id: ::String).void }
-      def initialize(ats_create_background_check_order_request_dto: nil, x_account_id: nil)
-        @ats_create_background_check_order_request_dto = ats_create_background_check_order_request_dto
-        @x_account_id = x_account_id
+        field :ats_create_background_check_order_request_dto, Models::Shared::AtsCreateBackgroundCheckOrderRequestDto, { 'request': { 'media_type': 'application/json' } }
+        # The account identifier
+        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+
+        sig { params(ats_create_background_check_order_request_dto: Models::Shared::AtsCreateBackgroundCheckOrderRequestDto, x_account_id: ::String).void }
+        def initialize(ats_create_background_check_order_request_dto: nil, x_account_id: nil)
+          @ats_create_background_check_order_request_dto = ats_create_background_check_order_request_dto
+          @x_account_id = x_account_id
+        end
+
+        def ==(other)
+          return false unless other.is_a? self.class
+          return false unless @ats_create_background_check_order_request_dto == other.ats_create_background_check_order_request_dto
+          return false unless @x_account_id == other.x_account_id
+          true
+        end
       end
     end
   end

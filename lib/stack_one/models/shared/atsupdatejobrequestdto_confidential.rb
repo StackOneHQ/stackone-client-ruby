@@ -5,13 +5,15 @@
 
 
 module StackOne
-  module Shared
-  
-    # AtsUpdateJobRequestDtoConfidential - Confidential status of the job
-    class AtsUpdateJobRequestDtoConfidential < T::Enum
-      enums do
-        TRUE = new('true')
-        FALSE = new('false')
+  module Models
+    module Shared
+    
+      # AtsUpdateJobRequestDtoConfidential - Confidential status of the job
+      class AtsUpdateJobRequestDtoConfidential < T::Enum
+        enums do
+          TRUE = new('true')
+          FALSE = new('false')
+        end
       end
     end
   end
