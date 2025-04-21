@@ -35,14 +35,14 @@ module StackOne
         field :pay_period, T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
         # The pay rate for the employee
         field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
-        # The time worked for the employee in ISO 8601 duration format
-        field :time_worked, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_worked') } }
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
+        field :work_time, T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoWorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
 
-        sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod), pay_rate: T.nilable(::String), time_worked: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, passthrough: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, time_worked: nil, unified_custom_fields: nil)
+
+        sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType), id: T.nilable(::String), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod), pay_rate: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoWorkTime)).void }
+        def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_title: nil, passthrough: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, unified_custom_fields: nil, work_time: nil)
           @effective_date = effective_date
           @employment_contract_type = employment_contract_type
           @employment_type = employment_type
@@ -53,8 +53,8 @@ module StackOne
           @pay_frequency = pay_frequency
           @pay_period = pay_period
           @pay_rate = pay_rate
-          @time_worked = time_worked
           @unified_custom_fields = unified_custom_fields
+          @work_time = work_time
         end
 
         def ==(other)
@@ -69,8 +69,8 @@ module StackOne
           return false unless @pay_frequency == other.pay_frequency
           return false unless @pay_period == other.pay_period
           return false unless @pay_rate == other.pay_rate
-          return false unless @time_worked == other.time_worked
           return false unless @unified_custom_fields == other.unified_custom_fields
+          return false unless @work_time == other.work_time
           true
         end
       end

@@ -18,3 +18,4 @@ The provider service category
 | `DOCUMENTS`   | documents     |
 | `TICKETING`   | ticketing     |
 | `SCREENING`   | screening     |
+| `MESSAGING`   | messaging     |
