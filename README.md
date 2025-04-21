@@ -22,6 +22,7 @@ IAM: The documentation for the StackOne Unified API - IAM
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Retries](#retries)
+  * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
 * [Development](#development)
   * [Maturity](#maturity)
@@ -419,6 +420,96 @@ end
 
 ```
 <!-- End Retries [retries] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an error.
+
+By default an API error will raise a `Errors::APIError`, which has the following properties:
+
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `message`     | *string*                                 | The error message     |
+| `status_code`  | *int*                                   | The HTTP status code  |
+| `raw_response` | *Faraday::Response*                     | The raw HTTP response |
+| `body`        | *string*                                 | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `delete_account` method throws the following exceptions:
+
+| Error Type                                  | Status Code | Content Type     |
+| ------------------------------------------- | ----------- | ---------------- |
+| Models::Errors::BadRequestResponse          | 400         | application/json |
+| Models::Errors::UnauthorizedResponse        | 401         | application/json |
+| Models::Errors::ForbiddenResponse           | 403         | application/json |
+| Models::Errors::NotFoundResponse            | 404         | application/json |
+| Models::Errors::RequestTimedOutResponse     | 408         | application/json |
+| Models::Errors::ConflictResponse            | 409         | application/json |
+| Models::Errors::UnprocessableEntityResponse | 422         | application/json |
+| Models::Errors::TooManyRequestsResponse     | 429         | application/json |
+| Models::Errors::InternalServerErrorResponse | 500         | application/json |
+| Models::Errors::NotImplementedResponse      | 501         | application/json |
+| Models::Errors::BadGatewayResponse          | 502         | application/json |
+| Errors::APIError                            | 4XX, 5XX    | \*/\*            |
+
+### Example
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+begin
+    res = s.accounts.delete_account(id="<id>")
+
+    if ! res.linked_account.nil?
+      # handle response
+    end
+rescue Models::Errors::BadRequestResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::UnauthorizedResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::ForbiddenResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::NotFoundResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::RequestTimedOutResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::ConflictResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::UnprocessableEntityResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::TooManyRequestsResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::InternalServerErrorResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::NotImplementedResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Models::Errors::BadGatewayResponse => e
+  # handle $e->$container data
+  throw $e;
+rescue Errors::APIError => e
+  # handle default exception
+  raise e
+end
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection

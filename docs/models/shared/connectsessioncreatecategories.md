@@ -16,3 +16,4 @@
 | `DOCUMENTS`   | documents     |
 | `TICKETING`   | ticketing     |
 | `SCREENING`   | screening     |
+| `MESSAGING`   | messaging     |

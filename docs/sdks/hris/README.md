@@ -228,11 +228,14 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::Hr
     pay_frequency: Models::Shared::HrisCreateEmployeeRequestDtoPayFrequency.new(),
     pay_period: Models::Shared::HrisCreateEmployeeRequestDtoPayPeriod.new(),
     pay_rate: "40.00",
-    time_worked: "P0Y0M0DT8H0M0S",
     unified_custom_fields: {
       "my_project_custom_field_1": "REF-1236",
       "my_project_custom_field_2": "some other value",
     },
+    work_time: Models::Shared::HrisCreateEmployeeRequestDtoWorkTime.new(
+      duration: "P0Y0M0DT8H0M0S",
+      duration_unit: Models::Shared::HrisCreateEmployeeRequestDtoDurationUnit.new(),
+    ),
   ),
   employment_contract_type: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
@@ -350,11 +353,14 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto=Model
   pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
   pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
-  time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
+  work_time: Models::Shared::HrisCreateEmploymentRequestDtoWorkTime.new(
+    duration: "P0Y0M0DT8H0M0S",
+    duration_unit: Models::Shared::HrisCreateEmploymentRequestDtoDurationUnit.new(),
+  ),
 ), id="<id>", x_account_id="<id>")
 
 if ! res.employment_result.nil?
@@ -1004,7 +1010,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1222,7 +1228,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1955,7 +1961,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2274,7 +2280,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,time_worked,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2718,11 +2724,14 @@ res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::Hr
     pay_frequency: Models::Shared::HrisUpdateEmployeeRequestDtoPayFrequency.new(),
     pay_period: Models::Shared::HrisUpdateEmployeeRequestDtoPayPeriod.new(),
     pay_rate: "40.00",
-    time_worked: "P0Y0M0DT8H0M0S",
     unified_custom_fields: {
       "my_project_custom_field_1": "REF-1236",
       "my_project_custom_field_2": "some other value",
     },
+    work_time: Models::Shared::HrisUpdateEmployeeRequestDtoWorkTime.new(
+      duration: "P0Y0M0DT8H0M0S",
+      duration_unit: Models::Shared::HrisUpdateEmployeeRequestDtoDurationUnit.new(),
+    ),
   ),
   employment_contract_type: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
@@ -2841,11 +2850,14 @@ res = s.hris.update_employee_employment(hris_create_employment_request_dto=Model
   pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
   pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
-  time_worked: "P0Y0M0DT8H0M0S",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
+  work_time: Models::Shared::HrisCreateEmploymentRequestDtoWorkTime.new(
+    duration: "P0Y0M0DT8H0M0S",
+    duration_unit: Models::Shared::HrisCreateEmploymentRequestDtoDurationUnit.new(),
+  ),
 ), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
 
 if ! res.employment_result.nil?

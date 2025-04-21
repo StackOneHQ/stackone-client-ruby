@@ -22,6 +22,7 @@ module StackOne
           DOCUMENTS = new('documents')
           TICKETING = new('ticketing')
           SCREENING = new('screening')
+          MESSAGING = new('messaging')
         end
       end
     end
