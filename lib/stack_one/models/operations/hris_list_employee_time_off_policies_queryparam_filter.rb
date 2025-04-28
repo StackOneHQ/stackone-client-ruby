@@ -8,22 +8,26 @@ module StackOne
   module Models
     module Operations
     
-      # Filter parameters that allow greater customisation of the list response
+      # HRIS Time-Off Policies filters
       class HrisListEmployeeTimeOffPoliciesQueryParamFilter
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Filter to select time-off policies by type
+        field :type, T.nilable(Models::Operations::Type), { 'query_param': { 'field_name': 'type' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(updated_after: T.nilable(::String)).void }
-        def initialize(updated_after: nil)
+        sig { params(type: T.nilable(Models::Operations::Type), updated_after: T.nilable(::String)).void }
+        def initialize(type: nil, updated_after: nil)
+          @type = type
           @updated_after = updated_after
         end
 
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @type == other.type
           return false unless @updated_after == other.updated_after
           true
         end

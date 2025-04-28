@@ -16,3 +16,4 @@ The type of the questions.
 | `NUMBER`        | number          |
 | `DATE`          | date            |
 | `VIDEO`         | video           |
+| `URL`           | url             |

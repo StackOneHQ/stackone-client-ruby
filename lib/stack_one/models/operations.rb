@@ -505,6 +505,7 @@ module StackOne
       autoload :QueryParamOrderBy, 'stack_one/models/operations/queryparam_order_by.rb'
       autoload :QueryParamOrderDirection, 'stack_one/models/operations/queryparam_order_direction.rb'
       autoload :QueryParamStatus, 'stack_one/models/operations/queryparam_status.rb'
+      autoload :QueryParamType, 'stack_one/models/operations/queryparam_type.rb'
       autoload :StackoneAuthenticateConnectSessionResponse, 'stack_one/models/operations/stackone_authenticate_connect_session_response.rb'
       autoload :StackoneCreateConnectSessionResponse, 'stack_one/models/operations/stackone_create_connect_session_response.rb'
       autoload :StackoneDeleteAccountRequest, 'stack_one/models/operations/stackone_delete_account_request.rb'
@@ -535,6 +536,7 @@ module StackOne
       autoload :StackoneUpdateAccountRequest, 'stack_one/models/operations/stackone_update_account_request.rb'
       autoload :StackoneUpdateAccountResponse, 'stack_one/models/operations/stackone_update_account_response.rb'
       autoload :Status, 'stack_one/models/operations/status.rb'
+      autoload :Type, 'stack_one/models/operations/type.rb'
     end
   end
 end

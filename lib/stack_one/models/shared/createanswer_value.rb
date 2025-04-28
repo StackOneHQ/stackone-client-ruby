@@ -20,6 +20,7 @@ module StackOne
           NUMBER = new('number')
           DATE = new('date')
           VIDEO = new('video')
+          URL = new('url')
         end
       end
     end
