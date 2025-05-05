@@ -16,6 +16,7 @@ module StackOne
           REJECTED = new('rejected')
           PENDING = new('pending')
           DELETED = new('deleted')
+          DRAFT = new('draft')
           UNMAPPED_VALUE = new('unmapped_value')
         end
       end
