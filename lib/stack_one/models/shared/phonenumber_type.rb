@@ -17,6 +17,7 @@ module StackOne
           HOME = new('home')
           UNKNOWN = new('unknown')
           OTHER = new('other')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

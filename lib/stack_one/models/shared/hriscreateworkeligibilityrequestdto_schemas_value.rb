@@ -16,6 +16,7 @@ module StackOne
           DRIVER_LICENSE = new('driver_license')
           BIRTH_CERTIFICATE = new('birth_certificate')
           OTHER = new('other')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

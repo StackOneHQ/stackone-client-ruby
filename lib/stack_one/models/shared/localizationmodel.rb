@@ -17,14 +17,17 @@ module StackOne
         field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The language associated with the localization details
         field :language, T.nilable(Models::Shared::LocalizationModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        # The tags associated with the localization details
+        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
         # The title of the content
         field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
 
-        sig { params(description: T.nilable(::String), language: T.nilable(Models::Shared::LocalizationModelLanguage), title: T.nilable(::String)).void }
-        def initialize(description: nil, language: nil, title: nil)
+        sig { params(description: T.nilable(::String), language: T.nilable(Models::Shared::LocalizationModelLanguage), tags: T.nilable(T::Array[::String]), title: T.nilable(::String)).void }
+        def initialize(description: nil, language: nil, tags: nil, title: nil)
           @description = description
           @language = language
+          @tags = tags
           @title = title
         end
 
@@ -32,6 +35,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @description == other.description
           return false unless @language == other.language
+          return false unless @tags == other.tags
           return false unless @title == other.title
           true
         end

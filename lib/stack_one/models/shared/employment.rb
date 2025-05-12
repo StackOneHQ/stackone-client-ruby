@@ -63,6 +63,8 @@ module StackOne
         field :pay_period, T.nilable(Models::Shared::EmploymentPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
         # The pay rate for the employee
         field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
+        # The payroll code of the employee
+        field :payroll_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('payroll_code') } }
         # Provider's unique identifier of the employee associated with this employment
         field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
         # Provider's unique identifier
@@ -79,8 +81,8 @@ module StackOne
         field :work_time, T.nilable(Models::Shared::EmploymentWorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
 
 
-        sig { params(active: T.nilable(T::Boolean), contract_type: T.nilable(Models::Shared::ContractType), cost_center: T.nilable(Models::Shared::CostCenter), cost_centers: T.nilable(T::Array[Models::Shared::HRISCostCenter]), created_at: T.nilable(::DateTime), department: T.nilable(Models::Shared::EmploymentDepartment), division: T.nilable(Models::Shared::Division), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(Models::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(Models::Shared::EmploymentEmploymentType), end_date: T.nilable(::DateTime), fte: T.nilable(::Float), id: T.nilable(::String), job: T.nilable(Models::Shared::EmploymentJob), job_title: T.nilable(::String), manager: T.nilable(T::Array[Models::Shared::EmploymentManagerApiModel]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::EmploymentPayFrequency), pay_period: T.nilable(Models::Shared::EmploymentPayPeriod), pay_rate: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), type: T.nilable(Models::Shared::EmploymentSchemasType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), work_time: T.nilable(Models::Shared::EmploymentWorkTime)).void }
-        def initialize(active: nil, contract_type: nil, cost_center: nil, cost_centers: nil, created_at: nil, department: nil, division: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, fte: nil, id: nil, job: nil, job_title: nil, manager: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, type: nil, unified_custom_fields: nil, updated_at: nil, work_time: nil)
+        sig { params(active: T.nilable(T::Boolean), contract_type: T.nilable(Models::Shared::ContractType), cost_center: T.nilable(Models::Shared::CostCenter), cost_centers: T.nilable(T::Array[Models::Shared::HRISCostCenter]), created_at: T.nilable(::DateTime), department: T.nilable(Models::Shared::EmploymentDepartment), division: T.nilable(Models::Shared::Division), effective_date: T.nilable(::DateTime), employee_id: T.nilable(::String), employment_contract_type: T.nilable(Models::Shared::EmploymentEmploymentContractType), employment_type: T.nilable(Models::Shared::EmploymentEmploymentType), end_date: T.nilable(::DateTime), fte: T.nilable(::Float), id: T.nilable(::String), job: T.nilable(Models::Shared::EmploymentJob), job_title: T.nilable(::String), manager: T.nilable(T::Array[Models::Shared::EmploymentManagerApiModel]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::EmploymentPayFrequency), pay_period: T.nilable(Models::Shared::EmploymentPayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_date: T.nilable(::DateTime), type: T.nilable(Models::Shared::EmploymentSchemasType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), work_time: T.nilable(Models::Shared::EmploymentWorkTime)).void }
+        def initialize(active: nil, contract_type: nil, cost_center: nil, cost_centers: nil, created_at: nil, department: nil, division: nil, effective_date: nil, employee_id: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, fte: nil, id: nil, job: nil, job_title: nil, manager: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, remote_employee_id: nil, remote_id: nil, start_date: nil, type: nil, unified_custom_fields: nil, updated_at: nil, work_time: nil)
           @active = active
           @contract_type = contract_type
           @cost_center = cost_center
@@ -102,6 +104,7 @@ module StackOne
           @pay_frequency = pay_frequency
           @pay_period = pay_period
           @pay_rate = pay_rate
+          @payroll_code = payroll_code
           @remote_employee_id = remote_employee_id
           @remote_id = remote_id
           @start_date = start_date
@@ -134,6 +137,7 @@ module StackOne
           return false unless @pay_frequency == other.pay_frequency
           return false unless @pay_period == other.pay_period
           return false unless @pay_rate == other.pay_rate
+          return false unless @payroll_code == other.payroll_code
           return false unless @remote_employee_id == other.remote_employee_id
           return false unless @remote_id == other.remote_id
           return false unless @start_date == other.start_date

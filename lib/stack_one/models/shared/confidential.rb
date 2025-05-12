@@ -13,6 +13,7 @@ module StackOne
         enums do
           TRUE = new('true')
           FALSE = new('false')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

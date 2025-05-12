@@ -16,6 +16,7 @@ module StackOne
           EXPIRED = new('expired')
           FAILED = new('failed')
           PASSED = new('passed')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

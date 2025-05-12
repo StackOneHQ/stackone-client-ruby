@@ -16,6 +16,7 @@ module StackOne
           RECURRING = new('recurring')
           CUSTOM = new('custom')
           TRIGGERED = new('triggered')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

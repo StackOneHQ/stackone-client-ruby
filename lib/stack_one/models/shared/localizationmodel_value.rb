@@ -421,6 +421,7 @@ module StackOne
           ZH_SG = new('zh_SG')
           ZH_TW = new('zh_TW')
           ZU_ZA = new('zu_ZA')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

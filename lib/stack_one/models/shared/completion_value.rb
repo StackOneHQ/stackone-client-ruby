@@ -14,6 +14,7 @@ module StackOne
           CONTENT = new('content')
           COURSE = new('course')
           COLLECTION = new('collection')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

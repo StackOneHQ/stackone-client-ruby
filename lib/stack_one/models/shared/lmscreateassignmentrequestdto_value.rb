@@ -14,6 +14,7 @@ module StackOne
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')
           COMPLETED = new('completed')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

@@ -259,6 +259,7 @@ module StackOne
           YE = new('YE')
           ZM = new('ZM')
           ZW = new('ZW')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

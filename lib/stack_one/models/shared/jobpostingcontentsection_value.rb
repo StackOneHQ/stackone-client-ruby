@@ -17,6 +17,7 @@ module StackOne
           COMPANY_OVERVIEW = new('company_overview')
           DESCRIPTION = new('description')
           OTHER = new('other')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end
