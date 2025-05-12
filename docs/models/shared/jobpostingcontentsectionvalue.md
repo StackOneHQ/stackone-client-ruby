@@ -13,3 +13,4 @@ The type of the description.
 | `COMPANY_OVERVIEW` | company_overview   |
 | `DESCRIPTION`      | description        |
 | `OTHER`            | other              |
+| `UNMAPPED_VALUE`   | unmapped_value     |

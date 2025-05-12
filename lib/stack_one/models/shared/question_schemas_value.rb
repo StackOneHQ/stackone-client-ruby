@@ -13,6 +13,7 @@ module StackOne
         enums do
           EQUALS_TO = new('equals_to')
           CONTAINS = new('contains')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

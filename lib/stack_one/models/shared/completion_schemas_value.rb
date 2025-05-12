@@ -13,6 +13,7 @@ module StackOne
         enums do
           PASS = new('Pass')
           FAIL = new('Fail')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

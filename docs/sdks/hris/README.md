@@ -224,10 +224,14 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::Hr
     employment_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType.new(),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     job_title: "Software Engineer",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
     pay_currency: "USD",
     pay_frequency: Models::Shared::HrisCreateEmployeeRequestDtoPayFrequency.new(),
     pay_period: Models::Shared::HrisCreateEmployeeRequestDtoPayPeriod.new(),
     pay_rate: "40.00",
+    payroll_code: "PC1",
     unified_custom_fields: {
       "my_project_custom_field_1": "REF-1236",
       "my_project_custom_field_2": "some other value",
@@ -342,9 +346,11 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.hris.create_employee_employment(hris_create_employment_request_dto=Models::Shared::HrisCreateEmploymentRequestDto.new(
+  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   employment_contract_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
   employment_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  job_id: "5290",
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
@@ -353,6 +359,7 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto=Model
   pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
   pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
+  payroll_code: "PC1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
@@ -751,7 +758,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCostCenterGroupRequest.new(
-  fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -836,7 +843,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
   id: "<id>",
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
@@ -1010,7 +1017,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1228,7 +1235,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -1739,7 +1746,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCostCenterGroupsRequest.new(
-  fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
+  fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1961,7 +1968,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2234,7 +2241,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,benefits,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,employee_number,national_identity_number,national_identity_numbers,skills",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2280,7 +2287,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2720,10 +2727,14 @@ res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::Hr
     employment_type: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType.new(),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     job_title: "Software Engineer",
+    passthrough: {
+      "other_known_names": "John Doe",
+    },
     pay_currency: "USD",
     pay_frequency: Models::Shared::HrisUpdateEmployeeRequestDtoPayFrequency.new(),
     pay_period: Models::Shared::HrisUpdateEmployeeRequestDtoPayPeriod.new(),
     pay_rate: "40.00",
+    payroll_code: "PC1",
     unified_custom_fields: {
       "my_project_custom_field_1": "REF-1236",
       "my_project_custom_field_2": "some other value",
@@ -2839,9 +2850,11 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.hris.update_employee_employment(hris_create_employment_request_dto=Models::Shared::HrisCreateEmploymentRequestDto.new(
+  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   employment_contract_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
   employment_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
   id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  job_id: "5290",
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
@@ -2850,6 +2863,7 @@ res = s.hris.update_employee_employment(hris_create_employment_request_dto=Model
   pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
   pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
+  payroll_code: "PC1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",

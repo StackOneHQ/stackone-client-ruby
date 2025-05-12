@@ -21,6 +21,7 @@ module StackOne
           DATE = new('date')
           VIDEO = new('video')
           URL = new('url')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

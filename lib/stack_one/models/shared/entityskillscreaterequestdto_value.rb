@@ -16,6 +16,7 @@ module StackOne
           THREE = new('3')
           FOUR = new('4')
           FIVE = new('5')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

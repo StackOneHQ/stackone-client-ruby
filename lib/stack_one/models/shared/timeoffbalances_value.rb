@@ -18,6 +18,7 @@ module StackOne
           MONTHS = new('months')
           YEARS = new('years')
           UNKNOWN = new('unknown')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

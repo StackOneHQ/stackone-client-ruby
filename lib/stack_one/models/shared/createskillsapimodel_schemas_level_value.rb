@@ -14,6 +14,7 @@ module StackOne
           PRIMARY = new('primary')
           SECONDARY = new('secondary')
           TERTIARY = new('tertiary')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

@@ -14,6 +14,7 @@ module StackOne
           DRAFT = new('draft')
           ARCHIVED = new('archived')
           LIVE = new('live')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

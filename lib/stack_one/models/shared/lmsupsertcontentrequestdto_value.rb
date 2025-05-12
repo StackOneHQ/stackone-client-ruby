@@ -16,6 +16,7 @@ module StackOne
           DOCUMENT = new('document')
           AUDIO = new('audio')
           ARTICLE = new('article')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

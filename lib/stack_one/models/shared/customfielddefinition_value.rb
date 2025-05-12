@@ -22,6 +22,7 @@ module StackOne
           MULTI_SELECT = new('multi_select')
           URL = new('url')
           OTHER = new('other')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

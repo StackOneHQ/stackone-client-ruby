@@ -13,6 +13,7 @@ module StackOne
         enums do
           PRIVATE = new('private')
           PUBLIC = new('public')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

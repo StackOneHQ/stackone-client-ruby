@@ -15,6 +15,7 @@ module StackOne
           HTML = new('html')
           IMAGE = new('image')
           CODE_SNIPPET = new('code-snippet')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end
