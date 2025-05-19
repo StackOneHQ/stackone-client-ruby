@@ -24,6 +24,7 @@
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](#get_employee_employment) - Get Employee Employment
 * [get_employee_skill](#get_employee_skill) - Get Employee Skill
+* [get_employee_task](#get_employee_task) - Get Employee Task
 * [get_employee_time_off_balance](#get_employee_time_off_balance) - Get Employee Time Off Balance
 * [get_employees_time_off_request](#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](#get_employees_work_eligibility) - Get Employees Work Eligibility
@@ -46,6 +47,7 @@
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_employments](#list_employee_employments) - List Employee Employments
 * [list_employee_skills](#list_employee_skills) - List Employee Skills
+* [list_employee_tasks](#list_employee_tasks) - List Employee Tasks
 * [list_employee_time_off_balances](#list_employee_time_off_balances) - List Employee Time Off Balances
 * [list_employee_time_off_policies](#list_employee_time_off_policies) - List Assigned Time Off Policies
 * [list_employee_time_off_requests](#list_employee_time_off_requests) - List Employee Time Off Requests
@@ -1086,6 +1088,50 @@ end
 
 
 
+## get_employee_task
+
+Get Employee Task
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisGetEmployeeTaskRequest.new(
+  expand: "attachments",
+  fields_: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at",
+  id: "<id>",
+  sub_resource_id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_employee_task(req)
+
+if ! res.task_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::HrisGetEmployeeTaskRequest](../../models/operations/hrisgetemployeetaskrequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetEmployeeTaskResponse)](../../models/operations/hrisgetemployeetaskresponse.md)**
+
+
+
 ## get_employee_time_off_balance
 
 Get Employee Time Off Balance
@@ -2038,6 +2084,52 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisListEmployeeSkillsResponse)](../../models/operations/hrislistemployeeskillsresponse.md)**
+
+
+
+## list_employee_tasks
+
+List Employee Tasks
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisListEmployeeTasksRequest.new(
+  expand: "attachments",
+  fields_: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at",
+  filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_employee_tasks(req)
+
+if ! res.tasks_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Operations::HrisListEmployeeTasksRequest](../../models/operations/hrislistemployeetasksrequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListEmployeeTasksResponse)](../../models/operations/hrislistemployeetasksresponse.md)**
 
 
 

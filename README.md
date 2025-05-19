@@ -238,6 +238,7 @@ end
 * [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](docs/sdks/hris/README.md#get_employee_employment) - Get Employee Employment
 * [get_employee_skill](docs/sdks/hris/README.md#get_employee_skill) - Get Employee Skill
+* [get_employee_task](docs/sdks/hris/README.md#get_employee_task) - Get Employee Task
 * [get_employee_time_off_balance](docs/sdks/hris/README.md#get_employee_time_off_balance) - Get Employee Time Off Balance
 * [get_employees_time_off_request](docs/sdks/hris/README.md#get_employees_time_off_request) - Get Employees Time Off Request
 * [get_employees_work_eligibility](docs/sdks/hris/README.md#get_employees_work_eligibility) - Get Employees Work Eligibility
@@ -260,6 +261,7 @@ end
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_employments](docs/sdks/hris/README.md#list_employee_employments) - List Employee Employments
 * [list_employee_skills](docs/sdks/hris/README.md#list_employee_skills) - List Employee Skills
+* [list_employee_tasks](docs/sdks/hris/README.md#list_employee_tasks) - List Employee Tasks
 * [list_employee_time_off_balances](docs/sdks/hris/README.md#list_employee_time_off_balances) - List Employee Time Off Balances
 * [list_employee_time_off_policies](docs/sdks/hris/README.md#list_employee_time_off_policies) - List Assigned Time Off Policies
 * [list_employee_time_off_requests](docs/sdks/hris/README.md#list_employee_time_off_requests) - List Employee Time Off Requests

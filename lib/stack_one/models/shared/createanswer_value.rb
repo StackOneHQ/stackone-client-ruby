@@ -20,6 +20,7 @@ module StackOne
           NUMBER = new('number')
           DATE = new('date')
           VIDEO = new('video')
+          REFERENCE_CHECK = new('reference_check')
           URL = new('url')
           UNMAPPED_VALUE = new('unmapped_value')
         end

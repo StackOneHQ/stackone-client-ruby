@@ -1,0 +1,10 @@
+# TaskCommentApiModel
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `author_employee_id`                                                 | *T.nilable(::String)*                                                | :heavy_minus_sign:                                                   | The Employee ID of the author of the comment                         |                                                                      |
+| `comment`                                                            | *T.nilable(::String)*                                                | :heavy_minus_sign:                                                   | The text of the comment                                              | Approved based on in-person assessment                               |
+| `created_at`                                                         | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html) | :heavy_minus_sign:                                                   | The creation date of this comment                                    | 2024-03-15T10:00:00.000Z                                             |
