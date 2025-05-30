@@ -88,8 +88,6 @@ module StackOne
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
         # The employee job title
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
         # The employee last name
         field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
