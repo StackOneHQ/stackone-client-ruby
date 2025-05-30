@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :hris_create_employment_request_dto, Models::Shared::HrisCreateEmploymentRequestDto, { 'request': { 'media_type': 'application/json' } }
+        field :hris_update_employment_request_dto, Models::Shared::HrisUpdateEmploymentRequestDto, { 'request': { 'media_type': 'application/json' } }
 
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
@@ -23,9 +23,9 @@ module StackOne
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
 
-        sig { params(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
-        def initialize(hris_create_employment_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
-          @hris_create_employment_request_dto = hris_create_employment_request_dto
+        sig { params(hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
+        def initialize(hris_update_employment_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
+          @hris_update_employment_request_dto = hris_update_employment_request_dto
           @id = id
           @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
@@ -33,7 +33,7 @@ module StackOne
 
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @hris_create_employment_request_dto == other.hris_create_employment_request_dto
+          return false unless @hris_update_employment_request_dto == other.hris_update_employment_request_dto
           return false unless @id == other.id
           return false unless @sub_resource_id == other.sub_resource_id
           return false unless @x_account_id == other.x_account_id

@@ -22,16 +22,16 @@ module StackOne
         # HTTP response status code for this operation
         field :status_code, ::Integer
         # The employee employment was updated successfully.
-        field :employment_result, T.nilable(Models::Shared::EmploymentResult)
+        field :update_result, T.nilable(Models::Shared::UpdateResult)
 
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, employment_result: T.nilable(Models::Shared::EmploymentResult)).void }
-        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, employment_result: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, update_result: T.nilable(Models::Shared::UpdateResult)).void }
+        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, update_result: nil)
           @content_type = content_type
           @headers = headers
           @raw_response = raw_response
           @status_code = status_code
-          @employment_result = employment_result
+          @update_result = update_result
         end
 
         def ==(other)
@@ -40,7 +40,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @raw_response == other.raw_response
           return false unless @status_code == other.status_code
-          return false unless @employment_result == other.employment_result
+          return false unless @update_result == other.update_result
           true
         end
       end

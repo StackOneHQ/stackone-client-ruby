@@ -15,7 +15,7 @@ module StackOne
 
 
         field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentWorkTime4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # The unified value for the duration unit.
+        # The unified value for the period.
         field :value, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentWorkTimeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentWorkTimeValue, true) } }
 
 
