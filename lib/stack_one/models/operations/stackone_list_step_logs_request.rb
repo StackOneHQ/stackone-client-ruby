@@ -15,8 +15,6 @@ module StackOne
 
         # Filter parameters that allow greater customisation of the list response
         field :filter, T.nilable(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
-        # The include parameter allows you to include additional data in the response.
-        field :include, T.nilable(Models::Operations::StackoneListStepLogsQueryParamInclude), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
         # The unified cursor
         field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The field to order the results by.
@@ -27,10 +25,9 @@ module StackOne
         field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
 
-        sig { params(filter: T.nilable(Models::Operations::QueryParamFilter), include: T.nilable(Models::Operations::StackoneListStepLogsQueryParamInclude), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
-        def initialize(filter: nil, include: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
+        sig { params(filter: T.nilable(Models::Operations::QueryParamFilter), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
+        def initialize(filter: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
           @filter = filter
-          @include = include
           @next_ = next_
           @order_by = order_by
           @order_direction = order_direction
@@ -40,7 +37,6 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @filter == other.filter
-          return false unless @include == other.include
           return false unless @next_ == other.next_
           return false unless @order_by == other.order_by
           return false unless @order_direction == other.order_direction

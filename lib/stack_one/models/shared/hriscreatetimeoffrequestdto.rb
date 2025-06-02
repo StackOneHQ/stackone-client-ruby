@@ -17,7 +17,7 @@ module StackOne
         field :approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
         # The employee ID
         field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
-        # The end date of the time off request
+        # Inclusive end date of the time off request (the time off includes this day).
         field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # True if the end of the time off request ends half way through the day
         field :end_half_day, T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }

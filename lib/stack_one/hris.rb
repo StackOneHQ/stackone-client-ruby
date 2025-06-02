@@ -1005,12 +1005,12 @@ module StackOne
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::EmploymentResult)
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::CreateResult)
           response = Models::Operations::HrisCreateEmployeeEmploymentResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
-            employment_result: obj
+            create_result: obj
           )
 
           return response
@@ -16103,12 +16103,12 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeEmploymentResponse) }
-    def update_employee_employment(hris_create_employment_request_dto, id, sub_resource_id, x_account_id, retries = nil, timeout_ms = nil)
+    sig { params(hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeEmploymentResponse) }
+    def update_employee_employment(hris_update_employment_request_dto, id, sub_resource_id, x_account_id, retries = nil, timeout_ms = nil)
       # update_employee_employment - Update Employee Employment
       request = Models::Operations::HrisUpdateEmployeeEmploymentRequest.new(
         
-        hris_create_employment_request_dto: hris_create_employment_request_dto,
+        hris_update_employment_request_dto: hris_update_employment_request_dto,
         id: id,
         sub_resource_id: sub_resource_id,
         x_account_id: x_account_id
@@ -16122,7 +16122,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      req_content_type, data, form = Utils.serialize_request_body(request, :hris_create_employment_request_dto, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, :hris_update_employment_request_dto, :json)
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
@@ -16217,12 +16217,12 @@ module StackOne
             ),
             response: http_response
           )
-          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::EmploymentResult)
+          obj = Crystalline.unmarshal_json(JSON.parse(http_response.env.response_body), Models::Shared::UpdateResult)
           response = Models::Operations::HrisUpdateEmployeeEmploymentResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
-            employment_result: obj
+            update_result: obj
           )
 
           return response

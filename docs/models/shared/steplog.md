@@ -1,4 +1,4 @@
-# StepLogsApiModel
+# StepLog
 
 
 ## Fields

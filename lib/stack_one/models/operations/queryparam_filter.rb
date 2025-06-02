@@ -23,10 +23,6 @@ module StackOne
         field :end_date, T.nilable(::String), { 'query_param': { 'field_name': 'end_date' } }
         # A comma-separated list of HTTP methods to filter the results by.
         field :http_methods, T.nilable(::String), { 'query_param': { 'field_name': 'http_methods' } }
-        # The field to order the results by.
-        field :order_by, T.nilable(Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderBy), { 'query_param': { 'field_name': 'order_by' } }
-        # The direction to order the results by.
-        field :order_direction, T.nilable(Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderDirection), { 'query_param': { 'field_name': 'order_direction' } }
         # A comma-separated list of provider keys to filter the results by.
         field :providers, T.nilable(::String), { 'query_param': { 'field_name': 'providers' } }
         # A comma-separated list of request IDs to filter the results by.
@@ -45,15 +41,13 @@ module StackOne
         field :success, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'success' } }
 
 
-        sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), child_resources: T.nilable(::String), end_date: T.nilable(::String), http_methods: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderBy), order_direction: T.nilable(Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderDirection), providers: T.nilable(::String), request_ids: T.nilable(::String), resources: T.nilable(::String), services: T.nilable(::String), start_date: T.nilable(::String), status_codes: T.nilable(::String), sub_resources: T.nilable(::String), success: T.nilable(T::Boolean)).void }
-        def initialize(account_ids: nil, actions: nil, child_resources: nil, end_date: nil, http_methods: nil, order_by: nil, order_direction: nil, providers: nil, request_ids: nil, resources: nil, services: nil, start_date: nil, status_codes: nil, sub_resources: nil, success: nil)
+        sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), child_resources: T.nilable(::String), end_date: T.nilable(::String), http_methods: T.nilable(::String), providers: T.nilable(::String), request_ids: T.nilable(::String), resources: T.nilable(::String), services: T.nilable(::String), start_date: T.nilable(::String), status_codes: T.nilable(::String), sub_resources: T.nilable(::String), success: T.nilable(T::Boolean)).void }
+        def initialize(account_ids: nil, actions: nil, child_resources: nil, end_date: nil, http_methods: nil, providers: nil, request_ids: nil, resources: nil, services: nil, start_date: nil, status_codes: nil, sub_resources: nil, success: nil)
           @account_ids = account_ids
           @actions = actions
           @child_resources = child_resources
           @end_date = end_date
           @http_methods = http_methods
-          @order_by = order_by
-          @order_direction = order_direction
           @providers = providers
           @request_ids = request_ids
           @resources = resources
@@ -71,8 +65,6 @@ module StackOne
           return false unless @child_resources == other.child_resources
           return false unless @end_date == other.end_date
           return false unless @http_methods == other.http_methods
-          return false unless @order_by == other.order_by
-          return false unless @order_direction == other.order_direction
           return false unless @providers == other.providers
           return false unless @request_ids == other.request_ids
           return false unless @resources == other.resources

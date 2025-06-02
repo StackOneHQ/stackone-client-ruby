@@ -56,7 +56,7 @@ module StackOne
         # The requests response status code
         field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The list of provider requests
-        field :step_requests, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_requests') } }
+        field :step_requests, T.nilable(T::Array[Models::Shared::StepLog]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_requests') } }
         # The requested sub resource
         field :sub_resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_resource') } }
         # The request success flag
@@ -65,7 +65,7 @@ module StackOne
         field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), event_datetime: T.nilable(::DateTime), http_method: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request: T.nilable(Models::Shared::UnifiedLogsRequest), request_id: T.nilable(::String), resource: T.nilable(::String), response: T.nilable(Models::Shared::UnifiedLogsResponse), service: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), step_requests: T.nilable(T::Array[::String]), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
+        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), event_datetime: T.nilable(::DateTime), http_method: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request: T.nilable(Models::Shared::UnifiedLogsRequest), request_id: T.nilable(::String), resource: T.nilable(::String), response: T.nilable(Models::Shared::UnifiedLogsResponse), service: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), step_requests: T.nilable(T::Array[Models::Shared::StepLog]), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
         def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, event_datetime: nil, http_method: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request: nil, request_id: nil, resource: nil, response: nil, service: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status: nil, step_requests: nil, sub_resource: nil, success: nil, url: nil)
           @account_id = account_id
           @action = action

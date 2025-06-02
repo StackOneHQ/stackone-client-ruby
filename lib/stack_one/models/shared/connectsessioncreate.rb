@@ -33,10 +33,12 @@ module StackOne
         field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
         # The provider to connect to
         field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        # The provider version to connect to
+        field :provider_version, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_version') } }
 
 
-        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(::Float), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), multiple: T.nilable(T::Boolean), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
-        def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, label: nil, metadata: nil, multiple: nil, origin_username: nil, provider: nil)
+        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(::Float), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), multiple: T.nilable(T::Boolean), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String)).void }
+        def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, label: nil, metadata: nil, multiple: nil, origin_username: nil, provider: nil, provider_version: nil)
           @origin_owner_id = origin_owner_id
           @origin_owner_name = origin_owner_name
           @account_id = account_id
@@ -47,6 +49,7 @@ module StackOne
           @multiple = multiple
           @origin_username = origin_username
           @provider = provider
+          @provider_version = provider_version
         end
 
         def ==(other)
@@ -61,6 +64,7 @@ module StackOne
           return false unless @multiple == other.multiple
           return false unless @origin_username == other.origin_username
           return false unless @provider == other.provider
+          return false unless @provider_version == other.provider_version
           true
         end
       end

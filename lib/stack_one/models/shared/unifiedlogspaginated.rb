@@ -14,12 +14,12 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :data, T::Array[Models::Shared::UnifiedLogs], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, T::Array[Models::Shared::UnifiedLogsPartial], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
         field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
 
 
-        sig { params(data: T::Array[Models::Shared::UnifiedLogs], next_: T.nilable(::String)).void }
+        sig { params(data: T::Array[Models::Shared::UnifiedLogsPartial], next_: T.nilable(::String)).void }
         def initialize(data: nil, next_: nil)
           @data = data
           @next_ = next_

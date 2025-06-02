@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue - The unified value for the duration unit.
+      # HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue - The unified value for the period.
       class HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue < T::Enum
         enums do
           DAY = new('day')
