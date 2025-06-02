@@ -461,13 +461,13 @@ require 'stackone_client'
 
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 begin
-    res = s.accounts.delete_account(id="<id>")
+    res = s.accounts.delete_account(id='<id>')
 
     if ! res.linked_account.nil?
       # handle response

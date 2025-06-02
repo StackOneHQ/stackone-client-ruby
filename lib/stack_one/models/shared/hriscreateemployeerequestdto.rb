@@ -46,10 +46,14 @@ module StackOne
         # The employee employment
         field :employment, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoEmployment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment') } }
         # The employment work schedule type (e.g., full-time, part-time)
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_contract_type, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
         # The employee employment status
         field :employment_status, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_status') } }
         # The employee employment type
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_type, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
         # The employee employments
         # 
@@ -66,8 +70,10 @@ module StackOne
         # The employee home location
         field :home_location, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
         # The employee job id
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
-        # The employee job title
+        # If the source of the job_title is the Employee's current Employment, and that Employment pertains exclusively to this Employee, then the active Employment job_title will also be written
         field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
         # The employee last name
         field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }

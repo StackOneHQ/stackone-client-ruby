@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # CreateEmploymentApiModelSchemasWorkTimeValue - The unified value for the duration unit.
+      # CreateEmploymentApiModelSchemasWorkTimeValue - The unified value for the period.
       class CreateEmploymentApiModelSchemasWorkTimeValue < T::Enum
         enums do
           DAY = new('day')

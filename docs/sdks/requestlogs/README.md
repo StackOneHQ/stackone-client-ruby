@@ -129,8 +129,6 @@ req = Models::Operations::StackoneListStepLogsRequest.new(
     child_resources: "documents,time-off",
     end_date: "2020-01-01T00:00:00.000Z",
     http_methods: "GET,POST",
-    order_by: Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderBy::STATUS,
-    order_direction: Models::Operations::StackoneListStepLogsQueryParamRequestLogsOrderDirection::ASC,
     providers: "ashby,greenhouse",
     request_ids: "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c",
     resources: "employees,users",
@@ -140,7 +138,6 @@ req = Models::Operations::StackoneListStepLogsRequest.new(
     sub_resources: "documents,employees",
     success: true,
   ),
-  include: Models::Operations::StackoneListStepLogsQueryParamInclude::STEP_LOGS,
   order_by: Models::Operations::StackoneListStepLogsQueryParamOrderBy::STATUS,
   order_direction: Models::Operations::StackoneListStepLogsQueryParamOrderDirection::ASC,
 )

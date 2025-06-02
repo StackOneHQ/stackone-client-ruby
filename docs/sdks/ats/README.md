@@ -1550,7 +1550,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobPostingRequest.new(
-  fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
+  fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at",
   id: "<id>",
   include: "questionnaires",
   x_account_id: "<id>",
@@ -2562,7 +2562,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobPostingsRequest.new(
-  fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,updated_at,created_at",
+  fields_: "id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at",
   filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(
     created_after: "2020-01-01T00:00:00.000Z",
     updated_after: "2020-01-01T00:00:00.000Z",
@@ -3666,7 +3666,7 @@ res = s.ats.upload_application_document(unified_upload_request_dto=Models::Share
   ),
   content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
   file_format: Models::Shared::UnifiedUploadRequestDtoFileFormat.new(
-    source_value: "abc",
+    source_value: "application/pdf",
     value: Models::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
   ),
   name: "weather-forecast",

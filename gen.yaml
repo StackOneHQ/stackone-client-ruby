@@ -3,6 +3,7 @@ generation:
   sdkClassName: StackOne
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionFeb2025: false
@@ -14,7 +15,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.15.0
+  version: 0.17.0
   additionalDependencies:
     development: {}
     runtime: {}

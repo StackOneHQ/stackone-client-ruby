@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # EmploymentSchemasWorkTimeValue - The unified value for the duration unit.
+      # EmploymentSchemasWorkTimeValue - The unified value for the period.
       class EmploymentSchemasWorkTimeValue < T::Enum
         enums do
           DAY = new('day')

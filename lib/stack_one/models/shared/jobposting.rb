@@ -41,6 +41,8 @@ module StackOne
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the job posting
         field :remote_job_posting_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_posting_id') } }
+        # The posting start date
+        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         field :status, T.nilable(Models::Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
@@ -51,8 +53,8 @@ module StackOne
         field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-        sig { params(compensation: T.nilable(T::Array[Models::Shared::JobPostingCompensation]), content: T.nilable(Models::Shared::JobPostingContent), created_at: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Models::Shared::JobPostingEmploymentType), external_apply_url: T.nilable(::String), external_url: T.nilable(::String), id: T.nilable(::String), internal: T.nilable(Models::Shared::Internal), job_id: T.nilable(::String), locations: T.nilable(T::Array[Models::Shared::JobPostingLocation]), questionnaires: T.nilable(T::Array[Models::Shared::JobPostingQuestionnaire]), remote_id: T.nilable(::String), remote_job_posting_id: T.nilable(::String), status: T.nilable(Models::Shared::JobPostingStatus), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, id: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, remote_id: nil, remote_job_posting_id: nil, status: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(compensation: T.nilable(T::Array[Models::Shared::JobPostingCompensation]), content: T.nilable(Models::Shared::JobPostingContent), created_at: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Models::Shared::JobPostingEmploymentType), external_apply_url: T.nilable(::String), external_url: T.nilable(::String), id: T.nilable(::String), internal: T.nilable(Models::Shared::Internal), job_id: T.nilable(::String), locations: T.nilable(T::Array[Models::Shared::JobPostingLocation]), questionnaires: T.nilable(T::Array[Models::Shared::JobPostingQuestionnaire]), remote_id: T.nilable(::String), remote_job_posting_id: T.nilable(::String), start_date: T.nilable(::DateTime), status: T.nilable(Models::Shared::JobPostingStatus), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, id: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, remote_id: nil, remote_job_posting_id: nil, start_date: nil, status: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
           @compensation = compensation
           @content = content
           @created_at = created_at
@@ -67,6 +69,7 @@ module StackOne
           @questionnaires = questionnaires
           @remote_id = remote_id
           @remote_job_posting_id = remote_job_posting_id
+          @start_date = start_date
           @status = status
           @title = title
           @unified_custom_fields = unified_custom_fields
@@ -89,6 +92,7 @@ module StackOne
           return false unless @questionnaires == other.questionnaires
           return false unless @remote_id == other.remote_id
           return false unless @remote_job_posting_id == other.remote_job_posting_id
+          return false unless @start_date == other.start_date
           return false unless @status == other.status
           return false unless @title == other.title
           return false unless @unified_custom_fields == other.unified_custom_fields

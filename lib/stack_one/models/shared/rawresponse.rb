@@ -18,12 +18,12 @@ module StackOne
 
         field :url, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
-        field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, T.nilable(T.any(::String, T::Hash[Symbol, ::Object], T::Array[::Integer])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
         field :response, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
 
 
-        sig { params(method: ::String, url: ::String, body: T.nilable(::Object), response: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(method: ::String, url: ::String, body: T.nilable(T.any(::String, T::Hash[Symbol, ::Object], T::Array[::Integer])), response: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(method: nil, url: nil, body: nil, response: nil)
           @method = method
           @url = url

@@ -16,11 +16,17 @@ module StackOne
         # The effective date of the employment contract
         field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The employment work schedule type (e.g., full-time, part-time)
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_contract_type, T.nilable(Models::Shared::EmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
         # The type of employment (e.g., contractor, permanent)
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_type, T.nilable(Models::Shared::EmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
-        # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The end date of employment
+        field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Represents the employee’s position within the organizational hierarchy.
+        field :grade, T.nilable(Models::Shared::Grade), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('grade') } }
         # The employee job id
         field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
         # The job title of the employee
@@ -41,12 +47,13 @@ module StackOne
         field :work_time, T.nilable(Models::Shared::WorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
 
 
-        sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::EmploymentContractType), employment_type: T.nilable(Models::Shared::EmploymentType), id: T.nilable(::String), job_id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::PayFrequency), pay_period: T.nilable(Models::Shared::PayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::WorkTime)).void }
-        def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, id: nil, job_id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, unified_custom_fields: nil, work_time: nil)
+        sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::EmploymentContractType), employment_type: T.nilable(Models::Shared::EmploymentType), end_date: T.nilable(::DateTime), grade: T.nilable(Models::Shared::Grade), job_id: T.nilable(::String), job_title: T.nilable(::String), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::PayFrequency), pay_period: T.nilable(Models::Shared::PayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::WorkTime)).void }
+        def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, grade: nil, job_id: nil, job_title: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, unified_custom_fields: nil, work_time: nil)
           @effective_date = effective_date
           @employment_contract_type = employment_contract_type
           @employment_type = employment_type
-          @id = id
+          @end_date = end_date
+          @grade = grade
           @job_id = job_id
           @job_title = job_title
           @pay_currency = pay_currency
@@ -63,7 +70,8 @@ module StackOne
           return false unless @effective_date == other.effective_date
           return false unless @employment_contract_type == other.employment_contract_type
           return false unless @employment_type == other.employment_type
-          return false unless @id == other.id
+          return false unless @end_date == other.end_date
+          return false unless @grade == other.grade
           return false unless @job_id == other.job_id
           return false unless @job_title == other.job_title
           return false unless @pay_currency == other.pay_currency

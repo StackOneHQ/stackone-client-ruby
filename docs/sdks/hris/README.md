@@ -96,7 +96,7 @@ res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_d
       ),
       content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
       file_format: Models::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
-        source_value: "abc",
+        source_value: "application/pdf",
         value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
       ),
       name: "weather-forecast",
@@ -216,15 +216,19 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::Hr
       value_id: "value_456",
     ),
   ],
-  date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
+  date_of_birth: DateTime.iso8601('1990-01-01T00:00:00.000Z'),
   department: "Physics",
   department_id: "3093",
   display_name: "Sir Isaac Newton",
   employee_number: "125",
   employment: Models::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
-    employment_contract_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType.new(),
-    employment_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType.new(),
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    grade: Models::Shared::HrisCreateEmployeeRequestDtoGrade.new(
+      description: "Mid-level employee demonstrating proficiency and autonomy.",
+      id: "1687-3",
+      name: "1687-4",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
     job_title: "Software Engineer",
     passthrough: {
       "other_known_names": "John Doe",
@@ -243,13 +247,11 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::Hr
       duration_unit: Models::Shared::HrisCreateEmployeeRequestDtoDurationUnit.new(),
     ),
   ),
-  employment_contract_type: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentType.new(),
   ethnicity: Models::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
   first_name: "Isaac",
   gender: Models::Shared::HrisCreateEmployeeRequestDtoGender.new(),
-  hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  hire_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   home_location: Models::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
     city: "Grantham",
     country: Models::Shared::HrisCreateEmployeeRequestDtoCountry.new(
@@ -266,7 +268,6 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::Hr
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
   ),
-  job_id: "R-6789",
   job_title: "Physicist",
   last_name: "Newton",
   manager_id: "67890",
@@ -289,7 +290,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto=Models::Shared::Hr
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
   preferred_language: Models::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(),
-  start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  start_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   team_id: "2913",
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
@@ -349,9 +350,13 @@ s = ::StackOne::StackOne.new(
 
 res = s.hris.create_employee_employment(hris_create_employment_request_dto=Models::Shared::HrisCreateEmploymentRequestDto.new(
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  employment_contract_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
-  employment_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
-  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  grade: Models::Shared::HrisCreateEmploymentRequestDtoGrade.new(
+    description: "Mid-level employee demonstrating proficiency and autonomy.",
+    id: "1687-3",
+    name: "1687-4",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
   job_id: "5290",
   job_title: "Software Engineer",
   passthrough: {
@@ -372,7 +377,7 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto=Model
   ),
 ), id="<id>", x_account_id="<id>")
 
-if ! res.employment_result.nil?
+if ! res.create_result.nil?
   # handle response
 end
 
@@ -518,7 +523,7 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
     category_id: "6530",
     created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
-      source_value: "abc",
+      source_value: "application/pdf",
       value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -537,8 +542,8 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
   },
   sub_type: "H1B",
   type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
-  valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
+  valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
 ), id="<id>", x_account_id="<id>")
 
 if ! res.create_result.nil?
@@ -1019,7 +1024,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1281,7 +1286,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -2014,7 +2019,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2379,7 +2384,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
-  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,fte,effective_date,employment_type,employment_contract_type,work_time,payroll_code,created_at,updated_at,start_date,end_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
+  fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2809,15 +2814,19 @@ res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::Hr
       value_id: "value_456",
     ),
   ],
-  date_of_birth: DateTime.iso8601('1990-01-01T00:00.000Z'),
+  date_of_birth: DateTime.iso8601('1990-01-01T00:00:00.000Z'),
   department: "Physics",
   department_id: "3093",
   display_name: "Sir Isaac Newton",
   employee_number: "125",
   employment: Models::Shared::HrisUpdateEmployeeRequestDtoEmployment.new(
-    employment_contract_type: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType.new(),
-    employment_type: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType.new(),
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    grade: Models::Shared::HrisUpdateEmployeeRequestDtoGrade.new(
+      description: "Mid-level employee demonstrating proficiency and autonomy.",
+      id: "1687-3",
+      name: "1687-4",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+    ),
     job_title: "Software Engineer",
     passthrough: {
       "other_known_names": "John Doe",
@@ -2836,13 +2845,11 @@ res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::Hr
       duration_unit: Models::Shared::HrisUpdateEmployeeRequestDtoDurationUnit.new(),
     ),
   ),
-  employment_contract_type: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentContractType.new(),
   employment_status: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
-  employment_type: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentType.new(),
   ethnicity: Models::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
   first_name: "Isaac",
   gender: Models::Shared::HrisUpdateEmployeeRequestDtoGender.new(),
-  hire_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  hire_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   home_location: Models::Shared::HrisUpdateEmployeeRequestDtoHomeLocation.new(
     city: "Grantham",
     country: Models::Shared::HrisUpdateEmployeeRequestDtoCountry.new(
@@ -2859,7 +2866,6 @@ res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::Hr
     street_2: "Woolsthorpe by Colsterworth",
     zip_code: "NG33 5NR",
   ),
-  job_id: "R-6789",
   job_title: "Physicist",
   last_name: "Newton",
   manager_id: "67890",
@@ -2882,7 +2888,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto=Models::Shared::Hr
   personal_email: "isaac.newton@example.com",
   personal_phone_number: "+1234567890",
   preferred_language: Models::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage.new(),
-  start_date: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  start_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   team_id: "2913",
   termination_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
   work_email: "newton@example.com",
@@ -2941,32 +2947,35 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.hris.update_employee_employment(hris_create_employment_request_dto=Models::Shared::HrisCreateEmploymentRequestDto.new(
+res = s.hris.update_employee_employment(hris_update_employment_request_dto=Models::Shared::HrisUpdateEmploymentRequestDto.new(
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  employment_contract_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType.new(),
-  employment_type: Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType.new(),
-  id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  job_id: "5290",
+  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  grade: Models::Shared::HrisUpdateEmploymentRequestDtoGrade.new(
+    description: "Mid-level employee demonstrating proficiency and autonomy.",
+    id: "1687-3",
+    name: "1687-4",
+    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+  ),
   job_title: "Software Engineer",
   passthrough: {
     "other_known_names": "John Doe",
   },
   pay_currency: "USD",
-  pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(),
-  pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(),
+  pay_frequency: Models::Shared::HrisUpdateEmploymentRequestDtoPayFrequency.new(),
+  pay_period: Models::Shared::HrisUpdateEmploymentRequestDtoPayPeriod.new(),
   pay_rate: "40.00",
   payroll_code: "PC1",
   unified_custom_fields: {
     "my_project_custom_field_1": "REF-1236",
     "my_project_custom_field_2": "some other value",
   },
-  work_time: Models::Shared::HrisCreateEmploymentRequestDtoWorkTime.new(
+  work_time: Models::Shared::HrisUpdateEmploymentRequestDtoWorkTime.new(
     duration: "P0Y0M0DT8H0M0S",
-    duration_unit: Models::Shared::HrisCreateEmploymentRequestDtoDurationUnit.new(),
+    duration_unit: Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit.new(),
   ),
 ), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
 
-if ! res.employment_result.nil?
+if ! res.update_result.nil?
   # handle response
 end
 
@@ -2976,7 +2985,7 @@ end
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_create_employment_request_dto`                                                                    | [Models::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `hris_update_employment_request_dto`                                                                    | [Models::Shared::HrisUpdateEmploymentRequestDto](../../models/shared/hrisupdateemploymentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `sub_resource_id`                                                                                       | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
 | `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
@@ -3063,7 +3072,7 @@ res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibili
     category_id: "6530",
     created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
-      source_value: "abc",
+      source_value: "application/pdf",
       value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
     ),
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
@@ -3082,8 +3091,8 @@ res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibili
   },
   sub_type: "H1B",
   type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
-  valid_from: DateTime.iso8601('2021-01-01T00:00.000Z'),
-  valid_to: DateTime.iso8601('2021-01-01T00:00.000Z'),
+  valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
+  valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
 ), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
 
 if res.status_code == 200
@@ -3187,7 +3196,7 @@ res = s.hris.upload_employee_document(hris_documents_upload_request_dto=Models::
   ),
   content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
   file_format: Models::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
-    source_value: "abc",
+    source_value: "application/pdf",
     value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
   ),
   name: "weather-forecast",
