@@ -21,8 +21,8 @@ module StackOne
         field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The employee ID
         field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
-        # Inclusive end date of the time off request (the time off includes this day).
-        field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Inclusive end date of the time off request (ISO8601 date-time without timezone). The time off includes this day
+        field :end_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date') } }
         # True if the end of the time off request ends half way through the day
         field :end_half_day, T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
         # Unique identifier
@@ -39,8 +39,8 @@ module StackOne
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the time off policy id associated with this time off request
         field :remote_time_off_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_time_off_policy_id') } }
-        # The start date of the time off request
-        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The start date of the time off request (ISO8601 date-time without timezone)
+        field :start_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date') } }
         # True if the start of the time off request begins half way through the day
         field :start_half_day, T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
         # The status of the time off request
@@ -55,7 +55,7 @@ module StackOne
         field :updated_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-        sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), id: T.nilable(::String), policy: T.nilable(Models::Shared::Policy), reason: T.nilable(Models::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::DateTime), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), status: T.nilable(Models::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
+        sig { params(approver_id: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), id: T.nilable(::String), policy: T.nilable(Models::Shared::Policy), reason: T.nilable(Models::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), status: T.nilable(Models::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
         def initialize(approver_id: nil, created_date: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, policy: nil, reason: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, remote_time_off_policy_id: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil, updated_date: nil)
           @approver_id = approver_id
           @created_date = created_date
