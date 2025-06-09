@@ -12,7 +12,6 @@
 * [create_employee_skill](#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
-* [~~create_time_off_request~~](#create_time_off_request) - Creates a time off request :warning: **Deprecated**
 * [download_employee_document](#download_employee_document) - Download Employee Document
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
@@ -66,7 +65,6 @@
 * [update_employee_employment](#update_employee_employment) - Update Employee Employment
 * [update_employee_time_off_request](#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
-* [~~update_time_off_request~~](#update_time_off_request) - Update time off request :warning: **Deprecated**
 * [upload_employee_document](#upload_employee_document) - Upload Employee Document
 
 ## batch_upload_employee_document
@@ -466,8 +464,7 @@ s = ::StackOne::StackOne.new(
 
 res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
-  employee_id: "1687-3",
-  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  end_date: "2021-01-01T01:01:01.000",
   end_half_day: true,
   passthrough: {
     "other_known_names": "John Doe",
@@ -476,7 +473,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=M
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
-  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  start_date: "2021-01-01T01:01:01.000",
   start_half_day: true,
   time_off_policy_id: "cx280928933",
 ), id="<id>", x_account_id="<id>")
@@ -563,60 +560,6 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hriscreateemployeeworkeligibilityrequestresponse.md)**
-
-
-
-## ~~create_time_off_request~~
-
-Creates a time off request
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: "",
-        username: "",
-      ),
-    )
-
-res = s.hris.create_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
-  approver_id: "1687-4",
-  employee_id: "1687-3",
-  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  end_half_day: true,
-  passthrough: {
-    "other_known_names": "John Doe",
-  },
-  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  ),
-  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  start_half_day: true,
-  time_off_policy_id: "cx280928933",
-), x_account_id="<id>")
-
-if ! res.create_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
-
-### Response
-
-**[T.nilable(Models::Operations::HrisCreateTimeOffRequestResponse)](../../models/operations/hriscreatetimeoffrequestresponse.md)**
 
 
 
@@ -1199,7 +1142,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1581,7 +1524,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetTimeOffRequestRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -2247,7 +2190,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2695,7 +2638,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListTimeOffRequestsRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,duration,time_off_policy_id,remote_time_off_policy_id,reason,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
   filter: Models::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -3014,8 +2957,7 @@ s = ::StackOne::StackOne.new(
 
 res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
-  employee_id: "1687-3",
-  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  end_date: "2021-01-01T01:01:01.000",
   end_half_day: true,
   passthrough: {
     "other_known_names": "John Doe",
@@ -3024,7 +2966,7 @@ res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=M
     id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
     remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
   ),
-  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  start_date: "2021-01-01T01:01:01.000",
   start_half_day: true,
   time_off_policy_id: "cx280928933",
 ), id="<id>", sub_resource_id="<id>", x_account_id="<id>")
@@ -3113,61 +3055,6 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse)](../../models/operations/hrisupdateemployeeworkeligibilityrequestresponse.md)**
-
-
-
-## ~~update_time_off_request~~
-
-Update time off request
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: "",
-        username: "",
-      ),
-    )
-
-res = s.hris.update_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
-  approver_id: "1687-4",
-  employee_id: "1687-3",
-  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  end_half_day: true,
-  passthrough: {
-    "other_known_names": "John Doe",
-  },
-  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  ),
-  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  start_half_day: true,
-  time_off_policy_id: "cx280928933",
-), id="<id>", x_account_id="<id>")
-
-if ! res.create_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
-
-### Response
-
-**[T.nilable(Models::Operations::HrisUpdateTimeOffRequestResponse)](../../models/operations/hrisupdatetimeoffrequestresponse.md)**
 
 
 

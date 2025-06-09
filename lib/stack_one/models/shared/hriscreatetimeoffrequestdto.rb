@@ -15,18 +15,16 @@ module StackOne
 
         # The approver ID
         field :approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
-        # The employee ID
-        field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
-        # Inclusive end date of the time off request (the time off includes this day).
-        field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Inclusive end date of the time off request (ISO8601 date-time without timezone). The time off includes this day
+        field :end_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date') } }
         # True if the end of the time off request ends half way through the day
         field :end_half_day, T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
         # Value to pass through to the provider
         field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :reason, T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reason') } }
-        # The start date of the time off request
-        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The start date of the time off request (ISO8601 date-time without timezone)
+        field :start_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date') } }
         # True if the start of the time off request begins half way through the day
         field :start_half_day, T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
         # The status of the time off request
@@ -39,10 +37,9 @@ module StackOne
         field :type, T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-        sig { params(approver_id: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::DateTime), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), passthrough: T.nilable(T::Hash[Symbol, ::Object]), reason: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), start_date: T.nilable(::DateTime), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), status: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType)).void }
-        def initialize(approver_id: nil, employee_id: nil, end_date: nil, end_half_day: nil, passthrough: nil, reason: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil)
+        sig { params(approver_id: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), passthrough: T.nilable(T::Hash[Symbol, ::Object]), reason: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), status: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType)).void }
+        def initialize(approver_id: nil, end_date: nil, end_half_day: nil, passthrough: nil, reason: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil)
           @approver_id = approver_id
-          @employee_id = employee_id
           @end_date = end_date
           @end_half_day = end_half_day
           @passthrough = passthrough
@@ -57,7 +54,6 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @approver_id == other.approver_id
-          return false unless @employee_id == other.employee_id
           return false unless @end_date == other.end_date
           return false unless @end_half_day == other.end_half_day
           return false unless @passthrough == other.passthrough

@@ -226,7 +226,6 @@ end
 * [create_employee_skill](docs/sdks/hris/README.md#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
 * [create_employee_work_eligibility_request](docs/sdks/hris/README.md#create_employee_work_eligibility_request) - Create Employee Work Eligibility Request
-* [~~create_time_off_request~~](docs/sdks/hris/README.md#create_time_off_request) - Creates a time off request :warning: **Deprecated**
 * [download_employee_document](docs/sdks/hris/README.md#download_employee_document) - Download Employee Document
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
@@ -280,7 +279,6 @@ end
 * [update_employee_employment](docs/sdks/hris/README.md#update_employee_employment) - Update Employee Employment
 * [update_employee_time_off_request](docs/sdks/hris/README.md#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
-* [~~update_time_off_request~~](docs/sdks/hris/README.md#update_time_off_request) - Update time off request :warning: **Deprecated**
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
 
 ### [iam](docs/sdks/iam/README.md)
