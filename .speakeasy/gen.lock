@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: cfd7e6a549f4352fad42aa608766255b
+  docChecksum: ba908d518d4a5f660404a111b3cee722
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.19.0
-  configChecksum: e9680d38c49db07df8af2f8f6583a9e1
+  releaseVersion: 0.21.0
+  configChecksum: 514861b6fb5c3b939cd1feb1fff5a3b1
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -475,6 +475,8 @@ generatedFiles:
   - docs/models/operations/lmslistusersresponse.md
   - docs/models/operations/lmsupdatecollectionrequest.md
   - docs/models/operations/lmsupdatecollectionresponse.md
+  - docs/models/operations/lmsupdatecontentrequest.md
+  - docs/models/operations/lmsupdatecontentresponse.md
   - docs/models/operations/lmsupsertcontentrequest.md
   - docs/models/operations/lmsupsertcontentresponse.md
   - docs/models/operations/lmsupsertcourserequest.md
@@ -1560,6 +1562,11 @@ generatedFiles:
   - docs/models/shared/lmscreatecompletionrequestdtoresult.md
   - docs/models/shared/lmscreatecompletionrequestdtosourcevalue.md
   - docs/models/shared/lmscreatecompletionrequestdtovalue.md
+  - docs/models/shared/lmscreatecontentrequestdto.md
+  - docs/models/shared/lmscreatecontentrequestdto4.md
+  - docs/models/shared/lmscreatecontentrequestdtocontenttype.md
+  - docs/models/shared/lmscreatecontentrequestdtosourcevalue.md
+  - docs/models/shared/lmscreatecontentrequestdtovalue.md
   - docs/models/shared/lmsupsertcontentrequestdto.md
   - docs/models/shared/lmsupsertcontentrequestdto4.md
   - docs/models/shared/lmsupsertcontentrequestdtocontenttype.md
@@ -1742,6 +1749,7 @@ generatedFiles:
   - docs/models/shared/statusreason.md
   - docs/models/shared/steplog.md
   - docs/models/shared/steplogpartial.md
+  - docs/models/shared/steplogresponse.md
   - docs/models/shared/steplogspaginated.md
   - docs/models/shared/task.md
   - docs/models/shared/task4.md
@@ -2339,6 +2347,8 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_list_users_response.rb
   - lib/stack_one/models/operations/lms_update_collection_request.rb
   - lib/stack_one/models/operations/lms_update_collection_response.rb
+  - lib/stack_one/models/operations/lms_update_content_request.rb
+  - lib/stack_one/models/operations/lms_update_content_response.rb
   - lib/stack_one/models/operations/lms_upsert_content_request.rb
   - lib/stack_one/models/operations/lms_upsert_content_response.rb
   - lib/stack_one/models/operations/lms_upsert_course_request.rb
@@ -3425,6 +3435,11 @@ generatedFiles:
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_result.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_source_value.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_4.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_content_type.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_source_value.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_4.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_type.rb
@@ -3606,6 +3621,7 @@ generatedFiles:
   - lib/stack_one/models/shared/status.rb
   - lib/stack_one/models/shared/statusreason.rb
   - lib/stack_one/models/shared/steplog.rb
+  - lib/stack_one/models/shared/steplog_response.rb
   - lib/stack_one/models/shared/steplogpartial.rb
   - lib/stack_one/models/shared/steplogspaginated.rb
   - lib/stack_one/models/shared/task.rb
@@ -4156,12 +4172,12 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"application_status": {"source_value": "Hired", "value": "hired"}, "candidate": {"company": "Company Inc.", "country": "United States", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "email": "sestier.romain123@gmail.com", "first_name": "Romain", "hired_at": "2021-01-01T01:01:01.000Z", "last_name": "Sestier", "name": "Romain Sestier", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": [{"phone": "+447700112233"}, {"phone": "+447700112233"}, {"phone": "+447700112233"}], "social_links": [{"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}], "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "job_posting_id": "1c702a20-8de8-4d03-ac18-cbf4ac42eb51", "location_id": "dd8d41d1-5eb8-4408-9c87-9ba44604eae4", "passthrough": {"other_known_names": "John Doe"}, "questionnaires": [{"answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"source_value": "Short Text", "value": "short_text"}, "values": ["Yes", "No Travel", "It sounds pretty cool.", "Excel", "Power Point"]}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn"}}
+        application/json: {"application_status": {"source_value": "Hired", "value": "hired"}, "candidate": {"company": "Company Inc.", "country": "United States", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "email": "sestier.romain123@gmail.com", "first_name": "Romain", "hired_at": "2021-01-01T01:01:01.000Z", "last_name": "Sestier", "name": "Romain Sestier", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": [{"phone": "+447700112233"}, {"phone": "+447700112233"}, {"phone": "+447700112233"}], "social_links": [{"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}], "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "documents": [{"category": {"source_value": "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME", "value": "reports, resumes"}, "category_id": "6530", "confidential": {"source_value": "public", "value": "true"}, "content": "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "name": "weather-forecast", "path": "/path/to/file"}], "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "job_posting_id": "1c702a20-8de8-4d03-ac18-cbf4ac42eb51", "location_id": "dd8d41d1-5eb8-4408-9c87-9ba44604eae4", "passthrough": {"other_known_names": "John Doe"}, "questionnaires": [{"answers": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"source_value": "Short Text", "value": "short_text"}, "values": ["Yes", "No Travel", "It sounds pretty cool.", "Excel", "Power Point"]}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn"}}
       responses:
         "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
         "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -10606,6 +10622,42 @@ examples:
           application/json: {"message": "Record updated successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  lms_update_content:
+    speakeasy-default-lms-update-content:
+      parameters:
+        path:
+          id: "<id>"
+        header:
+          x-account-id: "<id>"
+      requestBody:
+        application/json: {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}
+      responses:
+        "201":
+          application/json: {"message": "Record updated successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":

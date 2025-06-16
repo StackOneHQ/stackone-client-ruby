@@ -30,6 +30,7 @@
 * [list_user_completions](#list_user_completions) - List User Completions
 * [list_users](#list_users) - List Users
 * [update_collection](#update_collection) - Update Collection
+* [update_content](#update_content) - Update Content
 * [upsert_content](#upsert_content) - Upsert Content
 * [upsert_course](#upsert_course) - Upsert Course
 
@@ -1296,6 +1297,97 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::LmsUpdateCollectionResponse)](../../models/operations/lmsupdatecollectionresponse.md)**
+
+
+
+## update_content
+
+Update Content
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+res = s.lms.update_content(lms_create_content_request_dto=Models::Shared::LmsCreateContentRequestDto.new(
+  active: true,
+  additional_data: [
+    Models::Shared::AdditionalData.new(
+      id: "learning_outcomes",
+      remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
+      value: "This is additional data",
+    ),
+  ],
+  categories: [
+    Models::Shared::CreateCategoriesApiModel.new(
+      name: "Technology",
+    ),
+  ],
+  content_url: "https://www.youtube.com/watch?v=16873",
+  cover_url: "https://www.googledrive.com/?v=16873",
+  created_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
+  description: "This video acts as learning content for software engineers.",
+  duration: "P3Y6M4DT12H30M5S",
+  external_reference: "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1",
+  languages: [
+    Models::Shared::LanguageEnum.new(
+      value: Models::Shared::LanguageEnumValue::EN_GB,
+    ),
+  ],
+  localizations: [
+    Models::Shared::LocalizationModel.new(
+      description: "This course acts as learning resource for software engineers.",
+      title: "Software Engineer Lv 1",
+    ),
+    Models::Shared::LocalizationModel.new(
+      description: "This video acts as learning content for software engineers.",
+      title: "Software Engineer Lv 1",
+    ),
+  ],
+  mobile_launch_content_url: "https://www.mobile.youtube.com/watch?v=16873",
+  order: 1.0,
+  skills: [
+    Models::Shared::CreateSkillsApiModel.new(
+      id: "12345",
+      name: "Sales Techniques",
+    ),
+  ],
+  tags: [
+    "Sales Techniques",
+    "Customer Service",
+  ],
+  title: "Software Engineer Lv 1",
+  unified_custom_fields: {
+    "my_project_custom_field_1": "REF-1236",
+    "my_project_custom_field_2": "some other value",
+  },
+  updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
+), id="<id>", x_account_id="<id>")
+
+if ! res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `lms_create_content_request_dto`                                                                | [Models::Shared::LmsCreateContentRequestDto](../../models/shared/lmscreatecontentrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+
+### Response
+
+**[T.nilable(Models::Operations::LmsUpdateContentResponse)](../../models/operations/lmsupdatecontentresponse.md)**
 
 
 

@@ -20,10 +20,10 @@ module StackOne
 
         field :body, T.nilable(T.any(::String, T::Hash[Symbol, ::Object], T::Array[::Integer])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-        field :response, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
+        field :response, T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[::Object], ::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
 
 
-        sig { params(method: ::String, url: ::String, body: T.nilable(T.any(::String, T::Hash[Symbol, ::Object], T::Array[::Integer])), response: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(method: ::String, url: ::String, body: T.nilable(T.any(::String, T::Hash[Symbol, ::Object], T::Array[::Integer])), response: T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[::Object], ::String))).void }
         def initialize(method: nil, url: nil, body: nil, response: nil)
           @method = method
           @url = url

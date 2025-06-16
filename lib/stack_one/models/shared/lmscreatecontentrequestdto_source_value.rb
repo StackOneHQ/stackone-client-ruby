@@ -9,7 +9,7 @@ module StackOne
     module Shared
     
 
-      class Response
+      class LmsCreateContentRequestDtoSourceValue
         extend T::Sig
         include Crystalline::MetadataFields
 

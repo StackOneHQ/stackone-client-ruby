@@ -138,6 +138,26 @@ res = s.ats.create_application(ats_create_application_request_dto=Models::Shared
     },
   ),
   candidate_id: "e3cb75bf-aa84-466e-a6c1-b8322b257a48",
+  documents: [
+    Models::Shared::UnifiedUploadRequestDto.new(
+      category: Models::Shared::UnifiedUploadRequestDtoCategory.new(
+        source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
+        value: "reports, resumes",
+      ),
+      category_id: "6530",
+      confidential: Models::Shared::UnifiedUploadRequestDtoConfidential.new(
+        source_value: "public",
+        value: Models::Shared::UnifiedUploadRequestDtoValue::TRUE,
+      ),
+      content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+      file_format: Models::Shared::UnifiedUploadRequestDtoFileFormat.new(
+        source_value: "application/pdf",
+        value: Models::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+      ),
+      name: "weather-forecast",
+      path: "/path/to/file",
+    ),
+  ],
   job_id: "4071538b-3cac-4fbf-ac76-f78ed250ffdd",
   job_posting_id: "1c702a20-8de8-4d03-ac18-cbf4ac42eb51",
   location_id: "dd8d41d1-5eb8-4408-9c87-9ba44604eae4",

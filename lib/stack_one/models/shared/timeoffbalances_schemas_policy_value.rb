@@ -11,16 +11,28 @@ module StackOne
       # TimeOffBalancesSchemasPolicyValue - The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
       class TimeOffBalancesSchemasPolicyValue < T::Enum
         enums do
+          SICK = new('sick')
+          UNMAPPED_VALUE = new('unmapped_value')
+          VACATION = new('vacation')
+          LONG_TERM_DISABILITY = new('long_term_disability')
+          SHORT_TERM_DISABILITY = new('short_term_disability')
+          ABSENT = new('absent')
+          COMP_TIME = new('comp_time')
+          TRAINING = new('training')
+          ANNUAL_LEAVE = new('annual_leave')
+          LEAVE_OF_ABSENCE = new('leave_of_absence')
+          BREAK = new('break')
+          CHILD_CARE_LEAVE = new('child_care_leave')
+          MATERNITY_LEAVE = new('maternity_leave')
+          JURY_DUTY = new('jury_duty')
+          SABBATICAL = new('sabbatical')
+          ACCIDENT = new('accident')
           PAID = new('paid')
           UNPAID = new('unpaid')
           HOLIDAY = new('holiday')
-          VACATION = new('vacation')
-          SICK = new('sick')
           PERSONAL = new('personal')
           IN_LIEU = new('in_lieu')
           BEREAVEMENT = new('bereavement')
-          JURY_DUTY = new('jury_duty')
-          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end
