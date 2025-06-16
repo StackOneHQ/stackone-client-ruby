@@ -321,6 +321,7 @@ end
 * [list_user_completions](docs/sdks/lms/README.md#list_user_completions) - List User Completions
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
 * [update_collection](docs/sdks/lms/README.md#update_collection) - Update Collection
+* [update_content](docs/sdks/lms/README.md#update_content) - Update Content
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
 * [upsert_course](docs/sdks/lms/README.md#upsert_course) - Upsert Course
 

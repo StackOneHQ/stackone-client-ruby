@@ -25,9 +25,14 @@ module StackOne
           CHILD_CARE_LEAVE = new('child_care_leave')
           MATERNITY_LEAVE = new('maternity_leave')
           JURY_DUTY = new('jury_duty')
-          BEREAVEMENT_LEAVE = new('bereavement_leave')
           SABBATICAL = new('sabbatical')
           ACCIDENT = new('accident')
+          PAID = new('paid')
+          UNPAID = new('unpaid')
+          HOLIDAY = new('holiday')
+          PERSONAL = new('personal')
+          IN_LIEU = new('in_lieu')
+          BEREAVEMENT = new('bereavement')
         end
       end
     end

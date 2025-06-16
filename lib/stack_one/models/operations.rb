@@ -436,6 +436,8 @@ module StackOne
       autoload :LmsListUsersResponse, 'stack_one/models/operations/lms_list_users_response.rb'
       autoload :LmsUpdateCollectionRequest, 'stack_one/models/operations/lms_update_collection_request.rb'
       autoload :LmsUpdateCollectionResponse, 'stack_one/models/operations/lms_update_collection_response.rb'
+      autoload :LmsUpdateContentRequest, 'stack_one/models/operations/lms_update_content_request.rb'
+      autoload :LmsUpdateContentResponse, 'stack_one/models/operations/lms_update_content_response.rb'
       autoload :LmsUpsertContentRequest, 'stack_one/models/operations/lms_upsert_content_request.rb'
       autoload :LmsUpsertContentResponse, 'stack_one/models/operations/lms_upsert_content_response.rb'
       autoload :LmsUpsertCourseRequest, 'stack_one/models/operations/lms_upsert_course_request.rb'

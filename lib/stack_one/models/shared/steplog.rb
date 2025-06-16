@@ -42,7 +42,7 @@ module StackOne
         # The requested resource
         field :resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resource') } }
         # The advanced log response data
-        field :response, T.nilable(Models::Shared::Response), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
+        field :response, T.nilable(Models::Shared::StepLogResponse), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
         # The requested service
         field :service, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
         # The request start time ISO8601 date string
@@ -57,7 +57,7 @@ module StackOne
         field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), http_method: T.nilable(::String), id: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request: T.nilable(Models::Shared::Request), request_id: T.nilable(::String), resource: T.nilable(::String), response: T.nilable(Models::Shared::Response), service: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
+        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), http_method: T.nilable(::String), id: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request: T.nilable(Models::Shared::Request), request_id: T.nilable(::String), resource: T.nilable(::String), response: T.nilable(Models::Shared::StepLogResponse), service: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
         def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, http_method: nil, id: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request: nil, request_id: nil, resource: nil, response: nil, service: nil, start_time: nil, status: nil, sub_resource: nil, success: nil, url: nil)
           @account_id = account_id
           @action = action
