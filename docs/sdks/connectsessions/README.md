@@ -81,6 +81,7 @@ req = Models::Shared::ConnectSessionCreate.new(
   ],
   origin_owner_id: "<id>",
   origin_owner_name: "<value>",
+  type: Models::Shared::ConnectSessionCreateType::TEST,
 )
 
 res = s.connect_sessions.create_connect_session(req)

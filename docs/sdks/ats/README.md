@@ -22,10 +22,8 @@
 * [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](#get_assessments_package) - Get Assessments Package
-* [get_assessments_request](#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](#get_assessments_result) - Get Assessments Results
 * [get_background_check_package](#get_background_check_package) - Get Background Check Package
-* [get_background_check_request](#get_background_check_request) - Get Background Check Request
 * [get_background_check_result](#get_background_check_result) - Get Background Check Results
 * [get_candidate](#get_candidate) - Get Candidate
 * [get_candidate_custom_field_definition](#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
@@ -50,7 +48,6 @@
 * [list_applications_scheduled_interviews](#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](#list_assessments_packages) - List Assessments Packages
 * [list_background_check_packages](#list_background_check_packages) - List Background Check Packages
-* [list_background_check_request](#list_background_check_request) - List Background Check Request
 * [list_candidate_custom_field_definitions](#list_candidate_custom_field_definitions) - List Candidate Custom Field Definitions
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
@@ -997,48 +994,6 @@ end
 
 
 
-## get_assessments_request
-
-Get Assessments Requests
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: "",
-        username: "",
-      ),
-    )
-
-req = Models::Operations::AtsGetAssessmentsRequestRequest.new(
-  fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
-  id: "<id>",
-  x_account_id: "<id>",
-)
-
-res = s.ats.get_assessments_request(req)
-
-if ! res.assessment_order_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [Models::Operations::AtsGetAssessmentsRequestRequest](../../models/operations/atsgetassessmentsrequestrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
-
-### Response
-
-**[T.nilable(Models::Operations::AtsGetAssessmentsRequestResponse)](../../models/operations/atsgetassessmentsrequestresponse.md)**
-
-
-
 ## get_assessments_result
 
 Get Assessments Results
@@ -1120,48 +1075,6 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsGetBackgroundCheckPackageResponse)](../../models/operations/atsgetbackgroundcheckpackageresponse.md)**
-
-
-
-## get_background_check_request
-
-Get Background Check Request
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: "",
-        username: "",
-      ),
-    )
-
-req = Models::Operations::AtsGetBackgroundCheckRequestRequest.new(
-  fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
-  id: "<id>",
-  x_account_id: "<id>",
-)
-
-res = s.ats.get_background_check_request(req)
-
-if ! res.background_check_order_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                 | [Models::Operations::AtsGetBackgroundCheckRequestRequest](../../models/operations/atsgetbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
-
-### Response
-
-**[T.nilable(Models::Operations::AtsGetBackgroundCheckRequestResponse)](../../models/operations/atsgetbackgroundcheckrequestresponse.md)**
 
 
 
@@ -2209,50 +2122,6 @@ end
 
 
 
-## list_background_check_request
-
-List Background Check Request
-
-### Example Usage
-
-```ruby
-require 'stackone_client'
-
-s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: "",
-        username: "",
-      ),
-    )
-
-req = Models::Operations::AtsListBackgroundCheckRequestRequest.new(
-  fields_: "id,remote_id,package,application,job,candidate,requester,results_update_url",
-  filter: Models::Operations::AtsListBackgroundCheckRequestQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
-  ),
-  x_account_id: "<id>",
-)
-
-res = s.ats.list_background_check_request(req)
-
-if ! res.background_check_order_paginated.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                   | [Models::Operations::AtsListBackgroundCheckRequestRequest](../../models/operations/atslistbackgroundcheckrequestrequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
-
-### Response
-
-**[T.nilable(Models::Operations::AtsListBackgroundCheckRequestResponse)](../../models/operations/atslistbackgroundcheckrequestresponse.md)**
-
-
-
 ## list_candidate_custom_field_definitions
 
 List Candidate Custom Field Definitions
@@ -3104,7 +2973,7 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     "other_known_names": "John Doe",
   },
   remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-  requester: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoRequester.new(
+  requester: Models::Shared::Requester.new(
     email: "john.doe@gmail.com",
     first_name: "John",
     last_name: "Doe",
