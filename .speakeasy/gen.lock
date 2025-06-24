@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: ba908d518d4a5f660404a111b3cee722
+  docChecksum: 0fd80c8c7cb3c804318b716458852fe1
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.21.0
-  configChecksum: 514861b6fb5c3b939cd1feb1fff5a3b1
+  releaseVersion: 0.23.0
+  configChecksum: 97d0587632443f95d6afdaf086a030de
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -80,14 +80,10 @@ generatedFiles:
   - docs/models/operations/atsgetapplicationscorecardresponse.md
   - docs/models/operations/atsgetassessmentspackagerequest.md
   - docs/models/operations/atsgetassessmentspackageresponse.md
-  - docs/models/operations/atsgetassessmentsrequestrequest.md
-  - docs/models/operations/atsgetassessmentsrequestresponse.md
   - docs/models/operations/atsgetassessmentsresultrequest.md
   - docs/models/operations/atsgetassessmentsresultresponse.md
   - docs/models/operations/atsgetbackgroundcheckpackagerequest.md
   - docs/models/operations/atsgetbackgroundcheckpackageresponse.md
-  - docs/models/operations/atsgetbackgroundcheckrequestrequest.md
-  - docs/models/operations/atsgetbackgroundcheckrequestresponse.md
   - docs/models/operations/atsgetbackgroundcheckresultrequest.md
   - docs/models/operations/atsgetbackgroundcheckresultresponse.md
   - docs/models/operations/atsgetcandidatecustomfielddefinitionqueryparamfilter.md
@@ -147,9 +143,6 @@ generatedFiles:
   - docs/models/operations/atslistbackgroundcheckpackagesqueryparamfilter.md
   - docs/models/operations/atslistbackgroundcheckpackagesrequest.md
   - docs/models/operations/atslistbackgroundcheckpackagesresponse.md
-  - docs/models/operations/atslistbackgroundcheckrequestqueryparamfilter.md
-  - docs/models/operations/atslistbackgroundcheckrequestrequest.md
-  - docs/models/operations/atslistbackgroundcheckrequestresponse.md
   - docs/models/operations/atslistcandidatecustomfielddefinitionsqueryparamfilter.md
   - docs/models/operations/atslistcandidatecustomfielddefinitionsrequest.md
   - docs/models/operations/atslistcandidatecustomfielddefinitionsresponse.md
@@ -606,16 +599,6 @@ generatedFiles:
   - docs/models/shared/applicationstatus.md
   - docs/models/shared/applicationvalue.md
   - docs/models/shared/archived.md
-  - docs/models/shared/assessmentorder.md
-  - docs/models/shared/assessmentorder4.md
-  - docs/models/shared/assessmentorderapplication.md
-  - docs/models/shared/assessmentorderapplicationstatus.md
-  - docs/models/shared/assessmentordercandidate.md
-  - docs/models/shared/assessmentorderjob.md
-  - docs/models/shared/assessmentorderpackage.md
-  - docs/models/shared/assessmentorderresult.md
-  - docs/models/shared/assessmentordersourcevalue.md
-  - docs/models/shared/assessmentordervalue.md
   - docs/models/shared/assessmentpackage.md
   - docs/models/shared/assessmentpackagepaginated.md
   - docs/models/shared/assessmentpackageresult.md
@@ -648,7 +631,6 @@ generatedFiles:
   - docs/models/shared/atscreatebackgroundcheckorderrequestdtocandidate.md
   - docs/models/shared/atscreatebackgroundcheckorderrequestdtojob.md
   - docs/models/shared/atscreatebackgroundcheckorderrequestdtopackage.md
-  - docs/models/shared/atscreatebackgroundcheckorderrequestdtorequester.md
   - docs/models/shared/atscreatebackgroundcheckorderrequestdtosourcevalue.md
   - docs/models/shared/atscreatebackgroundcheckorderrequestdtovalue.md
   - docs/models/shared/atscreatebackgroundcheckpackagesrequestdto.md
@@ -732,18 +714,6 @@ generatedFiles:
   - docs/models/shared/attachmentsourcevalue.md
   - docs/models/shared/attachmentvalue.md
   - docs/models/shared/avatar.md
-  - docs/models/shared/backgroundcheckorder.md
-  - docs/models/shared/backgroundcheckorder4.md
-  - docs/models/shared/backgroundcheckorderapplication.md
-  - docs/models/shared/backgroundcheckorderapplicationstatus.md
-  - docs/models/shared/backgroundcheckordercandidate.md
-  - docs/models/shared/backgroundcheckorderjob.md
-  - docs/models/shared/backgroundcheckorderpackage.md
-  - docs/models/shared/backgroundcheckorderpaginated.md
-  - docs/models/shared/backgroundcheckorderrequester.md
-  - docs/models/shared/backgroundcheckorderresult.md
-  - docs/models/shared/backgroundcheckordersourcevalue.md
-  - docs/models/shared/backgroundcheckordervalue.md
   - docs/models/shared/backgroundcheckpackage.md
   - docs/models/shared/backgroundcheckpackagepaginated.md
   - docs/models/shared/backgroundcheckpackageresult.md
@@ -812,9 +782,12 @@ generatedFiles:
   - docs/models/shared/connectsessioncreate.md
   - docs/models/shared/connectsessioncreatecategories.md
   - docs/models/shared/connectsessioncreatemetadata.md
+  - docs/models/shared/connectsessioncreatetype.md
   - docs/models/shared/connectsessiontokenauthlink.md
   - docs/models/shared/connectsessiontokenauthlinkcategories.md
   - docs/models/shared/connectsessiontokenauthlinkmetadata.md
+  - docs/models/shared/connectsessiontokenauthlinktype.md
+  - docs/models/shared/connectsessiontype.md
   - docs/models/shared/contact.md
   - docs/models/shared/contactresult.md
   - docs/models/shared/contactspaginated.md
@@ -1541,6 +1514,7 @@ generatedFiles:
   - docs/models/shared/linkedaccountmeta.md
   - docs/models/shared/linkedaccountmetacategory.md
   - docs/models/shared/linkedaccountstatus.md
+  - docs/models/shared/linkedaccounttype.md
   - docs/models/shared/list.md
   - docs/models/shared/list4.md
   - docs/models/shared/listitem.md
@@ -1640,6 +1614,7 @@ generatedFiles:
   - docs/models/shared/patchaccountexternaldtocredentials.md
   - docs/models/shared/patchaccountexternaldtometadata.md
   - docs/models/shared/patchaccountexternaldtosetupinformation.md
+  - docs/models/shared/patchaccountexternaldtotype.md
   - docs/models/shared/payfrequency.md
   - docs/models/shared/payperiod.md
   - docs/models/shared/phonenumber.md
@@ -1952,14 +1927,10 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_application_scorecard_response.rb
   - lib/stack_one/models/operations/ats_get_assessments_package_request.rb
   - lib/stack_one/models/operations/ats_get_assessments_package_response.rb
-  - lib/stack_one/models/operations/ats_get_assessments_request_request.rb
-  - lib/stack_one/models/operations/ats_get_assessments_request_response.rb
   - lib/stack_one/models/operations/ats_get_assessments_result_request.rb
   - lib/stack_one/models/operations/ats_get_assessments_result_response.rb
   - lib/stack_one/models/operations/ats_get_background_check_package_request.rb
   - lib/stack_one/models/operations/ats_get_background_check_package_response.rb
-  - lib/stack_one/models/operations/ats_get_background_check_request_request.rb
-  - lib/stack_one/models/operations/ats_get_background_check_request_response.rb
   - lib/stack_one/models/operations/ats_get_background_check_result_request.rb
   - lib/stack_one/models/operations/ats_get_background_check_result_response.rb
   - lib/stack_one/models/operations/ats_get_candidate_custom_field_definition_queryparam_filter.rb
@@ -2019,9 +1990,6 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_list_background_check_packages_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_background_check_packages_request.rb
   - lib/stack_one/models/operations/ats_list_background_check_packages_response.rb
-  - lib/stack_one/models/operations/ats_list_background_check_request_queryparam_filter.rb
-  - lib/stack_one/models/operations/ats_list_background_check_request_request.rb
-  - lib/stack_one/models/operations/ats_list_background_check_request_response.rb
   - lib/stack_one/models/operations/ats_list_candidate_custom_field_definitions_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_candidate_custom_field_definitions_request.rb
   - lib/stack_one/models/operations/ats_list_candidate_custom_field_definitions_response.rb
@@ -2479,16 +2447,6 @@ generatedFiles:
   - lib/stack_one/models/shared/applicationresult.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
   - lib/stack_one/models/shared/archived.rb
-  - lib/stack_one/models/shared/assessmentorder.rb
-  - lib/stack_one/models/shared/assessmentorder_4.rb
-  - lib/stack_one/models/shared/assessmentorder_application.rb
-  - lib/stack_one/models/shared/assessmentorder_application_status.rb
-  - lib/stack_one/models/shared/assessmentorder_candidate.rb
-  - lib/stack_one/models/shared/assessmentorder_job.rb
-  - lib/stack_one/models/shared/assessmentorder_package.rb
-  - lib/stack_one/models/shared/assessmentorder_source_value.rb
-  - lib/stack_one/models/shared/assessmentorder_value.rb
-  - lib/stack_one/models/shared/assessmentorderresult.rb
   - lib/stack_one/models/shared/assessmentpackage.rb
   - lib/stack_one/models/shared/assessmentpackagepaginated.rb
   - lib/stack_one/models/shared/assessmentpackageresult.rb
@@ -2521,7 +2479,6 @@ generatedFiles:
   - lib/stack_one/models/shared/atscreatebackgroundcheckorderrequestdto_candidate.rb
   - lib/stack_one/models/shared/atscreatebackgroundcheckorderrequestdto_job.rb
   - lib/stack_one/models/shared/atscreatebackgroundcheckorderrequestdto_package.rb
-  - lib/stack_one/models/shared/atscreatebackgroundcheckorderrequestdto_requester.rb
   - lib/stack_one/models/shared/atscreatebackgroundcheckorderrequestdto_source_value.rb
   - lib/stack_one/models/shared/atscreatebackgroundcheckorderrequestdto_value.rb
   - lib/stack_one/models/shared/atscreatebackgroundcheckpackagesrequestdto.rb
@@ -2605,18 +2562,6 @@ generatedFiles:
   - lib/stack_one/models/shared/attachment_source_value.rb
   - lib/stack_one/models/shared/attachment_value.rb
   - lib/stack_one/models/shared/avatar.rb
-  - lib/stack_one/models/shared/backgroundcheckorder.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_4.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_application.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_application_status.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_candidate.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_job.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_package.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_requester.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_source_value.rb
-  - lib/stack_one/models/shared/backgroundcheckorder_value.rb
-  - lib/stack_one/models/shared/backgroundcheckorderpaginated.rb
-  - lib/stack_one/models/shared/backgroundcheckorderresult.rb
   - lib/stack_one/models/shared/backgroundcheckpackage.rb
   - lib/stack_one/models/shared/backgroundcheckpackagepaginated.rb
   - lib/stack_one/models/shared/backgroundcheckpackageresult.rb
@@ -2681,13 +2626,16 @@ generatedFiles:
   - lib/stack_one/models/shared/connectorsmeta.rb
   - lib/stack_one/models/shared/connectorsmeta_category.rb
   - lib/stack_one/models/shared/connectsession.rb
+  - lib/stack_one/models/shared/connectsession_type.rb
   - lib/stack_one/models/shared/connectsessionauthenticate.rb
   - lib/stack_one/models/shared/connectsessioncreate.rb
   - lib/stack_one/models/shared/connectsessioncreate_categories.rb
   - lib/stack_one/models/shared/connectsessioncreate_metadata.rb
+  - lib/stack_one/models/shared/connectsessioncreate_type.rb
   - lib/stack_one/models/shared/connectsessiontokenauthlink.rb
   - lib/stack_one/models/shared/connectsessiontokenauthlink_categories.rb
   - lib/stack_one/models/shared/connectsessiontokenauthlink_metadata.rb
+  - lib/stack_one/models/shared/connectsessiontokenauthlink_type.rb
   - lib/stack_one/models/shared/contact.rb
   - lib/stack_one/models/shared/contactresult.rb
   - lib/stack_one/models/shared/contactspaginated.rb
@@ -3412,6 +3360,7 @@ generatedFiles:
   - lib/stack_one/models/shared/level.rb
   - lib/stack_one/models/shared/linkedaccount.rb
   - lib/stack_one/models/shared/linkedaccount_status.rb
+  - lib/stack_one/models/shared/linkedaccount_type.rb
   - lib/stack_one/models/shared/linkedaccountmeta.rb
   - lib/stack_one/models/shared/linkedaccountmeta_category.rb
   - lib/stack_one/models/shared/list.rb
@@ -3513,6 +3462,7 @@ generatedFiles:
   - lib/stack_one/models/shared/patchaccountexternaldto_credentials.rb
   - lib/stack_one/models/shared/patchaccountexternaldto_metadata.rb
   - lib/stack_one/models/shared/patchaccountexternaldto_setup_information.rb
+  - lib/stack_one/models/shared/patchaccountexternaldto_type.rb
   - lib/stack_one/models/shared/pay_frequency.rb
   - lib/stack_one/models/shared/pay_period.rb
   - lib/stack_one/models/shared/phonenumber.rb
@@ -3807,7 +3757,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"created_at": "2023-03-02T02:38:36.487Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "updated_at": "2023-01-28T20:50:17.992Z"}
+          application/json: {"created_at": "2023-03-02T02:38:36.487Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "production", "updated_at": "2023-09-23T21:19:06.581Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -3837,7 +3787,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"created_at": "2023-06-04T12:12:16.177Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "active", "updated_at": "2023-07-29T07:34:48.454Z"}
+          application/json: {"created_at": "2023-06-04T12:12:16.177Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "active", "type": "production", "updated_at": "2025-09-21T20:57:12.110Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -3894,7 +3844,7 @@ examples:
     speakeasy-default-stackone-list-linked-accounts:
       responses:
         "200":
-          application/json: [{"created_at": "2025-08-30T20:49:04.264Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "updated_at": "2023-10-16T22:20:04.604Z"}, {"created_at": "2024-03-11T00:41:58.592Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "inactive", "updated_at": "2024-07-17T01:19:55.761Z"}, {"created_at": "2024-07-30T08:15:46.102Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "updated_at": "2023-07-10T17:07:30.423Z"}]
+          application/json: [{"created_at": "2025-08-30T20:49:04.264Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "production", "updated_at": "2024-03-11T00:41:58.592Z"}, {"created_at": "2024-06-21T10:35:22.941Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "inactive", "type": "test", "updated_at": "2025-05-31T15:24:35.176Z"}, {"created_at": "2023-07-10T17:07:30.423Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "active", "type": "unmapped_value", "updated_at": "2024-07-21T01:52:35.683Z"}]
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -3923,12 +3873,12 @@ examples:
         path:
           id: "<id>"
       requestBody:
-        application/json: {}
+        application/json: {"type": "test"}
       responses:
         "200":
-          application/json: {"created_at": "2024-10-26T20:01:43.384Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "updated_at": "2023-10-01T04:05:44.873Z"}
+          application/json: {"created_at": "2025-07-26T23:05:41.174Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "active", "type": "test", "updated_at": "2024-12-14T06:10:57.039Z"}
         "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -3955,9 +3905,9 @@ examples:
         application/json: {"token": "<value>"}
       responses:
         "201":
-          application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "crm", "documents", "ticketing", "screening", "messaging"], "created_at": "2024-10-02T14:09:45.913Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 7475, "organization_id": 7633.14, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>"}
+          application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "crm", "documents", "ticketing", "screening", "messaging"], "created_at": "2024-10-02T14:09:45.913Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 7475, "organization_id": 7633.14, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "type": "test"}
         "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -3981,12 +3931,12 @@ examples:
   stackone_create_connect_session:
     speakeasy-default-stackone-create-connect-session:
       requestBody:
-        application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "hris", "documents", "ticketing", "screening", "messaging"], "origin_owner_id": "<id>", "origin_owner_name": "<value>"}
+        application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "hris", "documents", "ticketing", "screening", "messaging"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "type": "test"}
       responses:
         "201":
-          application/json: {"auth_link_url": "https://pushy-almighty.com", "categories": ["ats", "hris", "messaging", "crm", "iam", "marketing", "lms", "crm", "documents", "ticketing", "screening", "messaging"], "created_at": "2025-09-18T01:38:50.515Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 7336, "organization_id": 5110.46, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "token": "<value>"}
+          application/json: {"auth_link_url": "https://animated-bonnet.org", "categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "screening", "documents", "ticketing", "screening", "messaging"], "created_at": "2025-03-15T00:35:49.563Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 5110.46, "organization_id": 5711.26, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "token": "<value>", "type": "test"}
         "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -4776,42 +4726,6 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  ats_get_assessments_request:
-    speakeasy-default-ats-get-assessments-request:
-      parameters:
-        path:
-          id: "<id>"
-        query:
-          fields: "id,remote_id,package,application,job,candidate,requester,results_update_url"
-        header:
-          x-account-id: "<id>"
-      responses:
-        "200":
-          application/json: {"data": {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   ats_get_assessments_result:
     speakeasy-default-ats-get-assessments-result:
       parameters:
@@ -4860,42 +4774,6 @@ examples:
       responses:
         "200":
           application/json: {"data": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  ats_get_background_check_request:
-    speakeasy-default-ats-get-background-check-request:
-      parameters:
-        path:
-          id: "<id>"
-        query:
-          fields: "id,remote_id,package,application,job,candidate,requester,results_update_url"
-        header:
-          x-account-id: "<id>"
-      responses:
-        "200":
-          application/json: {"data": {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, "results_update_url": "https://exmaple.com/integrations/results/update"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -5781,42 +5659,6 @@ examples:
       responses:
         "200":
           application/json: {"data": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}]}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  ats_list_background_check_request:
-    speakeasy-default-ats-list-background-check-request:
-      parameters:
-        query:
-          fields: "id,remote_id,package,application,job,candidate,requester,results_update_url"
-          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
-          updated_after: "2020-01-01T00:00:00.000Z"
-        header:
-          x-account-id: "<id>"
-      responses:
-        "200":
-          application/json: {"data": [{"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, "results_update_url": "https://exmaple.com/integrations/results/update"}, {"application": {"application_status": {"source_value": "Hired", "value": "hired"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "candidate": {"emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}, {"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "Romain", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "last_name": "Sestier", "passthrough": {"other_known_names": "John Doe"}, "profile_url": "https://exmaple.com/candidate?id=xyz", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job": {"hiring_team": [{"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "passthrough": {"other_known_names": "John Doe"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "title": "Software Engineer"}, "package": {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "tests": [{"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"description": "Skills test to gauge a candidate's proficiency in job-specific skills", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Test 1", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "requester": {"email": "john.doe@gmail.com", "first_name": "John", "last_name": "Doe", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "role": "Software Engineer", "user_id": "123456"}, "results_update_url": "https://exmaple.com/integrations/results/update"}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -9891,7 +9733,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"completed_at": "2021-07-21T14:00:00.000Z", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "passthrough": {"other_known_names": "John Doe"}}
+        application/json: {"completed_at": "2021-07-21T14:00:00.000Z", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "passthrough": {"other_known_names": "John Doe"}, "time_spent": "PT1H30M45S"}
       responses:
         "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -10035,7 +9877,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
+          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "time_spent": "PT1H30M45S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -10251,7 +10093,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
+          application/json: {"data": {"completed_at": "2021-07-21T14:00:00.000Z", "created_at": "2021-07-21T14:00:00.000Z", "id": "123456", "learning_object_external_reference": "learning-content-123", "learning_object_id": "e3gd34-23tr21-er234-345er56", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_learning_object_id": "e3cb55bf-aa84-466e-a6c1-b8302b257a49", "remote_user_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "time_spent": "PT1H30M45S", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "user_id": "c28xyrc55866bvuv"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -10354,7 +10196,7 @@ examples:
     speakeasy-default-lms-list-completions:
       parameters:
         query:
-          fields: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
+          fields: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -10540,7 +10382,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference"
+          fields: "id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:

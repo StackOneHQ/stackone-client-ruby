@@ -35,10 +35,12 @@ module StackOne
         field :secrets, T.nilable(Models::Shared::Secrets), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('secrets') } }
 
         field :setup_information, T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
+        # The account type
+        field :type, T.nilable(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
 
 
-        sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation)).void }
-        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil)
+        sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
+        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, type: nil)
           @authentication_config_key = authentication_config_key
           @credentials = credentials
           @environment = environment
@@ -50,6 +52,7 @@ module StackOne
           @provider = provider
           @secrets = secrets
           @setup_information = setup_information
+          @type = type
         end
 
         def ==(other)
@@ -65,6 +68,7 @@ module StackOne
           return false unless @provider == other.provider
           return false unless @secrets == other.secrets
           return false unless @setup_information == other.setup_information
+          return false unless @type == other.type
           true
         end
       end

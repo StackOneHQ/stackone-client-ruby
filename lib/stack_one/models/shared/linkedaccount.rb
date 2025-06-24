@@ -39,10 +39,12 @@ module StackOne
         field :setup_information, T.nilable(Models::Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
 
         field :status_reasons, T.nilable(T::Array[Models::Shared::StatusReason]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
+        # The account type
+        field :type, T.nilable(Models::Shared::LinkedAccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountType, true) } }
 
 
-        sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: Models::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(Models::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), provider_name: T.nilable(::String), setup_information: T.nilable(Models::Shared::SetupInformation), status_reasons: T.nilable(T::Array[Models::Shared::StatusReason])).void }
-        def initialize(created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, status: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, provider_name: nil, setup_information: nil, status_reasons: nil)
+        sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: Models::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(Models::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), provider_name: T.nilable(::String), setup_information: T.nilable(Models::Shared::SetupInformation), status_reasons: T.nilable(T::Array[Models::Shared::StatusReason]), type: T.nilable(Models::Shared::LinkedAccountType)).void }
+        def initialize(created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, status: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, provider_name: nil, setup_information: nil, status_reasons: nil, type: nil)
           @created_at = created_at
           @id = id
           @origin_owner_id = origin_owner_id
@@ -56,6 +58,7 @@ module StackOne
           @provider_name = provider_name
           @setup_information = setup_information
           @status_reasons = status_reasons
+          @type = type
         end
 
         def ==(other)
@@ -73,6 +76,7 @@ module StackOne
           return false unless @provider_name == other.provider_name
           return false unless @setup_information == other.setup_information
           return false unless @status_reasons == other.status_reasons
+          return false unless @type == other.type
           true
         end
       end

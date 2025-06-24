@@ -43,10 +43,12 @@ module StackOne
         field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
         field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        # The connect session account type
+        field :type, T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionTokenAuthLinkType, true) } }
 
 
-        sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), external_trigger_token: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String)).void }
-        def initialize(auth_link_url: nil, created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, token: nil, account_id: nil, categories: nil, external_trigger_token: nil, label: nil, metadata: nil, origin_username: nil, provider: nil)
+        sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), external_trigger_token: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType)).void }
+        def initialize(auth_link_url: nil, created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, token: nil, account_id: nil, categories: nil, external_trigger_token: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
           @auth_link_url = auth_link_url
           @created_at = created_at
           @id = id
@@ -62,6 +64,7 @@ module StackOne
           @metadata = metadata
           @origin_username = origin_username
           @provider = provider
+          @type = type
         end
 
         def ==(other)
@@ -81,6 +84,7 @@ module StackOne
           return false unless @metadata == other.metadata
           return false unless @origin_username == other.origin_username
           return false unless @provider == other.provider
+          return false unless @type == other.type
           true
         end
       end

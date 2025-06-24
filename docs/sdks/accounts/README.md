@@ -173,7 +173,9 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.accounts.update_account(patch_account_external_dto=Models::Shared::PatchAccountExternalDto.new(), id="<id>")
+res = s.accounts.update_account(patch_account_external_dto=Models::Shared::PatchAccountExternalDto.new(
+  type: Models::Shared::PatchAccountExternalDtoType::TEST,
+), id="<id>")
 
 if ! res.linked_account.nil?
   # handle response

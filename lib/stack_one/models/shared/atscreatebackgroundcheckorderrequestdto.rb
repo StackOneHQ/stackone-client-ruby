@@ -28,12 +28,12 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :requester, T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoRequester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
+        field :requester, T.nilable(Models::Shared::Requester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
         # Results update url
         field :results_update_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
 
 
-        sig { params(application: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob), package: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoRequester), results_update_url: T.nilable(::String)).void }
+        sig { params(application: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob), package: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::Requester), results_update_url: T.nilable(::String)).void }
         def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, passthrough: nil, remote_id: nil, requester: nil, results_update_url: nil)
           @application = application
           @candidate = candidate

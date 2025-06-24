@@ -65,6 +65,8 @@ module StackOne
         field :remote_user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
         # The result of the completion
         field :result, T.nilable(Models::Shared::CompletionSchemasResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+        # ISO 8601 duration format representing the time spent on completing the learning object
+        field :time_spent, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The updated date of the completion
@@ -73,8 +75,8 @@ module StackOne
         field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
 
-        sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::String), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::CompletionSchemasResult), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
-        def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+        sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::String), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::CompletionSchemasResult), time_spent: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), user_id: T.nilable(::String)).void }
+        def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, time_spent: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
           @completed_at = completed_at
           @content_external_reference = content_external_reference
           @content_id = content_id
@@ -93,6 +95,7 @@ module StackOne
           @remote_learning_object_id = remote_learning_object_id
           @remote_user_id = remote_user_id
           @result = result
+          @time_spent = time_spent
           @unified_custom_fields = unified_custom_fields
           @updated_at = updated_at
           @user_id = user_id
@@ -118,6 +121,7 @@ module StackOne
           return false unless @remote_learning_object_id == other.remote_learning_object_id
           return false unless @remote_user_id == other.remote_user_id
           return false unless @result == other.result
+          return false unless @time_spent == other.time_spent
           return false unless @unified_custom_fields == other.unified_custom_fields
           return false unless @updated_at == other.updated_at
           return false unless @user_id == other.user_id

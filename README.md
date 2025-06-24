@@ -138,10 +138,8 @@ end
 * [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](docs/sdks/ats/README.md#get_assessments_package) - Get Assessments Package
-* [get_assessments_request](docs/sdks/ats/README.md#get_assessments_request) - Get Assessments Requests
 * [get_assessments_result](docs/sdks/ats/README.md#get_assessments_result) - Get Assessments Results
 * [get_background_check_package](docs/sdks/ats/README.md#get_background_check_package) - Get Background Check Package
-* [get_background_check_request](docs/sdks/ats/README.md#get_background_check_request) - Get Background Check Request
 * [get_background_check_result](docs/sdks/ats/README.md#get_background_check_result) - Get Background Check Results
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
 * [get_candidate_custom_field_definition](docs/sdks/ats/README.md#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
@@ -166,7 +164,6 @@ end
 * [list_applications_scheduled_interviews](docs/sdks/ats/README.md#list_applications_scheduled_interviews) - List Applications scheduled interviews
 * [list_assessments_packages](docs/sdks/ats/README.md#list_assessments_packages) - List Assessments Packages
 * [list_background_check_packages](docs/sdks/ats/README.md#list_background_check_packages) - List Background Check Packages
-* [list_background_check_request](docs/sdks/ats/README.md#list_background_check_request) - List Background Check Request
 * [list_candidate_custom_field_definitions](docs/sdks/ats/README.md#list_candidate_custom_field_definitions) - List Candidate Custom Field Definitions
 * [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
 * [list_candidates](docs/sdks/ats/README.md#list_candidates) - List Candidates
