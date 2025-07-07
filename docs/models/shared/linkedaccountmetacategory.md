@@ -17,3 +17,4 @@
 | `TICKETING`   | ticketing     |
 | `SCREENING`   | screening     |
 | `MESSAGING`   | messaging     |
+| `ACCOUNTING`  | accounting    |

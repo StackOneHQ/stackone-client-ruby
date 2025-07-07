@@ -14,7 +14,7 @@ module StackOne
   extend T::Sig
   class RequestLogs
     extend T::Sig
-
+    # API requests and response logs.
 
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)

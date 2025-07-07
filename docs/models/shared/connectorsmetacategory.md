@@ -19,3 +19,4 @@ The provider service category
 | `TICKETING`   | ticketing     |
 | `SCREENING`   | screening     |
 | `MESSAGING`   | messaging     |
+| `ACCOUNTING`  | accounting    |

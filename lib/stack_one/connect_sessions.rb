@@ -14,7 +14,7 @@ module StackOne
   extend T::Sig
   class ConnectSessions
     extend T::Sig
-
+    # Generate connection session tokens or auth URLs to allow your customers to connect their accounts.
 
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)

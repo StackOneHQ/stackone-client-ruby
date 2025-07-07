@@ -23,6 +23,7 @@ module StackOne
           TICKETING = new('ticketing')
           SCREENING = new('screening')
           MESSAGING = new('messaging')
+          ACCOUNTING = new('accounting')
         end
       end
     end

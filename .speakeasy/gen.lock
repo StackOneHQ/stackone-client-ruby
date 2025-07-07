@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 0fd80c8c7cb3c804318b716458852fe1
+  docChecksum: 88a97661b967a33f6f4c867b403b985c
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.23.0
-  configChecksum: 97d0587632443f95d6afdaf086a030de
+  releaseVersion: 0.25.0
+  configChecksum: e43db161e36ac503f734443379bd6773
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -116,6 +116,9 @@ generatedFiles:
   - docs/models/operations/atsgetrejectedreasonresponse.md
   - docs/models/operations/atsgetuserrequest.md
   - docs/models/operations/atsgetuserresponse.md
+  - docs/models/operations/atslistapplicationchangesqueryparamfilter.md
+  - docs/models/operations/atslistapplicationchangesrequest.md
+  - docs/models/operations/atslistapplicationchangesresponse.md
   - docs/models/operations/atslistapplicationcustomfielddefinitionsqueryparamfilter.md
   - docs/models/operations/atslistapplicationcustomfielddefinitionsrequest.md
   - docs/models/operations/atslistapplicationcustomfielddefinitionsresponse.md
@@ -209,6 +212,7 @@ generatedFiles:
   - docs/models/operations/atsupdatejobresponse.md
   - docs/models/operations/atsuploadapplicationdocumentrequest.md
   - docs/models/operations/atsuploadapplicationdocumentresponse.md
+  - docs/models/operations/changetype.md
   - docs/models/operations/crmcreatecontactrequest.md
   - docs/models/operations/crmcreatecontactresponse.md
   - docs/models/operations/crmgetaccountrequest.md
@@ -288,6 +292,8 @@ generatedFiles:
   - docs/models/operations/hrisgetjobresponse.md
   - docs/models/operations/hrisgetlocationrequest.md
   - docs/models/operations/hrisgetlocationresponse.md
+  - docs/models/operations/hrisgetpositionrequest.md
+  - docs/models/operations/hrisgetpositionresponse.md
   - docs/models/operations/hrisgetteamgrouprequest.md
   - docs/models/operations/hrisgetteamgroupresponse.md
   - docs/models/operations/hrisgettimeentriesrequest.md
@@ -357,6 +363,9 @@ generatedFiles:
   - docs/models/operations/hrislistlocationsqueryparamfilter.md
   - docs/models/operations/hrislistlocationsrequest.md
   - docs/models/operations/hrislistlocationsresponse.md
+  - docs/models/operations/hrislistpositionsqueryparamfilter.md
+  - docs/models/operations/hrislistpositionsrequest.md
+  - docs/models/operations/hrislistpositionsresponse.md
   - docs/models/operations/hrislistteamgroupsqueryparamfilter.md
   - docs/models/operations/hrislistteamgroupsrequest.md
   - docs/models/operations/hrislistteamgroupsresponse.md
@@ -410,10 +419,6 @@ generatedFiles:
   - docs/models/operations/jobstatus.md
   - docs/models/operations/lmsbatchupsertcontentrequest.md
   - docs/models/operations/lmsbatchupsertcontentresponse.md
-  - docs/models/operations/lmsbatchupsertcourserequest.md
-  - docs/models/operations/lmsbatchupsertcourseresponse.md
-  - docs/models/operations/lmscreatecollectionrequest.md
-  - docs/models/operations/lmscreatecollectionresponse.md
   - docs/models/operations/lmscreateuserassignmentrequest.md
   - docs/models/operations/lmscreateuserassignmentresponse.md
   - docs/models/operations/lmscreateusercompletionrequest.md
@@ -439,6 +444,7 @@ generatedFiles:
   - docs/models/operations/lmsgetuserrequest.md
   - docs/models/operations/lmsgetuserresponse.md
   - docs/models/operations/lmslistassignmentsqueryparamfilter.md
+  - docs/models/operations/lmslistassignmentsqueryparamstatus.md
   - docs/models/operations/lmslistassignmentsrequest.md
   - docs/models/operations/lmslistassignmentsresponse.md
   - docs/models/operations/lmslistcategoriesqueryparamfilter.md
@@ -466,14 +472,10 @@ generatedFiles:
   - docs/models/operations/lmslistusersqueryparamfilter.md
   - docs/models/operations/lmslistusersrequest.md
   - docs/models/operations/lmslistusersresponse.md
-  - docs/models/operations/lmsupdatecollectionrequest.md
-  - docs/models/operations/lmsupdatecollectionresponse.md
   - docs/models/operations/lmsupdatecontentrequest.md
   - docs/models/operations/lmsupdatecontentresponse.md
   - docs/models/operations/lmsupsertcontentrequest.md
   - docs/models/operations/lmsupsertcontentresponse.md
-  - docs/models/operations/lmsupsertcourserequest.md
-  - docs/models/operations/lmsupsertcourseresponse.md
   - docs/models/operations/marketingcreatecontentblockrequest.md
   - docs/models/operations/marketingcreatecontentblockresponse.md
   - docs/models/operations/marketingcreateemailtemplaterequest.md
@@ -580,6 +582,7 @@ generatedFiles:
   - docs/models/shared/accountresult.md
   - docs/models/shared/accountspaginated.md
   - docs/models/shared/active.md
+  - docs/models/shared/actor.md
   - docs/models/shared/additionaldata.md
   - docs/models/shared/answer.md
   - docs/models/shared/answer4.md
@@ -592,6 +595,16 @@ generatedFiles:
   - docs/models/shared/applicationattachmentsourcevalue.md
   - docs/models/shared/applicationattachmentvalue.md
   - docs/models/shared/applicationcandidate.md
+  - docs/models/shared/applicationchanges.md
+  - docs/models/shared/applicationchanges4.md
+  - docs/models/shared/applicationchangesdatamodel.md
+  - docs/models/shared/applicationchangesdatamodel4.md
+  - docs/models/shared/applicationchangesdatamodelapplicationstatus.md
+  - docs/models/shared/applicationchangesdatamodelsourcevalue.md
+  - docs/models/shared/applicationchangesdatamodelvalue.md
+  - docs/models/shared/applicationchangespaginated.md
+  - docs/models/shared/applicationchangessourcevalue.md
+  - docs/models/shared/applicationchangesvalue.md
   - docs/models/shared/applicationinterviewstage.md
   - docs/models/shared/applicationresult.md
   - docs/models/shared/applicationsourcevalue.md
@@ -747,6 +760,7 @@ generatedFiles:
   - docs/models/shared/categories.md
   - docs/models/shared/categoriespaginated.md
   - docs/models/shared/category.md
+  - docs/models/shared/category2.md
   - docs/models/shared/category4.md
   - docs/models/shared/categoryresult.md
   - docs/models/shared/categoryschemas4.md
@@ -757,6 +771,7 @@ generatedFiles:
   - docs/models/shared/categoryschemasvalue.md
   - docs/models/shared/categorysourcevalue.md
   - docs/models/shared/categoryvalue.md
+  - docs/models/shared/changetype.md
   - docs/models/shared/channelsenum.md
   - docs/models/shared/channelsenumvalue.md
   - docs/models/shared/companiespaginated.md
@@ -819,6 +834,8 @@ generatedFiles:
   - docs/models/shared/countrycodeenumsourcevalue.md
   - docs/models/shared/countrycodeenumvalue.md
   - docs/models/shared/course.md
+  - docs/models/shared/course2.md
+  - docs/models/shared/courseactive.md
   - docs/models/shared/coursepaginated.md
   - docs/models/shared/courseresult.md
   - docs/models/shared/createanswer.md
@@ -841,7 +858,6 @@ generatedFiles:
   - docs/models/shared/createcategoriesapimodelschemasvalue.md
   - docs/models/shared/createcategoriesapimodelsourcevalue.md
   - docs/models/shared/createcategoriesapimodelvalue.md
-  - docs/models/shared/createcontentapimodel.md
   - docs/models/shared/createcostcenterapimodel.md
   - docs/models/shared/createemploymentapimodel.md
   - docs/models/shared/createemploymentapimodel4.md
@@ -890,11 +906,11 @@ generatedFiles:
   - docs/models/shared/customfielddefinition.md
   - docs/models/shared/customfielddefinition4.md
   - docs/models/shared/customfielddefinitionresultapimodel.md
-  - docs/models/shared/customfielddefinitionschemas4.md
   - docs/models/shared/customfielddefinitionsourcevalue.md
   - docs/models/shared/customfielddefinitionspaginated.md
   - docs/models/shared/customfielddefinitiontype.md
   - docs/models/shared/customfielddefinitionvalue.md
+  - docs/models/shared/customfieldoption.md
   - docs/models/shared/customfields.md
   - docs/models/shared/customfields4.md
   - docs/models/shared/customfieldsvalue.md
@@ -1524,30 +1540,33 @@ generatedFiles:
   - docs/models/shared/listtype.md
   - docs/models/shared/listvalue.md
   - docs/models/shared/lmsbatchupsertcontentrequestdto.md
-  - docs/models/shared/lmsbatchupsertcourserequestdto.md
   - docs/models/shared/lmscreateassignmentrequestdto.md
   - docs/models/shared/lmscreateassignmentrequestdto4.md
   - docs/models/shared/lmscreateassignmentrequestdtosourcevalue.md
   - docs/models/shared/lmscreateassignmentrequestdtostatus.md
   - docs/models/shared/lmscreateassignmentrequestdtovalue.md
-  - docs/models/shared/lmscreatecollectionrequestdto.md
   - docs/models/shared/lmscreatecompletionrequestdto.md
   - docs/models/shared/lmscreatecompletionrequestdto4.md
   - docs/models/shared/lmscreatecompletionrequestdtoresult.md
   - docs/models/shared/lmscreatecompletionrequestdtosourcevalue.md
   - docs/models/shared/lmscreatecompletionrequestdtovalue.md
   - docs/models/shared/lmscreatecontentrequestdto.md
+  - docs/models/shared/lmscreatecontentrequestdto2.md
   - docs/models/shared/lmscreatecontentrequestdto4.md
+  - docs/models/shared/lmscreatecontentrequestdtoactive.md
   - docs/models/shared/lmscreatecontentrequestdtocontenttype.md
   - docs/models/shared/lmscreatecontentrequestdtosourcevalue.md
   - docs/models/shared/lmscreatecontentrequestdtovalue.md
   - docs/models/shared/lmsupsertcontentrequestdto.md
+  - docs/models/shared/lmsupsertcontentrequestdto2.md
   - docs/models/shared/lmsupsertcontentrequestdto4.md
+  - docs/models/shared/lmsupsertcontentrequestdtoactive.md
   - docs/models/shared/lmsupsertcontentrequestdtocontenttype.md
   - docs/models/shared/lmsupsertcontentrequestdtosourcevalue.md
   - docs/models/shared/lmsupsertcontentrequestdtovalue.md
-  - docs/models/shared/lmsupsertcourserequestdto.md
   - docs/models/shared/lmsuser.md
+  - docs/models/shared/lmsuser2.md
+  - docs/models/shared/lmsuseractive.md
   - docs/models/shared/localizationmodel.md
   - docs/models/shared/localizationmodel4.md
   - docs/models/shared/localizationmodellanguage.md
@@ -1606,7 +1625,6 @@ generatedFiles:
   - docs/models/shared/offersresult.md
   - docs/models/shared/offerstatus.md
   - docs/models/shared/offervalue.md
-  - docs/models/shared/options.md
   - docs/models/shared/overallrecommendation.md
   - docs/models/shared/package.md
   - docs/models/shared/parentquestion.md
@@ -1620,6 +1638,13 @@ generatedFiles:
   - docs/models/shared/phonenumber.md
   - docs/models/shared/phonenumbertype.md
   - docs/models/shared/policy.md
+  - docs/models/shared/position.md
+  - docs/models/shared/position4.md
+  - docs/models/shared/positionresult.md
+  - docs/models/shared/positionsourcevalue.md
+  - docs/models/shared/positionspaginated.md
+  - docs/models/shared/positionstatus.md
+  - docs/models/shared/positionvalue.md
   - docs/models/shared/preferredlanguage.md
   - docs/models/shared/providererror.md
   - docs/models/shared/providererrorapimodel.md
@@ -1653,6 +1678,7 @@ generatedFiles:
   - docs/models/shared/reason.md
   - docs/models/shared/reference.md
   - docs/models/shared/reference2.md
+  - docs/models/shared/referenceactive.md
   - docs/models/shared/referencepaginated.md
   - docs/models/shared/referenceresult.md
   - docs/models/shared/rejectapplicationresult.md
@@ -1692,7 +1718,9 @@ generatedFiles:
   - docs/models/shared/setupinformation.md
   - docs/models/shared/skillresult.md
   - docs/models/shared/skills.md
+  - docs/models/shared/skills2.md
   - docs/models/shared/skills4.md
+  - docs/models/shared/skillsactive.md
   - docs/models/shared/skillshierarchy.md
   - docs/models/shared/skillslanguage.md
   - docs/models/shared/skillslevel.md
@@ -1963,6 +1991,9 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_rejected_reason_response.rb
   - lib/stack_one/models/operations/ats_get_user_request.rb
   - lib/stack_one/models/operations/ats_get_user_response.rb
+  - lib/stack_one/models/operations/ats_list_application_changes_queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_application_changes_request.rb
+  - lib/stack_one/models/operations/ats_list_application_changes_response.rb
   - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_request.rb
   - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_response.rb
@@ -2056,6 +2087,7 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_update_job_response.rb
   - lib/stack_one/models/operations/ats_upload_application_document_request.rb
   - lib/stack_one/models/operations/ats_upload_application_document_response.rb
+  - lib/stack_one/models/operations/change_type.rb
   - lib/stack_one/models/operations/crm_create_contact_request.rb
   - lib/stack_one/models/operations/crm_create_contact_response.rb
   - lib/stack_one/models/operations/crm_get_account_request.rb
@@ -2135,6 +2167,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_job_response.rb
   - lib/stack_one/models/operations/hris_get_location_request.rb
   - lib/stack_one/models/operations/hris_get_location_response.rb
+  - lib/stack_one/models/operations/hris_get_position_request.rb
+  - lib/stack_one/models/operations/hris_get_position_response.rb
   - lib/stack_one/models/operations/hris_get_team_group_request.rb
   - lib/stack_one/models/operations/hris_get_team_group_response.rb
   - lib/stack_one/models/operations/hris_get_time_entries_request.rb
@@ -2204,6 +2238,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_locations_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_locations_request.rb
   - lib/stack_one/models/operations/hris_list_locations_response.rb
+  - lib/stack_one/models/operations/hris_list_positions_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_positions_request.rb
+  - lib/stack_one/models/operations/hris_list_positions_response.rb
   - lib/stack_one/models/operations/hris_list_team_groups_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_team_groups_request.rb
   - lib/stack_one/models/operations/hris_list_team_groups_response.rb
@@ -2257,10 +2294,6 @@ generatedFiles:
   - lib/stack_one/models/operations/job_status.rb
   - lib/stack_one/models/operations/lms_batch_upsert_content_request.rb
   - lib/stack_one/models/operations/lms_batch_upsert_content_response.rb
-  - lib/stack_one/models/operations/lms_batch_upsert_course_request.rb
-  - lib/stack_one/models/operations/lms_batch_upsert_course_response.rb
-  - lib/stack_one/models/operations/lms_create_collection_request.rb
-  - lib/stack_one/models/operations/lms_create_collection_response.rb
   - lib/stack_one/models/operations/lms_create_user_assignment_request.rb
   - lib/stack_one/models/operations/lms_create_user_assignment_response.rb
   - lib/stack_one/models/operations/lms_create_user_completion_request.rb
@@ -2286,6 +2319,7 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_get_user_request.rb
   - lib/stack_one/models/operations/lms_get_user_response.rb
   - lib/stack_one/models/operations/lms_list_assignments_queryparam_filter.rb
+  - lib/stack_one/models/operations/lms_list_assignments_queryparam_status.rb
   - lib/stack_one/models/operations/lms_list_assignments_request.rb
   - lib/stack_one/models/operations/lms_list_assignments_response.rb
   - lib/stack_one/models/operations/lms_list_categories_queryparam_filter.rb
@@ -2313,14 +2347,10 @@ generatedFiles:
   - lib/stack_one/models/operations/lms_list_users_queryparam_filter.rb
   - lib/stack_one/models/operations/lms_list_users_request.rb
   - lib/stack_one/models/operations/lms_list_users_response.rb
-  - lib/stack_one/models/operations/lms_update_collection_request.rb
-  - lib/stack_one/models/operations/lms_update_collection_response.rb
   - lib/stack_one/models/operations/lms_update_content_request.rb
   - lib/stack_one/models/operations/lms_update_content_response.rb
   - lib/stack_one/models/operations/lms_upsert_content_request.rb
   - lib/stack_one/models/operations/lms_upsert_content_response.rb
-  - lib/stack_one/models/operations/lms_upsert_course_request.rb
-  - lib/stack_one/models/operations/lms_upsert_course_response.rb
   - lib/stack_one/models/operations/marketing_create_content_block_request.rb
   - lib/stack_one/models/operations/marketing_create_content_block_response.rb
   - lib/stack_one/models/operations/marketing_create_email_template_request.rb
@@ -2428,6 +2458,7 @@ generatedFiles:
   - lib/stack_one/models/shared/accountresult.rb
   - lib/stack_one/models/shared/accountspaginated.rb
   - lib/stack_one/models/shared/active.rb
+  - lib/stack_one/models/shared/actor.rb
   - lib/stack_one/models/shared/additionaldata.rb
   - lib/stack_one/models/shared/answer.rb
   - lib/stack_one/models/shared/answer_4.rb
@@ -2444,6 +2475,16 @@ generatedFiles:
   - lib/stack_one/models/shared/applicationattachment_4.rb
   - lib/stack_one/models/shared/applicationattachment_source_value.rb
   - lib/stack_one/models/shared/applicationattachment_value.rb
+  - lib/stack_one/models/shared/applicationchanges.rb
+  - lib/stack_one/models/shared/applicationchanges_4.rb
+  - lib/stack_one/models/shared/applicationchanges_source_value.rb
+  - lib/stack_one/models/shared/applicationchanges_value.rb
+  - lib/stack_one/models/shared/applicationchangesdatamodel.rb
+  - lib/stack_one/models/shared/applicationchangesdatamodel_4.rb
+  - lib/stack_one/models/shared/applicationchangesdatamodel_application_status.rb
+  - lib/stack_one/models/shared/applicationchangesdatamodel_source_value.rb
+  - lib/stack_one/models/shared/applicationchangesdatamodel_value.rb
+  - lib/stack_one/models/shared/applicationchangespaginated.rb
   - lib/stack_one/models/shared/applicationresult.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
   - lib/stack_one/models/shared/archived.rb
@@ -2595,6 +2636,7 @@ generatedFiles:
   - lib/stack_one/models/shared/categories.rb
   - lib/stack_one/models/shared/categoriespaginated.rb
   - lib/stack_one/models/shared/category.rb
+  - lib/stack_one/models/shared/category_2.rb
   - lib/stack_one/models/shared/category_4.rb
   - lib/stack_one/models/shared/category_schemas_4.rb
   - lib/stack_one/models/shared/category_schemas_level_4.rb
@@ -2605,6 +2647,7 @@ generatedFiles:
   - lib/stack_one/models/shared/category_source_value.rb
   - lib/stack_one/models/shared/category_value.rb
   - lib/stack_one/models/shared/categoryresult.rb
+  - lib/stack_one/models/shared/change_type.rb
   - lib/stack_one/models/shared/channelsenum.rb
   - lib/stack_one/models/shared/channelsenum_value.rb
   - lib/stack_one/models/shared/companiespaginated.rb
@@ -2667,6 +2710,8 @@ generatedFiles:
   - lib/stack_one/models/shared/countrycodeenum_source_value.rb
   - lib/stack_one/models/shared/countrycodeenum_value.rb
   - lib/stack_one/models/shared/course.rb
+  - lib/stack_one/models/shared/course_2.rb
+  - lib/stack_one/models/shared/course_active.rb
   - lib/stack_one/models/shared/coursepaginated.rb
   - lib/stack_one/models/shared/courseresult.rb
   - lib/stack_one/models/shared/createanswer.rb
@@ -2689,7 +2734,6 @@ generatedFiles:
   - lib/stack_one/models/shared/createcategoriesapimodel_schemas_value.rb
   - lib/stack_one/models/shared/createcategoriesapimodel_source_value.rb
   - lib/stack_one/models/shared/createcategoriesapimodel_value.rb
-  - lib/stack_one/models/shared/createcontentapimodel.rb
   - lib/stack_one/models/shared/createcostcenterapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel.rb
   - lib/stack_one/models/shared/createemploymentapimodel_4.rb
@@ -2737,12 +2781,12 @@ generatedFiles:
   - lib/stack_one/models/shared/crmcreatecontactrequestdto.rb
   - lib/stack_one/models/shared/customfielddefinition.rb
   - lib/stack_one/models/shared/customfielddefinition_4.rb
-  - lib/stack_one/models/shared/customfielddefinition_schemas_4.rb
   - lib/stack_one/models/shared/customfielddefinition_source_value.rb
   - lib/stack_one/models/shared/customfielddefinition_type.rb
   - lib/stack_one/models/shared/customfielddefinition_value.rb
   - lib/stack_one/models/shared/customfielddefinitionresultapimodel.rb
   - lib/stack_one/models/shared/customfielddefinitionspaginated.rb
+  - lib/stack_one/models/shared/customfieldoption.rb
   - lib/stack_one/models/shared/customfields.rb
   - lib/stack_one/models/shared/customfields_4.rb
   - lib/stack_one/models/shared/customfields_value.rb
@@ -3372,30 +3416,33 @@ generatedFiles:
   - lib/stack_one/models/shared/listresult.rb
   - lib/stack_one/models/shared/listspaginated.rb
   - lib/stack_one/models/shared/lmsbatchupsertcontentrequestdto.rb
-  - lib/stack_one/models/shared/lmsbatchupsertcourserequestdto.rb
   - lib/stack_one/models/shared/lmscreateassignmentrequestdto.rb
   - lib/stack_one/models/shared/lmscreateassignmentrequestdto_4.rb
   - lib/stack_one/models/shared/lmscreateassignmentrequestdto_source_value.rb
   - lib/stack_one/models/shared/lmscreateassignmentrequestdto_status.rb
   - lib/stack_one/models/shared/lmscreateassignmentrequestdto_value.rb
-  - lib/stack_one/models/shared/lmscreatecollectionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_4.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_result.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_source_value.rb
   - lib/stack_one/models/shared/lmscreatecompletionrequestdto_value.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_2.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_4.rb
+  - lib/stack_one/models/shared/lmscreatecontentrequestdto_active.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_content_type.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_source_value.rb
   - lib/stack_one/models/shared/lmscreatecontentrequestdto_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_2.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_4.rb
+  - lib/stack_one/models/shared/lmsupsertcontentrequestdto_active.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_content_type.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_source_value.rb
   - lib/stack_one/models/shared/lmsupsertcontentrequestdto_value.rb
-  - lib/stack_one/models/shared/lmsupsertcourserequestdto.rb
   - lib/stack_one/models/shared/lmsuser.rb
+  - lib/stack_one/models/shared/lmsuser_2.rb
+  - lib/stack_one/models/shared/lmsuser_active.rb
   - lib/stack_one/models/shared/localizationmodel.rb
   - lib/stack_one/models/shared/localizationmodel_4.rb
   - lib/stack_one/models/shared/localizationmodel_language.rb
@@ -3454,7 +3501,6 @@ generatedFiles:
   - lib/stack_one/models/shared/offerhistory.rb
   - lib/stack_one/models/shared/offerspaginated.rb
   - lib/stack_one/models/shared/offersresult.rb
-  - lib/stack_one/models/shared/options.rb
   - lib/stack_one/models/shared/overall_recommendation.rb
   - lib/stack_one/models/shared/package.rb
   - lib/stack_one/models/shared/parent_question.rb
@@ -3468,6 +3514,13 @@ generatedFiles:
   - lib/stack_one/models/shared/phonenumber.rb
   - lib/stack_one/models/shared/phonenumber_type.rb
   - lib/stack_one/models/shared/policy.rb
+  - lib/stack_one/models/shared/position.rb
+  - lib/stack_one/models/shared/position_4.rb
+  - lib/stack_one/models/shared/position_source_value.rb
+  - lib/stack_one/models/shared/position_status.rb
+  - lib/stack_one/models/shared/position_value.rb
+  - lib/stack_one/models/shared/positionresult.rb
+  - lib/stack_one/models/shared/positionspaginated.rb
   - lib/stack_one/models/shared/preferred_language.rb
   - lib/stack_one/models/shared/providererror.rb
   - lib/stack_one/models/shared/providererrorapimodel.rb
@@ -3501,6 +3554,7 @@ generatedFiles:
   - lib/stack_one/models/shared/reason.rb
   - lib/stack_one/models/shared/reference.rb
   - lib/stack_one/models/shared/reference_2.rb
+  - lib/stack_one/models/shared/reference_active.rb
   - lib/stack_one/models/shared/referencepaginated.rb
   - lib/stack_one/models/shared/referenceresult.rb
   - lib/stack_one/models/shared/rejectapplicationresult.rb
@@ -3540,7 +3594,9 @@ generatedFiles:
   - lib/stack_one/models/shared/setup_information.rb
   - lib/stack_one/models/shared/skillresult.rb
   - lib/stack_one/models/shared/skills.rb
+  - lib/stack_one/models/shared/skills_2.rb
   - lib/stack_one/models/shared/skills_4.rb
+  - lib/stack_one/models/shared/skills_active.rb
   - lib/stack_one/models/shared/skills_hierarchy.rb
   - lib/stack_one/models/shared/skills_language.rb
   - lib/stack_one/models/shared/skills_level.rb
@@ -3817,7 +3873,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"category": "iam", "models": {"key": "<value>"}, "provider": "<value>"}
+          application/json: {"category": "marketing", "models": {"key": "<value>"}, "provider": "<value>"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -3905,7 +3961,7 @@ examples:
         application/json: {"token": "<value>"}
       responses:
         "201":
-          application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "crm", "documents", "ticketing", "screening", "messaging"], "created_at": "2024-10-02T14:09:45.913Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 7475, "organization_id": 7633.14, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "type": "test"}
+          application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "crm", "documents", "ticketing", "screening", "messaging", "accounting"], "created_at": "2024-10-02T14:09:45.913Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 7475, "organization_id": 7633.14, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "type": "test"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -3931,10 +3987,10 @@ examples:
   stackone_create_connect_session:
     speakeasy-default-stackone-create-connect-session:
       requestBody:
-        application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "hris", "documents", "ticketing", "screening", "messaging"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "type": "test"}
+        application/json: {"categories": ["ats", "hris", "iam", "crm", "iam", "marketing", "lms", "hris", "documents", "ticketing", "screening", "messaging", "accounting"], "origin_owner_id": "<id>", "origin_owner_name": "<value>", "type": "test"}
       responses:
         "201":
-          application/json: {"auth_link_url": "https://animated-bonnet.org", "categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "screening", "documents", "ticketing", "screening", "messaging"], "created_at": "2025-03-15T00:35:49.563Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 5110.46, "organization_id": 5711.26, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "token": "<value>", "type": "test"}
+          application/json: {"auth_link_url": "https://animated-bonnet.org", "categories": ["ats", "hris", "crm", "crm", "iam", "marketing", "lms", "messaging", "documents", "ticketing", "screening", "messaging", "accounting"], "created_at": "2025-03-15T00:35:49.563Z", "external_trigger_token": "f0bc3d88-2178-5423-8c81-b81d6c9da824", "id": 5110.46, "organization_id": 5711.26, "origin_owner_id": "<id>", "origin_owner_name": "<value>", "project_id": "<id>", "token": "<value>", "type": "test"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -4481,7 +4537,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -4884,7 +4940,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -5105,7 +5161,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -5347,6 +5403,43 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  ats_list_application_changes:
+    speakeasy-default-ats-list-application-changes:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values"
+          filter: {"created_after": "2020-01-01T00:00:00.000Z"}
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"actor": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "change_type": {"source_value": "StatusChange", "value": "application_status"}, "created_at": "2024-01-15T10:30:00Z", "effective_at": "2024-01-15T10:30:00Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "new_values": {"application_status": {"source_value": "Hired", "value": "hired"}, "interview_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"actor": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "change_type": {"source_value": "StatusChange", "value": "application_status"}, "created_at": "2024-01-15T10:30:00Z", "effective_at": "2024-01-15T10:30:00Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "new_values": {"application_status": {"source_value": "Hired", "value": "hired"}, "interview_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"actor": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "change_type": {"source_value": "StatusChange", "value": "application_status"}, "created_at": "2024-01-15T10:30:00Z", "effective_at": "2024-01-15T10:30:00Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "new_values": {"application_status": {"source_value": "Hired", "value": "hired"}, "interview_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"]}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   ats_list_application_custom_field_definitions:
     speakeasy-default-ats-list-application-custom-field-definitions:
       parameters:
@@ -5358,7 +5451,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}]}
+          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -5694,7 +5787,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}]}
+          application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -6742,7 +6835,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -7169,7 +7262,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"approver_id": "1687-4", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933"}
+        application/json: {"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933"}
       responses:
         "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -7466,7 +7559,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": ["Not Started", "In Progress", "Completed", "Overdue"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
+          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -7722,13 +7815,13 @@ examples:
           id: "<id>"
           subResourceId: "<id>"
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy"
+          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy"
           expand: "policy"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"approver_id": "1687-4", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -7935,6 +8028,41 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_get_position:
+    speakeasy-default-hris-get-position:
+      parameters:
+        path:
+          id: "<id>"
+        query: {}
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   hris_get_team_group:
     speakeasy-default-hris-get-team-group:
       parameters:
@@ -8049,13 +8177,13 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy"
+          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy"
           expand: "policy"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"approver_id": "1687-4", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -8605,7 +8733,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy"
+          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           expand: "policy"
@@ -8613,7 +8741,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"approver_id": "1687-4", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}]}
+          application/json: {"data": [{"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -8859,6 +8987,42 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_list_positions:
+    speakeasy-default-hris-list-positions:
+      parameters:
+        query:
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+          status: "open"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}, {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}, {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   hris_list_team_groups:
     speakeasy-default-hris-list-team-groups:
       parameters:
@@ -8971,7 +9135,7 @@ examples:
     speakeasy-default-hris-list-time-off-requests:
       parameters:
         query:
-          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy"
+          fields: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
           expand: "policy"
@@ -8979,7 +9143,7 @@ examples:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"approver_id": "1687-4", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}, {"approver_id": "1687-4", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}]}
+          application/json: {"data": [{"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}, {"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "created_date": "2021-01-01T01:01:01.000Z", "duration": "P3Y6M4DT12H30M5S", "employee_id": "1687-3", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "policy": {"created_at": "2021-01-01T01:01:01.000Z", "description": "Usable for regional and national holidays of employees.", "duration_unit": {"value": "hours"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Holidays", "reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {"value": "holiday"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "remote_approver_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_employee_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_time_off_policy_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933", "updated_date": "2021-01-01T01:01:01.000Z"}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -9122,7 +9286,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"approver_id": "1687-4", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933"}
+        application/json: {"approver_id": "1687-4", "comment": "Taking a day off for personal reasons", "end_date": "2021-01-01T01:01:01.000", "end_half_day": true, "passthrough": {"other_known_names": "John Doe"}, "reason": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "start_date": "2021-01-01T01:01:01.000", "start_half_day": true, "time_off_policy_id": "cx280928933"}
       responses:
         "200":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -9599,74 +9763,6 @@ examples:
           application/json: {"errors": [["Missing field: name"], [], []], "message": "Batch operation accepted", "statusCode": 202, "timestamp": "2021-01-01T01:01:01.000Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  lms_batch_upsert_course:
-    speakeasy-default-lms-batch-upsert-course:
-      parameters:
-        header:
-          x-account-id: "<id>"
-      requestBody:
-        application/json: {"items": [{"active": true, "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "title": "Software Engineer Lv 1"}, {"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "title": "Software Engineer Lv 1"}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}, {"active": true, "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "title": "Software Engineer Lv 1"}, {"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "title": "Software Engineer Lv 1"}, {"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "title": "Software Engineer Lv 1"}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}]}
-      responses:
-        "202":
-          application/json: {"errors": [["Missing field: name"], [], []], "message": "Batch operation accepted", "statusCode": 202, "timestamp": "2021-01-01T01:01:01.000Z"}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  lms_create_collection:
-    speakeasy-default-lms-create-collection:
-      parameters:
-        header:
-          x-account-id: "<id>"
-      requestBody:
-        application/json: {"categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This collection acts as learning pathway for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-collection-1", "learning_object_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_learning_object_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "title": "Software Engineer Lv 1 Collection", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
-      responses:
-        "201":
-          application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -10450,42 +10546,6 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  lms_update_collection:
-    speakeasy-default-lms-update-collection:
-      parameters:
-        path:
-          id: "<id>"
-        header:
-          x-account-id: "<id>"
-      requestBody:
-        application/json: {"categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This collection acts as learning pathway for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-collection-1", "learning_object_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "remote_learning_object_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "title": "Software Engineer Lv 1 Collection", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
-      responses:
-        "201":
-          application/json: {"message": "Record updated successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   lms_update_content:
     speakeasy-default-lms-update-content:
       parameters:
@@ -10534,40 +10594,6 @@ examples:
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "401":
-          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "403":
-          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "404":
-          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "408":
-          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "409":
-          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "412":
-          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "422":
-          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "429":
-          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "500":
-          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "501":
-          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
-        "502":
-          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
-  lms_upsert_course:
-    speakeasy-default-lms-upsert-course:
-      parameters:
-        header:
-          x-account-id: "<id>"
-      requestBody:
-        application/json: {"active": true, "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content": [{"content_url": "https://www.youtube.com/watch?v=16873", "description": "This video acts as learning content for software engineers.", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "title": "Software Engineer Lv 1"}], "cover_url": "https://www.googledrive.com/?v=16873", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "url": "https://www.linkedinlearning.com/?v=16873"}
-      responses:
-        "201":
-          application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
-        "400":
-          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":

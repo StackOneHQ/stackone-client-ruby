@@ -155,6 +155,7 @@ end
 * [get_offer](docs/sdks/ats/README.md#get_offer) - Get Offer
 * [get_rejected_reason](docs/sdks/ats/README.md#get_rejected_reason) - Get Rejected Reason
 * [get_user](docs/sdks/ats/README.md#get_user) - Get User
+* [list_application_changes](docs/sdks/ats/README.md#list_application_changes) - List Application Changes
 * [list_application_custom_field_definitions](docs/sdks/ats/README.md#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
 * [list_application_notes](docs/sdks/ats/README.md#list_application_notes) - List Application Notes
@@ -242,6 +243,7 @@ end
 * [get_group](docs/sdks/hris/README.md#get_group) - Get Group
 * [get_job](docs/sdks/hris/README.md#get_job) - Get Job
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Work Location
+* [get_position](docs/sdks/hris/README.md#get_position) - Get Position
 * [get_team_group](docs/sdks/hris/README.md#get_team_group) - Get Team Group
 * [get_time_entries](docs/sdks/hris/README.md#get_time_entries) - Get Time Entry
 * [get_time_off_policy](docs/sdks/hris/README.md#get_time_off_policy) - Get Time Off Policy
@@ -267,6 +269,7 @@ end
 * [list_groups](docs/sdks/hris/README.md#list_groups) - List Groups
 * [list_jobs](docs/sdks/hris/README.md#list_jobs) - List Jobs
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List Work Locations
+* [list_positions](docs/sdks/hris/README.md#list_positions) - List Positions
 * [list_team_groups](docs/sdks/hris/README.md#list_team_groups) - List Team Groups
 * [list_time_entries](docs/sdks/hris/README.md#list_time_entries) - List Time Entries
 * [list_time_off_policies](docs/sdks/hris/README.md#list_time_off_policies) - List Time Off Policies
@@ -294,8 +297,6 @@ end
 ### [lms](docs/sdks/lms/README.md)
 
 * [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert Content
-* [batch_upsert_course](docs/sdks/lms/README.md#batch_upsert_course) - Batch Upsert Course
-* [create_collection](docs/sdks/lms/README.md#create_collection) - Create Collection
 * [create_user_assignment](docs/sdks/lms/README.md#create_user_assignment) - Create User Assignment
 * [create_user_completion](docs/sdks/lms/README.md#create_user_completion) - Create User Completion
 * [delete_user_completion](docs/sdks/lms/README.md#delete_user_completion) - Delete User Completion
@@ -317,10 +318,8 @@ end
 * [list_user_assignments](docs/sdks/lms/README.md#list_user_assignments) - List User Assignments
 * [list_user_completions](docs/sdks/lms/README.md#list_user_completions) - List User Completions
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
-* [update_collection](docs/sdks/lms/README.md#update_collection) - Update Collection
 * [update_content](docs/sdks/lms/README.md#update_content) - Update Content
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
-* [upsert_course](docs/sdks/lms/README.md#upsert_course) - Upsert Course
 
 ### [marketing](docs/sdks/marketing/README.md)
 

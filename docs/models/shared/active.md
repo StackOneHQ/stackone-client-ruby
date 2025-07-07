@@ -1,4 +1,4 @@
 # Active
 
-The reference status
+Whether the category is active and therefore available for use
 

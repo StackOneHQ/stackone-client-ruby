@@ -14,12 +14,12 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldDefinitionSchemas4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldDefinition4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
         field :value, T.nilable(Models::Shared::CustomFieldDefinitionValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CustomFieldDefinitionValue, true) } }
 
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldDefinitionSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::CustomFieldDefinitionValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldDefinition4, T::Array[::Object])), value: T.nilable(Models::Shared::CustomFieldDefinitionValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

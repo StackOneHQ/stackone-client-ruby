@@ -1,12 +1,13 @@
 # QueryParamStatus
 
-Filter to select assignment by status
+Filter positions by status
 
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `PENDING`     | pending       |
-| `IN_PROGRESS` | in_progress   |
-| `COMPLETED`   | completed     |
+| Name             | Value            |
+| ---------------- | ---------------- |
+| `OPEN`           | open             |
+| `CLOSED`         | closed           |
+| `PAUSED`         | paused           |
+| `UNMAPPED_VALUE` | unmapped_value   |

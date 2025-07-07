@@ -31,6 +31,7 @@
 * [get_group](#get_group) - Get Group
 * [get_job](#get_job) - Get Job
 * [get_location](#get_location) - Get Work Location
+* [get_position](#get_position) - Get Position
 * [get_team_group](#get_team_group) - Get Team Group
 * [get_time_entries](#get_time_entries) - Get Time Entry
 * [get_time_off_policy](#get_time_off_policy) - Get Time Off Policy
@@ -56,6 +57,7 @@
 * [list_groups](#list_groups) - List Groups
 * [list_jobs](#list_jobs) - List Jobs
 * [list_locations](#list_locations) - List Work Locations
+* [list_positions](#list_positions) - List Positions
 * [list_team_groups](#list_team_groups) - List Team Groups
 * [list_time_entries](#list_time_entries) - List Time Entries
 * [list_time_off_policies](#list_time_off_policies) - List Time Off Policies
@@ -464,6 +466,7 @@ s = ::StackOne::StackOne.new(
 
 res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
+  comment: "Taking a day off for personal reasons",
   end_date: "2021-01-01T01:01:01.000",
   end_half_day: true,
   passthrough: {
@@ -1142,7 +1145,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy",
   id: "<id>",
   sub_resource_id: "<id>",
   x_account_id: "<id>",
@@ -1380,6 +1383,47 @@ end
 
 
 
+## get_position
+
+Get Position
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisGetPositionRequest.new(
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_position(req)
+
+if ! res.position_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [Models::Operations::HrisGetPositionRequest](../../models/operations/hrisgetpositionrequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetPositionResponse)](../../models/operations/hrisgetpositionresponse.md)**
+
+
+
 ## get_team_group
 
 Get Team Group
@@ -1524,7 +1568,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetTimeOffRequestRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -2190,7 +2234,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy",
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2486,6 +2530,50 @@ end
 
 
 
+## list_positions
+
+List Positions
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisListPositionsRequest.new(
+  filter: Models::Operations::HrisListPositionsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  status: Models::Operations::QueryParamStatus::OPEN,
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_positions(req)
+
+if ! res.positions_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [Models::Operations::HrisListPositionsRequest](../../models/operations/hrislistpositionsrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListPositionsResponse)](../../models/operations/hrislistpositionsresponse.md)**
+
+
+
 ## list_team_groups
 
 List Team Groups
@@ -2638,7 +2726,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListTimeOffRequestsRequest.new(
   expand: "policy",
-  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,duration,created_at,updated_at,policy",
+  fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy",
   filter: Models::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -2957,6 +3045,7 @@ s = ::StackOne::StackOne.new(
 
 res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto=Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: "1687-4",
+  comment: "Taking a day off for personal reasons",
   end_date: "2021-01-01T01:01:01.000",
   end_half_day: true,
   passthrough: {

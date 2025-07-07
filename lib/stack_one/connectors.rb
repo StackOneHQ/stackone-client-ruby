@@ -14,7 +14,7 @@ module StackOne
   extend T::Sig
   class Connectors
     extend T::Sig
-
+    # Retrieve metadata for connectors.
 
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)

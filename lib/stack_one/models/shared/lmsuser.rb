@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The user active status
-        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, T.nilable(T.any(T::Boolean, Models::Shared::LmsUser2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The created_at date
         field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The user email
@@ -35,7 +35,7 @@ module StackOne
         field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-        sig { params(active: T.nilable(T::Boolean), created_at: T.nilable(::DateTime), email: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUser2)), created_at: T.nilable(::DateTime), email: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), phone_number: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(active: nil, created_at: nil, email: nil, external_reference: nil, id: nil, name: nil, phone_number: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)
           @active = active
           @created_at = created_at

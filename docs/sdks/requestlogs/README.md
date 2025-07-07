@@ -3,6 +3,8 @@
 
 ## Overview
 
+API requests and response logs.
+
 ### Available Operations
 
 * [get_log](#get_log) - Get a Log
