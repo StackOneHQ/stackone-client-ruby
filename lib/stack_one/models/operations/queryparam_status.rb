@@ -8,12 +8,13 @@ module StackOne
   module Models
     module Operations
     
-      # QueryParamStatus - Filter to select assignment by status
+      # QueryParamStatus - Filter positions by status
       class QueryParamStatus < T::Enum
         enums do
-          PENDING = new('pending')
-          IN_PROGRESS = new('in_progress')
-          COMPLETED = new('completed')
+          OPEN = new('open')
+          CLOSED = new('closed')
+          PAUSED = new('paused')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
       end
     end

@@ -3,6 +3,8 @@
 
 ## Overview
 
+Customer or business accounts.
+
 ### Available Operations
 
 * [delete_account](#delete_account) - Delete Account

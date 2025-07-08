@@ -3,6 +3,8 @@
 
 ## Overview
 
+Generate connection session tokens or auth URLs to allow your customers to connect their accounts.
+
 ### Available Operations
 
 * [authenticate_connect_session](#authenticate_connect_session) - Authenticate Connect Session
@@ -78,6 +80,7 @@ req = Models::Shared::ConnectSessionCreate.new(
     Models::Shared::ConnectSessionCreateCategories::TICKETING,
     Models::Shared::ConnectSessionCreateCategories::SCREENING,
     Models::Shared::ConnectSessionCreateCategories::MESSAGING,
+    Models::Shared::ConnectSessionCreateCategories::ACCOUNTING,
   ],
   origin_owner_id: "<id>",
   origin_owner_name: "<value>",

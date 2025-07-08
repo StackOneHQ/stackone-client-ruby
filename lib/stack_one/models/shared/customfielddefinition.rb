@@ -20,14 +20,14 @@ module StackOne
 
         field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # An array of possible options for the custom field.
-        field :options, T.nilable(T::Array[T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldDefinition4, T::Array[::Object])]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('options') } }
+        field :options, T.nilable(T::Array[Models::Shared::CustomFieldOption]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('options') } }
         # Provider's unique identifier
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The type of the custom field.
         field :type, T.nilable(Models::Shared::CustomFieldDefinitionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
 
-        sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), options: T.nilable(T::Array[T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldDefinition4, T::Array[::Object])]), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::CustomFieldDefinitionType)).void }
+        sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), options: T.nilable(T::Array[Models::Shared::CustomFieldOption]), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::CustomFieldDefinitionType)).void }
         def initialize(description: nil, id: nil, name: nil, options: nil, remote_id: nil, type: nil)
           @description = description
           @id = id

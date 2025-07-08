@@ -3,6 +3,8 @@
 
 ## Overview
 
+Retrieve metadata for connectors.
+
 ### Available Operations
 
 * [get_connector_meta](#get_connector_meta) - Get Connector Meta information for the given provider key

@@ -39,6 +39,7 @@
 * [get_offer](#get_offer) - Get Offer
 * [get_rejected_reason](#get_rejected_reason) - Get Rejected Reason
 * [get_user](#get_user) - Get User
+* [list_application_changes](#list_application_changes) - List Application Changes
 * [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List Application Custom Field Definitions
 * [list_application_documents](#list_application_documents) - List Application Documents
 * [list_application_notes](#list_application_notes) - List Application Notes
@@ -1716,6 +1717,51 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsGetUserResponse)](../../models/operations/atsgetuserresponse.md)**
+
+
+
+## list_application_changes
+
+List Application Changes
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::AtsListApplicationChangesRequest.new(
+  fields_: "event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values",
+  filter: Models::Operations::AtsListApplicationChangesQueryParamFilter.new(
+    created_after: "2020-01-01T00:00:00.000Z",
+  ),
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.ats.list_application_changes(req)
+
+if ! res.application_changes_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [Models::Operations::AtsListApplicationChangesRequest](../../models/operations/atslistapplicationchangesrequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsListApplicationChangesResponse)](../../models/operations/atslistapplicationchangesresponse.md)**
 
 
 

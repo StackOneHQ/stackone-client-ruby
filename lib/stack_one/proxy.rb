@@ -14,7 +14,7 @@ module StackOne
   extend T::Sig
   class Proxy
     extend T::Sig
-
+    # Routing API requests through StackOne directly to the underlying provider.
 
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)

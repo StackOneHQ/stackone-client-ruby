@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the skill is active and therefore available for use
-        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, T.nilable(T.any(T::Boolean, Models::Shared::Skills2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The hierarchal level of the skill
         field :hierarchy, T.nilable(Models::Shared::SkillsHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
         # The ID associated with this skill
@@ -31,7 +31,7 @@ module StackOne
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-        sig { params(active: T.nilable(T::Boolean), hierarchy: T.nilable(Models::Shared::SkillsHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::SkillsLanguage), level: T.nilable(Models::Shared::SkillsLevel), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Skills2)), hierarchy: T.nilable(Models::Shared::SkillsHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::SkillsLanguage), level: T.nilable(Models::Shared::SkillsLevel), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(active: nil, hierarchy: nil, id: nil, language: nil, level: nil, name: nil, remote_id: nil)
           @active = active
           @hierarchy = hierarchy
