@@ -15,8 +15,10 @@
 * [download_employee_document](#download_employee_document) - Download Employee Document
 * [get_benefit](#get_benefit) - Get Benefit
 * [get_company](#get_company) - Get Company
+* [get_company_group](#get_company_group) - Get Company Group
 * [get_cost_center_group](#get_cost_center_group) - Get Cost Center Group
 * [get_department_group](#get_department_group) - Get Department Group
+* [get_division_group](#get_division_group) - Get Division Group
 * [get_employee](#get_employee) - Get Employee
 * [get_employee_custom_field_definition](#get_employee_custom_field_definition) - Get employee Custom Field Definition
 * [get_employee_document](#get_employee_document) - Get Employee Document
@@ -32,6 +34,7 @@
 * [get_job](#get_job) - Get Job
 * [get_location](#get_location) - Get Work Location
 * [get_position](#get_position) - Get Position
+* [get_task](#get_task) - Get Task
 * [get_team_group](#get_team_group) - Get Team Group
 * [get_time_entries](#get_time_entries) - Get Time Entry
 * [get_time_off_policy](#get_time_off_policy) - Get Time Off Policy
@@ -40,8 +43,10 @@
 * [invite_employee](#invite_employee) - Invite Employee
 * [list_benefits](#list_benefits) - List benefits
 * [list_companies](#list_companies) - List Companies
+* [list_companies_groups](#list_companies_groups) - List Companies Groups
 * [list_cost_center_groups](#list_cost_center_groups) - List Cost Center Groups
 * [list_department_groups](#list_department_groups) - List Department Groups
+* [list_division_groups](#list_division_groups) - List Division Groups
 * [list_employee_categories](#list_employee_categories) - List Employee Document Categories
 * [list_employee_custom_field_definitions](#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
@@ -58,6 +63,7 @@
 * [list_jobs](#list_jobs) - List Jobs
 * [list_locations](#list_locations) - List Work Locations
 * [list_positions](#list_positions) - List Positions
+* [list_tasks](#list_tasks) - List Tasks
 * [list_team_groups](#list_team_groups) - List Team Groups
 * [list_time_entries](#list_time_entries) - List Time Entries
 * [list_time_off_policies](#list_time_off_policies) - List Time Off Policies
@@ -694,6 +700,48 @@ end
 
 
 
+## get_company_group
+
+Get Company Group
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisGetCompanyGroupRequest.new(
+  fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_company_group(req)
+
+if ! res.company_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [Models::Operations::HrisGetCompanyGroupRequest](../../models/operations/hrisgetcompanygrouprequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetCompanyGroupResponse)](../../models/operations/hrisgetcompanygroupresponse.md)**
+
+
+
 ## get_cost_center_group
 
 Get Cost Center Group
@@ -753,7 +801,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetDepartmentGroupRequest.new(
-  fields_: "id,remote_id,name",
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -775,6 +823,48 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisGetDepartmentGroupResponse)](../../models/operations/hrisgetdepartmentgroupresponse.md)**
+
+
+
+## get_division_group
+
+Get Division Group
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisGetDivisionGroupRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_division_group(req)
+
+if ! res.hris_divisions_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::HrisGetDivisionGroupRequest](../../models/operations/hrisgetdivisiongrouprequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetDivisionGroupResponse)](../../models/operations/hrisgetdivisiongroupresponse.md)**
 
 
 
@@ -1424,6 +1514,49 @@ end
 
 
 
+## get_task
+
+Get Task
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisGetTaskRequest.new(
+  expand: "attachments",
+  fields_: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_task(req)
+
+if ! res.task_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [Models::Operations::HrisGetTaskRequest](../../models/operations/hrisgettaskrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetTaskResponse)](../../models/operations/hrisgettaskresponse.md)**
+
+
+
 ## get_team_group
 
 Get Team Group
@@ -1767,6 +1900,50 @@ end
 
 
 
+## list_companies_groups
+
+List Companies Groups
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisListCompaniesGroupsRequest.new(
+  fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
+  filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_companies_groups(req)
+
+if ! res.companies_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [Models::Operations::HrisListCompaniesGroupsRequest](../../models/operations/hrislistcompaniesgroupsrequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListCompaniesGroupsResponse)](../../models/operations/hrislistcompaniesgroupsresponse.md)**
+
+
+
 ## list_cost_center_groups
 
 List Cost Center Groups
@@ -1828,7 +2005,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListDepartmentGroupsRequest.new(
-  fields_: "id,remote_id,name",
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1852,6 +2029,50 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisListDepartmentGroupsResponse)](../../models/operations/hrislistdepartmentgroupsresponse.md)**
+
+
+
+## list_division_groups
+
+List Division Groups
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisListDivisionGroupsRequest.new(
+  fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
+  filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_division_groups(req)
+
+if ! res.hris_divisions_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::HrisListDivisionGroupsRequest](../../models/operations/hrislistdivisiongroupsrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListDivisionGroupsResponse)](../../models/operations/hrislistdivisiongroupsresponse.md)**
 
 
 
@@ -2571,6 +2792,51 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisListPositionsResponse)](../../models/operations/hrislistpositionsresponse.md)**
+
+
+
+## list_tasks
+
+List Tasks
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisListTasksRequest.new(
+  expand: "attachments",
+  fields_: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at",
+  filter: Models::Operations::HrisListTasksQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_tasks(req)
+
+if ! res.tasks_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [Models::Operations::HrisListTasksRequest](../../models/operations/hrislisttasksrequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListTasksResponse)](../../models/operations/hrislisttasksresponse.md)**
 
 
 
