@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 88a97661b967a33f6f4c867b403b985c
+  docChecksum: c3fc20cf94c9a3aab354b89abde7c574
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.25.0
-  configChecksum: e43db161e36ac503f734443379bd6773
+  releaseVersion: 0.27.0
+  configChecksum: 621578b3e725f235bf5e8c972a1d84c3
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -257,12 +257,16 @@ generatedFiles:
   - docs/models/operations/hrisdownloademployeedocumentresponse.md
   - docs/models/operations/hrisgetbenefitrequest.md
   - docs/models/operations/hrisgetbenefitresponse.md
+  - docs/models/operations/hrisgetcompanygrouprequest.md
+  - docs/models/operations/hrisgetcompanygroupresponse.md
   - docs/models/operations/hrisgetcompanyrequest.md
   - docs/models/operations/hrisgetcompanyresponse.md
   - docs/models/operations/hrisgetcostcentergrouprequest.md
   - docs/models/operations/hrisgetcostcentergroupresponse.md
   - docs/models/operations/hrisgetdepartmentgrouprequest.md
   - docs/models/operations/hrisgetdepartmentgroupresponse.md
+  - docs/models/operations/hrisgetdivisiongrouprequest.md
+  - docs/models/operations/hrisgetdivisiongroupresponse.md
   - docs/models/operations/hrisgetemployeecustomfielddefinitionqueryparamfilter.md
   - docs/models/operations/hrisgetemployeecustomfielddefinitionrequest.md
   - docs/models/operations/hrisgetemployeecustomfielddefinitionresponse.md
@@ -294,6 +298,8 @@ generatedFiles:
   - docs/models/operations/hrisgetlocationresponse.md
   - docs/models/operations/hrisgetpositionrequest.md
   - docs/models/operations/hrisgetpositionresponse.md
+  - docs/models/operations/hrisgettaskrequest.md
+  - docs/models/operations/hrisgettaskresponse.md
   - docs/models/operations/hrisgetteamgrouprequest.md
   - docs/models/operations/hrisgetteamgroupresponse.md
   - docs/models/operations/hrisgettimeentriesrequest.md
@@ -309,6 +315,9 @@ generatedFiles:
   - docs/models/operations/hrislistbenefitsqueryparamfilter.md
   - docs/models/operations/hrislistbenefitsrequest.md
   - docs/models/operations/hrislistbenefitsresponse.md
+  - docs/models/operations/hrislistcompaniesgroupsqueryparamfilter.md
+  - docs/models/operations/hrislistcompaniesgroupsrequest.md
+  - docs/models/operations/hrislistcompaniesgroupsresponse.md
   - docs/models/operations/hrislistcompaniesqueryparamfilter.md
   - docs/models/operations/hrislistcompaniesrequest.md
   - docs/models/operations/hrislistcompaniesresponse.md
@@ -318,6 +327,9 @@ generatedFiles:
   - docs/models/operations/hrislistdepartmentgroupsqueryparamfilter.md
   - docs/models/operations/hrislistdepartmentgroupsrequest.md
   - docs/models/operations/hrislistdepartmentgroupsresponse.md
+  - docs/models/operations/hrislistdivisiongroupsqueryparamfilter.md
+  - docs/models/operations/hrislistdivisiongroupsrequest.md
+  - docs/models/operations/hrislistdivisiongroupsresponse.md
   - docs/models/operations/hrislistemployeecategoriesqueryparamfilter.md
   - docs/models/operations/hrislistemployeecategoriesrequest.md
   - docs/models/operations/hrislistemployeecategoriesresponse.md
@@ -366,6 +378,9 @@ generatedFiles:
   - docs/models/operations/hrislistpositionsqueryparamfilter.md
   - docs/models/operations/hrislistpositionsrequest.md
   - docs/models/operations/hrislistpositionsresponse.md
+  - docs/models/operations/hrislisttasksqueryparamfilter.md
+  - docs/models/operations/hrislisttasksrequest.md
+  - docs/models/operations/hrislisttasksresponse.md
   - docs/models/operations/hrislistteamgroupsqueryparamfilter.md
   - docs/models/operations/hrislistteamgroupsrequest.md
   - docs/models/operations/hrislistteamgroupsresponse.md
@@ -1230,6 +1245,13 @@ generatedFiles:
   - docs/models/shared/hrisdepartmentsresult.md
   - docs/models/shared/hrisdepartmenttype.md
   - docs/models/shared/hrisdepartmentvalue.md
+  - docs/models/shared/hrisdivision.md
+  - docs/models/shared/hrisdivision4.md
+  - docs/models/shared/hrisdivisionsourcevalue.md
+  - docs/models/shared/hrisdivisionspaginated.md
+  - docs/models/shared/hrisdivisionsresult.md
+  - docs/models/shared/hrisdivisiontype.md
+  - docs/models/shared/hrisdivisionvalue.md
   - docs/models/shared/hrisdocumentapimodel.md
   - docs/models/shared/hrisdocumentapimodel4.md
   - docs/models/shared/hrisdocumentapimodelcategory.md
@@ -2132,12 +2154,16 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_download_employee_document_response.rb
   - lib/stack_one/models/operations/hris_get_benefit_request.rb
   - lib/stack_one/models/operations/hris_get_benefit_response.rb
+  - lib/stack_one/models/operations/hris_get_company_group_request.rb
+  - lib/stack_one/models/operations/hris_get_company_group_response.rb
   - lib/stack_one/models/operations/hris_get_company_request.rb
   - lib/stack_one/models/operations/hris_get_company_response.rb
   - lib/stack_one/models/operations/hris_get_cost_center_group_request.rb
   - lib/stack_one/models/operations/hris_get_cost_center_group_response.rb
   - lib/stack_one/models/operations/hris_get_department_group_request.rb
   - lib/stack_one/models/operations/hris_get_department_group_response.rb
+  - lib/stack_one/models/operations/hris_get_division_group_request.rb
+  - lib/stack_one/models/operations/hris_get_division_group_response.rb
   - lib/stack_one/models/operations/hris_get_employee_custom_field_definition_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_get_employee_custom_field_definition_request.rb
   - lib/stack_one/models/operations/hris_get_employee_custom_field_definition_response.rb
@@ -2169,6 +2195,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_location_response.rb
   - lib/stack_one/models/operations/hris_get_position_request.rb
   - lib/stack_one/models/operations/hris_get_position_response.rb
+  - lib/stack_one/models/operations/hris_get_task_request.rb
+  - lib/stack_one/models/operations/hris_get_task_response.rb
   - lib/stack_one/models/operations/hris_get_team_group_request.rb
   - lib/stack_one/models/operations/hris_get_team_group_response.rb
   - lib/stack_one/models/operations/hris_get_time_entries_request.rb
@@ -2184,6 +2212,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_benefits_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_benefits_request.rb
   - lib/stack_one/models/operations/hris_list_benefits_response.rb
+  - lib/stack_one/models/operations/hris_list_companies_groups_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_companies_groups_request.rb
+  - lib/stack_one/models/operations/hris_list_companies_groups_response.rb
   - lib/stack_one/models/operations/hris_list_companies_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_companies_request.rb
   - lib/stack_one/models/operations/hris_list_companies_response.rb
@@ -2193,6 +2224,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_department_groups_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_department_groups_request.rb
   - lib/stack_one/models/operations/hris_list_department_groups_response.rb
+  - lib/stack_one/models/operations/hris_list_division_groups_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_division_groups_request.rb
+  - lib/stack_one/models/operations/hris_list_division_groups_response.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_request.rb
   - lib/stack_one/models/operations/hris_list_employee_categories_response.rb
@@ -2241,6 +2275,9 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_positions_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_positions_request.rb
   - lib/stack_one/models/operations/hris_list_positions_response.rb
+  - lib/stack_one/models/operations/hris_list_tasks_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_tasks_request.rb
+  - lib/stack_one/models/operations/hris_list_tasks_response.rb
   - lib/stack_one/models/operations/hris_list_team_groups_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_team_groups_request.rb
   - lib/stack_one/models/operations/hris_list_team_groups_response.rb
@@ -3106,6 +3143,13 @@ generatedFiles:
   - lib/stack_one/models/shared/hrisdepartment_value.rb
   - lib/stack_one/models/shared/hrisdepartmentspaginated.rb
   - lib/stack_one/models/shared/hrisdepartmentsresult.rb
+  - lib/stack_one/models/shared/hrisdivision.rb
+  - lib/stack_one/models/shared/hrisdivision_4.rb
+  - lib/stack_one/models/shared/hrisdivision_source_value.rb
+  - lib/stack_one/models/shared/hrisdivision_type.rb
+  - lib/stack_one/models/shared/hrisdivision_value.rb
+  - lib/stack_one/models/shared/hrisdivisionspaginated.rb
+  - lib/stack_one/models/shared/hrisdivisionsresult.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_4.rb
   - lib/stack_one/models/shared/hrisdocumentapimodel_category.rb
@@ -7436,6 +7480,42 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_get_company_group:
+    speakeasy-default-hris-get-company-group:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,full_name,display_name,created_at,updated_at"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"created_at": "2023-02-23T00:00:00.000Z", "display_name": "StackOne", "full_name": "American Express Company", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "StackOne Technologies PLC", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2024-02-23T00:00:00.000Z"}}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   hris_get_cost_center_group:
     speakeasy-default-hris-get-cost-center-group:
       parameters:
@@ -7478,7 +7558,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,name"
+          fields: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id"
         header:
           x-account-id: "<id>"
       responses:
@@ -7486,6 +7566,42 @@ examples:
           application/json: {"data": {"company_id": "1234567890", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_company_id": "1234567890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "department"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_get_division_group:
+    speakeasy-default-hris-get-division-group:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"company_id": "1234567890", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_company_id": "1234567890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "division"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -8063,6 +8179,43 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_get_task:
+    speakeasy-default-hris-get-task:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at"
+          expand: "attachments"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"assigned_by_employee_id": "cx280928938", "assigned_by_employee_name": "John Smith", "attachments": [{"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}], "comments": [{"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}, {"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}], "completion_date": "2024-03-19T15:30:00.000Z", "created_at": "2024-03-15T10:00:00.000Z", "description": "Please complete all required onboarding documents in the employee portal", "due_date": "2024-03-20T23:59:59.000Z", "employee_id": "cx280928937", "extracted_links": ["https://provider.com/docs/1", "https://provider.com/forms/2"], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "link_to_task": "https://provider.com/tasks/123", "name": "Complete onboarding documents", "next_task_id": "cx280928939", "parent_process_name": "Onboarding Tasks", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "type": {"value": "action"}, "updated_at": "2024-03-19T15:30:00.000Z"}, {"assigned_by_employee_id": "cx280928938", "assigned_by_employee_name": "John Smith", "attachments": [{"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}], "comments": [{"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}, {"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}, {"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}], "completion_date": "2024-03-19T15:30:00.000Z", "created_at": "2024-03-15T10:00:00.000Z", "description": "Please complete all required onboarding documents in the employee portal", "due_date": "2024-03-20T23:59:59.000Z", "employee_id": "cx280928937", "extracted_links": ["https://provider.com/docs/1", "https://provider.com/forms/2"], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "link_to_task": "https://provider.com/tasks/123", "name": "Complete onboarding documents", "next_task_id": "cx280928939", "parent_process_name": "Onboarding Tasks", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "type": {"value": "action"}, "updated_at": "2024-03-19T15:30:00.000Z"}, {"assigned_by_employee_id": "cx280928938", "assigned_by_employee_name": "John Smith", "attachments": [{"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}, {"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}, {"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}], "comments": [{"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}], "completion_date": "2024-03-19T15:30:00.000Z", "created_at": "2024-03-15T10:00:00.000Z", "description": "Please complete all required onboarding documents in the employee portal", "due_date": "2024-03-20T23:59:59.000Z", "employee_id": "cx280928937", "extracted_links": ["https://provider.com/docs/1", "https://provider.com/forms/2"], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "link_to_task": "https://provider.com/tasks/123", "name": "Complete onboarding documents", "next_task_id": "cx280928939", "parent_process_name": "Onboarding Tasks", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "type": {"value": "action"}, "updated_at": "2024-03-19T15:30:00.000Z"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   hris_get_team_group:
     speakeasy-default-hris-get-team-group:
       parameters:
@@ -8352,6 +8505,42 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_list_companies_groups:
+    speakeasy-default-hris-list-companies-groups:
+      parameters:
+        query:
+          fields: "id,remote_id,name,full_name,display_name,created_at,updated_at"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"created_at": "2023-02-23T00:00:00.000Z", "display_name": "StackOne", "full_name": "American Express Company", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "StackOne Technologies PLC", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2024-02-23T00:00:00.000Z"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   hris_list_cost_center_groups:
     speakeasy-default-hris-list-cost-center-groups:
       parameters:
@@ -8392,7 +8581,7 @@ examples:
     speakeasy-default-hris-list-department-groups:
       parameters:
         query:
-          fields: "id,remote_id,name"
+          fields: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -8400,6 +8589,42 @@ examples:
       responses:
         "200":
           application/json: {"data": [{"company_id": "1234567890", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_company_id": "1234567890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "department"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"company_id": "1234567890", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_company_id": "1234567890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "department"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_list_division_groups:
+    speakeasy-default-hris-list-division-groups:
+      parameters:
+        query:
+          fields: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"company_id": "1234567890", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Engineering", "owner_ids": ["cxIQNjUyEDM0", "cxIQNjQzNzA0MQ"], "parent_ids": ["cxIQNjUyNDM0", "cxIQNjQzNzI0MQ"], "remote_company_id": "1234567890", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_owner_ids": ["475364", "4327652"], "remote_parent_ids": ["652434", "6437241"], "type": {"value": "division"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -9001,6 +9226,43 @@ examples:
           application/json: {"data": [{"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}, {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}, {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_list_tasks:
+    speakeasy-default-hris-list-tasks:
+      parameters:
+        query:
+          fields: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+          expand: "attachments"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"assigned_by_employee_id": "cx280928938", "assigned_by_employee_name": "John Smith", "attachments": [{"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "path": "/path/to/file", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "updated_at": "2021-01-02T01:01:01.000Z"}], "comments": [{"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}, {"comment": "Approved based on in-person assessment", "created_at": "2024-03-15T10:00:00.000Z"}], "completion_date": "2024-03-19T15:30:00.000Z", "created_at": "2024-03-15T10:00:00.000Z", "description": "Please complete all required onboarding documents in the employee portal", "due_date": "2024-03-20T23:59:59.000Z", "employee_id": "cx280928937", "extracted_links": ["https://provider.com/docs/1", "https://provider.com/forms/2"], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "link_to_task": "https://provider.com/tasks/123", "name": "Complete onboarding documents", "next_task_id": "cx280928939", "parent_process_name": "Onboarding Tasks", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "type": {"value": "action"}, "updated_at": "2024-03-19T15:30:00.000Z"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":

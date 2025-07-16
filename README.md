@@ -227,8 +227,10 @@ end
 * [download_employee_document](docs/sdks/hris/README.md#download_employee_document) - Download Employee Document
 * [get_benefit](docs/sdks/hris/README.md#get_benefit) - Get Benefit
 * [get_company](docs/sdks/hris/README.md#get_company) - Get Company
+* [get_company_group](docs/sdks/hris/README.md#get_company_group) - Get Company Group
 * [get_cost_center_group](docs/sdks/hris/README.md#get_cost_center_group) - Get Cost Center Group
 * [get_department_group](docs/sdks/hris/README.md#get_department_group) - Get Department Group
+* [get_division_group](docs/sdks/hris/README.md#get_division_group) - Get Division Group
 * [get_employee](docs/sdks/hris/README.md#get_employee) - Get Employee
 * [get_employee_custom_field_definition](docs/sdks/hris/README.md#get_employee_custom_field_definition) - Get employee Custom Field Definition
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
@@ -244,6 +246,7 @@ end
 * [get_job](docs/sdks/hris/README.md#get_job) - Get Job
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Work Location
 * [get_position](docs/sdks/hris/README.md#get_position) - Get Position
+* [get_task](docs/sdks/hris/README.md#get_task) - Get Task
 * [get_team_group](docs/sdks/hris/README.md#get_team_group) - Get Team Group
 * [get_time_entries](docs/sdks/hris/README.md#get_time_entries) - Get Time Entry
 * [get_time_off_policy](docs/sdks/hris/README.md#get_time_off_policy) - Get Time Off Policy
@@ -252,8 +255,10 @@ end
 * [invite_employee](docs/sdks/hris/README.md#invite_employee) - Invite Employee
 * [list_benefits](docs/sdks/hris/README.md#list_benefits) - List benefits
 * [list_companies](docs/sdks/hris/README.md#list_companies) - List Companies
+* [list_companies_groups](docs/sdks/hris/README.md#list_companies_groups) - List Companies Groups
 * [list_cost_center_groups](docs/sdks/hris/README.md#list_cost_center_groups) - List Cost Center Groups
 * [list_department_groups](docs/sdks/hris/README.md#list_department_groups) - List Department Groups
+* [list_division_groups](docs/sdks/hris/README.md#list_division_groups) - List Division Groups
 * [list_employee_categories](docs/sdks/hris/README.md#list_employee_categories) - List Employee Document Categories
 * [list_employee_custom_field_definitions](docs/sdks/hris/README.md#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
@@ -270,6 +275,7 @@ end
 * [list_jobs](docs/sdks/hris/README.md#list_jobs) - List Jobs
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List Work Locations
 * [list_positions](docs/sdks/hris/README.md#list_positions) - List Positions
+* [list_tasks](docs/sdks/hris/README.md#list_tasks) - List Tasks
 * [list_team_groups](docs/sdks/hris/README.md#list_team_groups) - List Team Groups
 * [list_time_entries](docs/sdks/hris/README.md#list_time_entries) - List Time Entries
 * [list_time_off_policies](docs/sdks/hris/README.md#list_time_off_policies) - List Time Off Policies
@@ -454,6 +460,7 @@ When custom error responses are specified for an operation, the SDK may also thr
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
         password: '',
@@ -462,9 +469,9 @@ s = ::StackOne::StackOne.new(
     )
 
 begin
-    res = s.accounts.delete_account(id='<id>')
+    res = s.accounts.delete_account(id: '<id>')
 
-    if ! res.linked_account.nil?
+    unless res.linked_account.nil?
       # handle response
     end
 rescue Models::Errors::BadRequestResponse => e

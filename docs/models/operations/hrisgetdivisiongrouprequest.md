@@ -1,4 +1,4 @@
-# HrisGetDepartmentGroupRequest
+# HrisGetDivisionGroupRequest
 
 
 ## Fields

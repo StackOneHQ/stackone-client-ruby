@@ -807,6 +807,18 @@ actions:
         - "lang": "ruby"
           "label": "hris_list_groups"
           "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_groups(req)\n\nif ! res.hris_groups_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/groups/companies"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_companies_groups"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCompaniesGroupsRequest.new(\n  fields_: \"id,remote_id,name,full_name,display_name,created_at,updated_at\",\n  filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_companies_groups(req)\n\nif ! res.companies_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/groups/companies/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_company_group"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetCompanyGroupRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,full_name,display_name,created_at,updated_at\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_company_group(req)\n\nif ! res.company_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/cost_centers"]["get"]
     update:
       "x-codeSamples":
@@ -824,13 +836,25 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_department_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDepartmentGroupsRequest.new(\n  fields_: \"id,remote_id,name\",\n  filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_department_groups(req)\n\nif ! res.hris_departments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDepartmentGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_department_groups(req)\n\nif ! res.hris_departments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/departments/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_get_department_group"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetDepartmentGroupRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_department_group(req)\n\nif ! res.hris_departments_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetDepartmentGroupRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_department_group(req)\n\nif ! res.hris_departments_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/groups/divisions"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_division_groups"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDivisionGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_division_groups(req)\n\nif ! res.hris_divisions_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/groups/divisions/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_division_group"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetDivisionGroupRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_division_group(req)\n\nif ! res.hris_divisions_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/teams"]["get"]
     update:
       "x-codeSamples":
@@ -885,6 +909,18 @@ actions:
         - "lang": "ruby"
           "label": "hris_get_position"
           "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetPositionRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_position(req)\n\nif ! res.position_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/tasks"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_tasks"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTasksRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at\",\n  filter: Models::Operations::HrisListTasksQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"attachments\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_tasks(req)\n\nif ! res.tasks_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/tasks/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_task"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetTaskRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at\",\n  expand: \"attachments\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_task(req)\n\nif ! res.task_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/time_entries"]["get"]
     update:
       "x-codeSamples":
