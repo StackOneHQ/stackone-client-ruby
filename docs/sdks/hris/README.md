@@ -34,6 +34,7 @@
 * [get_job](#get_job) - Get Job
 * [get_location](#get_location) - Get Work Location
 * [get_position](#get_position) - Get Position
+* [get_shift](#get_shift) - Get Shift
 * [get_task](#get_task) - Get Task
 * [get_team_group](#get_team_group) - Get Team Group
 * [get_time_entries](#get_time_entries) - Get Time Entry
@@ -63,6 +64,7 @@
 * [list_jobs](#list_jobs) - List Jobs
 * [list_locations](#list_locations) - List Work Locations
 * [list_positions](#list_positions) - List Positions
+* [list_shifts](#list_shifts) - List Shifts
 * [list_tasks](#list_tasks) - List Tasks
 * [list_team_groups](#list_team_groups) - List Team Groups
 * [list_time_entries](#list_time_entries) - List Time Entries
@@ -1514,6 +1516,47 @@ end
 
 
 
+## get_shift
+
+Get Shift
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisGetShiftRequest.new(
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.hris.get_shift(req)
+
+if ! res.hris_shift_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [Models::Operations::HrisGetShiftRequest](../../models/operations/hrisgetshiftrequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetShiftResponse)](../../models/operations/hrisgetshiftresponse.md)**
+
+
+
 ## get_task
 
 Get Task
@@ -2792,6 +2835,49 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisListPositionsResponse)](../../models/operations/hrislistpositionsresponse.md)**
+
+
+
+## list_shifts
+
+List Shifts
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::HrisListShiftsRequest.new(
+  filter: Models::Operations::HrisListShiftsQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+
+res = s.hris.list_shifts(req)
+
+if ! res.hris_shifts_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [Models::Operations::HrisListShiftsRequest](../../models/operations/hrislistshiftsrequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListShiftsResponse)](../../models/operations/hrislistshiftsresponse.md)**
 
 
 

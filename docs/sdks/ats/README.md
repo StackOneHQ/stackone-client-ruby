@@ -17,6 +17,7 @@
 * [get_application](#get_application) - Get Application
 * [get_application_custom_field_definition](#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](#get_application_document) - Get Application Document
+* [get_application_document_category](#get_application_document_category) - Get Application Document Category
 * [get_application_note](#get_application_note) - Get Application Note
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
@@ -41,6 +42,7 @@
 * [get_user](#get_user) - Get User
 * [list_application_changes](#list_application_changes) - List Application Changes
 * [list_application_custom_field_definitions](#list_application_custom_field_definitions) - List Application Custom Field Definitions
+* [list_application_document_categories](#list_application_document_categories) - List Application Document Categories
 * [list_application_documents](#list_application_documents) - List Application Documents
 * [list_application_notes](#list_application_notes) - List Application Notes
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
@@ -779,6 +781,48 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsGetApplicationDocumentResponse)](../../models/operations/atsgetapplicationdocumentresponse.md)**
+
+
+
+## get_application_document_category
+
+Get Application Document Category
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::AtsGetApplicationDocumentCategoryRequest.new(
+  fields_: "id,remote_id,name,active",
+  id: "<id>",
+  x_account_id: "<id>",
+)
+
+res = s.ats.get_application_document_category(req)
+
+if ! res.reference_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [Models::Operations::AtsGetApplicationDocumentCategoryRequest](../../models/operations/atsgetapplicationdocumentcategoryrequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsGetApplicationDocumentCategoryResponse)](../../models/operations/atsgetapplicationdocumentcategoryresponse.md)**
 
 
 
@@ -1806,6 +1850,50 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsListApplicationCustomFieldDefinitionsResponse)](../../models/operations/atslistapplicationcustomfielddefinitionsresponse.md)**
+
+
+
+## list_application_document_categories
+
+List Application Document Categories
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(
+  fields_: "id,remote_id,name,active",
+  filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(
+    updated_after: "2020-01-01T00:00:00.000Z",
+  ),
+  x_account_id: "<id>",
+)
+
+res = s.ats.list_application_document_categories(req)
+
+if ! res.reference_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                 | [Models::Operations::AtsListApplicationDocumentCategoriesRequest](../../models/operations/atslistapplicationdocumentcategoriesrequest.md) | :heavy_check_mark:                                                                                                                        | The request object to use for the request.                                                                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsListApplicationDocumentCategoriesResponse)](../../models/operations/atslistapplicationdocumentcategoriesresponse.md)**
 
 
 

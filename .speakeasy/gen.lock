@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: c3fc20cf94c9a3aab354b89abde7c574
+  docChecksum: 4223928ae6936b081003abaa85c61cdc
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.27.0
-  configChecksum: 621578b3e725f235bf5e8c972a1d84c3
+  releaseVersion: 0.29.0
+  configChecksum: c43aa30f771dca03f756dfc96c985c72
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -66,6 +66,8 @@ generatedFiles:
   - docs/models/operations/atsgetapplicationcustomfielddefinitionqueryparamfilter.md
   - docs/models/operations/atsgetapplicationcustomfielddefinitionrequest.md
   - docs/models/operations/atsgetapplicationcustomfielddefinitionresponse.md
+  - docs/models/operations/atsgetapplicationdocumentcategoryrequest.md
+  - docs/models/operations/atsgetapplicationdocumentcategoryresponse.md
   - docs/models/operations/atsgetapplicationdocumentrequest.md
   - docs/models/operations/atsgetapplicationdocumentresponse.md
   - docs/models/operations/atsgetapplicationnoterequest.md
@@ -122,6 +124,9 @@ generatedFiles:
   - docs/models/operations/atslistapplicationcustomfielddefinitionsqueryparamfilter.md
   - docs/models/operations/atslistapplicationcustomfielddefinitionsrequest.md
   - docs/models/operations/atslistapplicationcustomfielddefinitionsresponse.md
+  - docs/models/operations/atslistapplicationdocumentcategoriesqueryparamfilter.md
+  - docs/models/operations/atslistapplicationdocumentcategoriesrequest.md
+  - docs/models/operations/atslistapplicationdocumentcategoriesresponse.md
   - docs/models/operations/atslistapplicationdocumentsqueryparamfilter.md
   - docs/models/operations/atslistapplicationdocumentsrequest.md
   - docs/models/operations/atslistapplicationdocumentsresponse.md
@@ -298,6 +303,8 @@ generatedFiles:
   - docs/models/operations/hrisgetlocationresponse.md
   - docs/models/operations/hrisgetpositionrequest.md
   - docs/models/operations/hrisgetpositionresponse.md
+  - docs/models/operations/hrisgetshiftrequest.md
+  - docs/models/operations/hrisgetshiftresponse.md
   - docs/models/operations/hrisgettaskrequest.md
   - docs/models/operations/hrisgettaskresponse.md
   - docs/models/operations/hrisgetteamgrouprequest.md
@@ -378,6 +385,10 @@ generatedFiles:
   - docs/models/operations/hrislistpositionsqueryparamfilter.md
   - docs/models/operations/hrislistpositionsrequest.md
   - docs/models/operations/hrislistpositionsresponse.md
+  - docs/models/operations/hrislistshiftsqueryparamfilter.md
+  - docs/models/operations/hrislistshiftsqueryparamstatus.md
+  - docs/models/operations/hrislistshiftsrequest.md
+  - docs/models/operations/hrislistshiftsresponse.md
   - docs/models/operations/hrislisttasksqueryparamfilter.md
   - docs/models/operations/hrislisttasksrequest.md
   - docs/models/operations/hrislisttasksresponse.md
@@ -626,6 +637,7 @@ generatedFiles:
   - docs/models/shared/applicationspaginated.md
   - docs/models/shared/applicationstatus.md
   - docs/models/shared/applicationvalue.md
+  - docs/models/shared/approvalstatus.md
   - docs/models/shared/archived.md
   - docs/models/shared/assessmentpackage.md
   - docs/models/shared/assessmentpackagepaginated.md
@@ -930,6 +942,7 @@ generatedFiles:
   - docs/models/shared/customfields4.md
   - docs/models/shared/customfieldsvalue.md
   - docs/models/shared/custommappingerror.md
+  - docs/models/shared/data.md
   - docs/models/shared/deleteresult.md
   - docs/models/shared/department.md
   - docs/models/shared/departmentresult.md
@@ -1297,6 +1310,24 @@ generatedFiles:
   - docs/models/shared/hrislocationsourcevalue.md
   - docs/models/shared/hrislocationspaginated.md
   - docs/models/shared/hrislocationvalue.md
+  - docs/models/shared/hrisshift.md
+  - docs/models/shared/hrisshift4.md
+  - docs/models/shared/hrisshiftresult.md
+  - docs/models/shared/hrisshiftresult4.md
+  - docs/models/shared/hrisshiftresultapprovalstatus.md
+  - docs/models/shared/hrisshiftresultschemas4.md
+  - docs/models/shared/hrisshiftresultschemassourcevalue.md
+  - docs/models/shared/hrisshiftresultschemasvalue.md
+  - docs/models/shared/hrisshiftresultsourcevalue.md
+  - docs/models/shared/hrisshiftresultstatus.md
+  - docs/models/shared/hrisshiftresultvalue.md
+  - docs/models/shared/hrisshiftschemas4.md
+  - docs/models/shared/hrisshiftschemassourcevalue.md
+  - docs/models/shared/hrisshiftschemasvalue.md
+  - docs/models/shared/hrisshiftsourcevalue.md
+  - docs/models/shared/hrisshiftspaginated.md
+  - docs/models/shared/hrisshiftstatus.md
+  - docs/models/shared/hrisshiftvalue.md
   - docs/models/shared/hristeam.md
   - docs/models/shared/hristeam4.md
   - docs/models/shared/hristeamsourcevalue.md
@@ -1738,6 +1769,7 @@ generatedFiles:
   - docs/models/shared/secrets.md
   - docs/models/shared/security.md
   - docs/models/shared/setupinformation.md
+  - docs/models/shared/shiftbreak.md
   - docs/models/shared/skillresult.md
   - docs/models/shared/skills.md
   - docs/models/shared/skills2.md
@@ -1963,6 +1995,8 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_get_application_custom_field_definition_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_get_application_custom_field_definition_request.rb
   - lib/stack_one/models/operations/ats_get_application_custom_field_definition_response.rb
+  - lib/stack_one/models/operations/ats_get_application_document_category_request.rb
+  - lib/stack_one/models/operations/ats_get_application_document_category_response.rb
   - lib/stack_one/models/operations/ats_get_application_document_request.rb
   - lib/stack_one/models/operations/ats_get_application_document_response.rb
   - lib/stack_one/models/operations/ats_get_application_note_request.rb
@@ -2019,6 +2053,9 @@ generatedFiles:
   - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_request.rb
   - lib/stack_one/models/operations/ats_list_application_custom_field_definitions_response.rb
+  - lib/stack_one/models/operations/ats_list_application_document_categories_queryparam_filter.rb
+  - lib/stack_one/models/operations/ats_list_application_document_categories_request.rb
+  - lib/stack_one/models/operations/ats_list_application_document_categories_response.rb
   - lib/stack_one/models/operations/ats_list_application_documents_queryparam_filter.rb
   - lib/stack_one/models/operations/ats_list_application_documents_request.rb
   - lib/stack_one/models/operations/ats_list_application_documents_response.rb
@@ -2195,6 +2232,8 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_get_location_response.rb
   - lib/stack_one/models/operations/hris_get_position_request.rb
   - lib/stack_one/models/operations/hris_get_position_response.rb
+  - lib/stack_one/models/operations/hris_get_shift_request.rb
+  - lib/stack_one/models/operations/hris_get_shift_response.rb
   - lib/stack_one/models/operations/hris_get_task_request.rb
   - lib/stack_one/models/operations/hris_get_task_response.rb
   - lib/stack_one/models/operations/hris_get_team_group_request.rb
@@ -2275,6 +2314,10 @@ generatedFiles:
   - lib/stack_one/models/operations/hris_list_positions_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_positions_request.rb
   - lib/stack_one/models/operations/hris_list_positions_response.rb
+  - lib/stack_one/models/operations/hris_list_shifts_queryparam_filter.rb
+  - lib/stack_one/models/operations/hris_list_shifts_queryparam_status.rb
+  - lib/stack_one/models/operations/hris_list_shifts_request.rb
+  - lib/stack_one/models/operations/hris_list_shifts_response.rb
   - lib/stack_one/models/operations/hris_list_tasks_queryparam_filter.rb
   - lib/stack_one/models/operations/hris_list_tasks_request.rb
   - lib/stack_one/models/operations/hris_list_tasks_response.rb
@@ -2524,6 +2567,7 @@ generatedFiles:
   - lib/stack_one/models/shared/applicationchangespaginated.rb
   - lib/stack_one/models/shared/applicationresult.rb
   - lib/stack_one/models/shared/applicationspaginated.rb
+  - lib/stack_one/models/shared/approval_status.rb
   - lib/stack_one/models/shared/archived.rb
   - lib/stack_one/models/shared/assessmentpackage.rb
   - lib/stack_one/models/shared/assessmentpackagepaginated.rb
@@ -2828,6 +2872,7 @@ generatedFiles:
   - lib/stack_one/models/shared/customfields_4.rb
   - lib/stack_one/models/shared/customfields_value.rb
   - lib/stack_one/models/shared/custommappingerror.rb
+  - lib/stack_one/models/shared/data.rb
   - lib/stack_one/models/shared/deleteresult.rb
   - lib/stack_one/models/shared/department.rb
   - lib/stack_one/models/shared/departmentresult.rb
@@ -3195,6 +3240,24 @@ generatedFiles:
   - lib/stack_one/models/shared/hrislocation_value.rb
   - lib/stack_one/models/shared/hrislocationresult.rb
   - lib/stack_one/models/shared/hrislocationspaginated.rb
+  - lib/stack_one/models/shared/hrisshift.rb
+  - lib/stack_one/models/shared/hrisshift_4.rb
+  - lib/stack_one/models/shared/hrisshift_schemas_4.rb
+  - lib/stack_one/models/shared/hrisshift_schemas_source_value.rb
+  - lib/stack_one/models/shared/hrisshift_schemas_value.rb
+  - lib/stack_one/models/shared/hrisshift_source_value.rb
+  - lib/stack_one/models/shared/hrisshift_status.rb
+  - lib/stack_one/models/shared/hrisshift_value.rb
+  - lib/stack_one/models/shared/hrisshiftresult.rb
+  - lib/stack_one/models/shared/hrisshiftresult_4.rb
+  - lib/stack_one/models/shared/hrisshiftresult_approval_status.rb
+  - lib/stack_one/models/shared/hrisshiftresult_schemas_4.rb
+  - lib/stack_one/models/shared/hrisshiftresult_schemas_source_value.rb
+  - lib/stack_one/models/shared/hrisshiftresult_schemas_value.rb
+  - lib/stack_one/models/shared/hrisshiftresult_source_value.rb
+  - lib/stack_one/models/shared/hrisshiftresult_status.rb
+  - lib/stack_one/models/shared/hrisshiftresult_value.rb
+  - lib/stack_one/models/shared/hrisshiftspaginated.rb
   - lib/stack_one/models/shared/hristeam.rb
   - lib/stack_one/models/shared/hristeam_4.rb
   - lib/stack_one/models/shared/hristeam_source_value.rb
@@ -3636,6 +3699,7 @@ generatedFiles:
   - lib/stack_one/models/shared/secrets.rb
   - lib/stack_one/models/shared/security.rb
   - lib/stack_one/models/shared/setup_information.rb
+  - lib/stack_one/models/shared/shiftbreak.rb
   - lib/stack_one/models/shared/skillresult.rb
   - lib/stack_one/models/shared/skills.rb
   - lib/stack_one/models/shared/skills_2.rb
@@ -4643,6 +4707,42 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  ats_get_application_document_category:
+    speakeasy-default-ats-get-application-document-category:
+      parameters:
+        path:
+          id: "<id>"
+        query:
+          fields: "id,remote_id,name,active"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"active": true, "id": "1687-3", "name": "1687-4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   ats_get_application_note:
     speakeasy-default-ats-get-application-note:
       parameters:
@@ -5498,6 +5598,42 @@ examples:
           application/json: {"data": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "options": [{"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}, {"id": "option_123", "value": "Not Started"}], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "type": {}}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  ats_list_application_document_categories:
+    speakeasy-default-ats-list-application-document-categories:
+      parameters:
+        query:
+          fields: "id,remote_id,name,active"
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"active": true, "id": "1687-3", "name": "1687-4", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -8179,6 +8315,41 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_get_shift:
+    speakeasy-default-hris-get-shift:
+      parameters:
+        path:
+          id: "<id>"
+        query: {}
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": {"approval_status": {"source_value": "Approved", "value": "approved"}, "break_duration": "PT1H30M", "breaks": [{"created_at": "2024-03-20T10:00:00Z", "duration": "PT1H", "end_time": "2024-03-20T13:00:00Z", "id": "break_123456789", "is_paid": true, "start_time": "2024-03-20T12:00:00Z", "updated_at": "2024-03-20T10:00:00Z"}], "company_id": "comp_123456789", "created_at": "2024-03-20T08:00:00Z", "employee_id": "emp_123456789", "end_time": "2024-03-20T17:00:00Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_id": "loc_123456789", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "start_time": "2024-03-20T09:00:00Z", "status": {"source_value": "Confirmed", "value": "confirmed"}, "updated_at": "2024-03-20T08:00:00Z"}}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
   hris_get_task:
     speakeasy-default-hris-get-task:
       parameters:
@@ -9226,6 +9397,41 @@ examples:
           application/json: {"data": [{"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}, {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}, {"department_id": "dept-123", "description": "Responsible for developing and maintaining software applications", "employment_type": "full-time", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "JOB-12345", "location_id": "loc-456", "posted_date": "2024-01-15T10:00:00.000Z", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "status": {"value": "open"}, "title": "Senior Software Engineer"}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "412":
+          application/json: {"message": "Precondition failed", "statusCode": 412, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  hris_list_shifts:
+    speakeasy-default-hris-list-shifts:
+      parameters:
+        query:
+          filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
+          updated_after: "2020-01-01T00:00:00.000Z"
+        header:
+          x-account-id: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"approval_status": {"source_value": "Approved", "value": "approved"}, "break_duration": "PT1H30M", "breaks": [{"created_at": "2024-03-20T10:00:00Z", "duration": "PT1H", "end_time": "2024-03-20T13:00:00Z", "id": "break_123456789", "is_paid": true, "start_time": "2024-03-20T12:00:00Z", "updated_at": "2024-03-20T10:00:00Z"}, {"created_at": "2024-03-20T10:00:00Z", "duration": "PT1H", "end_time": "2024-03-20T13:00:00Z", "id": "break_123456789", "is_paid": true, "start_time": "2024-03-20T12:00:00Z", "updated_at": "2024-03-20T10:00:00Z"}], "company_id": "comp_123456789", "created_at": "2024-03-20T08:00:00Z", "employee_id": "emp_123456789", "end_time": "2024-03-20T17:00:00Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_id": "loc_123456789", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "start_time": "2024-03-20T09:00:00Z", "status": {"source_value": "Confirmed", "value": "confirmed"}, "updated_at": "2024-03-20T08:00:00Z"}, {"approval_status": {"source_value": "Approved", "value": "approved"}, "break_duration": "PT1H30M", "breaks": [{"created_at": "2024-03-20T10:00:00Z", "duration": "PT1H", "end_time": "2024-03-20T13:00:00Z", "id": "break_123456789", "is_paid": true, "start_time": "2024-03-20T12:00:00Z", "updated_at": "2024-03-20T10:00:00Z"}, {"created_at": "2024-03-20T10:00:00Z", "duration": "PT1H", "end_time": "2024-03-20T13:00:00Z", "id": "break_123456789", "is_paid": true, "start_time": "2024-03-20T12:00:00Z", "updated_at": "2024-03-20T10:00:00Z"}], "company_id": "comp_123456789", "created_at": "2024-03-20T08:00:00Z", "employee_id": "emp_123456789", "end_time": "2024-03-20T17:00:00Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "location_id": "loc_123456789", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "start_time": "2024-03-20T09:00:00Z", "status": {"source_value": "Confirmed", "value": "confirmed"}, "updated_at": "2024-03-20T08:00:00Z"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
