@@ -133,6 +133,7 @@ end
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
 * [get_application_custom_field_definition](docs/sdks/ats/README.md#get_application_custom_field_definition) - Get Application Custom Field Definition
 * [get_application_document](docs/sdks/ats/README.md#get_application_document) - Get Application Document
+* [get_application_document_category](docs/sdks/ats/README.md#get_application_document_category) - Get Application Document Category
 * [get_application_note](docs/sdks/ats/README.md#get_application_note) - Get Application Note
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
@@ -157,6 +158,7 @@ end
 * [get_user](docs/sdks/ats/README.md#get_user) - Get User
 * [list_application_changes](docs/sdks/ats/README.md#list_application_changes) - List Application Changes
 * [list_application_custom_field_definitions](docs/sdks/ats/README.md#list_application_custom_field_definitions) - List Application Custom Field Definitions
+* [list_application_document_categories](docs/sdks/ats/README.md#list_application_document_categories) - List Application Document Categories
 * [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
 * [list_application_notes](docs/sdks/ats/README.md#list_application_notes) - List Application Notes
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
@@ -246,6 +248,7 @@ end
 * [get_job](docs/sdks/hris/README.md#get_job) - Get Job
 * [get_location](docs/sdks/hris/README.md#get_location) - Get Work Location
 * [get_position](docs/sdks/hris/README.md#get_position) - Get Position
+* [get_shift](docs/sdks/hris/README.md#get_shift) - Get Shift
 * [get_task](docs/sdks/hris/README.md#get_task) - Get Task
 * [get_team_group](docs/sdks/hris/README.md#get_team_group) - Get Team Group
 * [get_time_entries](docs/sdks/hris/README.md#get_time_entries) - Get Time Entry
@@ -275,6 +278,7 @@ end
 * [list_jobs](docs/sdks/hris/README.md#list_jobs) - List Jobs
 * [list_locations](docs/sdks/hris/README.md#list_locations) - List Work Locations
 * [list_positions](docs/sdks/hris/README.md#list_positions) - List Positions
+* [list_shifts](docs/sdks/hris/README.md#list_shifts) - List Shifts
 * [list_tasks](docs/sdks/hris/README.md#list_tasks) - List Tasks
 * [list_team_groups](docs/sdks/hris/README.md#list_team_groups) - List Team Groups
 * [list_time_entries](docs/sdks/hris/README.md#list_time_entries) - List Time Entries

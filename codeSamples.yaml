@@ -369,6 +369,18 @@ actions:
         - "lang": "ruby"
           "label": "ats_get_department"
           "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetDepartmentRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_department(req)\n\nif ! res.department_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/documents/application_categories"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "ats_list_application_document_categories"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active\",\n  filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_document_categories(req)\n\nif ! res.reference_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/ats/documents/application_categories/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "ats_get_application_document_category"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetApplicationDocumentCategoryRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,active\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_application_document_category(req)\n\nif ! res.reference_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/interview_stages"]["get"]
     update:
       "x-codeSamples":
@@ -909,6 +921,18 @@ actions:
         - "lang": "ruby"
           "label": "hris_get_position"
           "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetPositionRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_position(req)\n\nif ! res.position_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/shifts"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_shifts"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListShiftsRequest.new(\n  filter: Models::Operations::HrisListShiftsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_shifts(req)\n\nif ! res.hris_shifts_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/shifts/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_shift"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetShiftRequest.new(\n  id: \"<id>\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_shift(req)\n\nif ! res.hris_shift_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/tasks"]["get"]
     update:
       "x-codeSamples":
