@@ -9,6 +9,7 @@ API requests and response logs.
 
 * [get_log](#get_log) - Get a Log
 * [list_logs](#list_logs) - List Logs
+* [list_platform_logs](#list_platform_logs) - List Platform Logs
 * [list_step_logs](#list_step_logs) - List Step Logs
 
 ## get_log
@@ -108,6 +109,62 @@ end
 
 
 
+## list_platform_logs
+
+List Platform Logs
+
+### Example Usage
+
+```ruby
+require 'stackone_client'
+
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: "",
+        username: "",
+      ),
+    )
+
+req = Models::Operations::StackoneListPlatformLogsRequest.new(
+  filter: Models::Operations::QueryParamFilter.new(
+    account_ids: "45355976281015164504,45355976281015164505",
+    actions: "download,upload",
+    categories: "hris,ats",
+    end_date: "2020-01-01T00:00:00.000Z",
+    http_methods: "GET,POST",
+    order_by: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderBy::EVENT_DATETIME,
+    order_direction: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderDirection::ASC,
+    request_ids: "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c",
+    resources: "employees,users",
+    source_types: "DASHBOARD,SYNTHETIC_WEBHOOK",
+    start_date: "2020-01-01T00:00:00.000Z",
+    status_codes: "200,400",
+    success: true,
+  ),
+  order_by: Models::Operations::StackoneListPlatformLogsQueryParamOrderBy::STATUS,
+  order_direction: Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection::ASC,
+)
+
+res = s.request_logs.list_platform_logs(req)
+
+if ! res.platform_logs_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::StackoneListPlatformLogsRequest](../../models/operations/stackonelistplatformlogsrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::StackoneListPlatformLogsResponse)](../../models/operations/stackonelistplatformlogsresponse.md)**
+
+
+
 ## list_step_logs
 
 List Step Logs
@@ -125,7 +182,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::StackoneListStepLogsRequest.new(
-  filter: Models::Operations::QueryParamFilter.new(
+  filter: Models::Operations::StackoneListStepLogsQueryParamFilter.new(
     account_ids: "45355976281015164504,45355976281015164505",
     actions: "download,upload",
     child_resources: "documents,time-off",

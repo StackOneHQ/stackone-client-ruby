@@ -368,6 +368,7 @@ end
 
 * [get_log](docs/sdks/requestlogs/README.md#get_log) - Get a Log
 * [list_logs](docs/sdks/requestlogs/README.md#list_logs) - List Logs
+* [list_platform_logs](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs
 * [list_step_logs](docs/sdks/requestlogs/README.md#list_step_logs) - List Step Logs
 
 

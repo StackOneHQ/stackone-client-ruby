@@ -57,6 +57,12 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto=Models::Sh
           value: "This is additional data",
         ),
       ],
+      authors: [
+        Models::Shared::AuthorModel.new(
+          id: "123",
+          name: "John Doe",
+        ),
+      ],
       categories: [
         Models::Shared::CreateCategoriesApiModel.new(
           id: "16873-IT345",
@@ -407,7 +413,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -449,7 +455,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetCourseRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors",
   id: "<id>",
   x_account_id: "<id>",
 )
@@ -793,7 +799,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListContentRequest.new(
-  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags",
+  fields_: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors",
   filter: Models::Operations::LmsListContentQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -837,7 +843,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCoursesRequest.new(
-  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations",
+  fields_: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors",
   filter: Models::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: "2020-01-01T00:00:00.000Z",
   ),
@@ -1069,6 +1075,12 @@ res = s.lms.update_content(lms_create_content_request_dto=Models::Shared::LmsCre
       value: "This is additional data",
     ),
   ],
+  authors: [
+    Models::Shared::AuthorModel.new(
+      id: "123",
+      name: "John Doe",
+    ),
+  ],
   categories: [
     Models::Shared::CreateCategoriesApiModel.new(
       name: "Technology",
@@ -1158,6 +1170,12 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto=Models::Shared::LmsUps
       id: "learning_outcomes",
       remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
       value: "This is additional data",
+    ),
+  ],
+  authors: [
+    Models::Shared::AuthorModel.new(
+      id: "123",
+      name: "John Doe",
     ),
   ],
   categories: [

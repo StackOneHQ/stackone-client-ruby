@@ -17,6 +17,8 @@ module StackOne
         field :active, T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The additional_data associated with this content
         field :additional_data, T.nilable(T::Array[Models::Shared::AdditionalData]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_data') } }
+        # The authors of the content
+        field :authors, T.nilable(T::Array[Models::Shared::AuthorModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authors') } }
         # The categories associated with this content
         field :categories, T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # The type of content
@@ -57,10 +59,11 @@ module StackOne
         field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(active: nil, additional_data: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
           @active = active
           @additional_data = additional_data
+          @authors = authors
           @categories = categories
           @content_type = content_type
           @content_url = content_url
@@ -85,6 +88,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @active == other.active
           return false unless @additional_data == other.additional_data
+          return false unless @authors == other.authors
           return false unless @categories == other.categories
           return false unless @content_type == other.content_type
           return false unless @content_url == other.content_url
