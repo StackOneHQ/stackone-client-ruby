@@ -15,6 +15,8 @@ module StackOne
 
         # Whether the course is active and available for users.
         field :active, T.nilable(T.any(T::Boolean, Models::Shared::Course2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        # The authors of the course
+        field :authors, T.nilable(T::Array[Models::Shared::AuthorModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authors') } }
         # The categories associated with this course
         field :categories, T.nilable(T::Array[Models::Shared::Category]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # The child ID/IDs associated with this course
@@ -51,9 +53,10 @@ module StackOne
         field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Course2)), categories: T.nilable(T::Array[Models::Shared::Category]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), created_at: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), provider: T.nilable(::String), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::Skills]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), url: T.nilable(::String)).void }
-        def initialize(active: nil, categories: nil, content_ids: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, id: nil, languages: nil, provider: nil, remote_content_ids: nil, remote_id: nil, skills: nil, title: nil, unified_custom_fields: nil, updated_at: nil, url: nil)
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Course2)), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::Category]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), created_at: T.nilable(::String), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), provider: T.nilable(::String), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::Skills]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::String), url: T.nilable(::String)).void }
+        def initialize(active: nil, authors: nil, categories: nil, content_ids: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, id: nil, languages: nil, provider: nil, remote_content_ids: nil, remote_id: nil, skills: nil, title: nil, unified_custom_fields: nil, updated_at: nil, url: nil)
           @active = active
+          @authors = authors
           @categories = categories
           @content_ids = content_ids
           @cover_url = cover_url
@@ -76,6 +79,7 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active
+          return false unless @authors == other.authors
           return false unless @categories == other.categories
           return false unless @content_ids == other.content_ids
           return false unless @cover_url == other.cover_url

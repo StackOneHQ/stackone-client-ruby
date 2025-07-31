@@ -9,23 +9,23 @@ module StackOne
     module Operations
     
 
-      class StackoneListStepLogsRequest
+      class StackoneListPlatformLogsRequest
         extend T::Sig
         include Crystalline::MetadataFields
 
         # Filter parameters that allow greater customisation of the list response
-        field :filter, T.nilable(Models::Operations::StackoneListStepLogsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
+        field :filter, T.nilable(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
         # The unified cursor
         field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The field to order the results by.
-        field :order_by, T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderBy), { 'query_param': { 'field_name': 'order_by', 'style': 'form', 'explode': true } }
+        field :order_by, T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), { 'query_param': { 'field_name': 'order_by', 'style': 'form', 'explode': true } }
         # The direction to order the results by.
-        field :order_direction, T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction', 'style': 'form', 'explode': true } }
+        field :order_direction, T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
         field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
 
-        sig { params(filter: T.nilable(Models::Operations::StackoneListStepLogsQueryParamFilter), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListStepLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
+        sig { params(filter: T.nilable(Models::Operations::QueryParamFilter), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
         def initialize(filter: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
           @filter = filter
           @next_ = next_

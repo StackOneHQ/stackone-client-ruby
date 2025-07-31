@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 4223928ae6936b081003abaa85c61cdc
+  docChecksum: 646ae703fe6f65ba2b902563a15b021f
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.29.0
-  configChecksum: c43aa30f771dca03f756dfc96c985c72
+  releaseVersion: 0.31.0
+  configChecksum: bc8046f969e313f082f549e3c562e557
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -587,6 +587,13 @@ generatedFiles:
   - docs/models/operations/stackonelistlinkedaccountsresponse.md
   - docs/models/operations/stackonelistlogsrequest.md
   - docs/models/operations/stackonelistlogsresponse.md
+  - docs/models/operations/stackonelistplatformlogsqueryparamorderby.md
+  - docs/models/operations/stackonelistplatformlogsqueryparamorderdirection.md
+  - docs/models/operations/stackonelistplatformlogsqueryparamrequestlogsorderby.md
+  - docs/models/operations/stackonelistplatformlogsqueryparamrequestlogsorderdirection.md
+  - docs/models/operations/stackonelistplatformlogsrequest.md
+  - docs/models/operations/stackonelistplatformlogsresponse.md
+  - docs/models/operations/stackoneliststeplogsqueryparamfilter.md
   - docs/models/operations/stackoneliststeplogsqueryparamorderby.md
   - docs/models/operations/stackoneliststeplogsqueryparamorderdirection.md
   - docs/models/operations/stackoneliststeplogsrequest.md
@@ -753,6 +760,7 @@ generatedFiles:
   - docs/models/shared/attachmentcontenttype.md
   - docs/models/shared/attachmentsourcevalue.md
   - docs/models/shared/attachmentvalue.md
+  - docs/models/shared/authormodel.md
   - docs/models/shared/avatar.md
   - docs/models/shared/backgroundcheckpackage.md
   - docs/models/shared/backgroundcheckpackagepaginated.md
@@ -1690,6 +1698,8 @@ generatedFiles:
   - docs/models/shared/payperiod.md
   - docs/models/shared/phonenumber.md
   - docs/models/shared/phonenumbertype.md
+  - docs/models/shared/platformlog.md
+  - docs/models/shared/platformlogspaginated.md
   - docs/models/shared/policy.md
   - docs/models/shared/position.md
   - docs/models/shared/position4.md
@@ -2516,6 +2526,13 @@ generatedFiles:
   - lib/stack_one/models/operations/stackone_list_linked_accounts_response.rb
   - lib/stack_one/models/operations/stackone_list_logs_request.rb
   - lib/stack_one/models/operations/stackone_list_logs_response.rb
+  - lib/stack_one/models/operations/stackone_list_platform_logs_queryparam_order_by.rb
+  - lib/stack_one/models/operations/stackone_list_platform_logs_queryparam_order_direction.rb
+  - lib/stack_one/models/operations/stackone_list_platform_logs_queryparam_request_logs_order_by.rb
+  - lib/stack_one/models/operations/stackone_list_platform_logs_queryparam_request_logs_order_direction.rb
+  - lib/stack_one/models/operations/stackone_list_platform_logs_request.rb
+  - lib/stack_one/models/operations/stackone_list_platform_logs_response.rb
+  - lib/stack_one/models/operations/stackone_list_step_logs_queryparam_filter.rb
   - lib/stack_one/models/operations/stackone_list_step_logs_queryparam_order_by.rb
   - lib/stack_one/models/operations/stackone_list_step_logs_queryparam_order_direction.rb
   - lib/stack_one/models/operations/stackone_list_step_logs_request.rb
@@ -2683,6 +2700,7 @@ generatedFiles:
   - lib/stack_one/models/shared/attachment_content_type.rb
   - lib/stack_one/models/shared/attachment_source_value.rb
   - lib/stack_one/models/shared/attachment_value.rb
+  - lib/stack_one/models/shared/authormodel.rb
   - lib/stack_one/models/shared/avatar.rb
   - lib/stack_one/models/shared/backgroundcheckpackage.rb
   - lib/stack_one/models/shared/backgroundcheckpackagepaginated.rb
@@ -3620,6 +3638,8 @@ generatedFiles:
   - lib/stack_one/models/shared/pay_period.rb
   - lib/stack_one/models/shared/phonenumber.rb
   - lib/stack_one/models/shared/phonenumber_type.rb
+  - lib/stack_one/models/shared/platformlog.rb
+  - lib/stack_one/models/shared/platformlogspaginated.rb
   - lib/stack_one/models/shared/policy.rb
   - lib/stack_one/models/shared/position.rb
   - lib/stack_one/models/shared/position_4.rb
@@ -4192,7 +4212,7 @@ examples:
           include: "step_logs"
       responses:
         "200":
-          application/json: {"data": {"account_id": "45355976281015164504", "action": "download", "child_resource": "time-off", "duration": 356, "end_time": "2021-01-01T00:00:00Z", "event_datetime": "2021-01-01T00:00:00Z", "http_method": "get", "is_worker": false, "path": "/unified/hris/employees", "project_id": "dev-project-68574", "provider": "planday", "request": {"headers": {"content-type": "application/json", "authorization": "Bearer token"}, "id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "method": "get", "url": {"hostname": "example.com", "path": "/api/v1/resource", "query_params": {"page": 1, "limit": 10}, "url": "https://example.com/api/v1/resource"}}, "request_id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "resource": "employees", "response": {"custom_mapping_errors": [{"id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "message": "Invalid value", "targetField": "first_name"}], "headers": {"content-type": "application/json", "authorization": "Bearer token"}, "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "status_code": 200}, "service": "hris", "source_id": "1234567890", "source_type": "DASHBOARD", "source_value": "ACCOUNT_TESTER", "start_time": "2021-01-01T00:00:00Z", "status": 200, "step_requests": [{"account_id": "45355976281015164504", "action": "download", "child_resource": "time-off", "duration": 356, "end_time": "2021-01-01T00:00:00Z", "http_method": "get", "id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "is_worker": false, "path": "/unified/hris/employees", "project_id": "dev-project-68574", "provider": "planday", "request": {"headers": {"content-type": "application/json", "authorization": "Bearer token"}, "id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "method": "get", "url": {"hostname": "example.com", "path": "/api/v1/resource", "query_params": {"page": 1, "limit": 10}, "url": "https://example.com/api/v1/resource"}}, "request_id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "resource": "employees", "response": {"custom_mapping_errors": [{"id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "message": "Invalid value", "targetField": "first_name"}], "headers": {"content-type": "application/json", "authorization": "Bearer token"}, "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "status_code": 200}, "service": "hris", "start_time": "2021-01-01T00:00:00Z", "status": 200, "sub_resource": "documents", "success": true, "url": "https://api.stackone.com/unified/hris/employees?raw=false"}], "sub_resource": "documents", "success": true, "url": "https://api.stackone.com/unified/hris/employees?raw=false"}}
+          application/json: {"data": {"account_id": "45355976281015164504", "action": "download", "child_resource": "time-off", "duration": 356, "end_time": "2021-01-01T00:00:00Z", "event_datetime": "2021-01-01T00:00:00Z", "http_method": "get", "is_worker": false, "path": "/unified/hris/employees", "project_id": "dev-project-68574", "provider": "planday", "request": {"headers": {"content-type": "application/json", "authorization": "Bearer token"}, "id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "method": "get", "url": {"hostname": "example.com", "path": "/api/v1/resource", "query_params": {"page": 1, "limit": 10}, "url": "https://example.com/api/v1/resource"}}, "request_id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "resource": "employees", "response": {"custom_mapping_errors": [{"id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "message": "Invalid value", "targetField": "first_name"}], "headers": {"content-type": "application/json", "authorization": "Bearer token"}, "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "status_code": 200}, "service": "hris", "source_id": "1234567890", "source_ip": "192.168.1.1", "source_type": "DASHBOARD", "source_value": "ACCOUNT_TESTER", "start_time": "2021-01-01T00:00:00Z", "status": 200, "step_requests": [{"account_id": "45355976281015164504", "action": "download", "child_resource": "time-off", "duration": 356, "end_time": "2021-01-01T00:00:00Z", "http_method": "get", "id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "is_worker": false, "path": "/unified/hris/employees", "project_id": "dev-project-68574", "provider": "planday", "request": {"headers": {"content-type": "application/json", "authorization": "Bearer token"}, "id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "method": "get", "url": {"hostname": "example.com", "path": "/api/v1/resource", "query_params": {"page": 1, "limit": 10}, "url": "https://example.com/api/v1/resource"}}, "request_id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "resource": "employees", "response": {"custom_mapping_errors": [{"id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "message": "Invalid value", "targetField": "first_name"}], "headers": {"content-type": "application/json", "authorization": "Bearer token"}, "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "status_code": 200}, "service": "hris", "source_ip": "192.168.1.1", "start_time": "2021-01-01T00:00:00Z", "status": 200, "sub_resource": "documents", "success": true, "url": "https://api.stackone.com/unified/hris/employees?raw=false"}], "sub_resource": "documents", "success": true, "url": "https://api.stackone.com/unified/hris/employees?raw=false"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -4228,6 +4248,38 @@ examples:
           application/json: {"data": []}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "401":
+          application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "403":
+          application/json: {"message": "Forbidden resource", "statusCode": 403, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "404":
+          application/json: {"message": "Not Found", "statusCode": 404, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "408":
+          application/json: {"message": "Request timed out", "statusCode": 408, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "409":
+          application/json: {"message": "Conflict", "statusCode": 409, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "422":
+          application/json: {"message": "Unprocessable Entity", "statusCode": 422, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "429":
+          application/json: {"message": "Too many requests", "statusCode": 429, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "500":
+          application/json: {"message": "Internal server error", "statusCode": 500, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "501":
+          application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "502":
+          application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+  stackone_list_platform_logs:
+    speakeasy-default-stackone-list-platform-logs:
+      parameters:
+        query:
+          order_by: "eventDatetime"
+          order_direction: "asc"
+          filter: {"account_ids": "45355976281015164504,45355976281015164505", "actions": "download,upload", "categories": "hris,ats", "end_date": "2020-01-01T00:00:00.000Z", "http_methods": "GET,POST", "order_by": "status", "order_direction": "asc", "request_ids": "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c", "resources": "employees,users", "source_types": "DASHBOARD,SYNTHETIC_WEBHOOK", "start_date": "2020-01-01T00:00:00.000Z", "status_codes": "200,400", "success": true}
+      responses:
+        "200":
+          application/json: {"data": [{"account_id": "45355976281015164504", "action": "download", "category": "hris", "child_resource": "time-off", "duration": 356, "end_time": "2021-01-01T00:00:00Z", "event_datetime": "2021-01-01T00:00:00Z", "http_method": "get", "path": "/unified/hris/employees", "project_id": "dev-project-68574", "request_id": "adbf752f-6457-4ddd-89b3-98ae2252b83b", "resource": "employees", "source_id": "1234567890", "source_ip": "192.168.1.1", "source_type": "DASHBOARD", "source_value": "ACCOUNT_TESTER", "start_time": "2021-01-01T00:00:00Z", "status": 200, "sub_resource": "documents", "success": true, "url": "https://api.stackone.com/unified/hris/employees?raw=false"}]}
+        "400":
+          application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
           application/json: {"message": "Unauthorized", "statusCode": 401, "timestamp": "2023-05-30T00:00:00.000Z"}
         "403":
@@ -4392,7 +4444,7 @@ examples:
       requestBody:
         application/json: {"company": "Company Inc.", "country": "United States", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}, {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "email": "sestier.romain123@gmail.com", "first_name": "Romain", "hired_at": "2021-01-01T01:01:01.000Z", "last_name": "Sestier", "name": "Romain Sestier", "passthrough": {"other_known_names": "John Doe"}, "phone_numbers": [{"phone": "+447700112233"}], "social_links": [{"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}, {"type": "linkedin", "url": "https://www.linkedin.com/in/romainsestier/"}], "title": "Software Engineer", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}
       responses:
-        "200":
+        "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
@@ -4496,7 +4548,7 @@ examples:
       requestBody:
         application/json: {"offer_history": [{"created_at": "2021-01-01T01:01:01.000Z", "start_date": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}, {"created_at": "2021-01-01T01:01:01.000Z", "start_date": "2021-01-01T01:01:01.000Z", "updated_at": "2021-01-01T01:01:01.000Z"}], "offer_status": {"source_value": "Pending", "value": "pending"}, "passthrough": {"other_known_names": "John Doe"}, "start_date": "2021-01-01T01:01:01.000Z"}
       responses:
-        "200":
+        "201":
           application/json: {"data": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
@@ -10225,7 +10277,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"items": [{"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}, {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}]}
+        application/json: {"items": [{"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "authors": [{"id": "123", "name": "John Doe"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}, {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "authors": [{"id": "123", "name": "John Doe"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}, {"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}]}
       responses:
         "202":
           application/json: {"errors": [["Missing field: name"], [], []], "message": "Batch operation accepted", "statusCode": 202, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -10472,7 +10524,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors"
         header:
           x-account-id: "<id>"
       responses:
@@ -10508,12 +10560,12 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations"
+          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"active": true, "categories": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "languages": [{"value": "en_GB"}], "provider": "Course Provider", "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "skills": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}}
+          application/json: {"data": {"active": true, "authors": [{"id": "123", "name": "John Doe"}], "categories": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "languages": [{"value": "en_GB"}], "provider": "Course Provider", "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "skills": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}, {"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -10796,7 +10848,7 @@ examples:
     speakeasy-default-lms-list-content:
       parameters:
         query:
-          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags"
+          fields: "id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
@@ -10832,14 +10884,14 @@ examples:
     speakeasy-default-lms-list-courses:
       parameters:
         query:
-          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations"
+          fields: "id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
           updated_after: "2020-01-01T00:00:00.000Z"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"active": true, "categories": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "provider": "Course Provider", "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "skills": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}]}
+          application/json: {"data": [{"active": true, "authors": [{"id": "123", "name": "John Doe"}], "categories": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_ids": ["16873-SOFTWARE-ENG-COURSE", "16874-SOFTWARE-ENG-COURSE"], "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This course acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "languages": [{"value": "en_GB"}, {"value": "en_GB"}], "provider": "Course Provider", "remote_content_ids": ["e3cb75bf-aa84-466e-a6c1-b8322b257a48", "e3cb75bf-aa84-466e-a6c1-b8322b257a49"], "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "skills": [{"active": true, "id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z", "url": "https://www.linkedinlearning.com/?v=16873"}]}
         "400":
           application/json: {"data": {"message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -11022,7 +11074,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}
+        application/json: {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "authors": [{"id": "123", "name": "John Doe"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}
       responses:
         "201":
           application/json: {"message": "Record updated successfully.", "statusCode": 200, "timestamp": "2021-01-01T01:01:01.000Z"}
@@ -11056,7 +11108,7 @@ examples:
         header:
           x-account-id: "<id>"
       requestBody:
-        application/json: {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}
+        application/json: {"active": true, "additional_data": [{"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}, {"id": "learning_outcomes", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "value": "This is additional data"}], "authors": [{"id": "123", "name": "John Doe"}], "categories": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "content_url": "https://www.youtube.com/watch?v=16873", "cover_url": "https://www.googledrive.com/?v=16873", "created_at": "2021-07-21T14:00:00.000Z", "description": "This video acts as learning content for software engineers.", "duration": "P3Y6M4DT12H30M5S", "external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "languages": [{"value": "en_GB"}, {"value": "en_GB"}, {"value": "en_GB"}], "localizations": [{"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}, {"description": "This video acts as learning content for software engineers.", "language": {"value": "en_GB"}, "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1"}], "mobile_launch_content_url": "https://www.mobile.youtube.com/watch?v=16873", "order": 1, "skills": [{"id": "16873-IT345", "language": {"value": "en_GB"}, "name": "Information-Technology"}], "tags": ["Sales Techniques", "Customer Service"], "title": "Software Engineer Lv 1", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-07-21T14:00:00.000Z"}
       responses:
         "201":
           application/json: {"data": {"external_reference": "SOFTWARE-ENG-LV1-TRAINING-VIDEO-1", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "message": "Record created successfully.", "statusCode": 201, "timestamp": "2021-01-01T01:01:01.000Z"}

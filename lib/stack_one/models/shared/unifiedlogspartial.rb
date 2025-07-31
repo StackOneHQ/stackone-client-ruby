@@ -43,6 +43,8 @@ module StackOne
         field :service, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
         # The requests source ID
         field :source_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_id') } }
+        # The requests source IPV4 ip address
+        field :source_ip, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_ip') } }
         # The requests source type
         field :source_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_type') } }
         # The requests source value
@@ -61,8 +63,8 @@ module StackOne
         field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), event_datetime: T.nilable(::DateTime), http_method: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request_id: T.nilable(::String), resource: T.nilable(::String), service: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), step_requests: T.nilable(T::Array[Models::Shared::StepLogPartial]), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
-        def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, event_datetime: nil, http_method: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request_id: nil, resource: nil, service: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status: nil, step_requests: nil, sub_resource: nil, success: nil, url: nil)
+        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), event_datetime: T.nilable(::DateTime), http_method: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request_id: T.nilable(::String), resource: T.nilable(::String), service: T.nilable(::String), source_id: T.nilable(::String), source_ip: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), step_requests: T.nilable(T::Array[Models::Shared::StepLogPartial]), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
+        def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, event_datetime: nil, http_method: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request_id: nil, resource: nil, service: nil, source_id: nil, source_ip: nil, source_type: nil, source_value: nil, start_time: nil, status: nil, step_requests: nil, sub_resource: nil, success: nil, url: nil)
           @account_id = account_id
           @action = action
           @child_resource = child_resource
@@ -78,6 +80,7 @@ module StackOne
           @resource = resource
           @service = service
           @source_id = source_id
+          @source_ip = source_ip
           @source_type = source_type
           @source_value = source_value
           @start_time = start_time
@@ -105,6 +108,7 @@ module StackOne
           return false unless @resource == other.resource
           return false unless @service == other.service
           return false unless @source_id == other.source_id
+          return false unless @source_ip == other.source_ip
           return false unless @source_type == other.source_type
           return false unless @source_value == other.source_value
           return false unless @start_time == other.start_time

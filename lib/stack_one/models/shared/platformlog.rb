@@ -9,7 +9,7 @@ module StackOne
     module Shared
     
 
-      class StepLog
+      class PlatformLog
         extend T::Sig
         include Crystalline::MetadataFields
 
@@ -17,36 +17,34 @@ module StackOne
         field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The requested action
         field :action, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action') } }
+        # The requested category
+        field :category, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
         # The requested child resource
         field :child_resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('child_resource') } }
         # The request duration in milliseconds
         field :duration, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The request end time ISO8601 date string
         field :end_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The event ISO8601 date string
+        field :event_datetime, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event_datetime'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The requested HTTP method
         field :http_method, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('http_method') } }
-        # The provider request ID
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-        # The asynchronous worker flag
-        field :is_worker, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_worker') } }
         # The requested path
         field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # The project ID of the request
         field :project_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
-        # The requested provider
-        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
-        # The advanced log request data
-        field :request, T.nilable(Models::Shared::Request), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request') } }
         # The request ID
         field :request_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id') } }
         # The requested resource
         field :resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resource') } }
-        # The advanced log response data
-        field :response, T.nilable(Models::Shared::StepLogResponse), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
-        # The requested service
-        field :service, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
+        # The requests source ID
+        field :source_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_id') } }
         # The requests source IPV4 ip address
         field :source_ip, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_ip') } }
+        # The requests source type
+        field :source_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_type') } }
+        # The requests source value
+        field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The request start time ISO8601 date string
         field :start_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The requests response status code
@@ -59,25 +57,24 @@ module StackOne
         field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
 
-        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), http_method: T.nilable(::String), id: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request: T.nilable(Models::Shared::Request), request_id: T.nilable(::String), resource: T.nilable(::String), response: T.nilable(Models::Shared::StepLogResponse), service: T.nilable(::String), source_ip: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
-        def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, http_method: nil, id: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request: nil, request_id: nil, resource: nil, response: nil, service: nil, source_ip: nil, start_time: nil, status: nil, sub_resource: nil, success: nil, url: nil)
+        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), category: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), event_datetime: T.nilable(::DateTime), http_method: T.nilable(::String), path: T.nilable(::String), project_id: T.nilable(::String), request_id: T.nilable(::String), resource: T.nilable(::String), source_id: T.nilable(::String), source_ip: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
+        def initialize(account_id: nil, action: nil, category: nil, child_resource: nil, duration: nil, end_time: nil, event_datetime: nil, http_method: nil, path: nil, project_id: nil, request_id: nil, resource: nil, source_id: nil, source_ip: nil, source_type: nil, source_value: nil, start_time: nil, status: nil, sub_resource: nil, success: nil, url: nil)
           @account_id = account_id
           @action = action
+          @category = category
           @child_resource = child_resource
           @duration = duration
           @end_time = end_time
+          @event_datetime = event_datetime
           @http_method = http_method
-          @id = id
-          @is_worker = is_worker
           @path = path
           @project_id = project_id
-          @provider = provider
-          @request = request
           @request_id = request_id
           @resource = resource
-          @response = response
-          @service = service
+          @source_id = source_id
           @source_ip = source_ip
+          @source_type = source_type
+          @source_value = source_value
           @start_time = start_time
           @status = status
           @sub_resource = sub_resource
@@ -89,21 +86,20 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @account_id == other.account_id
           return false unless @action == other.action
+          return false unless @category == other.category
           return false unless @child_resource == other.child_resource
           return false unless @duration == other.duration
           return false unless @end_time == other.end_time
+          return false unless @event_datetime == other.event_datetime
           return false unless @http_method == other.http_method
-          return false unless @id == other.id
-          return false unless @is_worker == other.is_worker
           return false unless @path == other.path
           return false unless @project_id == other.project_id
-          return false unless @provider == other.provider
-          return false unless @request == other.request
           return false unless @request_id == other.request_id
           return false unless @resource == other.resource
-          return false unless @response == other.response
-          return false unless @service == other.service
+          return false unless @source_id == other.source_id
           return false unless @source_ip == other.source_ip
+          return false unless @source_type == other.source_type
+          return false unless @source_value == other.source_value
           return false unless @start_time == other.start_time
           return false unless @status == other.status
           return false unless @sub_resource == other.sub_resource

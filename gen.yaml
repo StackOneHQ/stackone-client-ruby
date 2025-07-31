@@ -15,7 +15,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 ruby:
-  version: 0.29.0
+  version: 0.31.0
   additionalDependencies:
     development: {}
     runtime: {}
@@ -39,3 +39,4 @@ ruby:
   module: StackOne
   outputModelSuffix: output
   packageName: stackone_client
+  typingStrategy: sorbet
