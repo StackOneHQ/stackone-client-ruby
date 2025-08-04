@@ -7,14 +7,14 @@ API requests and response logs.
 
 ### Available Operations
 
-* [get_log](#get_log) - Get a Log
+* [get_log](#get_log) - Get Log
 * [list_logs](#list_logs) - List Logs
 * [list_platform_logs](#list_platform_logs) - List Platform Logs
 * [list_step_logs](#list_step_logs) - List Step Logs
 
 ## get_log
 
-Get a Log
+Get Log
 
 ### Example Usage
 
@@ -70,7 +70,7 @@ req = Models::Operations::StackoneListLogsRequest.new(
     account_ids: "45355976281015164504,45355976281015164505",
     actions: "download,upload",
     child_resources: "documents,time-off",
-    end_date: "2020-01-01T00:00:00.000Z",
+    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     http_methods: "GET,POST",
     order_by: Models::Operations::QueryParamOrderBy::SERVICE,
     order_direction: Models::Operations::QueryParamOrderDirection::ASC,
@@ -79,7 +79,7 @@ req = Models::Operations::StackoneListLogsRequest.new(
     resources: "employees,users",
     services: "hris,ats",
     source_types: "DASHBOARD,SYNTHETIC_WEBHOOK",
-    start_date: "2020-01-01T00:00:00.000Z",
+    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     status_codes: "200,400",
     sub_resources: "documents,employees",
     success: true,
@@ -130,14 +130,14 @@ req = Models::Operations::StackoneListPlatformLogsRequest.new(
     account_ids: "45355976281015164504,45355976281015164505",
     actions: "download,upload",
     categories: "hris,ats",
-    end_date: "2020-01-01T00:00:00.000Z",
+    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     http_methods: "GET,POST",
     order_by: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderBy::EVENT_DATETIME,
     order_direction: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderDirection::ASC,
     request_ids: "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c",
     resources: "employees,users",
     source_types: "DASHBOARD,SYNTHETIC_WEBHOOK",
-    start_date: "2020-01-01T00:00:00.000Z",
+    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     status_codes: "200,400",
     success: true,
   ),
@@ -186,13 +186,13 @@ req = Models::Operations::StackoneListStepLogsRequest.new(
     account_ids: "45355976281015164504,45355976281015164505",
     actions: "download,upload",
     child_resources: "documents,time-off",
-    end_date: "2020-01-01T00:00:00.000Z",
+    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     http_methods: "GET,POST",
     providers: "ashby,greenhouse",
     request_ids: "adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c",
     resources: "employees,users",
     services: "hris,ats",
-    start_date: "2020-01-01T00:00:00.000Z",
+    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     status_codes: "200,400",
     sub_resources: "documents,employees",
     success: true,

@@ -20,7 +20,7 @@ module StackOne
         # A comma-separated list of categories to filter the results by.
         field :categories, T.nilable(::String), { 'query_param': { 'field_name': 'categories' } }
         # A ISO8601 date string to filter the results by end_date.
-        field :end_date, T.nilable(::String), { 'query_param': { 'field_name': 'end_date' } }
+        field :end_date, T.nilable(::DateTime), { 'query_param': { 'field_name': 'end_date' } }
         # A comma-separated list of HTTP methods to filter the results by.
         field :http_methods, T.nilable(::String), { 'query_param': { 'field_name': 'http_methods' } }
         # The field to order the results by.
@@ -38,14 +38,14 @@ module StackOne
         # A comma-separated list of source values to filter the results by.
         field :source_values, T.nilable(::String), { 'query_param': { 'field_name': 'source_values' } }
         # A ISO8601 date string to filter the results by start_date.
-        field :start_date, T.nilable(::String), { 'query_param': { 'field_name': 'start_date' } }
+        field :start_date, T.nilable(::DateTime), { 'query_param': { 'field_name': 'start_date' } }
         # A comma-separated list of status codes to filter the results by.
         field :status_codes, T.nilable(::String), { 'query_param': { 'field_name': 'status_codes' } }
         # A boolean value to filter the results by success or failure.
         field :success, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'success' } }
 
 
-        sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), categories: T.nilable(::String), end_date: T.nilable(::String), http_methods: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderBy), order_direction: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderDirection), request_ids: T.nilable(::String), resources: T.nilable(::String), source_ids: T.nilable(::String), source_types: T.nilable(::String), source_values: T.nilable(::String), start_date: T.nilable(::String), status_codes: T.nilable(::String), success: T.nilable(T::Boolean)).void }
+        sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), categories: T.nilable(::String), end_date: T.nilable(::DateTime), http_methods: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderBy), order_direction: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderDirection), request_ids: T.nilable(::String), resources: T.nilable(::String), source_ids: T.nilable(::String), source_types: T.nilable(::String), source_values: T.nilable(::String), start_date: T.nilable(::DateTime), status_codes: T.nilable(::String), success: T.nilable(T::Boolean)).void }
         def initialize(account_ids: nil, actions: nil, categories: nil, end_date: nil, http_methods: nil, order_by: nil, order_direction: nil, request_ids: nil, resources: nil, source_ids: nil, source_types: nil, source_values: nil, start_date: nil, status_codes: nil, success: nil)
           @account_ids = account_ids
           @actions = actions

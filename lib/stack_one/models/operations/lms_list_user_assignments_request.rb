@@ -38,12 +38,12 @@ module StackOne
         # Use a string with a date to only select results updated after that given date
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # The user ID associated with this assignment
         field :user_id, T.nilable(::String), { 'query_param': { 'field_name': 'user_id', 'style': 'form', 'explode': true } }
 
 
-        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::String), user_id: T.nilable(::String)).void }
+        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
         def initialize(id: nil, x_account_id: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, remote_user_id: nil, updated_after: nil, user_id: nil)
           @id = id
           @x_account_id = x_account_id

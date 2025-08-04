@@ -1752,7 +1752,7 @@ module StackOne
 
     sig { params(ats_create_offer_request_dto: Models::Shared::AtsCreateOfferRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateOfferResponse) }
     def create_offer(ats_create_offer_request_dto, x_account_id, retries = nil, timeout_ms = nil)
-      # create_offer - Creates an offer
+      # create_offer - Create Offer
       request = Models::Operations::AtsCreateOfferRequest.new(
         
         ats_create_offer_request_dto: ats_create_offer_request_dto,
@@ -17734,7 +17734,7 @@ module StackOne
 
     sig { params(ats_update_application_request_dto: Models::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationResponse) }
     def update_application(ats_update_application_request_dto, id, x_account_id, retries = nil, timeout_ms = nil)
-      # update_application - Update an Application
+      # update_application - Update Application
       request = Models::Operations::AtsUpdateApplicationRequest.new(
         
         ats_update_application_request_dto: ats_update_application_request_dto,
@@ -18026,7 +18026,7 @@ module StackOne
 
     sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationNoteResponse) }
     def update_application_note(ats_update_notes_request_dto, id, sub_resource_id, x_account_id, retries = nil, timeout_ms = nil)
-      # update_application_note - Update an Application Note
+      # update_application_note - Update Application Note
       request = Models::Operations::AtsUpdateApplicationNoteRequest.new(
         
         ats_update_notes_request_dto: ats_update_notes_request_dto,

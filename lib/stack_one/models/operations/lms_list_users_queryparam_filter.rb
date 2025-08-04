@@ -18,10 +18,10 @@ module StackOne
         # Filter to select users by external_reference
         field :external_reference, T.nilable(::String), { 'query_param': { 'field_name': 'external_reference' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(email: T.nilable(::String), external_reference: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        sig { params(email: T.nilable(::String), external_reference: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(email: nil, external_reference: nil, updated_after: nil)
           @email = email
           @external_reference = external_reference

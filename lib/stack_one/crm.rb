@@ -24,7 +24,7 @@ module StackOne
 
     sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmCreateContactResponse) }
     def create_contact(crm_create_contact_request_dto, x_account_id, retries = nil, timeout_ms = nil)
-      # create_contact - Creates a new Contact
+      # create_contact - Create Contact
       request = Models::Operations::CrmCreateContactRequest.new(
         
         crm_create_contact_request_dto: crm_create_contact_request_dto,

@@ -245,7 +245,7 @@ req = Models::Operations::IamListGroupsRequest.new(
   expand: "roles",
   fields_: "id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at",
   filter: Models::Operations::IamListGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -290,7 +290,7 @@ req = Models::Operations::IamListPoliciesRequest.new(
   expand: "permissions",
   fields_: "id,remote_id,name,permissions,description,created_at,updated_at",
   filter: Models::Operations::IamListPoliciesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -335,7 +335,7 @@ req = Models::Operations::IamListRolesRequest.new(
   expand: "policies",
   fields_: "id,remote_id,name,type,policies,description,created_at,updated_at",
   filter: Models::Operations::IamListRolesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -380,7 +380,7 @@ req = Models::Operations::IamListUsersRequest.new(
   expand: "roles,groups",
   fields_: "id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled",
   filter: Models::Operations::IamListUsersQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )

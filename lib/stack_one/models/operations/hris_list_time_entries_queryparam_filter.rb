@@ -20,10 +20,10 @@ module StackOne
         # Filter to select time entries after a given time
         field :start_time, T.nilable(::String), { 'query_param': { 'field_name': 'start_time' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(employee_id: T.nilable(::String), end_time: T.nilable(::String), start_time: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        sig { params(employee_id: T.nilable(::String), end_time: T.nilable(::String), start_time: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(employee_id: nil, end_time: nil, start_time: nil, updated_after: nil)
           @employee_id = employee_id
           @end_time = end_time

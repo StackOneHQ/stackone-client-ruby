@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the skill is active and therefore available for use
-        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, T.nilable(T.any(T::Boolean, Models::Shared::EntitySkills2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The ID associated with this skill
         field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The language associated with this skill
@@ -29,7 +29,7 @@ module StackOne
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
 
-        sig { params(active: T.nilable(T::Boolean), id: T.nilable(::String), language: T.nilable(Models::Shared::EntitySkillsLanguage), maximum_proficiency: T.nilable(Models::Shared::MaximumProficiency), minimum_proficiency: T.nilable(Models::Shared::MinimumProficiency), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::EntitySkills2)), id: T.nilable(::String), language: T.nilable(Models::Shared::EntitySkillsLanguage), maximum_proficiency: T.nilable(Models::Shared::MaximumProficiency), minimum_proficiency: T.nilable(Models::Shared::MinimumProficiency), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(active: nil, id: nil, language: nil, maximum_proficiency: nil, minimum_proficiency: nil, name: nil, remote_id: nil)
           @active = active
           @id = id
