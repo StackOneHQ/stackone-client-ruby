@@ -59,7 +59,7 @@ req = Models::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
@@ -115,7 +115,7 @@ end
 
 * [delete_account](docs/sdks/accounts/README.md#delete_account) - Delete Account
 * [get_account](docs/sdks/accounts/README.md#get_account) - Get Account
-* [get_account_meta_info](docs/sdks/accounts/README.md#get_account_meta_info) - Get meta information of the account
+* [get_account_meta_info](docs/sdks/accounts/README.md#get_account_meta_info) - Get Account Meta Information
 * [list_linked_accounts](docs/sdks/accounts/README.md#list_linked_accounts) - List Accounts
 * [update_account](docs/sdks/accounts/README.md#update_account) - Update Account
 
@@ -127,7 +127,7 @@ end
 * [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
 * [create_job](docs/sdks/ats/README.md#create_job) - Create Job
-* [create_offer](docs/sdks/ats/README.md#create_offer) - Creates an offer
+* [create_offer](docs/sdks/ats/README.md#create_offer) - Create Offer
 * [delete_background_check_package](docs/sdks/ats/README.md#delete_background_check_package) - Delete Background Check Package
 * [download_application_document](docs/sdks/ats/README.md#download_application_document) - Download Application Document
 * [get_application](docs/sdks/ats/README.md#get_application) - Get Application
@@ -185,8 +185,8 @@ end
 * [order_assessments_request](docs/sdks/ats/README.md#order_assessments_request) - Order Assessments Request
 * [order_background_check_request](docs/sdks/ats/README.md#order_background_check_request) - Order Background Check Request
 * [reject_application](docs/sdks/ats/README.md#reject_application) - Reject Application
-* [update_application](docs/sdks/ats/README.md#update_application) - Update an Application
-* [update_application_note](docs/sdks/ats/README.md#update_application_note) - Update an Application Note
+* [update_application](docs/sdks/ats/README.md#update_application) - Update Application
+* [update_application_note](docs/sdks/ats/README.md#update_application_note) - Update Application Note
 * [update_assessments_result](docs/sdks/ats/README.md#update_assessments_result) - Update Assessments Result
 * [update_background_check_package](docs/sdks/ats/README.md#update_background_check_package) - Update Background Check Package
 * [update_background_check_result](docs/sdks/ats/README.md#update_background_check_result) - Update Background Check Result
@@ -201,12 +201,12 @@ end
 
 ### [connectors](docs/sdks/connectors/README.md)
 
-* [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta information for the given provider key
-* [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connectors Meta Information for all providers
+* [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta Information
+* [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connector Meta Information
 
 ### [crm](docs/sdks/crm/README.md)
 
-* [create_contact](docs/sdks/crm/README.md#create_contact) - Creates a new Contact
+* [create_contact](docs/sdks/crm/README.md#create_contact) - Create Contact
 * [get_account](docs/sdks/crm/README.md#get_account) - Get Account
 * [get_contact](docs/sdks/crm/README.md#get_contact) - Get Contact
 * [get_contact_custom_field_definition](docs/sdks/crm/README.md#get_contact_custom_field_definition) - Get Contact Custom Field Definition
@@ -221,7 +221,7 @@ end
 
 * [batch_upload_employee_document](docs/sdks/hris/README.md#batch_upload_employee_document) - Batch Upload Employee Document
 * [cancel_employee_time_off_request](docs/sdks/hris/README.md#cancel_employee_time_off_request) - Cancel Employee Time Off Request
-* [create_employee](docs/sdks/hris/README.md#create_employee) - Creates an employee
+* [create_employee](docs/sdks/hris/README.md#create_employee) - Create Employee
 * [create_employee_employment](docs/sdks/hris/README.md#create_employee_employment) - Create Employee Employment
 * [create_employee_skill](docs/sdks/hris/README.md#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](docs/sdks/hris/README.md#create_employee_time_off_request) - Create Employee Time Off Request
@@ -285,7 +285,7 @@ end
 * [list_time_off_policies](docs/sdks/hris/README.md#list_time_off_policies) - List Time Off Policies
 * [list_time_off_requests](docs/sdks/hris/README.md#list_time_off_requests) - List time off requests
 * [~~list_time_off_types~~](docs/sdks/hris/README.md#list_time_off_types) - List time off types :warning: **Deprecated**
-* [update_employee](docs/sdks/hris/README.md#update_employee) - Updates an employee
+* [update_employee](docs/sdks/hris/README.md#update_employee) - Update Employee
 * [update_employee_employment](docs/sdks/hris/README.md#update_employee_employment) - Update Employee Employment
 * [update_employee_time_off_request](docs/sdks/hris/README.md#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
@@ -366,7 +366,7 @@ end
 
 ### [request_logs](docs/sdks/requestlogs/README.md)
 
-* [get_log](docs/sdks/requestlogs/README.md#get_log) - Get a Log
+* [get_log](docs/sdks/requestlogs/README.md#get_log) - Get Log
 * [list_logs](docs/sdks/requestlogs/README.md#list_logs) - List Logs
 * [list_platform_logs](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs
 * [list_step_logs](docs/sdks/requestlogs/README.md#list_step_logs) - List Step Logs

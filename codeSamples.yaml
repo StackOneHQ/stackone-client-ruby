@@ -62,13 +62,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_list_logs"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::StackoneListLogsRequest.new(\n  order_by: Models::Operations::QueryParamOrderBy::SERVICE,\n  order_direction: Models::Operations::QueryParamOrderDirection::ASC,\n  include: Models::Operations::QueryParamInclude::STEP_LOGS,\n  filter: Models::Operations::QueryParamFilter.new(\n    account_ids: \"45355976281015164504,45355976281015164505\",\n    start_date: \"2020-01-01T00:00:00.000Z\",\n    end_date: \"2020-01-01T00:00:00.000Z\",\n    request_ids: \"adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c\",\n    source_types: \"DASHBOARD,SYNTHETIC_WEBHOOK\",\n    http_methods: \"GET,POST\",\n    providers: \"ashby,greenhouse\",\n    services: \"hris,ats\",\n    resources: \"employees,users\",\n    child_resources: \"documents,time-off\",\n    sub_resources: \"documents,employees\",\n    actions: \"download,upload\",\n    status_codes: \"200,400\",\n    success: true,\n    order_by: Models::Operations::StackoneListLogsQueryParamOrderBy::SERVICE,\n    order_direction: Models::Operations::StackoneListLogsQueryParamOrderDirection::ASC,\n  ),\n)\n\nres = s.request_logs.list_logs(req)\n\nif ! res.unified_logs_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::StackoneListLogsRequest.new(\n  order_by: Models::Operations::QueryParamOrderBy::SERVICE,\n  order_direction: Models::Operations::QueryParamOrderDirection::ASC,\n  include: Models::Operations::QueryParamInclude::STEP_LOGS,\n  filter: Models::Operations::QueryParamFilter.new(\n    account_ids: \"45355976281015164504,45355976281015164505\",\n    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    request_ids: \"adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c\",\n    source_types: \"DASHBOARD,SYNTHETIC_WEBHOOK\",\n    http_methods: \"GET,POST\",\n    providers: \"ashby,greenhouse\",\n    services: \"hris,ats\",\n    resources: \"employees,users\",\n    child_resources: \"documents,time-off\",\n    sub_resources: \"documents,employees\",\n    actions: \"download,upload\",\n    status_codes: \"200,400\",\n    success: true,\n    order_by: Models::Operations::StackoneListLogsQueryParamOrderBy::SERVICE,\n    order_direction: Models::Operations::StackoneListLogsQueryParamOrderDirection::ASC,\n  ),\n)\n\nres = s.request_logs.list_logs(req)\n\nif ! res.unified_logs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/requests/logs/steps"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_list_step_logs"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::StackoneListStepLogsRequest.new(\n  order_by: Models::Operations::OrderBy::STATUS,\n  order_direction: Models::Operations::OrderDirection::ASC,\n  filter: Models::Operations::Filter.new(\n    account_ids: \"45355976281015164504,45355976281015164505\",\n    start_date: \"2020-01-01T00:00:00.000Z\",\n    end_date: \"2020-01-01T00:00:00.000Z\",\n    request_ids: \"adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c\",\n    http_methods: \"GET,POST\",\n    providers: \"ashby,greenhouse\",\n    services: \"hris,ats\",\n    resources: \"employees,users\",\n    child_resources: \"documents,time-off\",\n    sub_resources: \"documents,employees\",\n    actions: \"download,upload\",\n    status_codes: \"200,400\",\n    success: true,\n  ),\n)\n\nres = s.request_logs.list_step_logs(req)\n\nif ! res.step_logs_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::StackoneListStepLogsRequest.new(\n  order_by: Models::Operations::OrderBy::STATUS,\n  order_direction: Models::Operations::OrderDirection::ASC,\n  filter: Models::Operations::Filter.new(\n    account_ids: \"45355976281015164504,45355976281015164505\",\n    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    request_ids: \"adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c\",\n    http_methods: \"GET,POST\",\n    providers: \"ashby,greenhouse\",\n    services: \"hris,ats\",\n    resources: \"employees,users\",\n    child_resources: \"documents,time-off\",\n    sub_resources: \"documents,employees\",\n    actions: \"download,upload\",\n    status_codes: \"200,400\",\n    success: true,\n  ),\n)\n\nres = s.request_logs.list_step_logs(req)\n\nif ! res.step_logs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/requests/logs/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -80,13 +80,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_list_platform_logs"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::StackoneListPlatformLogsRequest.new(\n  order_by: Models::Operations::StackoneListPlatformLogsQueryParamOrderBy::EVENT_DATETIME,\n  order_direction: Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection::ASC,\n  filter: Models::Operations::StackoneListPlatformLogsQueryParamFilter.new(\n    account_ids: \"45355976281015164504,45355976281015164505\",\n    start_date: \"2020-01-01T00:00:00.000Z\",\n    end_date: \"2020-01-01T00:00:00.000Z\",\n    request_ids: \"adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c\",\n    source_types: \"DASHBOARD,SYNTHETIC_WEBHOOK\",\n    http_methods: \"GET,POST\",\n    categories: \"hris,ats\",\n    resources: \"employees,users\",\n    actions: \"download,upload\",\n    status_codes: \"200,400\",\n    success: true,\n    order_by: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderBy::STATUS,\n    order_direction: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderDirection::ASC,\n  ),\n)\n\nres = s.request_logs.list_platform_logs(req)\n\nif ! res.platform_logs_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::StackoneListPlatformLogsRequest.new(\n  order_by: Models::Operations::StackoneListPlatformLogsQueryParamOrderBy::EVENT_DATETIME,\n  order_direction: Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection::ASC,\n  filter: Models::Operations::StackoneListPlatformLogsQueryParamFilter.new(\n    account_ids: \"45355976281015164504,45355976281015164505\",\n    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    request_ids: \"adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c\",\n    source_types: \"DASHBOARD,SYNTHETIC_WEBHOOK\",\n    http_methods: \"GET,POST\",\n    categories: \"hris,ats\",\n    resources: \"employees,users\",\n    actions: \"download,upload\",\n    status_codes: \"200,400\",\n    success: true,\n    order_by: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderBy::STATUS,\n    order_direction: Models::Operations::StackoneListPlatformLogsQueryParamRequestLogsOrderDirection::ASC,\n  ),\n)\n\nres = s.request_logs.list_platform_logs(req)\n\nif ! res.platform_logs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_applications"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsRequest.new(\n  fields_: \"id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate\",\n  filter: Models::Operations::AtsListApplicationsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n    created_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"documents\",\n  include: \"attachments,custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_applications(req)\n\nif ! res.applications_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsRequest.new(\n  fields_: \"id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate\",\n  filter: Models::Operations::AtsListApplicationsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"documents\",\n  include: \"attachments,custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_applications(req)\n\nif ! res.applications_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications"]["post"]
     update:
       "x-codeSamples":
@@ -110,13 +110,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_application_changes"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationChangesRequest.new(\n  id: \"<id>\",\n  fields_: \"event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values\",\n  filter: Models::Operations::AtsListApplicationChangesQueryParamFilter.new(\n    created_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_changes(req)\n\nif ! res.application_changes_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationChangesRequest.new(\n  id: \"<id>\",\n  fields_: \"event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values\",\n  filter: Models::Operations::AtsListApplicationChangesQueryParamFilter.new(\n    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_changes(req)\n\nif ! res.application_changes_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/documents"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_application_documents"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationDocumentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format\",\n  filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_documents(req)\n\nif ! res.ats_documents_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationDocumentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format\",\n  filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_documents(req)\n\nif ! res.ats_documents_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/documents/upload"]["post"]
     update:
       "x-codeSamples":
@@ -146,7 +146,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_application_notes"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationNotesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at\",\n  filter: Models::Operations::AtsListApplicationNotesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_notes(req)\n\nif ! res.notes_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationNotesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at\",\n  filter: Models::Operations::AtsListApplicationNotesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_notes(req)\n\nif ! res.notes_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/notes"]["post"]
     update:
       "x-codeSamples":
@@ -170,7 +170,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_applications_offers"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsOffersRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history\",\n  filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_applications_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsOffersRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history\",\n  filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_applications_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/offers/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
@@ -188,7 +188,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_applications_scheduled_interviews"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at\",\n  filter: Models::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_applications_scheduled_interviews(req)\n\nif ! res.scheduled_interviews_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at\",\n  filter: Models::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_applications_scheduled_interviews(req)\n\nif ! res.scheduled_interviews_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/scheduled_interviews/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
@@ -200,7 +200,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_application_scorecards"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationScorecardsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at\",\n  filter: Models::Operations::AtsListApplicationScorecardsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_scorecards(req)\n\nif ! res.scorecards_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationScorecardsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at\",\n  filter: Models::Operations::AtsListApplicationScorecardsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_scorecards(req)\n\nif ! res.scorecards_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/scorecards/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
@@ -230,7 +230,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_assessments_packages"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListAssessmentsPackagesRequest.new(\n  filter: Models::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_assessments_packages(req)\n\nif ! res.assessment_package_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListAssessmentsPackagesRequest.new(\n  filter: Models::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_assessments_packages(req)\n\nif ! res.assessment_package_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/assessments/packages/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -260,7 +260,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_background_check_packages"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListBackgroundCheckPackagesRequest.new(\n  fields_: \"id,remote_id,name,description,tests\",\n  filter: Models::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_background_check_packages(req)\n\nif ! res.background_check_package_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListBackgroundCheckPackagesRequest.new(\n  fields_: \"id,remote_id,name,description,tests\",\n  filter: Models::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_background_check_packages(req)\n\nif ! res.background_check_package_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/background_checks/packages"]["post"]
     update:
       "x-codeSamples":
@@ -290,7 +290,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_candidates"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListCandidatesRequest.new(\n  fields_: \"id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at\",\n  filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n    created_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  include: \"custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_candidates(req)\n\nif ! res.candidates_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListCandidatesRequest.new(\n  fields_: \"id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at\",\n  filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  include: \"custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_candidates(req)\n\nif ! res.candidates_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/candidates"]["post"]
     update:
       "x-codeSamples":
@@ -314,7 +314,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_candidate_notes"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListCandidateNotesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at\",\n  filter: Models::Operations::AtsListCandidateNotesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_candidate_notes(req)\n\nif ! res.notes_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListCandidateNotesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at\",\n  filter: Models::Operations::AtsListCandidateNotesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_candidate_notes(req)\n\nif ! res.notes_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/candidates/{id}/notes"]["post"]
     update:
       "x-codeSamples":
@@ -332,43 +332,43 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_application_custom_field_definitions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsListApplicationCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsListApplicationCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/custom_field_definitions/applications/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_get_application_custom_field_definition"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_application_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsGetApplicationCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_application_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/custom_field_definitions/candidates"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_candidate_custom_field_definitions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_candidate_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_candidate_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/custom_field_definitions/candidates/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_get_candidate_custom_field_definition"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_candidate_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_candidate_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/custom_field_definitions/jobs"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_job_custom_field_definitions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_job_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_job_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/custom_field_definitions/jobs/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_get_job_custom_field_definition"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetJobCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_job_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsGetJobCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.get_job_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/departments"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_departments"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListDepartmentsRequest.new(\n  fields_: \"id,remote_id,name\",\n  filter: Models::Operations::AtsListDepartmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_departments(req)\n\nif ! res.departments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListDepartmentsRequest.new(\n  fields_: \"id,remote_id,name\",\n  filter: Models::Operations::AtsListDepartmentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_departments(req)\n\nif ! res.departments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/departments/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -380,7 +380,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_application_document_categories"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active\",\n  filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_document_categories(req)\n\nif ! res.reference_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active\",\n  filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_application_document_categories(req)\n\nif ! res.reference_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/documents/application_categories/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -392,7 +392,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_interview_stages"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListInterviewStagesRequest.new(\n  fields_: \"id,remote_id,name,order,created_at,updated_at\",\n  filter: Models::Operations::AtsListInterviewStagesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_interview_stages(req)\n\nif ! res.interview_stages_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListInterviewStagesRequest.new(\n  fields_: \"id,remote_id,name,order,created_at,updated_at\",\n  filter: Models::Operations::AtsListInterviewStagesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_interview_stages(req)\n\nif ! res.interview_stages_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/interview_stages/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -404,7 +404,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_interviews"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListInterviewsRequest.new(\n  fields_: \"id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at\",\n  filter: Models::Operations::AtsListInterviewsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n    created_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_interviews(req)\n\nif ! res.interviews_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListInterviewsRequest.new(\n  fields_: \"id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at\",\n  filter: Models::Operations::AtsListInterviewsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_interviews(req)\n\nif ! res.interviews_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/interviews/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -416,7 +416,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_job_postings"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListJobPostingsRequest.new(\n  fields_: \"id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at\",\n  filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n    created_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  include: \"questionnaires\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_job_postings(req)\n\nif ! res.job_postings_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListJobPostingsRequest.new(\n  fields_: \"id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at\",\n  filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  include: \"questionnaires\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_job_postings(req)\n\nif ! res.job_postings_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/job_postings/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -428,7 +428,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_jobs"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListJobsRequest.new(\n  fields_: \"id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at\",\n  filter: Models::Operations::AtsListJobsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n    created_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"job_postings,interview_stages\",\n  include: \"custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_jobs(req)\n\nif ! res.jobs_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListJobsRequest.new(\n  fields_: \"id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at\",\n  filter: Models::Operations::AtsListJobsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"job_postings,interview_stages\",\n  include: \"custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_jobs(req)\n\nif ! res.jobs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/jobs"]["post"]
     update:
       "x-codeSamples":
@@ -452,7 +452,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_lists"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListListsRequest.new(\n  fields_: \"id,remote_id,name,created_at,updated_at,items,type\",\n  filter: Models::Operations::AtsListListsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_lists(req)\n\nif ! res.lists_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListListsRequest.new(\n  fields_: \"id,remote_id,name,created_at,updated_at,items,type\",\n  filter: Models::Operations::AtsListListsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_lists(req)\n\nif ! res.lists_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/lists/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -464,7 +464,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_locations"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListLocationsRequest.new(\n  fields_: \"id,remote_id,name\",\n  filter: Models::Operations::AtsListLocationsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_locations(req)\n\nif ! res.ats_locations_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListLocationsRequest.new(\n  fields_: \"id,remote_id,name\",\n  filter: Models::Operations::AtsListLocationsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_locations(req)\n\nif ! res.ats_locations_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/locations/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -476,7 +476,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_offers"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListOffersRequest.new(\n  fields_: \"id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history\",\n  filter: Models::Operations::AtsListOffersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListOffersRequest.new(\n  fields_: \"id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history\",\n  filter: Models::Operations::AtsListOffersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_offers(req)\n\nif ! res.offers_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/offers"]["post"]
     update:
       "x-codeSamples":
@@ -494,7 +494,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_rejected_reasons"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListRejectedReasonsRequest.new(\n  fields_: \"id,remote_id,label,type,rejected_reason_type\",\n  filter: Models::Operations::AtsListRejectedReasonsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_rejected_reasons(req)\n\nif ! res.rejected_reasons_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListRejectedReasonsRequest.new(\n  fields_: \"id,remote_id,label,type,rejected_reason_type\",\n  filter: Models::Operations::AtsListRejectedReasonsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_rejected_reasons(req)\n\nif ! res.rejected_reasons_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/rejected_reasons/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -506,7 +506,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_users"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListUsersRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,name,email,phone\",\n  filter: Models::Operations::AtsListUsersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::AtsListUsersRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,name,email,phone\",\n  filter: Models::Operations::AtsListUsersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.ats.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/users/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -518,7 +518,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "crm_list_accounts"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListAccountsRequest.new(\n  fields_: \"id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at\",\n  filter: Models::Operations::CrmListAccountsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_accounts(req)\n\nif ! res.accounts_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListAccountsRequest.new(\n  fields_: \"id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at\",\n  filter: Models::Operations::CrmListAccountsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_accounts(req)\n\nif ! res.accounts_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/crm/accounts/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -530,7 +530,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "crm_list_contacts"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListContactsRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at\",\n  filter: Models::Operations::CrmListContactsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  include: \"custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_contacts(req)\n\nif ! res.contacts_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListContactsRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at\",\n  filter: Models::Operations::CrmListContactsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  include: \"custom_fields\",\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_contacts(req)\n\nif ! res.contacts_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/crm/contacts"]["post"]
     update:
       "x-codeSamples":
@@ -554,19 +554,19 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "crm_list_contact_custom_field_definitions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_contact_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_contact_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/crm/custom_field_definitions/contacts/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "crm_get_contact_custom_field_definition"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.get_contact_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.get_contact_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/crm/lists"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "crm_list_lists"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListListsRequest.new(\n  fields_: \"id,remote_id,name,created_at,updated_at,items,type\",\n  filter: Models::Operations::CrmListListsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_lists(req)\n\nif ! res.lists_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::CrmListListsRequest.new(\n  fields_: \"id,remote_id,name,created_at,updated_at,items,type\",\n  filter: Models::Operations::CrmListListsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.crm.list_lists(req)\n\nif ! res.lists_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/crm/lists/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -578,7 +578,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_benefits"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListBenefitsRequest.new(\n  fields_: \"id,remote_id,name,benefit_type,provider,description,created_at,updated_at\",\n  filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_benefits(req)\n\nif ! res.hris_benefits_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListBenefitsRequest.new(\n  fields_: \"id,remote_id,name,benefit_type,provider,description,created_at,updated_at\",\n  filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_benefits(req)\n\nif ! res.hris_benefits_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/benefits/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -590,7 +590,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_companies"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCompaniesRequest.new(\n  fields_: \"id,remote_id,name,full_name,display_name,created_at,updated_at\",\n  filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_companies(req)\n\nif ! res.companies_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCompaniesRequest.new(\n  fields_: \"id,remote_id,name,full_name,display_name,created_at,updated_at\",\n  filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_companies(req)\n\nif ! res.companies_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/companies/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -602,19 +602,19 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_custom_field_definitions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_custom_field_definitions(req)\n\nif ! res.custom_field_definitions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/custom_field_definitions/employees/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_get_employee_custom_field_definition"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_employee_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,options\",\n  filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.get_employee_custom_field_definition(req)\n\nif ! res.custom_field_definition_result_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/documents/employee_categories"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_categories"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active\",\n  filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_categories(req)\n\nif ! res.reference_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active\",\n  filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_categories(req)\n\nif ! res.reference_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/documents/employee_categories/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -626,7 +626,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employees"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeesRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills\",\n  filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"company,employments,work_location,home_location,groups,skills\",\n  include: \"avatar_url,avatar,custom_fields,job_description,benefits\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employees(req)\n\nif ! res.employees_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeesRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills\",\n  filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"company,employments,work_location,home_location,groups,skills\",\n  include: \"avatar_url,avatar,custom_fields,job_description,benefits\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employees(req)\n\nif ! res.employees_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees"]["post"]
     update:
       "x-codeSamples":
@@ -650,7 +650,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_documents"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeDocumentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format\",\n  filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_documents(req)\n\nif ! res.hris_documents_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeDocumentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format\",\n  filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_documents(req)\n\nif ! res.hris_documents_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/documents/upload"]["post"]
     update:
       "x-codeSamples":
@@ -680,7 +680,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_employments"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeEmploymentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager\",\n  filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"groups\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_employments(req)\n\nif ! res.employments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeEmploymentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager\",\n  filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"groups\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_employments(req)\n\nif ! res.employments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/employments"]["post"]
     update:
       "x-codeSamples":
@@ -710,7 +710,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_skills"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeSkillsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency\",\n  filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_skills(req)\n\nif ! res.entity_skills_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeSkillsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency\",\n  filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_skills(req)\n\nif ! res.entity_skills_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/skills"]["post"]
     update:
       "x-codeSamples":
@@ -728,7 +728,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_tasks"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTasksRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at\",\n  filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"attachments\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_tasks(req)\n\nif ! res.tasks_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTasksRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at\",\n  filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"attachments\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_tasks(req)\n\nif ! res.tasks_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/tasks/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
@@ -740,7 +740,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_time_off_requests"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy\",\n  filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy\",\n  filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/time_off"]["post"]
     update:
       "x-codeSamples":
@@ -770,7 +770,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_time_off_balances"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at\",\n  filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_time_off_balances(req)\n\nif ! res.time_off_balances_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at\",\n  filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_time_off_balances(req)\n\nif ! res.time_off_balances_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/time_off_balances/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
@@ -782,13 +782,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_time_off_policies"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at\",\n  filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_time_off_policies(req)\n\nif ! res.time_off_policies_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at\",\n  filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_time_off_policies(req)\n\nif ! res.time_off_policies_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_work_eligibility"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number\",\n  filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_work_eligibility(req)\n\nif ! res.work_eligibility_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number\",\n  filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employee_work_eligibility(req)\n\nif ! res.work_eligibility_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/work_eligibility"]["post"]
     update:
       "x-codeSamples":
@@ -812,7 +812,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employments"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmploymentsRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager\",\n  filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"groups\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employments(req)\n\nif ! res.employments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListEmploymentsRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager\",\n  filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"groups\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_employments(req)\n\nif ! res.employments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employments/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -824,13 +824,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_groups(req)\n\nif ! res.hris_groups_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_groups(req)\n\nif ! res.hris_groups_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/companies"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_companies_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCompaniesGroupsRequest.new(\n  fields_: \"id,remote_id,name,full_name,display_name,created_at,updated_at\",\n  filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_companies_groups(req)\n\nif ! res.companies_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCompaniesGroupsRequest.new(\n  fields_: \"id,remote_id,name,full_name,display_name,created_at,updated_at\",\n  filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_companies_groups(req)\n\nif ! res.companies_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/companies/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -842,7 +842,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_cost_center_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCostCenterGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_cost_center_groups(req)\n\nif ! res.hris_cost_center_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListCostCenterGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_cost_center_groups(req)\n\nif ! res.hris_cost_center_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/cost_centers/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -854,7 +854,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_department_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDepartmentGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_department_groups(req)\n\nif ! res.hris_departments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDepartmentGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_department_groups(req)\n\nif ! res.hris_departments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/departments/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -866,7 +866,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_division_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDivisionGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_division_groups(req)\n\nif ! res.hris_divisions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListDivisionGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_division_groups(req)\n\nif ! res.hris_divisions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/divisions/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -878,7 +878,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_team_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTeamGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids\",\n  filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_team_groups(req)\n\nif ! res.hris_teams_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTeamGroupsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids\",\n  filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_team_groups(req)\n\nif ! res.hris_teams_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups/teams/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -896,7 +896,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_jobs"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListJobsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListJobsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_jobs(req)\n\nif ! res.jobs_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListJobsRequest.new(\n  fields_: \"id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id\",\n  filter: Models::Operations::HrisListJobsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_jobs(req)\n\nif ! res.jobs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/jobs/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -908,7 +908,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_locations"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListLocationsRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at\",\n  filter: Models::Operations::HrisListLocationsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_locations(req)\n\nif ! res.hris_locations_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListLocationsRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at\",\n  filter: Models::Operations::HrisListLocationsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_locations(req)\n\nif ! res.hris_locations_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/locations/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -920,7 +920,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_positions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListPositionsRequest.new(\n  filter: Models::Operations::HrisListPositionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  status: Models::Operations::Status::OPEN,\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_positions(req)\n\nif ! res.positions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListPositionsRequest.new(\n  filter: Models::Operations::HrisListPositionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  status: Models::Operations::Status::OPEN,\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_positions(req)\n\nif ! res.positions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/positions/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -932,7 +932,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_shifts"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListShiftsRequest.new(\n  filter: Models::Operations::HrisListShiftsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_shifts(req)\n\nif ! res.hris_shifts_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListShiftsRequest.new(\n  filter: Models::Operations::HrisListShiftsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_shifts(req)\n\nif ! res.hris_shifts_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/shifts/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -944,7 +944,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_tasks"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTasksRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at\",\n  filter: Models::Operations::HrisListTasksQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"attachments\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_tasks(req)\n\nif ! res.tasks_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTasksRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at\",\n  filter: Models::Operations::HrisListTasksQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"attachments\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_tasks(req)\n\nif ! res.tasks_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/tasks/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -956,7 +956,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_time_entries"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTimeEntriesRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at\",\n  filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n    start_time: \"2020-01-01T00:00:00.000Z\",\n    end_time: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_time_entries(req)\n\nif ! res.time_entries_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTimeEntriesRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at\",\n  filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    start_time: \"2020-01-01T00:00:00.000Z\",\n    end_time: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_time_entries(req)\n\nif ! res.time_entries_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/time_entries/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -968,7 +968,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_time_off_requests"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTimeOffRequestsRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy\",\n  filter: Models::Operations::HrisListTimeOffRequestsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTimeOffRequestsRequest.new(\n  fields_: \"id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy\",\n  filter: Models::Operations::HrisListTimeOffRequestsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"policy\",\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_time_off_requests(req)\n\nif ! res.time_off_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/time_off/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -980,7 +980,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_time_off_policies"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTimeOffPoliciesRequest.new(\n  fields_: \"id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at\",\n  filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_time_off_policies(req)\n\nif ! res.time_off_policies_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::HrisListTimeOffPoliciesRequest.new(\n  fields_: \"id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at\",\n  filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.hris.list_time_off_policies(req)\n\nif ! res.time_off_policies_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/time_off_policies/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -992,7 +992,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "iam_list_groups"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListGroupsRequest.new(\n  fields_: \"id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at\",\n  filter: Models::Operations::IamListGroupsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"roles\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_groups(req)\n\nif ! res.iam_groups_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListGroupsRequest.new(\n  fields_: \"id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at\",\n  filter: Models::Operations::IamListGroupsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"roles\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_groups(req)\n\nif ! res.iam_groups_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/groups/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1004,7 +1004,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "iam_list_policies"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListPoliciesRequest.new(\n  fields_: \"id,remote_id,name,permissions,description,created_at,updated_at\",\n  filter: Models::Operations::IamListPoliciesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"permissions\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_policies(req)\n\nif ! res.iam_policies_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListPoliciesRequest.new(\n  fields_: \"id,remote_id,name,permissions,description,created_at,updated_at\",\n  filter: Models::Operations::IamListPoliciesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"permissions\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_policies(req)\n\nif ! res.iam_policies_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/policies/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1016,7 +1016,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "iam_list_roles"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListRolesRequest.new(\n  fields_: \"id,remote_id,name,type,policies,description,created_at,updated_at\",\n  filter: Models::Operations::IamListRolesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"policies\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_roles(req)\n\nif ! res.iam_roles_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListRolesRequest.new(\n  fields_: \"id,remote_id,name,type,policies,description,created_at,updated_at\",\n  filter: Models::Operations::IamListRolesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"policies\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_roles(req)\n\nif ! res.iam_roles_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/roles/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1028,7 +1028,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "iam_list_users"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListUsersRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled\",\n  filter: Models::Operations::IamListUsersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  expand: \"roles,groups\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_users(req)\n\nif ! res.iam_users_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::IamListUsersRequest.new(\n  fields_: \"id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled\",\n  filter: Models::Operations::IamListUsersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: \"roles,groups\",\n  x_account_id: \"<id>\",\n)\n\nres = s.iam.list_users(req)\n\nif ! res.iam_users_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/users/{id}"]["delete"]
     update:
       "x-codeSamples":
@@ -1052,7 +1052,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_assignments"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListAssignmentsRequest.new(\n  fields_: \"id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: Models::Operations::LmsListAssignmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  user_id: \"c28xyrc55866bvuv\",\n  remote_user_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListAssignmentsRequest.new(\n  fields_: \"id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: Models::Operations::LmsListAssignmentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  user_id: \"c28xyrc55866bvuv\",\n  remote_user_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/assignments/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1064,7 +1064,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_categories"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active,hierarchy,level,language\",\n  filter: Models::Operations::LmsListCategoriesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_categories(req)\n\nif ! res.categories_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListCategoriesRequest.new(\n  fields_: \"id,remote_id,name,active,hierarchy,level,language\",\n  filter: Models::Operations::LmsListCategoriesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_categories(req)\n\nif ! res.categories_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/categories/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1076,7 +1076,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_completions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListCompletionsRequest.new(\n  fields_: \"id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent\",\n  filter: Models::Operations::LmsListCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListCompletionsRequest.new(\n  fields_: \"id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent\",\n  filter: Models::Operations::LmsListCompletionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/completions/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1088,7 +1088,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_content"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListContentRequest.new(\n  fields_: \"id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors\",\n  filter: Models::Operations::LmsListContentQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_content(req)\n\nif ! res.content_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListContentRequest.new(\n  fields_: \"id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors\",\n  filter: Models::Operations::LmsListContentQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_content(req)\n\nif ! res.content_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/content"]["put"]
     update:
       "x-codeSamples":
@@ -1118,7 +1118,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_courses"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListCoursesRequest.new(\n  fields_: \"id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors\",\n  filter: Models::Operations::LmsListCoursesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_courses(req)\n\nif ! res.course_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListCoursesRequest.new(\n  fields_: \"id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors\",\n  filter: Models::Operations::LmsListCoursesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_courses(req)\n\nif ! res.course_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/courses/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1130,7 +1130,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_skills"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListSkillsRequest.new(\n  fields_: \"id,remote_id,name,active,hierarchy,language\",\n  filter: Models::Operations::LmsListSkillsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_skills(req)\n\nif ! res.skills_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListSkillsRequest.new(\n  fields_: \"id,remote_id,name,active,hierarchy,language\",\n  filter: Models::Operations::LmsListSkillsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_skills(req)\n\nif ! res.skills_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/skills/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1142,7 +1142,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_users"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListUsersRequest.new(\n  fields_: \"id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name\",\n  filter: Models::Operations::LmsListUsersQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListUsersRequest.new(\n  fields_: \"id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name\",\n  filter: Models::Operations::LmsListUsersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_users(req)\n\nif ! res.users_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1154,13 +1154,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_user_assignments"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListUserAssignmentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: Models::Operations::LmsListUserAssignmentsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  user_id: \"c28xyrc55866bvuv\",\n  remote_user_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_user_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListUserAssignmentsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference\",\n  filter: Models::Operations::LmsListUserAssignmentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  user_id: \"c28xyrc55866bvuv\",\n  remote_user_id: \"e3cb75bf-aa84-466e-a6c1-b8322b257a48\",\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_user_assignments(req)\n\nif ! res.assignments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/assignments"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_create_user_assignment"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nres = s.lms.create_user_assignment(id=\"<id>\", x_account_id=\"<id>\", lms_create_assignment_request_dto=Models::Shared::LmsCreateAssignmentRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n  learning_object_id: \"e3gd34-23tr21-er234-345er56\",\n  learning_object_external_reference: \"learning-content-123\",\n  progress: 40,\n  created_at: \"2021-07-21T14:00:00.000Z\",\n  due_date: \"2021-07-21T14:00:00.000Z\",\n  status: Models::Shared::LmsCreateAssignmentRequestDtoStatus.new(\n    value: Models::Shared::LmsCreateAssignmentRequestDtoValue::IN_PROGRESS,\n  ),\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nres = s.lms.create_user_assignment(id=\"<id>\", x_account_id=\"<id>\", lms_create_assignment_request_dto=Models::Shared::LmsCreateAssignmentRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n  learning_object_id: \"e3gd34-23tr21-er234-345er56\",\n  learning_object_external_reference: \"learning-content-123\",\n  progress: 40,\n  created_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),\n  due_date: DateTime.iso8601('2021-07-21T14:00:00.000Z'),\n  status: Models::Shared::LmsCreateAssignmentRequestDtoStatus.new(\n    value: Models::Shared::LmsCreateAssignmentRequestDtoValue::IN_PROGRESS,\n  ),\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/assignments/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
@@ -1172,13 +1172,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_list_user_completions"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListUserCompletionsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent\",\n  filter: Models::Operations::LmsListUserCompletionsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_user_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::LmsListUserCompletionsRequest.new(\n  id: \"<id>\",\n  fields_: \"id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent\",\n  filter: Models::Operations::LmsListUserCompletionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.lms.list_user_completions(req)\n\nif ! res.completions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/completions"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "lms_create_user_completion"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nres = s.lms.create_user_completion(id=\"<id>\", x_account_id=\"<id>\", lms_create_completion_request_dto=Models::Shared::LmsCreateCompletionRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n  completed_at: \"2021-07-21T14:00:00.000Z\",\n  learning_object_id: \"e3gd34-23tr21-er234-345er56\",\n  learning_object_external_reference: \"learning-content-123\",\n  time_spent: \"PT1H30M45S\",\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nres = s.lms.create_user_completion(id=\"<id>\", x_account_id=\"<id>\", lms_create_completion_request_dto=Models::Shared::LmsCreateCompletionRequestDto.new(\n  passthrough: {\n    \"other_known_names\": \"John Doe\",\n  },\n  completed_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),\n  learning_object_id: \"e3gd34-23tr21-er234-345er56\",\n  learning_object_external_reference: \"learning-content-123\",\n  time_spent: \"PT1H30M45S\",\n))\n\nif ! res.create_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/lms/users/{id}/completions/{subResourceId}"]["delete"]
     update:
       "x-codeSamples":
@@ -1196,7 +1196,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "marketing_list_campaigns"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListCampaignsRequest.new(\n  fields_: \"id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages\",\n  filter: Models::Operations::MarketingListCampaignsQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_campaigns(req)\n\nif ! res.campaigns_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListCampaignsRequest.new(\n  fields_: \"id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages\",\n  filter: Models::Operations::MarketingListCampaignsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_campaigns(req)\n\nif ! res.campaigns_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/campaigns/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -1208,7 +1208,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "marketing_list_content_blocks"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListContentBlocksRequest.new(\n  fields_: \"id,remote_id,name,type,content,status,tags,created_at,updated_at\",\n  filter: Models::Operations::MarketingListContentBlocksQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_content_blocks(req)\n\nif ! res.content_blocks_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListContentBlocksRequest.new(\n  fields_: \"id,remote_id,name,type,content,status,tags,created_at,updated_at\",\n  filter: Models::Operations::MarketingListContentBlocksQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_content_blocks(req)\n\nif ! res.content_blocks_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/content_blocks"]["post"]
     update:
       "x-codeSamples":
@@ -1232,7 +1232,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "marketing_list_email_templates"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListEmailTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListEmailTemplatesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_email_templates(req)\n\nif ! res.email_templates_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListEmailTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListEmailTemplatesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_email_templates(req)\n\nif ! res.email_templates_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/email"]["post"]
     update:
       "x-codeSamples":
@@ -1256,7 +1256,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "marketing_list_in_app_templates"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListInAppTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListInAppTemplatesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_in_app_templates(req)\n\nif ! res.in_app_templates_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListInAppTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListInAppTemplatesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_in_app_templates(req)\n\nif ! res.in_app_templates_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/in_app"]["post"]
     update:
       "x-codeSamples":
@@ -1280,7 +1280,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "marketing_list_push_templates"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListPushTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListPushTemplatesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_push_templates(req)\n\nif ! res.push_templates_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListPushTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListPushTemplatesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_push_templates(req)\n\nif ! res.push_templates_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/push"]["post"]
     update:
       "x-codeSamples":
@@ -1304,7 +1304,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "marketing_list_sms_templates"
-          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListSmsTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListSmsTemplatesQueryParamFilter.new(\n    updated_after: \"2020-01-01T00:00:00.000Z\",\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_sms_templates(req)\n\nif ! res.sms_templates_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: \"\",\n        password: \"\",\n      ),\n    )\n\nreq = Models::Operations::MarketingListSmsTemplatesRequest.new(\n  fields_: \"id,remote_id,name,messages,created_at,updated_at,tags\",\n  filter: Models::Operations::MarketingListSmsTemplatesQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: \"<id>\",\n)\n\nres = s.marketing.list_sms_templates(req)\n\nif ! res.sms_templates_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/marketing/templates/sms"]["post"]
     update:
       "x-codeSamples":

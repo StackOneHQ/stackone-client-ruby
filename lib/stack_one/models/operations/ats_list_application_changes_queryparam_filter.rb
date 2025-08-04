@@ -16,10 +16,10 @@ module StackOne
         # Filter by the type of change that occurred to the application
         field :change_type, T.nilable(Models::Operations::ChangeType), { 'query_param': { 'field_name': 'change_type' } }
         # Use a string with a date to only select results created after that given date
-        field :created_after, T.nilable(::String), { 'query_param': { 'field_name': 'created_after' } }
+        field :created_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
 
 
-        sig { params(change_type: T.nilable(Models::Operations::ChangeType), created_after: T.nilable(::String)).void }
+        sig { params(change_type: T.nilable(Models::Operations::ChangeType), created_after: T.nilable(::DateTime)).void }
         def initialize(change_type: nil, created_after: nil)
           @change_type = change_type
           @created_after = created_after

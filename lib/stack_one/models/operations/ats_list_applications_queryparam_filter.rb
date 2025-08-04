@@ -14,16 +14,16 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Use a string with a date to only select results created after that given date
-        field :created_after, T.nilable(::String), { 'query_param': { 'field_name': 'created_after' } }
+        field :created_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
         # Filter to select applications by job_id
         field :job_id, T.nilable(::String), { 'query_param': { 'field_name': 'job_id' } }
         # Filter to select applications by stage and sub-stage
         field :stage, T.nilable(::String), { 'query_param': { 'field_name': 'stage' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(created_after: T.nilable(::String), job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        sig { params(created_after: T.nilable(::DateTime), job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(created_after: nil, job_id: nil, stage: nil, updated_after: nil)
           @created_after = created_after
           @job_id = job_id

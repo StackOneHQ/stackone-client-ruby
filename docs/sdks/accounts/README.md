@@ -9,7 +9,7 @@ Customer or business accounts.
 
 * [delete_account](#delete_account) - Delete Account
 * [get_account](#get_account) - Get Account
-* [get_account_meta_info](#get_account_meta_info) - Get meta information of the account
+* [get_account_meta_info](#get_account_meta_info) - Get Account Meta Information
 * [list_linked_accounts](#list_linked_accounts) - List Accounts
 * [update_account](#update_account) - Update Account
 
@@ -87,7 +87,7 @@ end
 
 ## get_account_meta_info
 
-Get meta information of the account
+Get Account Meta Information
 
 ### Example Usage
 

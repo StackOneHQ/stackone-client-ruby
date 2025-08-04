@@ -22,14 +22,14 @@ module StackOne
         # The unique identifier of the break
         field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Whether the break is paid
-        field :is_paid, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_paid') } }
+        field :is_paid, T.nilable(T.any(T::Boolean, Models::Shared::ShiftBreak2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_paid') } }
         # The start time of the break
         field :start_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The date and time the break was last updated
         field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-        sig { params(created_at: T.nilable(::DateTime), duration: T.nilable(::String), end_time: T.nilable(::DateTime), id: T.nilable(::String), is_paid: T.nilable(T::Boolean), start_time: T.nilable(::DateTime), updated_at: T.nilable(::DateTime)).void }
+        sig { params(created_at: T.nilable(::DateTime), duration: T.nilable(::String), end_time: T.nilable(::DateTime), id: T.nilable(::String), is_paid: T.nilable(T.any(T::Boolean, Models::Shared::ShiftBreak2)), start_time: T.nilable(::DateTime), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, duration: nil, end_time: nil, id: nil, is_paid: nil, start_time: nil, updated_at: nil)
           @created_at = created_at
           @duration = duration

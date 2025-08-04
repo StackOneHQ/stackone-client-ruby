@@ -18,10 +18,10 @@ module StackOne
         # Filter to select employees by employee_number
         field :employee_number, T.nilable(::String), { 'query_param': { 'field_name': 'employee_number' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(email: T.nilable(::String), employee_number: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        sig { params(email: T.nilable(::String), employee_number: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(email: nil, employee_number: nil, updated_after: nil)
           @email = email
           @employee_number = employee_number

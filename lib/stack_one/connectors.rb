@@ -24,7 +24,7 @@ module StackOne
 
     sig { params(provider: ::String, include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetConnectorMetaResponse) }
     def get_connector_meta(provider, include = nil, retries = nil, timeout_ms = nil)
-      # get_connector_meta - Get Connector Meta information for the given provider key
+      # get_connector_meta - Get Connector Meta Information
       request = Models::Operations::StackoneGetConnectorMetaRequest.new(
         
         provider: provider,
@@ -292,7 +292,7 @@ module StackOne
 
     sig { params(include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListConnectorsMetaResponse) }
     def list_connectors_meta(include = nil, retries = nil, timeout_ms = nil)
-      # list_connectors_meta - List Connectors Meta Information for all providers
+      # list_connectors_meta - List Connector Meta Information
       request = Models::Operations::StackoneListConnectorsMetaRequest.new(
         
         include: include

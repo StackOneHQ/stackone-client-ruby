@@ -648,7 +648,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListCampaignsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages",
   filter: Models::Operations::MarketingListCampaignsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -692,7 +692,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListContentBlocksRequest.new(
   fields_: "id,remote_id,name,type,content,status,tags,created_at,updated_at",
   filter: Models::Operations::MarketingListContentBlocksQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -736,7 +736,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListEmailTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   filter: Models::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -780,7 +780,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListInAppTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   filter: Models::Operations::MarketingListInAppTemplatesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -826,7 +826,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListOmniChannelTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   filter: Models::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -870,7 +870,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListPushTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   filter: Models::Operations::MarketingListPushTemplatesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -914,7 +914,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::MarketingListSmsTemplatesRequest.new(
   fields_: "id,remote_id,name,messages,created_at,updated_at,tags",
   filter: Models::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )

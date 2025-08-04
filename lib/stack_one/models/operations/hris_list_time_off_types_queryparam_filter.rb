@@ -14,10 +14,10 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(updated_after: T.nilable(::String)).void }
+        sig { params(updated_after: T.nilable(::DateTime)).void }
         def initialize(updated_after: nil)
           @updated_after = updated_after
         end

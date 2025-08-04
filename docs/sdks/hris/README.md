@@ -7,7 +7,7 @@
 
 * [batch_upload_employee_document](#batch_upload_employee_document) - Batch Upload Employee Document
 * [cancel_employee_time_off_request](#cancel_employee_time_off_request) - Cancel Employee Time Off Request
-* [create_employee](#create_employee) - Creates an employee
+* [create_employee](#create_employee) - Create Employee
 * [create_employee_employment](#create_employee_employment) - Create Employee Employment
 * [create_employee_skill](#create_employee_skill) - Create Employee Skill
 * [create_employee_time_off_request](#create_employee_time_off_request) - Create Employee Time Off Request
@@ -71,7 +71,7 @@
 * [list_time_off_policies](#list_time_off_policies) - List Time Off Policies
 * [list_time_off_requests](#list_time_off_requests) - List time off requests
 * [~~list_time_off_types~~](#list_time_off_types) - List time off types :warning: **Deprecated**
-* [update_employee](#update_employee) - Updates an employee
+* [update_employee](#update_employee) - Update Employee
 * [update_employee_employment](#update_employee_employment) - Update Employee Employment
 * [update_employee_time_off_request](#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
@@ -173,7 +173,7 @@ end
 
 ## create_employee
 
-Creates an employee
+Create Employee
 
 ### Example Usage
 
@@ -933,7 +933,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
   filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -1874,7 +1874,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListBenefitsRequest.new(
   fields_: "id,remote_id,name,benefit_type,provider,description,created_at,updated_at",
   filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -1918,7 +1918,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListCompaniesRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -1962,7 +1962,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListCompaniesGroupsRequest.new(
   fields_: "id,remote_id,name,full_name,display_name,created_at,updated_at",
   filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2006,7 +2006,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListCostCenterGroupsRequest.new(
   fields_: "id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2050,7 +2050,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListDepartmentGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2094,7 +2094,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListDivisionGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2138,7 +2138,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListEmployeeCategoriesRequest.new(
   fields_: "id,remote_id,name,active",
   filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2182,7 +2182,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
   filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2226,7 +2226,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListEmployeeDocumentsRequest.new(
   fields_: "id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format",
   filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2272,7 +2272,7 @@ req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2317,7 +2317,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListEmployeeSkillsRequest.new(
   fields_: "id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency",
   filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2363,7 +2363,7 @@ req = Models::Operations::HrisListEmployeeTasksRequest.new(
   expand: "attachments",
   fields_: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at",
   filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2409,7 +2409,7 @@ req = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at",
   filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2454,7 +2454,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
   fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
   filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2500,7 +2500,7 @@ req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy",
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2545,7 +2545,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   fields_: "id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number",
   filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -2591,7 +2591,7 @@ req = Models::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
   fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   include: "avatar_url,avatar,custom_fields,job_description,benefits",
   x_account_id: "<id>",
@@ -2637,7 +2637,7 @@ req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: "groups",
   fields_: "id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager",
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2681,7 +2681,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2725,7 +2725,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListJobsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id",
   filter: Models::Operations::HrisListJobsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2769,7 +2769,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListLocationsRequest.new(
   fields_: "id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at",
   filter: Models::Operations::HrisListLocationsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2812,7 +2812,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListPositionsRequest.new(
   filter: Models::Operations::HrisListPositionsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   status: Models::Operations::QueryParamStatus::OPEN,
   x_account_id: "<id>",
@@ -2856,7 +2856,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListShiftsRequest.new(
   filter: Models::Operations::HrisListShiftsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2901,7 +2901,7 @@ req = Models::Operations::HrisListTasksRequest.new(
   expand: "attachments",
   fields_: "id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at",
   filter: Models::Operations::HrisListTasksQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2945,7 +2945,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListTeamGroupsRequest.new(
   fields_: "id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids",
   filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -2991,7 +2991,7 @@ req = Models::Operations::HrisListTimeEntriesRequest.new(
   filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(
     end_time: "2020-01-01T00:00:00.000Z",
     start_time: "2020-01-01T00:00:00.000Z",
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -3035,7 +3035,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListTimeOffPoliciesRequest.new(
   fields_: "id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at",
   filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -3080,7 +3080,7 @@ req = Models::Operations::HrisListTimeOffRequestsRequest.new(
   expand: "policy",
   fields_: "id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy",
   filter: Models::Operations::HrisListTimeOffRequestsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -3126,7 +3126,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::HrisListTimeOffTypesRequest.new(
   fields_: "id,remote_id,name,active",
   filter: Models::Operations::HrisListTimeOffTypesQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -3153,7 +3153,7 @@ end
 
 ## update_employee
 
-Updates an employee
+Update Employee
 
 ### Example Usage
 

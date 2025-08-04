@@ -919,3 +919,13 @@ Based on:
 - [ruby v0.31.0] .
 ### Releases
 - [Ruby Gems v0.31.0] https://rubygems.org/gems/stackone_client/versions/0.31.0 - .
+
+## 2025-08-04 09:04:55
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.531.4 (2.570.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v0.33.0] .
+### Releases
+- [Ruby Gems v0.33.0] https://rubygems.org/gems/stackone_client/versions/0.33.0 - .

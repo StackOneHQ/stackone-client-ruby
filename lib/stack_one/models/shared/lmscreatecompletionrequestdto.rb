@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The date the content was completed
-        field :completed_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at') } }
+        field :completed_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this content
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -35,7 +35,7 @@ module StackOne
         field :time_spent, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
 
 
-        sig { params(completed_at: T.nilable(::String), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), time_spent: T.nilable(::String)).void }
+        sig { params(completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), time_spent: T.nilable(::String)).void }
         def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, result: nil, time_spent: nil)
           @completed_at = completed_at
           @content_external_reference = content_external_reference

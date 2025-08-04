@@ -20,7 +20,7 @@ module StackOne
         # A comma-separated list of child resources to filter the results by.
         field :child_resources, T.nilable(::String), { 'query_param': { 'field_name': 'child_resources' } }
         # A ISO8601 date string to filter the results by end_date.
-        field :end_date, T.nilable(::String), { 'query_param': { 'field_name': 'end_date' } }
+        field :end_date, T.nilable(::DateTime), { 'query_param': { 'field_name': 'end_date' } }
         # A comma-separated list of HTTP methods to filter the results by.
         field :http_methods, T.nilable(::String), { 'query_param': { 'field_name': 'http_methods' } }
         # A comma-separated list of provider keys to filter the results by.
@@ -32,7 +32,7 @@ module StackOne
         # A comma-separated list of services to filter the results by.
         field :services, T.nilable(::String), { 'query_param': { 'field_name': 'services' } }
         # A ISO8601 date string to filter the results by start_date.
-        field :start_date, T.nilable(::String), { 'query_param': { 'field_name': 'start_date' } }
+        field :start_date, T.nilable(::DateTime), { 'query_param': { 'field_name': 'start_date' } }
         # A comma-separated list of status codes to filter the results by.
         field :status_codes, T.nilable(::String), { 'query_param': { 'field_name': 'status_codes' } }
         # A comma-separated list of sub resources to filter the results by.
@@ -41,7 +41,7 @@ module StackOne
         field :success, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'success' } }
 
 
-        sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), child_resources: T.nilable(::String), end_date: T.nilable(::String), http_methods: T.nilable(::String), providers: T.nilable(::String), request_ids: T.nilable(::String), resources: T.nilable(::String), services: T.nilable(::String), start_date: T.nilable(::String), status_codes: T.nilable(::String), sub_resources: T.nilable(::String), success: T.nilable(T::Boolean)).void }
+        sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), child_resources: T.nilable(::String), end_date: T.nilable(::DateTime), http_methods: T.nilable(::String), providers: T.nilable(::String), request_ids: T.nilable(::String), resources: T.nilable(::String), services: T.nilable(::String), start_date: T.nilable(::DateTime), status_codes: T.nilable(::String), sub_resources: T.nilable(::String), success: T.nilable(T::Boolean)).void }
         def initialize(account_ids: nil, actions: nil, child_resources: nil, end_date: nil, http_methods: nil, providers: nil, request_ids: nil, resources: nil, services: nil, start_date: nil, status_codes: nil, sub_resources: nil, success: nil)
           @account_ids = account_ids
           @actions = actions

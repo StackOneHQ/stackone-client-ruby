@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 646ae703fe6f65ba2b902563a15b021f
+  docChecksum: 96bc77ad5f5919ac5dcf452b1868091e
   docVersion: 1.0.0
   speakeasyVersion: 1.531.4
   generationVersion: 2.570.4
-  releaseVersion: 0.31.0
-  configChecksum: bc8046f969e313f082f549e3c562e557
+  releaseVersion: 0.33.0
+  configChecksum: f3d1d4b4fbbae2f1af2e4f10372cab45
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -1021,7 +1021,9 @@ generatedFiles:
   - docs/models/shared/employeetype.md
   - docs/models/shared/employeevalue.md
   - docs/models/shared/employment.md
+  - docs/models/shared/employment2.md
   - docs/models/shared/employment4.md
+  - docs/models/shared/employmentactive.md
   - docs/models/shared/employmentcontracttype.md
   - docs/models/shared/employmentdepartment.md
   - docs/models/shared/employmentdurationunit.md
@@ -1078,7 +1080,9 @@ generatedFiles:
   - docs/models/shared/endhalfday.md
   - docs/models/shared/entityskillresult.md
   - docs/models/shared/entityskills.md
+  - docs/models/shared/entityskills2.md
   - docs/models/shared/entityskills4.md
+  - docs/models/shared/entityskillsactive.md
   - docs/models/shared/entityskillscreaterequestdto.md
   - docs/models/shared/entityskillscreaterequestdto4.md
   - docs/models/shared/entityskillscreaterequestdtomaximumproficiency.md
@@ -1528,6 +1532,7 @@ generatedFiles:
   - docs/models/shared/interviewvalue.md
   - docs/models/shared/inviteemployeeresult.md
   - docs/models/shared/isbotuser.md
+  - docs/models/shared/ispaid.md
   - docs/models/shared/issuedby.md
   - docs/models/shared/job.md
   - docs/models/shared/job4.md
@@ -1780,6 +1785,7 @@ generatedFiles:
   - docs/models/shared/security.md
   - docs/models/shared/setupinformation.md
   - docs/models/shared/shiftbreak.md
+  - docs/models/shared/shiftbreak2.md
   - docs/models/shared/skillresult.md
   - docs/models/shared/skills.md
   - docs/models/shared/skills2.md
@@ -2961,7 +2967,9 @@ generatedFiles:
   - lib/stack_one/models/shared/employeeresult.rb
   - lib/stack_one/models/shared/employeespaginated.rb
   - lib/stack_one/models/shared/employment.rb
+  - lib/stack_one/models/shared/employment_2.rb
   - lib/stack_one/models/shared/employment_4.rb
+  - lib/stack_one/models/shared/employment_active.rb
   - lib/stack_one/models/shared/employment_contract_type.rb
   - lib/stack_one/models/shared/employment_department.rb
   - lib/stack_one/models/shared/employment_duration_unit.rb
@@ -3018,7 +3026,9 @@ generatedFiles:
   - lib/stack_one/models/shared/end_half_day.rb
   - lib/stack_one/models/shared/entityskillresult.rb
   - lib/stack_one/models/shared/entityskills.rb
+  - lib/stack_one/models/shared/entityskills_2.rb
   - lib/stack_one/models/shared/entityskills_4.rb
+  - lib/stack_one/models/shared/entityskills_active.rb
   - lib/stack_one/models/shared/entityskills_language.rb
   - lib/stack_one/models/shared/entityskills_schemas_4.rb
   - lib/stack_one/models/shared/entityskills_schemas_minimum_proficiency_4.rb
@@ -3468,6 +3478,7 @@ generatedFiles:
   - lib/stack_one/models/shared/interviewstagespaginated.rb
   - lib/stack_one/models/shared/inviteemployeeresult.rb
   - lib/stack_one/models/shared/is_bot_user.rb
+  - lib/stack_one/models/shared/is_paid.rb
   - lib/stack_one/models/shared/issued_by.rb
   - lib/stack_one/models/shared/job.rb
   - lib/stack_one/models/shared/job_4.rb
@@ -3720,6 +3731,7 @@ generatedFiles:
   - lib/stack_one/models/shared/security.rb
   - lib/stack_one/models/shared/setup_information.rb
   - lib/stack_one/models/shared/shiftbreak.rb
+  - lib/stack_one/models/shared/shiftbreak_2.rb
   - lib/stack_one/models/shared/skillresult.rb
   - lib/stack_one/models/shared/skills.rb
   - lib/stack_one/models/shared/skills_2.rb

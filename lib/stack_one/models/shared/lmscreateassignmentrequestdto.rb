@@ -14,9 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The date the assignment was created
-        field :created_at, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at') } }
+        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The date the assignment is due to be completed
-        field :due_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date') } }
+        field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this assignment
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -33,7 +33,7 @@ module StackOne
         field :status, T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
 
-        sig { params(created_at: T.nilable(::String), due_date: T.nilable(::String), external_reference: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
+        sig { params(created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
         def initialize(created_at: nil, due_date: nil, external_reference: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
           @created_at = created_at
           @due_date = due_date

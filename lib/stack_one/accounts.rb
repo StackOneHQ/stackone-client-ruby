@@ -554,7 +554,7 @@ module StackOne
 
     sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetAccountMetaInfoResponse) }
     def get_account_meta_info(id, retries = nil, timeout_ms = nil)
-      # get_account_meta_info - Get meta information of the account
+      # get_account_meta_info - Get Account Meta Information
       request = Models::Operations::StackoneGetAccountMetaInfoRequest.new(
         
         id: id

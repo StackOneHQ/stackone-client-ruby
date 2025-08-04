@@ -5,7 +5,7 @@
 
 ### Available Operations
 
-* [create_contact](#create_contact) - Creates a new Contact
+* [create_contact](#create_contact) - Create Contact
 * [get_account](#get_account) - Get Account
 * [get_contact](#get_contact) - Get Contact
 * [get_contact_custom_field_definition](#get_contact_custom_field_definition) - Get Contact Custom Field Definition
@@ -18,7 +18,7 @@
 
 ## create_contact
 
-Creates a new Contact
+Create Contact
 
 ### Example Usage
 
@@ -188,7 +188,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
   fields_: "id,remote_id,name,description,type,options",
   filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: "<id>",
   x_account_id: "<id>",
@@ -275,7 +275,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::CrmListAccountsRequest.new(
   fields_: "id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at",
   filter: Models::Operations::CrmListAccountsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -319,7 +319,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
   fields_: "id,remote_id,name,description,type,options",
   filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )
@@ -363,7 +363,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::CrmListContactsRequest.new(
   fields_: "id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at",
   filter: Models::Operations::CrmListContactsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   include: "custom_fields",
   x_account_id: "<id>",
@@ -408,7 +408,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::CrmListListsRequest.new(
   fields_: "id,remote_id,name,created_at,updated_at,items,type",
   filter: Models::Operations::CrmListListsQueryParamFilter.new(
-    updated_after: "2020-01-01T00:00:00.000Z",
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: "<id>",
 )

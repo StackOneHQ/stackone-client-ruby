@@ -16,10 +16,10 @@ module StackOne
         # Filter to select documents by type
         field :type, T.nilable(::String), { 'query_param': { 'field_name': 'type' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(type: T.nilable(::String), updated_after: T.nilable(::String)).void }
+        sig { params(type: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(type: nil, updated_after: nil)
           @type = type
           @updated_after = updated_after

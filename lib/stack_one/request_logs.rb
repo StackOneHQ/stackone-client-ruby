@@ -24,7 +24,7 @@ module StackOne
 
     sig { params(id: ::String, include: T.nilable(Models::Operations::Include), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetLogResponse) }
     def get_log(id, include = nil, retries = nil, timeout_ms = nil)
-      # get_log - Get a Log
+      # get_log - Get Log
       request = Models::Operations::StackoneGetLogRequest.new(
         
         id: id,

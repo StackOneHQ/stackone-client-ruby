@@ -7,12 +7,12 @@ Retrieve metadata for connectors.
 
 ### Available Operations
 
-* [get_connector_meta](#get_connector_meta) - Get Connector Meta information for the given provider key
-* [list_connectors_meta](#list_connectors_meta) - List Connectors Meta Information for all providers
+* [get_connector_meta](#get_connector_meta) - Get Connector Meta Information
+* [list_connectors_meta](#list_connectors_meta) - List Connector Meta Information
 
 ## get_connector_meta
 
-Get Connector Meta information for the given provider key
+Get Connector Meta Information
 
 ### Example Usage
 
@@ -49,7 +49,7 @@ end
 
 ## list_connectors_meta
 
-List Connectors Meta Information for all providers
+List Connector Meta Information
 
 ### Example Usage
 

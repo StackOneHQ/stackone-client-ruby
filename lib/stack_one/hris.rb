@@ -608,7 +608,7 @@ module StackOne
 
     sig { params(hris_create_employee_request_dto: Models::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeResponse) }
     def create_employee(hris_create_employee_request_dto, x_account_id, retries = nil, timeout_ms = nil)
-      # create_employee - Creates an employee
+      # create_employee - Create Employee
       request = Models::Operations::HrisCreateEmployeeRequest.new(
         
         hris_create_employee_request_dto: hris_create_employee_request_dto,
@@ -18260,7 +18260,7 @@ module StackOne
 
     sig { params(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeResponse) }
     def update_employee(hris_update_employee_request_dto, id, x_account_id, retries = nil, timeout_ms = nil)
-      # update_employee - Updates an employee
+      # update_employee - Update Employee
       request = Models::Operations::HrisUpdateEmployeeRequest.new(
         
         hris_update_employee_request_dto: hris_update_employee_request_dto,

@@ -22,10 +22,10 @@ module StackOne
         # Filter to select shifts by status
         field :status, T.nilable(Models::Operations::HrisListShiftsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::String), { 'query_param': { 'field_name': 'updated_after' } }
+        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(employee_id: T.nilable(::String), ends_before: T.nilable(::DateTime), starts_after: T.nilable(::DateTime), status: T.nilable(Models::Operations::HrisListShiftsQueryParamStatus), updated_after: T.nilable(::String)).void }
+        sig { params(employee_id: T.nilable(::String), ends_before: T.nilable(::DateTime), starts_after: T.nilable(::DateTime), status: T.nilable(Models::Operations::HrisListShiftsQueryParamStatus), updated_after: T.nilable(::DateTime)).void }
         def initialize(employee_id: nil, ends_before: nil, starts_after: nil, status: nil, updated_after: nil)
           @employee_id = employee_id
           @ends_before = ends_before
