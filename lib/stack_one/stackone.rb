@@ -16,7 +16,7 @@ module StackOne
   class StackOne
     extend T::Sig
 
-    attr_accessor :accounts, :connect_sessions, :connectors, :request_logs, :ats, :crm, :hris, :iam, :lms, :marketing, :proxy
+    attr_accessor :accounts, :connect_sessions, :connectors, :request_logs, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
 
     sig do
       params(
@@ -85,13 +85,18 @@ module StackOne
       @connect_sessions = ConnectSessions.new(@sdk_configuration)
       @connectors = Connectors.new(@sdk_configuration)
       @request_logs = RequestLogs.new(@sdk_configuration)
+      @accounting = Accounting.new(@sdk_configuration)
       @ats = Ats.new(@sdk_configuration)
       @crm = Crm.new(@sdk_configuration)
+      @documents = Documents.new(@sdk_configuration)
       @hris = Hris.new(@sdk_configuration)
       @iam = Iam.new(@sdk_configuration)
       @lms = Lms.new(@sdk_configuration)
       @marketing = Marketing.new(@sdk_configuration)
+      @messaging = Messaging.new(@sdk_configuration)
       @proxy = Proxy.new(@sdk_configuration)
+      @screening = Screening.new(@sdk_configuration)
+      @ticketing = Ticketing.new(@sdk_configuration)
     end
   end
 end

@@ -1,0 +1,9 @@
+# TicketingCreateTicketRequest
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `ticketing_ticket_create_request_dto`                                                                     | [Models::Shared::TicketingTicketCreateRequestDto](../../models/shared/ticketingticketcreaterequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |

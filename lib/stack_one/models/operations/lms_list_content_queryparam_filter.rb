@@ -8,22 +8,26 @@ module StackOne
   module Models
     module Operations
     
-      # Filter parameters that allow greater customisation of the list response
+      # LMS Courses Filter
       class LmsListContentQueryParamFilter
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Filter to allow filtering of only active content
+        field :active, T.nilable(T.any(T::Boolean, ::String)), { 'query_param': { 'field_name': 'active' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(updated_after: T.nilable(::DateTime)).void }
-        def initialize(updated_after: nil)
+        sig { params(active: T.nilable(T.any(T::Boolean, ::String)), updated_after: T.nilable(::DateTime)).void }
+        def initialize(active: nil, updated_after: nil)
+          @active = active
           @updated_after = updated_after
         end
 
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @active == other.active
           return false unless @updated_after == other.updated_after
           true
         end

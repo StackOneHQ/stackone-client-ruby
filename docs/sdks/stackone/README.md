@@ -2,6 +2,6 @@
 
 ## Overview
 
-IAM: The documentation for the StackOne Unified API - IAM
+Accounting: The documentation for the StackOne Unified API - ACCOUNTING
 
 ### Available Operations

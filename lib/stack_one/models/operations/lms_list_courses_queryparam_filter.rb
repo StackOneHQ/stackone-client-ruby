@@ -13,20 +13,24 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Filter to allow filtering of only active courses
+        field :active, T.nilable(T.any(T::Boolean, ::String)), { 'query_param': { 'field_name': 'active' } }
         # Filter to select courses by external_reference
         field :external_reference, T.nilable(::String), { 'query_param': { 'field_name': 'external_reference' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
 
-        sig { params(external_reference: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
-        def initialize(external_reference: nil, updated_after: nil)
+        sig { params(active: T.nilable(T.any(T::Boolean, ::String)), external_reference: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
+        def initialize(active: nil, external_reference: nil, updated_after: nil)
+          @active = active
           @external_reference = external_reference
           @updated_after = updated_after
         end
 
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @active == other.active
           return false unless @external_reference == other.external_reference
           return false unless @updated_after == other.updated_after
           true

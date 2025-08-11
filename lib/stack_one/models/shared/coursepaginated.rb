@@ -22,13 +22,16 @@ module StackOne
 
         field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
+        field :total, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('total') } }
 
-        sig { params(data: T::Array[Models::Shared::Course], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
-        def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
+
+        sig { params(data: T::Array[Models::Shared::Course], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[Models::Shared::RawResponse]), total: T.nilable(::Float)).void }
+        def initialize(data: nil, next_: nil, next_page: nil, raw: nil, total: nil)
           @data = data
           @next_ = next_
           @next_page = next_page
           @raw = raw
+          @total = total
         end
 
         def ==(other)
@@ -37,6 +40,7 @@ module StackOne
           return false unless @next_ == other.next_
           return false unless @next_page == other.next_page
           return false unless @raw == other.raw
+          return false unless @total == other.total
           true
         end
       end

@@ -114,6 +114,8 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the manager
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :remote_manager_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_manager_id') } }
         # The employee skills
         field :skills, T.nilable(T::Array[Models::Shared::EntitySkills]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }

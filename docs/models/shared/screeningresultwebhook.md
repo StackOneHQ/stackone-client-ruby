@@ -1,0 +1,10 @@
+# ScreeningResultWebhook
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `data`                                                                      | [Models::Shared::ScreeningResult](../../models/shared/screeningresult.md)   | :heavy_check_mark:                                                          | The result data                                                             |                                                                             |
+| `event`                                                                     | [Models::Shared::Event](../../models/shared/event.md)                       | :heavy_check_mark:                                                          | The event type                                                              | screening.result.completed                                                  |
+| `raw`                                                                       | T::Array<[Models::Shared::RawResponse](../../models/shared/rawresponse.md)> | :heavy_minus_sign:                                                          | N/A                                                                         |                                                                             |

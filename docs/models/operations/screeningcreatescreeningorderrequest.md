@@ -1,0 +1,9 @@
+# ScreeningCreateScreeningOrderRequest
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `screening_create_order_request_dto`                                                                    | [Models::Shared::ScreeningCreateOrderRequestDto](../../models/shared/screeningcreateorderrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |

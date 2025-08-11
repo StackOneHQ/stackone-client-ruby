@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :archived, T.nilable(T.any(T::Boolean, Models::Shared::Two)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('archived') } }
+        field :archived, T.nilable(T.any(T::Boolean, Models::Shared::Campaign2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('archived') } }
         # channels of the Campaign
         field :channels, T.nilable(T::Array[Models::Shared::ChannelsEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('channels') } }
         # The created_at date
@@ -22,7 +22,7 @@ module StackOne
 
         field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
 
-        field :draft, T.nilable(T.any(T::Boolean, Models::Shared::Campaign2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('draft') } }
+        field :draft, T.nilable(T.any(T::Boolean, Models::Shared::CampaignSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('draft') } }
         # The first_sent_at date
         field :first_sent_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
@@ -45,7 +45,7 @@ module StackOne
         field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
 
-        sig { params(archived: T.nilable(T.any(T::Boolean, Models::Shared::Two)), channels: T.nilable(T::Array[Models::Shared::ChannelsEnum]), created_at: T.nilable(::DateTime), description: T.nilable(::String), draft: T.nilable(T.any(T::Boolean, Models::Shared::Campaign2)), first_sent_at: T.nilable(::DateTime), id: T.nilable(::String), last_sent_at: T.nilable(::DateTime), messages: T.nilable(T::Array[Models::Shared::Message]), name: T.nilable(::String), remote_id: T.nilable(::String), schedule_type: T.nilable(Models::Shared::ScheduleType), status: T.nilable(Models::Shared::CampaignStatus), tags: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime)).void }
+        sig { params(archived: T.nilable(T.any(T::Boolean, Models::Shared::Campaign2)), channels: T.nilable(T::Array[Models::Shared::ChannelsEnum]), created_at: T.nilable(::DateTime), description: T.nilable(::String), draft: T.nilable(T.any(T::Boolean, Models::Shared::CampaignSchemas2)), first_sent_at: T.nilable(::DateTime), id: T.nilable(::String), last_sent_at: T.nilable(::DateTime), messages: T.nilable(T::Array[Models::Shared::Message]), name: T.nilable(::String), remote_id: T.nilable(::String), schedule_type: T.nilable(Models::Shared::ScheduleType), status: T.nilable(Models::Shared::CampaignStatus), tags: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime)).void }
         def initialize(archived: nil, channels: nil, created_at: nil, description: nil, draft: nil, first_sent_at: nil, id: nil, last_sent_at: nil, messages: nil, name: nil, remote_id: nil, schedule_type: nil, status: nil, tags: nil, updated_at: nil)
           @archived = archived
           @channels = channels

@@ -8,18 +8,18 @@ module StackOne
   module Models
     module Shared
     
-      # Type of the answer
+      # Type of account
       class Type
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The source value of the answer type.
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Answer4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # The type of the answer.
-        field :value, T.nilable(Models::Shared::AnswerValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AnswerValue, true) } }
+
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountingAccount4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # Type of account
+        field :value, T.nilable(Models::Shared::AccountingAccountValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AccountingAccountValue, true) } }
 
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Answer4, T::Array[::Object])), value: T.nilable(Models::Shared::AnswerValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountingAccount4, T::Array[::Object])), value: T.nilable(Models::Shared::AccountingAccountValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # Whether the category is active and therefore available for use
+      # Whether the account is active
       class Active
         extend T::Sig
         include Crystalline::MetadataFields

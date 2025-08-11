@@ -14,7 +14,7 @@ module StackOne
   extend T::Sig
   class Accounts
     extend T::Sig
-    # Customer or business accounts.
+    # Chart of accounts.
 
     sig { params(sdk_config: SDKConfiguration).void }
     def initialize(sdk_config)

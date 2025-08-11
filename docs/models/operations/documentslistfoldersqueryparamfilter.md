@@ -1,0 +1,12 @@
+# DocumentsListFoldersQueryParamFilter
+
+Documents Folders Filter
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `drive_id`                                                                                     | *T.nilable(::String)*                                                                          | :heavy_minus_sign:                                                                             | Use to only include Folders within the specified Drive                                         | 1234567890                                                                                     |
+| `folder_id`                                                                                    | *T.nilable(::String)*                                                                          | :heavy_minus_sign:                                                                             | Use to only include Folders within the specified Folder. Required when requesting nested items | 1234567890                                                                                     |
+| `updated_after`                                                                                | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)                           | :heavy_minus_sign:                                                                             | Use a string with a date to only select results updated after that given date                  | 2020-01-01T00:00:00.000Z                                                                       |
