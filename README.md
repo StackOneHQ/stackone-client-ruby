@@ -10,7 +10,7 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-IAM: The documentation for the StackOne Unified API - IAM
+Accounting: The documentation for the StackOne Unified API - ACCOUNTING
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -57,7 +57,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeesRequest.new(
   expand: "company,employments,work_location,home_location,groups,skills",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,documents,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
+  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -110,6 +110,18 @@ end
 
 <details open>
 <summary>Available methods</summary>
+
+### [accounting](docs/sdks/accounting/README.md)
+
+* [batch_create_company_journals](docs/sdks/accounting/README.md#batch_create_company_journals) - Batch Create Journals
+* [get_company](docs/sdks/accounting/README.md#get_company) - Get Company
+* [get_company_account](docs/sdks/accounting/README.md#get_company_account) - Get Account
+* [get_company_journal](docs/sdks/accounting/README.md#get_company_journal) - Get Journal
+* [get_company_tax_rate](docs/sdks/accounting/README.md#get_company_tax_rate) - Get Tax Rate
+* [list_companies](docs/sdks/accounting/README.md#list_companies) - List Companies
+* [list_company_accounts](docs/sdks/accounting/README.md#list_company_accounts) - List Accounts
+* [list_company_journals](docs/sdks/accounting/README.md#list_company_journals) - List Journals
+* [list_company_tax_rates](docs/sdks/accounting/README.md#list_company_tax_rates) - List Tax Rates
 
 ### [accounts](docs/sdks/accounts/README.md)
 
@@ -216,6 +228,17 @@ end
 * [list_contacts](docs/sdks/crm/README.md#list_contacts) - List Contacts
 * [list_lists](docs/sdks/crm/README.md#list_lists) - Get all Lists
 * [update_contact](docs/sdks/crm/README.md#update_contact) - Update Contact (early access)
+
+### [documents](docs/sdks/documents/README.md)
+
+* [download_file](docs/sdks/documents/README.md#download_file) - Download File
+* [get_drive](docs/sdks/documents/README.md#get_drive) - Get Drive
+* [get_file](docs/sdks/documents/README.md#get_file) - Get File
+* [get_folder](docs/sdks/documents/README.md#get_folder) - Get Folder
+* [list_drives](docs/sdks/documents/README.md#list_drives) - List Drives
+* [list_files](docs/sdks/documents/README.md#list_files) - List Files
+* [list_folders](docs/sdks/documents/README.md#list_folders) - List Folders
+* [upload_file](docs/sdks/documents/README.md#upload_file) - Upload File
 
 ### [hris](docs/sdks/hris/README.md)
 
@@ -360,6 +383,20 @@ end
 * [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update Push Template
 * [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update SMS Template
 
+### [messaging](docs/sdks/messaging/README.md)
+
+* [create_conversation](docs/sdks/messaging/README.md#create_conversation) - Create Conversation
+* [download_messaging_attachment](docs/sdks/messaging/README.md#download_messaging_attachment) - Download Attachment
+* [get_attachment](docs/sdks/messaging/README.md#get_attachment) - Get Attachment
+* [get_conversation](docs/sdks/messaging/README.md#get_conversation) - Get Conversation
+* [get_message](docs/sdks/messaging/README.md#get_message) - Get Message
+* [get_user](docs/sdks/messaging/README.md#get_user) - Get User
+* [list_attachments](docs/sdks/messaging/README.md#list_attachments) - List Attachments
+* [list_conversation_messages](docs/sdks/messaging/README.md#list_conversation_messages) - List Conversation Messages
+* [list_conversations](docs/sdks/messaging/README.md#list_conversations) - List Conversations
+* [list_users](docs/sdks/messaging/README.md#list_users) - List Users
+* [send_message](docs/sdks/messaging/README.md#send_message) - Send Message
+
 ### [proxy](docs/sdks/proxy/README.md)
 
 * [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
@@ -371,6 +408,35 @@ end
 * [list_platform_logs](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs
 * [list_step_logs](docs/sdks/requestlogs/README.md#list_step_logs) - List Step Logs
 
+### [screening](docs/sdks/screening/README.md)
+
+* [create_screening_order](docs/sdks/screening/README.md#create_screening_order) - Create Screening Order
+* [get_screening_package](docs/sdks/screening/README.md#get_screening_package) - Get Screening Package
+* [list_screening_packages](docs/sdks/screening/README.md#list_screening_packages) - List Screening Packages
+* [webhook_screening_result](docs/sdks/screening/README.md#webhook_screening_result) - Webhook Screening Result
+
+
+### [ticketing](docs/sdks/ticketing/README.md)
+
+* [create_ticket](docs/sdks/ticketing/README.md#create_ticket) - Create Ticket
+* [download_ticketing_attachment](docs/sdks/ticketing/README.md#download_ticketing_attachment) - Download Attachment
+* [get_attachment](docs/sdks/ticketing/README.md#get_attachment) - Get Attachment
+* [get_comment](docs/sdks/ticketing/README.md#get_comment) - Get Comment
+* [get_project](docs/sdks/ticketing/README.md#get_project) - Get Project
+* [get_project_component](docs/sdks/ticketing/README.md#get_project_component) - Get Project Component
+* [get_ticket](docs/sdks/ticketing/README.md#get_ticket) - Get Ticket
+* [get_ticket_type](docs/sdks/ticketing/README.md#get_ticket_type) - Get Ticket Type
+* [get_user](docs/sdks/ticketing/README.md#get_user) - Get User
+* [list_attachments](docs/sdks/ticketing/README.md#list_attachments) - List Attachments
+* [list_comments](docs/sdks/ticketing/README.md#list_comments) - List Comments
+* [list_project_components](docs/sdks/ticketing/README.md#list_project_components) - List Project Components
+* [list_project_ticket_types](docs/sdks/ticketing/README.md#list_project_ticket_types) - List Project Ticket Types
+* [list_projects](docs/sdks/ticketing/README.md#list_projects) - List Projects
+* [list_ticket_statuses](docs/sdks/ticketing/README.md#list_ticket_statuses) - List Ticket Statuses
+* [list_ticket_types](docs/sdks/ticketing/README.md#list_ticket_types) - List Ticket Types
+* [list_tickets](docs/sdks/ticketing/README.md#list_tickets) - List Tickets
+* [list_users](docs/sdks/ticketing/README.md#list_users) - List Users
+* [update_ticket](docs/sdks/ticketing/README.md#update_ticket) - Update Ticket
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

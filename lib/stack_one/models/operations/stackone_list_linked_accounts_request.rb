@@ -17,6 +17,8 @@ module StackOne
         field :account_ids, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'account_ids', 'style': 'form', 'explode': true } }
         # The origin owner identifier of the results to fetch
         field :origin_owner_id, T.nilable(::String), { 'query_param': { 'field_name': 'origin_owner_id', 'style': 'form', 'explode': true } }
+        # The origin owner identifiers of the results to fetch (supports multiple IDs)
+        field :origin_owner_ids, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'origin_owner_ids', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
         field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of results per page
@@ -31,10 +33,11 @@ module StackOne
         field :status, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
 
 
-        sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String), providers: T.nilable(T::Array[::String]), status: T.nilable(T::Array[::String])).void }
-        def initialize(account_ids: nil, origin_owner_id: nil, page: nil, page_size: nil, provider: nil, providers: nil, status: nil)
+        sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), origin_owner_ids: T.nilable(T::Array[::String]), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String), providers: T.nilable(T::Array[::String]), status: T.nilable(T::Array[::String])).void }
+        def initialize(account_ids: nil, origin_owner_id: nil, origin_owner_ids: nil, page: nil, page_size: nil, provider: nil, providers: nil, status: nil)
           @account_ids = account_ids
           @origin_owner_id = origin_owner_id
+          @origin_owner_ids = origin_owner_ids
           @page = page
           @page_size = page_size
           @provider = provider
@@ -46,6 +49,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @account_ids == other.account_ids
           return false unless @origin_owner_id == other.origin_owner_id
+          return false unless @origin_owner_ids == other.origin_owner_ids
           return false unless @page == other.page
           return false unless @page_size == other.page_size
           return false unless @provider == other.provider

@@ -18,12 +18,12 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Type of the answer
-        field :type, T.nilable(Models::Shared::Type), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, T.nilable(Models::Shared::AnswerType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Values of the answer
         field :values, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 
 
-        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::Type), values: T.nilable(T::Array[::String])).void }
+        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::AnswerType), values: T.nilable(T::Array[::String])).void }
         def initialize(id: nil, remote_id: nil, type: nil, values: nil)
           @id = id
           @remote_id = remote_id

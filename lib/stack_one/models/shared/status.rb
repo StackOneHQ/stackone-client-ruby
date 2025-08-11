@@ -8,18 +8,18 @@ module StackOne
   module Models
     module Shared
     
-      # The status of the assignment
+      # Status of the journal
       class Status
         extend T::Sig
         include Crystalline::MetadataFields
 
 
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssignmentSchemas4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountingJournal4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The journal status
+        field :value, T.nilable(Models::Shared::AccountingJournalValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AccountingJournalValue, true) } }
 
-        field :value, T.nilable(Models::Shared::AssignmentSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AssignmentSchemasValue, true) } }
 
-
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssignmentSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::AssignmentSchemasValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountingJournal4, T::Array[::Object])), value: T.nilable(Models::Shared::AccountingJournalValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

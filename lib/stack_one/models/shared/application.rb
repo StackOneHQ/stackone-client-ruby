@@ -60,6 +60,8 @@ module StackOne
         # Provider's unique identifier of the job
         field :remote_job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
         # Provider's unique identifier of the location
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :remote_location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_id') } }
         # Remote's unique identifiers of the locations
         field :remote_location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_ids') } }

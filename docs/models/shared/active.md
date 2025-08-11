@@ -1,4 +1,4 @@
 # Active
 
-Whether the category is active and therefore available for use
+Whether the account is active
 
