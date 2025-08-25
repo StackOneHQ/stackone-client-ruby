@@ -10,6 +10,8 @@ module StackOne
     
       # PhoneNumberType - Type of phone number
       class PhoneNumberType < T::Enum
+
+
         enums do
           PERSONAL = new('personal')
           WORK = new('work')

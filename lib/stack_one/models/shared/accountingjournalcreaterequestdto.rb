@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Currency code for the journal and all lines
-        field :currency_code, T.nilable(Models::Shared::CurrencyCode), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency_code') } }
+        field :currency_code, Crystalline::Nilable.new(Models::Shared::CurrencyCode), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency_code') } }
         # Exchange rate to company base currency to apply to all lines
-        field :exchange_rate, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('exchange_rate') } }
+        field :exchange_rate, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('exchange_rate') } }
         # List of journal lines
-        field :lines, T.nilable(T::Array[Models::Shared::CreateJournalLine]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('lines') } }
+        field :lines, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateJournalLine)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('lines') } }
         # Memo or description for the journal
-        field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('memo') } }
+        field :memo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('memo') } }
         # Reference number for the journal
-        field :reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reference') } }
+        field :reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reference') } }
         # Date of the journal transaction
-        field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :transaction_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(currency_code: T.nilable(Models::Shared::CurrencyCode), exchange_rate: T.nilable(::Float), lines: T.nilable(T::Array[Models::Shared::CreateJournalLine]), memo: T.nilable(::String), reference: T.nilable(::String), transaction_date: T.nilable(::DateTime)).void }
         def initialize(currency_code: nil, exchange_rate: nil, lines: nil, memo: nil, reference: nil, transaction_date: nil)
@@ -37,6 +36,7 @@ module StackOne
           @transaction_date = transaction_date
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @currency_code == other.currency_code

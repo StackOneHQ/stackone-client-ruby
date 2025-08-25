@@ -10,6 +10,8 @@ module StackOne
     
 
       class LinkedAccountMetaCategory < T::Enum
+
+
         enums do
           ATS = new('ats')
           HRIS = new('hris')

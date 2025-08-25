@@ -10,6 +10,8 @@ module StackOne
     
       # LmsListAssignmentsQueryParamStatus - Filter to select assignment by status
       class LmsListAssignmentsQueryParamStatus < T::Enum
+
+
         enums do
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')

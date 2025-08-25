@@ -10,6 +10,8 @@ module StackOne
     
       # JobPostingSchemasStatusValue - The status of the job postings.
       class JobPostingSchemasStatusValue < T::Enum
+
+
         enums do
           LIVE = new('live')
           DRAFT = new('draft')

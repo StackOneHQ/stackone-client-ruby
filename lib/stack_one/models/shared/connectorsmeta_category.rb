@@ -10,6 +10,8 @@ module StackOne
     
       # ConnectorsMetaCategory - The provider service category
       class ConnectorsMetaCategory < T::Enum
+
+
         enums do
           ATS = new('ats')
           HRIS = new('hris')

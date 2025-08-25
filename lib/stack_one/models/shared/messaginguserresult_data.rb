@@ -14,24 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the user is active
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::MessagingUserResult2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::MessagingUserResult2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # Whether the user is a bot
-        field :bot, T.nilable(T.any(T::Boolean, Models::Shared::MessagingUserResultSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('bot') } }
+        field :bot, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::MessagingUserResultSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('bot') } }
         # Email address of the user
-        field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
         # First name of the user
-        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Last name of the user
-        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # Full name of the user
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Username of the user
-        field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
-
+        field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::MessagingUserResult2)), bot: T.nilable(T.any(T::Boolean, Models::Shared::MessagingUserResultSchemas2)), email: T.nilable(::String), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), username: T.nilable(::String)).void }
         def initialize(active: nil, bot: nil, email: nil, first_name: nil, id: nil, last_name: nil, name: nil, remote_id: nil, username: nil)
@@ -46,6 +45,7 @@ module StackOne
           @username = username
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

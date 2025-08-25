@@ -16,23 +16,25 @@ Authenticate Connect Session
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="stackone_authenticate_connect_session" method="post" path="/connect_sessions/authenticate" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Shared::ConnectSessionAuthenticate.new(
-  token: "<value>",
+  token: '<value>',
 )
 
-res = s.connect_sessions.authenticate_connect_session(req)
+res = s.connect_sessions.authenticate_connect_session(request: req)
 
-if ! res.connect_session.nil?
+unless res.connect_session.nil?
   # handle response
 end
 
@@ -48,7 +50,22 @@ end
 
 **[T.nilable(Models::Operations::StackoneAuthenticateConnectSessionResponse)](../../models/operations/stackoneauthenticateconnectsessionresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## create_connect_session
 
@@ -56,13 +73,15 @@ Create Connect Session
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="stackone_create_connect_session" method="post" path="/connect_sessions" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
@@ -70,26 +89,25 @@ req = Models::Shared::ConnectSessionCreate.new(
   categories: [
     Models::Shared::ConnectSessionCreateCategories::ATS,
     Models::Shared::ConnectSessionCreateCategories::HRIS,
-    Models::Shared::ConnectSessionCreateCategories::IAM,
+    Models::Shared::ConnectSessionCreateCategories::TICKETING,
     Models::Shared::ConnectSessionCreateCategories::CRM,
     Models::Shared::ConnectSessionCreateCategories::IAM,
     Models::Shared::ConnectSessionCreateCategories::MARKETING,
     Models::Shared::ConnectSessionCreateCategories::LMS,
-    Models::Shared::ConnectSessionCreateCategories::HRIS,
+    Models::Shared::ConnectSessionCreateCategories::IAM,
     Models::Shared::ConnectSessionCreateCategories::DOCUMENTS,
     Models::Shared::ConnectSessionCreateCategories::TICKETING,
     Models::Shared::ConnectSessionCreateCategories::SCREENING,
     Models::Shared::ConnectSessionCreateCategories::MESSAGING,
     Models::Shared::ConnectSessionCreateCategories::ACCOUNTING,
   ],
-  origin_owner_id: "<id>",
-  origin_owner_name: "<value>",
-  type: Models::Shared::ConnectSessionCreateType::TEST,
+  origin_owner_id: '<id>',
+  origin_owner_name: '<value>',
 )
 
-res = s.connect_sessions.create_connect_session(req)
+res = s.connect_sessions.create_connect_session(request: req)
 
-if ! res.connect_session_token_auth_link.nil?
+unless res.connect_session_token_auth_link.nil?
   # handle response
 end
 
@@ -105,3 +123,19 @@ end
 
 **[T.nilable(Models::Operations::StackoneCreateConnectSessionResponse)](../../models/operations/stackonecreateconnectsessionresponse.md)**
 
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |

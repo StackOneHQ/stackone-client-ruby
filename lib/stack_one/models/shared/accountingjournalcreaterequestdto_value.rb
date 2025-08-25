@@ -10,6 +10,8 @@ module StackOne
     
       # AccountingJournalCreateRequestDtoValue - Default currency for the company
       class AccountingJournalCreateRequestDtoValue < T::Enum
+
+
         enums do
           AED = new('AED')
           AFN = new('AFN')

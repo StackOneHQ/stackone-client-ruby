@@ -10,6 +10,8 @@ module StackOne
     
       # ApplicationAttachmentValue - The content type of the attachment.
       class ApplicationAttachmentValue < T::Enum
+
+
         enums do
           TEXT = new('text')
           UNMAPPED_VALUE = new('unmapped_value')

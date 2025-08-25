@@ -10,6 +10,8 @@ module StackOne
     
 
       class HRISDepartmentValue < T::Enum
+
+
         enums do
           DEPARTMENT = new('department')
           COMPANY = new('company')

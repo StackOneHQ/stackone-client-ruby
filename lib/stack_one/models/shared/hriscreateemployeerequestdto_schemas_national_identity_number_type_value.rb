@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue - The type of the national identity number
       class HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue < T::Enum
+
+
         enums do
           SSN = new('ssn')
           NIN = new('nin')

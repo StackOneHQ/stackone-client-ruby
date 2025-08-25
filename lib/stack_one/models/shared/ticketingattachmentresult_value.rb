@@ -10,6 +10,8 @@ module StackOne
     
       # TicketingAttachmentResultValue - The file format of the file, expressed as a file extension
       class TicketingAttachmentResultValue < T::Enum
+
+
         enums do
           UNMAPPED_VALUE = new('unmapped_value')
           EZ = new('ez')

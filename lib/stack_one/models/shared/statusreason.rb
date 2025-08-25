@@ -14,20 +14,20 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
-        field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
+        field :code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
 
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
-
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
 
         sig { params(timestamp: ::DateTime, code: T.nilable(::String), description: T.nilable(::String)).void }
-        def initialize(timestamp: nil, code: nil, description: nil)
+        def initialize(timestamp:, code: nil, description: nil)
           @timestamp = timestamp
           @code = code
           @description = description
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @timestamp == other.timestamp

@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-        field :subtitle, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subtitle') } }
+        field :subtitle, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('subtitle') } }
 
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
         sig { params(body: T.nilable(::String), subtitle: T.nilable(::String), title: T.nilable(::String)).void }
         def initialize(body: nil, subtitle: nil, title: nil)
@@ -28,6 +27,7 @@ module StackOne
           @title = title
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @body == other.body

@@ -14,26 +14,25 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The timestamp when the record was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The type of the file
-        field :file_format, T.nilable(Models::Shared::TicketingAttachmentFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
+        field :file_format, Crystalline::Nilable.new(Models::Shared::TicketingAttachmentFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
         # The name of the file
-        field :file_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
+        field :file_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
         # The resource URL of the file
-        field :file_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_url') } }
+        field :file_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_url') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The size of the file
-        field :size, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('size') } }
+        field :size, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('size') } }
         # The reference ticket ID the attachment belongs to
-        field :ticket_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_id') } }
+        field :ticket_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_id') } }
         # The timestamp when the record was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The user who uploaded the file
-        field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
-
+        field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
         sig { params(created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::TicketingAttachmentFileFormat), file_name: T.nilable(::String), file_url: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String), size: T.nilable(::Float), ticket_id: T.nilable(::String), updated_at: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
         def initialize(created_at: nil, file_format: nil, file_name: nil, file_url: nil, id: nil, remote_id: nil, size: nil, ticket_id: nil, updated_at: nil, user_id: nil)
@@ -49,6 +48,7 @@ module StackOne
           @user_id = user_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

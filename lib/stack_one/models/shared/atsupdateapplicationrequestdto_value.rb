@@ -10,6 +10,8 @@ module StackOne
     
       # AtsUpdateApplicationRequestDtoValue - The status of the application.
       class AtsUpdateApplicationRequestDtoValue < T::Enum
+
+
         enums do
           ACTIVE = new('active')
           ASSESSMENT = new('assessment')

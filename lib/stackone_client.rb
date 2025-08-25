@@ -25,9 +25,16 @@ module StackOne
     autoload :Shared, 'stack_one/models/shared'
     autoload :Operations, 'stack_one/models/operations'
     autoload :Errors, 'stack_one/models/errors'
+    autoload :Callbacks, 'stack_one/models/callbacks'
   end
 end
 
 require_relative 'stack_one/utils/utils'
+require_relative 'stack_one/utils/request_bodies'
+require_relative 'stack_one/utils/query_params'
+require_relative 'stack_one/utils/forms'
+require_relative 'stack_one/utils/headers'
+require_relative 'stack_one/utils/url'
+require_relative 'stack_one/utils/security'
 require_relative 'crystalline'
 require_relative 'stack_one/sdkconfiguration'

@@ -10,6 +10,8 @@ module StackOne
     
 
       class Campaign2 < T::Enum
+
+
         enums do
           TRUE = new('true')
           FALSE = new('false')

@@ -10,6 +10,8 @@ module StackOne
     
       # TicketingUserValue - The type of the user.
       class TicketingUserValue < T::Enum
+
+
         enums do
           AGENT = new('agent')
           CONTACT = new('contact')

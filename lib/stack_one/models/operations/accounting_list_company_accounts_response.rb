@@ -12,36 +12,48 @@ module StackOne
       class AccountingListCompanyAccountsResponse
         extend T::Sig
         include Crystalline::MetadataFields
+        sig { returns(T.proc.returns(T.nilable(AccountingListCompanyAccountsResponse))) }
+        attr_accessor :next_page
 
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, T::Hash[Symbol, T::Array[::String]]
-        # Raw HTTP response; suitable for custom response parsing
-        field :raw_response, ::Faraday::Response
+        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
         # The list of accounts was retrieved.
-        field :accounting_accounts_paginated, T.nilable(Models::Shared::AccountingAccountsPaginated)
+        field :accounting_accounts_paginated, Crystalline::Nilable.new(Models::Shared::AccountingAccountsPaginated)
 
-
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, accounting_accounts_paginated: T.nilable(Models::Shared::AccountingAccountsPaginated)).void }
-        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, accounting_accounts_paginated: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, accounting_accounts_paginated: T.nilable(Models::Shared::AccountingAccountsPaginated)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, accounting_accounts_paginated: nil)
           @content_type = content_type
           @headers = headers
-          @raw_response = raw_response
           @status_code = status_code
+          @raw_response = raw_response
           @accounting_accounts_paginated = accounting_accounts_paginated
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content_type == other.content_type
           return false unless @headers == other.headers
-          return false unless @raw_response == other.raw_response
           return false unless @status_code == other.status_code
+          return false unless @raw_response == other.raw_response
           return false unless @accounting_accounts_paginated == other.accounting_accounts_paginated
           true
+        end
+
+        def each
+          page = self
+          loop do
+            yield page
+            next_page = page.next_page.call if page.next_page
+            break if next_page.nil?
+            page = T.must(next_page)
+          end
         end
       end
     end

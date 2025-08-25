@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String).void }
-        def initialize(ticketing_ticket_create_request_dto: nil, x_account_id: nil)
+        def initialize(ticketing_ticket_create_request_dto:, x_account_id:)
           @ticketing_ticket_create_request_dto = ticketing_ticket_create_request_dto
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @ticketing_ticket_create_request_dto == other.ticketing_ticket_create_request_dto

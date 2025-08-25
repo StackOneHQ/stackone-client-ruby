@@ -14,22 +14,21 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Indicates if the user is a bot or service user
-        field :is_bot_user, T.nilable(T.any(T::Boolean, Models::Shared::IamUpdateUserRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_bot_user') } }
+        field :is_bot_user, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::IamUpdateUserRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_bot_user') } }
 
-        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # User's name which (can be a full name or display name)
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Primary email address of the user. This is generally a work email address.
-        field :primary_email_address, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email_address') } }
+        field :primary_email_address, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email_address') } }
 
-        field :status, T.nilable(Models::Shared::IamUpdateUserRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(Models::Shared::IamUpdateUserRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
-        field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
-
+        field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 
         sig { params(first_name: T.nilable(::String), is_bot_user: T.nilable(T.any(T::Boolean, Models::Shared::IamUpdateUserRequestDto2)), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), primary_email_address: T.nilable(::String), status: T.nilable(Models::Shared::IamUpdateUserRequestDtoStatus), username: T.nilable(::String)).void }
         def initialize(first_name: nil, is_bot_user: nil, last_name: nil, name: nil, passthrough: nil, primary_email_address: nil, status: nil, username: nil)
@@ -43,6 +42,7 @@ module StackOne
           @username = username
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @first_name == other.first_name

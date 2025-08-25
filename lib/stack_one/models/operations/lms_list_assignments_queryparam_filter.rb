@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter to select assignment by status
-        field :status, T.nilable(Models::Operations::LmsListAssignmentsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
+        field :status, Crystalline::Nilable.new(Models::Operations::LmsListAssignmentsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(status: T.nilable(Models::Operations::LmsListAssignmentsQueryParamStatus), updated_after: T.nilable(::DateTime)).void }
         def initialize(status: nil, updated_after: nil)
@@ -25,6 +24,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @status == other.status

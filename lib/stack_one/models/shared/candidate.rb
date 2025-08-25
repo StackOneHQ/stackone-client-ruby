@@ -14,48 +14,47 @@ module StackOne
         include Crystalline::MetadataFields
 
         # List of candidate application IDs
-        field :application_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_ids') } }
+        field :application_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_ids') } }
         # Candidate company
-        field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
+        field :company, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
         # Candidate country
-        field :country, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
         # Candidate created date
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The candidate custom fields
-        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Candidate email
-        field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
         # List of candidate emails
-        field :emails, T.nilable(T::Array[Models::Shared::CandidateEmail]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
+        field :emails, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CandidateEmail)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
         # Candidate first name
-        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Candidate hired date
-        field :hired_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :hired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Candidate last name
-        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # Candidate name
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Candidate phone number
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :phone, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
+        field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
         # List of candidate phone numbers including the type of the number when available
-        field :phone_numbers, T.nilable(T::Array[Models::Shared::PhoneNumber]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        field :phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PhoneNumber)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
         # Provider's list of candidate application IDs
-        field :remote_application_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_ids') } }
+        field :remote_application_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_ids') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # List of candidate social links
-        field :social_links, T.nilable(T::Array[Models::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
+        field :social_links, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::SocialLink)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
         # Candidate title
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Candidate updated date
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), country: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), email: T.nilable(::String), emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), remote_application_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(application_ids: nil, company: nil, country: nil, created_at: nil, custom_fields: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_application_ids: nil, remote_id: nil, social_links: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
@@ -81,6 +80,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application_ids == other.application_ids

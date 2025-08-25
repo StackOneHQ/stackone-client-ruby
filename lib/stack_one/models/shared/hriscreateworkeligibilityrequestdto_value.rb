@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateWorkEligibilityRequestDtoValue - The ISO3166-1 Alpha2 Code of the Country
       class HrisCreateWorkEligibilityRequestDtoValue < T::Enum
+
+
         enums do
           AF = new('AF')
           AL = new('AL')

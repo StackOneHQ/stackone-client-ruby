@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :message_content, T.nilable(Models::Shared::SmsMessagesMessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
+        field :message_content, Crystalline::Nilable.new(Models::Shared::SmsMessagesMessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
 
-        field :message_type, T.nilable(Models::Shared::SmsMessagesMessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
+        field :message_type, Crystalline::Nilable.new(Models::Shared::SmsMessagesMessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(id: T.nilable(::String), message_content: T.nilable(Models::Shared::SmsMessagesMessageContent), message_type: T.nilable(Models::Shared::SmsMessagesMessageType), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(id: nil, message_content: nil, message_type: nil, name: nil, remote_id: nil)
@@ -34,6 +33,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

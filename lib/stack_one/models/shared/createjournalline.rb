@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # ID of the ledger account this line references
-        field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
+        field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # Amount of the journal line in minor units, e.g. 10010 for 100.10 USD. Positive for debit, negative for credit
-        field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('amount') } }
+        field :amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('amount') } }
         # Description of the journal line
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Tax amount of the line in minor units, e.g. 10010 for 100.10 USD
-        field :tax_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_amount') } }
+        field :tax_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_amount') } }
         # ID of the tax rate applied
-        field :tax_rate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_rate_id') } }
-
+        field :tax_rate_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_rate_id') } }
 
         sig { params(account_id: T.nilable(::String), amount: T.nilable(::Float), description: T.nilable(::String), tax_amount: T.nilable(::Float), tax_rate_id: T.nilable(::String)).void }
         def initialize(account_id: nil, amount: nil, description: nil, tax_amount: nil, tax_rate_id: nil)
@@ -34,6 +33,7 @@ module StackOne
           @tax_rate_id = tax_rate_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @account_id == other.account_id

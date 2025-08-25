@@ -14,20 +14,20 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The result data
-        field :data, Models::Shared::ScreeningResult, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Models::Shared::ScreeningResult, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
         # The event type
-        field :event, Models::Shared::Event, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event'), 'decoder': Utils.enum_from_string(Models::Shared::Event, false) } }
+        field :event, Models::Shared::Event, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Event, false) } }
 
-        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
-
+        field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
         sig { params(data: Models::Shared::ScreeningResult, event: Models::Shared::Event, raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
-        def initialize(data: nil, event: nil, raw: nil)
+        def initialize(data:, event:, raw: nil)
           @data = data
           @event = event
           @raw = raw
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data

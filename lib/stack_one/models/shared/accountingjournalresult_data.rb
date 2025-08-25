@@ -14,28 +14,27 @@ module StackOne
         include Crystalline::MetadataFields
 
         # ID of the company this journal belongs to
-        field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
+        field :company_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
         # Timestamp when the journal was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # List of journal lines
-        field :lines, T.nilable(T::Array[Models::Shared::JournalLine]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('lines') } }
+        field :lines, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::JournalLine)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('lines') } }
         # Memo or description for the journal
-        field :memo, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('memo') } }
+        field :memo, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('memo') } }
         # Timestamp when the journal was posted
-        field :posted_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('posted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :posted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('posted_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Reference number for the journal
-        field :reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reference') } }
+        field :reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reference') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Status of the journal
-        field :status, T.nilable(Models::Shared::AccountingJournalResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(Models::Shared::AccountingJournalResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Date of the journal transaction
-        field :transaction_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :transaction_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Timestamp when the journal was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(company_id: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), lines: T.nilable(T::Array[Models::Shared::JournalLine]), memo: T.nilable(::String), posted_at: T.nilable(::DateTime), reference: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(Models::Shared::AccountingJournalResultStatus), transaction_date: T.nilable(::DateTime), updated_at: T.nilable(::DateTime)).void }
         def initialize(company_id: nil, created_at: nil, id: nil, lines: nil, memo: nil, posted_at: nil, reference: nil, remote_id: nil, status: nil, transaction_date: nil, updated_at: nil)
@@ -52,6 +51,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @company_id == other.company_id

@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Test url
-        field :test_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('test_url') } }
-
+        field :test_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('test_url') } }
 
         sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), test_url: T.nilable(::String)).void }
         def initialize(id: nil, remote_id: nil, test_url: nil)
@@ -28,6 +27,7 @@ module StackOne
           @test_url = test_url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

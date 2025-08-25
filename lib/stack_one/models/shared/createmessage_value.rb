@@ -10,6 +10,8 @@ module StackOne
     
       # CreateMessageValue - The unified message type.
       class CreateMessageValue < T::Enum
+
+
         enums do
           EMAIL = new('email')
           SMS = new('sms')

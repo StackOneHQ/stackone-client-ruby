@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Use a string with a date to only select results created after that given date
-        field :created_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
+        field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
         # Filter to select candidates by email
-        field :email, T.nilable(::String), { 'query_param': { 'field_name': 'email' } }
+        field :email, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'email' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(created_after: T.nilable(::DateTime), email: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(created_after: nil, email: nil, updated_after: nil)
@@ -28,6 +27,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_after == other.created_after

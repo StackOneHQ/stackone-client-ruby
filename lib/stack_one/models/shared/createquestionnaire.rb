@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :answers, T.nilable(T::Array[Models::Shared::CreateAnswer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
+        field :answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateAnswer)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
         sig { params(answers: T.nilable(T::Array[Models::Shared::CreateAnswer]), id: T.nilable(::String)).void }
         def initialize(answers: nil, id: nil)
@@ -25,6 +24,7 @@ module StackOne
           @id = id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @answers == other.answers

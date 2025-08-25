@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # An array of possible options for the custom field.
-        field :options, T.nilable(T::Array[Models::Shared::CustomFieldOption]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('options') } }
+        field :options, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFieldOption)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('options') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The type of the custom field.
-        field :type, T.nilable(Models::Shared::CustomFieldDefinitionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::CustomFieldDefinitionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), options: T.nilable(T::Array[Models::Shared::CustomFieldOption]), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::CustomFieldDefinitionType)).void }
         def initialize(description: nil, id: nil, name: nil, options: nil, remote_id: nil, type: nil)
@@ -37,6 +36,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @description == other.description

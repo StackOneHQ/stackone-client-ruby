@@ -17,38 +17,38 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
-        # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
-        field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-        # The comma separated list of fields that will be included in the response
-        field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
-        # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
-        # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
-        field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # The session token
-        field :x_stackone_api_session_token, T.nilable(::String), { 'header': { 'field_name': 'x-stackone-api-session-token', 'style': 'simple', 'explode': false } }
+        field :x_stackone_api_session_token, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-stackone-api-session-token', 'style': 'simple', 'explode': false } }
+        # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
+        field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+        # The comma separated list of fields that will be included in the response
+        field :include, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
+        # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
+        # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
+        field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
-
-        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), include: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), x_stackone_api_session_token: T.nilable(::String)).void }
-        def initialize(id: nil, x_account_id: nil, fields_: nil, include: nil, proxy: nil, raw: nil, x_stackone_api_session_token: nil)
+        sig { params(id: ::String, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), fields_: T.nilable(::String), include: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+        def initialize(id:, x_account_id:, x_stackone_api_session_token: nil, fields_: nil, include: nil, proxy: nil, raw: nil)
           @id = id
           @x_account_id = x_account_id
+          @x_stackone_api_session_token = x_stackone_api_session_token
           @fields_ = fields_
           @include = include
           @proxy = proxy
           @raw = raw
-          @x_stackone_api_session_token = x_stackone_api_session_token
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
+          return false unless @x_stackone_api_session_token == other.x_stackone_api_session_token
           return false unless @fields_ == other.fields_
           return false unless @include == other.include
           return false unless @proxy == other.proxy
           return false unless @raw == other.raw
-          return false unless @x_stackone_api_session_token == other.x_stackone_api_session_token
           true
         end
       end

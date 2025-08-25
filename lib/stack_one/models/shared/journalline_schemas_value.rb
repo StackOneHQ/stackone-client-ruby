@@ -10,6 +10,8 @@ module StackOne
     
       # JournalLineSchemasValue - Default currency for the company
       class JournalLineSchemasValue < T::Enum
+
+
         enums do
           AED = new('AED')
           AFN = new('AFN')

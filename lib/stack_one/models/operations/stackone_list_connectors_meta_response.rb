@@ -16,30 +16,30 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, T::Hash[Symbol, T::Array[::String]]
-        # Raw HTTP response; suitable for custom response parsing
-        field :raw_response, ::Faraday::Response
+        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
         # The list of connectors meta information was retrieved.
-        field :connectors_metas, T.nilable(T::Array[Models::Shared::ConnectorsMeta])
+        field :connectors_metas, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectorsMeta))
 
-
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, connectors_metas: T.nilable(T::Array[Models::Shared::ConnectorsMeta])).void }
-        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, connectors_metas: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, connectors_metas: T.nilable(T::Array[Models::Shared::ConnectorsMeta])).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, connectors_metas: nil)
           @content_type = content_type
           @headers = headers
-          @raw_response = raw_response
           @status_code = status_code
+          @raw_response = raw_response
           @connectors_metas = connectors_metas
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content_type == other.content_type
           return false unless @headers == other.headers
-          return false unless @raw_response == other.raw_response
           return false unless @status_code == other.status_code
+          return false unless @raw_response == other.raw_response
           return false unless @connectors_metas == other.connectors_metas
           true
         end

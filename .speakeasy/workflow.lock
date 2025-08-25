@@ -1,21 +1,21 @@
-speakeasyVersion: 1.531.4
+speakeasyVersion: 1.606.3
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:d7e926a3d7dde0f5df7fed4eeeed7a5f4d1689bb2211163330322696ac4a11a0
-        sourceBlobDigest: sha256:2bbc2e1abae53a9d0180a1e9f3ef523f693db88411f0c60cff21ffa3379df0d4
+        sourceRevisionDigest: sha256:8cbd0f889c881ce2752fe2094ea43ce5822757dc827887aa66ddf685841e845d
+        sourceBlobDigest: sha256:23efb173796b7e3f75d7ec56cc0f641faaae487233fbabdd9143b1e703e9c968
         tags:
             - latest
-            - speakeasy-sdk-regen-1754903016
+            - speakeasy-sdk-regen-1755507801
             - 1.0.0
 targets:
     StackOneRubyClient:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:d7e926a3d7dde0f5df7fed4eeeed7a5f4d1689bb2211163330322696ac4a11a0
-        sourceBlobDigest: sha256:2bbc2e1abae53a9d0180a1e9f3ef523f693db88411f0c60cff21ffa3379df0d4
+        sourceRevisionDigest: sha256:8cbd0f889c881ce2752fe2094ea43ce5822757dc827887aa66ddf685841e845d
+        sourceBlobDigest: sha256:23efb173796b7e3f75d7ec56cc0f641faaae487233fbabdd9143b1e703e9c968
         codeSamplesNamespace: code-samples-ruby-stackonerubyclient
-        codeSamplesRevisionDigest: sha256:4ae46e83094e859b4e13ecaa4b743673bdfe0112986b2786b0aee275e59d9771
+        codeSamplesRevisionDigest: sha256:be396457bf5f8e8d1f61c248a20cbfe33d9c0cf32753bdebd3c9864e1d3e9480
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

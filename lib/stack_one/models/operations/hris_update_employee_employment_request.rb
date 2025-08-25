@@ -22,15 +22,15 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
-        def initialize(hris_update_employment_request_dto: nil, id: nil, sub_resource_id: nil, x_account_id: nil)
+        def initialize(hris_update_employment_request_dto:, id:, sub_resource_id:, x_account_id:)
           @hris_update_employment_request_dto = hris_update_employment_request_dto
           @id = id
           @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @hris_update_employment_request_dto == other.hris_update_employment_request_dto

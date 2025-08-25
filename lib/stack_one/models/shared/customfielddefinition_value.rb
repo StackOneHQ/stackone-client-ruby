@@ -10,6 +10,8 @@ module StackOne
     
 
       class CustomFieldDefinitionValue < T::Enum
+
+
         enums do
           DATE = new('date')
           FLOAT = new('float')

@@ -10,6 +10,8 @@ module StackOne
     
       # HrisShiftValue - The approval status of the shift
       class HrisShiftValue < T::Enum
+
+
         enums do
           PENDING = new('pending')
           APPROVED = new('approved')

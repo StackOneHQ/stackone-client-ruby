@@ -10,6 +10,8 @@ module StackOne
     
       # AtsCreateBackgroundCheckOrderRequestDtoValue - The status of the application.
       class AtsCreateBackgroundCheckOrderRequestDtoValue < T::Enum
+
+
         enums do
           ACTIVE = new('active')
           ASSESSMENT = new('assessment')

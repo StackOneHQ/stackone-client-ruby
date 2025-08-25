@@ -10,6 +10,8 @@ module StackOne
     
       # AccountingCompanyValue - Default currency for the company
       class AccountingCompanyValue < T::Enum
+
+
         enums do
           AED = new('AED')
           AFN = new('AFN')

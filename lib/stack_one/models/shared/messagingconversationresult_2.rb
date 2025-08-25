@@ -10,6 +10,8 @@ module StackOne
     
 
       class MessagingConversationResult2 < T::Enum
+
+
         enums do
           TRUE = new('true')
           FALSE = new('false')

@@ -14,26 +14,25 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The parent group id for when a group belongs to another group.
-        field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
+        field :parent_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the parent group id for when a group belongs to another group.
-        field :remote_parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_id') } }
+        field :remote_parent_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_id') } }
 
-        field :roles, T.nilable(T::Array[Models::Shared::IamRole]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('roles') } }
+        field :roles, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamRole)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('roles') } }
 
-        field :type, T.nilable(Models::Shared::IamGroupType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::IamGroupType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), remote_parent_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), type: T.nilable(Models::Shared::IamGroupType), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, description: nil, id: nil, name: nil, parent_id: nil, remote_id: nil, remote_parent_id: nil, roles: nil, type: nil, updated_at: nil)
@@ -49,6 +48,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

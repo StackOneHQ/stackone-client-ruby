@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :answers, T.nilable(T::Array[Models::Shared::Answer]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
+        field :answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Answer)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('answers') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(answers: T.nilable(T::Array[Models::Shared::Answer]), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(answers: nil, id: nil, remote_id: nil)
@@ -28,6 +27,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @answers == other.answers

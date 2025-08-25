@@ -10,6 +10,8 @@ module StackOne
     
       # AccountingJournalResultValue - The journal status
       class AccountingJournalResultValue < T::Enum
+
+
         enums do
           DRAFT = new('draft')
           POSTED = new('posted')

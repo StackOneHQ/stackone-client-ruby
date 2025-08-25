@@ -10,6 +10,8 @@ module StackOne
     
       # StackoneListStepLogsQueryParamOrderDirection - The direction to order the results by.
       class StackoneListStepLogsQueryParamOrderDirection < T::Enum
+
+
         enums do
           ASC = new('asc')
           DESC = new('desc')

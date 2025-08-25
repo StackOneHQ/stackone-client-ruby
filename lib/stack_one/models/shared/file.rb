@@ -14,30 +14,29 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The category of the file
-        field :category, T.nilable(Models::Shared::FileCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+        field :category, Crystalline::Nilable.new(Models::Shared::FileCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
         # The categoryId of the documents
-        field :category_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
+        field :category_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
         # The content of the file. Deprecated, use `url` and `file_format` one level up instead
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :contents, T.nilable(T::Array[Models::Shared::Content]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
+        field :contents, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Content)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
         # The creation date of the file
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The file format of the file
-        field :file_format, T.nilable(Models::Shared::FileFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
+        field :file_format, Crystalline::Nilable.new(Models::Shared::FileFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name of the file
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The path where the file is stored
-        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # URL where the file content is located
-        field :remote_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_url') } }
+        field :remote_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_url') } }
         # The update date of the file
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(category: T.nilable(Models::Shared::FileCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::FileFileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
         def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, updated_at: nil)
@@ -54,6 +53,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @category == other.category

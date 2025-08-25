@@ -14,28 +14,27 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The id of the company that the group belongs to
-        field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
+        field :company_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name of the group
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The list of group owner ids of the given group
-        field :owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_ids') } }
+        field :owner_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_ids') } }
         # The list of parent group ids of the given group
-        field :parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_ids') } }
+        field :parent_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_ids') } }
         # Provider's id of the company that the group belongs to
-        field :remote_company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_company_id') } }
+        field :remote_company_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_company_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The list of remote group owner ids of the given group
-        field :remote_owner_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_ids') } }
+        field :remote_owner_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_ids') } }
         # Provider's list of parent group remote ids of the given group
-        field :remote_parent_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_ids') } }
+        field :remote_parent_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_ids') } }
         # The type of the group
-        field :type, T.nilable(Models::Shared::EmploymentSchemasDivisionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::EmploymentSchemasDivisionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
         sig { params(company_id: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_company_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::EmploymentSchemasDivisionType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(company_id: nil, id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_company_id: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
@@ -52,6 +51,7 @@ module StackOne
           @unified_custom_fields = unified_custom_fields
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @company_id == other.company_id

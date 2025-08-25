@@ -10,6 +10,8 @@ module StackOne
     
       # JobPostingContentSectionValue - The type of the description.
       class JobPostingContentSectionValue < T::Enum
+
+
         enums do
           RESPONSIBILITIES = new('responsibilities')
           SKILLS = new('skills')

@@ -14,36 +14,35 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Code of the job
-        field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
+        field :code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
         # Confidential status of the job
-        field :confidential, T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Models::Shared::AtsUpdateJobRequestDtoConfidential, true) } }
+        field :confidential, Crystalline::Nilable.new(Models::Shared::AtsUpdateJobRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Models::Shared::AtsUpdateJobRequestDtoConfidential, true) } }
         # The job custom fields
-        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Department ids of the job
-        field :department_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_ids') } }
+        field :department_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_ids') } }
         # Description of the job
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Hiring team for the job.
-        field :hiring_team, T.nilable(T::Array[Models::Shared::JobHiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
+        field :hiring_team, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AtsJobHiringTeam)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
         # Interview stages for the job.
-        field :interview_stages, T.nilable(T::Array[Models::Shared::InterviewStage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stages') } }
+        field :interview_stages, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::InterviewStage)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stages') } }
         # Status of the job
-        field :job_status, T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_status') } }
+        field :job_status, Crystalline::Nilable.new(Models::Shared::AtsUpdateJobRequestDtoJobStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_status') } }
         # Location ids of the job
-        field :location_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
+        field :location_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Status of the job
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :status, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Title of the job
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-
-        sig { params(code: T.nilable(::String), confidential: T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[Models::Shared::JobHiringTeam]), interview_stages: T.nilable(T::Array[Models::Shared::InterviewStage]), job_status: T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(code: T.nilable(::String), confidential: T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[Models::Shared::AtsJobHiringTeam]), interview_stages: T.nilable(T::Array[Models::Shared::InterviewStage]), job_status: T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(code: nil, confidential: nil, custom_fields: nil, department_ids: nil, description: nil, hiring_team: nil, interview_stages: nil, job_status: nil, location_ids: nil, passthrough: nil, status: nil, title: nil, unified_custom_fields: nil)
           @code = code
           @confidential = confidential
@@ -60,6 +59,7 @@ module StackOne
           @unified_custom_fields = unified_custom_fields
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @code == other.code

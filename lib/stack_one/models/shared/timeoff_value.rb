@@ -10,6 +10,8 @@ module StackOne
     
 
       class TimeOffValue < T::Enum
+
+
         enums do
           APPROVED = new('approved')
           CANCELLED = new('cancelled')

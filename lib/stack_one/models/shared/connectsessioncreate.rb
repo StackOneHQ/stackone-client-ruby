@@ -14,60 +14,60 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The origin owner identifier
-        field :origin_owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
+        field :origin_owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id'), required: true } }
         # The origin owner name
-        field :origin_owner_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
+        field :origin_owner_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name'), required: true } }
         # The unique identifier for the account associated with this connect session. When this field is present, the hub will launch in edit mode using the retrieved token.
-        field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
+        field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The categories of the provider to connect to
-        field :categories, T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
-        # How long the session should be valid for in seconds
-        field :expires_in, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('expires_in') } }
+        field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectSessionCreateCategories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # The label to be applied to the account associated with this connect session.
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # The metadata for the connection
-        field :metadata, T.nilable(Models::Shared::ConnectSessionCreateMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
-        # If set, this connect session will allow creation of multiple accounts with the same origin owner id and provider. Has no effect if account_id is set.
-        field :multiple, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multiple') } }
+        field :metadata, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
         # The origin username
-        field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
+        field :origin_username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
         # The provider to connect to
-        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
         # The provider version to connect to
-        field :provider_version, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_version') } }
+        field :provider_version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_version') } }
+        # How long the session should be valid for in seconds
+        field :expires_in, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('expires_in') } }
+        # If set, this connect session will allow creation of multiple accounts with the same origin owner id and provider. Has no effect if account_id is set.
+        field :multiple, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multiple') } }
         # The connect session account type
-        field :type, T.nilable(Models::Shared::ConnectSessionCreateType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionCreateType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionCreateType, true) } }
 
-
-        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), expires_in: T.nilable(::Float), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), multiple: T.nilable(T::Boolean), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
-        def initialize(origin_owner_id: nil, origin_owner_name: nil, account_id: nil, categories: nil, expires_in: nil, label: nil, metadata: nil, multiple: nil, origin_username: nil, provider: nil, provider_version: nil, type: nil)
+        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), expires_in: T.nilable(::Float), multiple: T.nilable(T::Boolean), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
+        def initialize(origin_owner_id:, origin_owner_name:, account_id: nil, categories: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, provider_version: nil, expires_in: 1800.0, multiple: false, type: Models::Shared::ConnectSessionCreateType::PRODUCTION)
           @origin_owner_id = origin_owner_id
           @origin_owner_name = origin_owner_name
           @account_id = account_id
           @categories = categories
-          @expires_in = expires_in
           @label = label
           @metadata = metadata
-          @multiple = multiple
           @origin_username = origin_username
           @provider = provider
           @provider_version = provider_version
+          @expires_in = expires_in
+          @multiple = multiple
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @origin_owner_id == other.origin_owner_id
           return false unless @origin_owner_name == other.origin_owner_name
           return false unless @account_id == other.account_id
           return false unless @categories == other.categories
-          return false unless @expires_in == other.expires_in
           return false unless @label == other.label
           return false unless @metadata == other.metadata
-          return false unless @multiple == other.multiple
           return false unless @origin_username == other.origin_username
           return false unless @provider == other.provider
           return false unless @provider_version == other.provider_version
+          return false unless @expires_in == other.expires_in
+          return false unless @multiple == other.multiple
           return false unless @type == other.type
           true
         end

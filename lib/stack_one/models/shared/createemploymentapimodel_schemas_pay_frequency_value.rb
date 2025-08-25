@@ -10,6 +10,8 @@ module StackOne
     
       # CreateEmploymentApiModelSchemasPayFrequencyValue - The pay frequency of the job postings.
       class CreateEmploymentApiModelSchemasPayFrequencyValue < T::Enum
+
+
         enums do
           HOURLY = new('hourly')
           WEEKLY = new('weekly')

@@ -10,6 +10,8 @@ module StackOne
     
       # PatchAccountExternalDtoType - The account type
       class PatchAccountExternalDtoType < T::Enum
+
+
         enums do
           PRODUCTION = new('production')
           TEST = new('test')

@@ -10,6 +10,8 @@ module StackOne
     
       # JobPostingCompensationValue - The pay frequency of the job postings.
       class JobPostingCompensationValue < T::Enum
+
+
         enums do
           HOURLY = new('hourly')
           WEEKLY = new('weekly')

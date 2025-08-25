@@ -10,6 +10,8 @@ module StackOne
     
       # AtsDocumentApiModelSchemasValue - The category of the file
       class AtsDocumentApiModelSchemasValue < T::Enum
+
+
         enums do
           RESUME = new('resume')
           AVATAR = new('avatar')

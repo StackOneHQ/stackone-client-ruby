@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The ID associated with this skill
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The proficiency level of the skill
-        field :maximum_proficiency, T.nilable(Models::Shared::EntitySkillsCreateRequestDtoMaximumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('maximum_proficiency') } }
+        field :maximum_proficiency, Crystalline::Nilable.new(Models::Shared::EntitySkillsCreateRequestDtoMaximumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('maximum_proficiency') } }
         # The proficiency level of the skill
-        field :minimum_proficiency, T.nilable(Models::Shared::EntitySkillsCreateRequestDtoMinimumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('minimum_proficiency') } }
+        field :minimum_proficiency, Crystalline::Nilable.new(Models::Shared::EntitySkillsCreateRequestDtoMinimumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('minimum_proficiency') } }
         # The name associated with this skill
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
         sig { params(id: T.nilable(::String), maximum_proficiency: T.nilable(Models::Shared::EntitySkillsCreateRequestDtoMaximumProficiency), minimum_proficiency: T.nilable(Models::Shared::EntitySkillsCreateRequestDtoMinimumProficiency), name: T.nilable(::String)).void }
         def initialize(id: nil, maximum_proficiency: nil, minimum_proficiency: nil, name: nil)
@@ -31,6 +30,7 @@ module StackOne
           @name = name
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

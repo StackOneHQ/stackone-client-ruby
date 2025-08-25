@@ -14,36 +14,35 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The application ID associated with the scorecard
-        field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
+        field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
         # The author ID of the scorecard
-        field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
+        field :author_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
         # The candidate ID associated with the scorecard
-        field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
+        field :candidate_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
         # The creation date of the scorecard
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The interview ID associated with the scorecard
-        field :interview_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_id') } }
+        field :interview_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_id') } }
         # The label of the scorecard
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # The overall recommendation
-        field :overall_recommendation, T.nilable(Models::Shared::OverallRecommendation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('overall_recommendation'), 'decoder': Utils.enum_from_string(Models::Shared::OverallRecommendation, true) } }
+        field :overall_recommendation, Crystalline::Nilable.new(Models::Shared::OverallRecommendation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('overall_recommendation'), 'decoder': Utils.enum_from_string(Models::Shared::OverallRecommendation, true) } }
         # Provider's unique identifier of the application
-        field :remote_application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_id') } }
+        field :remote_application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_id') } }
         # Provider's unique identifier of the author
-        field :remote_author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_author_id') } }
+        field :remote_author_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_author_id') } }
         # Provider's unique identifier of the candidate
-        field :remote_candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_candidate_id') } }
+        field :remote_candidate_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_candidate_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the interview
-        field :remote_interview_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_id') } }
+        field :remote_interview_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_id') } }
         # The sections in the scorecard
-        field :sections, T.nilable(T::Array[Models::Shared::ScorecardSection]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
+        field :sections, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ScorecardSection)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
         # The update date of the scorecard
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_id: T.nilable(::String), author_id: T.nilable(::String), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), interview_id: T.nilable(::String), label: T.nilable(::String), overall_recommendation: T.nilable(Models::Shared::OverallRecommendation), remote_application_id: T.nilable(::String), remote_author_id: T.nilable(::String), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_id: T.nilable(::String), sections: T.nilable(T::Array[Models::Shared::ScorecardSection]), updated_at: T.nilable(::DateTime)).void }
         def initialize(application_id: nil, author_id: nil, candidate_id: nil, created_at: nil, id: nil, interview_id: nil, label: nil, overall_recommendation: nil, remote_application_id: nil, remote_author_id: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_id: nil, sections: nil, updated_at: nil)
@@ -64,6 +63,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application_id == other.application_id

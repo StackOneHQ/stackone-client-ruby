@@ -10,6 +10,8 @@ module StackOne
     
 
       class EmploymentSchemasDivisionValue < T::Enum
+
+
         enums do
           WORKSPACE = new('workspace')
           TEAM = new('team')

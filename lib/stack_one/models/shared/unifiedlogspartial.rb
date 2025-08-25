@@ -14,54 +14,53 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The account ID of the request
-        field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
+        field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The requested action
-        field :action, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action') } }
+        field :action, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action') } }
         # The requested child resource
-        field :child_resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('child_resource') } }
+        field :child_resource, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('child_resource') } }
         # The request duration in milliseconds
-        field :duration, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        field :duration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The request end time ISO8601 date string
-        field :end_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The event ISO8601 date string
-        field :event_datetime, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event_datetime'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :event_datetime, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event_datetime'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The requested HTTP method
-        field :http_method, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('http_method') } }
+        field :http_method, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('http_method') } }
         # The asynchronous worker flag
-        field :is_worker, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_worker') } }
+        field :is_worker, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_worker') } }
         # The requested path
-        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # The project ID of the request
-        field :project_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
+        field :project_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
         # The requested provider
-        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
         # The request ID
-        field :request_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id') } }
+        field :request_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id') } }
         # The requested resource
-        field :resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resource') } }
+        field :resource, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resource') } }
         # The requested service
-        field :service, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
+        field :service, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
         # The requests source ID
-        field :source_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_id') } }
+        field :source_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_id') } }
         # The requests source IPV4 ip address
-        field :source_ip, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_ip') } }
+        field :source_ip, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_ip') } }
         # The requests source type
-        field :source_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_type') } }
+        field :source_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_type') } }
         # The requests source value
-        field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The request start time ISO8601 date string
-        field :start_time, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The requests response status code
-        field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The list of provider requests
-        field :step_requests, T.nilable(T::Array[Models::Shared::StepLogPartial]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_requests') } }
+        field :step_requests, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::StepLogPartial)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_requests') } }
         # The requested sub resource
-        field :sub_resource, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_resource') } }
+        field :sub_resource, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_resource') } }
         # The request success flag
-        field :success, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('success') } }
+        field :success, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('success') } }
         # The requested URL
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), event_datetime: T.nilable(::DateTime), http_method: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request_id: T.nilable(::String), resource: T.nilable(::String), service: T.nilable(::String), source_id: T.nilable(::String), source_ip: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), step_requests: T.nilable(T::Array[Models::Shared::StepLogPartial]), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
         def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, event_datetime: nil, http_method: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request_id: nil, resource: nil, service: nil, source_id: nil, source_ip: nil, source_type: nil, source_value: nil, start_time: nil, status: nil, step_requests: nil, sub_resource: nil, success: nil, url: nil)
@@ -91,6 +90,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @account_id == other.account_id

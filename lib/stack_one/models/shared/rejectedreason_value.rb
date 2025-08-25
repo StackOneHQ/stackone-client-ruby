@@ -10,6 +10,8 @@ module StackOne
     
       # RejectedReasonValue - The type of the rejected reason.
       class RejectedReasonValue < T::Enum
+
+
         enums do
           REJECTED_BY_CANDIDATE = new('rejected_by_candidate')
           REJECTED_BY_ORGANIZATION = new('rejected_by_organization')

@@ -10,6 +10,8 @@ module StackOne
     
       # EmployeeSchemasPreferredLanguageValue - The ISO639-2 Code of the language
       class EmployeeSchemasPreferredLanguageValue < T::Enum
+
+
         enums do
           AAR = new('aar')
           AFR = new('afr')

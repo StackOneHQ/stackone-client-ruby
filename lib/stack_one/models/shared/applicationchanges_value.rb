@@ -10,6 +10,8 @@ module StackOne
     
       # ApplicationChangesValue - The type of change that occurred to the application
       class ApplicationChangesValue < T::Enum
+
+
         enums do
           APPLICATION_STATUS = new('application_status')
           INTERVIEW_STAGE = new('interview_stage')

@@ -10,6 +10,8 @@ module StackOne
     
       # HrisDocumentApiModelSchemasTypeValue - The category of the file
       class HrisDocumentApiModelSchemasTypeValue < T::Enum
+
+
         enums do
           APPLICATION = new('application')
           ACADEMIC = new('academic')

@@ -10,6 +10,8 @@ module StackOne
     
       # QueryParamOrderBy - The field to order the results by.
       class QueryParamOrderBy < T::Enum
+
+
         enums do
           PROVIDER = new('provider')
           SERVICE = new('service')

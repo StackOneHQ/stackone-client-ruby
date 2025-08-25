@@ -14,26 +14,25 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Order ID associated with this result
-        field :order_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order_id') } }
+        field :order_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # URL to view the detailed result
-        field :result_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_url') } }
+        field :result_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_url') } }
         # Score information
-        field :score, T.nilable(Models::Shared::ScreeningResultScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
+        field :score, Crystalline::Nilable.new(Models::Shared::ScreeningResultScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
         # Start date of the screening
-        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Result status
-        field :status, T.nilable(Models::Shared::ScreeningResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::ScreeningResultStatus, true) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::ScreeningResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::ScreeningResultStatus, true) } }
         # Submission date of the screening
-        field :submission_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :submission_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Summary of the screening result
-        field :summary, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
+        field :summary, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
         sig { params(id: T.nilable(::String), order_id: T.nilable(::String), remote_id: T.nilable(::String), result_url: T.nilable(::String), score: T.nilable(Models::Shared::ScreeningResultScore), start_date: T.nilable(::DateTime), status: T.nilable(Models::Shared::ScreeningResultStatus), submission_date: T.nilable(::DateTime), summary: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(id: nil, order_id: nil, remote_id: nil, result_url: nil, score: nil, start_date: nil, status: nil, submission_date: nil, summary: nil, unified_custom_fields: nil)
@@ -49,6 +48,7 @@ module StackOne
           @unified_custom_fields = unified_custom_fields
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

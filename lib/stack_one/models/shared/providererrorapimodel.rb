@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :headers, T.nilable(Models::Shared::ProviderErrorApiModelHeaders), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Models::Shared::ProviderErrorApiModelHeaders), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
 
-        field :raw, T.nilable(Models::Shared::ProviderErrorApiModelRaw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+        field :raw, Crystalline::Nilable.new(Models::Shared::ProviderErrorApiModelRaw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
-        field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(headers: T.nilable(Models::Shared::ProviderErrorApiModelHeaders), raw: T.nilable(Models::Shared::ProviderErrorApiModelRaw), status: T.nilable(::Float), url: T.nilable(::String)).void }
         def initialize(headers: nil, raw: nil, status: nil, url: nil)
@@ -31,6 +30,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @headers == other.headers

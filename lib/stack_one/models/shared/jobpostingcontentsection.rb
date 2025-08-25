@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :type, T.nilable(Models::Shared::JobPostingContentSectionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::JobPostingContentSectionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(content: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::JobPostingContentSectionType)).void }
         def initialize(content: nil, id: nil, label: nil, remote_id: nil, type: nil)
@@ -34,6 +33,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content == other.content

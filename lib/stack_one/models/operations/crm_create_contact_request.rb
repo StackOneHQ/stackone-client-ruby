@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String).void }
-        def initialize(crm_create_contact_request_dto: nil, x_account_id: nil)
+        def initialize(crm_create_contact_request_dto:, x_account_id:)
           @crm_create_contact_request_dto = crm_create_contact_request_dto
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @crm_create_contact_request_dto == other.crm_create_contact_request_dto

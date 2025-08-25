@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :application_status, T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
+        field :application_status, Crystalline::Nilable.new(Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
         # The application custom fields
-        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
-        field :source, T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
-
+        field :source, Crystalline::Nilable.new(Models::Shared::AtsUpdateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
         sig { params(application_status: T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), source: T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoSource)).void }
         def initialize(application_status: nil, custom_fields: nil, passthrough: nil, source: nil)
@@ -31,6 +30,7 @@ module StackOne
           @source = source
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application_status == other.application_status

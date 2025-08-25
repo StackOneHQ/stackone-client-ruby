@@ -10,6 +10,8 @@ module StackOne
     
       # QueryParamOrderDirection - The direction to order the results by.
       class QueryParamOrderDirection < T::Enum
+
+
         enums do
           ASC = new('asc')
           DESC = new('desc')

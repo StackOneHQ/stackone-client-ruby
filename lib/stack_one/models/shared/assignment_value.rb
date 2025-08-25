@@ -10,6 +10,8 @@ module StackOne
     
 
       class AssignmentValue < T::Enum
+
+
         enums do
           CONTENT = new('content')
           COURSE = new('course')

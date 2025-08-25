@@ -10,6 +10,8 @@ module StackOne
     
       # CampaignValue - The schedule type of the campaign.
       class CampaignValue < T::Enum
+
+
         enums do
           IMMEDIATE = new('immediate')
           SCHEDULED = new('scheduled')

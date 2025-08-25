@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-        field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # The request ID
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The request method
-        field :method, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
+        field :method, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method') } }
         # The request URL data
-        field :url, T.nilable(Models::Shared::UnifiedLogsUrl), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(Models::Shared::UnifiedLogsUrl), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(body: T.nilable(::Object), headers: T.nilable(T::Hash[Symbol, ::Object]), id: T.nilable(::String), method: T.nilable(::String), url: T.nilable(Models::Shared::UnifiedLogsUrl)).void }
         def initialize(body: nil, headers: nil, id: nil, method: nil, url: nil)
@@ -34,6 +33,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @body == other.body

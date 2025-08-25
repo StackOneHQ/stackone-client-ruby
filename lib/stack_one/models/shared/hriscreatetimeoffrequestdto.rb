@@ -14,30 +14,29 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The approver ID
-        field :approver_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
+        field :approver_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
         # Allows users to provide additional context or notes for their time off request
-        field :comment, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comment') } }
+        field :comment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comment') } }
         # Inclusive end date of the time off request (ISO8601 date-time without timezone). The time off includes this day
-        field :end_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date') } }
+        field :end_date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date') } }
         # True if the end of the time off request ends half way through the day
-        field :end_half_day, T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
+        field :end_half_day, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::HrisCreateTimeOffRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
-        field :reason, T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reason') } }
+        field :reason, Crystalline::Nilable.new(Models::Shared::HrisCreateTimeOffRequestDtoReason), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reason') } }
         # The start date of the time off request (ISO8601 date-time without timezone)
-        field :start_date, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date') } }
+        field :start_date, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date') } }
         # True if the start of the time off request begins half way through the day
-        field :start_half_day, T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
+        field :start_half_day, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_half_day') } }
         # The status of the time off request
-        field :status, T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(Models::Shared::HrisCreateTimeOffRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The time off policy id associated with this time off request
-        field :time_off_policy_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_off_policy_id') } }
+        field :time_off_policy_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_off_policy_id') } }
         # The type of the time off request
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :type, T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), passthrough: T.nilable(T::Hash[Symbol, ::Object]), reason: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), status: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType)).void }
         def initialize(approver_id: nil, comment: nil, end_date: nil, end_half_day: nil, passthrough: nil, reason: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil)
@@ -54,6 +53,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @approver_id == other.approver_id

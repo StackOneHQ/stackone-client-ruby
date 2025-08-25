@@ -14,20 +14,19 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
+        field :city, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
         # The country code
-        field :country, T.nilable(Models::Shared::Country), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+        field :country, Crystalline::Nilable.new(Models::Shared::Country), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
         # The location type
-        field :location_type, T.nilable(Models::Shared::LocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
+        field :location_type, Crystalline::Nilable.new(Models::Shared::LocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
 
-        field :state, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
+        field :state, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
 
-        field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
+        field :street_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
 
-        field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
+        field :street_2, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
 
-        field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
-
+        field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
         sig { params(city: T.nilable(::String), country: T.nilable(Models::Shared::Country), location_type: T.nilable(Models::Shared::LocationType), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
         def initialize(city: nil, country: nil, location_type: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
@@ -40,6 +39,7 @@ module StackOne
           @zip_code = zip_code
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @city == other.city

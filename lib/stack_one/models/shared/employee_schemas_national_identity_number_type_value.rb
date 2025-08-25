@@ -10,6 +10,8 @@ module StackOne
     
       # EmployeeSchemasNationalIdentityNumberTypeValue - The type of the national identity number
       class EmployeeSchemasNationalIdentityNumberTypeValue < T::Enum
+
+
         enums do
           SSN = new('ssn')
           NIN = new('nin')

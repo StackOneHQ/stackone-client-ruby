@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue - The pay frequency of the job postings.
       class HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue < T::Enum
+
+
         enums do
           HOURLY = new('hourly')
           WEEKLY = new('weekly')

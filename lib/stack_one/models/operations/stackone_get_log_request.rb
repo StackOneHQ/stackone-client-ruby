@@ -16,15 +16,15 @@ module StackOne
 
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The include parameter allows you to include additional data in the response.
-        field :include, T.nilable(Models::Operations::Include), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
-
+        field :include, Crystalline::Nilable.new(Models::Operations::Include), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
 
         sig { params(id: ::String, include: T.nilable(Models::Operations::Include)).void }
-        def initialize(id: nil, include: nil)
+        def initialize(id:, include: nil)
           @id = id
           @include = include
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

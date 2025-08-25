@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # List of time off type ids to filter by.
-        field :type_ids, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'type_ids' } }
+        field :type_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'type_ids' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(type_ids: T.nilable(T::Array[::String]), updated_after: T.nilable(::DateTime)).void }
         def initialize(type_ids: nil, updated_after: nil)
@@ -25,6 +24,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @type_ids == other.type_ids

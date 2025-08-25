@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The name of the additional data field. Speak to your Solutions Engineer to understand the id for the specific use case
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The value of the additional data
-        field :value, T.nilable(T.any(::String, T::Array[::String])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
-
+        field :value, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
         sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), value: T.nilable(T.any(::String, T::Array[::String]))).void }
         def initialize(id: nil, remote_id: nil, value: nil)
@@ -28,6 +27,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
