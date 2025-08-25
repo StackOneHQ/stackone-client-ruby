@@ -10,6 +10,8 @@ module StackOne
     
       # TaskSchemasValue - The unified value for the type of the task. If the provider does not specify this type, the value will be set to UnmappedValue
       class TaskSchemasValue < T::Enum
+
+
         enums do
           ACTION = new('action')
           REVIEW = new('review')

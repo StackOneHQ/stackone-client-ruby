@@ -14,24 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
         # ID of the ledger account this line references
-        field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
+        field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # Type of the account
-        field :account_type, T.nilable(Models::Shared::AccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_type') } }
+        field :account_type, Crystalline::Nilable.new(Models::Shared::AccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_type') } }
         # Amount of the journal line in minor units, e.g. 10010 for 100.10 USD. Positive for debit, negative for credit
-        field :amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('amount') } }
+        field :amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('amount') } }
         # Currency code for this line
-        field :currency_code, T.nilable(Models::Shared::JournalLineCurrencyCode), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency_code') } }
+        field :currency_code, Crystalline::Nilable.new(Models::Shared::JournalLineCurrencyCode), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency_code') } }
         # Description of the journal line
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Exchange rate to company base currency
-        field :exchange_rate, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('exchange_rate') } }
+        field :exchange_rate, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('exchange_rate') } }
         # Unique identifier for the journal line
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Tax amount of the line in minor units, e.g. 10010 for 100.10 USD
-        field :tax_amount, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_amount') } }
+        field :tax_amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_amount') } }
         # Tax rate percentage
-        field :tax_rate_percentage, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_rate_percentage') } }
-
+        field :tax_rate_percentage, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_rate_percentage') } }
 
         sig { params(account_id: T.nilable(::String), account_type: T.nilable(Models::Shared::AccountType), amount: T.nilable(::Float), currency_code: T.nilable(Models::Shared::JournalLineCurrencyCode), description: T.nilable(::String), exchange_rate: T.nilable(::Float), id: T.nilable(::String), tax_amount: T.nilable(::Float), tax_rate_percentage: T.nilable(::Float)).void }
         def initialize(account_id: nil, account_type: nil, amount: nil, currency_code: nil, description: nil, exchange_rate: nil, id: nil, tax_amount: nil, tax_rate_percentage: nil)
@@ -46,6 +45,7 @@ module StackOne
           @tax_rate_percentage = tax_rate_percentage
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @account_id == other.account_id

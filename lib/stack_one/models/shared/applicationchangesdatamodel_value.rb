@@ -10,6 +10,8 @@ module StackOne
     
       # ApplicationChangesDataModelValue - The status of the application.
       class ApplicationChangesDataModelValue < T::Enum
+
+
         enums do
           ACTIVE = new('active')
           ASSESSMENT = new('assessment')

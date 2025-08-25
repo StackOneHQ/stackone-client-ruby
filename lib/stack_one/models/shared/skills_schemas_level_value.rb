@@ -10,6 +10,8 @@ module StackOne
     
 
       class SkillsSchemasLevelValue < T::Enum
+
+
         enums do
           PRIMARY = new('primary')
           SECONDARY = new('secondary')

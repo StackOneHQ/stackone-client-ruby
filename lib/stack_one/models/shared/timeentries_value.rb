@@ -10,6 +10,8 @@ module StackOne
     
 
       class TimeEntriesValue < T::Enum
+
+
         enums do
           APPROVED = new('approved')
           UNMAPPED_VALUE = new('unmapped_value')

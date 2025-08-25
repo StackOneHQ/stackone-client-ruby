@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # HTML content of the message
-        field :html, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
+        field :html, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
         # Plain text content of the message
-        field :plain, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
-
+        field :plain, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
 
         sig { params(html: T.nilable(::String), plain: T.nilable(::String)).void }
         def initialize(html: nil, plain: nil)
@@ -25,6 +24,7 @@ module StackOne
           @plain = plain
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @html == other.html

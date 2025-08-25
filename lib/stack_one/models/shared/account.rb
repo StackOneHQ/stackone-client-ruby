@@ -14,34 +14,33 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :addresses, T.nilable(T::Array[Models::Shared::AccountAddress]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('addresses') } }
+        field :addresses, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AccountAddress)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('addresses') } }
 
-        field :annual_revenue, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('annual_revenue') } }
+        field :annual_revenue, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('annual_revenue') } }
         # Timestamp when the account was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Values of the industries
-        field :industries, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('industries') } }
+        field :industries, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('industries') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-        field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
+        field :owner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
         # List of account phone numbers
-        field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        field :phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the owner
-        field :remote_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
+        field :remote_owner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Timestamp when the account was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        field :website, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('website') } }
-
+        field :website, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('website') } }
 
         sig { params(addresses: T.nilable(T::Array[Models::Shared::AccountAddress]), annual_revenue: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), industries: T.nilable(T::Array[::String]), name: T.nilable(::String), owner_id: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), website: T.nilable(::String)).void }
         def initialize(addresses: nil, annual_revenue: nil, created_at: nil, description: nil, id: nil, industries: nil, name: nil, owner_id: nil, phone_numbers: nil, remote_id: nil, remote_owner_id: nil, unified_custom_fields: nil, updated_at: nil, website: nil)
@@ -61,6 +60,7 @@ module StackOne
           @website = website
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @addresses == other.addresses

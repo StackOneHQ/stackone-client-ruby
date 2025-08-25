@@ -10,6 +10,8 @@ module StackOne
     
 
       class EntitySkillsSchemasValue < T::Enum
+
+
         enums do
           ONE = new('1')
           TWO = new('2')

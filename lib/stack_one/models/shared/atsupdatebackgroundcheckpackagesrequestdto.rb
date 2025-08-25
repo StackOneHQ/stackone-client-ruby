@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Package description
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Package name
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Package tests
-        field :tests, T.nilable(T::Array[Models::Shared::UpdatePackage]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
-
+        field :tests, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::UpdatePackage)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
 
         sig { params(description: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tests: T.nilable(T::Array[Models::Shared::UpdatePackage])).void }
         def initialize(description: nil, name: nil, passthrough: nil, tests: nil)
@@ -31,6 +30,7 @@ module StackOne
           @tests = tests
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @description == other.description

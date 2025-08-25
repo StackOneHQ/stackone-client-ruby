@@ -10,6 +10,8 @@ module StackOne
     
       # JobPostingValue - The employment contract type.
       class JobPostingValue < T::Enum
+
+
         enums do
           FULL_TIME = new('full_time')
           SHIFTS = new('shifts')

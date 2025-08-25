@@ -14,20 +14,19 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the account is active
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::AccountingAccountResult2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::AccountingAccountResult2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # External system's account code/number
-        field :code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
+        field :code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
         # ID of the company this account belongs to
-        field :company_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
+        field :company_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Name of the account
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Type of account
-        field :type, T.nilable(Models::Shared::AccountingAccountResultType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::AccountingAccountResultType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::AccountingAccountResult2)), code: T.nilable(::String), company_id: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::AccountingAccountResultType)).void }
         def initialize(active: nil, code: nil, company_id: nil, id: nil, name: nil, remote_id: nil, type: nil)
@@ -40,6 +39,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

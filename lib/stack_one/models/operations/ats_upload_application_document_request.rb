@@ -14,24 +14,24 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+        field :ats_documents_upload_request_dto, Models::Shared::AtsDocumentsUploadRequestDto, { 'request': { 'media_type': 'application/json' } }
 
-        field :unified_upload_request_dto, Models::Shared::UnifiedUploadRequestDto, { 'request': { 'media_type': 'application/json' } }
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
-        sig { params(id: ::String, unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String).void }
-        def initialize(id: nil, unified_upload_request_dto: nil, x_account_id: nil)
+        sig { params(ats_documents_upload_request_dto: Models::Shared::AtsDocumentsUploadRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(ats_documents_upload_request_dto:, id:, x_account_id:)
+          @ats_documents_upload_request_dto = ats_documents_upload_request_dto
           @id = id
-          @unified_upload_request_dto = unified_upload_request_dto
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @ats_documents_upload_request_dto == other.ats_documents_upload_request_dto
           return false unless @id == other.id
-          return false unless @unified_upload_request_dto == other.unified_upload_request_dto
           return false unless @x_account_id == other.x_account_id
           true
         end

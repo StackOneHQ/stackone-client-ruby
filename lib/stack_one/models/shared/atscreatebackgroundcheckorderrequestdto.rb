@@ -14,26 +14,25 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :application, T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application') } }
 
-        field :candidate, T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :job, T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
+        field :job, Crystalline::Nilable.new(Models::Shared::Job), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job') } }
 
-        field :package, T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
+        field :package, Crystalline::Nilable.new(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :requester, T.nilable(Models::Shared::Requester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
+        field :requester, Crystalline::Nilable.new(Models::Shared::Requester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
         # Results update url
-        field :results_update_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
+        field :results_update_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
 
-
-        sig { params(application: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoJob), package: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::Requester), results_update_url: T.nilable(::String)).void }
+        sig { params(application: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::Job), package: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::Requester), results_update_url: T.nilable(::String)).void }
         def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, passthrough: nil, remote_id: nil, requester: nil, results_update_url: nil)
           @application = application
           @candidate = candidate
@@ -46,6 +45,7 @@ module StackOne
           @results_update_url = results_update_url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application == other.application

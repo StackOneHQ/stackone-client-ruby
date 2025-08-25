@@ -10,6 +10,8 @@ module StackOne
     
       # TimeOffBalancesSchemasValue - The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
       class TimeOffBalancesSchemasValue < T::Enum
+
+
         enums do
           MINUTES = new('minutes')
           HOURS = new('hours')

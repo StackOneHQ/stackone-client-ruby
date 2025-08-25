@@ -16,25 +16,51 @@ module StackOne
   SERVERS = [
     'https://api.stackone.com', 
   ].freeze
+  SERVERS = T.let(SERVERS, T::Array[String])
   # Contains the list of servers available to the SDK
 
   class SDKConfiguration
     extend T::Sig
-    include Crystalline::MetadataFields
 
+    sig { returns(T.nilable(Faraday::Connection)) }
+    attr_accessor :client
 
-    field :client, T.nilable(Faraday::Connection)
-    field :hooks, ::StackOne::SDKHooks::Hooks
-    field :retry_config, T.nilable(::StackOne::Utils::RetryConfig)
-    field :timeout, T.nilable(Float)
-    field :security_source, T.nilable(T.proc.returns(T.nilable(Models::Shared::Security)))
-    field :server_url, T.nilable(String)
-    field :server_idx, T.nilable(Integer)
-    field :language, String
-    field :openapi_doc_version, String
-    field :sdk_version, String
-    field :gen_version, String
-    field :user_agent, String
+    sig { returns(::StackOne::SDKHooks::Hooks) }
+    attr_accessor :hooks
+
+    sig { returns(T.nilable(::StackOne::Utils::RetryConfig)) }
+    attr_accessor :retry_config
+
+    sig { returns(T.nilable(Float)) }
+    attr_accessor :timeout
+
+    
+    sig { returns(T.nilable(T.proc.returns(T.nilable(Models::Shared::Security)))) }
+    attr_accessor :security_source
+
+    
+    sig { returns(T.nilable(String)) }
+    attr_accessor :server_url
+
+    
+    sig { returns(T.nilable(Integer)) }
+    attr_accessor :server_idx
+
+    
+    sig { returns(String) }
+    attr_accessor :language
+
+    sig { returns(String) }
+    attr_accessor :openapi_doc_version
+
+    sig { returns(String) }
+    attr_accessor :sdk_version
+
+    sig { returns(String) }
+    attr_accessor :gen_version
+
+    sig { returns(String) }
+    attr_accessor :user_agent
 
     sig do
       params(
@@ -63,15 +89,16 @@ module StackOne
       end
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.35.0'
-      @gen_version = '2.570.4'
-      @user_agent = 'speakeasy-sdk/ruby 0.35.0 2.570.4 1.0.0 stackone_client'
+      @sdk_version = '0.36.0'
+      @gen_version = '2.687.1'
+      @user_agent = 'speakeasy-sdk/ruby 0.36.0 2.687.1 1.0.0 stackone_client'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
     def get_server_details
       return [@server_url.delete_suffix('/'), {}] if !@server_url.nil?
-      [SERVERS[@server_idx], {}]
+      @server_idx = T.must(@server_idx)
+      [T.must(SERVERS[@server_idx]), {}]
     end
   end
 end

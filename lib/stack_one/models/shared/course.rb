@@ -14,44 +14,43 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the course is active and available for users.
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::Course2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Course2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The authors of the course
-        field :authors, T.nilable(T::Array[Models::Shared::AuthorModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authors') } }
+        field :authors, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AuthorModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authors') } }
         # The categories associated with this course
-        field :categories, T.nilable(T::Array[Models::Shared::Category]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Category)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # The child ID/IDs associated with this course
-        field :content_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_ids') } }
+        field :content_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_ids') } }
         # The URL of the thumbnail image associated with the course.
-        field :cover_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
+        field :cover_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
         # The date on which the course was created.
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The description of the course
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The duration of the course following the ISO8601 standard. If duration_unit is applicable we will derive this from the smallest unit given in the duration string
-        field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The external ID associated with this course
-        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        field :external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The languages associated with this course
-        field :languages, T.nilable(T::Array[Models::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
+        field :languages, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LanguageEnum)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
         # The name of the course provider
-        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
         # Provider's unique identifier of the child content IDs associated with this course
-        field :remote_content_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_content_ids') } }
+        field :remote_content_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_content_ids') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The skills associated with this course
-        field :skills, T.nilable(T::Array[Models::Shared::Skills]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
+        field :skills, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Skills)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
         # The title of the course
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The date on which the course was last updated.
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The redirect URL of the course.
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Course2)), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::Category]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), provider: T.nilable(::String), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::Skills]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
         def initialize(active: nil, authors: nil, categories: nil, content_ids: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, id: nil, languages: nil, provider: nil, remote_content_ids: nil, remote_id: nil, skills: nil, title: nil, unified_custom_fields: nil, updated_at: nil, url: nil)
@@ -76,6 +75,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

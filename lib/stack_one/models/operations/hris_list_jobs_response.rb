@@ -12,36 +12,48 @@ module StackOne
       class HrisListJobsResponse
         extend T::Sig
         include Crystalline::MetadataFields
+        sig { returns(T.proc.returns(T.nilable(HrisListJobsResponse))) }
+        attr_accessor :next_page
 
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, T::Hash[Symbol, T::Array[::String]]
-        # Raw HTTP response; suitable for custom response parsing
-        field :raw_response, ::Faraday::Response
+        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
         # The list of jobs was retrieved.
-        field :jobs_paginated, T.nilable(Models::Shared::JobsPaginated)
+        field :hris_jobs_paginated, Crystalline::Nilable.new(Models::Shared::HrisJobsPaginated)
 
-
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, jobs_paginated: T.nilable(Models::Shared::JobsPaginated)).void }
-        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, jobs_paginated: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, hris_jobs_paginated: T.nilable(Models::Shared::HrisJobsPaginated)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, hris_jobs_paginated: nil)
           @content_type = content_type
           @headers = headers
-          @raw_response = raw_response
           @status_code = status_code
-          @jobs_paginated = jobs_paginated
+          @raw_response = raw_response
+          @hris_jobs_paginated = hris_jobs_paginated
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content_type == other.content_type
           return false unless @headers == other.headers
-          return false unless @raw_response == other.raw_response
           return false unless @status_code == other.status_code
-          return false unless @jobs_paginated == other.jobs_paginated
+          return false unless @raw_response == other.raw_response
+          return false unless @hris_jobs_paginated == other.hris_jobs_paginated
           true
+        end
+
+        def each
+          page = self
+          loop do
+            yield page
+            next_page = page.next_page.call if page.next_page
+            break if next_page.nil?
+            page = T.must(next_page)
+          end
         end
       end
     end

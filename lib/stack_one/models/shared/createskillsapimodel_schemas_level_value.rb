@@ -10,6 +10,8 @@ module StackOne
     
 
       class CreateSkillsApiModelSchemasLevelValue < T::Enum
+
+
         enums do
           PRIMARY = new('primary')
           SECONDARY = new('secondary')

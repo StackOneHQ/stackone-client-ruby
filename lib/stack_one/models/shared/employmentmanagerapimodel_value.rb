@@ -10,6 +10,8 @@ module StackOne
     
 
       class EmploymentManagerApiModelValue < T::Enum
+
+
         enums do
           ADMIN = new('admin')
           VIEWER = new('viewer')

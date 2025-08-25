@@ -10,6 +10,8 @@ module StackOne
     
       # TicketingTicketResultValue - The priority of the ticket.
       class TicketingTicketResultValue < T::Enum
+
+
         enums do
           LOWEST = new('lowest')
           LOW = new('low')

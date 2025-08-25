@@ -14,23 +14,22 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Timestamp when the change was created
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # The new values for changed application properties. Only includes fields that commonly change over the application lifecycle.
-        field :new_values, Models::Shared::ApplicationChangesDataModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('new_values') } }
+        field :new_values, Models::Shared::ApplicationChangesDataModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('new_values'), required: true } }
         # The actor who made the change
-        field :actor, T.nilable(Models::Shared::Actor), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('actor') } }
+        field :actor, Crystalline::Nilable.new(Models::Shared::Actor), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('actor') } }
         # The type of change that occurred to the application
-        field :change_type, T.nilable(Models::Shared::ChangeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('change_type') } }
+        field :change_type, Crystalline::Nilable.new(Models::Shared::ChangeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('change_type') } }
         # Timestamp when the change became effective
-        field :effective_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :effective_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(created_at: ::DateTime, new_values: Models::Shared::ApplicationChangesDataModel, actor: T.nilable(Models::Shared::Actor), change_type: T.nilable(Models::Shared::ChangeType), effective_at: T.nilable(::DateTime), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
-        def initialize(created_at: nil, new_values: nil, actor: nil, change_type: nil, effective_at: nil, id: nil, remote_id: nil)
+        def initialize(created_at:, new_values:, actor: nil, change_type: nil, effective_at: nil, id: nil, remote_id: nil)
           @created_at = created_at
           @new_values = new_values
           @actor = actor
@@ -40,6 +39,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

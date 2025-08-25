@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The reference status
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::Reference2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Reference2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The reference id
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The reference name
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Reference2)), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(active: nil, id: nil, name: nil, remote_id: nil)
@@ -31,6 +30,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

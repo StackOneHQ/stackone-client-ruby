@@ -10,6 +10,8 @@ module StackOne
     
       # Method - The method of the request
       class Method < T::Enum
+
+
         enums do
           GET = new('get')
           POST = new('post')

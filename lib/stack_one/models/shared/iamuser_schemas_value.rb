@@ -10,6 +10,8 @@ module StackOne
     
       # IamUserSchemasValue - The file format of the file, expressed as a file extension
       class IamUserSchemasValue < T::Enum
+
+
         enums do
           UNMAPPED_VALUE = new('unmapped_value')
           EZ = new('ez')

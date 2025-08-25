@@ -14,24 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The date the assignment was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The date the assignment is due to be completed
-        field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this assignment
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        field :external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
         # The external reference of the learning object associated with this assignment, this is the main identifier for creating assignments.
-        field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
+        field :learning_object_external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
         # The learning_object_id associated with this assignment. This is not required unless specified in an integration.
-        field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
+        field :learning_object_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The progress associated with this assigment
-        field :progress, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
+        field :progress, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
         # The status of the assignment
-        field :status, T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-
+        field :status, Crystalline::Nilable.new(Models::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
         sig { params(created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
         def initialize(created_at: nil, due_date: nil, external_reference: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
@@ -45,6 +44,7 @@ module StackOne
           @status = status
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

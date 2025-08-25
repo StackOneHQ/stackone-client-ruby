@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Default currency for the company
-        field :base_currency, T.nilable(Models::Shared::AccountingCompanyResultBaseCurrency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('base_currency') } }
+        field :base_currency, Crystalline::Nilable.new(Models::Shared::AccountingCompanyResultBaseCurrency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('base_currency') } }
         # Fiscal year start day (1-31)
-        field :fiscal_year_start_day, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('fiscal_year_start_day') } }
+        field :fiscal_year_start_day, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('fiscal_year_start_day') } }
         # Fiscal year start month (1-12)
-        field :fiscal_year_start_month, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('fiscal_year_start_month') } }
+        field :fiscal_year_start_month, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('fiscal_year_start_month') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Name of the company
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(base_currency: T.nilable(Models::Shared::AccountingCompanyResultBaseCurrency), fiscal_year_start_day: T.nilable(::Float), fiscal_year_start_month: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(base_currency: nil, fiscal_year_start_day: nil, fiscal_year_start_month: nil, id: nil, name: nil, remote_id: nil)
@@ -37,6 +36,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @base_currency == other.base_currency

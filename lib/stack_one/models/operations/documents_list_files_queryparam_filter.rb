@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Search if the contents of the file contains the string (contents can include file metadata)
-        field :content, T.nilable(::String), { 'query_param': { 'field_name': 'content' } }
+        field :content, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'content' } }
         # Use a string with a date to only select results created after that given date
-        field :created_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
+        field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
         # Use to only include Files within the specified Drive
-        field :drive_id, T.nilable(::String), { 'query_param': { 'field_name': 'drive_id' } }
+        field :drive_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'drive_id' } }
         # Use to only include Files within the specified Folder. Required when requesting nested items
-        field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folder_id' } }
+        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folder_id' } }
         # Search if the name of the file contains the string
-        field :name, T.nilable(::String), { 'query_param': { 'field_name': 'name' } }
+        field :name, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'name' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(content: T.nilable(::String), created_after: T.nilable(::DateTime), drive_id: T.nilable(::String), folder_id: T.nilable(::String), name: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(content: nil, created_after: nil, drive_id: nil, folder_id: nil, name: nil, updated_after: nil)
@@ -37,6 +36,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content == other.content

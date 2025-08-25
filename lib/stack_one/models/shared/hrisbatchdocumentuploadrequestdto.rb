@@ -14,14 +14,14 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The batch of items to create
-        field :items, T::Array[Models::Shared::HrisDocumentsUploadRequestDto], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items') } }
-
+        field :items, Crystalline::Array.new(Models::Shared::HrisDocumentsUploadRequestDto), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('items'), required: true } }
 
         sig { params(items: T::Array[Models::Shared::HrisDocumentsUploadRequestDto]).void }
-        def initialize(items: nil)
+        def initialize(items:)
           @items = items
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @items == other.items

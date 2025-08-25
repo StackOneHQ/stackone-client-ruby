@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name associated with this proficiency
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::EntitySkillsCreateRequestDto4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::EntitySkillsCreateRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-        field :value, T.nilable(Models::Shared::EntitySkillsCreateRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EntitySkillsCreateRequestDtoValue, true) } }
-
+        field :value, Crystalline::Nilable.new(Models::Shared::EntitySkillsCreateRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EntitySkillsCreateRequestDtoValue, true) } }
 
         sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::EntitySkillsCreateRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::EntitySkillsCreateRequestDtoValue)).void }
         def initialize(id: nil, name: nil, remote_id: nil, source_value: nil, value: nil)
@@ -34,6 +33,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

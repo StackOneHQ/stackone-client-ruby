@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter to allow filtering of only active content
-        field :active, T.nilable(T.any(T::Boolean, ::String)), { 'query_param': { 'field_name': 'active' } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, ::String)), { 'query_param': { 'field_name': 'active' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, ::String)), updated_after: T.nilable(::DateTime)).void }
         def initialize(active: nil, updated_after: nil)
@@ -25,6 +24,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

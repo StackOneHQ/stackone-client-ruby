@@ -14,48 +14,47 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Agents assigned to the ticket
-        field :assignees, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assignees') } }
+        field :assignees, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assignees') } }
         # The date the ticket was closed
-        field :closed_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('closed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :closed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('closed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Components associated with the ticket
-        field :components, T.nilable(T::Array[Models::Shared::TicketingComponent]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('components') } }
+        field :components, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::TicketingComponent)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('components') } }
         # Array of content associated with the ticket
-        field :content, T.nilable(T::Array[Models::Shared::TicketingContent]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::TicketingContent)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # The timestamp when the record was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The creator of the ticket
-        field :creator_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('creator_id') } }
+        field :creator_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('creator_id') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Organization associated with the ticket
-        field :organization, T.nilable(Models::Shared::Organization), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('organization') } }
+        field :organization, Crystalline::Nilable.new(Models::Shared::Organization), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('organization') } }
         # ID of the parent ticket if this is a sub-ticket
-        field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
+        field :parent_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
         # Priority of the ticket
-        field :priority, T.nilable(Models::Shared::Priority), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('priority') } }
+        field :priority, Crystalline::Nilable.new(Models::Shared::Priority), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('priority') } }
         # Projects the ticket belongs to
-        field :projects, T.nilable(T::Array[Models::Shared::TicketingProject]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('projects') } }
+        field :projects, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::TicketingProject)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('projects') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Users who reported the ticket
-        field :reporters, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reporters') } }
+        field :reporters, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reporters') } }
         # Current status of the ticket
-        field :status, T.nilable(Models::Shared::TicketingReadTicketStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(Models::Shared::TicketingReadTicketStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The tags of the ticket
-        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+        field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
         # The unique ticket number or reference ID
-        field :ticket_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_number') } }
+        field :ticket_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_number') } }
         # URL to view the ticket in the source system
-        field :ticket_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_url') } }
+        field :ticket_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_url') } }
         # The title or subject of the ticket
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # The type of the ticket
-        field :type, T.nilable(Models::Shared::TicketingReadTicketType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::TicketingReadTicketType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The timestamp when the record was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(assignees: T.nilable(T::Array[::String]), closed_at: T.nilable(::DateTime), components: T.nilable(T::Array[Models::Shared::TicketingComponent]), content: T.nilable(T::Array[Models::Shared::TicketingContent]), created_at: T.nilable(::DateTime), creator_id: T.nilable(::String), id: T.nilable(::String), organization: T.nilable(Models::Shared::Organization), parent_id: T.nilable(::String), priority: T.nilable(Models::Shared::Priority), projects: T.nilable(T::Array[Models::Shared::TicketingProject]), remote_id: T.nilable(::String), reporters: T.nilable(T::Array[::String]), status: T.nilable(Models::Shared::TicketingReadTicketStatus), tags: T.nilable(T::Array[::String]), ticket_number: T.nilable(::String), ticket_url: T.nilable(::String), title: T.nilable(::String), type: T.nilable(Models::Shared::TicketingReadTicketType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(assignees: nil, closed_at: nil, components: nil, content: nil, created_at: nil, creator_id: nil, id: nil, organization: nil, parent_id: nil, priority: nil, projects: nil, remote_id: nil, reporters: nil, status: nil, tags: nil, ticket_number: nil, ticket_url: nil, title: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
@@ -82,6 +81,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @assignees == other.assignees

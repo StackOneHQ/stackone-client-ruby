@@ -10,6 +10,8 @@ module StackOne
     
       # FieldType - The type of the field
       class FieldType < T::Enum
+
+
         enums do
           SHORT_TEXT = new('short_text')
           LONG_TEXT = new('long_text')

@@ -16,30 +16,30 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, T::Hash[Symbol, T::Array[::String]]
-        # Raw HTTP response; suitable for custom response parsing
-        field :raw_response, ::Faraday::Response
+        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
         # The contact was successfully created.
-        field :contact_result, T.nilable(Models::Shared::ContactResult)
+        field :contact_result, Crystalline::Nilable.new(Models::Shared::ContactResult)
 
-
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, contact_result: T.nilable(Models::Shared::ContactResult)).void }
-        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, contact_result: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, contact_result: T.nilable(Models::Shared::ContactResult)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, contact_result: nil)
           @content_type = content_type
           @headers = headers
-          @raw_response = raw_response
           @status_code = status_code
+          @raw_response = raw_response
           @contact_result = contact_result
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content_type == other.content_type
           return false unless @headers == other.headers
-          return false unless @raw_response == other.raw_response
           return false unless @status_code == other.status_code
+          return false unless @raw_response == other.raw_response
           return false unless @contact_result == other.contact_result
           true
         end

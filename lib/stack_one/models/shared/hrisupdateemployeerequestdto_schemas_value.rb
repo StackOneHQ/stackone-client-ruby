@@ -10,6 +10,8 @@ module StackOne
     
 
       class HrisUpdateEmployeeRequestDtoSchemasValue < T::Enum
+
+
         enums do
           ACTIVE = new('active')
           PENDING = new('pending')

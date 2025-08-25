@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(screening_result_webhook: Models::Shared::ScreeningResultWebhook, x_account_id: ::String).void }
-        def initialize(screening_result_webhook: nil, x_account_id: nil)
+        def initialize(screening_result_webhook:, x_account_id:)
           @screening_result_webhook = screening_result_webhook
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @screening_result_webhook == other.screening_result_webhook

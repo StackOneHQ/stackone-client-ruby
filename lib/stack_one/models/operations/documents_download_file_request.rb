@@ -17,30 +17,30 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
-        # The export format of the file
-        field :export_format, T.nilable(::String), { 'query_param': { 'field_name': 'export_format', 'style': 'form', 'explode': true } }
-        # The format to download the file in
-        field :format, T.nilable(::String), { 'query_param': { 'field_name': 'format', 'style': 'form', 'explode': true } }
         # The session token
-        field :x_stackone_api_session_token, T.nilable(::String), { 'header': { 'field_name': 'x-stackone-api-session-token', 'style': 'simple', 'explode': false } }
+        field :x_stackone_api_session_token, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-stackone-api-session-token', 'style': 'simple', 'explode': false } }
+        # The export format of the file
+        field :export_format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'export_format', 'style': 'form', 'explode': true } }
+        # The format to download the file in
+        field :format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'format', 'style': 'form', 'explode': true } }
 
-
-        sig { params(id: ::String, x_account_id: ::String, export_format: T.nilable(::String), format: T.nilable(::String), x_stackone_api_session_token: T.nilable(::String)).void }
-        def initialize(id: nil, x_account_id: nil, export_format: nil, format: nil, x_stackone_api_session_token: nil)
+        sig { params(id: ::String, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), export_format: T.nilable(::String), format: T.nilable(::String)).void }
+        def initialize(id:, x_account_id:, x_stackone_api_session_token: nil, export_format: nil, format: nil)
           @id = id
           @x_account_id = x_account_id
+          @x_stackone_api_session_token = x_stackone_api_session_token
           @export_format = export_format
           @format = format
-          @x_stackone_api_session_token = x_stackone_api_session_token
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
+          return false unless @x_stackone_api_session_token == other.x_stackone_api_session_token
           return false unless @export_format == other.export_format
           return false unless @format == other.format
-          return false unless @x_stackone_api_session_token == other.x_stackone_api_session_token
           true
         end
       end

@@ -16,12 +16,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The country code
-        field :country, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+        field :country, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
 
-        field :type, T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
-
+        field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
         sig { params(country: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasCountry), type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoType), value: T.nilable(::String)).void }
         def initialize(country: nil, type: nil, value: nil)
@@ -30,6 +29,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @country == other.country

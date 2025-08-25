@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter by the type of change that occurred to the application
-        field :change_type, T.nilable(Models::Operations::ChangeType), { 'query_param': { 'field_name': 'change_type' } }
+        field :change_type, Crystalline::Nilable.new(Models::Operations::ChangeType), { 'query_param': { 'field_name': 'change_type' } }
         # Use a string with a date to only select results created after that given date
-        field :created_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
-
+        field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
 
         sig { params(change_type: T.nilable(Models::Operations::ChangeType), created_after: T.nilable(::DateTime)).void }
         def initialize(change_type: nil, created_after: nil)
@@ -25,6 +24,7 @@ module StackOne
           @created_after = created_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @change_type == other.change_type

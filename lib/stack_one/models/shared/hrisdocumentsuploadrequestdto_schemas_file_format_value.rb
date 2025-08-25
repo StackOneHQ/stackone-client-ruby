@@ -10,6 +10,8 @@ module StackOne
     
       # HrisDocumentsUploadRequestDtoSchemasFileFormatValue - The file format of the file, expressed as a file extension
       class HrisDocumentsUploadRequestDtoSchemasFileFormatValue < T::Enum
+
+
         enums do
           UNMAPPED_VALUE = new('unmapped_value')
           EZ = new('ez')

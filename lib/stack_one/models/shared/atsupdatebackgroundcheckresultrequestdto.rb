@@ -14,32 +14,28 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :attachments, T.nilable(T::Array[Models::Shared::Attachment]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
+        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Attachment)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
 
-        field :candidate, T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
-        # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :candidate, Crystalline::Nilable.new(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
-        field :result, T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+        field :result, Crystalline::Nilable.new(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
         # The test`s result url
-        field :result_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_url') } }
+        field :result_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result_url') } }
 
-        field :score, T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
+        field :score, Crystalline::Nilable.new(Models::Shared::Score), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
         # The start date of the candidate test
-        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The submission date of the candidate test
-        field :submission_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :submission_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The summary about the result of the test
-        field :summary, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
+        field :summary, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
 
-
-        sig { params(attachments: T.nilable(T::Array[Models::Shared::Attachment]), candidate: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), result_url: T.nilable(::String), score: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoScore), start_date: T.nilable(::DateTime), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
-        def initialize(attachments: nil, candidate: nil, id: nil, passthrough: nil, result: nil, result_url: nil, score: nil, start_date: nil, submission_date: nil, summary: nil)
+        sig { params(attachments: T.nilable(T::Array[Models::Shared::Attachment]), candidate: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), result_url: T.nilable(::String), score: T.nilable(Models::Shared::Score), start_date: T.nilable(::DateTime), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
+        def initialize(attachments: nil, candidate: nil, passthrough: nil, result: nil, result_url: nil, score: nil, start_date: nil, submission_date: nil, summary: nil)
           @attachments = attachments
           @candidate = candidate
-          @id = id
           @passthrough = passthrough
           @result = result
           @result_url = result_url
@@ -49,11 +45,11 @@ module StackOne
           @summary = summary
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @attachments == other.attachments
           return false unless @candidate == other.candidate
-          return false unless @id == other.id
           return false unless @passthrough == other.passthrough
           return false unless @result == other.result
           return false unless @result_url == other.result_url

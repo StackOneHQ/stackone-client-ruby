@@ -10,6 +10,8 @@ module StackOne
     
       # EmailMessagesValue - The unified message type.
       class EmailMessagesValue < T::Enum
+
+
         enums do
           EMAIL = new('email')
           SMS = new('sms')

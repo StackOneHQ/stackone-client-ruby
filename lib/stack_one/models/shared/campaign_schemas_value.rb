@@ -10,6 +10,8 @@ module StackOne
     
       # CampaignSchemasValue - The Status of the campaign.
       class CampaignSchemasValue < T::Enum
+
+
         enums do
           DRAFT = new('draft')
           ARCHIVED = new('archived')

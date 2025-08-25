@@ -14,14 +14,14 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The token to authenticate with
-        field :token, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('token') } }
-
+        field :token, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('token'), required: true } }
 
         sig { params(token: ::String).void }
-        def initialize(token: nil)
+        def initialize(token:)
           @token = token
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @token == other.token

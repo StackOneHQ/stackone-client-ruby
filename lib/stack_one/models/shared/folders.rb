@@ -14,44 +14,43 @@ module StackOne
         include Crystalline::MetadataFields
 
         # List of containing parent Folder IDs in descending order
-        field :all_parent_folder_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('all_parent_folder_ids') } }
+        field :all_parent_folder_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('all_parent_folder_ids') } }
         # The created date of the folder
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The description of the folder
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The parent drive ID associated with this folder
-        field :drive_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('drive_id') } }
+        field :drive_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('drive_id') } }
         # Whether the folder has children
-        field :has_children, T.nilable(T.any(T::Boolean, Models::Shared::Folders2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_children') } }
+        field :has_children, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Folders2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_children') } }
         # Whether the folder has content
-        field :has_content, T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_content') } }
+        field :has_content, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::FoldersSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_content') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Whether the folder is at the root level of the drive
-        field :is_root, T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemasIsRoot2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_root') } }
+        field :is_root, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::FoldersSchemasIsRoot2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_root') } }
         # The name associated with this folder
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The user ID of owner of this folder
-        field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
+        field :owner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
         # The parent folder ID associated with this folder
-        field :parent_folder_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_folder_id') } }
+        field :parent_folder_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_folder_id') } }
         # The path where the folder is stored
-        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # Provider's unique identifier of the parent drive associated with this folder
-        field :remote_drive_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_drive_id') } }
+        field :remote_drive_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_drive_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the owner of this folder
-        field :remote_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
+        field :remote_owner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_owner_id') } }
         # Provider's unique identifier of the parent folder associated with this folder
-        field :remote_parent_folder_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_folder_id') } }
+        field :remote_parent_folder_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_parent_folder_id') } }
         # The size of this folder in bytes
-        field :size, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('size') } }
+        field :size, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('size') } }
         # The last updated date of the folder
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The url of the folder
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(all_parent_folder_ids: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), description: T.nilable(::String), drive_id: T.nilable(::String), has_children: T.nilable(T.any(T::Boolean, Models::Shared::Folders2)), has_content: T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemas2)), id: T.nilable(::String), is_root: T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemasIsRoot2)), name: T.nilable(::String), owner_id: T.nilable(::String), parent_folder_id: T.nilable(::String), path: T.nilable(::String), remote_drive_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), remote_parent_folder_id: T.nilable(::String), size: T.nilable(::Float), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
         def initialize(all_parent_folder_ids: nil, created_at: nil, description: nil, drive_id: nil, has_children: nil, has_content: nil, id: nil, is_root: nil, name: nil, owner_id: nil, parent_folder_id: nil, path: nil, remote_drive_id: nil, remote_id: nil, remote_owner_id: nil, remote_parent_folder_id: nil, size: nil, updated_at: nil, url: nil)
@@ -76,6 +75,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @all_parent_folder_ids == other.all_parent_folder_ids

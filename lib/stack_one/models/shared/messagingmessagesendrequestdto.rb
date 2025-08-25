@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Content body of the message
-        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Can be a conversation ID, user ID, email or phone number.
-        field :recipient, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('recipient') } }
+        field :recipient, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('recipient') } }
         # The account_id or phone number of the message sender
-        field :sender, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sender') } }
-
+        field :sender, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sender') } }
 
         sig { params(content: T.nilable(::String), recipient: T.nilable(::String), sender: T.nilable(::String)).void }
         def initialize(content: nil, recipient: nil, sender: nil)
@@ -28,6 +27,7 @@ module StackOne
           @sender = sender
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content == other.content

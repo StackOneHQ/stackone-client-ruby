@@ -10,6 +10,8 @@ module StackOne
     
       # AtsUpdateJobRequestDtoConfidential - Confidential status of the job
       class AtsUpdateJobRequestDtoConfidential < T::Enum
+
+
         enums do
           TRUE = new('true')
           FALSE = new('false')

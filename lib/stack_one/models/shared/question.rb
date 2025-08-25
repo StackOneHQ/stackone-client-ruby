@@ -14,22 +14,21 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :multiple_choice_answers, T.nilable(T::Array[Models::Shared::QuestionMultipleChoiceAnswers]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multiple_choice_answers') } }
+        field :multiple_choice_answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::QuestionMultipleChoiceAnswers)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multiple_choice_answers') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
-        field :parent_question, T.nilable(Models::Shared::ParentQuestion), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_question') } }
+        field :parent_question, Crystalline::Nilable.new(Models::Shared::ParentQuestion), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_question') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :required, T.nilable(T.any(T::Boolean, Models::Shared::Question2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
+        field :required, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Question2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
 
-        field :text, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
+        field :text, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
 
-        field :type, T.nilable(Models::Shared::QuestionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::QuestionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(id: T.nilable(::String), multiple_choice_answers: T.nilable(T::Array[Models::Shared::QuestionMultipleChoiceAnswers]), name: T.nilable(::String), parent_question: T.nilable(Models::Shared::ParentQuestion), remote_id: T.nilable(::String), required: T.nilable(T.any(T::Boolean, Models::Shared::Question2)), text: T.nilable(::String), type: T.nilable(Models::Shared::QuestionType)).void }
         def initialize(id: nil, multiple_choice_answers: nil, name: nil, parent_question: nil, remote_id: nil, required: nil, text: nil, type: nil)
@@ -43,6 +42,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

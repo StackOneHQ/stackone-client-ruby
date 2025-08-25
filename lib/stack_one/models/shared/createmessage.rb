@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :message_content, T.nilable(T.any(Models::Shared::SmsMessageContentsSchemas, Models::Shared::Schemas, Models::Shared::PushMessageContentsSchemas)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
+        field :message_content, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::SmsMessageContentsSchemas, Models::Shared::Schemas, Models::Shared::PushMessageContentsSchemas)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_content') } }
         # Stackone enum identifying the type of message associated with the content.
-        field :message_type, T.nilable(Models::Shared::MessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
+        field :message_type, Crystalline::Nilable.new(Models::Shared::MessageType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message_type') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
         sig { params(id: T.nilable(::String), message_content: T.nilable(T.any(Models::Shared::SmsMessageContentsSchemas, Models::Shared::Schemas, Models::Shared::PushMessageContentsSchemas)), message_type: T.nilable(Models::Shared::MessageType), name: T.nilable(::String)).void }
         def initialize(id: nil, message_content: nil, message_type: nil, name: nil)
@@ -31,6 +30,7 @@ module StackOne
           @name = name
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

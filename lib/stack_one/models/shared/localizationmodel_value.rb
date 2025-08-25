@@ -10,6 +10,8 @@ module StackOne
     
       # LocalizationModelValue - The Locale Code of the language
       class LocalizationModelValue < T::Enum
+
+
         enums do
           AR_AR = new('ar_AR')
           AA_ER = new('aa_ER')

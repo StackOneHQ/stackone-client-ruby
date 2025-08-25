@@ -20,14 +20,14 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(entity_skills_create_request_dto: Models::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String).void }
-        def initialize(entity_skills_create_request_dto: nil, id: nil, x_account_id: nil)
+        def initialize(entity_skills_create_request_dto:, id:, x_account_id:)
           @entity_skills_create_request_dto = entity_skills_create_request_dto
           @id = id
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @entity_skills_create_request_dto == other.entity_skills_create_request_dto

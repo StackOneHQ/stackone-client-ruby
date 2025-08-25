@@ -10,10 +10,11 @@ module StackOne
     
 
       class AssignmentSchemasValue < T::Enum
+
+
         enums do
-          PENDING = new('pending')
-          IN_PROGRESS = new('in_progress')
-          COMPLETED = new('completed')
+          PASS = new('Pass')
+          FAIL = new('Fail')
           UNMAPPED_VALUE = new('unmapped_value')
         end
       end

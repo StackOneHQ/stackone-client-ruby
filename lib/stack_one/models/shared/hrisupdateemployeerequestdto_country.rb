@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocation4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocation4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The ISO3166-1 Alpha2 Code of the Country
-        field :value, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue, true) } }
-
+        field :value, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocation4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue)).void }
         def initialize(source_value: nil, value: nil)
@@ -25,6 +24,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @source_value == other.source_value

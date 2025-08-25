@@ -10,6 +10,8 @@ module StackOne
     
 
       class HrisCreateEmployeeRequestDtoSchemasGenderValue < T::Enum
+
+
         enums do
           MALE = new('male')
           FEMALE = new('female')

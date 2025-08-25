@@ -14,23 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Candidate information
-        field :candidate, Models::Shared::ScreeningOrderCandidate, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+        field :candidate, Models::Shared::ScreeningOrderCandidate, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate'), required: true } }
         # Package ID
-        field :package_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package_id') } }
+        field :package_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package_id'), required: true } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
         sig { params(candidate: Models::Shared::ScreeningOrderCandidate, package_id: ::String, passthrough: T.nilable(T::Hash[Symbol, ::Object]), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(candidate: nil, package_id: nil, passthrough: nil, unified_custom_fields: nil)
+        def initialize(candidate:, package_id:, passthrough: nil, unified_custom_fields: nil)
           @candidate = candidate
           @package_id = package_id
           @passthrough = passthrough
           @unified_custom_fields = unified_custom_fields
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @candidate == other.candidate

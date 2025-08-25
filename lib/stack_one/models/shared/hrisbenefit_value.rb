@@ -10,6 +10,8 @@ module StackOne
     
       # HRISBenefitValue - The type of the benefit
       class HRISBenefitValue < T::Enum
+
+
         enums do
           RETIREMENT_SAVINGS = new('retirement_savings')
           HEALTH_SAVINGS = new('health_savings')

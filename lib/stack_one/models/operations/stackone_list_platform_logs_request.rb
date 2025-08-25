@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter parameters that allow greater customisation of the list response
-        field :filter, T.nilable(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
+        field :filter, Crystalline::Nilable.new(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
         # The unified cursor
-        field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
+        field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The field to order the results by.
-        field :order_by, T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), { 'query_param': { 'field_name': 'order_by', 'style': 'form', 'explode': true } }
+        field :order_by, Crystalline::Nilable.new(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), { 'query_param': { 'field_name': 'order_by', 'style': 'form', 'explode': true } }
         # The direction to order the results by.
-        field :order_direction, T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction', 'style': 'form', 'explode': true } }
+        field :order_direction, Crystalline::Nilable.new(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
-        field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
-
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
         sig { params(filter: T.nilable(Models::Operations::QueryParamFilter), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
         def initialize(filter: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
@@ -34,6 +33,7 @@ module StackOne
           @page_size = page_size
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @filter == other.filter

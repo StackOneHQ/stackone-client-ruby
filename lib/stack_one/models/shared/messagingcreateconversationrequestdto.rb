@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Name or title of the conversation
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # List of participant user IDs in the conversation
-        field :participants, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('participants') } }
+        field :participants, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('participants') } }
         # Whether the conversation is private
-        field :private, T.nilable(T.any(T::Boolean, Models::Shared::MessagingCreateConversationRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('private') } }
-
+        field :private, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::MessagingCreateConversationRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('private') } }
 
         sig { params(name: T.nilable(::String), participants: T.nilable(T::Array[::String]), private: T.nilable(T.any(T::Boolean, Models::Shared::MessagingCreateConversationRequestDto2))).void }
         def initialize(name: nil, participants: nil, private: nil)
@@ -28,6 +27,7 @@ module StackOne
           @private = private
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @name == other.name

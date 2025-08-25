@@ -10,6 +10,8 @@ module StackOne
     
       # ScheduledInterviewValue - The status of the interview.
       class ScheduledInterviewValue < T::Enum
+
+
         enums do
           UNSCHEDULED = new('unscheduled')
           SCHEDULED = new('scheduled')

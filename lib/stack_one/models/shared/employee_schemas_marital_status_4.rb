@@ -14,10 +14,10 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-
         
         def initialize; end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           true

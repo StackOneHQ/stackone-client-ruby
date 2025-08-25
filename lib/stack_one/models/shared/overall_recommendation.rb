@@ -10,6 +10,8 @@ module StackOne
     
       # OverallRecommendation - The overall recommendation
       class OverallRecommendation < T::Enum
+
+
         enums do
           STRONG_YES = new('strong_yes')
           YES = new('yes')

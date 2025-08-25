@@ -10,6 +10,8 @@ module StackOne
     
       # HrisShiftSchemasValue - The status of the shift
       class HrisShiftSchemasValue < T::Enum
+
+
         enums do
           DRAFT = new('draft')
           PUBLISHED = new('published')

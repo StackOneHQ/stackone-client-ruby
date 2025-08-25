@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Package description
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Package name
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Package tests
-        field :tests, T.nilable(T::Array[Models::Shared::Package]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
-
+        field :tests, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Package)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tests') } }
 
         sig { params(description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), tests: T.nilable(T::Array[Models::Shared::Package])).void }
         def initialize(description: nil, id: nil, name: nil, remote_id: nil, tests: nil)
@@ -34,6 +33,7 @@ module StackOne
           @tests = tests
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @description == other.description

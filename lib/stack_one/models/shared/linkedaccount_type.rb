@@ -10,6 +10,8 @@ module StackOne
     
       # LinkedAccountType - The account type
       class LinkedAccountType < T::Enum
+
+
         enums do
           PRODUCTION = new('production')
           TEST = new('test')

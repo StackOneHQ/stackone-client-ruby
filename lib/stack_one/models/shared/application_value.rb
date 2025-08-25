@@ -10,6 +10,8 @@ module StackOne
     
       # ApplicationValue - The status of the application.
       class ApplicationValue < T::Enum
+
+
         enums do
           ACTIVE = new('active')
           ASSESSMENT = new('assessment')

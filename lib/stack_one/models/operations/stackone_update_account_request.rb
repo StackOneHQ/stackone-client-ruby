@@ -14,21 +14,21 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
         field :patch_account_external_dto, Models::Shared::PatchAccountExternalDto, { 'request': { 'media_type': 'application/json' } }
 
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
 
-        sig { params(id: ::String, patch_account_external_dto: Models::Shared::PatchAccountExternalDto).void }
-        def initialize(id: nil, patch_account_external_dto: nil)
-          @id = id
+        sig { params(patch_account_external_dto: Models::Shared::PatchAccountExternalDto, id: ::String).void }
+        def initialize(patch_account_external_dto:, id:)
           @patch_account_external_dto = patch_account_external_dto
+          @id = id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @id == other.id
           return false unless @patch_account_external_dto == other.patch_account_external_dto
+          return false unless @id == other.id
           true
         end
       end

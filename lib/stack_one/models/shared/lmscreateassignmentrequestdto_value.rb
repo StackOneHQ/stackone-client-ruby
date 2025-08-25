@@ -10,6 +10,8 @@ module StackOne
     
 
       class LmsCreateAssignmentRequestDtoValue < T::Enum
+
+
         enums do
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')

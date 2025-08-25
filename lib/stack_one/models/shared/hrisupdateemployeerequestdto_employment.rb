@@ -16,38 +16,37 @@ module StackOne
         # The employee effective date
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :effective_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :effective_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The employment work schedule type (e.g., full-time, part-time)
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :employment_contract_type, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
+        field :employment_contract_type, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
         # The type of employment (e.g., contractor, permanent)
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :employment_type, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
+        field :employment_type, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
         # The end date of employment
-        field :end_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Represents the employee’s position within the organizational hierarchy.
-        field :grade, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoGrade), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('grade') } }
+        field :grade, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoGrade), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('grade') } }
         # The job title of the employee
-        field :job_title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
+        field :job_title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The currency used for pay
-        field :pay_currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
+        field :pay_currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
         # The pay frequency
-        field :pay_frequency, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
+        field :pay_frequency, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
         # The pay period
-        field :pay_period, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
+        field :pay_period, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
         # The pay rate for the employee
-        field :pay_rate, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
+        field :pay_rate, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
         # The payroll code of the employee
-        field :payroll_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('payroll_code') } }
+        field :payroll_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('payroll_code') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        field :work_time, T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoWorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
-
+        field :work_time, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoWorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
 
         sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasEmploymentType), end_date: T.nilable(::DateTime), grade: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoGrade), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoPayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoWorkTime)).void }
         def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, grade: nil, job_title: nil, passthrough: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, unified_custom_fields: nil, work_time: nil)
@@ -67,6 +66,7 @@ module StackOne
           @work_time = work_time
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @effective_date == other.effective_date

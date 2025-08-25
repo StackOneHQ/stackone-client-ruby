@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The id of the ticket type.
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name of the ticket type.
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The project the ticket type belongs to.
-        field :project_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
-
+        field :project_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
 
         sig { params(id: T.nilable(::String), name: T.nilable(::String), project_id: T.nilable(::String)).void }
         def initialize(id: nil, name: nil, project_id: nil)
@@ -28,6 +27,7 @@ module StackOne
           @project_id = project_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

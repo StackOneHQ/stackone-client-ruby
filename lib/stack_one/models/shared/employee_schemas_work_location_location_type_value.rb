@@ -10,6 +10,8 @@ module StackOne
     
       # EmployeeSchemasWorkLocationLocationTypeValue - The type of the location.
       class EmployeeSchemasWorkLocationLocationTypeValue < T::Enum
+
+
         enums do
           HOME = new('home')
           WORK = new('work')

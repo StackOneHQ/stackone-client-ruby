@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter to select documents by type
-        field :type, T.nilable(::String), { 'query_param': { 'field_name': 'type' } }
+        field :type, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'type' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(type: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(type: nil, updated_after: nil)
@@ -25,6 +24,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @type == other.type

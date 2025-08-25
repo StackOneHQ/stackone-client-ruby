@@ -10,6 +10,8 @@ module StackOne
     
 
       class LmsCreateCompletionRequestDtoValue < T::Enum
+
+
         enums do
           PASS = new('Pass')
           FAIL = new('Fail')

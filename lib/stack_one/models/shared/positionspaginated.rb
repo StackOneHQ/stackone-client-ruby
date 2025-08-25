@@ -14,23 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :data, T::Array[Models::Shared::Position], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Array.new(Models::Shared::Position), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
 
-        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :next_page, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
+        field :next_page, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
 
-        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
-
+        field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
         sig { params(data: T::Array[Models::Shared::Position], next_: T.nilable(::String), next_page: T.nilable(::String), raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
-        def initialize(data: nil, next_: nil, next_page: nil, raw: nil)
+        def initialize(data:, next_: nil, next_page: nil, raw: nil)
           @data = data
           @next_ = next_
           @next_page = next_page
           @raw = raw
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data

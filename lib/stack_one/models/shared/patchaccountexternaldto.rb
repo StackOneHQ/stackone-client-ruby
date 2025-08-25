@@ -14,33 +14,32 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :authentication_config_key, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication_config_key') } }
+        field :authentication_config_key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication_config_key') } }
 
-        field :credentials, T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
+        field :credentials, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoCredentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
 
-        field :environment, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('environment') } }
+        field :environment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('environment') } }
 
-        field :label, T.nilable(Models::Shared::Label), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(Models::Shared::Label), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
-        field :metadata, T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
+        field :metadata, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
 
-        field :origin_owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
+        field :origin_owner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
 
-        field :origin_owner_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
+        field :origin_owner_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
 
-        field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
+        field :origin_username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
-        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
 
-        field :secrets, T.nilable(Models::Shared::Secrets), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('secrets') } }
+        field :secrets, Crystalline::Nilable.new(Models::Shared::Secrets), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('secrets') } }
 
-        field :setup_information, T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
+        field :setup_information, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoSetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
         # The account type
-        field :type, T.nilable(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
 
         sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
-        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, type: nil)
+        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, type: Models::Shared::PatchAccountExternalDtoType::PRODUCTION)
           @authentication_config_key = authentication_config_key
           @credentials = credentials
           @environment = environment
@@ -55,6 +54,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @authentication_config_key == other.authentication_config_key

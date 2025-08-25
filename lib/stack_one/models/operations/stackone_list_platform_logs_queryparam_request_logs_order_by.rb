@@ -10,6 +10,8 @@ module StackOne
     
       # StackoneListPlatformLogsQueryParamRequestLogsOrderBy - The field to order the results by.
       class StackoneListPlatformLogsQueryParamRequestLogsOrderBy < T::Enum
+
+
         enums do
           PROVIDER = new('provider')
           SERVICE = new('service')

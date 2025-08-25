@@ -16,33 +16,35 @@ Create Screening Order
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="screening_create_screening_order" method="post" path="/unified/screening/orders" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.screening.create_screening_order(screening_create_order_request_dto=Models::Shared::ScreeningCreateOrderRequestDto.new(
+res = s.screening.create_screening_order(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto.new(
   candidate: Models::Shared::ScreeningOrderCandidate.new(
-    email: "john.doe@example.com",
-    first_name: "John",
-    last_name: "Doe",
+    email: 'john.doe@example.com',
+    first_name: 'John',
+    last_name: 'Doe',
   ),
-  package_id: "54321",
+  package_id: '54321',
   passthrough: {
-    "other_known_names": "John Doe",
+    "other_known_names": 'John Doe',
   },
   unified_custom_fields: {
-    "my_project_custom_field_1": "REF-1236",
-    "my_project_custom_field_2": "some other value",
+    "my_project_custom_field_1": 'REF-1236',
+    "my_project_custom_field_2": 'some other value',
   },
-), x_account_id="<id>")
+), x_account_id: '<id>')
 
-if ! res.create_result.nil?
+unless res.create_result.nil?
   # handle response
 end
 
@@ -59,7 +61,23 @@ end
 
 **[T.nilable(Models::Operations::ScreeningCreateScreeningOrderResponse)](../../models/operations/screeningcreatescreeningorderresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## get_screening_package
 
@@ -67,25 +85,27 @@ Get Screening Package
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="screening_get_screening_package" method="get" path="/unified/screening/packages/{id}" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::ScreeningGetScreeningPackageRequest.new(
-  fields_: "id,remote_id,name,description",
-  id: "<id>",
-  x_account_id: "<id>",
+  fields_: 'id,remote_id,name,description',
+  id: '<id>',
+  x_account_id: '<id>',
 )
 
-res = s.screening.get_screening_package(req)
+res = s.screening.get_screening_package(request: req)
 
-if ! res.screening_package_result.nil?
+unless res.screening_package_result.nil?
   # handle response
 end
 
@@ -101,7 +121,23 @@ end
 
 **[T.nilable(Models::Operations::ScreeningGetScreeningPackageResponse)](../../models/operations/screeninggetscreeningpackageresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## list_screening_packages
 
@@ -109,27 +145,29 @@ List Screening Packages
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="screening_list_screening_packages" method="get" path="/unified/screening/packages" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::ScreeningListScreeningPackagesRequest.new(
-  fields_: "id,remote_id,name,description",
+  fields_: 'id,remote_id,name,description',
   filter: Models::Operations::ScreeningListScreeningPackagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
-  x_account_id: "<id>",
+  x_account_id: '<id>',
 )
 
-res = s.screening.list_screening_packages(req)
+res = s.screening.list_screening_packages(request: req)
 
-if ! res.screening_packages_paginated.nil?
+unless res.screening_packages_paginated.nil?
   # handle response
 end
 
@@ -145,7 +183,23 @@ end
 
 **[T.nilable(Models::Operations::ScreeningListScreeningPackagesResponse)](../../models/operations/screeninglistscreeningpackagesresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## webhook_screening_result
 
@@ -153,41 +207,43 @@ Webhook Screening Result
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="screening_webhook_screening_result" method="post" path="/unified/screening/results/webhook" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.screening.webhook_screening_result(screening_result_webhook=Models::Shared::ScreeningResultWebhook.new(
+res = s.screening.webhook_screening_result(screening_result_webhook: Models::Shared::ScreeningResultWebhook.new(
   data: Models::Shared::ScreeningResult.new(
-    id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-    order_id: "12345",
-    remote_id: "8187e5da-dc77-475e-9949-af0f1fa4e4e3",
-    result_url: "https://example.com/results/12345",
+    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    order_id: '12345',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    result_url: 'https://example.com/results/12345',
     score: Models::Shared::ScreeningResultScore.new(
-      label: "Overall Risk",
-      max: "100",
-      min: "0",
-      value: "75",
+      label: 'Overall Risk',
+      max: '100',
+      min: '0',
+      value: '75',
     ),
     start_date: DateTime.iso8601('2023-01-01T00:00:00Z'),
     status: Models::Shared::ScreeningResultStatus::COMPLETED,
     submission_date: DateTime.iso8601('2023-01-02T00:00:00Z'),
-    summary: "Background check completed successfully",
+    summary: 'Background check completed successfully',
     unified_custom_fields: {
-      "my_project_custom_field_1": "REF-1236",
-      "my_project_custom_field_2": "some other value",
+      "my_project_custom_field_1": 'REF-1236',
+      "my_project_custom_field_2": 'some other value',
     },
   ),
-  event: Models::Shared::Event::SCREENING_RESULTS_UPDATED,
-), x_account_id="<id>")
+  event: Models::Shared::Event::SCREENING_RESULTS_CANCELLED,
+), x_account_id: '<id>')
 
-if ! res.screening_result_webhook.nil?
+unless res.screening_result_webhook.nil?
   # handle response
 end
 
@@ -204,3 +260,20 @@ end
 
 **[T.nilable(Models::Operations::ScreeningWebhookScreeningResultResponse)](../../models/operations/screeningwebhookscreeningresultresponse.md)**
 
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |

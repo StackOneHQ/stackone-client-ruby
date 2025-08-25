@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The request URL hostname
-        field :hostname, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hostname') } }
+        field :hostname, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hostname') } }
         # The request path
-        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # The request query parameters
-        field :query_params, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query_params') } }
+        field :query_params, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query_params') } }
         # The request URL
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(hostname: T.nilable(::String), path: T.nilable(::String), query_params: T.nilable(T::Hash[Symbol, ::Object]), url: T.nilable(::String)).void }
         def initialize(hostname: nil, path: nil, query_params: nil, url: nil)
@@ -31,6 +30,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @hostname == other.hostname

@@ -10,6 +10,8 @@ module StackOne
     
 
       class WorkEligibilitySchemasValue < T::Enum
+
+
         enums do
           VISA = new('visa')
           PASSPORT = new('passport')

@@ -10,6 +10,8 @@ module StackOne
     
       # PositionValue - The status of the position.
       class PositionValue < T::Enum
+
+
         enums do
           OPEN = new('open')
           CLOSED = new('closed')

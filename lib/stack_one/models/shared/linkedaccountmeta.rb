@@ -14,20 +14,20 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :category, Models::Shared::LinkedAccountMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountMetaCategory, false) } }
+        field :category, Models::Shared::LinkedAccountMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountMetaCategory, false) } }
 
-        field :models, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models') } }
+        field :models, Crystalline::Hash.new(Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
 
-        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
-
+        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider'), required: true } }
 
         sig { params(category: Models::Shared::LinkedAccountMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String).void }
-        def initialize(category: nil, models: nil, provider: nil)
+        def initialize(category:, models:, provider:)
           @category = category
           @models = models
           @provider = provider
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @category == other.category

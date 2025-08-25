@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The label of the score
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # The maximum value of the score
-        field :max, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max') } }
+        field :max, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max') } }
         # The minimum value of the score
-        field :min, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min') } }
+        field :min, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min') } }
         # The value is the actual score
-        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
-
+        field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
         sig { params(label: T.nilable(::String), max: T.nilable(::String), min: T.nilable(::String), value: T.nilable(::String)).void }
         def initialize(label: nil, max: nil, min: nil, value: nil)
@@ -31,6 +30,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @label == other.label

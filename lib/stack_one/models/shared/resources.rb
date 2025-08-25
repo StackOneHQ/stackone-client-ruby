@@ -14,14 +14,14 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Image assets for this provider
-        field :images, T.nilable(Models::Shared::Images), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('images') } }
-
+        field :images, Crystalline::Nilable.new(Models::Shared::Images), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('images') } }
 
         sig { params(images: T.nilable(Models::Shared::Images)).void }
         def initialize(images: nil)
           @images = images
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @images == other.images

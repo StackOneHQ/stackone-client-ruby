@@ -10,7 +10,11 @@ module StackOne
     
       # AtsUpdateBackgroundCheckResultRequestDtoValue - The result of the test.
       class AtsUpdateBackgroundCheckResultRequestDtoValue < T::Enum
+
+
         enums do
+          INITIATED = new('initiated')
+          IN_PROGRESS = new('in_progress')
           CANCELLED = new('cancelled')
           COMPLETED = new('completed')
           EXPIRED = new('expired')

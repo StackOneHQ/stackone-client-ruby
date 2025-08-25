@@ -14,26 +14,25 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Department ID associated with the position
-        field :department_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_id') } }
+        field :department_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department_id') } }
         # Description of the position
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Employment type for the position
-        field :employment_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
+        field :employment_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Job ID from the HRIS provider
-        field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
+        field :job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
         # Location ID associated with the position
-        field :location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
+        field :location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
         # Date when the position was posted
-        field :posted_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('posted_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :posted_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('posted_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Status of the position
-        field :status, T.nilable(Models::Shared::PositionStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(Models::Shared::PositionStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Title of the position
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
         sig { params(department_id: T.nilable(::String), description: T.nilable(::String), employment_type: T.nilable(::String), id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), posted_date: T.nilable(::DateTime), remote_id: T.nilable(::String), status: T.nilable(Models::Shared::PositionStatus), title: T.nilable(::String)).void }
         def initialize(department_id: nil, description: nil, employment_type: nil, id: nil, job_id: nil, location_id: nil, posted_date: nil, remote_id: nil, status: nil, title: nil)
@@ -49,6 +48,7 @@ module StackOne
           @title = title
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @department_id == other.department_id

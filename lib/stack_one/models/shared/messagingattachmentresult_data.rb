@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Name of the attached file
-        field :file_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
+        field :file_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
         # Size of the attached file
-        field :file_size, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_size') } }
+        field :file_size, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_size') } }
         # MIME type of the attached file
-        field :file_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_type') } }
+        field :file_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_type') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(file_name: T.nilable(::String), file_size: T.nilable(::Float), file_type: T.nilable(::String), id: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(file_name: nil, file_size: nil, file_type: nil, id: nil, remote_id: nil)
@@ -34,6 +33,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @file_name == other.file_name

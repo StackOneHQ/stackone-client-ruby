@@ -14,37 +14,36 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
-        field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
 
-        field :origin_owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
+        field :origin_owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id'), required: true } }
 
-        field :origin_owner_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
+        field :origin_owner_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name'), required: true } }
 
-        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider'), required: true } }
 
-        field :status, Models::Shared::LinkedAccountStatus, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountStatus, false) } }
+        field :status, Models::Shared::LinkedAccountStatus, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountStatus, false) } }
 
-        field :updated_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :updated_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
-        field :credentials, T.nilable(Models::Shared::Credentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
+        field :credentials, Crystalline::Nilable.new(Models::Shared::Credentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
 
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
 
-        field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
+        field :origin_username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
-        field :provider_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_name') } }
+        field :provider_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_name') } }
 
-        field :setup_information, T.nilable(Models::Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
+        field :setup_information, Crystalline::Nilable.new(Models::Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
 
-        field :status_reasons, T.nilable(T::Array[Models::Shared::StatusReason]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
+        field :status_reasons, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::StatusReason)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
         # The account type
-        field :type, T.nilable(Models::Shared::LinkedAccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountType, true) } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::LinkedAccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountType, true) } }
 
         sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: Models::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(Models::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), provider_name: T.nilable(::String), setup_information: T.nilable(Models::Shared::SetupInformation), status_reasons: T.nilable(T::Array[Models::Shared::StatusReason]), type: T.nilable(Models::Shared::LinkedAccountType)).void }
-        def initialize(created_at: nil, id: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, status: nil, updated_at: nil, credentials: nil, label: nil, origin_username: nil, provider_name: nil, setup_information: nil, status_reasons: nil, type: nil)
+        def initialize(created_at:, id:, origin_owner_id:, origin_owner_name:, provider:, status:, updated_at:, credentials: nil, label: nil, origin_username: nil, provider_name: nil, setup_information: nil, status_reasons: nil, type: nil)
           @created_at = created_at
           @id = id
           @origin_owner_id = origin_owner_id
@@ -61,6 +60,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

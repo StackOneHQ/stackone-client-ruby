@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String).void }
-        def initialize(marketing_create_push_template_request_dto: nil, x_account_id: nil)
+        def initialize(marketing_create_push_template_request_dto:, x_account_id:)
           @marketing_create_push_template_request_dto = marketing_create_push_template_request_dto
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @marketing_create_push_template_request_dto == other.marketing_create_push_template_request_dto

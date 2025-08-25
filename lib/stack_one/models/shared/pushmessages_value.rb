@@ -10,6 +10,8 @@ module StackOne
     
       # PushMessagesValue - The unified message type.
       class PushMessagesValue < T::Enum
+
+
         enums do
           EMAIL = new('email')
           SMS = new('sms')

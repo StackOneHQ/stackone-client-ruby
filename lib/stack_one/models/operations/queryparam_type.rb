@@ -10,6 +10,8 @@ module StackOne
     
       # QueryParamType - Filter to select time-off policies by type
       class QueryParamType < T::Enum
+
+
         enums do
           SICK = new('sick')
           UNMAPPED_VALUE = new('unmapped_value')

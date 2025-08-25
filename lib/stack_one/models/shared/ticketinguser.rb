@@ -14,32 +14,31 @@ module StackOne
         include Crystalline::MetadataFields
 
         # If the user is active
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::TicketingUser2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::TicketingUser2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The timestamp when the record was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The unique account reference assigned as an external user (e.g. the customer account identifier registered on the customer-facing site or portal)
-        field :customer_account_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('customer_account_reference') } }
+        field :customer_account_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('customer_account_reference') } }
         # The first name of the user
-        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The last name of the user
-        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # John Doe
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The user's primary email address
-        field :primary_email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email') } }
+        field :primary_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email') } }
         # The user's primary phone number
-        field :primary_phone, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_phone') } }
+        field :primary_phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_phone') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :type, T.nilable(Models::Shared::TicketingUserType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::TicketingUserType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # The timestamp when the record was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The username of the user in the provider system
-        field :username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
-
+        field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::TicketingUser2)), created_at: T.nilable(::DateTime), customer_account_reference: T.nilable(::String), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), primary_email: T.nilable(::String), primary_phone: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::TicketingUserType), updated_at: T.nilable(::DateTime), username: T.nilable(::String)).void }
         def initialize(active: nil, created_at: nil, customer_account_reference: nil, first_name: nil, id: nil, last_name: nil, name: nil, primary_email: nil, primary_phone: nil, remote_id: nil, type: nil, updated_at: nil, username: nil)
@@ -58,6 +57,7 @@ module StackOne
           @username = username
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

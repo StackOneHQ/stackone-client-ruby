@@ -14,8 +14,12 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 ruby:
-  version: 0.35.0
+  version: 0.36.0
   additionalDependencies:
     development: {}
     runtime: {}

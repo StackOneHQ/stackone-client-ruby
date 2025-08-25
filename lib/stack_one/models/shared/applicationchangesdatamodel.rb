@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :application_status, T.nilable(Models::Shared::ApplicationChangesDataModelApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
+        field :application_status, Crystalline::Nilable.new(Models::Shared::ApplicationChangesDataModelApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
         # Unique identifier of the interview stage
-        field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
+        field :interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
         # Unique identifiers of the rejection reasons
-        field :rejected_reason_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
-
+        field :rejected_reason_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
 
         sig { params(application_status: T.nilable(Models::Shared::ApplicationChangesDataModelApplicationStatus), interview_stage_id: T.nilable(::String), rejected_reason_ids: T.nilable(T::Array[::String])).void }
         def initialize(application_status: nil, interview_stage_id: nil, rejected_reason_ids: nil)
@@ -28,6 +27,7 @@ module StackOne
           @rejected_reason_ids = rejected_reason_ids
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application_status == other.application_status

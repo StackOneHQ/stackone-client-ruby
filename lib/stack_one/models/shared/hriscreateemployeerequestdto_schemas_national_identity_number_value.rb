@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue - The ISO3166-1 Alpha2 Code of the Country
       class HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberValue < T::Enum
+
+
         enums do
           AF = new('AF')
           AL = new('AL')

@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The id of the ticket status.
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name of the ticket status.
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The type of this status
-        field :type, T.nilable(Models::Shared::TicketingReadTicketSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::TicketingReadTicketSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(id: T.nilable(::String), name: T.nilable(::String), type: T.nilable(Models::Shared::TicketingReadTicketSchemasType)).void }
         def initialize(id: nil, name: nil, type: nil)
@@ -28,6 +27,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

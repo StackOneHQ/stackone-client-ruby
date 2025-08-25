@@ -10,6 +10,8 @@ module StackOne
     
       # AccountAddressValue - The type of the location.
       class AccountAddressValue < T::Enum
+
+
         enums do
           HOME = new('home')
           WORK = new('work')

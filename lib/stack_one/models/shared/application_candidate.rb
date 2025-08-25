@@ -14,24 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Candidate company
-        field :company, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
+        field :company, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company') } }
         # Email of the candidate
-        field :email, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
         # List of candidate emails
-        field :emails, T.nilable(T::Array[Models::Shared::CandidateEmail]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
+        field :emails, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CandidateEmail)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
         # First name of the candidate
-        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Last name of the candidate
-        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # Candidate name
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # List of candidate phone numbers including the type of the number when available
-        field :phone_numbers, T.nilable(T::Array[Models::Shared::PhoneNumber]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
+        field :phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PhoneNumber)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
         # List of candidate social links
-        field :social_links, T.nilable(T::Array[Models::Shared::SocialLink]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
+        field :social_links, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::SocialLink)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
         # Candidate title
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
         sig { params(company: T.nilable(::String), email: T.nilable(::String), emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), title: T.nilable(::String)).void }
         def initialize(company: nil, email: nil, emails: nil, first_name: nil, last_name: nil, name: nil, phone_numbers: nil, social_links: nil, title: nil)
@@ -46,6 +45,7 @@ module StackOne
           @title = title
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @company == other.company

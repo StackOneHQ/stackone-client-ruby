@@ -10,6 +10,8 @@ module StackOne
     
       # QuestionValue - The type of the questions.
       class QuestionValue < T::Enum
+
+
         enums do
           SHORT_TEXT = new('short_text')
           LONG_TEXT = new('long_text')

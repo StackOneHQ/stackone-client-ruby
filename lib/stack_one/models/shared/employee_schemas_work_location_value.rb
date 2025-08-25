@@ -10,6 +10,8 @@ module StackOne
     
       # EmployeeSchemasWorkLocationValue - The ISO3166-1 Alpha2 Code of the Country
       class EmployeeSchemasWorkLocationValue < T::Enum
+
+
         enums do
           AF = new('AF')
           AL = new('AL')

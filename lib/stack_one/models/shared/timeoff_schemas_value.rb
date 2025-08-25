@@ -10,6 +10,8 @@ module StackOne
     
 
       class TimeOffSchemasValue < T::Enum
+
+
         enums do
           SICK = new('sick')
           UNMAPPED_VALUE = new('unmapped_value')

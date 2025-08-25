@@ -14,26 +14,25 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The date the content was completed
-        field :completed_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :completed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this content
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :content_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_external_reference') } }
+        field :content_external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_external_reference') } }
         # The content ID associated with this completion
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :content_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }
+        field :content_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }
         # The external reference of the learning object associated with this completion, this is the main identifier for creating completions.
-        field :learning_object_external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
+        field :learning_object_external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
         # The id of the learning object associated with this completion. This is not required unless specified in an integration.
-        field :learning_object_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
+        field :learning_object_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The result of the completion
-        field :result, T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+        field :result, Crystalline::Nilable.new(Models::Shared::LmsCreateCompletionRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
         # ISO 8601 duration format representing the time spent on completing the learning object
-        field :time_spent, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
-
+        field :time_spent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
 
         sig { params(completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), time_spent: T.nilable(::String)).void }
         def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, result: nil, time_spent: nil)
@@ -47,6 +46,7 @@ module StackOne
           @time_spent = time_spent
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @completed_at == other.completed_at

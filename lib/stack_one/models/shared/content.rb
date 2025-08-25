@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The file format of the file
-        field :file_format, T.nilable(Models::Shared::ContentFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
+        field :file_format, Crystalline::Nilable.new(Models::Shared::ContentFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
         # Unified download URL for retrieving file content.
-        field :unified_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_url') } }
+        field :unified_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_url') } }
         # URL where the file content is located
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(file_format: T.nilable(Models::Shared::ContentFileFormat), unified_url: T.nilable(::String), url: T.nilable(::String)).void }
         def initialize(file_format: nil, unified_url: nil, url: nil)
@@ -28,6 +27,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @file_format == other.file_format

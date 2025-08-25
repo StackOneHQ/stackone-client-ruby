@@ -14,20 +14,19 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :application_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
+        field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
 
-        field :currency, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
+        field :currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
 
-        field :offer_history, T.nilable(T::Array[Models::Shared::OfferHistory]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
+        field :offer_history, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::OfferHistory)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_history') } }
 
-        field :offer_status, T.nilable(Models::Shared::OfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
+        field :offer_status, Crystalline::Nilable.new(Models::Shared::OfferStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('offer_status') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
-        field :salary, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
+        field :salary, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
         # Date of creation
-        field :start_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_id: T.nilable(::String), currency: T.nilable(::String), offer_history: T.nilable(T::Array[Models::Shared::OfferHistory]), offer_status: T.nilable(Models::Shared::OfferStatus), passthrough: T.nilable(T::Hash[Symbol, ::Object]), salary: T.nilable(::Float), start_date: T.nilable(::DateTime)).void }
         def initialize(application_id: nil, currency: nil, offer_history: nil, offer_status: nil, passthrough: nil, salary: nil, start_date: nil)
@@ -40,6 +39,7 @@ module StackOne
           @start_date = start_date
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application_id == other.application_id

@@ -16,30 +16,30 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, T::Hash[Symbol, T::Array[::String]]
-        # Raw HTTP response; suitable for custom response parsing
-        field :raw_response, ::Faraday::Response
+        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
+        # Raw HTTP response; suitable for custom response parsing
+        field :raw_response, ::Faraday::Response
         # The position with the given identifier was retrieved.
-        field :position_result, T.nilable(Models::Shared::PositionResult)
+        field :position_result, Crystalline::Nilable.new(Models::Shared::PositionResult)
 
-
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], raw_response: ::Faraday::Response, status_code: ::Integer, position_result: T.nilable(Models::Shared::PositionResult)).void }
-        def initialize(content_type: nil, headers: nil, raw_response: nil, status_code: nil, position_result: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, position_result: T.nilable(Models::Shared::PositionResult)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, position_result: nil)
           @content_type = content_type
           @headers = headers
-          @raw_response = raw_response
           @status_code = status_code
+          @raw_response = raw_response
           @position_result = position_result
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content_type == other.content_type
           return false unless @headers == other.headers
-          return false unless @raw_response == other.raw_response
           return false unless @status_code == other.status_code
+          return false unless @raw_response == other.raw_response
           return false unless @position_result == other.position_result
           true
         end

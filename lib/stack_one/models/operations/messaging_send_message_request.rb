@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(messaging_message_send_request_dto: Models::Shared::MessagingMessageSendRequestDto, x_account_id: ::String).void }
-        def initialize(messaging_message_send_request_dto: nil, x_account_id: nil)
+        def initialize(messaging_message_send_request_dto:, x_account_id:)
           @messaging_message_send_request_dto = messaging_message_send_request_dto
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @messaging_message_send_request_dto == other.messaging_message_send_request_dto

@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :errors, T.nilable(T::Array[T::Array[::String]]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('errors') } }
+        field :errors, Crystalline::Nilable.new(Crystalline::Array.new(Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('errors') } }
 
-        field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+        field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
 
-        field :status_code, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
+        field :status_code, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
 
-        field :timestamp, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :timestamp, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(errors: T.nilable(T::Array[T::Array[::String]]), message: T.nilable(::String), status_code: T.nilable(::Float), timestamp: T.nilable(::DateTime)).void }
         def initialize(errors: nil, message: nil, status_code: nil, timestamp: nil)
@@ -31,6 +30,7 @@ module StackOne
           @timestamp = timestamp
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @errors == other.errors

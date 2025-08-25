@@ -10,6 +10,8 @@ module StackOne
     
 
       class EmploymentSchemasContractTypeValue < T::Enum
+
+
         enums do
           FULL_TIME = new('full_time')
           SHIFTS = new('shifts')

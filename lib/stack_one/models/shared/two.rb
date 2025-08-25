@@ -10,6 +10,8 @@ module StackOne
     
 
       class Two < T::Enum
+
+
         enums do
           TRUE = new('true')
           FALSE = new('false')

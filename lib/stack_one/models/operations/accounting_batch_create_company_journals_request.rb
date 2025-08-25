@@ -20,14 +20,14 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(accounting_journal_batch_create_request_dto: Models::Shared::AccountingJournalBatchCreateRequestDto, id: ::String, x_account_id: ::String).void }
-        def initialize(accounting_journal_batch_create_request_dto: nil, id: nil, x_account_id: nil)
+        def initialize(accounting_journal_batch_create_request_dto:, id:, x_account_id:)
           @accounting_journal_batch_create_request_dto = accounting_journal_batch_create_request_dto
           @id = id
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @accounting_journal_batch_create_request_dto == other.accounting_journal_batch_create_request_dto

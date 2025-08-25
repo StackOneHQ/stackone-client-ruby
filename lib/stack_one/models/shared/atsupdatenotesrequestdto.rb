@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier of the author
-        field :author_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
+        field :author_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author_id') } }
 
-        field :content, T.nilable(T::Array[Models::Shared::NoteContentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::NoteContentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Visibility of the note
-        field :visibility, T.nilable(Models::Shared::AtsUpdateNotesRequestDtoVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
-
+        field :visibility, Crystalline::Nilable.new(Models::Shared::AtsUpdateNotesRequestDtoVisibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
         sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::NoteContentApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), visibility: T.nilable(Models::Shared::AtsUpdateNotesRequestDtoVisibility)).void }
         def initialize(author_id: nil, content: nil, passthrough: nil, visibility: nil)
@@ -31,6 +30,7 @@ module StackOne
           @visibility = visibility
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @author_id == other.author_id

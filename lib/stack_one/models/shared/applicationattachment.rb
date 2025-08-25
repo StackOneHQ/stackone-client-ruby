@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The content of the attachment.
-        field :content, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
 
-        field :content_type, T.nilable(Models::Shared::ContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
+        field :content_type, Crystalline::Nilable.new(Models::Shared::ContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
         # The file name of the attachment.
-        field :file_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
+        field :file_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_name') } }
         # The URL of the attachment.
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(content: T.nilable(::String), content_type: T.nilable(Models::Shared::ContentType), file_name: T.nilable(::String), url: T.nilable(::String)).void }
         def initialize(content: nil, content_type: nil, file_name: nil, url: nil)
@@ -31,6 +30,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content == other.content

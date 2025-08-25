@@ -10,6 +10,8 @@ module StackOne
     
       # LanguageEnumValue - The Locale Code of the language
       class LanguageEnumValue < T::Enum
+
+
         enums do
           AR_AR = new('ar_AR')
           AA_ER = new('aa_ER')

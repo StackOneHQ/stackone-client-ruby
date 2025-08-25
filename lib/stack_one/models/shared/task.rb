@@ -14,44 +14,43 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The ID of the employee who assigned this task
-        field :assigned_by_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_by_employee_id') } }
+        field :assigned_by_employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_by_employee_id') } }
         # The name of the employee who assigned this task
-        field :assigned_by_employee_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_by_employee_name') } }
+        field :assigned_by_employee_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_by_employee_name') } }
         # The documents attached to this task
-        field :attachments, T.nilable(T::Array[Models::Shared::File]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
+        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::File)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
         # The comments associated with this task
-        field :comments, T.nilable(T::Array[Models::Shared::TaskCommentApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comments') } }
+        field :comments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::TaskCommentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comments') } }
         # The completion date of the task
-        field :completion_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completion_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :completion_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completion_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The creation date of this task
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The description of the task
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The due date of the task
-        field :due_date, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The employee ID associated with this task
-        field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
+        field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
         # List of extracted links from the task
-        field :extracted_links, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('extracted_links') } }
+        field :extracted_links, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('extracted_links') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Link to the task in the provider system
-        field :link_to_task, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('link_to_task') } }
+        field :link_to_task, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('link_to_task') } }
         # The name of the task
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # ID of the next task in sequence
-        field :next_task_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_task_id') } }
+        field :next_task_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_task_id') } }
         # Name of the parent process of this task
-        field :parent_process_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_process_name') } }
+        field :parent_process_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_process_name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The status of the task
-        field :status, T.nilable(Models::Shared::TaskStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(Models::Shared::TaskStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The type of the task
-        field :type, T.nilable(Models::Shared::TaskType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::TaskType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # The last updated date of this task
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(assigned_by_employee_id: T.nilable(::String), assigned_by_employee_name: T.nilable(::String), attachments: T.nilable(T::Array[Models::Shared::File]), comments: T.nilable(T::Array[Models::Shared::TaskCommentApiModel]), completion_date: T.nilable(::DateTime), created_at: T.nilable(::DateTime), description: T.nilable(::String), due_date: T.nilable(::DateTime), employee_id: T.nilable(::String), extracted_links: T.nilable(T::Array[::String]), id: T.nilable(::String), link_to_task: T.nilable(::String), name: T.nilable(::String), next_task_id: T.nilable(::String), parent_process_name: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(Models::Shared::TaskStatus), type: T.nilable(Models::Shared::TaskType), updated_at: T.nilable(::DateTime)).void }
         def initialize(assigned_by_employee_id: nil, assigned_by_employee_name: nil, attachments: nil, comments: nil, completion_date: nil, created_at: nil, description: nil, due_date: nil, employee_id: nil, extracted_links: nil, id: nil, link_to_task: nil, name: nil, next_task_id: nil, parent_process_name: nil, remote_id: nil, status: nil, type: nil, updated_at: nil)
@@ -76,6 +75,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @assigned_by_employee_id == other.assigned_by_employee_id

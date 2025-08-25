@@ -16,15 +16,15 @@ module StackOne
 
         field :provider, ::String, { 'path_param': { 'field_name': 'provider', 'style': 'simple', 'explode': false } }
         # The comma separated list of data that will be included in the response
-        field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
-
+        field :include, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
 
         sig { params(provider: ::String, include: T.nilable(::String)).void }
-        def initialize(provider: nil, include: nil)
+        def initialize(provider:, include: nil)
           @provider = provider
           @include = include
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @provider == other.provider

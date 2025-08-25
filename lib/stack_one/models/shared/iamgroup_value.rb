@@ -10,6 +10,8 @@ module StackOne
     
 
       class IamGroupValue < T::Enum
+
+
         enums do
           WORKSPACE = new('workspace')
           TEAM = new('team')

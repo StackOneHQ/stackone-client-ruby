@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # URL of the square logo designed and used by StackOne for this provider
-        field :logo_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('logo_url') } }
+        field :logo_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('logo_url') } }
         # URL of the original provider logo (with logo and/or name aligned horizontally)
-        field :original_logo_horizontal_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('original_logo_horizontal_url') } }
-
+        field :original_logo_horizontal_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('original_logo_horizontal_url') } }
 
         sig { params(logo_url: T.nilable(::String), original_logo_horizontal_url: T.nilable(::String)).void }
         def initialize(logo_url: nil, original_logo_horizontal_url: nil)
@@ -25,6 +24,7 @@ module StackOne
           @original_logo_horizontal_url = original_logo_horizontal_url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @logo_url == other.logo_url

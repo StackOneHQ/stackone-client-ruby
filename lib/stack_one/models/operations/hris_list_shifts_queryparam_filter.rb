@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter to select shifts by employee ID
-        field :employee_id, T.nilable(::String), { 'query_param': { 'field_name': 'employee_id' } }
+        field :employee_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'employee_id' } }
         # Filter shifts that end before this date
-        field :ends_before, T.nilable(::DateTime), { 'query_param': { 'field_name': 'ends_before' } }
+        field :ends_before, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'ends_before' } }
         # Filter shifts that start after this date
-        field :starts_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'starts_after' } }
+        field :starts_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'starts_after' } }
         # Filter to select shifts by status
-        field :status, T.nilable(Models::Operations::HrisListShiftsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
+        field :status, Crystalline::Nilable.new(Models::Operations::HrisListShiftsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(employee_id: T.nilable(::String), ends_before: T.nilable(::DateTime), starts_after: T.nilable(::DateTime), status: T.nilable(Models::Operations::HrisListShiftsQueryParamStatus), updated_after: T.nilable(::DateTime)).void }
         def initialize(employee_id: nil, ends_before: nil, starts_after: nil, status: nil, updated_after: nil)
@@ -34,6 +33,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @employee_id == other.employee_id

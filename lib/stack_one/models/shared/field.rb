@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The label of the field
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Indicates if the field is required
-        field :required, T.nilable(T.any(T::Boolean, Models::Shared::Field2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
+        field :required, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Field2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
         # The type of the field
-        field :type, T.nilable(Models::Shared::FieldType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::FieldType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::FieldType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::FieldType, true) } }
         # The possible values for the field
-        field :values, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
-
+        field :values, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 
         sig { params(id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), required: T.nilable(T.any(T::Boolean, Models::Shared::Field2)), type: T.nilable(Models::Shared::FieldType), values: T.nilable(T::Array[::String])).void }
         def initialize(id: nil, label: nil, remote_id: nil, required: nil, type: nil, values: nil)
@@ -37,6 +36,7 @@ module StackOne
           @values = values
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

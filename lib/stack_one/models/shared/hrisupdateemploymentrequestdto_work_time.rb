@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The work time duration in ISO 8601 duration format
-        field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The duration unit of the work time
-        field :duration_unit, T.nilable(Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_unit') } }
-
+        field :duration_unit, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_unit') } }
 
         sig { params(duration: T.nilable(::String), duration_unit: T.nilable(Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit)).void }
         def initialize(duration: nil, duration_unit: nil)
@@ -25,6 +24,7 @@ module StackOne
           @duration_unit = duration_unit
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @duration == other.duration

@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Hiring team for the job.
-        field :hiring_team, T.nilable(T::Array[Models::Shared::JobHiringTeam]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
+        field :hiring_team, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AtsJobHiringTeam)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hiring_team') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Title of the job
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
-
-        sig { params(hiring_team: T.nilable(T::Array[Models::Shared::JobHiringTeam]), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
+        sig { params(hiring_team: T.nilable(T::Array[Models::Shared::AtsJobHiringTeam]), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
         def initialize(hiring_team: nil, id: nil, passthrough: nil, remote_id: nil, title: nil)
           @hiring_team = hiring_team
           @id = id
@@ -34,6 +33,7 @@ module StackOne
           @title = title
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @hiring_team == other.hiring_team

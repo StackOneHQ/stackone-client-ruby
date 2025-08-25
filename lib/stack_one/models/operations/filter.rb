@@ -14,42 +14,41 @@ module StackOne
         include Crystalline::MetadataFields
 
         # A comma-separated list of account IDs to filter the results by.
-        field :account_ids, T.nilable(::String), { 'query_param': { 'field_name': 'account_ids' } }
+        field :account_ids, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'account_ids' } }
         # A comma-separated list of actions to filter the results by.
-        field :actions, T.nilable(::String), { 'query_param': { 'field_name': 'actions' } }
+        field :actions, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'actions' } }
         # A comma-separated list of child resources to filter the results by.
-        field :child_resources, T.nilable(::String), { 'query_param': { 'field_name': 'child_resources' } }
+        field :child_resources, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'child_resources' } }
         # A ISO8601 date string to filter the results by end_date.
-        field :end_date, T.nilable(::DateTime), { 'query_param': { 'field_name': 'end_date' } }
+        field :end_date, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'end_date' } }
         # A comma-separated list of HTTP methods to filter the results by.
-        field :http_methods, T.nilable(::String), { 'query_param': { 'field_name': 'http_methods' } }
+        field :http_methods, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'http_methods' } }
         # The field to order the results by.
-        field :order_by, T.nilable(Models::Operations::QueryParamOrderBy), { 'query_param': { 'field_name': 'order_by' } }
+        field :order_by, Crystalline::Nilable.new(Models::Operations::QueryParamOrderBy), { 'query_param': { 'field_name': 'order_by' } }
         # The direction to order the results by.
-        field :order_direction, T.nilable(Models::Operations::QueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction' } }
+        field :order_direction, Crystalline::Nilable.new(Models::Operations::QueryParamOrderDirection), { 'query_param': { 'field_name': 'order_direction' } }
         # A comma-separated list of provider keys to filter the results by.
-        field :providers, T.nilable(::String), { 'query_param': { 'field_name': 'providers' } }
+        field :providers, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'providers' } }
         # A comma-separated list of request IDs to filter the results by.
-        field :request_ids, T.nilable(::String), { 'query_param': { 'field_name': 'request_ids' } }
+        field :request_ids, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'request_ids' } }
         # A comma-separated list of resources to filter the results by.
-        field :resources, T.nilable(::String), { 'query_param': { 'field_name': 'resources' } }
+        field :resources, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'resources' } }
         # A comma-separated list of services to filter the results by.
-        field :services, T.nilable(::String), { 'query_param': { 'field_name': 'services' } }
+        field :services, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'services' } }
         # A comma-separated list of source IDs to filter the results by.
-        field :source_ids, T.nilable(::String), { 'query_param': { 'field_name': 'source_ids' } }
+        field :source_ids, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'source_ids' } }
         # A comma-separated list of source types to filter the results by.
-        field :source_types, T.nilable(::String), { 'query_param': { 'field_name': 'source_types' } }
+        field :source_types, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'source_types' } }
         # A comma-separated list of source values to filter the results by.
-        field :source_values, T.nilable(::String), { 'query_param': { 'field_name': 'source_values' } }
+        field :source_values, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'source_values' } }
         # A ISO8601 date string to filter the results by start_date.
-        field :start_date, T.nilable(::DateTime), { 'query_param': { 'field_name': 'start_date' } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'start_date' } }
         # A comma-separated list of status codes to filter the results by.
-        field :status_codes, T.nilable(::String), { 'query_param': { 'field_name': 'status_codes' } }
+        field :status_codes, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'status_codes' } }
         # A comma-separated list of sub resources to filter the results by.
-        field :sub_resources, T.nilable(::String), { 'query_param': { 'field_name': 'sub_resources' } }
+        field :sub_resources, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'sub_resources' } }
         # A boolean value to filter the results by success or failure.
-        field :success, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'success' } }
-
+        field :success, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'success' } }
 
         sig { params(account_ids: T.nilable(::String), actions: T.nilable(::String), child_resources: T.nilable(::String), end_date: T.nilable(::DateTime), http_methods: T.nilable(::String), order_by: T.nilable(Models::Operations::QueryParamOrderBy), order_direction: T.nilable(Models::Operations::QueryParamOrderDirection), providers: T.nilable(::String), request_ids: T.nilable(::String), resources: T.nilable(::String), services: T.nilable(::String), source_ids: T.nilable(::String), source_types: T.nilable(::String), source_values: T.nilable(::String), start_date: T.nilable(::DateTime), status_codes: T.nilable(::String), sub_resources: T.nilable(::String), success: T.nilable(T::Boolean)).void }
         def initialize(account_ids: nil, actions: nil, child_resources: nil, end_date: nil, http_methods: nil, order_by: nil, order_direction: nil, providers: nil, request_ids: nil, resources: nil, services: nil, source_ids: nil, source_types: nil, source_values: nil, start_date: nil, status_codes: nil, sub_resources: nil, success: nil)
@@ -73,6 +72,7 @@ module StackOne
           @success = success
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @account_ids == other.account_ids

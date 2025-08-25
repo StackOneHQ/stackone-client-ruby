@@ -10,6 +10,8 @@ module StackOne
     
       # CreateAnswerValue - The type of the answer.
       class CreateAnswerValue < T::Enum
+
+
         enums do
           SHORT_TEXT = new('short_text')
           LONG_TEXT = new('long_text')

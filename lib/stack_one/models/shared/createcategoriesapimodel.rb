@@ -14,20 +14,19 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The hierarchal level of the category
-        field :hierarchy, T.nilable(Models::Shared::CreateCategoriesApiModelHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
+        field :hierarchy, Crystalline::Nilable.new(Models::Shared::CreateCategoriesApiModelHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
         # The ID associated with this category
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The language associated with this category
-        field :language, T.nilable(Models::Shared::CreateCategoriesApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        field :language, Crystalline::Nilable.new(Models::Shared::CreateCategoriesApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
         # The hierarchal level of the category
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :level, T.nilable(Models::Shared::CreateCategoriesApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
+        field :level, Crystalline::Nilable.new(Models::Shared::CreateCategoriesApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
         # The name associated with this category
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
-
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
         sig { params(hierarchy: T.nilable(Models::Shared::CreateCategoriesApiModelHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::CreateCategoriesApiModelLanguage), level: T.nilable(Models::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(hierarchy: nil, id: nil, language: nil, level: nil, name: nil, unified_custom_fields: nil)
@@ -39,6 +38,7 @@ module StackOne
           @unified_custom_fields = unified_custom_fields
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @hierarchy == other.hierarchy

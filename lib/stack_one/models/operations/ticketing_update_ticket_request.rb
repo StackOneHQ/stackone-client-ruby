@@ -14,24 +14,24 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
         field :ticketing_ticket_update_request_dto, Models::Shared::TicketingTicketUpdateRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
-        sig { params(id: ::String, ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, x_account_id: ::String).void }
-        def initialize(id: nil, ticketing_ticket_update_request_dto: nil, x_account_id: nil)
-          @id = id
+        sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(ticketing_ticket_update_request_dto:, id:, x_account_id:)
           @ticketing_ticket_update_request_dto = ticketing_ticket_update_request_dto
+          @id = id
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @id == other.id
           return false unless @ticketing_ticket_update_request_dto == other.ticketing_ticket_update_request_dto
+          return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
           true
         end

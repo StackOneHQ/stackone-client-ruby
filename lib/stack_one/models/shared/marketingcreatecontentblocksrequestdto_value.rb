@@ -10,6 +10,8 @@ module StackOne
     
       # MarketingCreateContentBlocksRequestDtoValue - The type of the content blocks.
       class MarketingCreateContentBlocksRequestDtoValue < T::Enum
+
+
         enums do
           TEXT = new('text')
           HTML = new('html')

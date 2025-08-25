@@ -18,19 +18,18 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be expanded in the response
-        field :expand, T.nilable(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
+        field :expand, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
-        field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+        field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # The comma separated list of fields that will be included in the response
-        field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
+        field :include, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
-        field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
-
+        field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
         sig { params(id: ::String, x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), include: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
-        def initialize(id: nil, x_account_id: nil, expand: nil, fields_: nil, include: nil, proxy: nil, raw: nil)
+        def initialize(id:, x_account_id:, expand: nil, fields_: nil, include: nil, proxy: nil, raw: nil)
           @id = id
           @x_account_id = x_account_id
           @expand = expand
@@ -40,6 +39,7 @@ module StackOne
           @raw = raw
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

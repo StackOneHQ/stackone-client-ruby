@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Use to only include Folders within the specified Drive
-        field :drive_id, T.nilable(::String), { 'query_param': { 'field_name': 'drive_id' } }
+        field :drive_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'drive_id' } }
         # Use to only include Folders within the specified Folder. Required when requesting nested items
-        field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folder_id' } }
+        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folder_id' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(drive_id: T.nilable(::String), folder_id: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(drive_id: nil, folder_id: nil, updated_after: nil)
@@ -28,6 +27,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @drive_id == other.drive_id

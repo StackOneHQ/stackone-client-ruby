@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter to select time entries by employee_id
-        field :employee_id, T.nilable(::String), { 'query_param': { 'field_name': 'employee_id' } }
+        field :employee_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'employee_id' } }
         # Filter to select time entries before a given time
-        field :end_time, T.nilable(::String), { 'query_param': { 'field_name': 'end_time' } }
+        field :end_time, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'end_time' } }
         # Filter to select time entries after a given time
-        field :start_time, T.nilable(::String), { 'query_param': { 'field_name': 'start_time' } }
+        field :start_time, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'start_time' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(employee_id: T.nilable(::String), end_time: T.nilable(::String), start_time: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
         def initialize(employee_id: nil, end_time: nil, start_time: nil, updated_after: nil)
@@ -31,6 +30,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @employee_id == other.employee_id

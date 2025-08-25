@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The provider specific category for associating uploaded files, if provided, the value will be ignored.
-        field :source_value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The category name for associating uploaded files.
-        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
-
+        field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
         sig { params(source_value: T.nilable(::String), value: T.nilable(::String)).void }
         def initialize(source_value: nil, value: nil)
@@ -25,6 +24,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @source_value == other.source_value

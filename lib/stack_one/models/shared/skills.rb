@@ -14,22 +14,21 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the skill is active and therefore available for use
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::Skills2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Skills2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The hierarchal level of the skill
-        field :hierarchy, T.nilable(Models::Shared::SkillsHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
+        field :hierarchy, Crystalline::Nilable.new(Models::Shared::SkillsHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
         # The ID associated with this skill
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The language associated with this skill
-        field :language, T.nilable(Models::Shared::SkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        field :language, Crystalline::Nilable.new(Models::Shared::SkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
         # The hierarchal level of the skill
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :level, T.nilable(Models::Shared::SkillsLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
+        field :level, Crystalline::Nilable.new(Models::Shared::SkillsLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
         # The name associated with this skill
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Skills2)), hierarchy: T.nilable(Models::Shared::SkillsHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::SkillsLanguage), level: T.nilable(Models::Shared::SkillsLevel), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(active: nil, hierarchy: nil, id: nil, language: nil, level: nil, name: nil, remote_id: nil)
@@ -42,6 +41,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

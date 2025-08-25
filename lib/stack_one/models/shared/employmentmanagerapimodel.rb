@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The role of manager
-        field :role, T.nilable(Models::Shared::Role), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
-
+        field :role, Crystalline::Nilable.new(Models::Shared::Role), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
 
         sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), role: T.nilable(Models::Shared::Role)).void }
         def initialize(id: nil, remote_id: nil, role: nil)
@@ -28,6 +27,7 @@ module StackOne
           @role = role
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

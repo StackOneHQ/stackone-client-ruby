@@ -14,21 +14,20 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The provider service category
-        field :category, Models::Shared::ConnectorsMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectorsMetaCategory, false) } }
+        field :category, Models::Shared::ConnectorsMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ConnectorsMetaCategory, false) } }
 
-        field :models, T::Hash[Symbol, ::Object], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models') } }
+        field :models, Crystalline::Hash.new(Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
         # The provider key
-        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider'), required: true } }
         # The provider human-readable label
-        field :provider_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_name') } }
+        field :provider_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_name'), required: true } }
         # Whether this provider has been enabled on the integrations page for the current project
-        field :active, T.nilable(T::Boolean), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # Resources for this provider, such as image assets
-        field :resources, T.nilable(Models::Shared::Resources), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resources') } }
-
+        field :resources, Crystalline::Nilable.new(Models::Shared::Resources), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resources') } }
 
         sig { params(category: Models::Shared::ConnectorsMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String, provider_name: ::String, active: T.nilable(T::Boolean), resources: T.nilable(Models::Shared::Resources)).void }
-        def initialize(category: nil, models: nil, provider: nil, provider_name: nil, active: nil, resources: nil)
+        def initialize(category:, models:, provider:, provider_name:, active: nil, resources: nil)
           @category = category
           @models = models
           @provider = provider
@@ -37,6 +36,7 @@ module StackOne
           @resources = resources
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @category == other.category

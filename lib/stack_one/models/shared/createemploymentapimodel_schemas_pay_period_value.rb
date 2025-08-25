@@ -10,6 +10,8 @@ module StackOne
     
       # CreateEmploymentApiModelSchemasPayPeriodValue - The pay period of the job postings.
       class CreateEmploymentApiModelSchemasPayPeriodValue < T::Enum
+
+
         enums do
           HOUR = new('hour')
           DAY = new('day')

@@ -18,13 +18,13 @@ module StackOne
 
         field :username, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
 
-
         sig { params(password: ::String, username: ::String).void }
-        def initialize(password: nil, username: nil)
+        def initialize(password:, username:)
           @password = password
           @username = username
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @password == other.password

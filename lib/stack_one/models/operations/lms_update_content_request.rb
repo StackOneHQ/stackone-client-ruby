@@ -14,24 +14,24 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
-
         field :lms_create_content_request_dto, Models::Shared::LmsCreateContentRequestDto, { 'request': { 'media_type': 'application/json' } }
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
-        sig { params(id: ::String, lms_create_content_request_dto: Models::Shared::LmsCreateContentRequestDto, x_account_id: ::String).void }
-        def initialize(id: nil, lms_create_content_request_dto: nil, x_account_id: nil)
-          @id = id
+        sig { params(lms_create_content_request_dto: Models::Shared::LmsCreateContentRequestDto, id: ::String, x_account_id: ::String).void }
+        def initialize(lms_create_content_request_dto:, id:, x_account_id:)
           @lms_create_content_request_dto = lms_create_content_request_dto
+          @id = id
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @id == other.id
           return false unless @lms_create_content_request_dto == other.lms_create_content_request_dto
+          return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
           true
         end

@@ -20,14 +20,14 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String).void }
-        def initialize(ats_create_notes_request_dto: nil, id: nil, x_account_id: nil)
+        def initialize(ats_create_notes_request_dto:, id:, x_account_id:)
           @ats_create_notes_request_dto = ats_create_notes_request_dto
           @id = id
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @ats_create_notes_request_dto == other.ats_create_notes_request_dto

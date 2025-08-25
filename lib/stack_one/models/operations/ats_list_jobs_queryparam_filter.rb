@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Use a string with a date to only select results created after that given date
-        field :created_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
+        field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
         # The job_status of the job
-        field :job_status, T.nilable(Models::Operations::JobStatus), { 'query_param': { 'field_name': 'job_status' } }
+        field :job_status, Crystalline::Nilable.new(Models::Operations::JobStatus), { 'query_param': { 'field_name': 'job_status' } }
         # The status of the job
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :status, T.nilable(Models::Operations::Status), { 'query_param': { 'field_name': 'status' } }
+        field :status, Crystalline::Nilable.new(Models::Operations::Status), { 'query_param': { 'field_name': 'status' } }
         # Use a string with a date to only select results updated after that given date
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
-
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
         sig { params(created_after: T.nilable(::DateTime), job_status: T.nilable(Models::Operations::JobStatus), status: T.nilable(Models::Operations::Status), updated_after: T.nilable(::DateTime)).void }
         def initialize(created_after: nil, job_status: nil, status: nil, updated_after: nil)
@@ -33,6 +32,7 @@ module StackOne
           @updated_after = updated_after
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_after == other.created_after

@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The hierarchal level of the skill
-        field :hierarchy, T.nilable(Models::Shared::CreateSkillsApiModelHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
+        field :hierarchy, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelHierarchy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hierarchy') } }
         # The ID associated with this skill
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The language associated with this skill
-        field :language, T.nilable(Models::Shared::CreateSkillsApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        field :language, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
         # The hierarchal level of the skill
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :level, T.nilable(Models::Shared::CreateSkillsApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
+        field :level, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
         # The name associated with this skill
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
         sig { params(hierarchy: T.nilable(Models::Shared::CreateSkillsApiModelHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::CreateSkillsApiModelLanguage), level: T.nilable(Models::Shared::CreateSkillsApiModelLevel), name: T.nilable(::String)).void }
         def initialize(hierarchy: nil, id: nil, language: nil, level: nil, name: nil)
@@ -36,6 +35,7 @@ module StackOne
           @name = name
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @hierarchy == other.hierarchy

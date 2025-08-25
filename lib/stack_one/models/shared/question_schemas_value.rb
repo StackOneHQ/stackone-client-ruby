@@ -10,6 +10,8 @@ module StackOne
     
       # QuestionSchemasValue - The type of the question's condition
       class QuestionSchemasValue < T::Enum
+
+
         enums do
           EQUALS_TO = new('equals_to')
           CONTAINS = new('contains')

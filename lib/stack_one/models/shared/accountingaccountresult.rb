@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :data, T.nilable(Models::Shared::Data), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(Models::Shared::Data), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
-
+        field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
         sig { params(data: T.nilable(Models::Shared::Data), raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
         def initialize(data: nil, raw: nil)
@@ -25,6 +24,7 @@ module StackOne
           @raw = raw
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data

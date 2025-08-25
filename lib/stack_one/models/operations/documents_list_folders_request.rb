@@ -16,49 +16,49 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
-        field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+        field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # Documents Folders Filter
-        field :filter, T.nilable(Models::Operations::DocumentsListFoldersQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+        field :filter, Crystalline::Nilable.new(Models::Operations::DocumentsListFoldersQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # Use to only include Folders within the specified Folder. Required when requesting nested items
-        field :folder_id, T.nilable(::String), { 'query_param': { 'field_name': 'folder_id', 'style': 'form', 'explode': true } }
+        field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folder_id', 'style': 'form', 'explode': true } }
         # The comma separated list of fields that will be included in the response
-        field :include, T.nilable(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
-        # When "true" and used with filter[folder_id], the response includes Folders and their descendant Folders
-        field :nested_items, T.nilable(::String), { 'query_param': { 'field_name': 'nested_items', 'style': 'form', 'explode': true } }
+        field :include, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
         # The unified cursor
-        field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
+        field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :page, T.nilable(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        field :page, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
-        field :page_size, T.nilable(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
+        field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
-        field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
+        field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
+        # When "true" and used with filter[folder_id], the response includes Folders and their descendant Folders
+        field :nested_items, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'nested_items', 'style': 'form', 'explode': true } }
 
-
-        sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::DocumentsListFoldersQueryParamFilter), folder_id: T.nilable(::String), include: T.nilable(::String), nested_items: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
-        def initialize(x_account_id: nil, fields_: nil, filter: nil, folder_id: nil, include: nil, nested_items: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+        sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::DocumentsListFoldersQueryParamFilter), folder_id: T.nilable(::String), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime), nested_items: T.nilable(::String)).void }
+        def initialize(x_account_id:, fields_: nil, filter: nil, folder_id: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil, nested_items: 'false')
           @x_account_id = x_account_id
           @fields_ = fields_
           @filter = filter
           @folder_id = folder_id
           @include = include
-          @nested_items = nested_items
           @next_ = next_
           @page = page
           @page_size = page_size
           @proxy = proxy
           @raw = raw
           @updated_after = updated_after
+          @nested_items = nested_items
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @x_account_id == other.x_account_id
@@ -66,13 +66,13 @@ module StackOne
           return false unless @filter == other.filter
           return false unless @folder_id == other.folder_id
           return false unless @include == other.include
-          return false unless @nested_items == other.nested_items
           return false unless @next_ == other.next_
           return false unless @page == other.page
           return false unless @page_size == other.page_size
           return false unless @proxy == other.proxy
           return false unless @raw == other.raw
           return false unless @updated_after == other.updated_after
+          return false unless @nested_items == other.nested_items
           true
         end
       end

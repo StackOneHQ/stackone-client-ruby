@@ -9,25 +9,25 @@ module StackOne
     module Errors
     
 
-      class UnprocessableEntityResponse
+      class UnprocessableEntityResponse < StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 
         # Error message
-        field :message, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+        field :message, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message'), required: true } }
         # HTTP status code
-        field :status_code, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
+        field :status_code, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode'), required: true } }
         # Timestamp when the error occurred
-        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(false) } }
-
+        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
         sig { params(message: ::String, status_code: ::Float, timestamp: ::DateTime).void }
-        def initialize(message: nil, status_code: nil, timestamp: nil)
+        def initialize(message:, status_code:, timestamp:)
           @message = message
           @status_code = status_code
           @timestamp = timestamp
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @message == other.message

@@ -10,6 +10,8 @@ module StackOne
     
       # TaskValue - The unified value for the status of the task. If the provider does not specify this status, the value will be set to UnmappedValue
       class TaskValue < T::Enum
+
+
         enums do
           OPEN = new('open')
           IN_PROGRESS = new('in_progress')

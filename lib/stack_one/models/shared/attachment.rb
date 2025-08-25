@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :content_type, T.nilable(Models::Shared::AttachmentContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
+        field :content_type, Crystalline::Nilable.new(Models::Shared::AttachmentContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
         # The URL of the attachment.
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(content_type: T.nilable(Models::Shared::AttachmentContentType), url: T.nilable(::String)).void }
         def initialize(content_type: nil, url: nil)
@@ -25,6 +24,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @content_type == other.content_type

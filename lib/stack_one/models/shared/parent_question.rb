@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :condition_type, T.nilable(Models::Shared::ConditionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('condition_type') } }
+        field :condition_type, Crystalline::Nilable.new(Models::Shared::ConditionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('condition_type') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # List of parent questions's option IDs
-        field :option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('option_ids') } }
+        field :option_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('option_ids') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's list of parent questions's option IDs
-        field :remote_option_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_option_ids') } }
-
+        field :remote_option_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_option_ids') } }
 
         sig { params(condition_type: T.nilable(Models::Shared::ConditionType), id: T.nilable(::String), option_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_option_ids: T.nilable(T::Array[::String])).void }
         def initialize(condition_type: nil, id: nil, option_ids: nil, remote_id: nil, remote_option_ids: nil)
@@ -34,6 +33,7 @@ module StackOne
           @remote_option_ids = remote_option_ids
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @condition_type == other.condition_type
