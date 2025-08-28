@@ -10,6 +10,8 @@ module StackOne
     
 
       class ConnectSessionCreateCategories < T::Enum
+
+
         enums do
           ATS = new('ats')
           HRIS = new('hris')

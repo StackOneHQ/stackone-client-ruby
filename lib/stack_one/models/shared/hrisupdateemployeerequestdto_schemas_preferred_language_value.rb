@@ -10,6 +10,8 @@ module StackOne
     
       # HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue - The ISO639-2 Code of the language
       class HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue < T::Enum
+
+
         enums do
           AAR = new('aar')
           AFR = new('afr')

@@ -14,20 +14,20 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :data, T::Array[Models::Shared::Completion], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Array.new(Models::Shared::Completion), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
 
-        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
 
-        field :raw, T.nilable(T::Array[Models::Shared::RawResponse]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
-
+        field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
         sig { params(data: T::Array[Models::Shared::Completion], next_: T.nilable(::String), raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
-        def initialize(data: nil, next_: nil, raw: nil)
+        def initialize(data:, next_: nil, raw: nil)
           @data = data
           @next_ = next_
           @raw = raw
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data

@@ -14,30 +14,29 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Interview part created date
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The specific interview part's end date
-        field :end_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The user (interviewer) IDs taking part in this specific interview.
-        field :interviewer_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewer_ids') } }
+        field :interviewer_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interviewer_ids') } }
         # The video meeting provider used for the interview.
-        field :meeting_provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_provider') } }
+        field :meeting_provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_provider') } }
         # The meeting URL for the interview - this may be populated using the underlying location if the location string extracted is a valid url.
-        field :meeting_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_url') } }
+        field :meeting_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('meeting_url') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's user (interviewer) IDs taking part in this specific interview.
-        field :remote_interviewer_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interviewer_ids') } }
+        field :remote_interviewer_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interviewer_ids') } }
         # The specific interview part's start date
-        field :start_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The title of interview, usually corresponding to the title of an associated calendar event
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
-        field :type, T.nilable(Models::Shared::InterviewPartType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::InterviewPartType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Interview part updated date
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), id: T.nilable(::String), interviewer_ids: T.nilable(T::Array[::String]), meeting_provider: T.nilable(::String), meeting_url: T.nilable(::String), remote_id: T.nilable(::String), remote_interviewer_ids: T.nilable(T::Array[::String]), start_at: T.nilable(::DateTime), title: T.nilable(::String), type: T.nilable(Models::Shared::InterviewPartType), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, end_at: nil, id: nil, interviewer_ids: nil, meeting_provider: nil, meeting_url: nil, remote_id: nil, remote_interviewer_ids: nil, start_at: nil, title: nil, type: nil, updated_at: nil)
@@ -55,6 +54,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

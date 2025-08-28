@@ -10,6 +10,8 @@ module StackOne
     
 
       class EmploymentSchemasTypeValue < T::Enum
+
+
         enums do
           CONTRACTOR = new('contractor')
           INTERN = new('intern')

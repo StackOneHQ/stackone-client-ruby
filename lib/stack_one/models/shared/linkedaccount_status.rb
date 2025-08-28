@@ -10,6 +10,8 @@ module StackOne
     
 
       class LinkedAccountStatus < T::Enum
+
+
         enums do
           ACTIVE = new('active')
           INACTIVE = new('inactive')

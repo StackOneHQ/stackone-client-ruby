@@ -10,6 +10,8 @@ module StackOne
     
       # JobPostingCompensationSchemasTypeValue - The type of the compensation.
       class JobPostingCompensationSchemasTypeValue < T::Enum
+
+
         enums do
           SALARY = new('salary')
           HOURLY = new('hourly')

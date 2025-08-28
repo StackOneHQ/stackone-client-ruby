@@ -10,6 +10,8 @@ module StackOne
     
       # Confidential - Confidential status of the job
       class Confidential < T::Enum
+
+
         enums do
           TRUE = new('true')
           FALSE = new('false')

@@ -10,6 +10,8 @@ module StackOne
     
       # ListValue - The type of the list.
       class ListValue < T::Enum
+
+
         enums do
           CANDIDATES = new('candidates')
           CONTACTS = new('contacts')

@@ -10,6 +10,8 @@ module StackOne
     
       # EmploymentSchemasValue - The type of the employment.
       class EmploymentSchemasValue < T::Enum
+
+
         enums do
           CONTRACTOR = new('contractor')
           INTERN = new('intern')

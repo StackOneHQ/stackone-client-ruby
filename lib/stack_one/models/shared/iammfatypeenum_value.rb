@@ -10,6 +10,8 @@ module StackOne
     
       # IamMfaTypeEnumValue - The unified value for the type of multi-factor authentication. If the provider does not send back a type but does specify that MFA is set-up for this user, the value will be set to 'unknown'.'
       class IamMfaTypeEnumValue < T::Enum
+
+
         enums do
           SMS = new('sms')
           EMAIL = new('email')

@@ -14,25 +14,24 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The ticket ID associated with the comment
-        field :ticket_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_id') } }
+        field :ticket_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_id'), required: true } }
         # Array of content associated with the comment
-        field :content, T.nilable(T::Array[Models::Shared::TicketingContent]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::TicketingContent)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # The timestamp when the record was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Whether the comment is internal
-        field :internal, T.nilable(T.any(T::Boolean, Models::Shared::TicketingComment2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal') } }
+        field :internal, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::TicketingComment2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The timestamp when the record was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The user who created the comment
-        field :user_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
-
+        field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
         sig { params(ticket_id: ::String, content: T.nilable(T::Array[Models::Shared::TicketingContent]), created_at: T.nilable(::DateTime), id: T.nilable(::String), internal: T.nilable(T.any(T::Boolean, Models::Shared::TicketingComment2)), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
-        def initialize(ticket_id: nil, content: nil, created_at: nil, id: nil, internal: nil, remote_id: nil, updated_at: nil, user_id: nil)
+        def initialize(ticket_id:, content: nil, created_at: nil, id: nil, internal: nil, remote_id: nil, updated_at: nil, user_id: nil)
           @ticket_id = ticket_id
           @content = content
           @created_at = created_at
@@ -43,6 +42,7 @@ module StackOne
           @user_id = user_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @ticket_id == other.ticket_id

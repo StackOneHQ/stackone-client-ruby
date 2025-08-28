@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Type of the email
-        field :type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Email value
-        field :value, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
-
+        field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
         sig { params(type: T.nilable(::String), value: T.nilable(::String)).void }
         def initialize(type: nil, value: nil)
@@ -25,6 +24,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @type == other.type

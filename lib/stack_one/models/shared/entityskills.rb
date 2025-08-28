@@ -14,20 +14,19 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the skill is active and therefore available for use
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::EntitySkills2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::EntitySkills2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The ID associated with this skill
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The language associated with this skill
-        field :language, T.nilable(Models::Shared::EntitySkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        field :language, Crystalline::Nilable.new(Models::Shared::EntitySkillsLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
         # The proficiency level of the skill
-        field :maximum_proficiency, T.nilable(Models::Shared::MaximumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('maximum_proficiency') } }
+        field :maximum_proficiency, Crystalline::Nilable.new(Models::Shared::MaximumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('maximum_proficiency') } }
         # The proficiency level of the skill
-        field :minimum_proficiency, T.nilable(Models::Shared::MinimumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('minimum_proficiency') } }
+        field :minimum_proficiency, Crystalline::Nilable.new(Models::Shared::MinimumProficiency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('minimum_proficiency') } }
         # The name associated with this skill
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::EntitySkills2)), id: T.nilable(::String), language: T.nilable(Models::Shared::EntitySkillsLanguage), maximum_proficiency: T.nilable(Models::Shared::MaximumProficiency), minimum_proficiency: T.nilable(Models::Shared::MinimumProficiency), name: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(active: nil, id: nil, language: nil, maximum_proficiency: nil, minimum_proficiency: nil, name: nil, remote_id: nil)
@@ -40,6 +39,7 @@ module StackOne
           @remote_id = remote_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

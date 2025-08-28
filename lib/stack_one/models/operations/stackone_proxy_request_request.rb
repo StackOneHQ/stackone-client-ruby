@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(proxy_request_body: Models::Shared::ProxyRequestBody, x_account_id: ::String).void }
-        def initialize(proxy_request_body: nil, x_account_id: nil)
+        def initialize(proxy_request_body:, x_account_id:)
           @proxy_request_body = proxy_request_body
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @proxy_request_body == other.proxy_request_body

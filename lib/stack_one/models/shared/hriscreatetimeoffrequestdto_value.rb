@@ -10,6 +10,8 @@ module StackOne
     
 
       class HrisCreateTimeOffRequestDtoValue < T::Enum
+
+
         enums do
           APPROVED = new('approved')
           CANCELLED = new('cancelled')

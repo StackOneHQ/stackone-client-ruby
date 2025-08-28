@@ -14,28 +14,27 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :application_status, T.nilable(Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
+        field :application_status, Crystalline::Nilable.new(Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
         # Candidate Properties. Provide this OR candidate_id, but not both. Providing this attempts to create a new candidate with the application.
-        field :candidate, T.nilable(Models::Shared::AtsCreateApplicationRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Models::Shared::AtsCreateApplicationRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
         # Unique identifier of the candidate. Provide this OR candidate, but not both.
-        field :candidate_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
+        field :candidate_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
         # Document Properties. Providing this attempts to upload files with the application.
-        field :documents, T.nilable(T::Array[Models::Shared::UnifiedUploadRequestDto]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
+        field :documents, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AtsDocumentsUploadRequestDto)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
         # Unique identifier of the job
-        field :job_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
+        field :job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
         # Unique identifier of the job posting that is associated with application
-        field :job_posting_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_posting_id') } }
+        field :job_posting_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_posting_id') } }
         # Unique identifier of the location
-        field :location_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
+        field :location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Questionnaires associated with the application
-        field :questionnaires, T.nilable(T::Array[Models::Shared::CreateQuestionnaire]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
+        field :questionnaires, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateQuestionnaire)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
 
-        field :source, T.nilable(Models::Shared::AtsCreateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
+        field :source, Crystalline::Nilable.new(Models::Shared::AtsCreateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
-
-        sig { params(application_status: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), documents: T.nilable(T::Array[Models::Shared::UnifiedUploadRequestDto]), job_id: T.nilable(::String), job_posting_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[Models::Shared::CreateQuestionnaire]), source: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoSource)).void }
+        sig { params(application_status: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), documents: T.nilable(T::Array[Models::Shared::AtsDocumentsUploadRequestDto]), job_id: T.nilable(::String), job_posting_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[Models::Shared::CreateQuestionnaire]), source: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoSource)).void }
         def initialize(application_status: nil, candidate: nil, candidate_id: nil, documents: nil, job_id: nil, job_posting_id: nil, location_id: nil, passthrough: nil, questionnaires: nil, source: nil)
           @application_status = application_status
           @candidate = candidate
@@ -49,6 +48,7 @@ module StackOne
           @source = source
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application_status == other.application_status

@@ -1,0 +1,11 @@
+# HrisUpdateEmployeeTaskRequest
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `update_task_request_dto`                                                           | [Models::Shared::UpdateTaskRequestDto](../../models/shared/updatetaskrequestdto.md) | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `id`                                                                                | *::String*                                                                          | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `sub_resource_id`                                                                   | *::String*                                                                          | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `x_account_id`                                                                      | *::String*                                                                          | :heavy_check_mark:                                                                  | The account identifier                                                              |

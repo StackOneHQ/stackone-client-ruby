@@ -16,33 +16,32 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
-        field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
+        field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # LMS Assignment Filter
-        field :filter, T.nilable(Models::Operations::LmsListAssignmentsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
+        field :filter, Crystalline::Nilable.new(Models::Operations::LmsListAssignmentsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
         # The unified cursor
-        field :next_, T.nilable(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
+        field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :page, T.nilable(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
+        field :page, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
-        field :page_size, T.nilable(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
+        field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
-        field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
+        field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # Provider's unique identifier of the user related to the assignment
-        field :remote_user_id, T.nilable(::String), { 'query_param': { 'field_name': 'remote_user_id', 'style': 'form', 'explode': true } }
+        field :remote_user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'remote_user_id', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :updated_after, T.nilable(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
+        field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # The user ID associated with this assignment
-        field :user_id, T.nilable(::String), { 'query_param': { 'field_name': 'user_id', 'style': 'form', 'explode': true } }
-
+        field :user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'user_id', 'style': 'form', 'explode': true } }
 
         sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
-        def initialize(x_account_id: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, remote_user_id: nil, updated_after: nil, user_id: nil)
+        def initialize(x_account_id:, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, remote_user_id: nil, updated_after: nil, user_id: nil)
           @x_account_id = x_account_id
           @fields_ = fields_
           @filter = filter
@@ -56,6 +55,7 @@ module StackOne
           @user_id = user_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @x_account_id == other.x_account_id

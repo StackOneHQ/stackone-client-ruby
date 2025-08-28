@@ -10,6 +10,8 @@ module StackOne
     
 
       class HRISTeamValue < T::Enum
+
+
         enums do
           TEAM = new('team')
           UNMAPPED_VALUE = new('unmapped_value')

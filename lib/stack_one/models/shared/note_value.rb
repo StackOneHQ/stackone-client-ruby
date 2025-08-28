@@ -10,6 +10,8 @@ module StackOne
     
       # NoteValue - The visibility of the notes.
       class NoteValue < T::Enum
+
+
         enums do
           PRIVATE = new('private')
           PUBLIC = new('public')

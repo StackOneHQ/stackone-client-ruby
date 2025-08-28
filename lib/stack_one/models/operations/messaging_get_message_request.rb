@@ -17,32 +17,32 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+
+        field :filter, Crystalline::Nilable.new(Models::Operations::MessagingGetMessageQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
-        field :fields_, T.nilable(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-
-        field :filter, T.nilable(Models::Operations::MessagingGetMessageQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+        field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, T.nilable(T::Hash[Symbol, ::Object]), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
-        field :raw, T.nilable(T::Boolean), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
+        field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
-
-        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::MessagingGetMessageQueryParamFilter), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
-        def initialize(id: nil, x_account_id: nil, fields_: nil, filter: nil, proxy: nil, raw: nil)
+        sig { params(id: ::String, x_account_id: ::String, filter: T.nilable(Models::Operations::MessagingGetMessageQueryParamFilter), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+        def initialize(id:, x_account_id:, filter: nil, fields_: nil, proxy: nil, raw: nil)
           @id = id
           @x_account_id = x_account_id
-          @fields_ = fields_
           @filter = filter
+          @fields_ = fields_
           @proxy = proxy
           @raw = raw
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
-          return false unless @fields_ == other.fields_
           return false unless @filter == other.filter
+          return false unless @fields_ == other.fields_
           return false unless @proxy == other.proxy
           return false unless @raw == other.raw
           true

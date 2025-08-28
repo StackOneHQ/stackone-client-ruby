@@ -10,6 +10,8 @@ module StackOne
     
 
       class HrisUpdateEmployeeRequestDtoSchemasEthnicityValue < T::Enum
+
+
         enums do
           WHITE = new('white')
           BLACK_OR_AFRICAN_AMERICAN = new('black_or_african_american')

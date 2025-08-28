@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The description of the content
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The language associated with the localization details
-        field :language, T.nilable(Models::Shared::LocalizationModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
+        field :language, Crystalline::Nilable.new(Models::Shared::LocalizationModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
         # The tags associated with the localization details
-        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+        field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
         # The title of the content
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
         sig { params(description: T.nilable(::String), language: T.nilable(Models::Shared::LocalizationModelLanguage), tags: T.nilable(T::Array[::String]), title: T.nilable(::String)).void }
         def initialize(description: nil, language: nil, tags: nil, title: nil)
@@ -31,6 +30,7 @@ module StackOne
           @title = title
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @description == other.description

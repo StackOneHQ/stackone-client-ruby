@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Response headers
-        field :headers, T.nilable(Models::Errors::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Models::Errors::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # Error message
-        field :message, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+        field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
         # HTTP status code
-        field :status_code, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
-
+        field :status_code, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
 
         sig { params(headers: T.nilable(Models::Errors::Headers), message: T.nilable(::String), status_code: T.nilable(::Float)).void }
         def initialize(headers: nil, message: nil, status_code: nil)
@@ -28,6 +27,7 @@ module StackOne
           @status_code = status_code
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @headers == other.headers

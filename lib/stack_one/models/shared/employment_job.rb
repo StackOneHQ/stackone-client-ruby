@@ -14,18 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The employee job description
-        field :description, T.nilable(Models::Shared::Description), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(Models::Shared::Description), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The owner_id of the job
-        field :owner_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
+        field :owner_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('owner_id') } }
         # The parent_id of the job
-        field :parent_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
+        field :parent_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Title of the job
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
-
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
 
         sig { params(description: T.nilable(Models::Shared::Description), id: T.nilable(::String), owner_id: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), title: T.nilable(::String)).void }
         def initialize(description: nil, id: nil, owner_id: nil, parent_id: nil, remote_id: nil, title: nil)
@@ -37,6 +36,7 @@ module StackOne
           @title = title
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @description == other.description

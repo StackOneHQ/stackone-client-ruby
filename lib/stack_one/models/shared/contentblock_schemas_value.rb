@@ -10,6 +10,8 @@ module StackOne
     
       # ContentBlockSchemasValue - The type of the content blocks.
       class ContentBlockSchemasValue < T::Enum
+
+
         enums do
           TEXT = new('text')
           HTML = new('html')

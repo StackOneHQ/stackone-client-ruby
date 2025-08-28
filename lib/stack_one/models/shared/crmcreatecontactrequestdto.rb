@@ -14,24 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
         # List of associated account IDs
-        field :account_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
+        field :account_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_ids') } }
         # The contact company name
-        field :company_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
+        field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
         # Contact custom fields
-        field :custom_fields, T.nilable(T::Array[Models::Shared::CustomFields]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # List of associated deal IDs
-        field :deal_ids, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
+        field :deal_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('deal_ids') } }
         # List of contact email addresses
-        field :emails, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
+        field :emails, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('emails') } }
         # The contact first name
-        field :first_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # The contact last name
-        field :last_name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # List of contact phone numbers
-        field :phone_numbers, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
-
+        field :phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
 
         sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_numbers: T.nilable(T::Array[::String])).void }
         def initialize(account_ids: nil, company_name: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, last_name: nil, passthrough: nil, phone_numbers: nil)
@@ -46,6 +45,7 @@ module StackOne
           @phone_numbers = phone_numbers
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @account_ids == other.account_ids

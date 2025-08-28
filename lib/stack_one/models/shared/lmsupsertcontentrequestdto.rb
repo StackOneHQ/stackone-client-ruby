@@ -14,50 +14,49 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Whether the content is active and available for users.
-        field :active, T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
+        field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::LmsUpsertContentRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The additional_data associated with this content
-        field :additional_data, T.nilable(T::Array[Models::Shared::AdditionalData]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_data') } }
+        field :additional_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AdditionalData)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_data') } }
         # The authors of the content
-        field :authors, T.nilable(T::Array[Models::Shared::AuthorModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authors') } }
+        field :authors, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AuthorModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authors') } }
         # The categories associated with this content
-        field :categories, T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateCategoriesApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # The type of content
-        field :content_type, T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
+        field :content_type, Crystalline::Nilable.new(Models::Shared::LmsUpsertContentRequestDtoContentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_type') } }
         # The external URL of the content
-        field :content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_url') } }
+        field :content_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_url') } }
         # The URL of the thumbnail image associated with the content.
-        field :cover_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
+        field :cover_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
         # The date on which the content was created.
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The description of the content
-        field :description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The duration of the content following the ISO8601 standard. If duration_unit is applicable we will derive this from the smallest unit given in the duration string or the minimum unit accepted by the provider.
-        field :duration, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The external ID associated with this content
-        field :external_reference, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
+        field :external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
         # The languages associated with this content
-        field :languages, T.nilable(T::Array[Models::Shared::LanguageEnum]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
+        field :languages, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LanguageEnum)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
         # The localization data for this course
-        field :localizations, T.nilable(T::Array[Models::Shared::LocalizationModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('localizations') } }
+        field :localizations, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LocalizationModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('localizations') } }
         # The mobile friendly URL of the content
-        field :mobile_launch_content_url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('mobile_launch_content_url') } }
+        field :mobile_launch_content_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('mobile_launch_content_url') } }
         # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
-        field :order, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
+        field :order, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
         # A short description or summary for the content
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :short_description, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('short_description') } }
+        field :short_description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('short_description') } }
         # The skills associated with this content
-        field :skills, T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
+        field :skills, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateSkillsApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
         # A list of tags associated with the content
-        field :tags, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
+        field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
         # The title of the content
-        field :title, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The date on which the content was last updated.
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
@@ -84,6 +83,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @active == other.active

@@ -10,6 +10,8 @@ module StackOne
     
       # ChannelsEnumValue - The Channels of the campaign.
       class ChannelsEnumValue < T::Enum
+
+
         enums do
           EMAIL = new('email')
           SMS = new('sms')

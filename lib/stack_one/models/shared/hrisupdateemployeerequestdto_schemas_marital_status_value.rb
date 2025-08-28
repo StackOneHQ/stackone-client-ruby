@@ -10,6 +10,8 @@ module StackOne
     
 
       class HrisUpdateEmployeeRequestDtoSchemasMaritalStatusValue < T::Enum
+
+
         enums do
           SINGLE = new('single')
           MARRIED = new('married')

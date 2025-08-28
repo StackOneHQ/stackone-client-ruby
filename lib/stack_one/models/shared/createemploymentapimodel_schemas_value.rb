@@ -10,6 +10,8 @@ module StackOne
     
       # CreateEmploymentApiModelSchemasValue - The type of the employment.
       class CreateEmploymentApiModelSchemasValue < T::Enum
+
+
         enums do
           CONTRACTOR = new('contractor')
           INTERN = new('intern')

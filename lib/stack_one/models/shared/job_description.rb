@@ -16,14 +16,14 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :text, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
-
+        field :text, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
 
         sig { params(text: T.nilable(::String)).void }
         def initialize(text: nil)
           @text = text
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @text == other.text

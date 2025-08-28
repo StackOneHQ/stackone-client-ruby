@@ -52,7 +52,7 @@ module StackOne
         f.request :multipart, {}
         # f.response :logger, nil, { headers: true, bodies: true, errors: true }
       end
-
+      
       if !server_url.nil?
         if !url_params.nil?
           server_url = Utils.template_url(server_url, url_params)
@@ -71,11 +71,7 @@ module StackOne
         server_url,
         server_idx
       )
-
-      original_server_url = @sdk_configuration.get_server_details.first
-      new_server_url, @sdk_configuration.client = hooks.sdk_init(base_url: original_server_url, client: client)
-      @sdk_configuration.server_url = new_server_url if new_server_url != original_server_url
-
+      @sdk_configuration = hooks.sdk_init(config: @sdk_configuration)
       init_sdks
     end
 
@@ -97,6 +93,21 @@ module StackOne
       @proxy = Proxy.new(@sdk_configuration)
       @screening = Screening.new(@sdk_configuration)
       @ticketing = Ticketing.new(@sdk_configuration)
+    end
+
+    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    def get_url(base_url:, url_variables: nil)
+      sd_base_url, sd_options = @sdk_configuration.get_server_details
+
+      if base_url.nil?
+        base_url = sd_base_url
+      end
+
+      if url_variables.nil?
+        url_variables = sd_options
+      end
+
+      return Utils.template_url base_url, url_variables
     end
   end
 end

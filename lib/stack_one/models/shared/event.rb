@@ -10,6 +10,8 @@ module StackOne
     
       # Event - The event type
       class Event < T::Enum
+
+
         enums do
           SCREENING_RESULTS_CREATED = new('screening.results.created')
           SCREENING_RESULTS_UPDATED = new('screening.results.updated')

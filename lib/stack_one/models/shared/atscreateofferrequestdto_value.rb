@@ -10,6 +10,8 @@ module StackOne
     
       # AtsCreateOfferRequestDtoValue - The status of the offer.
       class AtsCreateOfferRequestDtoValue < T::Enum
+
+
         enums do
           PENDING = new('pending')
           RETRACTED = new('retracted')

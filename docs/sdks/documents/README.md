@@ -20,26 +20,28 @@ Download File
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_download_file" method="get" path="/unified/documents/files/{id}/download" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsDownloadFileRequest.new(
-  export_format: "text/plain",
-  format: "base64",
-  id: "<id>",
-  x_account_id: "<id>",
+  export_format: 'text/plain',
+  format: 'base64',
+  id: '<id>',
+  x_account_id: '<id>',
 )
 
-res = s.documents.download_file(req)
+res = s.documents.download_file(request: req)
 
-if ! res.bytes.nil?
+unless res.bytes.nil?
   # handle response
 end
 
@@ -55,7 +57,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsDownloadFileResponse)](../../models/operations/documentsdownloadfileresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## get_drive
 
@@ -63,25 +81,27 @@ Get Drive
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_get_drive" method="get" path="/unified/documents/drives/{id}" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsGetDriveRequest.new(
-  fields_: "id,remote_id,name,description,url,created_at,updated_at",
-  id: "<id>",
-  x_account_id: "<id>",
+  fields_: 'id,remote_id,name,description,url,created_at,updated_at',
+  id: '<id>',
+  x_account_id: '<id>',
 )
 
-res = s.documents.get_drive(req)
+res = s.documents.get_drive(request: req)
 
-if ! res.drive_result.nil?
+unless res.drive_result.nil?
   # handle response
 end
 
@@ -97,7 +117,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsGetDriveResponse)](../../models/operations/documentsgetdriveresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## get_file
 
@@ -105,26 +141,28 @@ Get File
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_get_file" method="get" path="/unified/documents/files/{id}" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsGetFileRequest.new(
-  fields_: "id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids",
-  id: "<id>",
-  include: "all_parent_folder_ids",
-  x_account_id: "<id>",
+  fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids',
+  id: '<id>',
+  include: 'all_parent_folder_ids',
+  x_account_id: '<id>',
 )
 
-res = s.documents.get_file(req)
+res = s.documents.get_file(request: req)
 
-if ! res.file_result.nil?
+unless res.file_result.nil?
   # handle response
 end
 
@@ -140,7 +178,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsGetFileResponse)](../../models/operations/documentsgetfileresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## get_folder
 
@@ -148,26 +202,28 @@ Get Folder
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_get_folder" method="get" path="/unified/documents/folders/{id}" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsGetFolderRequest.new(
-  fields_: "id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids",
-  id: "<id>",
-  include: "all_parent_folder_ids",
-  x_account_id: "<id>",
+  fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids',
+  id: '<id>',
+  include: 'all_parent_folder_ids',
+  x_account_id: '<id>',
 )
 
-res = s.documents.get_folder(req)
+res = s.documents.get_folder(request: req)
 
-if ! res.folder_result.nil?
+unless res.folder_result.nil?
   # handle response
 end
 
@@ -183,7 +239,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsGetFolderResponse)](../../models/operations/documentsgetfolderresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## list_drives
 
@@ -191,27 +263,29 @@ List Drives
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_list_drives" method="get" path="/unified/documents/drives" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsListDrivesRequest.new(
-  fields_: "id,remote_id,name,description,url,created_at,updated_at",
+  fields_: 'id,remote_id,name,description,url,created_at,updated_at',
   filter: Models::Operations::DocumentsListDrivesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
-  x_account_id: "<id>",
+  x_account_id: '<id>',
 )
 
-res = s.documents.list_drives(req)
+res = s.documents.list_drives(request: req)
 
-if ! res.drives_paginated.nil?
+unless res.drives_paginated.nil?
   # handle response
 end
 
@@ -227,7 +301,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsListDrivesResponse)](../../models/operations/documentslistdrivesresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## list_files
 
@@ -235,35 +325,37 @@ List Files
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_list_files" method="get" path="/unified/documents/files" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsListFilesRequest.new(
-  fields_: "id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids",
+  fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids',
   filter: Models::Operations::DocumentsListFilesQueryParamFilter.new(
-    content: "FAQ of the project",
+    content: 'FAQ of the project',
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    drive_id: "1234567890",
-    folder_id: "1234567890",
-    name: "john_doe_resume.pdf",
+    drive_id: '1234567890',
+    folder_id: '1234567890',
+    name: 'john_doe_resume.pdf',
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
-  folder_id: "1234567890",
-  include: "all_parent_folder_ids",
-  nested_items: "true",
-  x_account_id: "<id>",
+  folder_id: '1234567890',
+  include: 'all_parent_folder_ids',
+  nested_items: 'true',
+  x_account_id: '<id>',
 )
 
-res = s.documents.list_files(req)
+res = s.documents.list_files(request: req)
 
-if ! res.files_paginated.nil?
+unless res.files_paginated.nil?
   # handle response
 end
 
@@ -279,7 +371,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsListFilesResponse)](../../models/operations/documentslistfilesresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## list_folders
 
@@ -287,32 +395,34 @@ List Folders
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_list_folders" method="get" path="/unified/documents/folders" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::DocumentsListFoldersRequest.new(
-  fields_: "id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids",
+  fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids',
   filter: Models::Operations::DocumentsListFoldersQueryParamFilter.new(
-    drive_id: "1234567890",
-    folder_id: "1234567890",
+    drive_id: '1234567890',
+    folder_id: '1234567890',
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
-  folder_id: "1234567890",
-  include: "all_parent_folder_ids",
-  nested_items: "true",
-  x_account_id: "<id>",
+  folder_id: '1234567890',
+  include: 'all_parent_folder_ids',
+  nested_items: 'true',
+  x_account_id: '<id>',
 )
 
-res = s.documents.list_folders(req)
+res = s.documents.list_folders(request: req)
 
-if ! res.folders_paginated.nil?
+unless res.folders_paginated.nil?
   # handle response
 end
 
@@ -328,7 +438,23 @@ end
 
 **[T.nilable(Models::Operations::DocumentsListFoldersResponse)](../../models/operations/documentslistfoldersresponse.md)**
 
+### Errors
 
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## upload_file
 
@@ -336,36 +462,38 @@ Upload File
 
 ### Example Usage
 
+<!-- UsageSnippet language="ruby" operationID="documents_upload_file" method="post" path="/unified/documents/files/upload" -->
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.documents.upload_file(unified_upload_request_dto=Models::Shared::UnifiedUploadRequestDto.new(
+res = s.documents.upload_file(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto.new(
   category: Models::Shared::UnifiedUploadRequestDtoCategory.new(
-    source_value: "550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME",
-    value: "reports, resumes",
+    source_value: '550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME',
+    value: 'reports, resumes',
   ),
-  category_id: "6530",
+  category_id: '6530',
   confidential: Models::Shared::UnifiedUploadRequestDtoConfidential.new(
-    source_value: "public",
+    source_value: 'public',
     value: Models::Shared::UnifiedUploadRequestDtoValue::TRUE,
   ),
-  content: "VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE",
+  content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
   file_format: Models::Shared::UnifiedUploadRequestDtoFileFormat.new(
-    source_value: "application/pdf",
+    source_value: 'application/pdf',
     value: Models::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
   ),
-  name: "weather-forecast",
-  path: "/path/to/file",
-), x_account_id="<id>", x_stackone_api_session_token="<value>")
+  name: 'weather-forecast',
+  path: '/path/to/file',
+), x_account_id: '<id>')
 
-if ! res.write_result_api_model.nil?
+unless res.write_result_api_model.nil?
   # handle response
 end
 
@@ -383,3 +511,20 @@ end
 
 **[T.nilable(Models::Operations::DocumentsUploadFileResponse)](../../models/operations/documentsuploadfileresponse.md)**
 
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |

@@ -10,6 +10,8 @@ module StackOne
     
       # AccountingAccountValue - Type of account
       class AccountingAccountValue < T::Enum
+
+
         enums do
           ASSET = new('asset')
           LIABILITY = new('liability')

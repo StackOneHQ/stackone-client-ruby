@@ -10,6 +10,8 @@ module StackOne
     
       # OfferValue - The status of the offer.
       class OfferValue < T::Enum
+
+
         enums do
           PENDING = new('pending')
           RETRACTED = new('retracted')

@@ -48,26 +48,27 @@ gem install stackone_client
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
 req = Models::Operations::HrisListEmployeesRequest.new(
-  expand: "company,employments,work_location,home_location,groups,skills",
-  fields_: "id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills",
+  expand: 'company,employments,work_location,home_location,groups,skills',
+  fields_: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
-  include: "avatar_url,avatar,custom_fields,job_description,benefits",
-  x_account_id: "<id>",
+  include: 'avatar_url,avatar,custom_fields,job_description,benefits',
+  x_account_id: '<id>',
 )
 
-res = s.hris.list_employees(req)
+res = s.hris.list_employees(request: req)
 
-if ! res.employees_paginated.nil?
+unless res.employees_paginated.nil?
   # handle response
 end
 
@@ -89,16 +90,17 @@ You can set the security parameters through the `security` optional parameter wh
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.accounts.delete_account(id="<id>")
+res = s.accounts.delete_account(id: '<id>')
 
-if ! res.linked_account.nil?
+unless res.linked_account.nil?
   # handle response
 end
 
@@ -114,6 +116,7 @@ end
 ### [accounting](docs/sdks/accounting/README.md)
 
 * [batch_create_company_journals](docs/sdks/accounting/README.md#batch_create_company_journals) - Batch Create Journals
+* [create_company_journal](docs/sdks/accounting/README.md#create_company_journal) - Create Journal
 * [get_company](docs/sdks/accounting/README.md#get_company) - Get Company
 * [get_company_account](docs/sdks/accounting/README.md#get_company_account) - Get Account
 * [get_company_journal](docs/sdks/accounting/README.md#get_company_journal) - Get Journal
@@ -151,9 +154,7 @@ end
 * [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
 * [get_assessments_package](docs/sdks/ats/README.md#get_assessments_package) - Get Assessments Package
-* [get_assessments_result](docs/sdks/ats/README.md#get_assessments_result) - Get Assessments Results
 * [get_background_check_package](docs/sdks/ats/README.md#get_background_check_package) - Get Background Check Package
-* [get_background_check_result](docs/sdks/ats/README.md#get_background_check_result) - Get Background Check Results
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
 * [get_candidate_custom_field_definition](docs/sdks/ats/README.md#get_candidate_custom_field_definition) - Get Candidate Custom Field Definition
 * [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
@@ -161,6 +162,7 @@ end
 * [get_interview](docs/sdks/ats/README.md#get_interview) - Get Interview
 * [get_interview_stage](docs/sdks/ats/README.md#get_interview_stage) - Get Interview Stage
 * [get_job](docs/sdks/ats/README.md#get_job) - Get Job
+* [get_job_application_stage](docs/sdks/ats/README.md#get_job_application_stage) - Get Job Application Stage
 * [get_job_custom_field_definition](docs/sdks/ats/README.md#get_job_custom_field_definition) - Get Job Custom Field Definition
 * [get_job_posting](docs/sdks/ats/README.md#get_job_posting) - Get Job Posting
 * [get_list](docs/sdks/ats/README.md#get_list) - Get List
@@ -185,6 +187,7 @@ end
 * [list_departments](docs/sdks/ats/README.md#list_departments) - List Departments
 * [list_interview_stages](docs/sdks/ats/README.md#list_interview_stages) - List Interview Stages
 * [list_interviews](docs/sdks/ats/README.md#list_interviews) - List Interviews
+* [list_job_application_stages](docs/sdks/ats/README.md#list_job_application_stages) - List Job Application Stages
 * [list_job_custom_field_definitions](docs/sdks/ats/README.md#list_job_custom_field_definitions) - List Job Custom Field Definitions
 * [list_job_postings](docs/sdks/ats/README.md#list_job_postings) - List Job Postings
 * [list_jobs](docs/sdks/ats/README.md#list_jobs) - List Jobs
@@ -310,6 +313,7 @@ end
 * [~~list_time_off_types~~](docs/sdks/hris/README.md#list_time_off_types) - List time off types :warning: **Deprecated**
 * [update_employee](docs/sdks/hris/README.md#update_employee) - Update Employee
 * [update_employee_employment](docs/sdks/hris/README.md#update_employee_employment) - Update Employee Employment
+* [update_employee_task](docs/sdks/hris/README.md#update_employee_task) - Update Employee Task
 * [update_employee_time_off_request](docs/sdks/hris/README.md#update_employee_time_off_request) - Update Employee Time Off Request
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
@@ -450,16 +454,17 @@ To change the default retry strategy for a single API call, simply provide a `Re
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.accounts.delete_account(id="<id>")
+res = s.accounts.delete_account(id: '<id>')
 
-if ! res.linked_account.nil?
+unless res.linked_account.nil?
   # handle response
 end
 
@@ -469,6 +474,7 @@ If you'd like to override the default retry strategy for all operations that sup
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
       retry_config: Utils::RetryConfig.new(
         backoff: Utils::BackoffStrategy.new(
@@ -481,14 +487,14 @@ s = ::StackOne::StackOne.new(
         strategy: 'backoff'
       ),
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.accounts.delete_account(id="<id>")
+res = s.accounts.delete_account(id: '<id>')
 
-if ! res.linked_account.nil?
+unless res.linked_account.nil?
   # handle response
 end
 
@@ -546,38 +552,38 @@ begin
       # handle response
     end
 rescue Models::Errors::BadRequestResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::UnauthorizedResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::ForbiddenResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::NotFoundResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::RequestTimedOutResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::ConflictResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::UnprocessableEntityResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::TooManyRequestsResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::InternalServerErrorResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::NotImplementedResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Models::Errors::BadGatewayResponse => e
-  # handle $e->$container data
-  throw $e;
+  # handle e.container data
+  raise e
 rescue Errors::APIError => e
   # handle default exception
   raise e
@@ -595,17 +601,18 @@ The default server can be overridden globally by passing a URL to the `server_ur
 ```ruby
 require 'stackone_client'
 
+Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      server_url: "https://api.stackone.com",
+      server_url: 'https://api.stackone.com',
       security: Models::Shared::Security.new(
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       ),
     )
 
-res = s.accounts.delete_account(id="<id>")
+res = s.accounts.delete_account(id: '<id>')
 
-if ! res.linked_account.nil?
+unless res.linked_account.nil?
   # handle response
 end
 

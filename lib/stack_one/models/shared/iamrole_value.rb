@@ -10,6 +10,8 @@ module StackOne
     
 
       class IamRoleValue < T::Enum
+
+
         enums do
           ADMIN = new('admin')
           VIEWER = new('viewer')

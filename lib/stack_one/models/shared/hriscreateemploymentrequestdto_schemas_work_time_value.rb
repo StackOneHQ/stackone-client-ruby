@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmploymentRequestDtoSchemasWorkTimeValue - The unified value for the period.
       class HrisCreateEmploymentRequestDtoSchemasWorkTimeValue < T::Enum
+
+
         enums do
           DAY = new('day')
           WEEK = new('week')

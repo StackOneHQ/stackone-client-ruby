@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :html, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
+        field :html, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('html') } }
 
-        field :plain, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
+        field :plain, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('plain') } }
 
-        field :sections, T.nilable(T::Array[Models::Shared::JobPostingContentSection]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
-
+        field :sections, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::JobPostingContentSection)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sections') } }
 
         sig { params(html: T.nilable(::String), plain: T.nilable(::String), sections: T.nilable(T::Array[Models::Shared::JobPostingContentSection])).void }
         def initialize(html: nil, plain: nil, sections: nil)
@@ -28,6 +27,7 @@ module StackOne
           @sections = sections
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @html == other.html

@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmploymentRequestDtoSchemasValue - The type of the employment.
       class HrisCreateEmploymentRequestDtoSchemasValue < T::Enum
+
+
         enums do
           CONTRACTOR = new('contractor')
           INTERN = new('intern')

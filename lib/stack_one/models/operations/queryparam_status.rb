@@ -10,6 +10,8 @@ module StackOne
     
       # QueryParamStatus - Filter positions by status
       class QueryParamStatus < T::Enum
+
+
         enums do
           OPEN = new('open')
           CLOSED = new('closed')

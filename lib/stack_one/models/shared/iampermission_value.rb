@@ -10,6 +10,8 @@ module StackOne
     
       # IamPermissionValue - The type of the permission, e.g. read, read_write, delete, etc.
       class IamPermissionValue < T::Enum
+
+
         enums do
           READ = new('read')
           READ_WRITE = new('read_write')

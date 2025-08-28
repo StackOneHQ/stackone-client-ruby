@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :distribution_percentage, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
+        field :distribution_percentage, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('distribution_percentage') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
 
         sig { params(distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String)).void }
         def initialize(distribution_percentage: nil, id: nil, name: nil)
@@ -28,6 +27,7 @@ module StackOne
           @name = name
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @distribution_percentage == other.distribution_percentage

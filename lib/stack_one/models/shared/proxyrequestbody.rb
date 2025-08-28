@@ -14,33 +14,33 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The body of the request
-        field :body, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
         # The headers to send in the request
-        field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
-        # The method of the request
-        field :method, T.nilable(Models::Shared::Method), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), 'decoder': Utils.enum_from_string(Models::Shared::Method, true) } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # The path of the request including any query paramters
-        field :path, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # The base url of the request
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
+        # The method of the request
+        field :method, Crystalline::Nilable.new(Models::Shared::Method), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), 'decoder': Utils.enum_from_string(Models::Shared::Method, true) } }
 
-
-        sig { params(body: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), method: T.nilable(Models::Shared::Method), path: T.nilable(::String), url: T.nilable(::String)).void }
-        def initialize(body: nil, headers: nil, method: nil, path: nil, url: nil)
+        sig { params(body: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(::String), url: T.nilable(::String), method: T.nilable(Models::Shared::Method)).void }
+        def initialize(body: nil, headers: nil, path: nil, url: nil, method: Models::Shared::Method::GET)
           @body = body
           @headers = headers
-          @method = method
           @path = path
           @url = url
+          @method = method
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @body == other.body
           return false unless @headers == other.headers
-          return false unless @method == other.method
           return false unless @path == other.path
           return false unless @url == other.url
+          return false unless @method == other.method
           true
         end
       end

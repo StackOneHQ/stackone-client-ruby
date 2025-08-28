@@ -10,6 +10,8 @@ module StackOne
     
       # Type - Filter to select time-off policies by type
       class Type < T::Enum
+
+
         enums do
           SICK = new('sick')
           UNMAPPED_VALUE = new('unmapped_value')

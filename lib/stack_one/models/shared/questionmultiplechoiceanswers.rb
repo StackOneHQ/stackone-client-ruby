@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :text, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
-
+        field :text, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('text') } }
 
         sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), text: T.nilable(::String)).void }
         def initialize(id: nil, remote_id: nil, text: nil)
@@ -28,6 +27,7 @@ module StackOne
           @text = text
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

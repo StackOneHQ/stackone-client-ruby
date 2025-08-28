@@ -10,6 +10,8 @@ module StackOne
     
       # ConnectSessionTokenAuthLinkType - The connect session account type
       class ConnectSessionTokenAuthLinkType < T::Enum
+
+
         enums do
           PRODUCTION = new('production')
           TEST = new('test')

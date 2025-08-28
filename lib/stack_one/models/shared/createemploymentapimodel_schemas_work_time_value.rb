@@ -10,6 +10,8 @@ module StackOne
     
       # CreateEmploymentApiModelSchemasWorkTimeValue - The unified value for the period.
       class CreateEmploymentApiModelSchemasWorkTimeValue < T::Enum
+
+
         enums do
           DAY = new('day')
           WEEK = new('week')

@@ -10,6 +10,8 @@ module StackOne
     
       # TicketingTicketResultSchemasValue - The type of this status
       class TicketingTicketResultSchemasValue < T::Enum
+
+
         enums do
           TO_DO = new('to-do')
           IN_PROGRESS = new('in-progress')

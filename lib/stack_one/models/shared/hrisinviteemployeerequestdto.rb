@@ -14,14 +14,14 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         sig { params(passthrough: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(passthrough: nil)
           @passthrough = passthrough
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @passthrough == other.passthrough

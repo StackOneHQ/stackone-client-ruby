@@ -10,6 +10,8 @@ module StackOne
     
       # JournalLineValue - Type of account
       class JournalLineValue < T::Enum
+
+
         enums do
           ASSET = new('asset')
           LIABILITY = new('liability')

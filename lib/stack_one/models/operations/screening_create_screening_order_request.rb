@@ -18,13 +18,13 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-
         sig { params(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto, x_account_id: ::String).void }
-        def initialize(screening_create_order_request_dto: nil, x_account_id: nil)
+        def initialize(screening_create_order_request_dto:, x_account_id:)
           @screening_create_order_request_dto = screening_create_order_request_dto
           @x_account_id = x_account_id
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @screening_create_order_request_dto == other.screening_create_order_request_dto

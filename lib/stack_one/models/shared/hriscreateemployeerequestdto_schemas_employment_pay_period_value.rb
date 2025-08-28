@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmployeeRequestDtoSchemasEmploymentPayPeriodValue - The pay period of the job postings.
       class HrisCreateEmployeeRequestDtoSchemasEmploymentPayPeriodValue < T::Enum
+
+
         enums do
           HOUR = new('hour')
           DAY = new('day')

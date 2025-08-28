@@ -10,6 +10,8 @@ module StackOne
     
       # FileValue - The file format of the file, expressed as a file extension
       class FileValue < T::Enum
+
+
         enums do
           UNMAPPED_VALUE = new('unmapped_value')
           EZ = new('ez')

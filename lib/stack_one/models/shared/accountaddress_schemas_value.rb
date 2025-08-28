@@ -10,6 +10,8 @@ module StackOne
     
       # AccountAddressSchemasValue - The ISO 3166-1 alpha-2 code of the country.
       class AccountAddressSchemasValue < T::Enum
+
+
         enums do
           AF = new('AF')
           AL = new('AL')

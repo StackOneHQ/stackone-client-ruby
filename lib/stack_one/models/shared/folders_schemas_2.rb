@@ -10,6 +10,8 @@ module StackOne
     
 
       class FoldersSchemas2 < T::Enum
+
+
         enums do
           TRUE = new('true')
           FALSE = new('false')

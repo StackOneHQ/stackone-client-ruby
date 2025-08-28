@@ -14,22 +14,21 @@ module StackOne
         include Crystalline::MetadataFields
 
         # List of attachments in the message
-        field :attachments, T.nilable(T::Array[::String]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
+        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
         # Author of the message
-        field :author, T.nilable(Models::Shared::Author), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author') } }
+        field :author, Crystalline::Nilable.new(Models::Shared::Author), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author') } }
         # Content of the message
-        field :content, T.nilable(Models::Shared::MessagingMessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
+        field :content, Crystalline::Nilable.new(Models::Shared::MessagingMessageContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Timestamp when the message was created
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # ID of the parent message if this is a reply
-        field :parent_message_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_message_id') } }
+        field :parent_message_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_message_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Timestamp when the message was last updated
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(attachments: T.nilable(T::Array[::String]), author: T.nilable(Models::Shared::Author), content: T.nilable(Models::Shared::MessagingMessageContent), created_at: T.nilable(::DateTime), id: T.nilable(::String), parent_message_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
         def initialize(attachments: nil, author: nil, content: nil, created_at: nil, id: nil, parent_message_id: nil, remote_id: nil, updated_at: nil)
@@ -43,6 +42,7 @@ module StackOne
           @updated_at = updated_at
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @attachments == other.attachments

@@ -10,6 +10,8 @@ module StackOne
     
       # ScreeningResultStatus - Result status
       class ScreeningResultStatus < T::Enum
+
+
         enums do
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')

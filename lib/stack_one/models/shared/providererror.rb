@@ -14,14 +14,13 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Response headers
-        field :headers, T.nilable(Models::Shared::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Models::Shared::Headers), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # Raw error response from the provider
-        field :raw, T.nilable(Models::Shared::Raw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
+        field :raw, Crystalline::Nilable.new(Models::Shared::Raw), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
         # HTTP status code of the provider error
-        field :status, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
+        field :status, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # URL that caused the error
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(headers: T.nilable(Models::Shared::Headers), raw: T.nilable(Models::Shared::Raw), status: T.nilable(::Float), url: T.nilable(::String)).void }
         def initialize(headers: nil, raw: nil, status: nil, url: nil)
@@ -31,6 +30,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @headers == other.headers

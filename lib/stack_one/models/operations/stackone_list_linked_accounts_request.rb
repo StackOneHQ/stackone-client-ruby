@@ -14,47 +14,47 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The providers list of the results to fetch
-        field :account_ids, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'account_ids', 'style': 'form', 'explode': true } }
-        # The origin owner identifier of the results to fetch
-        field :origin_owner_id, T.nilable(::String), { 'query_param': { 'field_name': 'origin_owner_id', 'style': 'form', 'explode': true } }
+        field :account_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'account_ids', 'style': 'form', 'explode': true } }
         # The origin owner identifiers of the results to fetch (supports multiple IDs)
-        field :origin_owner_ids, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'origin_owner_ids', 'style': 'form', 'explode': true } }
+        field :origin_owner_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'origin_owner_ids', 'style': 'form', 'explode': true } }
+        # The providers list of the results to fetch
+        field :providers, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'providers', 'style': 'form', 'explode': true } }
+        # The status of the results to fetch
+        field :status, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
+        # The origin owner identifier of the results to fetch
+        field :origin_owner_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'origin_owner_id', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
-        field :page, T.nilable(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
-        # The number of results per page
-        field :page_size, T.nilable(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
+        field :page, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The provider of the results to fetch
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :provider, T.nilable(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
-        # The providers list of the results to fetch
-        field :providers, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'providers', 'style': 'form', 'explode': true } }
-        # The status of the results to fetch
-        field :status, T.nilable(T::Array[::String]), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
+        field :provider, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'provider', 'style': 'form', 'explode': true } }
+        # The number of results per page
+        field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
-
-        sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), origin_owner_ids: T.nilable(T::Array[::String]), page: T.nilable(::Float), page_size: T.nilable(::Float), provider: T.nilable(::String), providers: T.nilable(T::Array[::String]), status: T.nilable(T::Array[::String])).void }
-        def initialize(account_ids: nil, origin_owner_id: nil, origin_owner_ids: nil, page: nil, page_size: nil, provider: nil, providers: nil, status: nil)
+        sig { params(account_ids: T.nilable(T::Array[::String]), origin_owner_ids: T.nilable(T::Array[::String]), providers: T.nilable(T::Array[::String]), status: T.nilable(T::Array[::String]), origin_owner_id: T.nilable(::String), page: T.nilable(::Float), provider: T.nilable(::String), page_size: T.nilable(::Float)).void }
+        def initialize(account_ids: nil, origin_owner_ids: nil, providers: nil, status: nil, origin_owner_id: nil, page: nil, provider: nil, page_size: 25.0)
           @account_ids = account_ids
-          @origin_owner_id = origin_owner_id
           @origin_owner_ids = origin_owner_ids
-          @page = page
-          @page_size = page_size
-          @provider = provider
           @providers = providers
           @status = status
+          @origin_owner_id = origin_owner_id
+          @page = page
+          @provider = provider
+          @page_size = page_size
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @account_ids == other.account_ids
-          return false unless @origin_owner_id == other.origin_owner_id
           return false unless @origin_owner_ids == other.origin_owner_ids
-          return false unless @page == other.page
-          return false unless @page_size == other.page_size
-          return false unless @provider == other.provider
           return false unless @providers == other.providers
           return false unless @status == other.status
+          return false unless @origin_owner_id == other.origin_owner_id
+          return false unless @page == other.page
+          return false unless @provider == other.provider
+          return false unless @page_size == other.page_size
           true
         end
       end

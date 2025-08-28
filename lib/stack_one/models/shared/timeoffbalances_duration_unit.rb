@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffBalancesSchemas4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::TimeOffBalancesSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
-        field :value, T.nilable(Models::Shared::TimeOffBalancesSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TimeOffBalancesSchemasValue, true) } }
-
+        field :value, Crystalline::Nilable.new(Models::Shared::TimeOffBalancesSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TimeOffBalancesSchemasValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffBalancesSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::TimeOffBalancesSchemasValue)).void }
         def initialize(source_value: nil, value: nil)
@@ -25,6 +24,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @source_value == other.source_value

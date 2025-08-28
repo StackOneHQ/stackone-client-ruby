@@ -10,6 +10,8 @@ module StackOne
     
       # HrisDocumentsUploadRequestDtoValue - The category name to associate with the file
       class HrisDocumentsUploadRequestDtoValue < T::Enum
+
+
         enums do
           APPLICATION = new('application')
           ACADEMIC = new('academic')

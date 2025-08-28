@@ -10,6 +10,8 @@ module StackOne
     
       # HrisCreateEmployeeRequestDtoSchemasHomeLocationValue - The ISO3166-1 Alpha2 Code of the Country
       class HrisCreateEmployeeRequestDtoSchemasHomeLocationValue < T::Enum
+
+
         enums do
           AF = new('AF')
           AL = new('AL')

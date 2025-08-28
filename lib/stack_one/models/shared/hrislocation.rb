@@ -14,38 +14,37 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The city where the location is situated
-        field :city, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
+        field :city, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('city') } }
         # The country code
-        field :country, T.nilable(Models::Shared::HRISLocationCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
+        field :country, Crystalline::Nilable.new(Models::Shared::HRISLocationCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
         # The created_at date
-        field :created_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The employee ID
-        field :employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
+        field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The location type
-        field :location_type, T.nilable(Models::Shared::HRISLocationLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
+        field :location_type, Crystalline::Nilable.new(Models::Shared::HRISLocationLocationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_type') } }
         # The name of the location
-        field :name, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The phone number of the location
-        field :phone_number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
+        field :phone_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
         # Provider's unique identifier of the employee
-        field :remote_employee_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
+        field :remote_employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_employee_id') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The state where the location is situated
-        field :state, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
+        field :state, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('state') } }
         # The first line of the address
-        field :street_1, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
+        field :street_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_1') } }
         # The second line of the address
-        field :street_2, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
+        field :street_2, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('street_2') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The updated_at date
-        field :updated_at, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The ZIP code/Postal code of the location
-        field :zip_code, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
-
+        field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
         sig { params(city: T.nilable(::String), country: T.nilable(Models::Shared::HRISLocationCountry), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), id: T.nilable(::String), location_type: T.nilable(Models::Shared::HRISLocationLocationType), name: T.nilable(::String), phone_number: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), zip_code: T.nilable(::String)).void }
         def initialize(city: nil, country: nil, created_at: nil, employee_id: nil, id: nil, location_type: nil, name: nil, phone_number: nil, remote_employee_id: nil, remote_id: nil, state: nil, street_1: nil, street_2: nil, unified_custom_fields: nil, updated_at: nil, zip_code: nil)
@@ -67,6 +66,7 @@ module StackOne
           @zip_code = zip_code
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @city == other.city

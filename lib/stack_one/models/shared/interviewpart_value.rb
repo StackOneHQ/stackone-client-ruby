@@ -10,6 +10,8 @@ module StackOne
     
       # InterviewPartValue - The type of the interview.
       class InterviewPartValue < T::Enum
+
+
         enums do
           SCREENING = new('screening')
           LUNCH = new('lunch')

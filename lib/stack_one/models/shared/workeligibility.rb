@@ -14,24 +14,23 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :document, T.nilable(Models::Shared::WorkEligibilityDocument), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('document') } }
+        field :document, Crystalline::Nilable.new(Models::Shared::WorkEligibilityDocument), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('document') } }
         # Unique identifier
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The country code of the issued by authority
-        field :issued_by, T.nilable(Models::Shared::WorkEligibilityIssuedBy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
+        field :issued_by, Crystalline::Nilable.new(Models::Shared::WorkEligibilityIssuedBy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('issued_by') } }
 
-        field :number, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
+        field :number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
         # Provider's unique identifier
-        field :remote_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :sub_type, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_type') } }
+        field :sub_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_type') } }
 
-        field :type, T.nilable(Models::Shared::WorkEligibilityType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::WorkEligibilityType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        field :valid_from, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_from'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :valid_from, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_from'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        field :valid_to, T.nilable(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
-
+        field :valid_to, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
         sig { params(document: T.nilable(Models::Shared::WorkEligibilityDocument), id: T.nilable(::String), issued_by: T.nilable(Models::Shared::WorkEligibilityIssuedBy), number: T.nilable(::String), remote_id: T.nilable(::String), sub_type: T.nilable(::String), type: T.nilable(Models::Shared::WorkEligibilityType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
         def initialize(document: nil, id: nil, issued_by: nil, number: nil, remote_id: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
@@ -46,6 +45,7 @@ module StackOne
           @valid_to = valid_to
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @document == other.document

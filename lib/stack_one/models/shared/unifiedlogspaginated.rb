@@ -14,17 +14,17 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :data, T::Array[Models::Shared::UnifiedLogsPartial], { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Array.new(Models::Shared::UnifiedLogsPartial), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
 
-        field :next_, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
-
+        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
 
         sig { params(data: T::Array[Models::Shared::UnifiedLogsPartial], next_: T.nilable(::String)).void }
-        def initialize(data: nil, next_: nil)
+        def initialize(data:, next_: nil)
           @data = data
           @next_ = next_
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data

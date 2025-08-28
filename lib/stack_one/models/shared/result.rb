@@ -8,23 +8,23 @@ module StackOne
   module Models
     module Shared
     
-
+      # The result of the assignment
       class Result
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The source value of the test result.
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssessmentResult4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # The result of the test.
-        field :value, T.nilable(Models::Shared::AssessmentResultValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AssessmentResultValue, true) } }
 
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::AssignmentSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssessmentResult4, T::Array[::Object])), value: T.nilable(Models::Shared::AssessmentResultValue)).void }
+        field :value, Crystalline::Nilable.new(Models::Shared::AssignmentSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AssignmentSchemasValue, true) } }
+
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssignmentSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::AssignmentSchemasValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @source_value == other.source_value

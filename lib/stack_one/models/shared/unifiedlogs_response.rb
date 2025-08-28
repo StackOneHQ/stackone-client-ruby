@@ -14,16 +14,15 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :body, T.nilable(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
         # The custom mapping errors
-        field :custom_mapping_errors, T.nilable(T::Array[Models::Shared::CustomMappingError]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_mapping_errors') } }
+        field :custom_mapping_errors, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomMappingError)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_mapping_errors') } }
 
-        field :headers, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # The provider errors
-        field :provider_errors, T.nilable(T::Array[Models::Shared::ProviderError]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_errors') } }
+        field :provider_errors, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ProviderError)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_errors') } }
         # The response status code
-        field :status_code, T.nilable(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_code') } }
-
+        field :status_code, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_code') } }
 
         sig { params(body: T.nilable(::Object), custom_mapping_errors: T.nilable(T::Array[Models::Shared::CustomMappingError]), headers: T.nilable(T::Hash[Symbol, ::Object]), provider_errors: T.nilable(T::Array[Models::Shared::ProviderError]), status_code: T.nilable(::Float)).void }
         def initialize(body: nil, custom_mapping_errors: nil, headers: nil, provider_errors: nil, status_code: nil)
@@ -34,6 +33,7 @@ module StackOne
           @status_code = status_code
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @body == other.body

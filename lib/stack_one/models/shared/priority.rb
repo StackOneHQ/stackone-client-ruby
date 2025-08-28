@@ -14,12 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The id of the ticket priority.
-        field :id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The source value of the ticket priority.
-        field :source_value, T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TicketingReadTicket4, T::Array[::Object])), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::TicketingReadTicket4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The priority of the ticket.
-        field :value, T.nilable(Models::Shared::TicketingReadTicketValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TicketingReadTicketValue, true) } }
-
+        field :value, Crystalline::Nilable.new(Models::Shared::TicketingReadTicketValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TicketingReadTicketValue, true) } }
 
         sig { params(id: T.nilable(::String), source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TicketingReadTicket4, T::Array[::Object])), value: T.nilable(Models::Shared::TicketingReadTicketValue)).void }
         def initialize(id: nil, source_value: nil, value: nil)
@@ -28,6 +27,7 @@ module StackOne
           @value = value
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

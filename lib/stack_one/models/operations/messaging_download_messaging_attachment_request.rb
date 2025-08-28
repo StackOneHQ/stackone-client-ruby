@@ -20,13 +20,12 @@ module StackOne
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # The export format of the file
-        field :export_format, T.nilable(::String), { 'query_param': { 'field_name': 'export_format', 'style': 'form', 'explode': true } }
+        field :export_format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'export_format', 'style': 'form', 'explode': true } }
         # The format to download the file in
-        field :format, T.nilable(::String), { 'query_param': { 'field_name': 'format', 'style': 'form', 'explode': true } }
-
+        field :format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'format', 'style': 'form', 'explode': true } }
 
         sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, export_format: T.nilable(::String), format: T.nilable(::String)).void }
-        def initialize(id: nil, sub_resource_id: nil, x_account_id: nil, export_format: nil, format: nil)
+        def initialize(id:, sub_resource_id:, x_account_id:, export_format: nil, format: nil)
           @id = id
           @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
@@ -34,6 +33,7 @@ module StackOne
           @format = format
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @id == other.id

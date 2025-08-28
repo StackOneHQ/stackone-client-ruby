@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The label of the result link.
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # The URL of the result link.
-        field :url, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
-
+        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
         sig { params(label: T.nilable(::String), url: T.nilable(::String)).void }
         def initialize(label: nil, url: nil)
@@ -25,6 +24,7 @@ module StackOne
           @url = url
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @label == other.label

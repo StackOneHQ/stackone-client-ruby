@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Unique identifier of the application stage.
-        field :interview_stage_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
+        field :interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
         # Value to pass through to the provider
-        field :passthrough, T.nilable(T::Hash[Symbol, ::Object]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
-
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         sig { params(interview_stage_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(interview_stage_id: nil, passthrough: nil)
@@ -25,6 +24,7 @@ module StackOne
           @passthrough = passthrough
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @interview_stage_id == other.interview_stage_id

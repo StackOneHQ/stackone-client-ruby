@@ -14,37 +14,36 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
-        field :id, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        field :id, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
 
-        field :organization_id, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('organization_id') } }
+        field :organization_id, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('organization_id'), required: true } }
 
-        field :origin_owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id') } }
+        field :origin_owner_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_id'), required: true } }
 
-        field :origin_owner_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name') } }
+        field :origin_owner_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_owner_name'), required: true } }
 
-        field :project_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
+        field :project_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id'), required: true } }
 
-        field :account_id, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
+        field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
 
-        field :categories, T.nilable(T::Array[Models::Shared::Categories]), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Categories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # External trigger token to be used to trigger actions on the account
-        field :external_trigger_token, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_trigger_token') } }
+        field :external_trigger_token, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_trigger_token') } }
 
-        field :label, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
-        field :metadata, T.nilable(Models::Shared::Metadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
+        field :metadata, Crystalline::Nilable.new(Models::Shared::Metadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
 
-        field :origin_username, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
+        field :origin_username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
 
-        field :provider, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
+        field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
         # The connect session account type
-        field :type, T.nilable(Models::Shared::ConnectSessionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionType, true) } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionType, true) } }
 
         sig { params(created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::Categories]), external_trigger_token: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::Metadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionType)).void }
-        def initialize(created_at: nil, id: nil, organization_id: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, account_id: nil, categories: nil, external_trigger_token: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
+        def initialize(created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, account_id: nil, categories: nil, external_trigger_token: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
           @created_at = created_at
           @id = id
           @organization_id = organization_id
@@ -61,6 +60,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @created_at == other.created_at

@@ -10,6 +10,8 @@ module StackOne
     
       # IamResourceValue - The type of the resource, e.g. user, group, permission, etc.
       class IamResourceValue < T::Enum
+
+
         enums do
           PROJECT = new('project')
           FILE = new('file')

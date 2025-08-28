@@ -10,6 +10,8 @@ module StackOne
     
       # AtsUpdateJobRequestDtoValue - The status of the job.
       class AtsUpdateJobRequestDtoValue < T::Enum
+
+
         enums do
           PUBLISHED = new('published')
           DRAFT = new('draft')

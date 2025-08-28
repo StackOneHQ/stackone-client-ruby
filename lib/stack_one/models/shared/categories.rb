@@ -10,6 +10,8 @@ module StackOne
     
 
       class Categories < T::Enum
+
+
         enums do
           ATS = new('ats')
           HRIS = new('hris')

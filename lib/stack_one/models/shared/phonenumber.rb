@@ -14,10 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Phone number string
-        field :phone, T.nilable(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
+        field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
         # Type of phone number
-        field :type, T.nilable(Models::Shared::PhoneNumberType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PhoneNumberType, true) } }
-
+        field :type, Crystalline::Nilable.new(Models::Shared::PhoneNumberType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PhoneNumberType, true) } }
 
         sig { params(phone: T.nilable(::String), type: T.nilable(Models::Shared::PhoneNumberType)).void }
         def initialize(phone: nil, type: nil)
@@ -25,6 +24,7 @@ module StackOne
           @type = type
         end
 
+        sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @phone == other.phone
