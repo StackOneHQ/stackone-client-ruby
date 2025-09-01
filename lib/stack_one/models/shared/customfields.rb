@@ -22,11 +22,11 @@ module StackOne
         # Provider's unique identifier for the value of the custom field.
         field :remote_value_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_value_id') } }
         # The value associated with the custom field.
-        field :value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::CustomFields4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
+        field :value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::CustomFields4, Crystalline::Array.new(::Object), ::DateTime)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
         # The unique identifier for the value of the custom field.
         field :value_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value_id') } }
 
-        sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_value_id: T.nilable(::String), value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFields4, T::Array[::Object])), value_id: T.nilable(::String)).void }
+        sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_value_id: T.nilable(::String), value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFields4, T::Array[::Object], ::DateTime)), value_id: T.nilable(::String)).void }
         def initialize(id: nil, name: nil, remote_id: nil, remote_value_id: nil, value: nil, value_id: nil)
           @id = id
           @name = name

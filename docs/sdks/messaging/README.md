@@ -107,7 +107,7 @@ req = Models::Operations::MessagingDownloadMessagingAttachmentRequest.new(
 
 res = s.messaging.download_messaging_attachment(request: req)
 
-unless res.bytes.nil?
+unless res.body.nil?
   # handle response
 end
 

@@ -780,7 +780,7 @@ req = Models::Operations::AtsDownloadApplicationDocumentRequest.new(
 
 res = s.ats.download_application_document(request: req)
 
-unless res.bytes.nil?
+unless res.body.nil?
   # handle response
 end
 

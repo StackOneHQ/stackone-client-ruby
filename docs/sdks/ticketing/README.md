@@ -143,7 +143,7 @@ req = Models::Operations::TicketingDownloadTicketingAttachmentRequest.new(
 
 res = s.ticketing.download_ticketing_attachment(request: req)
 
-unless res.bytes.nil?
+unless res.body.nil?
   # handle response
 end
 

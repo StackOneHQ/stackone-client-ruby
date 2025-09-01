@@ -21,16 +21,16 @@ module StackOne
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
-        # The document related to the application with the given identifiers was retrieved.
-        field :bytes, Crystalline::Nilable.new(::String)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, bytes: T.nilable(::String)).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:, bytes: nil)
+        field :body, Crystalline::Nilable.new(::String)
+
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, body: T.nilable(::String)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, body: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
-          @bytes = bytes
+          @body = body
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -40,7 +40,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
-          return false unless @bytes == other.bytes
+          return false unless @body == other.body
           true
         end
       end

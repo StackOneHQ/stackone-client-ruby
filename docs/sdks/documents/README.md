@@ -41,7 +41,7 @@ req = Models::Operations::DocumentsDownloadFileRequest.new(
 
 res = s.documents.download_file(request: req)
 
-unless res.bytes.nil?
+unless res.body.nil?
   # handle response
 end
 

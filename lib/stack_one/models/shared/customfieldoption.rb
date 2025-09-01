@@ -16,9 +16,9 @@ module StackOne
         # The unique identifier for the option to be used when updating the custom field
         field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
         # The human readable value of the option
-        field :value, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), required: true } }
+        field :value, Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::CustomFieldOption4, Crystalline::Array.new(::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), required: true } }
 
-        sig { params(id: ::String, value: ::String).void }
+        sig { params(id: ::String, value: T.any(::String, ::Float, T::Boolean, Models::Shared::CustomFieldOption4, T::Array[::Object])).void }
         def initialize(id:, value:)
           @id = id
           @value = value
