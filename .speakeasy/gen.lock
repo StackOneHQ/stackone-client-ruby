@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: f5e2088472520656e31762baddc9b9e8
+  docChecksum: ecd53ec9da9b473aa3918dfe7e9cd3a6
   docVersion: 1.0.0
-  speakeasyVersion: 1.606.3
-  generationVersion: 2.687.1
-  releaseVersion: 0.36.0
-  configChecksum: 2c19edd5d4f388b337effaa39482b6a3
+  speakeasyVersion: 1.606.9
+  generationVersion: 2.687.13
+  releaseVersion: 0.36.1
+  configChecksum: dc530c6a794e718ec81c8c10fd2bc680
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -1147,6 +1147,8 @@ generatedFiles:
   - docs/models/shared/customfielddefinitiontype.md
   - docs/models/shared/customfielddefinitionvalue.md
   - docs/models/shared/customfieldoption.md
+  - docs/models/shared/customfieldoption4.md
+  - docs/models/shared/customfieldoptionvalue.md
   - docs/models/shared/customfields.md
   - docs/models/shared/customfields4.md
   - docs/models/shared/customfieldsvalue.md
@@ -1159,6 +1161,8 @@ generatedFiles:
   - docs/models/shared/description.md
   - docs/models/shared/division.md
   - docs/models/shared/document.md
+  - docs/models/shared/downloadapimodel.md
+  - docs/models/shared/downloadheadersapimodel.md
   - docs/models/shared/draft.md
   - docs/models/shared/driveresult.md
   - docs/models/shared/drives.md
@@ -4605,6 +4609,10 @@ generatedFiles:
   - lib/stack_one/models/shared/customfielddefinitionspaginated.rbi
   - lib/stack_one/models/shared/customfieldoption.rb
   - lib/stack_one/models/shared/customfieldoption.rbi
+  - lib/stack_one/models/shared/customfieldoption_4.rb
+  - lib/stack_one/models/shared/customfieldoption_4.rbi
+  - lib/stack_one/models/shared/customfieldoption_value.rb
+  - lib/stack_one/models/shared/customfieldoption_value.rbi
   - lib/stack_one/models/shared/customfields.rb
   - lib/stack_one/models/shared/customfields.rbi
   - lib/stack_one/models/shared/customfields_4.rb
@@ -4629,6 +4637,10 @@ generatedFiles:
   - lib/stack_one/models/shared/division.rbi
   - lib/stack_one/models/shared/document.rb
   - lib/stack_one/models/shared/document.rbi
+  - lib/stack_one/models/shared/downloadapimodel.rb
+  - lib/stack_one/models/shared/downloadapimodel.rbi
+  - lib/stack_one/models/shared/downloadheadersapimodel.rb
+  - lib/stack_one/models/shared/downloadheadersapimodel.rbi
   - lib/stack_one/models/shared/draft.rb
   - lib/stack_one/models/shared/draft.rbi
   - lib/stack_one/models/shared/driveresult.rb
@@ -8068,6 +8080,43 @@ examples:
       responses:
         "200":
           application/octet-stream: "0x22c19257bb"
+          application/gzip: "0x22c19257bb"
+          application/msword: "0xbCa44FeEb1"
+          application/pdf: "0xaa1eeCfc4A"
+          application/rtf: "0x01EFDC3bd1"
+          application/vnd.ms-excel: "0x2207DFEAf3"
+          application/vnd.ms-outlook: "0xD6FE8CEb2C"
+          application/vnd.ms-powerpoint: "0xc452638C15"
+          application/vnd.oasis.opendocument.presentation: "0x9d2ffFAe87"
+          application/vnd.oasis.opendocument.spreadsheet: "0x66f6d3F200"
+          application/vnd.oasis.opendocument.text: "0x2Dad9f0caf"
+          application/vnd.openxmlformats-officedocument.presentationml.presentation: "0x4D1E2fcecc"
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: "0xa4dEaaC0Ea"
+          application/vnd.openxmlformats-officedocument.wordprocessingml.document: "0xed80bd88a3"
+          application/x-7z-compressed: "0x075F4b8773"
+          application/x-rar-compressed: "0xFbD277306C"
+          application/xml: "0x9cb30a1dee"
+          application/zip: "0x2C3EBDaf72"
+          audio/mp4: "0x85daC912dC"
+          audio/mpeg: "0xFfACa8e6b5"
+          audio/wav: "0x0c128B556D"
+          image/bmp: "0x63FdfEBeFE"
+          image/gif: "0x45f3688c63"
+          image/heic: "0x06E3eecF75"
+          image/jpeg: "0xADBaeF0eCA"
+          image/png: "0xbEF42fcc7c"
+          image/tiff: "0xE3fcf3Ef8B"
+          image/webp: "0xe27B8aa32f"
+          message/rfc822: "0xDAfDdF1e3d"
+          text/csv: "0xcdfbAb46FF"
+          text/html: "0x34fe613ca0"
+          text/rtf: "0x2405B72430"
+          video/avi: "0x4Db048Dcae"
+          video/mp4: "0xAeE9A02210"
+          video/quicktime: "0x8bb83A9B0e"
+          video/webm: "0x14b0d37bff"
+          application/json: {"data": "0xeaccaAAeBE", "headers": {"content-disposition": "attachment; filename=\"example.pdf\"", "content-encoding": "gzip", "content-length": 1024, "content-range": "bytes 0-1023/2048", "content-type": "application/pdf", "transfer-encoding": "chunked"}}
+          text/plain: "<value>"
         "400":
           application/json: {"data": {"headers": {}, "message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"headers": {}, "raw": {}, "status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -11278,7 +11327,7 @@ examples:
       responses:
         "200":
           application/gzip: "0xD8a7d4EC38"
-          application/json: "0x2fCA5f2BdE"
+          application/json: {"data": "0xD8a7d4EC38", "headers": {"content-disposition": "attachment; filename=\"example.pdf\"", "content-encoding": "gzip", "content-length": 1024, "content-range": "bytes 0-1023/2048", "content-type": "application/pdf", "transfer-encoding": "chunked"}}
           application/msword: "0x2787fbBA5B"
           application/octet-stream: "0x5E636dB592"
           application/pdf: "0x228e85F828"
@@ -17039,4 +17088,4 @@ examples:
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `stack_one.ats.update_assessments_result()`: \n  *  `request.ats_update_candidates_assessments_results_request_dto.id` **Removed** **Breaking** :warning:\n* `stack_one.hris.list_jobs()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `stack_one.hris.get_task()`:  `response.data` **Changed** **Breaking** :warning:\n* `stack_one.hris.get_job()`:  `response.data` **Changed** **Breaking** :warning:\n* `stack_one.hris.get_employee_task()`:  `response.data` **Changed** **Breaking** :warning:\n* `stack_one.ats.upload_application_document()`:  `request` **Changed** **Breaking** :warning:\n* `stack_one.ats.create_application()`: \n  *  `request.ats_create_application_request_dto.documents.[]` **Changed** **Breaking** :warning:\n* `stack_one.ats.update_background_check_result()`: \n  *  `request.ats_update_background_check_result_request_dto.id` **Removed** **Breaking** :warning:\n* `stack_one.hris.download_employee_document()`:  `response.status[200]` **Changed**\n* `stack_one.lms.get_assignment()`:  `response.data` **Changed**\n* `stack_one.ats.get_job()`:  `response.data.job_status.source_value.[4]` **Changed**\n* `stack_one.ats.get_background_check_result()`: **Deleted** **Breaking** :warning:\n* `stack_one.accounting.create_company_journal()`: **Added**\n* `stack_one.ats.get_assessments_result()`: **Deleted** **Breaking** :warning:\n* `stack_one.hris.update_employee_task()`: **Added**\n* `stack_one.ats.list_job_application_stages()`: **Added**\n* `stack_one.ats.get_job_application_stage()`: **Added**\n* `stack_one.ats.list_jobs()`:  `response.data.[].job_status.source_value.[4]` **Changed**\n* `stack_one.lms.get_completion()`:  `response.data.certificate_url` **Added**\n* `stack_one.lms.get_user_assignment()`:  `response.data` **Changed**\n* `stack_one.lms.get_user_completion()`:  `response.data.certificate_url` **Added**\n* `stack_one.lms.list_assignments()`:  `response.data.[]` **Changed**\n* `stack_one.lms.list_completions()`:  `response.data.[].certificate_url` **Added**\n* `stack_one.lms.list_user_assignments()`:  `response.data.[]` **Changed**\n* `stack_one.lms.list_user_completions()`:  `response.data.[].certificate_url` **Added**\n"
+releaseNotes: "## SDK Changes Detected:\n* `stack_one.ats.list_candidate_custom_field_definitions()`:  `response.data.[].options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.hris.list_employee_custom_field_definitions()`:  `response.data.[].options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.hris.get_employee_custom_field_definition()`:  `response.data.options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.hris.download_employee_document()`:  `response` **Changed** **Breaking** :warning:\n* `stack_one.crm.list_contact_custom_field_definitions()`:  `response.data.[].options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.ats.get_application_custom_field_definition()`:  `response.data.options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.crm.get_contact_custom_field_definition()`:  `response.data.options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.ats.get_candidate_custom_field_definition()`:  `response.data.options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.ats.list_job_custom_field_definitions()`:  `response.data.[].options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.ats.get_job_custom_field_definition()`:  `response.data.options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.ats.list_application_custom_field_definitions()`:  `response.data.[].options.[].value` **Changed** **Breaking** :warning:\n* `stack_one.ats.update_application()`: \n  *  `request.ats_update_application_request_dto.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.get_application()`:  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.list_candidates()`:  `response.data.[].custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.get_job()`:  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.list_jobs()`:  `response.data.[].custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.create_application()`: \n  *  `request.ats_create_application_request_dto.candidate.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.update_candidate()`: \n  *  `request.ats_update_candidate_request_dto.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.update_job()`: \n  *  `request.ats_update_job_request_dto.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.crm.create_contact()`: \n  *  `request.crm_create_contact_request_dto.custom_fields.[].value.[date-time]` **Added**\n  *  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.crm.get_contact()`:  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.get_candidate()`:  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.list_applications()`:  `response.data.[].custom_fields.[].value.[date-time]` **Added**\n* `stack_one.crm.list_contacts()`:  `response.data.[].custom_fields.[].value.[date-time]` **Added**\n* `stack_one.crm.update_contact()`: \n  *  `request.crm_create_contact_request_dto.custom_fields.[].value.[date-time]` **Added**\n  *  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.hris.create_employee()`: \n  *  `request.hris_create_employee_request_dto.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.download_application_document()`:  `response.status[200]` **Changed**\n* `stack_one.hris.get_employee()`:  `response.data.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.create_job()`: \n  *  `request.ats_create_job_request_dto.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.ats.create_candidate()`: \n  *  `request.ats_create_candidate_request_dto.custom_fields.[].value.[date-time]` **Added**\n* `stack_one.hris.list_employees()`:  `response.data.[].custom_fields.[].value.[date-time]` **Added**\n* `stack_one.hris.update_employee()`: \n  *  `request.hris_update_employee_request_dto.custom_fields.[].value.[date-time]` **Added**\n"

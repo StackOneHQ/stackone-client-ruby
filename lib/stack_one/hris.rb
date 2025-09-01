@@ -2298,23 +2298,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_gzip_bytes: T.unsafe(obj)
-          )
-        elsif Utils.match_content_type(content_type, 'application/json')
-          http_response = @sdk_configuration.hooks.after_success(
-            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
-              hook_ctx: hook_ctx
-            ),
-            response: http_response
-          )
-          obj = http_response.env.body
-
-          return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            headers: {},
-            two_hundred_application_json_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/msword')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2330,7 +2314,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_msword_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/octet-stream')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2346,7 +2330,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_octet_stream_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/pdf')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2362,7 +2346,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_pdf_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/rtf')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2378,7 +2362,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_rtf_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.ms-excel')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2394,7 +2378,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_ms_excel_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.ms-outlook')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2410,7 +2394,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_ms_outlook_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.ms-powerpoint')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2426,7 +2410,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_ms_powerpoint_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.oasis.opendocument.presentation')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2442,7 +2426,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_oasis_opendocument_presentation_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.oasis.opendocument.spreadsheet')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2458,7 +2442,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.oasis.opendocument.text')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2474,7 +2458,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_oasis_opendocument_text_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.openxmlformats-officedocument.presentationml.presentation')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2490,7 +2474,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2506,7 +2490,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2522,7 +2506,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/x-7z-compressed')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2538,7 +2522,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_x_7z_compressed_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/x-rar-compressed')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2554,7 +2538,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_x_rar_compressed_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/xml')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2570,7 +2554,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_xml_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'application/zip')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2586,7 +2570,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_application_zip_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'audio/mp4')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2602,7 +2586,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_audio_mp4_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'audio/mpeg')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2618,7 +2602,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_audio_mpeg_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'audio/wav')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2634,7 +2618,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_audio_wav_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/bmp')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2650,7 +2634,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_bmp_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/gif')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2666,7 +2650,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_gif_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/heic')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2682,7 +2666,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_heic_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/jpeg')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2698,7 +2682,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_jpeg_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/png')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2714,7 +2698,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_png_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/tiff')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2730,7 +2714,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_tiff_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'image/webp')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2746,7 +2730,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_image_webp_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'message/rfc822')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2762,7 +2746,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_message_rfc822_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'text/csv')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2778,7 +2762,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_text_csv_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'text/html')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2794,23 +2778,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_text_html_bytes: T.unsafe(obj)
-          )
-        elsif Utils.match_content_type(content_type, 'text/plain')
-          http_response = @sdk_configuration.hooks.after_success(
-            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
-              hook_ctx: hook_ctx
-            ),
-            response: http_response
-          )
-          obj = http_response.env.body
-
-          return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            headers: {},
-            two_hundred_text_plain_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'text/rtf')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2826,7 +2794,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_text_rtf_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'video/avi')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2842,7 +2810,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_video_avi_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'video/mp4')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2858,7 +2826,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_video_mp4_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'video/quicktime')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2874,7 +2842,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_video_quicktime_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         elsif Utils.match_content_type(content_type, 'video/webm')
           http_response = @sdk_configuration.hooks.after_success(
@@ -2890,7 +2858,41 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            two_hundred_video_webm_bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
+          )
+        elsif Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          response_data = http_response.env.response_body
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::DownloadApiModel)
+          response = Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            headers: {},
+            download_api_model: T.unsafe(obj)
+          )
+
+          return response
+        elsif Utils.match_content_type(content_type, 'text/plain')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = http_response.env.body
+
+          return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            headers: {},
+            download_api_model1: T.unsafe(obj)
           )
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'

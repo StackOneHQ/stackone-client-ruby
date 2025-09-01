@@ -21,127 +21,22 @@ module StackOne
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_gzip_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_json_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_msword_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_octet_stream_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_pdf_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_rtf_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_ms_excel_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_ms_outlook_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_ms_powerpoint_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_oasis_opendocument_presentation_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_oasis_opendocument_text_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_x_7z_compressed_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_x_rar_compressed_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_xml_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_application_zip_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_audio_mp4_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_audio_mpeg_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_audio_wav_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_bmp_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_gif_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_heic_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_jpeg_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_png_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_tiff_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_image_webp_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_message_rfc822_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_text_csv_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_text_html_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_text_plain_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_text_rtf_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_video_avi_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_video_mp4_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_video_quicktime_bytes, Crystalline::Nilable.new(::String)
-        # The document related to the employee with the given identifiers was retrieved.
-        field :two_hundred_video_webm_bytes, Crystalline::Nilable.new(::String)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, two_hundred_application_gzip_bytes: T.nilable(::String), two_hundred_application_json_bytes: T.nilable(::String), two_hundred_application_msword_bytes: T.nilable(::String), two_hundred_application_octet_stream_bytes: T.nilable(::String), two_hundred_application_pdf_bytes: T.nilable(::String), two_hundred_application_rtf_bytes: T.nilable(::String), two_hundred_application_vnd_ms_excel_bytes: T.nilable(::String), two_hundred_application_vnd_ms_outlook_bytes: T.nilable(::String), two_hundred_application_vnd_ms_powerpoint_bytes: T.nilable(::String), two_hundred_application_vnd_oasis_opendocument_presentation_bytes: T.nilable(::String), two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes: T.nilable(::String), two_hundred_application_vnd_oasis_opendocument_text_bytes: T.nilable(::String), two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes: T.nilable(::String), two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes: T.nilable(::String), two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes: T.nilable(::String), two_hundred_application_x_7z_compressed_bytes: T.nilable(::String), two_hundred_application_x_rar_compressed_bytes: T.nilable(::String), two_hundred_application_xml_bytes: T.nilable(::String), two_hundred_application_zip_bytes: T.nilable(::String), two_hundred_audio_mp4_bytes: T.nilable(::String), two_hundred_audio_mpeg_bytes: T.nilable(::String), two_hundred_audio_wav_bytes: T.nilable(::String), two_hundred_image_bmp_bytes: T.nilable(::String), two_hundred_image_gif_bytes: T.nilable(::String), two_hundred_image_heic_bytes: T.nilable(::String), two_hundred_image_jpeg_bytes: T.nilable(::String), two_hundred_image_png_bytes: T.nilable(::String), two_hundred_image_tiff_bytes: T.nilable(::String), two_hundred_image_webp_bytes: T.nilable(::String), two_hundred_message_rfc822_bytes: T.nilable(::String), two_hundred_text_csv_bytes: T.nilable(::String), two_hundred_text_html_bytes: T.nilable(::String), two_hundred_text_plain_bytes: T.nilable(::String), two_hundred_text_rtf_bytes: T.nilable(::String), two_hundred_video_avi_bytes: T.nilable(::String), two_hundred_video_mp4_bytes: T.nilable(::String), two_hundred_video_quicktime_bytes: T.nilable(::String), two_hundred_video_webm_bytes: T.nilable(::String)).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:, two_hundred_application_gzip_bytes: nil, two_hundred_application_json_bytes: nil, two_hundred_application_msword_bytes: nil, two_hundred_application_octet_stream_bytes: nil, two_hundred_application_pdf_bytes: nil, two_hundred_application_rtf_bytes: nil, two_hundred_application_vnd_ms_excel_bytes: nil, two_hundred_application_vnd_ms_outlook_bytes: nil, two_hundred_application_vnd_ms_powerpoint_bytes: nil, two_hundred_application_vnd_oasis_opendocument_presentation_bytes: nil, two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes: nil, two_hundred_application_vnd_oasis_opendocument_text_bytes: nil, two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes: nil, two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes: nil, two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes: nil, two_hundred_application_x_7z_compressed_bytes: nil, two_hundred_application_x_rar_compressed_bytes: nil, two_hundred_application_xml_bytes: nil, two_hundred_application_zip_bytes: nil, two_hundred_audio_mp4_bytes: nil, two_hundred_audio_mpeg_bytes: nil, two_hundred_audio_wav_bytes: nil, two_hundred_image_bmp_bytes: nil, two_hundred_image_gif_bytes: nil, two_hundred_image_heic_bytes: nil, two_hundred_image_jpeg_bytes: nil, two_hundred_image_png_bytes: nil, two_hundred_image_tiff_bytes: nil, two_hundred_image_webp_bytes: nil, two_hundred_message_rfc822_bytes: nil, two_hundred_text_csv_bytes: nil, two_hundred_text_html_bytes: nil, two_hundred_text_plain_bytes: nil, two_hundred_text_rtf_bytes: nil, two_hundred_video_avi_bytes: nil, two_hundred_video_mp4_bytes: nil, two_hundred_video_quicktime_bytes: nil, two_hundred_video_webm_bytes: nil)
+        field :body, Crystalline::Nilable.new(::String)
+        # The document related to the employee with the given identifiers was retrieved.
+        field :download_api_model, Crystalline::Nilable.new(Models::Shared::DownloadApiModel)
+        # The document related to the employee with the given identifiers was retrieved.
+        field :download_api_model1, Crystalline::Nilable.new(::String)
+
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, body: T.nilable(::String), download_api_model: T.nilable(Models::Shared::DownloadApiModel), download_api_model1: T.nilable(::String)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, body: nil, download_api_model: nil, download_api_model1: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
-          @two_hundred_application_gzip_bytes = two_hundred_application_gzip_bytes
-          @two_hundred_application_json_bytes = two_hundred_application_json_bytes
-          @two_hundred_application_msword_bytes = two_hundred_application_msword_bytes
-          @two_hundred_application_octet_stream_bytes = two_hundred_application_octet_stream_bytes
-          @two_hundred_application_pdf_bytes = two_hundred_application_pdf_bytes
-          @two_hundred_application_rtf_bytes = two_hundred_application_rtf_bytes
-          @two_hundred_application_vnd_ms_excel_bytes = two_hundred_application_vnd_ms_excel_bytes
-          @two_hundred_application_vnd_ms_outlook_bytes = two_hundred_application_vnd_ms_outlook_bytes
-          @two_hundred_application_vnd_ms_powerpoint_bytes = two_hundred_application_vnd_ms_powerpoint_bytes
-          @two_hundred_application_vnd_oasis_opendocument_presentation_bytes = two_hundred_application_vnd_oasis_opendocument_presentation_bytes
-          @two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes = two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes
-          @two_hundred_application_vnd_oasis_opendocument_text_bytes = two_hundred_application_vnd_oasis_opendocument_text_bytes
-          @two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes = two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes
-          @two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes = two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes
-          @two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes = two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes
-          @two_hundred_application_x_7z_compressed_bytes = two_hundred_application_x_7z_compressed_bytes
-          @two_hundred_application_x_rar_compressed_bytes = two_hundred_application_x_rar_compressed_bytes
-          @two_hundred_application_xml_bytes = two_hundred_application_xml_bytes
-          @two_hundred_application_zip_bytes = two_hundred_application_zip_bytes
-          @two_hundred_audio_mp4_bytes = two_hundred_audio_mp4_bytes
-          @two_hundred_audio_mpeg_bytes = two_hundred_audio_mpeg_bytes
-          @two_hundred_audio_wav_bytes = two_hundred_audio_wav_bytes
-          @two_hundred_image_bmp_bytes = two_hundred_image_bmp_bytes
-          @two_hundred_image_gif_bytes = two_hundred_image_gif_bytes
-          @two_hundred_image_heic_bytes = two_hundred_image_heic_bytes
-          @two_hundred_image_jpeg_bytes = two_hundred_image_jpeg_bytes
-          @two_hundred_image_png_bytes = two_hundred_image_png_bytes
-          @two_hundred_image_tiff_bytes = two_hundred_image_tiff_bytes
-          @two_hundred_image_webp_bytes = two_hundred_image_webp_bytes
-          @two_hundred_message_rfc822_bytes = two_hundred_message_rfc822_bytes
-          @two_hundred_text_csv_bytes = two_hundred_text_csv_bytes
-          @two_hundred_text_html_bytes = two_hundred_text_html_bytes
-          @two_hundred_text_plain_bytes = two_hundred_text_plain_bytes
-          @two_hundred_text_rtf_bytes = two_hundred_text_rtf_bytes
-          @two_hundred_video_avi_bytes = two_hundred_video_avi_bytes
-          @two_hundred_video_mp4_bytes = two_hundred_video_mp4_bytes
-          @two_hundred_video_quicktime_bytes = two_hundred_video_quicktime_bytes
-          @two_hundred_video_webm_bytes = two_hundred_video_webm_bytes
+          @body = body
+          @download_api_model = download_api_model
+          @download_api_model1 = download_api_model1
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -151,44 +46,9 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
-          return false unless @two_hundred_application_gzip_bytes == other.two_hundred_application_gzip_bytes
-          return false unless @two_hundred_application_json_bytes == other.two_hundred_application_json_bytes
-          return false unless @two_hundred_application_msword_bytes == other.two_hundred_application_msword_bytes
-          return false unless @two_hundred_application_octet_stream_bytes == other.two_hundred_application_octet_stream_bytes
-          return false unless @two_hundred_application_pdf_bytes == other.two_hundred_application_pdf_bytes
-          return false unless @two_hundred_application_rtf_bytes == other.two_hundred_application_rtf_bytes
-          return false unless @two_hundred_application_vnd_ms_excel_bytes == other.two_hundred_application_vnd_ms_excel_bytes
-          return false unless @two_hundred_application_vnd_ms_outlook_bytes == other.two_hundred_application_vnd_ms_outlook_bytes
-          return false unless @two_hundred_application_vnd_ms_powerpoint_bytes == other.two_hundred_application_vnd_ms_powerpoint_bytes
-          return false unless @two_hundred_application_vnd_oasis_opendocument_presentation_bytes == other.two_hundred_application_vnd_oasis_opendocument_presentation_bytes
-          return false unless @two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes == other.two_hundred_application_vnd_oasis_opendocument_spreadsheet_bytes
-          return false unless @two_hundred_application_vnd_oasis_opendocument_text_bytes == other.two_hundred_application_vnd_oasis_opendocument_text_bytes
-          return false unless @two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes == other.two_hundred_application_vnd_openxmlformats_officedocument_presentationml_presentation_bytes
-          return false unless @two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes == other.two_hundred_application_vnd_openxmlformats_officedocument_spreadsheetml_sheet_bytes
-          return false unless @two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes == other.two_hundred_application_vnd_openxmlformats_officedocument_wordprocessingml_document_bytes
-          return false unless @two_hundred_application_x_7z_compressed_bytes == other.two_hundred_application_x_7z_compressed_bytes
-          return false unless @two_hundred_application_x_rar_compressed_bytes == other.two_hundred_application_x_rar_compressed_bytes
-          return false unless @two_hundred_application_xml_bytes == other.two_hundred_application_xml_bytes
-          return false unless @two_hundred_application_zip_bytes == other.two_hundred_application_zip_bytes
-          return false unless @two_hundred_audio_mp4_bytes == other.two_hundred_audio_mp4_bytes
-          return false unless @two_hundred_audio_mpeg_bytes == other.two_hundred_audio_mpeg_bytes
-          return false unless @two_hundred_audio_wav_bytes == other.two_hundred_audio_wav_bytes
-          return false unless @two_hundred_image_bmp_bytes == other.two_hundred_image_bmp_bytes
-          return false unless @two_hundred_image_gif_bytes == other.two_hundred_image_gif_bytes
-          return false unless @two_hundred_image_heic_bytes == other.two_hundred_image_heic_bytes
-          return false unless @two_hundred_image_jpeg_bytes == other.two_hundred_image_jpeg_bytes
-          return false unless @two_hundred_image_png_bytes == other.two_hundred_image_png_bytes
-          return false unless @two_hundred_image_tiff_bytes == other.two_hundred_image_tiff_bytes
-          return false unless @two_hundred_image_webp_bytes == other.two_hundred_image_webp_bytes
-          return false unless @two_hundred_message_rfc822_bytes == other.two_hundred_message_rfc822_bytes
-          return false unless @two_hundred_text_csv_bytes == other.two_hundred_text_csv_bytes
-          return false unless @two_hundred_text_html_bytes == other.two_hundred_text_html_bytes
-          return false unless @two_hundred_text_plain_bytes == other.two_hundred_text_plain_bytes
-          return false unless @two_hundred_text_rtf_bytes == other.two_hundred_text_rtf_bytes
-          return false unless @two_hundred_video_avi_bytes == other.two_hundred_video_avi_bytes
-          return false unless @two_hundred_video_mp4_bytes == other.two_hundred_video_mp4_bytes
-          return false unless @two_hundred_video_quicktime_bytes == other.two_hundred_video_quicktime_bytes
-          return false unless @two_hundred_video_webm_bytes == other.two_hundred_video_webm_bytes
+          return false unless @body == other.body
+          return false unless @download_api_model == other.download_api_model
+          return false unless @download_api_model1 == other.download_api_model1
           true
         end
       end

@@ -16,6 +16,6 @@ class StackOne::Models::Operations::MessagingDownloadMessagingAttachmentResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
-  def bytes(); end
-  def bytes=(str_); end
+  def body(); end
+  def body=(str_); end
 end

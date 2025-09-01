@@ -726,7 +726,7 @@ req = Models::Operations::HrisDownloadEmployeeDocumentRequest.new(
 
 res = s.hris.download_employee_document(request: req)
 
-unless res.two_hundred_application_gzip_bytes.nil?
+unless res.body.nil?
   # handle response
 end
 

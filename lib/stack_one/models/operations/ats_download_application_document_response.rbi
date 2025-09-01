@@ -16,6 +16,10 @@ class StackOne::Models::Operations::AtsDownloadApplicationDocumentResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
-  def bytes(); end
-  def bytes=(str_); end
+  def body(); end
+  def body=(str_); end
+  def download_api_model(); end
+  def download_api_model=(str_); end
+  def download_api_model1(); end
+  def download_api_model1=(str_); end
 end

@@ -147,7 +147,7 @@ module StackOne
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            bytes: T.unsafe(obj)
+            body: T.unsafe(obj)
           )
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
