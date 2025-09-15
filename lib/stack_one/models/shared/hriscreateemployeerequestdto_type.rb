@@ -8,27 +8,35 @@ module StackOne
   module Models
     module Shared
     
-
+      # The type of employment
       class HrisCreateEmployeeRequestDtoType
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Unique identifier
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The label of the employment type
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # Provider's unique identifier
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # The type of employment (e.g., contractor, permanent)
+        field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberType4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # The type of the national identity number
-        field :value, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue, true) } }
-
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberType4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue)).void }
-        def initialize(source_value: nil, value: nil)
-          @source_value = source_value
-          @value = value
+        sig { params(id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentTypeType)).void }
+        def initialize(id: nil, label: nil, remote_id: nil, type: nil)
+          @id = id
+          @label = label
+          @remote_id = remote_id
+          @type = type
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @source_value == other.source_value
-          return false unless @value == other.value
+          return false unless @id == other.id
+          return false unless @label == other.label
+          return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
           true
         end
       end

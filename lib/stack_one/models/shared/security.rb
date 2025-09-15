@@ -14,12 +14,12 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :password, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'password' } }
+        field :password, Crystalline::Nilable.new(::String), { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'password' } }
 
-        field :username, ::String, { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
+        field :username, Crystalline::Nilable.new(::String), { 'security': { 'scheme': true, 'type': 'http', 'sub_type': 'basic', 'field_name': 'username' } }
 
-        sig { params(password: ::String, username: ::String).void }
-        def initialize(password:, username:)
+        sig { params(password: T.nilable(::String), username: T.nilable(::String)).void }
+        def initialize(password: nil, username: nil)
           @password = password
           @username = username
         end

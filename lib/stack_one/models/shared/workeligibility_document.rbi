@@ -22,8 +22,6 @@ class StackOne::Models::Shared::WorkEligibilityDocument
   def id=(str_); end
   def name(); end
   def name=(str_); end
-  def path(); end
-  def path=(str_); end
   def remote_id(); end
   def remote_id=(str_); end
   def remote_url(); end

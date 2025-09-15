@@ -12,8 +12,8 @@ class StackOne::Models::Shared::TimeOff
   def approver_id=(str_); end
   def comment(); end
   def comment=(str_); end
-  def created_date(); end
-  def created_date=(str_); end
+  def created_at(); end
+  def created_at=(str_); end
   def duration(); end
   def duration=(str_); end
   def employee_id(); end
@@ -46,6 +46,6 @@ class StackOne::Models::Shared::TimeOff
   def time_off_policy_id=(str_); end
   def type(); end
   def type=(str_); end
-  def updated_date(); end
-  def updated_date=(str_); end
+  def updated_at(); end
+  def updated_at=(str_); end
 end

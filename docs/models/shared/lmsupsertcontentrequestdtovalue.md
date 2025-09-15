@@ -10,4 +10,9 @@
 | `DOCUMENT`       | document         |
 | `AUDIO`          | audio            |
 | `ARTICLE`        | article          |
+| `BOOK`           | book             |
+| `EVENT`          | event            |
+| `COURSE`         | course           |
+| `COLLECTION`     | collection       |
+| `INTERACTIVE`    | interactive      |
 | `UNMAPPED_VALUE` | unmapped_value   |

@@ -18,6 +18,11 @@ module StackOne
           DOCUMENT = new('document')
           AUDIO = new('audio')
           ARTICLE = new('article')
+          BOOK = new('book')
+          EVENT = new('event')
+          COURSE = new('course')
+          COLLECTION = new('collection')
+          INTERACTIVE = new('interactive')
           UNMAPPED_VALUE = new('unmapped_value')
         end
       end

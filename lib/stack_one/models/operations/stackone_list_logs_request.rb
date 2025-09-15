@@ -14,9 +14,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter parameters that allow greater customisation of the list response
-        field :filter, Crystalline::Nilable.new(Models::Operations::Filter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
+        field :filter, Crystalline::Nilable.new(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
         # The include parameter allows you to include additional data in the response.
-        field :include, Crystalline::Nilable.new(Models::Operations::QueryParamInclude), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
+        field :include, Crystalline::Nilable.new(Models::Operations::StackoneListLogsQueryParamInclude), { 'query_param': { 'field_name': 'include', 'style': 'form', 'explode': true } }
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The field to order the results by.
@@ -26,7 +26,7 @@ module StackOne
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
-        sig { params(filter: T.nilable(Models::Operations::Filter), include: T.nilable(Models::Operations::QueryParamInclude), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::OrderBy), order_direction: T.nilable(Models::Operations::OrderDirection), page_size: T.nilable(::Float)).void }
+        sig { params(filter: T.nilable(Models::Operations::QueryParamFilter), include: T.nilable(Models::Operations::StackoneListLogsQueryParamInclude), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::OrderBy), order_direction: T.nilable(Models::Operations::OrderDirection), page_size: T.nilable(::Float)).void }
         def initialize(filter: nil, include: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
           @filter = filter
           @include = include

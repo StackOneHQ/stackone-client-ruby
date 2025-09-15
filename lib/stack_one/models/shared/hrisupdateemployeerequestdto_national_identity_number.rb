@@ -18,11 +18,11 @@ module StackOne
         # The country code
         field :country, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasCountry), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
 
-        field :type, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
-        sig { params(country: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasCountry), type: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoType), value: T.nilable(::String)).void }
+        sig { params(country: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasCountry), type: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoSchemasType), value: T.nilable(::String)).void }
         def initialize(country: nil, type: nil, value: nil)
           @country = country
           @type = type

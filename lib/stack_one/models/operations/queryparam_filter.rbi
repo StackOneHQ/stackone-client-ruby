@@ -12,8 +12,8 @@ class StackOne::Models::Operations::QueryParamFilter
   def account_ids=(str_); end
   def actions(); end
   def actions=(str_); end
-  def categories(); end
-  def categories=(str_); end
+  def child_resources(); end
+  def child_resources=(str_); end
   def end_date(); end
   def end_date=(str_); end
   def http_methods(); end
@@ -22,10 +22,14 @@ class StackOne::Models::Operations::QueryParamFilter
   def order_by=(str_); end
   def order_direction(); end
   def order_direction=(str_); end
+  def providers(); end
+  def providers=(str_); end
   def request_ids(); end
   def request_ids=(str_); end
   def resources(); end
   def resources=(str_); end
+  def services(); end
+  def services=(str_); end
   def source_ids(); end
   def source_ids=(str_); end
   def source_types(); end
@@ -36,6 +40,8 @@ class StackOne::Models::Operations::QueryParamFilter
   def start_date=(str_); end
   def status_codes(); end
   def status_codes=(str_); end
+  def sub_resources(); end
+  def sub_resources=(str_); end
   def success(); end
   def success=(str_); end
 end

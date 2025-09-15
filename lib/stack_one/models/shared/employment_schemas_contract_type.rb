@@ -8,27 +8,35 @@ module StackOne
   module Models
     module Shared
     
-      # The employment work schedule type (e.g., full-time, part-time)
+      # The employment work schedule type
       class EmploymentSchemasContractType
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The employment work schedule type (e.g., full-time, part-time)
+        field :contract_type, Crystalline::Nilable.new(Models::Shared::EmploymentSchemasContractTypeContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
+        # Unique identifier
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The label of the employment type
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # Provider's unique identifier
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::EmploymentSchemasContractType4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
-        field :value, Crystalline::Nilable.new(Models::Shared::EmploymentSchemasContractTypeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EmploymentSchemasContractTypeValue, true) } }
-
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::EmploymentSchemasContractType4, T::Array[::Object])), value: T.nilable(Models::Shared::EmploymentSchemasContractTypeValue)).void }
-        def initialize(source_value: nil, value: nil)
-          @source_value = source_value
-          @value = value
+        sig { params(contract_type: T.nilable(Models::Shared::EmploymentSchemasContractTypeContractType), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        def initialize(contract_type: nil, id: nil, label: nil, remote_id: nil)
+          @contract_type = contract_type
+          @id = id
+          @label = label
+          @remote_id = remote_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @source_value == other.source_value
-          return false unless @value == other.value
+          return false unless @contract_type == other.contract_type
+          return false unless @id == other.id
+          return false unless @label == other.label
+          return false unless @remote_id == other.remote_id
           true
         end
       end

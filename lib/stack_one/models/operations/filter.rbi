@@ -10,38 +10,8 @@ end
 class StackOne::Models::Operations::Filter
   def account_ids(); end
   def account_ids=(str_); end
-  def actions(); end
-  def actions=(str_); end
-  def child_resources(); end
-  def child_resources=(str_); end
-  def end_date(); end
-  def end_date=(str_); end
-  def http_methods(); end
-  def http_methods=(str_); end
-  def order_by(); end
-  def order_by=(str_); end
-  def order_direction(); end
-  def order_direction=(str_); end
-  def providers(); end
-  def providers=(str_); end
-  def request_ids(); end
-  def request_ids=(str_); end
-  def resources(); end
-  def resources=(str_); end
-  def services(); end
-  def services=(str_); end
-  def source_ids(); end
-  def source_ids=(str_); end
-  def source_types(); end
-  def source_types=(str_); end
-  def source_values(); end
-  def source_values=(str_); end
-  def start_date(); end
-  def start_date=(str_); end
-  def status_codes(); end
-  def status_codes=(str_); end
-  def sub_resources(); end
-  def sub_resources=(str_); end
-  def success(); end
-  def success=(str_); end
+  def action_key(); end
+  def action_key=(str_); end
+  def connectors(); end
+  def connectors=(str_); end
 end

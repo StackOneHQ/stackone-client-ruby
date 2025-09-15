@@ -265,6 +265,12 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
   display_name: 'Sir Isaac Newton',
   employee_number: '125',
   employment: Models::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
+    contract_type: Models::Shared::HrisCreateEmployeeRequestDtoContractType.new(
+      contract_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasContractType.new(),
+      id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      label: 'Full-Time',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    ),
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     grade: Models::Shared::HrisCreateEmployeeRequestDtoGrade.new(
       description: 'Mid-level employee demonstrating proficiency and autonomy.',
@@ -287,6 +293,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
     ),
     pay_rate: '40.00',
     payroll_code: 'PC1',
+    type: nil,
     unified_custom_fields: {
       "my_project_custom_field_1": 'REF-1236',
       "my_project_custom_field_2": 'some other value',
@@ -410,6 +417,12 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.hris.create_employee_employment(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto.new(
+  contract_type: Models::Shared::HrisCreateEmploymentRequestDtoContractType.new(
+    contract_type: Models::Shared::HrisCreateEmploymentRequestDtoSchemasContractType.new(),
+    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    label: 'Full-Time',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+  ),
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   grade: Models::Shared::HrisCreateEmploymentRequestDtoGrade.new(
@@ -434,6 +447,12 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto: Mode
   ),
   pay_rate: '40.00',
   payroll_code: 'PC1',
+  type: Models::Shared::HrisCreateEmploymentRequestDtoType.new(
+    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    label: 'Permanent',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    type: Models::Shared::HrisCreateEmploymentRequestDtoSchemasType.new(),
+  ),
   unified_custom_fields: {
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
@@ -644,7 +663,6 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
     file_format: nil,
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'My Document',
-    path: '/path/to/file',
     remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     remote_url: 'https://example.com/file.pdf',
     updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
@@ -1264,7 +1282,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeDocumentRequest.new(
-  fields_: 'id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1386,7 +1404,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1756,7 +1774,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -3034,7 +3052,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeDocumentsRequest.new(
-  fields_: 'id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
   filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3098,7 +3116,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3607,7 +3625,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,type,contract_type,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4508,6 +4526,12 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.hris.update_employee_employment(hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto.new(
+  contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoContractType.new(
+    contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasContractType.new(),
+    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    label: 'Full-Time',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+  ),
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   grade: Models::Shared::HrisUpdateEmploymentRequestDtoGrade.new(
@@ -4531,6 +4555,12 @@ res = s.hris.update_employee_employment(hris_update_employment_request_dto: Mode
   ),
   pay_rate: '40.00',
   payroll_code: 'PC1',
+  type: Models::Shared::HrisUpdateEmploymentRequestDtoType.new(
+    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    label: 'Permanent',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasType.new(),
+  ),
   unified_custom_fields: {
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
@@ -4743,7 +4773,6 @@ res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibili
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'My Document',
-    path: '/path/to/file',
     remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     remote_url: 'https://example.com/file.pdf',
     updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),

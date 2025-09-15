@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Filter parameters that allow greater customisation of the list response
-        field :filter, Crystalline::Nilable.new(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
+        field :filter, Crystalline::Nilable.new(Models::Operations::StackoneListPlatformLogsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'form', 'explode': true } }
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The field to order the results by.
@@ -24,7 +24,7 @@ module StackOne
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
 
-        sig { params(filter: T.nilable(Models::Operations::QueryParamFilter), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
+        sig { params(filter: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamFilter), next_: T.nilable(::String), order_by: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderBy), order_direction: T.nilable(Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection), page_size: T.nilable(::Float)).void }
         def initialize(filter: nil, next_: nil, order_by: nil, order_direction: nil, page_size: nil)
           @filter = filter
           @next_ = next_
