@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The employment work schedule type (e.g., full-time, part-time)
-        field :contract_type, Crystalline::Nilable.new(Models::Shared::EmploymentSchemasContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
+        field :contract_type, Crystalline::Nilable.new(Models::Shared::CreateEmploymentApiModelContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The label of the employment type
@@ -22,7 +22,7 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        sig { params(contract_type: T.nilable(Models::Shared::EmploymentSchemasContractType), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        sig { params(contract_type: T.nilable(Models::Shared::CreateEmploymentApiModelContractType), id: T.nilable(::String), label: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(contract_type: nil, id: nil, label: nil, remote_id: nil)
           @contract_type = contract_type
           @id = id

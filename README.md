@@ -105,6 +105,25 @@ unless res.linked_account.nil?
 end
 
 ```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+res = s.mcp.mcp_delete(security: Models::Operations::StackoneMcpDeleteSecurity.new(
+    api_key: '<YOUR_API_KEY_HERE>',
+  ), mcp_session_id: '<id>', x_account_id: '<id>')
+
+if res.status_code == 200
+  # handle response
+end
+
+```
 <!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
@@ -134,6 +153,11 @@ end
 * [list_linked_accounts](docs/sdks/accounts/README.md#list_linked_accounts) - List Accounts
 * [update_account](docs/sdks/accounts/README.md#update_account) - Update Account
 
+### [actions](docs/sdks/actions/README.md)
+
+* [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all actions metadata
+* [rpc_action](docs/sdks/actions/README.md#rpc_action) - Make an RPC call to an action
+
 ### [ats](docs/sdks/ats/README.md)
 
 * [create_application](docs/sdks/ats/README.md#create_application) - Create Application
@@ -153,6 +177,7 @@ end
 * [get_application_offer](docs/sdks/ats/README.md#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](docs/sdks/ats/README.md#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](docs/sdks/ats/README.md#get_application_scorecard) - Get Application Scorecard
+* [get_application_stage](docs/sdks/ats/README.md#get_application_stage) - Get Application Stage
 * [get_assessments_package](docs/sdks/ats/README.md#get_assessments_package) - Get Assessments Package
 * [get_background_check_package](docs/sdks/ats/README.md#get_background_check_package) - Get Background Check Package
 * [get_candidate](docs/sdks/ats/README.md#get_candidate) - Get Candidate
@@ -160,7 +185,7 @@ end
 * [get_candidate_note](docs/sdks/ats/README.md#get_candidate_note) - Get Candidate Note
 * [get_department](docs/sdks/ats/README.md#get_department) - Get Department
 * [get_interview](docs/sdks/ats/README.md#get_interview) - Get Interview
-* [get_interview_stage](docs/sdks/ats/README.md#get_interview_stage) - Get Interview Stage
+* [~~get_interview_stage~~](docs/sdks/ats/README.md#get_interview_stage) - Get Interview Stage :warning: **Deprecated**
 * [get_job](docs/sdks/ats/README.md#get_job) - Get Job
 * [get_job_application_stage](docs/sdks/ats/README.md#get_job_application_stage) - Get Job Application Stage
 * [get_job_custom_field_definition](docs/sdks/ats/README.md#get_job_custom_field_definition) - Get Job Custom Field Definition
@@ -176,6 +201,7 @@ end
 * [list_application_documents](docs/sdks/ats/README.md#list_application_documents) - List Application Documents
 * [list_application_notes](docs/sdks/ats/README.md#list_application_notes) - List Application Notes
 * [list_application_scorecards](docs/sdks/ats/README.md#list_application_scorecards) - List Application Scorecards
+* [list_application_stages](docs/sdks/ats/README.md#list_application_stages) - List Application Stages
 * [list_applications](docs/sdks/ats/README.md#list_applications) - List Applications
 * [list_applications_offers](docs/sdks/ats/README.md#list_applications_offers) - List Application Offers
 * [list_applications_scheduled_interviews](docs/sdks/ats/README.md#list_applications_scheduled_interviews) - List Applications scheduled interviews
@@ -185,7 +211,7 @@ end
 * [list_candidate_notes](docs/sdks/ats/README.md#list_candidate_notes) - List Candidate Notes
 * [list_candidates](docs/sdks/ats/README.md#list_candidates) - List Candidates
 * [list_departments](docs/sdks/ats/README.md#list_departments) - List Departments
-* [list_interview_stages](docs/sdks/ats/README.md#list_interview_stages) - List Interview Stages
+* [~~list_interview_stages~~](docs/sdks/ats/README.md#list_interview_stages) - List Interview Stages :warning: **Deprecated**
 * [list_interviews](docs/sdks/ats/README.md#list_interviews) - List Interviews
 * [list_job_application_stages](docs/sdks/ats/README.md#list_job_application_stages) - List Job Application Stages
 * [list_job_custom_field_definitions](docs/sdks/ats/README.md#list_job_custom_field_definitions) - List Job Custom Field Definitions
@@ -386,6 +412,12 @@ end
 * [~~update_omni_channel_template~~](docs/sdks/marketing/README.md#update_omni_channel_template) - Update Omni-Channel Template :warning: **Deprecated**
 * [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update Push Template
 * [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update SMS Template
+
+### [mcp](docs/sdks/mcp/README.md)
+
+* [mcp_delete](docs/sdks/mcp/README.md#mcp_delete) - Delete MCP session
+* [mcp_get](docs/sdks/mcp/README.md#mcp_get) - Open MCP SSE stream
+* [mcp_post](docs/sdks/mcp/README.md#mcp_post) - Send MCP JSON-RPC message
 
 ### [messaging](docs/sdks/messaging/README.md)
 

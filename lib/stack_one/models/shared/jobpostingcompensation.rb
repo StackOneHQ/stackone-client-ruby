@@ -16,28 +16,28 @@ module StackOne
 
         field :currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('currency') } }
 
-        field :max_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max_value') } }
+        field :max_value_range, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max_value_range') } }
 
-        field :min_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min_value') } }
-
-        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        field :min_value_range, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min_value_range') } }
 
         field :pay_frequency, Crystalline::Nilable.new(Models::Shared::JobPostingCompensationPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
 
         field :pay_period, Crystalline::Nilable.new(Models::Shared::JobPostingCompensationPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
 
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
+
         field :type, Crystalline::Nilable.new(Models::Shared::JobPostingCompensationType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value') } }
 
-        sig { params(currency: T.nilable(::String), max_value: T.nilable(::String), min_value: T.nilable(::String), name: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::JobPostingCompensationPayFrequency), pay_period: T.nilable(Models::Shared::JobPostingCompensationPayPeriod), type: T.nilable(Models::Shared::JobPostingCompensationType), value: T.nilable(::String)).void }
-        def initialize(currency: nil, max_value: nil, min_value: nil, name: nil, pay_frequency: nil, pay_period: nil, type: nil, value: nil)
+        sig { params(currency: T.nilable(::String), max_value_range: T.nilable(::String), min_value_range: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::JobPostingCompensationPayFrequency), pay_period: T.nilable(Models::Shared::JobPostingCompensationPayPeriod), title: T.nilable(::String), type: T.nilable(Models::Shared::JobPostingCompensationType), value: T.nilable(::String)).void }
+        def initialize(currency: nil, max_value_range: nil, min_value_range: nil, pay_frequency: nil, pay_period: nil, title: nil, type: nil, value: nil)
           @currency = currency
-          @max_value = max_value
-          @min_value = min_value
-          @name = name
+          @max_value_range = max_value_range
+          @min_value_range = min_value_range
           @pay_frequency = pay_frequency
           @pay_period = pay_period
+          @title = title
           @type = type
           @value = value
         end
@@ -46,11 +46,11 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @currency == other.currency
-          return false unless @max_value == other.max_value
-          return false unless @min_value == other.min_value
-          return false unless @name == other.name
+          return false unless @max_value_range == other.max_value_range
+          return false unless @min_value_range == other.min_value_range
           return false unless @pay_frequency == other.pay_frequency
           return false unless @pay_period == other.pay_period
+          return false unless @title == other.title
           return false unless @type == other.type
           return false unless @value == other.value
           true

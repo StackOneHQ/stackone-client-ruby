@@ -29,8 +29,6 @@ module StackOne
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name of the file
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-        # The path where the file is stored
-        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # URL where the file content is located
@@ -44,8 +42,8 @@ module StackOne
         # The update date of the file
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(category: T.nilable(Models::Shared::AtsDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::FileFormat), id: T.nilable(::String), name: T.nilable(::String), path: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(Models::Shared::AtsDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, path: nil, remote_id: nil, remote_url: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(category: T.nilable(Models::Shared::AtsDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::FileFormat), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(Models::Shared::AtsDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, remote_id: nil, remote_url: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
           @category = category
           @category_id = category_id
           @contents = contents
@@ -53,7 +51,6 @@ module StackOne
           @file_format = file_format
           @id = id
           @name = name
-          @path = path
           @remote_id = remote_id
           @remote_url = remote_url
           @type = type
@@ -71,7 +68,6 @@ module StackOne
           return false unless @file_format == other.file_format
           return false unless @id == other.id
           return false unless @name == other.name
-          return false unless @path == other.path
           return false unless @remote_id == other.remote_id
           return false unless @remote_url == other.remote_url
           return false unless @type == other.type

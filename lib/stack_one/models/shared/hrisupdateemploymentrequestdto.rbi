@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Shared::HrisUpdateEmploymentRequestDto
+  def contract_type(); end
+  def contract_type=(str_); end
   def effective_date(); end
   def effective_date=(str_); end
   def employment_contract_type(); end
@@ -32,6 +34,8 @@ class StackOne::Models::Shared::HrisUpdateEmploymentRequestDto
   def pay_rate=(str_); end
   def payroll_code(); end
   def payroll_code=(str_); end
+  def type(); end
+  def type=(str_); end
   def unified_custom_fields(); end
   def unified_custom_fields=(str_); end
   def work_time(); end

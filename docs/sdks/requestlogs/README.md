@@ -30,7 +30,7 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.request_logs.get_log(id: '<id>', include: Models::Operations::Include::STEP_LOGS)
+res = s.request_logs.get_log(id: '<id>', include: Models::Operations::QueryParamInclude::STEP_LOGS)
 
 unless res.unified_log_result.nil?
   # handle response
@@ -40,10 +40,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `id`                                                                         | *::String*                                                                   | :heavy_check_mark:                                                           | N/A                                                                          |                                                                              |
-| `include`                                                                    | [T.nilable(Models::Operations::Include)](../../models/operations/include.md) | :heavy_minus_sign:                                                           | The include parameter allows you to include additional data in the response. | step_logs                                                                    |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      | Example                                                                                          |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `id`                                                                                             | *::String*                                                                                       | :heavy_check_mark:                                                                               | N/A                                                                                              |                                                                                                  |
+| `include`                                                                                        | [T.nilable(Models::Operations::QueryParamInclude)](../../models/operations/queryparaminclude.md) | :heavy_minus_sign:                                                                               | The include parameter allows you to include additional data in the response.                     | step_logs                                                                                        |
 
 ### Response
 
@@ -85,7 +85,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::StackoneListLogsRequest.new(
-  filter: Models::Operations::Filter.new(
+  filter: Models::Operations::QueryParamFilter.new(
     account_ids: '45355976281015164504,45355976281015164505',
     actions: 'download,upload',
     child_resources: 'documents,time-off',
@@ -103,7 +103,7 @@ req = Models::Operations::StackoneListLogsRequest.new(
     sub_resources: 'documents,employees',
     success: true,
   ),
-  include: Models::Operations::QueryParamInclude::STEP_LOGS,
+  include: Models::Operations::StackoneListLogsQueryParamInclude::STEP_LOGS,
   order_by: Models::Operations::OrderBy::DURATION,
   order_direction: Models::Operations::OrderDirection::ASC,
 )
@@ -162,7 +162,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::StackoneListPlatformLogsRequest.new(
-  filter: Models::Operations::QueryParamFilter.new(
+  filter: Models::Operations::StackoneListPlatformLogsQueryParamFilter.new(
     account_ids: '45355976281015164504,45355976281015164505',
     actions: 'download,upload',
     categories: 'hris,ats',

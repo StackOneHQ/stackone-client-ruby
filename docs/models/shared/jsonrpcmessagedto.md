@@ -1,0 +1,11 @@
+# JsonRpcMessageDto
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `id`                                                               | [T.nilable(Models::Shared::Id)](../../models/shared/id.md)         | :heavy_minus_sign:                                                 | Request id (arbitrary JSON scalar)                                 |                                                                    |
+| `jsonrpc`                                                          | *::String*                                                         | :heavy_check_mark:                                                 | JSON-RPC protocol version                                          | 2.0                                                                |
+| `method`                                                           | *::String*                                                         | :heavy_check_mark:                                                 | JSON-RPC method name                                               | initialize                                                         |
+| `params`                                                           | [T.nilable(Models::Shared::Params)](../../models/shared/params.md) | :heavy_minus_sign:                                                 | Method parameters (arbitrary JSON)                                 |                                                                    |

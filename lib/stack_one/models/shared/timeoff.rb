@@ -17,8 +17,8 @@ module StackOne
         field :approver_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('approver_id') } }
         # Allows users to provide additional context or notes for their time off request
         field :comment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comment') } }
-        # The created date of the time off request
-        field :created_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Timestamp when the time off request was created
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The duration of the time off request
         field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The employee ID
@@ -53,14 +53,14 @@ module StackOne
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :type, Crystalline::Nilable.new(Models::Shared::TimeOffType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
-        # The updated date of the time off request
-        field :updated_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # Timestamp when the time off request was last updated
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), created_date: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), id: T.nilable(::String), policy: T.nilable(Models::Shared::Policy), reason: T.nilable(Models::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), status: T.nilable(Models::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffType), updated_date: T.nilable(::DateTime)).void }
-        def initialize(approver_id: nil, comment: nil, created_date: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, policy: nil, reason: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, remote_time_off_policy_id: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil, updated_date: nil)
+        sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), created_at: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), id: T.nilable(::String), policy: T.nilable(Models::Shared::Policy), reason: T.nilable(Models::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), status: T.nilable(Models::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffType), updated_at: T.nilable(::DateTime)).void }
+        def initialize(approver_id: nil, comment: nil, created_at: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, policy: nil, reason: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, remote_time_off_policy_id: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil, updated_at: nil)
           @approver_id = approver_id
           @comment = comment
-          @created_date = created_date
+          @created_at = created_at
           @duration = duration
           @employee_id = employee_id
           @end_date = end_date
@@ -77,7 +77,7 @@ module StackOne
           @status = status
           @time_off_policy_id = time_off_policy_id
           @type = type
-          @updated_date = updated_date
+          @updated_at = updated_at
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -85,7 +85,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @approver_id == other.approver_id
           return false unless @comment == other.comment
-          return false unless @created_date == other.created_date
+          return false unless @created_at == other.created_at
           return false unless @duration == other.duration
           return false unless @employee_id == other.employee_id
           return false unless @end_date == other.end_date
@@ -102,7 +102,7 @@ module StackOne
           return false unless @status == other.status
           return false unless @time_off_policy_id == other.time_off_policy_id
           return false unless @type == other.type
-          return false unless @updated_date == other.updated_date
+          return false unless @updated_at == other.updated_at
           true
         end
       end

@@ -6,8 +6,10 @@
 module StackOne
   autoload :StackOne, 'stack_one/stackone'
   autoload :Accounts, 'stack_one/accounts'
+  autoload :Actions, 'stack_one/actions'
   autoload :ConnectSessions, 'stack_one/connect_sessions'
   autoload :Connectors, 'stack_one/connectors'
+  autoload :Mcp, 'stack_one/mcp'
   autoload :RequestLogs, 'stack_one/request_logs'
   autoload :Accounting, 'stack_one/accounting'
   autoload :Ats, 'stack_one/ats'

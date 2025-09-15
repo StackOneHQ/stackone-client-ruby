@@ -8,13 +8,12 @@ module StackOne
   module Models
     module Operations
     
-      # Include - The include parameter allows you to include additional data in the response.
+
       class Include < T::Enum
 
 
         enums do
-          STEP_LOGS = new('step_logs')
-          ADVANCED_LOGS = new('advanced_logs')
+          OPERATION_DETAILS = new('operation_details')
         end
       end
     end

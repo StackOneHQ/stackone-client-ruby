@@ -13,6 +13,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The employment work schedule type
+        field :contract_type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
         # The employee effective date
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -43,13 +45,16 @@ module StackOne
         field :pay_rate, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
         # The payroll code of the employee
         field :payroll_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('payroll_code') } }
+        # The type of employment
+        field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
         field :work_time, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoWorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
 
-        sig { params(effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType), end_date: T.nilable(::DateTime), grade: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoGrade), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoPayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoWorkTime)).void }
-        def initialize(effective_date: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, grade: nil, job_title: nil, passthrough: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, unified_custom_fields: nil, work_time: nil)
+        sig { params(contract_type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoContractType), effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType), end_date: T.nilable(::DateTime), grade: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoGrade), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoPayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoWorkTime)).void }
+        def initialize(contract_type: nil, effective_date: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, grade: nil, job_title: nil, passthrough: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, type: nil, unified_custom_fields: nil, work_time: nil)
+          @contract_type = contract_type
           @effective_date = effective_date
           @employment_contract_type = employment_contract_type
           @employment_type = employment_type
@@ -62,6 +67,7 @@ module StackOne
           @pay_period = pay_period
           @pay_rate = pay_rate
           @payroll_code = payroll_code
+          @type = type
           @unified_custom_fields = unified_custom_fields
           @work_time = work_time
         end
@@ -69,6 +75,7 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @contract_type == other.contract_type
           return false unless @effective_date == other.effective_date
           return false unless @employment_contract_type == other.employment_contract_type
           return false unless @employment_type == other.employment_type
@@ -81,6 +88,7 @@ module StackOne
           return false unless @pay_period == other.pay_period
           return false unless @pay_rate == other.pay_rate
           return false unless @payroll_code == other.payroll_code
+          return false unless @type == other.type
           return false unless @unified_custom_fields == other.unified_custom_fields
           return false unless @work_time == other.work_time
           true

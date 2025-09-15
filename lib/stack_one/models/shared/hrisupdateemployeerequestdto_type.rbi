@@ -8,8 +8,12 @@ end
 
 
 class StackOne::Models::Shared::HrisUpdateEmployeeRequestDtoType
-  def source_value(); end
-  def source_value=(str_); end
-  def value(); end
-  def value=(str_); end
+  def id(); end
+  def id=(str_); end
+  def label(); end
+  def label=(str_); end
+  def remote_id(); end
+  def remote_id=(str_); end
+  def type(); end
+  def type=(str_); end
 end

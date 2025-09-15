@@ -17,7 +17,7 @@ module StackOne
         field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
         # Filter to select applications by job_id
         field :job_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'job_id' } }
-        # Filter to select applications by stage and sub-stage
+        # Filter to select applications by application_stage id
         field :stage, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'stage' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }

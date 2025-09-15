@@ -349,7 +349,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingGetCompanyTaxRateRequest.new(
-  fields_: 'id,remote_id,company_id,remote_company_id,name,code,rate,active',
+  fields_: 'id,remote_id,company_id,remote_company_id,name,code,percentage,active',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -594,7 +594,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingListCompanyTaxRatesRequest.new(
-  fields_: 'id,remote_id,company_id,remote_company_id,name,code,rate,active',
+  fields_: 'id,remote_id,company_id,remote_company_id,name,code,percentage,active',
   filter: Models::Operations::AccountingListCompanyTaxRatesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

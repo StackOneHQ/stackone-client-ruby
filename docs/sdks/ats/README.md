@@ -22,6 +22,7 @@
 * [get_application_offer](#get_application_offer) - Get Application Offer
 * [get_application_scheduled_interview](#get_application_scheduled_interview) - Get Applications scheduled interview
 * [get_application_scorecard](#get_application_scorecard) - Get Application Scorecard
+* [get_application_stage](#get_application_stage) - Get Application Stage
 * [get_assessments_package](#get_assessments_package) - Get Assessments Package
 * [get_background_check_package](#get_background_check_package) - Get Background Check Package
 * [get_candidate](#get_candidate) - Get Candidate
@@ -29,7 +30,7 @@
 * [get_candidate_note](#get_candidate_note) - Get Candidate Note
 * [get_department](#get_department) - Get Department
 * [get_interview](#get_interview) - Get Interview
-* [get_interview_stage](#get_interview_stage) - Get Interview Stage
+* [~~get_interview_stage~~](#get_interview_stage) - Get Interview Stage :warning: **Deprecated**
 * [get_job](#get_job) - Get Job
 * [get_job_application_stage](#get_job_application_stage) - Get Job Application Stage
 * [get_job_custom_field_definition](#get_job_custom_field_definition) - Get Job Custom Field Definition
@@ -45,6 +46,7 @@
 * [list_application_documents](#list_application_documents) - List Application Documents
 * [list_application_notes](#list_application_notes) - List Application Notes
 * [list_application_scorecards](#list_application_scorecards) - List Application Scorecards
+* [list_application_stages](#list_application_stages) - List Application Stages
 * [list_applications](#list_applications) - List Applications
 * [list_applications_offers](#list_applications_offers) - List Application Offers
 * [list_applications_scheduled_interviews](#list_applications_scheduled_interviews) - List Applications scheduled interviews
@@ -54,7 +56,7 @@
 * [list_candidate_notes](#list_candidate_notes) - List Candidate Notes
 * [list_candidates](#list_candidates) - List Candidates
 * [list_departments](#list_departments) - List Departments
-* [list_interview_stages](#list_interview_stages) - List Interview Stages
+* [~~list_interview_stages~~](#list_interview_stages) - List Interview Stages :warning: **Deprecated**
 * [list_interviews](#list_interviews) - List Interviews
 * [list_job_application_stages](#list_job_application_stages) - List Job Application Stages
 * [list_job_custom_field_definitions](#list_job_custom_field_definitions) - List Job Custom Field Definitions
@@ -956,7 +958,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationDocumentRequest.new(
-  fields_: 'id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1283,6 +1285,66 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsGetApplicationScorecardResponse)](../../models/operations/atsgetapplicationscorecardresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## get_application_stage
+
+Get Application Stage
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="ats_get_application_stage" method="get" path="/unified/ats/application_stages/{id}" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+req = Models::Operations::AtsGetApplicationStageRequest.new(
+  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.ats.get_application_stage(request: req)
+
+unless res.interview_stage_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::AtsGetApplicationStageRequest](../../models/operations/atsgetapplicationstagerequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsGetApplicationStageResponse)](../../models/operations/atsgetapplicationstageresponse.md)**
 
 ### Errors
 
@@ -1726,9 +1788,11 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## get_interview_stage
+## ~~get_interview_stage~~
 
 Get Interview Stage
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -2537,7 +2601,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationDocumentsRequest.new(
-  fields_: 'id,remote_id,name,path,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
   filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2688,6 +2752,68 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsListApplicationScorecardsResponse)](../../models/operations/atslistapplicationscorecardsresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## list_application_stages
+
+List Application Stages
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="ats_list_application_stages" method="get" path="/unified/ats/application_stages" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+req = Models::Operations::AtsListApplicationStagesRequest.new(
+  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  filter: Models::Operations::AtsListApplicationStagesQueryParamFilter.new(
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+  ),
+  x_account_id: '<id>',
+)
+
+res = s.ats.list_application_stages(request: req)
+
+unless res.interview_stages_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::AtsListApplicationStagesRequest](../../models/operations/atslistapplicationstagesrequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsListApplicationStagesResponse)](../../models/operations/atslistapplicationstagesresponse.md)**
 
 ### Errors
 
@@ -3272,9 +3398,11 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## list_interview_stages
+## ~~list_interview_stages~~
 
 List Interview Stages
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

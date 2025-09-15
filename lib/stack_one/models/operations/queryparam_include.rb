@@ -14,6 +14,7 @@ module StackOne
 
         enums do
           STEP_LOGS = new('step_logs')
+          ADVANCED_LOGS = new('advanced_logs')
         end
       end
     end
