@@ -13,21 +13,29 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Filter to include time off requests that end on or before this date.
+        field :end_date, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'end_date' } }
         # List of time off policy ids to filter by.
         field :policy_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'policy_ids' } }
+        # Filter to include time off requests that start on or after this date.
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'start_date' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
-        sig { params(policy_ids: T.nilable(T::Array[::String]), updated_after: T.nilable(::DateTime)).void }
-        def initialize(policy_ids: nil, updated_after: nil)
+        sig { params(end_date: T.nilable(::DateTime), policy_ids: T.nilable(T::Array[::String]), start_date: T.nilable(::DateTime), updated_after: T.nilable(::DateTime)).void }
+        def initialize(end_date: nil, policy_ids: nil, start_date: nil, updated_after: nil)
+          @end_date = end_date
           @policy_ids = policy_ids
+          @start_date = start_date
           @updated_after = updated_after
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @end_date == other.end_date
           return false unless @policy_ids == other.policy_ids
+          return false unless @start_date == other.start_date
           return false unless @updated_after == other.updated_after
           true
         end

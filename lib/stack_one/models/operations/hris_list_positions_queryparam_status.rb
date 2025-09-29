@@ -8,15 +8,14 @@ module StackOne
   module Models
     module Operations
     
-      # QueryParamStatus - Filter to select shifts by status
-      class QueryParamStatus < T::Enum
+      # HrisListPositionsQueryParamStatus - Filter positions by status
+      class HrisListPositionsQueryParamStatus < T::Enum
 
 
         enums do
-          DRAFT = new('draft')
-          PUBLISHED = new('published')
-          CONFIRMED = new('confirmed')
-          CANCELLED = new('cancelled')
+          OPEN = new('open')
+          CLOSED = new('closed')
+          PAUSED = new('paused')
           UNMAPPED_VALUE = new('unmapped_value')
         end
       end

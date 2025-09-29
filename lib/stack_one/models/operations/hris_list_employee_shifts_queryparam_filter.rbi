@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class StackOne::Models::Operations::HrisListShiftsQueryParamFilter
+class StackOne::Models::Operations::HrisListEmployeeShiftsQueryParamFilter
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class StackOne::Models::Operations::HrisListShiftsQueryParamFilter
+class StackOne::Models::Operations::HrisListEmployeeShiftsQueryParamFilter
   def ends_before(); end
   def ends_before=(str_); end
   def starts_after(); end

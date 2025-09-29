@@ -9,7 +9,7 @@ module StackOne
     module Operations
     
       # HRIS Shifts filters
-      class HrisListShiftsQueryParamFilter
+      class HrisListEmployeeShiftsQueryParamFilter
         extend T::Sig
         include Crystalline::MetadataFields
 
@@ -18,11 +18,11 @@ module StackOne
         # Filter shifts that start after this date
         field :starts_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'starts_after' } }
         # Filter to select shifts by status
-        field :status, Crystalline::Nilable.new(Models::Operations::HrisListShiftsQueryParamStatus), { 'query_param': { 'field_name': 'status' } }
+        field :status, Crystalline::Nilable.new(Models::Operations::QueryParamStatus), { 'query_param': { 'field_name': 'status' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
-        sig { params(ends_before: T.nilable(::DateTime), starts_after: T.nilable(::DateTime), status: T.nilable(Models::Operations::HrisListShiftsQueryParamStatus), updated_after: T.nilable(::DateTime)).void }
+        sig { params(ends_before: T.nilable(::DateTime), starts_after: T.nilable(::DateTime), status: T.nilable(Models::Operations::QueryParamStatus), updated_after: T.nilable(::DateTime)).void }
         def initialize(ends_before: nil, starts_after: nil, status: nil, updated_after: nil)
           @ends_before = ends_before
           @starts_after = starts_after

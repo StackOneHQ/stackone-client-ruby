@@ -19,21 +19,24 @@ module StackOne
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The action ID
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-        # The action name
-        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The action label
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # The operation details for the action
         field :operation_details, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('operation_details') } }
         # The schema type for the action
         field :schema_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('schema_type') } }
+        # The tags associated with this action
+        field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
-        sig { params(authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), operation_details: T.nilable(T::Hash[Symbol, ::Object]), schema_type: T.nilable(::String)).void }
-        def initialize(authentication: nil, description: nil, id: nil, name: nil, operation_details: nil, schema_type: nil)
+        sig { params(authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), operation_details: T.nilable(T::Hash[Symbol, ::Object]), schema_type: T.nilable(::String), tags: T.nilable(T::Array[::String])).void }
+        def initialize(authentication: nil, description: nil, id: nil, label: nil, operation_details: nil, schema_type: nil, tags: nil)
           @authentication = authentication
           @description = description
           @id = id
-          @name = name
+          @label = label
           @operation_details = operation_details
           @schema_type = schema_type
+          @tags = tags
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -42,9 +45,10 @@ module StackOne
           return false unless @authentication == other.authentication
           return false unless @description == other.description
           return false unless @id == other.id
-          return false unless @name == other.name
+          return false unless @label == other.label
           return false unless @operation_details == other.operation_details
           return false unless @schema_type == other.schema_type
+          return false unless @tags == other.tags
           true
         end
       end

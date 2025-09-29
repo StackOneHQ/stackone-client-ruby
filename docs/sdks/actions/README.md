@@ -95,18 +95,19 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Shared::ActionsRpcRequestDto.new(
   action: 'create_employee',
-  input: Models::Shared::Input.new(
-    body: {
-      "data": 'example',
-    },
-    headers: {
-      "Content-Type": 'application/json',
-    },
-    query: {
-      "param1": 'value1',
-      "param2": 'value2',
-    },
-  ),
+  body: {
+    "data": 'example',
+  },
+  headers: {
+    "Content-Type": 'application/json',
+  },
+  path: {
+    "id": '123',
+  },
+  query: {
+    "param1": 'value1',
+    "param2": 'value2',
+  },
 )
 
 res = s.actions.rpc_action(request: req)
