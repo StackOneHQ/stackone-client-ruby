@@ -120,8 +120,6 @@ module StackOne
         # The employee skills
         field :skills, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::EntitySkills)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
         # The employee start date
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The employee tenure
         field :tenure, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tenure') } }

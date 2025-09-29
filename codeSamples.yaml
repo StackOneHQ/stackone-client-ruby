@@ -44,7 +44,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_rpc_action"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  input: Models::Shared::Input.new(\n    query: {\n      \"param1\": 'value1',\n      \"param2\": 'value2',\n    },\n    headers: {\n      \"Content-Type\": 'application/json',\n    },\n    body: {\n      \"data\": 'example',\n    },\n  ),\n)\n\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  path: {\n    \"id\": '123',\n  },\n  query: {\n    \"param1\": 'value1',\n    \"param2\": 'value2',\n  },\n  headers: {\n    \"Content-Type\": 'application/json',\n  },\n  body: {\n    \"data\": 'example',\n  },\n)\n\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
   - target: $["paths"]["/connect_sessions"]["post"]
     update:
       "x-codeSamples":
@@ -818,7 +818,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_employments"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeEmploymentsRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',\n  filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employee_employments(request: req)\n\nunless res.employments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeEmploymentsRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',\n  filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employee_employments(request: req)\n\nunless res.employments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/employments"]["post"]
     update:
       "x-codeSamples":
@@ -830,7 +830,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_get_employee_employment"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmployeeEmploymentRequest.new(\n  id: '<id>',\n  sub_resource_id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.get_employee_employment(request: req)\n\nunless res.employment_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmployeeEmploymentRequest.new(\n  id: '<id>',\n  sub_resource_id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.get_employee_employment(request: req)\n\nunless res.employment_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/employments/{subResourceId}"]["patch"]
     update:
       "x-codeSamples":
@@ -843,6 +843,18 @@ actions:
         - "lang": "ruby"
           "label": "hris_invite_employee"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nres = s.hris.invite_employee(id: '<id>', x_account_id: '<id>', hris_invite_employee_request_dto: Models::Shared::HrisInviteEmployeeRequestDto.new(\n  passthrough: {\n    \"other_known_names\": 'John Doe',\n  },\n))\n\nunless res.invite_employee_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/shifts"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_list_employee_shifts"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeShiftsRequest.new(\n  id: '<id>',\n  filter: Models::Operations::HrisListEmployeeShiftsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employee_shifts(request: req)\n\nunless res.hris_shifts_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/hris/employees/{id}/shifts/{subResourceId}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "hris_get_employee_shift"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmployeeShiftRequest.new(\n  id: '<id>',\n  sub_resource_id: '<id>',\n  x_account_id: '<id>',\n)\n\nres = s.hris.get_employee_shift(request: req)\n\nunless res.hris_shift_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/skills"]["get"]
     update:
       "x-codeSamples":
@@ -884,7 +896,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employee_time_off_requests"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',\n  filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: 'policy',\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employee_time_off_requests(request: req)\n\nunless res.time_off_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',\n  filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: 'policy',\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employee_time_off_requests(request: req)\n\nunless res.time_off_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employees/{id}/time_off"]["post"]
     update:
       "x-codeSamples":
@@ -956,13 +968,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_employments"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmploymentsRequest.new(\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',\n  filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employments(request: req)\n\nunless res.employments_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListEmploymentsRequest.new(\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',\n  filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_employments(request: req)\n\nunless res.employments_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/employments/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_get_employment"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmploymentRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.get_employment(request: req)\n\nunless res.employment_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisGetEmploymentRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',\n  expand: 'groups',\n  x_account_id: '<id>',\n)\n\nres = s.hris.get_employment(request: req)\n\nunless res.employment_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/groups"]["get"]
     update:
       "x-codeSamples":
@@ -1064,7 +1076,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "hris_list_positions"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListPositionsRequest.new(\n  filter: Models::Operations::HrisListPositionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  status: Models::Operations::Status::OPEN,\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_positions(request: req)\n\nunless res.positions_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::HrisListPositionsRequest.new(\n  filter: Models::Operations::HrisListPositionsQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  status: Models::Operations::QueryParamStatus::OPEN,\n  x_account_id: '<id>',\n)\n\nres = s.hris.list_positions(request: req)\n\nunless res.positions_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/hris/positions/{id}"]["get"]
     update:
       "x-codeSamples":

@@ -290,6 +290,7 @@ end
 * [get_employee_document](docs/sdks/hris/README.md#get_employee_document) - Get Employee Document
 * [get_employee_document_category](docs/sdks/hris/README.md#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](docs/sdks/hris/README.md#get_employee_employment) - Get Employee Employment
+* [get_employee_shift](docs/sdks/hris/README.md#get_employee_shift) - Get Employee Shift
 * [get_employee_skill](docs/sdks/hris/README.md#get_employee_skill) - Get Employee Skill
 * [get_employee_task](docs/sdks/hris/README.md#get_employee_task) - Get Employee Task
 * [get_employee_time_off_balance](docs/sdks/hris/README.md#get_employee_time_off_balance) - Get Employee Time Off Balance
@@ -318,6 +319,7 @@ end
 * [list_employee_custom_field_definitions](docs/sdks/hris/README.md#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](docs/sdks/hris/README.md#list_employee_documents) - List Employee Documents
 * [list_employee_employments](docs/sdks/hris/README.md#list_employee_employments) - List Employee Employments
+* [list_employee_shifts](docs/sdks/hris/README.md#list_employee_shifts) - List Employee Shifts
 * [list_employee_skills](docs/sdks/hris/README.md#list_employee_skills) - List Employee Skills
 * [list_employee_tasks](docs/sdks/hris/README.md#list_employee_tasks) - List Employee Tasks
 * [list_employee_time_off_balances](docs/sdks/hris/README.md#list_employee_time_off_balances) - List Employee Time Off Balances

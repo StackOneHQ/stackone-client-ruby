@@ -9,16 +9,18 @@ module StackOne
     module Operations
     
 
-      class HrisListPositionsRequest
+      class HrisListEmployeeShiftsRequest
         extend T::Sig
         include Crystalline::MetadataFields
 
+
+        field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields to return in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-        # Filter parameters that allow greater customisation of the list response
-        field :filter, Crystalline::Nilable.new(Models::Operations::HrisListPositionsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+        # HRIS Shifts filters
+        field :filter, Crystalline::Nilable.new(Models::Operations::HrisListEmployeeShiftsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
@@ -31,15 +33,14 @@ module StackOne
         field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
-        # Filter positions by status
-        field :status, Crystalline::Nilable.new(Models::Operations::HrisListPositionsQueryParamStatus), { 'query_param': { 'field_name': 'status', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
-        sig { params(x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::HrisListPositionsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), status: T.nilable(Models::Operations::HrisListPositionsQueryParamStatus), updated_after: T.nilable(::DateTime)).void }
-        def initialize(x_account_id:, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, status: nil, updated_after: nil)
+        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::HrisListEmployeeShiftsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
+        def initialize(id:, x_account_id:, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+          @id = id
           @x_account_id = x_account_id
           @fields_ = fields_
           @filter = filter
@@ -48,13 +49,13 @@ module StackOne
           @page_size = page_size
           @proxy = proxy
           @raw = raw
-          @status = status
           @updated_after = updated_after
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
           return false unless @fields_ == other.fields_
           return false unless @filter == other.filter
@@ -63,7 +64,6 @@ module StackOne
           return false unless @page_size == other.page_size
           return false unless @proxy == other.proxy
           return false unless @raw == other.raw
-          return false unless @status == other.status
           return false unless @updated_after == other.updated_after
           true
         end

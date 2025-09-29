@@ -24,6 +24,7 @@
 * [get_employee_document](#get_employee_document) - Get Employee Document
 * [get_employee_document_category](#get_employee_document_category) - Get Employee Document Category
 * [get_employee_employment](#get_employee_employment) - Get Employee Employment
+* [get_employee_shift](#get_employee_shift) - Get Employee Shift
 * [get_employee_skill](#get_employee_skill) - Get Employee Skill
 * [get_employee_task](#get_employee_task) - Get Employee Task
 * [get_employee_time_off_balance](#get_employee_time_off_balance) - Get Employee Time Off Balance
@@ -52,6 +53,7 @@
 * [list_employee_custom_field_definitions](#list_employee_custom_field_definitions) - List employee Custom Field Definitions
 * [list_employee_documents](#list_employee_documents) - List Employee Documents
 * [list_employee_employments](#list_employee_employments) - List Employee Employments
+* [list_employee_shifts](#list_employee_shifts) - List Employee Shifts
 * [list_employee_skills](#list_employee_skills) - List Employee Skills
 * [list_employee_tasks](#list_employee_tasks) - List Employee Tasks
 * [list_employee_time_off_balances](#list_employee_time_off_balances) - List Employee Time Off Balances
@@ -1404,7 +1406,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1427,6 +1429,66 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisGetEmployeeEmploymentResponse)](../../models/operations/hrisgetemployeeemploymentresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## get_employee_shift
+
+Get Employee Shift
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="hris_get_employee_shift" method="get" path="/unified/hris/employees/{id}/shifts/{subResourceId}" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+req = Models::Operations::HrisGetEmployeeShiftRequest.new(
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.hris.get_employee_shift(request: req)
+
+unless res.hris_shift_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::HrisGetEmployeeShiftRequest](../../models/operations/hrisgetemployeeshiftrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisGetEmployeeShiftResponse)](../../models/operations/hrisgetemployeeshiftresponse.md)**
 
 ### Errors
 
@@ -1774,7 +1836,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -3116,7 +3178,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3141,6 +3203,68 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::HrisListEmployeeEmploymentsResponse)](../../models/operations/hrislistemployeeemploymentsresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## list_employee_shifts
+
+List Employee Shifts
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="hris_list_employee_shifts" method="get" path="/unified/hris/employees/{id}/shifts" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+req = Models::Operations::HrisListEmployeeShiftsRequest.new(
+  filter: Models::Operations::HrisListEmployeeShiftsQueryParamFilter.new(
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+  ),
+  id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.hris.list_employee_shifts(request: req)
+
+unless res.hris_shifts_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::HrisListEmployeeShiftsRequest](../../models/operations/hrislistemployeeshiftsrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[T.nilable(Models::Operations::HrisListEmployeeShiftsResponse)](../../models/operations/hrislistemployeeshiftsresponse.md)**
 
 ### Errors
 
@@ -3436,6 +3560,8 @@ req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
+    end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: '<id>',
@@ -3625,7 +3751,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3876,7 +4002,7 @@ req = Models::Operations::HrisListPositionsRequest.new(
   filter: Models::Operations::HrisListPositionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
-  status: Models::Operations::QueryParamStatus::OPEN,
+  status: Models::Operations::HrisListPositionsQueryParamStatus::OPEN,
   x_account_id: '<id>',
 )
 

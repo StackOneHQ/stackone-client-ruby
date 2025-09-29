@@ -1,13 +1,14 @@
 # QueryParamStatus
 
-Filter positions by status
+Filter to select shifts by status
 
 
 ## Values
 
 | Name             | Value            |
 | ---------------- | ---------------- |
-| `OPEN`           | open             |
-| `CLOSED`         | closed           |
-| `PAUSED`         | paused           |
+| `DRAFT`          | draft            |
+| `PUBLISHED`      | published        |
+| `CONFIRMED`      | confirmed        |
+| `CANCELLED`      | cancelled        |
 | `UNMAPPED_VALUE` | unmapped_value   |

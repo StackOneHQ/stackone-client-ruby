@@ -1613,7 +1613,6 @@ module StackOne
       autoload :HomeLocation, 'stack_one/models/shared/home_location.rb'
       autoload :Id, 'stack_one/models/shared/id.rb'
       autoload :Images, 'stack_one/models/shared/images.rb'
-      autoload :Input, 'stack_one/models/shared/input.rb'
       autoload :Internal, 'stack_one/models/shared/internal.rb'
       autoload :InterviewStatus, 'stack_one/models/shared/interview_status.rb'
       autoload :IsBotUser, 'stack_one/models/shared/is_bot_user.rb'

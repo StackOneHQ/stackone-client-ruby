@@ -14,10 +14,12 @@ class StackOne::Models::Shared::ActionMetaItem
   def description=(str_); end
   def id(); end
   def id=(str_); end
-  def name(); end
-  def name=(str_); end
+  def label(); end
+  def label=(str_); end
   def operation_details(); end
   def operation_details=(str_); end
   def schema_type(); end
   def schema_type=(str_); end
+  def tags(); end
+  def tags=(str_); end
 end

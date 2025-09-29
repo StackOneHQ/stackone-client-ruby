@@ -14,7 +14,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # List of attachments in the message
-        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
+        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::MessagingAttachment)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
         # Author of the message
         field :author, Crystalline::Nilable.new(Models::Shared::Author), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('author') } }
         # Content of the message
@@ -30,7 +30,7 @@ module StackOne
         # Timestamp when the message was last updated
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(attachments: T.nilable(T::Array[::String]), author: T.nilable(Models::Shared::Author), content: T.nilable(Models::Shared::MessagingMessageContent), created_at: T.nilable(::DateTime), id: T.nilable(::String), parent_message_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
+        sig { params(attachments: T.nilable(T::Array[Models::Shared::MessagingAttachment]), author: T.nilable(Models::Shared::Author), content: T.nilable(Models::Shared::MessagingMessageContent), created_at: T.nilable(::DateTime), id: T.nilable(::String), parent_message_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
         def initialize(attachments: nil, author: nil, content: nil, created_at: nil, id: nil, parent_message_id: nil, remote_id: nil, updated_at: nil)
           @attachments = attachments
           @author = author
