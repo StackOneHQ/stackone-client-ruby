@@ -160,7 +160,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetAttachmentRequest.new(
-  fields_: 'id,remote_id,file_name,file_size,file_type',
+  fields_: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -221,7 +221,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetConversationRequest.new(
-  fields_: 'id,remote_id,participants,name,private,created_at,last_message_at',
+  fields_: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -281,7 +281,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetMessageRequest.new(
-  fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at',
+  fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -341,7 +341,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetUserRequest.new(
-  fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active',
+  fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -401,7 +401,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListAttachmentsRequest.new(
-  fields_: 'id,remote_id,file_name,file_size,file_type',
+  fields_: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
   filter: Models::Operations::MessagingListAttachmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -464,7 +464,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListConversationMessagesRequest.new(
-  fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at',
+  fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::MessagingListConversationMessagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -527,7 +527,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListConversationsRequest.new(
-  fields_: 'id,remote_id,participants,name,private,created_at,last_message_at',
+  fields_: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
   filter: Models::Operations::MessagingListConversationsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -589,7 +589,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListUsersRequest.new(
-  fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active',
+  fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
   filter: Models::Operations::MessagingListUsersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

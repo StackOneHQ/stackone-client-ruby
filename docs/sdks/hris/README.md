@@ -799,7 +799,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetBenefitRequest.new(
-  fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at',
+  fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -859,7 +859,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCompanyRequest.new(
-  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at',
+  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -919,7 +919,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCompanyGroupRequest.new(
-  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at',
+  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -979,7 +979,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCostCenterGroupRequest.new(
-  fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1039,7 +1039,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetDepartmentGroupRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1099,7 +1099,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetDivisionGroupRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1160,7 +1160,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeRequest.new(
   expand: 'company,employments,work_location,home_location,groups,skills',
-  fields_: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
+  fields_: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills,unified_custom_fields',
   id: '<id>',
   include: 'avatar_url,avatar,custom_fields,job_description,benefits',
   x_account_id: '<id>',
@@ -1221,7 +1221,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1284,7 +1284,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeDocumentRequest.new(
-  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1345,7 +1345,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
-  fields_: 'id,remote_id,name,active',
+  fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1406,7 +1406,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1527,7 +1527,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeSkillRequest.new(
-  fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency',
+  fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1589,7 +1589,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeTaskRequest.new(
   expand: 'attachments',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1651,7 +1651,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
   expand: 'policy',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1713,7 +1713,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   expand: 'policy',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1774,7 +1774,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
-  fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number',
+  fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1836,7 +1836,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1896,7 +1896,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetGroupRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1956,7 +1956,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetJobRequest.new(
-  fields_: 'id,remote_id,code,title,description,status,created_at,updated_at',
+  fields_: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2016,7 +2016,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetLocationRequest.new(
-  fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2195,7 +2195,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetTaskRequest.new(
   expand: 'attachments',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2255,7 +2255,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTeamGroupRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2315,7 +2315,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeEntriesRequest.new(
-  fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2375,7 +2375,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeOffPolicyRequest.new(
-  fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at',
+  fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2436,7 +2436,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisGetTimeOffRequestRequest.new(
   expand: 'policy',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2498,7 +2498,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeOffTypeRequest.new(
-  fields_: 'id,remote_id,name,active',
+  fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2618,7 +2618,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListBenefitsRequest.new(
-  fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at',
+  fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2680,7 +2680,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCompaniesRequest.new(
-  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at',
+  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2742,7 +2742,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCompaniesGroupsRequest.new(
-  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at',
+  fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2804,7 +2804,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCostCenterGroupsRequest.new(
-  fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2866,7 +2866,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListDepartmentGroupsRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2928,7 +2928,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListDivisionGroupsRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2990,7 +2990,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeCategoriesRequest.new(
-  fields_: 'id,remote_id,name,active',
+  fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3052,7 +3052,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3114,7 +3114,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeDocumentsRequest.new(
-  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3178,7 +3178,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3242,6 +3242,8 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeShiftsRequest.new(
   filter: Models::Operations::HrisListEmployeeShiftsQueryParamFilter.new(
+    ends_before: '2024-01-15T17:00',
+    starts_after: '2024-01-15T09:00',
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: '<id>',
@@ -3303,7 +3305,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeSkillsRequest.new(
-  fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency',
+  fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3367,7 +3369,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeTasksRequest.new(
   expand: 'attachments',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3431,7 +3433,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
   expand: 'policy',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3494,7 +3496,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
-  fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at',
+  fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3558,7 +3560,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   expand: 'policy',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3623,7 +3625,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(
-  fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number',
+  fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3687,7 +3689,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmployeesRequest.new(
   expand: 'company,employments,work_location,home_location,groups,skills',
-  fields_: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills',
+  fields_: 'id,remote_id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,skills,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3751,7 +3753,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   expand: 'groups',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3813,7 +3815,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListGroupsRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3875,7 +3877,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListJobsRequest.new(
-  fields_: 'id,remote_id,code,title,description,status,created_at,updated_at',
+  fields_: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListJobsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3937,7 +3939,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListLocationsRequest.new(
-  fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListLocationsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4062,6 +4064,8 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListShiftsRequest.new(
   filter: Models::Operations::HrisListShiftsQueryParamFilter.new(
+    ends_before: '2024-01-15T17:00',
+    starts_after: '2024-01-15T09:00',
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: '<id>',
@@ -4123,7 +4127,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListTasksRequest.new(
   expand: 'attachments',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListTasksQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4185,7 +4189,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTeamGroupsRequest.new(
-  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids',
+  fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
   filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4247,7 +4251,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeEntriesRequest.new(
-  fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(
     end_time: '2020-01-01T00:00:00.000Z',
     start_time: '2020-01-01T00:00:00.000Z',
@@ -4311,7 +4315,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeOffPoliciesRequest.new(
-  fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at',
+  fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4374,7 +4378,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::HrisListTimeOffRequestsRequest.new(
   expand: 'policy',
-  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy',
+  fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
 )
@@ -4436,7 +4440,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeOffTypesRequest.new(
-  fields_: 'id,remote_id,name,active',
+  fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::HrisListTimeOffTypesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

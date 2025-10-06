@@ -27,3 +27,4 @@
 | `PERSONAL`              | personal                |
 | `IN_LIEU`               | in_lieu                 |
 | `BEREAVEMENT`           | bereavement             |
+| `OTHER`                 | other                   |

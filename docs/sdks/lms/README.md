@@ -422,7 +422,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetCategoryRequest.new(
-  fields_: 'id,remote_id,name,active,hierarchy,level,language',
+  fields_: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -541,7 +541,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetContentRequest.new(
-  fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors',
+  fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -601,7 +601,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetCourseRequest.new(
-  fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors',
+  fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -661,7 +661,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetSkillRequest.new(
-  fields_: 'id,remote_id,name,active,hierarchy,language',
+  fields_: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -721,7 +721,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetUserRequest.new(
-  fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name',
+  fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -901,7 +901,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListAssignmentsRequest.new(
-  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at',
+  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListAssignmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -965,7 +965,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCategoriesRequest.new(
-  fields_: 'id,remote_id,name,active,hierarchy,level,language',
+  fields_: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
   filter: Models::Operations::LmsListCategoriesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1027,7 +1027,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCompletionsRequest.new(
-  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url',
+  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,unified_custom_fields',
   filter: Models::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1089,7 +1089,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListContentRequest.new(
-  fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors',
+  fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
   filter: Models::Operations::LmsListContentQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1151,7 +1151,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCoursesRequest.new(
-  fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors',
+  fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
   filter: Models::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1213,7 +1213,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListSkillsRequest.new(
-  fields_: 'id,remote_id,name,active,hierarchy,language',
+  fields_: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
   filter: Models::Operations::LmsListSkillsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1275,7 +1275,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUserAssignmentsRequest.new(
-  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at',
+  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListUserAssignmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1340,7 +1340,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUserCompletionsRequest.new(
-  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url',
+  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,unified_custom_fields',
   filter: Models::Operations::LmsListUserCompletionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1403,7 +1403,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUsersRequest.new(
-  fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name',
+  fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
 )

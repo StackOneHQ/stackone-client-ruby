@@ -35,6 +35,7 @@ module StackOne
           PERSONAL = new('personal')
           IN_LIEU = new('in_lieu')
           BEREAVEMENT = new('bereavement')
+          OTHER = new('other')
         end
       end
     end

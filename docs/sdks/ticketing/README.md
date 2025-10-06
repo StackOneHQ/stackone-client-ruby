@@ -196,7 +196,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetAttachmentRequest.new(
-  fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at',
+  fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -257,7 +257,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetCommentRequest.new(
-  fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at',
+  fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -318,7 +318,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetProjectRequest.new(
-  fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at',
+  fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -378,7 +378,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetProjectComponentRequest.new(
-  fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at',
+  fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -439,7 +439,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetTicketRequest.new(
-  fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at',
+  fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -499,7 +499,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetTicketTypeRequest.new(
-  fields_: 'id,remote_id,name,project_id,remote_project_id',
+  fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -559,7 +559,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetUserRequest.new(
-  fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at',
+  fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -619,7 +619,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListAttachmentsRequest.new(
-  fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at',
+  fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListAttachmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -682,7 +682,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListCommentsRequest.new(
-  fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at',
+  fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListCommentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -745,7 +745,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListProjectComponentsRequest.new(
-  fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at',
+  fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
   filter: nil,
   id: '<id>',
   x_account_id: '<id>',
@@ -806,7 +806,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListProjectTicketTypesRequest.new(
-  fields_: 'id,remote_id,name,project_id,remote_project_id',
+  fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   filter: Models::Operations::TicketingListProjectTicketTypesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -869,7 +869,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListProjectsRequest.new(
-  fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at',
+  fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListProjectsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -993,7 +993,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListTicketTypesRequest.new(
-  fields_: 'id,remote_id,name,project_id,remote_project_id',
+  fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   filter: Models::Operations::TicketingListTicketTypesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1055,7 +1055,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListTicketsRequest.new(
-  fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at',
+  fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListTicketsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1117,7 +1117,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListUsersRequest.new(
-  fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at',
+  fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListUsersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

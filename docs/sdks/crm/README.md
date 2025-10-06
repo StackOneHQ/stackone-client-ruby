@@ -121,7 +121,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetAccountRequest.new(
-  fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at',
+  fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -181,7 +181,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetContactRequest.new(
-  fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at',
+  fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
   x_account_id: '<id>',
@@ -242,7 +242,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -305,7 +305,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetListRequest.new(
-  fields_: 'id,remote_id,name,created_at,updated_at,items,type',
+  fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -365,7 +365,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListAccountsRequest.new(
-  fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at',
+  fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::CrmListAccountsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -427,7 +427,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -489,7 +489,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListContactsRequest.new(
-  fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at',
+  fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::CrmListContactsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -552,7 +552,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListListsRequest.new(
-  fields_: 'id,remote_id,name,created_at,updated_at,items,type',
+  fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   filter: Models::Operations::CrmListListsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

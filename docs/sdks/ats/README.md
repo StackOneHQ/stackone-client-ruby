@@ -836,7 +836,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::AtsGetApplicationRequest.new(
   expand: 'documents',
-  fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
+  fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   id: '<id>',
   include: 'attachments,custom_fields',
   x_account_id: '<id>',
@@ -897,7 +897,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: nil,
   id: '<id>',
   x_account_id: '<id>',
@@ -958,7 +958,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationDocumentRequest.new(
-  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1019,7 +1019,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationDocumentCategoryRequest.new(
-  fields_: 'id,remote_id,name,active',
+  fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1079,7 +1079,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationNoteRequest.new(
-  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at',
+  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1140,7 +1140,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationOfferRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1201,7 +1201,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationScheduledInterviewRequest.new(
-  fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
+  fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1262,7 +1262,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationScorecardRequest.new(
-  fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at',
+  fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1323,7 +1323,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationStageRequest.new(
-  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1442,7 +1442,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetBackgroundCheckPackageRequest.new(
-  fields_: 'id,remote_id,name,description,tests',
+  fields_: 'id,remote_id,name,description,tests,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1502,7 +1502,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateRequest.new(
-  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
+  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
   x_account_id: '<id>',
@@ -1563,7 +1563,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1626,7 +1626,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateNoteRequest.new(
-  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at',
+  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1687,7 +1687,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetDepartmentRequest.new(
-  fields_: 'id,remote_id,name',
+  fields_: 'id,remote_id,name,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1747,7 +1747,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetInterviewRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at',
+  fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1809,7 +1809,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetInterviewStageRequest.new(
-  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1870,7 +1870,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::AtsGetJobRequest.new(
   expand: 'job_postings,interview_stages',
-  fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
+  fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
   x_account_id: '<id>',
@@ -1931,7 +1931,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobApplicationStageRequest.new(
-  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1992,7 +1992,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2055,7 +2055,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobPostingRequest.new(
-  fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at',
+  fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at,unified_custom_fields',
   id: '<id>',
   include: 'questionnaires',
   x_account_id: '<id>',
@@ -2116,7 +2116,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetListRequest.new(
-  fields_: 'id,remote_id,name,created_at,updated_at,items,type',
+  fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2176,7 +2176,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetLocationRequest.new(
-  fields_: 'id,remote_id,name',
+  fields_: 'id,remote_id,name,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2236,7 +2236,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetOfferRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2296,7 +2296,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetRejectedReasonRequest.new(
-  fields_: 'id,remote_id,label,type,rejected_reason_type',
+  fields_: 'id,remote_id,label,type,rejected_reason_type,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2356,7 +2356,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetUserRequest.new(
-  fields_: 'id,remote_id,first_name,last_name,name,email,phone',
+  fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2416,7 +2416,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationChangesRequest.new(
-  fields_: 'event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values',
+  fields_: 'event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationChangesQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2479,7 +2479,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
 )
@@ -2539,7 +2539,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(
-  fields_: 'id,remote_id,name,active',
+  fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2601,7 +2601,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationDocumentsRequest.new(
-  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format',
+  fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2664,7 +2664,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationNotesRequest.new(
-  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at',
+  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationNotesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2727,7 +2727,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationScorecardsRequest.new(
-  fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at',
+  fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationScorecardsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2790,7 +2790,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationStagesRequest.new(
-  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationStagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2853,7 +2853,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::AtsListApplicationsRequest.new(
   expand: 'documents',
-  fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate',
+  fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2917,7 +2917,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationsOffersRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -2980,7 +2980,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at',
+  fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3104,7 +3104,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListBackgroundCheckPackagesRequest.new(
-  fields_: 'id,remote_id,name,description,tests',
+  fields_: 'id,remote_id,name,description,tests,unified_custom_fields',
   filter: Models::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3166,7 +3166,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3228,7 +3228,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidateNotesRequest.new(
-  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at',
+  fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidateNotesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3291,7 +3291,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidatesRequest.new(
-  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at',
+  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3355,7 +3355,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListDepartmentsRequest.new(
-  fields_: 'id,remote_id,name',
+  fields_: 'id,remote_id,name,unified_custom_fields',
   filter: Models::Operations::AtsListDepartmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3419,7 +3419,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListInterviewStagesRequest.new(
-  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListInterviewStagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3481,7 +3481,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListInterviewsRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at',
+  fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListInterviewsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3544,7 +3544,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobApplicationStagesRequest.new(
-  fields_: 'id,remote_id,name,order,created_at,updated_at',
+  fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobApplicationStagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3607,7 +3607,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
-  fields_: 'id,remote_id,name,description,type,options',
+  fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3669,7 +3669,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobPostingsRequest.new(
-  fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at',
+  fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3734,7 +3734,7 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Operations::AtsListJobsRequest.new(
   expand: 'job_postings,interview_stages',
-  fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at',
+  fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3798,7 +3798,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListListsRequest.new(
-  fields_: 'id,remote_id,name,created_at,updated_at,items,type',
+  fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
 )
@@ -3858,7 +3858,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListLocationsRequest.new(
-  fields_: 'id,remote_id,name',
+  fields_: 'id,remote_id,name,unified_custom_fields',
   filter: Models::Operations::AtsListLocationsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3920,7 +3920,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListOffersRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListOffersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3982,7 +3982,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListRejectedReasonsRequest.new(
-  fields_: 'id,remote_id,label,type,rejected_reason_type',
+  fields_: 'id,remote_id,label,type,rejected_reason_type,unified_custom_fields',
   filter: Models::Operations::AtsListRejectedReasonsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4044,7 +4044,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListUsersRequest.new(
-  fields_: 'id,remote_id,first_name,last_name,name,email,phone',
+  fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
 )
