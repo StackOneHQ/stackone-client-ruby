@@ -98,7 +98,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::ScreeningGetScreeningPackageRequest.new(
-  fields_: 'id,remote_id,name,description',
+  fields_: 'id,remote_id,name,description,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -158,7 +158,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::ScreeningListScreeningPackagesRequest.new(
-  fields_: 'id,remote_id,name,description',
+  fields_: 'id,remote_id,name,description,unified_custom_fields',
   filter: Models::Operations::ScreeningListScreeningPackagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

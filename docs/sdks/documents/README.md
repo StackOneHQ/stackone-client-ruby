@@ -94,7 +94,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsGetDriveRequest.new(
-  fields_: 'id,remote_id,name,description,url,created_at,updated_at',
+  fields_: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -154,7 +154,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsGetFileRequest.new(
-  fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids',
+  fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   id: '<id>',
   include: 'all_parent_folder_ids',
   x_account_id: '<id>',
@@ -215,7 +215,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsGetFolderRequest.new(
-  fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids',
+  fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   id: '<id>',
   include: 'all_parent_folder_ids',
   x_account_id: '<id>',
@@ -276,7 +276,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsListDrivesRequest.new(
-  fields_: 'id,remote_id,name,description,url,created_at,updated_at',
+  fields_: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::DocumentsListDrivesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -338,7 +338,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsListFilesRequest.new(
-  fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids',
+  fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   filter: Models::Operations::DocumentsListFilesQueryParamFilter.new(
     content: 'FAQ of the project',
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -408,7 +408,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsListFoldersRequest.new(
-  fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids',
+  fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   filter: Models::Operations::DocumentsListFoldersQueryParamFilter.new(
     drive_id: '1234567890',
     folder_id: '1234567890',

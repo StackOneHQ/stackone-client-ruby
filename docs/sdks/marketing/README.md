@@ -457,7 +457,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetCampaignRequest.new(
-  fields_: 'id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages',
+  fields_: 'id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -517,7 +517,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetContentBlockRequest.new(
-  fields_: 'id,remote_id,name,type,content,status,tags,created_at,updated_at',
+  fields_: 'id,remote_id,name,type,content,status,tags,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -577,7 +577,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetEmailTemplateRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -637,7 +637,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetInAppTemplateRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -699,7 +699,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetOmniChannelTemplateRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -759,7 +759,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetPushTemplateRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -819,7 +819,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingGetSmsTemplateRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -879,7 +879,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListCampaignsRequest.new(
-  fields_: 'id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages',
+  fields_: 'id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages,unified_custom_fields',
   filter: Models::Operations::MarketingListCampaignsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -941,7 +941,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListContentBlocksRequest.new(
-  fields_: 'id,remote_id,name,type,content,status,tags,created_at,updated_at',
+  fields_: 'id,remote_id,name,type,content,status,tags,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::MarketingListContentBlocksQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1003,7 +1003,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListEmailTemplatesRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1065,7 +1065,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListInAppTemplatesRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
 )
@@ -1127,7 +1127,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListOmniChannelTemplatesRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1189,7 +1189,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListPushTemplatesRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListPushTemplatesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1251,7 +1251,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MarketingListSmsTemplatesRequest.new(
-  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags',
+  fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

@@ -25,22 +25,22 @@ module StackOne
         field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The employee ID associated with this shift
         field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
-        # The end time of the shift
-        field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The end time of the shift (ISO8601 date-time without timezone)
+        field :end_time, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The location ID where this shift takes place
         field :location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-        # The start time of the shift
-        field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The start time of the shift (ISO8601 date-time without timezone)
+        field :start_time, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time') } }
         # The status of the shift
         field :status, Crystalline::Nilable.new(Models::Shared::HrisShiftStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The date and time the shift was last updated
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(approval_status: T.nilable(Models::Shared::ApprovalStatus), break_duration: T.nilable(::String), breaks: T.nilable(T::Array[Models::Shared::ShiftBreak]), company_id: T.nilable(::String), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), end_time: T.nilable(::DateTime), id: T.nilable(::String), location_id: T.nilable(::String), remote_id: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(Models::Shared::HrisShiftStatus), updated_at: T.nilable(::DateTime)).void }
+        sig { params(approval_status: T.nilable(Models::Shared::ApprovalStatus), break_duration: T.nilable(::String), breaks: T.nilable(T::Array[Models::Shared::ShiftBreak]), company_id: T.nilable(::String), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), end_time: T.nilable(::String), id: T.nilable(::String), location_id: T.nilable(::String), remote_id: T.nilable(::String), start_time: T.nilable(::String), status: T.nilable(Models::Shared::HrisShiftStatus), updated_at: T.nilable(::DateTime)).void }
         def initialize(approval_status: nil, break_duration: nil, breaks: nil, company_id: nil, created_at: nil, employee_id: nil, end_time: nil, id: nil, location_id: nil, remote_id: nil, start_time: nil, status: nil, updated_at: nil)
           @approval_status = approval_status
           @break_duration = break_duration

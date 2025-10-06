@@ -29,3 +29,4 @@ Filter to select time-off policies by type
 | `PERSONAL`              | personal                |
 | `IN_LIEU`               | in_lieu                 |
 | `BEREAVEMENT`           | bereavement             |
+| `OTHER`                 | other                   |
