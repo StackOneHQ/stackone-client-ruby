@@ -86,7 +86,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_authenticate_connect_session',
         security_source: @sdk_configuration.security_source
       )
@@ -370,7 +370,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_create_connect_session',
         security_source: @sdk_configuration.security_source
       )

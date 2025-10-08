@@ -92,7 +92,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_create_ticket',
         security_source: @sdk_configuration.security_source
       )
@@ -386,7 +386,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_download_ticketing_attachment',
         security_source: @sdk_configuration.security_source
       )
@@ -678,7 +678,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_attachment',
         security_source: @sdk_configuration.security_source
       )
@@ -972,7 +972,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_comment',
         security_source: @sdk_configuration.security_source
       )
@@ -1266,7 +1266,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_project',
         security_source: @sdk_configuration.security_source
       )
@@ -1560,7 +1560,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_project_component',
         security_source: @sdk_configuration.security_source
       )
@@ -1854,7 +1854,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_ticket',
         security_source: @sdk_configuration.security_source
       )
@@ -2148,7 +2148,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_ticket_type',
         security_source: @sdk_configuration.security_source
       )
@@ -2442,7 +2442,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_get_user',
         security_source: @sdk_configuration.security_source
       )
@@ -2736,7 +2736,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_attachments',
         security_source: @sdk_configuration.security_source
       )
@@ -3059,7 +3059,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_comments',
         security_source: @sdk_configuration.security_source
       )
@@ -3382,7 +3382,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_project_components',
         security_source: @sdk_configuration.security_source
       )
@@ -3705,7 +3705,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_project_ticket_types',
         security_source: @sdk_configuration.security_source
       )
@@ -4023,7 +4023,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_projects',
         security_source: @sdk_configuration.security_source
       )
@@ -4345,7 +4345,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_ticket_statuses',
         security_source: @sdk_configuration.security_source
       )
@@ -4663,7 +4663,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_ticket_types',
         security_source: @sdk_configuration.security_source
       )
@@ -4980,7 +4980,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_tickets',
         security_source: @sdk_configuration.security_source
       )
@@ -5297,7 +5297,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_list_users',
         security_source: @sdk_configuration.security_source
       )
@@ -5634,7 +5634,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ticketing_update_ticket',
         security_source: @sdk_configuration.security_source
       )

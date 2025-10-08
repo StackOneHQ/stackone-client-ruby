@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Operations::AtsListApplicationsQueryParamFilter
+  def application_stage_id(); end
+  def application_stage_id=(str_); end
   def created_after(); end
   def created_after=(str_); end
   def job_id(); end

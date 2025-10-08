@@ -16,6 +16,8 @@ module StackOne
 
         field :application_status, Crystalline::Nilable.new(Models::Shared::ApplicationChangesDataModelApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
         # Unique identifier of the interview stage
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
         # Unique identifiers of the rejection reasons
         field :rejected_reason_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }

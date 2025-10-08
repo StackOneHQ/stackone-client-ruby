@@ -8,6 +8,10 @@ end
 
 
 class StackOne::Models::Shared::Application
+  def application_stage(); end
+  def application_stage=(str_); end
+  def application_stage_id(); end
+  def application_stage_id=(str_); end
   def application_status(); end
   def application_status=(str_); end
   def attachments(); end
@@ -42,6 +46,8 @@ class StackOne::Models::Shared::Application
   def rejected_reason_ids=(str_); end
   def rejected_reasons(); end
   def rejected_reasons=(str_); end
+  def remote_application_stage_id(); end
+  def remote_application_stage_id=(str_); end
   def remote_candidate_id(); end
   def remote_candidate_id=(str_); end
   def remote_id(); end

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 40200cce9945f50f74cd58b7d22786aa
+  docChecksum: 055693879580c1b3ca26051005468530
   docVersion: 1.0.0
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 0.37.2
-  configChecksum: 5cd465565e0c3b1d79df76bb2da0d868
+  speakeasyVersion: 1.636.0
+  generationVersion: 2.723.2
+  releaseVersion: 0.37.3
+  configChecksum: 3f8ec57098eb051f119a1eb04021858c
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -20,14 +20,14 @@ features:
     flattening: 2.81.1
     globalSecurity: 2.81.9
     globalServerURLs: 2.82.4
-    groups: 2.81.2
+    groups: 2.81.3
     methodSecurity: 2.82.2
     nameOverrides: 2.81.2
     nullables: 0.1.0
     pagination: 0.1.0
     responseFormat: 0.1.0
     retries: 0.1.1
-    unions: 0.1.0
+    unions: 0.1.1
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
@@ -839,6 +839,7 @@ generatedFiles:
   - docs/models/shared/answervalue.md
   - docs/models/shared/application.md
   - docs/models/shared/application4.md
+  - docs/models/shared/applicationapplicationstage.md
   - docs/models/shared/applicationattachment.md
   - docs/models/shared/applicationattachment4.md
   - docs/models/shared/applicationattachmentsourcevalue.md
@@ -2448,7 +2449,6 @@ generatedFiles:
   - docs/sdks/proxy/README.md
   - docs/sdks/requestlogs/README.md
   - docs/sdks/screening/README.md
-  - docs/sdks/stackone/README.md
   - docs/sdks/ticketing/README.md
   - extra.rbi
   - lib/crystalline.rb
@@ -4084,6 +4084,8 @@ generatedFiles:
   - lib/stack_one/models/shared/application.rbi
   - lib/stack_one/models/shared/application_4.rb
   - lib/stack_one/models/shared/application_4.rbi
+  - lib/stack_one/models/shared/application_application_stage.rb
+  - lib/stack_one/models/shared/application_application_stage.rbi
   - lib/stack_one/models/shared/application_candidate.rb
   - lib/stack_one/models/shared/application_candidate.rbi
   - lib/stack_one/models/shared/application_interview_stage.rb
@@ -8418,14 +8420,14 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields"
           expand: "documents"
           include: "attachments,custom_fields"
         header:
           x-account-id: "<id>"
       responses:
         "200":
-          application/json: {"data": {"application_status": {"source_value": "Hired", "value": "hired"}, "candidate": {"company": "Company Inc.", "email": "john.doe@example.com", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "John", "last_name": "Doe", "name": "Romain Sestier", "phone_numbers": [{"phone": "+447700112233"}], "social_links": null, "title": "Software Engineer"}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "created_at": "2021-01-01T01:01:01.000Z", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "documents": [{"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-02T01:01:01.000Z"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "interview_stage": {"created_at": "2021-01-01T01:01:01.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "interview_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "location_ids": ["dd8d41d1-5eb8-4408-9c87-9ba44604eae4"], "questionnaires": [{"answers": [{"id": "answer1", "type": {"source_value": "Short Text", "value": "short_text"}, "values": ["Yes"]}], "id": "right_to_work"}], "rejected_at": "2021-01-01T01:01:01.000Z", "rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"], "rejected_reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "label": "Failed Phone Screen", "rejected_reason_type": {"source_value": "RejectedByOrg", "value": "rejected_by_organization"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "remote_candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_interview_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "remote_job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "remote_location_ids": ["dd8d41d1-5eb8-4408-9c87-9ba44604eae4"], "remote_rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"], "result_links": [{"label": "test result link", "url": "http://example.com/test-result/4565765/data"}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
+          application/json: {"data": {"application_stage": {"created_at": "2021-01-01T01:01:01.000Z", "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Review", "order": 1, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}, "application_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "application_status": {"source_value": "Hired", "value": "hired"}, "candidate": {"company": "Company Inc.", "email": "john.doe@example.com", "emails": [{"type": "personal", "value": "sestier.romain123@gmail.com"}], "first_name": "John", "last_name": "Doe", "name": "Romain Sestier", "phone_numbers": [{"phone": "+447700112233"}], "social_links": null, "title": "Software Engineer"}, "candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "created_at": "2021-01-01T01:01:01.000Z", "custom_fields": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "Training Completion Status", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_value_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "value": "Completed", "value_id": "value_456"}], "documents": [{"category": {}, "category_id": "6530", "created_at": "2021-01-01T01:01:01.000Z", "file_format": {"source_value": "application/pdf", "value": "pdf"}, "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "My Document", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_url": "https://example.com/file.pdf", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-02T01:01:01.000Z"}], "id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "location_ids": ["dd8d41d1-5eb8-4408-9c87-9ba44604eae4"], "questionnaires": [{"answers": [{"id": "answer1", "type": {"source_value": "Short Text", "value": "short_text"}, "values": ["Yes"]}], "id": "right_to_work"}], "rejected_at": "2021-01-01T01:01:01.000Z", "rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"], "rejected_reasons": [{"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "label": "Failed Phone Screen", "rejected_reason_type": {"source_value": "RejectedByOrg", "value": "rejected_by_organization"}, "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}}], "remote_application_stage_id": "18bcbb1b-3cbc-4198-a999-460861d19480", "remote_candidate_id": "e3cb75bf-aa84-466e-a6c1-b8322b257a48", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "remote_job_id": "4071538b-3cac-4fbf-ac76-f78ed250ffdd", "remote_location_ids": ["dd8d41d1-5eb8-4408-9c87-9ba44604eae4"], "remote_rejected_reason_ids": ["f223d7f6-908b-48f0-9237-b201c307f609"], "result_links": [{"label": "test result link", "url": "http://example.com/test-result/4565765/data"}], "source": {"id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3", "name": "LinkedIn", "remote_id": "8187e5da-dc77-475e-9949-af0f1fa4e4e3"}, "unified_custom_fields": {"my_project_custom_field_1": "REF-1236", "my_project_custom_field_2": "some other value"}, "updated_at": "2021-01-01T01:01:01.000Z"}}
         "400":
           application/json: {"data": {"headers": {}, "message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"headers": {}, "raw": {}, "status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -8641,7 +8643,7 @@ examples:
           id: "<id>"
           subResourceId: "<id>"
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields"
         header:
           x-account-id: "<id>"
       responses:
@@ -9548,7 +9550,7 @@ examples:
     speakeasy-default-ats-list-applications:
       parameters:
         query:
-          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields"
+          fields: "id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields"
           filter: {"created_after": "2020-01-01T00:00:00.000Z", "updated_after": "2020-01-01T00:00:00.000Z"}
           expand: "documents"
           include: "attachments,custom_fields"
@@ -17708,4 +17710,4 @@ examples:
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes Detected:\n* `stack_one.hris.get_employee_shift()`:  `response.data` **Changed** **Breaking** :warning:\n* `stack_one.hris.get_shift()`:  `response.data` **Changed** **Breaking** :warning:\n* `stack_one.hris.list_employee_shifts()`: \n  *  `request.filter` **Changed** **Breaking** :warning:\n  *  `response.data.[]` **Changed** **Breaking** :warning:\n* `stack_one.hris.list_shifts()`: \n  *  `request.filter` **Changed** **Breaking** :warning:\n  *  `response.data.[]` **Changed** **Breaking** :warning:\n* `stack_one.hris.list_employee_time_off_policies()`: \n  *  `request.filter` **Changed**\n* `stack_one.hris.list_time_off_policies()`: \n  *  `request.filter` **Changed**\n"
+releaseNotes: "## Ruby SDK Changes Detected:\n* `stack_one.ats.get_application()`:  `response.data` **Changed**\n* `stack_one.ats.list_applications()`: \n  *  `request.filter` **Changed**\n  *  `response.data.[]` **Changed**\n"

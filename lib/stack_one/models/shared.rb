@@ -102,6 +102,7 @@ module StackOne
       autoload :ApplicationStageResult, 'stack_one/models/shared/applicationstageresult.rb'
       autoload :ApplicationStagesPaginated, 'stack_one/models/shared/applicationstagespaginated.rb'
       autoload :Application4, 'stack_one/models/shared/application_4.rb'
+      autoload :ApplicationApplicationStage, 'stack_one/models/shared/application_application_stage.rb'
       autoload :ApplicationCandidate, 'stack_one/models/shared/application_candidate.rb'
       autoload :ApplicationInterviewStage, 'stack_one/models/shared/application_interview_stage.rb'
       autoload :ApplicationSourceValue, 'stack_one/models/shared/application_source_value.rb'

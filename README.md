@@ -84,7 +84,7 @@ This SDK supports the following security scheme globally:
 
 | Name                      | Type | Scheme     |
 | ------------------------- | ---- | ---------- |
-| `username`<br/>`password` | http | HTTP Basic |
+| `password`<br/>`username` | http | HTTP Basic |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```ruby
@@ -452,7 +452,6 @@ end
 * [get_screening_package](docs/sdks/screening/README.md#get_screening_package) - Get Screening Package
 * [list_screening_packages](docs/sdks/screening/README.md#list_screening_packages) - List Screening Packages
 * [webhook_screening_result](docs/sdks/screening/README.md#webhook_screening_result) - Webhook Screening Result
-
 
 ### [ticketing](docs/sdks/ticketing/README.md)
 

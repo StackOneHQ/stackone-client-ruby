@@ -97,7 +97,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_batch_upload_employee_document',
         security_source: @sdk_configuration.security_source
       )
@@ -394,7 +394,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_cancel_employee_time_off_request',
         security_source: @sdk_configuration.security_source
       )
@@ -708,7 +708,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_create_employee',
         security_source: @sdk_configuration.security_source
       )
@@ -1016,7 +1016,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_create_employee_employment',
         security_source: @sdk_configuration.security_source
       )
@@ -1324,7 +1324,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_create_employee_skill',
         security_source: @sdk_configuration.security_source
       )
@@ -1632,7 +1632,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_create_employee_time_off_request',
         security_source: @sdk_configuration.security_source
       )
@@ -1940,7 +1940,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_create_employee_work_eligibility_request',
         security_source: @sdk_configuration.security_source
       )
@@ -2233,7 +2233,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_download_employee_document',
         security_source: @sdk_configuration.security_source
       )
@@ -3118,7 +3118,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_benefit',
         security_source: @sdk_configuration.security_source
       )
@@ -3411,7 +3411,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_company',
         security_source: @sdk_configuration.security_source
       )
@@ -3704,7 +3704,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_company_group',
         security_source: @sdk_configuration.security_source
       )
@@ -3997,7 +3997,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_cost_center_group',
         security_source: @sdk_configuration.security_source
       )
@@ -4290,7 +4290,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_department_group',
         security_source: @sdk_configuration.security_source
       )
@@ -4583,7 +4583,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_division_group',
         security_source: @sdk_configuration.security_source
       )
@@ -4876,7 +4876,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee',
         security_source: @sdk_configuration.security_source
       )
@@ -5169,7 +5169,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_custom_field_definition',
         security_source: @sdk_configuration.security_source
       )
@@ -5462,7 +5462,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_document',
         security_source: @sdk_configuration.security_source
       )
@@ -5755,7 +5755,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_document_category',
         security_source: @sdk_configuration.security_source
       )
@@ -6048,7 +6048,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_employment',
         security_source: @sdk_configuration.security_source
       )
@@ -6341,7 +6341,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_shift',
         security_source: @sdk_configuration.security_source
       )
@@ -6634,7 +6634,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_skill',
         security_source: @sdk_configuration.security_source
       )
@@ -6927,7 +6927,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_task',
         security_source: @sdk_configuration.security_source
       )
@@ -7220,7 +7220,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employee_time_off_balance',
         security_source: @sdk_configuration.security_source
       )
@@ -7513,7 +7513,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employees_time_off_request',
         security_source: @sdk_configuration.security_source
       )
@@ -7806,7 +7806,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employees_work_eligibility',
         security_source: @sdk_configuration.security_source
       )
@@ -8099,7 +8099,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_employment',
         security_source: @sdk_configuration.security_source
       )
@@ -8392,7 +8392,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_group',
         security_source: @sdk_configuration.security_source
       )
@@ -8685,7 +8685,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_job',
         security_source: @sdk_configuration.security_source
       )
@@ -8978,7 +8978,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_location',
         security_source: @sdk_configuration.security_source
       )
@@ -9271,7 +9271,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_position',
         security_source: @sdk_configuration.security_source
       )
@@ -9564,7 +9564,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_shift',
         security_source: @sdk_configuration.security_source
       )
@@ -9857,7 +9857,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_task',
         security_source: @sdk_configuration.security_source
       )
@@ -10150,7 +10150,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_team_group',
         security_source: @sdk_configuration.security_source
       )
@@ -10443,7 +10443,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_time_entries',
         security_source: @sdk_configuration.security_source
       )
@@ -10736,7 +10736,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_time_off_policy',
         security_source: @sdk_configuration.security_source
       )
@@ -11029,7 +11029,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_time_off_request',
         security_source: @sdk_configuration.security_source
       )
@@ -11324,7 +11324,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_get_time_off_type',
         security_source: @sdk_configuration.security_source
       )
@@ -11632,7 +11632,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_invite_employee',
         security_source: @sdk_configuration.security_source
       )
@@ -11920,7 +11920,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_benefits',
         security_source: @sdk_configuration.security_source
       )
@@ -12236,7 +12236,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_companies',
         security_source: @sdk_configuration.security_source
       )
@@ -12552,7 +12552,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_companies_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -12868,7 +12868,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_cost_center_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -13184,7 +13184,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_department_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -13500,7 +13500,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_division_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -13816,7 +13816,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_categories',
         security_source: @sdk_configuration.security_source
       )
@@ -14132,7 +14132,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_custom_field_definitions',
         security_source: @sdk_configuration.security_source
       )
@@ -14453,7 +14453,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_documents',
         security_source: @sdk_configuration.security_source
       )
@@ -14775,7 +14775,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_employments',
         security_source: @sdk_configuration.security_source
       )
@@ -15098,7 +15098,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_shifts',
         security_source: @sdk_configuration.security_source
       )
@@ -15420,7 +15420,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_skills',
         security_source: @sdk_configuration.security_source
       )
@@ -15742,7 +15742,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_tasks',
         security_source: @sdk_configuration.security_source
       )
@@ -16065,7 +16065,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_time_off_balances',
         security_source: @sdk_configuration.security_source
       )
@@ -16388,7 +16388,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_time_off_policies',
         security_source: @sdk_configuration.security_source
       )
@@ -16710,7 +16710,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_time_off_requests',
         security_source: @sdk_configuration.security_source
       )
@@ -17033,7 +17033,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employee_work_eligibility',
         security_source: @sdk_configuration.security_source
       )
@@ -17350,7 +17350,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employees',
         security_source: @sdk_configuration.security_source
       )
@@ -17668,7 +17668,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_employments',
         security_source: @sdk_configuration.security_source
       )
@@ -17985,7 +17985,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -18301,7 +18301,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_jobs',
         security_source: @sdk_configuration.security_source
       )
@@ -18617,7 +18617,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_locations',
         security_source: @sdk_configuration.security_source
       )
@@ -18933,7 +18933,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_positions',
         security_source: @sdk_configuration.security_source
       )
@@ -19250,7 +19250,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_shifts',
         security_source: @sdk_configuration.security_source
       )
@@ -19566,7 +19566,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_tasks',
         security_source: @sdk_configuration.security_source
       )
@@ -19883,7 +19883,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_team_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -20199,7 +20199,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_time_entries',
         security_source: @sdk_configuration.security_source
       )
@@ -20515,7 +20515,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_time_off_policies',
         security_source: @sdk_configuration.security_source
       )
@@ -20831,7 +20831,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_time_off_requests',
         security_source: @sdk_configuration.security_source
       )
@@ -21150,7 +21150,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_list_time_off_types',
         security_source: @sdk_configuration.security_source
       )
@@ -21486,7 +21486,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_update_employee',
         security_source: @sdk_configuration.security_source
       )
@@ -21795,7 +21795,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_update_employee_employment',
         security_source: @sdk_configuration.security_source
       )
@@ -22104,7 +22104,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_update_employee_task',
         security_source: @sdk_configuration.security_source
       )
@@ -22413,7 +22413,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_update_employee_time_off_request',
         security_source: @sdk_configuration.security_source
       )
@@ -22722,7 +22722,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_update_employee_work_eligibility_request',
         security_source: @sdk_configuration.security_source
       )
@@ -23021,7 +23021,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'hris_upload_employee_document',
         security_source: @sdk_configuration.security_source
       )

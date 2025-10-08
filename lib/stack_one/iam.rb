@@ -85,7 +85,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_delete_user',
         security_source: @sdk_configuration.security_source
       )
@@ -390,7 +390,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_get_group',
         security_source: @sdk_configuration.security_source
       )
@@ -683,7 +683,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_get_policy',
         security_source: @sdk_configuration.security_source
       )
@@ -976,7 +976,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_get_role',
         security_source: @sdk_configuration.security_source
       )
@@ -1269,7 +1269,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_get_user',
         security_source: @sdk_configuration.security_source
       )
@@ -1557,7 +1557,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_list_groups',
         security_source: @sdk_configuration.security_source
       )
@@ -1874,7 +1874,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_list_policies',
         security_source: @sdk_configuration.security_source
       )
@@ -2191,7 +2191,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_list_roles',
         security_source: @sdk_configuration.security_source
       )
@@ -2508,7 +2508,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_list_users',
         security_source: @sdk_configuration.security_source
       )
@@ -2845,7 +2845,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'iam_update_user',
         security_source: @sdk_configuration.security_source
       )

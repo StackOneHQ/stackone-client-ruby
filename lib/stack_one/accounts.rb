@@ -83,7 +83,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_delete_account',
         security_source: @sdk_configuration.security_source
       )
@@ -363,7 +363,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_get_account',
         security_source: @sdk_configuration.security_source
       )
@@ -643,7 +643,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_get_account_meta_info',
         security_source: @sdk_configuration.security_source
       )
@@ -916,7 +916,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_list_linked_accounts',
         security_source: @sdk_configuration.security_source
       )
@@ -1209,7 +1209,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_update_account',
         security_source: @sdk_configuration.security_source
       )

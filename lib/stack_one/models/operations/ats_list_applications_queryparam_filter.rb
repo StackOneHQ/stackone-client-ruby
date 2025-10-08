@@ -13,6 +13,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Filter to select applications by application_stage_id
+        field :application_stage_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'application_stage_id' } }
         # Use a string with a date to only select results created after that given date
         field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after' } }
         # Filter to select applications by job_id
@@ -22,8 +24,9 @@ module StackOne
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
-        sig { params(created_after: T.nilable(::DateTime), job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
-        def initialize(created_after: nil, job_id: nil, stage: nil, updated_after: nil)
+        sig { params(application_stage_id: T.nilable(::String), created_after: T.nilable(::DateTime), job_id: T.nilable(::String), stage: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
+        def initialize(application_stage_id: nil, created_after: nil, job_id: nil, stage: nil, updated_after: nil)
+          @application_stage_id = application_stage_id
           @created_after = created_after
           @job_id = job_id
           @stage = stage
@@ -33,6 +36,7 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @application_stage_id == other.application_stage_id
           return false unless @created_after == other.created_after
           return false unless @job_id == other.job_id
           return false unless @stage == other.stage
