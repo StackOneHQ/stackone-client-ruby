@@ -51,6 +51,10 @@ module Crystalline
       data.transform_values { |v| Crystalline.unmarshal_json(v, Crystalline::Utils.hash_of(type)) }
     elsif Crystalline::Utils.nilable?(type) && data == 'null'
       nil
+    elsif Crystalline::Utils.boolean? type
+      Crystalline::Utils.to_boolean(data)
+    elsif type.is_a?(Class) && type < T::Enum
+      type.deserialize(data)
     else
       data
     end

@@ -91,7 +91,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_batch_upsert_content',
         security_source: @sdk_configuration.security_source
       )
@@ -399,7 +399,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_create_user_assignment',
         security_source: @sdk_configuration.security_source
       )
@@ -707,7 +707,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_create_user_completion',
         security_source: @sdk_configuration.security_source
       )
@@ -1004,7 +1004,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_delete_user_completion',
         security_source: @sdk_configuration.security_source
       )
@@ -1309,7 +1309,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_assignment',
         security_source: @sdk_configuration.security_source
       )
@@ -1602,7 +1602,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_category',
         security_source: @sdk_configuration.security_source
       )
@@ -1895,7 +1895,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_completion',
         security_source: @sdk_configuration.security_source
       )
@@ -2188,7 +2188,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_content',
         security_source: @sdk_configuration.security_source
       )
@@ -2481,7 +2481,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_course',
         security_source: @sdk_configuration.security_source
       )
@@ -2774,7 +2774,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_skill',
         security_source: @sdk_configuration.security_source
       )
@@ -3067,7 +3067,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_user',
         security_source: @sdk_configuration.security_source
       )
@@ -3360,7 +3360,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_user_assignment',
         security_source: @sdk_configuration.security_source
       )
@@ -3653,7 +3653,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_get_user_completion',
         security_source: @sdk_configuration.security_source
       )
@@ -3941,7 +3941,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_assignments',
         security_source: @sdk_configuration.security_source
       )
@@ -4259,7 +4259,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_categories',
         security_source: @sdk_configuration.security_source
       )
@@ -4575,7 +4575,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_completions',
         security_source: @sdk_configuration.security_source
       )
@@ -4891,7 +4891,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_content',
         security_source: @sdk_configuration.security_source
       )
@@ -5207,7 +5207,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_courses',
         security_source: @sdk_configuration.security_source
       )
@@ -5523,7 +5523,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_skills',
         security_source: @sdk_configuration.security_source
       )
@@ -5844,7 +5844,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_user_assignments',
         security_source: @sdk_configuration.security_source
       )
@@ -6168,7 +6168,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_user_completions',
         security_source: @sdk_configuration.security_source
       )
@@ -6485,7 +6485,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_list_users',
         security_source: @sdk_configuration.security_source
       )
@@ -6821,7 +6821,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_update_content',
         security_source: @sdk_configuration.security_source
       )
@@ -7123,7 +7123,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'lms_upsert_content',
         security_source: @sdk_configuration.security_source
       )

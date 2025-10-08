@@ -91,7 +91,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_create_content_block',
         security_source: @sdk_configuration.security_source
       )
@@ -393,7 +393,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_create_email_template',
         security_source: @sdk_configuration.security_source
       )
@@ -695,7 +695,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_create_in_app_template',
         security_source: @sdk_configuration.security_source
       )
@@ -999,7 +999,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_create_omni_channel_template',
         security_source: @sdk_configuration.security_source
       )
@@ -1301,7 +1301,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_create_push_template',
         security_source: @sdk_configuration.security_source
       )
@@ -1603,7 +1603,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_create_sms_template',
         security_source: @sdk_configuration.security_source
       )
@@ -1896,7 +1896,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_campaign',
         security_source: @sdk_configuration.security_source
       )
@@ -2189,7 +2189,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_content_block',
         security_source: @sdk_configuration.security_source
       )
@@ -2482,7 +2482,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_email_template',
         security_source: @sdk_configuration.security_source
       )
@@ -2775,7 +2775,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_in_app_template',
         security_source: @sdk_configuration.security_source
       )
@@ -3070,7 +3070,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_omni_channel_template',
         security_source: @sdk_configuration.security_source
       )
@@ -3363,7 +3363,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_push_template',
         security_source: @sdk_configuration.security_source
       )
@@ -3656,7 +3656,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_get_sms_template',
         security_source: @sdk_configuration.security_source
       )
@@ -3944,7 +3944,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_campaigns',
         security_source: @sdk_configuration.security_source
       )
@@ -4260,7 +4260,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_content_blocks',
         security_source: @sdk_configuration.security_source
       )
@@ -4576,7 +4576,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_email_templates',
         security_source: @sdk_configuration.security_source
       )
@@ -4892,7 +4892,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_in_app_templates',
         security_source: @sdk_configuration.security_source
       )
@@ -5210,7 +5210,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_omni_channel_templates',
         security_source: @sdk_configuration.security_source
       )
@@ -5526,7 +5526,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_push_templates',
         security_source: @sdk_configuration.security_source
       )
@@ -5842,7 +5842,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_list_sms_templates',
         security_source: @sdk_configuration.security_source
       )
@@ -6178,7 +6178,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_update_content_block',
         security_source: @sdk_configuration.security_source
       )
@@ -6486,7 +6486,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_update_email_template',
         security_source: @sdk_configuration.security_source
       )
@@ -6794,7 +6794,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_update_in_app_template',
         security_source: @sdk_configuration.security_source
       )
@@ -7104,7 +7104,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_update_omni_channel_template',
         security_source: @sdk_configuration.security_source
       )
@@ -7412,7 +7412,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_update_push_template',
         security_source: @sdk_configuration.security_source
       )
@@ -7720,7 +7720,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'marketing_update_sms_template',
         security_source: @sdk_configuration.security_source
       )

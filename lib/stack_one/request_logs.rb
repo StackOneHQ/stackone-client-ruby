@@ -85,7 +85,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_get_log',
         security_source: @sdk_configuration.security_source
       )
@@ -359,7 +359,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_list_logs',
         security_source: @sdk_configuration.security_source
       )
@@ -633,7 +633,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_list_platform_logs',
         security_source: @sdk_configuration.security_source
       )
@@ -907,7 +907,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'stackone_list_step_logs',
         security_source: @sdk_configuration.security_source
       )

@@ -82,7 +82,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_download_file',
         security_source: @sdk_configuration.security_source
       )
@@ -373,7 +373,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_get_drive',
         security_source: @sdk_configuration.security_source
       )
@@ -666,7 +666,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_get_file',
         security_source: @sdk_configuration.security_source
       )
@@ -959,7 +959,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_get_folder',
         security_source: @sdk_configuration.security_source
       )
@@ -1247,7 +1247,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_list_drives',
         security_source: @sdk_configuration.security_source
       )
@@ -1563,7 +1563,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_list_files',
         security_source: @sdk_configuration.security_source
       )
@@ -1883,7 +1883,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_list_folders',
         security_source: @sdk_configuration.security_source
       )
@@ -2217,7 +2217,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'documents_upload_file',
         security_source: @sdk_configuration.security_source
       )

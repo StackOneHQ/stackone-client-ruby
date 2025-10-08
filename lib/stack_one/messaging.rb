@@ -91,7 +91,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_create_conversation',
         security_source: @sdk_configuration.security_source
       )
@@ -384,7 +384,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_download_messaging_attachment',
         security_source: @sdk_configuration.security_source
       )
@@ -675,7 +675,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_get_attachment',
         security_source: @sdk_configuration.security_source
       )
@@ -968,7 +968,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_get_conversation',
         security_source: @sdk_configuration.security_source
       )
@@ -1261,7 +1261,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_get_message',
         security_source: @sdk_configuration.security_source
       )
@@ -1554,7 +1554,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_get_user',
         security_source: @sdk_configuration.security_source
       )
@@ -1847,7 +1847,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_list_attachments',
         security_source: @sdk_configuration.security_source
       )
@@ -2169,7 +2169,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_list_conversation_messages',
         security_source: @sdk_configuration.security_source
       )
@@ -2486,7 +2486,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_list_conversations',
         security_source: @sdk_configuration.security_source
       )
@@ -2802,7 +2802,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_list_users',
         security_source: @sdk_configuration.security_source
       )
@@ -3132,7 +3132,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'messaging_send_message',
         security_source: @sdk_configuration.security_source
       )

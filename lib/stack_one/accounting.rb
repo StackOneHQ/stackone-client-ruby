@@ -97,7 +97,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_batch_create_company_journals',
         security_source: @sdk_configuration.security_source
       )
@@ -405,7 +405,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_create_company_journal',
         security_source: @sdk_configuration.security_source
       )
@@ -698,7 +698,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_get_company',
         security_source: @sdk_configuration.security_source
       )
@@ -991,7 +991,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_get_company_account',
         security_source: @sdk_configuration.security_source
       )
@@ -1284,7 +1284,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_get_company_journal',
         security_source: @sdk_configuration.security_source
       )
@@ -1577,7 +1577,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_get_company_tax_rate',
         security_source: @sdk_configuration.security_source
       )
@@ -1865,7 +1865,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_list_companies',
         security_source: @sdk_configuration.security_source
       )
@@ -2186,7 +2186,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_list_company_accounts',
         security_source: @sdk_configuration.security_source
       )
@@ -2508,7 +2508,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_list_company_journals',
         security_source: @sdk_configuration.security_source
       )
@@ -2830,7 +2830,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'accounting_list_company_tax_rates',
         security_source: @sdk_configuration.security_source
       )

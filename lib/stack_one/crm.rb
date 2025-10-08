@@ -91,7 +91,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_create_contact',
         security_source: @sdk_configuration.security_source
       )
@@ -384,7 +384,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_account',
         security_source: @sdk_configuration.security_source
       )
@@ -677,7 +677,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_contact',
         security_source: @sdk_configuration.security_source
       )
@@ -970,7 +970,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_contact_custom_field_definition',
         security_source: @sdk_configuration.security_source
       )
@@ -1263,7 +1263,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_get_list',
         security_source: @sdk_configuration.security_source
       )
@@ -1551,7 +1551,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_accounts',
         security_source: @sdk_configuration.security_source
       )
@@ -1867,7 +1867,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_contact_custom_field_definitions',
         security_source: @sdk_configuration.security_source
       )
@@ -2183,7 +2183,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_contacts',
         security_source: @sdk_configuration.security_source
       )
@@ -2500,7 +2500,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_list_lists',
         security_source: @sdk_configuration.security_source
       )
@@ -2836,7 +2836,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'crm_update_contact',
         security_source: @sdk_configuration.security_source
       )

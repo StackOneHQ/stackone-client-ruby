@@ -14,6 +14,10 @@ module StackOne
         include Crystalline::MetadataFields
 
 
+        field :application_stage, Crystalline::Nilable.new(Models::Shared::ApplicationApplicationStage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_stage') } }
+        # Unique identifier of the application stage
+        field :application_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_stage_id') } }
+
         field :application_status, Crystalline::Nilable.new(Models::Shared::ApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
         # Use `documents` expand instead
         # 
@@ -31,9 +35,11 @@ module StackOne
         field :documents, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AtsDocumentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :interview_stage, Crystalline::Nilable.new(Models::Shared::ApplicationInterviewStage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
         # Unique identifier of the interview stage
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
         # Unique identifier of the job
         field :job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
@@ -51,11 +57,15 @@ module StackOne
         field :rejected_reason_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
 
         field :rejected_reasons, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RejectedReason)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reasons') } }
+        # Unique identifier of the application stage
+        field :remote_application_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_application_stage_id') } }
         # Provider's unique identifier of the candidate
         field :remote_candidate_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_candidate_id') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the interview stage
+        # 
+        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :remote_interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_stage_id') } }
         # Provider's unique identifier of the job
         field :remote_job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
@@ -76,8 +86,10 @@ module StackOne
         # Date of last update
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(application_status: T.nilable(Models::Shared::ApplicationStatus), attachments: T.nilable(T::Array[Models::Shared::ApplicationAttachment]), candidate: T.nilable(Models::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), documents: T.nilable(T::Array[Models::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(Models::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[Models::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[Models::Shared::RejectedReason]), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_job_id: T.nilable(::String), remote_location_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), remote_rejected_reason_ids: T.nilable(T::Array[::String]), result_links: T.nilable(T::Array[Models::Shared::ResultLink]), source: T.nilable(Models::Shared::Source), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, custom_fields: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_job_id: nil, remote_location_id: nil, remote_location_ids: nil, remote_rejected_reason_ids: nil, result_links: nil, source: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(application_stage: T.nilable(Models::Shared::ApplicationApplicationStage), application_stage_id: T.nilable(::String), application_status: T.nilable(Models::Shared::ApplicationStatus), attachments: T.nilable(T::Array[Models::Shared::ApplicationAttachment]), candidate: T.nilable(Models::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), documents: T.nilable(T::Array[Models::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(Models::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[Models::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[Models::Shared::RejectedReason]), remote_application_stage_id: T.nilable(::String), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_job_id: T.nilable(::String), remote_location_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), remote_rejected_reason_ids: T.nilable(T::Array[::String]), result_links: T.nilable(T::Array[Models::Shared::ResultLink]), source: T.nilable(Models::Shared::Source), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(application_stage: nil, application_stage_id: nil, application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, custom_fields: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_application_stage_id: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_job_id: nil, remote_location_id: nil, remote_location_ids: nil, remote_rejected_reason_ids: nil, result_links: nil, source: nil, unified_custom_fields: nil, updated_at: nil)
+          @application_stage = application_stage
+          @application_stage_id = application_stage_id
           @application_status = application_status
           @attachments = attachments
           @candidate = candidate
@@ -95,6 +107,7 @@ module StackOne
           @rejected_at = rejected_at
           @rejected_reason_ids = rejected_reason_ids
           @rejected_reasons = rejected_reasons
+          @remote_application_stage_id = remote_application_stage_id
           @remote_candidate_id = remote_candidate_id
           @remote_id = remote_id
           @remote_interview_stage_id = remote_interview_stage_id
@@ -111,6 +124,8 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @application_stage == other.application_stage
+          return false unless @application_stage_id == other.application_stage_id
           return false unless @application_status == other.application_status
           return false unless @attachments == other.attachments
           return false unless @candidate == other.candidate
@@ -128,6 +143,7 @@ module StackOne
           return false unless @rejected_at == other.rejected_at
           return false unless @rejected_reason_ids == other.rejected_reason_ids
           return false unless @rejected_reasons == other.rejected_reasons
+          return false unless @remote_application_stage_id == other.remote_application_stage_id
           return false unless @remote_candidate_id == other.remote_candidate_id
           return false unless @remote_id == other.remote_id
           return false unless @remote_interview_stage_id == other.remote_interview_stage_id

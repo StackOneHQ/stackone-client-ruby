@@ -91,7 +91,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_application',
         security_source: @sdk_configuration.security_source
       )
@@ -399,7 +399,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_application_note',
         security_source: @sdk_configuration.security_source
       )
@@ -701,7 +701,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_background_check_package',
         security_source: @sdk_configuration.security_source
       )
@@ -1003,7 +1003,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_candidate',
         security_source: @sdk_configuration.security_source
       )
@@ -1311,7 +1311,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_candidate_note',
         security_source: @sdk_configuration.security_source
       )
@@ -1613,7 +1613,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_job',
         security_source: @sdk_configuration.security_source
       )
@@ -1915,7 +1915,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_create_offer',
         security_source: @sdk_configuration.security_source
       )
@@ -2211,7 +2211,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_delete_background_check_package',
         security_source: @sdk_configuration.security_source
       )
@@ -2503,7 +2503,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_download_application_document',
         security_source: @sdk_configuration.security_source
       )
@@ -3388,7 +3388,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application',
         security_source: @sdk_configuration.security_source
       )
@@ -3681,7 +3681,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_custom_field_definition',
         security_source: @sdk_configuration.security_source
       )
@@ -3974,7 +3974,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_document',
         security_source: @sdk_configuration.security_source
       )
@@ -4267,7 +4267,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_document_category',
         security_source: @sdk_configuration.security_source
       )
@@ -4560,7 +4560,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_note',
         security_source: @sdk_configuration.security_source
       )
@@ -4853,7 +4853,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_offer',
         security_source: @sdk_configuration.security_source
       )
@@ -5146,7 +5146,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_scheduled_interview',
         security_source: @sdk_configuration.security_source
       )
@@ -5439,7 +5439,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_scorecard',
         security_source: @sdk_configuration.security_source
       )
@@ -5732,7 +5732,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_application_stage',
         security_source: @sdk_configuration.security_source
       )
@@ -6025,7 +6025,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_assessments_package',
         security_source: @sdk_configuration.security_source
       )
@@ -6318,7 +6318,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_background_check_package',
         security_source: @sdk_configuration.security_source
       )
@@ -6611,7 +6611,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_candidate',
         security_source: @sdk_configuration.security_source
       )
@@ -6904,7 +6904,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_candidate_custom_field_definition',
         security_source: @sdk_configuration.security_source
       )
@@ -7197,7 +7197,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_candidate_note',
         security_source: @sdk_configuration.security_source
       )
@@ -7490,7 +7490,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_department',
         security_source: @sdk_configuration.security_source
       )
@@ -7783,7 +7783,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_interview',
         security_source: @sdk_configuration.security_source
       )
@@ -8078,7 +8078,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_interview_stage',
         security_source: @sdk_configuration.security_source
       )
@@ -8371,7 +8371,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_job',
         security_source: @sdk_configuration.security_source
       )
@@ -8664,7 +8664,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_job_application_stage',
         security_source: @sdk_configuration.security_source
       )
@@ -8957,7 +8957,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_job_custom_field_definition',
         security_source: @sdk_configuration.security_source
       )
@@ -9250,7 +9250,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_job_posting',
         security_source: @sdk_configuration.security_source
       )
@@ -9543,7 +9543,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_list',
         security_source: @sdk_configuration.security_source
       )
@@ -9836,7 +9836,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_location',
         security_source: @sdk_configuration.security_source
       )
@@ -10129,7 +10129,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_offer',
         security_source: @sdk_configuration.security_source
       )
@@ -10422,7 +10422,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_rejected_reason',
         security_source: @sdk_configuration.security_source
       )
@@ -10715,7 +10715,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_get_user',
         security_source: @sdk_configuration.security_source
       )
@@ -11008,7 +11008,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_changes',
         security_source: @sdk_configuration.security_source
       )
@@ -11323,7 +11323,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_custom_field_definitions',
         security_source: @sdk_configuration.security_source
       )
@@ -11639,7 +11639,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_document_categories',
         security_source: @sdk_configuration.security_source
       )
@@ -11960,7 +11960,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_documents',
         security_source: @sdk_configuration.security_source
       )
@@ -12283,7 +12283,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_notes',
         security_source: @sdk_configuration.security_source
       )
@@ -12606,7 +12606,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_scorecards',
         security_source: @sdk_configuration.security_source
       )
@@ -12924,7 +12924,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_application_stages',
         security_source: @sdk_configuration.security_source
       )
@@ -13241,7 +13241,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_applications',
         security_source: @sdk_configuration.security_source
       )
@@ -13566,7 +13566,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_applications_offers',
         security_source: @sdk_configuration.security_source
       )
@@ -13889,7 +13889,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_applications_scheduled_interviews',
         security_source: @sdk_configuration.security_source
       )
@@ -14207,7 +14207,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_assessments_packages',
         security_source: @sdk_configuration.security_source
       )
@@ -14523,7 +14523,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_background_check_packages',
         security_source: @sdk_configuration.security_source
       )
@@ -14839,7 +14839,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_candidate_custom_field_definitions',
         security_source: @sdk_configuration.security_source
       )
@@ -15160,7 +15160,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_candidate_notes',
         security_source: @sdk_configuration.security_source
       )
@@ -15478,7 +15478,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_candidates',
         security_source: @sdk_configuration.security_source
       )
@@ -15796,7 +15796,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_departments',
         security_source: @sdk_configuration.security_source
       )
@@ -16115,7 +16115,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_interview_stages',
         security_source: @sdk_configuration.security_source
       )
@@ -16432,7 +16432,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_interviews',
         security_source: @sdk_configuration.security_source
       )
@@ -16754,7 +16754,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_job_application_stages',
         security_source: @sdk_configuration.security_source
       )
@@ -17072,7 +17072,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_job_custom_field_definitions',
         security_source: @sdk_configuration.security_source
       )
@@ -17388,7 +17388,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_job_postings',
         security_source: @sdk_configuration.security_source
       )
@@ -17706,7 +17706,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_jobs',
         security_source: @sdk_configuration.security_source
       )
@@ -18025,7 +18025,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_lists',
         security_source: @sdk_configuration.security_source
       )
@@ -18341,7 +18341,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_locations',
         security_source: @sdk_configuration.security_source
       )
@@ -18658,7 +18658,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_offers',
         security_source: @sdk_configuration.security_source
       )
@@ -18975,7 +18975,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_rejected_reasons',
         security_source: @sdk_configuration.security_source
       )
@@ -19292,7 +19292,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_list_users',
         security_source: @sdk_configuration.security_source
       )
@@ -19629,7 +19629,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_move_application',
         security_source: @sdk_configuration.security_source
       )
@@ -19931,7 +19931,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_order_assessments_request',
         security_source: @sdk_configuration.security_source
       )
@@ -20233,7 +20233,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_order_background_check_request',
         security_source: @sdk_configuration.security_source
       )
@@ -20541,7 +20541,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_reject_application',
         security_source: @sdk_configuration.security_source
       )
@@ -20849,7 +20849,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_application',
         security_source: @sdk_configuration.security_source
       )
@@ -21158,7 +21158,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_application_note',
         security_source: @sdk_configuration.security_source
       )
@@ -21466,7 +21466,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_assessments_result',
         security_source: @sdk_configuration.security_source
       )
@@ -21774,7 +21774,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_background_check_package',
         security_source: @sdk_configuration.security_source
       )
@@ -22082,7 +22082,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_background_check_result',
         security_source: @sdk_configuration.security_source
       )
@@ -22390,7 +22390,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_candidate',
         security_source: @sdk_configuration.security_source
       )
@@ -22698,7 +22698,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_update_job',
         security_source: @sdk_configuration.security_source
       )
@@ -23006,7 +23006,7 @@ module StackOne
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
         base_url: base_url,
-        oauth2_scopes: [],
+        oauth2_scopes: nil,
         operation_id: 'ats_upload_application_document',
         security_source: @sdk_configuration.security_source
       )
