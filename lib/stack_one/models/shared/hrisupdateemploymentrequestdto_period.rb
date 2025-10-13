@@ -8,8 +8,8 @@ module StackOne
   module Models
     module Shared
     
-      # The duration unit of the work time
-      class HrisUpdateEmploymentRequestDtoDurationUnit
+      # The period of the work time
+      class HrisUpdateEmploymentRequestDtoPeriod
         extend T::Sig
         include Crystalline::MetadataFields
 

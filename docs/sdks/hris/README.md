@@ -302,7 +302,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
     },
     work_time: Models::Shared::HrisCreateEmployeeRequestDtoWorkTime.new(
       duration: 'P0Y0M0DT8H0M0S',
-      duration_unit: Models::Shared::HrisCreateEmployeeRequestDtoDurationUnit.new(
+      period: Models::Shared::HrisCreateEmployeeRequestDtoPeriod.new(
         value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue::MONTH,
       ),
     ),
@@ -461,7 +461,7 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto: Mode
   },
   work_time: Models::Shared::HrisCreateEmploymentRequestDtoWorkTime.new(
     duration: 'P0Y0M0DT8H0M0S',
-    duration_unit: Models::Shared::HrisCreateEmploymentRequestDtoDurationUnit.new(
+    period: Models::Shared::HrisCreateEmploymentRequestDtoPeriod.new(
       value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
     ),
   ),
@@ -4697,7 +4697,7 @@ res = s.hris.update_employee_employment(hris_update_employment_request_dto: Mode
   },
   work_time: Models::Shared::HrisUpdateEmploymentRequestDtoWorkTime.new(
     duration: 'P0Y0M0DT8H0M0S',
-    duration_unit: Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit.new(
+    period: Models::Shared::HrisUpdateEmploymentRequestDtoPeriod.new(
       value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
     ),
   ),

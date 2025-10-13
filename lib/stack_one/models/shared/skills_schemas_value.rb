@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # SkillsSchemasValue - The Locale Code of the language
+      # SkillsSchemasValue - The unified locale code. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
       class SkillsSchemasValue < T::Enum
 
 

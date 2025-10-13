@@ -13,9 +13,9 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # For read operations: the original language code from the provider. For write operations: fallback value used when value is omitted or "unmapped_value". You must ensure this matches the provider's format.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::CategorySchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # The Locale Code of the language
+        # The unified locale code. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
         field :value, Crystalline::Nilable.new(Models::Shared::CategorySchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CategorySchemasValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CategorySchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::CategorySchemasValue)).void }

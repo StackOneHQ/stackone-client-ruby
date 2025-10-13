@@ -13,9 +13,9 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The original learning object type from the provider before normalization.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::Completion4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
+        # The StackOne unified learning object type.
         field :value, Crystalline::Nilable.new(Models::Shared::CompletionValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CompletionValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Completion4, T::Array[::Object])), value: T.nilable(Models::Shared::CompletionValue)).void }

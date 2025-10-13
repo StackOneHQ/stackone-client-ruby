@@ -1,6 +1,6 @@
-# EmploymentDurationUnit
+# EmploymentPeriod
 
-The duration unit of the work time
+The period of the work time
 
 
 ## Fields

@@ -10,6 +10,6 @@ end
 class StackOne::Models::Shared::HrisCreateEmployeeRequestDtoWorkTime
   def duration(); end
   def duration=(str_); end
-  def duration_unit(); end
-  def duration_unit=(str_); end
+  def period(); end
+  def period=(str_); end
 end

@@ -15,20 +15,20 @@ module StackOne
 
         # The work time duration in ISO 8601 duration format
         field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
-        # The duration unit of the work time
-        field :duration_unit, Crystalline::Nilable.new(Models::Shared::CreateEmploymentApiModelDurationUnit), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_unit') } }
+        # The period of the work time
+        field :period, Crystalline::Nilable.new(Models::Shared::Period), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('period') } }
 
-        sig { params(duration: T.nilable(::String), duration_unit: T.nilable(Models::Shared::CreateEmploymentApiModelDurationUnit)).void }
-        def initialize(duration: nil, duration_unit: nil)
+        sig { params(duration: T.nilable(::String), period: T.nilable(Models::Shared::Period)).void }
+        def initialize(duration: nil, period: nil)
           @duration = duration
-          @duration_unit = duration_unit
+          @period = period
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @duration == other.duration
-          return false unless @duration_unit == other.duration_unit
+          return false unless @period == other.period
           true
         end
       end

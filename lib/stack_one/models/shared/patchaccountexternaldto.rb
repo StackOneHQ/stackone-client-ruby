@@ -39,7 +39,7 @@ module StackOne
         field :type, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
 
         sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::PatchAccountExternalDtoSetupInformation), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
-        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, type: Models::Shared::PatchAccountExternalDtoType::PRODUCTION)
+        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, type: nil)
           @authentication_config_key = authentication_config_key
           @credentials = credentials
           @environment = environment

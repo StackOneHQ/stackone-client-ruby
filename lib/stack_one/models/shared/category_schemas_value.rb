@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # CategorySchemasValue - The Locale Code of the language
+      # CategorySchemasValue - The unified locale code. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
       class CategorySchemasValue < T::Enum
 
 

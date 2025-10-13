@@ -13,9 +13,9 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The provider-specific value to use when value is omitted or set to "unmapped_value". You are responsible for ensuring this matches the provider's expected format.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::LmsUpsertContentRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
+        # The content type for write operations. Provide one of the listed enum values. If omitted or set to "unmapped_value", the source_value will be sent to the provider instead.
         field :value, Crystalline::Nilable.new(Models::Shared::LmsUpsertContentRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::LmsUpsertContentRequestDtoValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::LmsUpsertContentRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::LmsUpsertContentRequestDtoValue)).void }
