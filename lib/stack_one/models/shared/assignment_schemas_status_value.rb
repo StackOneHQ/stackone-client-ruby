@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-
+      # AssignmentSchemasStatusValue - The StackOne unified assignment status.
       class AssignmentSchemasStatusValue < T::Enum
 
 

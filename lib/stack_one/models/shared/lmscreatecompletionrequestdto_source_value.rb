@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-
+      # The original result status from the provider before normalization.
       class LmsCreateCompletionRequestDtoSourceValue
         extend T::Sig
         include Crystalline::MetadataFields

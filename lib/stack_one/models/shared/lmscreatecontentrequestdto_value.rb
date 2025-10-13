@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-
+      # LmsCreateContentRequestDtoValue - The StackOne unified content type.
       class LmsCreateContentRequestDtoValue < T::Enum
 
 

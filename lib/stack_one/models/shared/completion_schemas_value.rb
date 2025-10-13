@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-
+      # CompletionSchemasValue - The StackOne unified result status.
       class CompletionSchemasValue < T::Enum
 
 

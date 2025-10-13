@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class StackOne::Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit
+class StackOne::Models::Shared::HrisUpdateEmployeeRequestDtoPeriod
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class StackOne::Models::Shared::HrisUpdateEmploymentRequestDtoDurationUnit
+class StackOne::Models::Shared::HrisUpdateEmployeeRequestDtoPeriod
   def source_value(); end
   def source_value=(str_); end
   def value(); end

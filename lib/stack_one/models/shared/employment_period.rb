@@ -8,8 +8,8 @@ module StackOne
   module Models
     module Shared
     
-      # The duration unit of the work time
-      class EmploymentDurationUnit
+      # The period of the work time
+      class EmploymentPeriod
         extend T::Sig
         include Crystalline::MetadataFields
 

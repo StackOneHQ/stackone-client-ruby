@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class StackOne::Models::Shared::EmploymentDurationUnit
+class StackOne::Models::Shared::EmploymentPeriod
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class StackOne::Models::Shared::EmploymentDurationUnit
+class StackOne::Models::Shared::EmploymentPeriod
   def source_value(); end
   def source_value=(str_); end
   def value(); end

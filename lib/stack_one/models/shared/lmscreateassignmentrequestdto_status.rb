@@ -13,9 +13,9 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-
+        # The original status value from the provider before normalization.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::LmsCreateAssignmentRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-
+        # The StackOne unified assignment status.
         field :value, Crystalline::Nilable.new(Models::Shared::LmsCreateAssignmentRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::LmsCreateAssignmentRequestDtoValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::LmsCreateAssignmentRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoValue)).void }

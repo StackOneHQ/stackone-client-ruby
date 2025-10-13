@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-
+      # The original value from the provider before normalization.
       class LmsCreateContentRequestDtoSourceValue
         extend T::Sig
         include Crystalline::MetadataFields
