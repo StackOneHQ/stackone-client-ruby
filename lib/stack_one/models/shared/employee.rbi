@@ -98,6 +98,8 @@ class StackOne::Models::Shared::Employee
   def tenure=(str_); end
   def termination_date(); end
   def termination_date=(str_); end
+  def title(); end
+  def title=(str_); end
   def unified_custom_fields(); end
   def unified_custom_fields=(str_); end
   def updated_at(); end

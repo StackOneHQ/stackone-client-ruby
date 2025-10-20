@@ -15,12 +15,14 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
     hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 ruby:
-  version: 0.37.4
+  version: 0.38.0
   additionalDependencies:
     development: {}
     runtime: {}

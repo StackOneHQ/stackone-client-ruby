@@ -86,6 +86,8 @@ class StackOne::Models::Shared::HrisCreateEmployeeRequestDto
   def team_id=(str_); end
   def termination_date(); end
   def termination_date=(str_); end
+  def title(); end
+  def title=(str_); end
   def work_email(); end
   def work_email=(str_); end
   def work_location(); end
