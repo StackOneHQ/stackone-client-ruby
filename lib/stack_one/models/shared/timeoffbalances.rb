@@ -27,6 +27,8 @@ module StackOne
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The initial numeric balance for the associated employee and time off policy as of the balance start date
         field :initial_balance, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('initial_balance') } }
+        # Indicates if this time off balance represents unlimited leave
+        field :is_unlimited, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::TimeOffBalances2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_unlimited') } }
         # The time off policy associated with this balance
         field :policy, Crystalline::Nilable.new(Models::Shared::TimeOffBalancesPolicy), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('policy') } }
         # The time off policy id associated with this balance
@@ -40,8 +42,8 @@ module StackOne
         # The updated_at date of this time off balance
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(balance_expiry_date: T.nilable(::DateTime), balance_start_date: T.nilable(::DateTime), balance_unit: T.nilable(Models::Shared::BalanceUnit), current_balance: T.nilable(::Float), employee_id: T.nilable(::String), id: T.nilable(::String), initial_balance: T.nilable(::Float), policy: T.nilable(Models::Shared::TimeOffBalancesPolicy), policy_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_policy_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-        def initialize(balance_expiry_date: nil, balance_start_date: nil, balance_unit: nil, current_balance: nil, employee_id: nil, id: nil, initial_balance: nil, policy: nil, policy_id: nil, remote_employee_id: nil, remote_id: nil, remote_policy_id: nil, updated_at: nil)
+        sig { params(balance_expiry_date: T.nilable(::DateTime), balance_start_date: T.nilable(::DateTime), balance_unit: T.nilable(Models::Shared::BalanceUnit), current_balance: T.nilable(::Float), employee_id: T.nilable(::String), id: T.nilable(::String), initial_balance: T.nilable(::Float), is_unlimited: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffBalances2)), policy: T.nilable(Models::Shared::TimeOffBalancesPolicy), policy_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_policy_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
+        def initialize(balance_expiry_date: nil, balance_start_date: nil, balance_unit: nil, current_balance: nil, employee_id: nil, id: nil, initial_balance: nil, is_unlimited: nil, policy: nil, policy_id: nil, remote_employee_id: nil, remote_id: nil, remote_policy_id: nil, updated_at: nil)
           @balance_expiry_date = balance_expiry_date
           @balance_start_date = balance_start_date
           @balance_unit = balance_unit
@@ -49,6 +51,7 @@ module StackOne
           @employee_id = employee_id
           @id = id
           @initial_balance = initial_balance
+          @is_unlimited = is_unlimited
           @policy = policy
           @policy_id = policy_id
           @remote_employee_id = remote_employee_id
@@ -67,6 +70,7 @@ module StackOne
           return false unless @employee_id == other.employee_id
           return false unless @id == other.id
           return false unless @initial_balance == other.initial_balance
+          return false unless @is_unlimited == other.is_unlimited
           return false unless @policy == other.policy
           return false unless @policy_id == other.policy_id
           return false unless @remote_employee_id == other.remote_employee_id

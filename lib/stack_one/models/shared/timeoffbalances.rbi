@@ -22,6 +22,8 @@ class StackOne::Models::Shared::TimeOffBalances
   def id=(str_); end
   def initial_balance(); end
   def initial_balance=(str_); end
+  def is_unlimited(); end
+  def is_unlimited=(str_); end
   def policy(); end
   def policy=(str_); end
   def policy_id(); end
