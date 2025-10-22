@@ -3,8 +3,7 @@ info:
   title: Fix Number Types
   version: 1.0.0
 actions:
-  # Treat all number types as either integer or number throughout the spec
-  - target: "$..[?(@.type=='number')]"
+  - target: "$.components.schemas.EmploymentStatusEnum.properties.source_value.oneOf[?(@.type=='number')]"
     update:
       type:
         - integer
