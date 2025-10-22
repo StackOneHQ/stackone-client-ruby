@@ -1,0 +1,13 @@
+overlay: 1.0.0
+info:
+  title: Fix Number Types
+  version: 1.0.0
+actions:
+  # Treat all number types as either integer or number throughout the spec
+  - target: "$..[?(@.type=='number')]"
+    update:
+      type:
+        - integer
+        - number
+
+
