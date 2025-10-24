@@ -8,14 +8,14 @@ end
 
 
 class StackOne::Models::Shared::LmsCreateCompletionRequestDto
+  def learning_object_external_reference(); end
+  def learning_object_external_reference=(str_); end
   def completed_at(); end
   def completed_at=(str_); end
   def content_external_reference(); end
   def content_external_reference=(str_); end
   def content_id(); end
   def content_id=(str_); end
-  def learning_object_external_reference(); end
-  def learning_object_external_reference=(str_); end
   def learning_object_id(); end
   def learning_object_id=(str_); end
   def passthrough(); end

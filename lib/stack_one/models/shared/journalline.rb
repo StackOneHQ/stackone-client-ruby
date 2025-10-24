@@ -16,7 +16,7 @@ module StackOne
         # ID of the ledger account this line references
         field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # Type of the account
-        field :account_type, Crystalline::Nilable.new(Models::Shared::AccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_type') } }
+        field :account_type, Crystalline::Nilable.new(Models::Shared::JournalLineAccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_type') } }
         # Amount of the journal line in minor units, e.g. 10010 for 100.10 USD. Positive for debit, negative for credit
         field :amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('amount') } }
         # Currency code for this line
@@ -32,7 +32,7 @@ module StackOne
         # Tax rate percentage
         field :tax_rate_percentage, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tax_rate_percentage') } }
 
-        sig { params(account_id: T.nilable(::String), account_type: T.nilable(Models::Shared::AccountType), amount: T.nilable(::Float), currency_code: T.nilable(Models::Shared::JournalLineCurrencyCode), description: T.nilable(::String), exchange_rate: T.nilable(::Float), id: T.nilable(::String), tax_amount: T.nilable(::Float), tax_rate_percentage: T.nilable(::Float)).void }
+        sig { params(account_id: T.nilable(::String), account_type: T.nilable(Models::Shared::JournalLineAccountType), amount: T.nilable(::Float), currency_code: T.nilable(Models::Shared::JournalLineCurrencyCode), description: T.nilable(::String), exchange_rate: T.nilable(::Float), id: T.nilable(::String), tax_amount: T.nilable(::Float), tax_rate_percentage: T.nilable(::Float)).void }
         def initialize(account_id: nil, account_type: nil, amount: nil, currency_code: nil, description: nil, exchange_rate: nil, id: nil, tax_amount: nil, tax_rate_percentage: nil)
           @account_id = account_id
           @account_type = account_type

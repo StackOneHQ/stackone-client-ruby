@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # LmsCreateContentRequestDtoValue - The StackOne unified content type.
+      # LmsCreateContentRequestDtoValue - The content type for write operations. Provide one of the listed enum values. If omitted or set to "unmapped_value", the source_value will be sent to the provider instead.
       class LmsCreateContentRequestDtoValue < T::Enum
 
 
@@ -18,6 +18,11 @@ module StackOne
           DOCUMENT = new('document')
           AUDIO = new('audio')
           ARTICLE = new('article')
+          BOOK = new('book')
+          EVENT = new('event')
+          COURSE = new('course')
+          COLLECTION = new('collection')
+          INTERACTIVE = new('interactive')
           UNMAPPED_VALUE = new('unmapped_value')
         end
       end

@@ -42,6 +42,8 @@ class StackOne::Models::Shared::Candidate
   def remote_id=(str_); end
   def social_links(); end
   def social_links=(str_); end
+  def tags(); end
+  def tags=(str_); end
   def title(); end
   def title=(str_); end
   def unified_custom_fields(); end

@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Shared::LmsUpsertContentRequestDto
+  def external_reference(); end
+  def external_reference=(str_); end
   def active(); end
   def active=(str_); end
   def additional_data(); end
@@ -28,8 +30,6 @@ class StackOne::Models::Shared::LmsUpsertContentRequestDto
   def description=(str_); end
   def duration(); end
   def duration=(str_); end
-  def external_reference(); end
-  def external_reference=(str_); end
   def languages(); end
   def languages=(str_); end
   def localizations(); end

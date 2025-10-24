@@ -8,17 +8,17 @@ module StackOne
   module Models
     module Shared
     
-      # Type of the account
+      # The type of bank account
       class AccountType
         extend T::Sig
         include Crystalline::MetadataFields
 
 
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::JournalLine4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # Type of account
-        field :value, Crystalline::Nilable.new(Models::Shared::JournalLineValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::JournalLineValue, true) } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HRISBankDetails4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        # The type of bank account
+        field :value, Crystalline::Nilable.new(Models::Shared::HRISBankDetailsValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HRISBankDetailsValue, true) } }
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::JournalLine4, T::Array[::Object])), value: T.nilable(Models::Shared::JournalLineValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HRISBankDetails4, T::Array[::Object])), value: T.nilable(Models::Shared::HRISBankDetailsValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

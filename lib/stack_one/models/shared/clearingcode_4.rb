@@ -9,7 +9,7 @@ module StackOne
     module Shared
     
 
-      class PatchAccountExternalDtoSetupInformation
+      class ClearingCode4
         extend T::Sig
         include Crystalline::MetadataFields
 

@@ -13,6 +13,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The external reference of the learning object associated with this completion, this is the main identifier for creating completions.
+        field :learning_object_external_reference, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference'), required: true } }
         # The date the content was completed
         field :completed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this content
@@ -23,8 +25,6 @@ module StackOne
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :content_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content_id') } }
-        # The external reference of the learning object associated with this completion, this is the main identifier for creating completions.
-        field :learning_object_external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference') } }
         # The id of the learning object associated with this completion. This is not required unless specified in an integration.
         field :learning_object_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
         # Value to pass through to the provider
@@ -34,12 +34,12 @@ module StackOne
         # ISO 8601 duration format representing the time spent on completing the learning object
         field :time_spent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
 
-        sig { params(completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), time_spent: T.nilable(::String)).void }
-        def initialize(completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_external_reference: nil, learning_object_id: nil, passthrough: nil, result: nil, time_spent: nil)
+        sig { params(learning_object_external_reference: ::String, completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), time_spent: T.nilable(::String)).void }
+        def initialize(learning_object_external_reference:, completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_id: nil, passthrough: nil, result: nil, time_spent: nil)
+          @learning_object_external_reference = learning_object_external_reference
           @completed_at = completed_at
           @content_external_reference = content_external_reference
           @content_id = content_id
-          @learning_object_external_reference = learning_object_external_reference
           @learning_object_id = learning_object_id
           @passthrough = passthrough
           @result = result
@@ -49,10 +49,10 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @learning_object_external_reference == other.learning_object_external_reference
           return false unless @completed_at == other.completed_at
           return false unless @content_external_reference == other.content_external_reference
           return false unless @content_id == other.content_id
-          return false unless @learning_object_external_reference == other.learning_object_external_reference
           return false unless @learning_object_id == other.learning_object_id
           return false unless @passthrough == other.passthrough
           return false unless @result == other.result
