@@ -12,6 +12,8 @@ class StackOne::Models::Shared::Employee
   def avatar=(str_); end
   def avatar_url(); end
   def avatar_url=(str_); end
+  def bank_details(); end
+  def bank_details=(str_); end
   def benefits(); end
   def benefits=(str_); end
   def birthday(); end

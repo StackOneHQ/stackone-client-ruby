@@ -1502,7 +1502,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateRequest.new(
-  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at,unified_custom_fields',
+  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,tags,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
   x_account_id: '<id>',
@@ -3291,7 +3291,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidatesRequest.new(
-  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,created_at,updated_at,unified_custom_fields',
+  fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,tags,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),

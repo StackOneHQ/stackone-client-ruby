@@ -49,6 +49,8 @@ module StackOne
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # List of candidate social links
         field :social_links, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::SocialLink)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('social_links') } }
+        # List of candidate tags indicating metadata associated with the candidate
+        field :tags, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Tag)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
         # Candidate title
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
@@ -56,8 +58,8 @@ module StackOne
         # Candidate updated date
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), country: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), email: T.nilable(::String), emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), remote_application_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(application_ids: nil, company: nil, country: nil, created_at: nil, custom_fields: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_application_ids: nil, remote_id: nil, social_links: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), country: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), email: T.nilable(::String), emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), remote_application_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), tags: T.nilable(T::Array[Models::Shared::Tag]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(application_ids: nil, company: nil, country: nil, created_at: nil, custom_fields: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_application_ids: nil, remote_id: nil, social_links: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
           @application_ids = application_ids
           @company = company
           @country = country
@@ -75,6 +77,7 @@ module StackOne
           @remote_application_ids = remote_application_ids
           @remote_id = remote_id
           @social_links = social_links
+          @tags = tags
           @title = title
           @unified_custom_fields = unified_custom_fields
           @updated_at = updated_at
@@ -100,6 +103,7 @@ module StackOne
           return false unless @remote_application_ids == other.remote_application_ids
           return false unless @remote_id == other.remote_id
           return false unless @social_links == other.social_links
+          return false unless @tags == other.tags
           return false unless @title == other.title
           return false unless @unified_custom_fields == other.unified_custom_fields
           return false unless @updated_at == other.updated_at

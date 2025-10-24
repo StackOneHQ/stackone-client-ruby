@@ -13,6 +13,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The external ID associated with this content
+        field :external_reference, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference'), required: true } }
         # Whether the content is active and available for users.
         field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::LmsCreateContentRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The additional_data associated with this content
@@ -33,8 +35,6 @@ module StackOne
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The duration of the content following the ISO8601 standard. If duration_unit is applicable we will derive this from the smallest unit given in the duration string or the minimum unit accepted by the provider.
         field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
-        # The external ID associated with this content
-        field :external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
         # The languages associated with this content
         field :languages, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LanguageEnum)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('languages') } }
         # The localization data for this content
@@ -58,8 +58,9 @@ module StackOne
         # The date on which the content was last updated.
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::LmsCreateContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsCreateContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(external_reference: ::String, active: T.nilable(T.any(T::Boolean, Models::Shared::LmsCreateContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsCreateContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(external_reference:, active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+          @external_reference = external_reference
           @active = active
           @additional_data = additional_data
           @authors = authors
@@ -70,7 +71,6 @@ module StackOne
           @created_at = created_at
           @description = description
           @duration = duration
-          @external_reference = external_reference
           @languages = languages
           @localizations = localizations
           @mobile_launch_content_url = mobile_launch_content_url
@@ -86,6 +86,7 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @external_reference == other.external_reference
           return false unless @active == other.active
           return false unless @additional_data == other.additional_data
           return false unless @authors == other.authors
@@ -96,7 +97,6 @@ module StackOne
           return false unless @created_at == other.created_at
           return false unless @description == other.description
           return false unless @duration == other.duration
-          return false unless @external_reference == other.external_reference
           return false unless @languages == other.languages
           return false unless @localizations == other.localizations
           return false unless @mobile_launch_content_url == other.mobile_launch_content_url

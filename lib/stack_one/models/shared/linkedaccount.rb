@@ -36,13 +36,13 @@ module StackOne
 
         field :provider_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_name') } }
 
-        field :setup_information, Crystalline::Nilable.new(Models::Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
+        field :setup_information, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
 
         field :status_reasons, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::StatusReason)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_reasons') } }
         # The account type
         field :type, Crystalline::Nilable.new(Models::Shared::LinkedAccountType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::LinkedAccountType, true) } }
 
-        sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: Models::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(Models::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), provider_name: T.nilable(::String), setup_information: T.nilable(Models::Shared::SetupInformation), status_reasons: T.nilable(T::Array[Models::Shared::StatusReason]), type: T.nilable(Models::Shared::LinkedAccountType)).void }
+        sig { params(created_at: ::DateTime, id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, provider: ::String, status: Models::Shared::LinkedAccountStatus, updated_at: ::DateTime, credentials: T.nilable(Models::Shared::Credentials), label: T.nilable(::String), origin_username: T.nilable(::String), provider_name: T.nilable(::String), setup_information: T.nilable(T::Hash[Symbol, ::Object]), status_reasons: T.nilable(T::Array[Models::Shared::StatusReason]), type: T.nilable(Models::Shared::LinkedAccountType)).void }
         def initialize(created_at:, id:, origin_owner_id:, origin_owner_name:, provider:, status:, updated_at:, credentials: nil, label: nil, origin_username: nil, provider_name: nil, setup_information: nil, status_reasons: nil, type: nil)
           @created_at = created_at
           @id = id
