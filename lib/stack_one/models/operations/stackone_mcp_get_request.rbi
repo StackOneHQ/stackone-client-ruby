@@ -12,4 +12,6 @@ class StackOne::Models::Operations::StackoneMcpGetRequest
   def mcp_session_id=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def x_account_id_query_parameter(); end
+  def x_account_id_query_parameter=(str_); end
 end

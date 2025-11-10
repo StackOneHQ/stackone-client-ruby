@@ -14,6 +14,9 @@ module StackOne
 
         enums do
           TEXT = new('text')
+          PDF = new('pdf')
+          VIDEO = new('video')
+          OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
       end

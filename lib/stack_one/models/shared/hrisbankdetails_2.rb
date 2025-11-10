@@ -6,14 +6,15 @@
 
 module StackOne
   module Models
-    module Operations
+    module Shared
     
 
-      class Include < T::Enum
+      class HRISBankDetails2 < T::Enum
 
 
         enums do
-          ACTION_DETAILS = new('action_details')
+          TRUE = new('true')
+          FALSE = new('false')
         end
       end
     end

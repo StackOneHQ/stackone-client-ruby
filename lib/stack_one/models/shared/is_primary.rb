@@ -8,8 +8,8 @@ module StackOne
   module Models
     module Shared
     
-
-      class ActionsRpcResponse2
+      # Whether this is the primary bank account
+      class IsPrimary
         extend T::Sig
         include Crystalline::MetadataFields
 

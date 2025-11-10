@@ -6,7 +6,6 @@
 module StackOne
   module Models
     module Shared
-      autoload :One, 'stack_one/models/shared/one.rb'
       autoload :Two, 'stack_one/models/shared/two.rb'
       autoload :Four, 'stack_one/models/shared/four.rb'
       autoload :ATSLocation, 'stack_one/models/shared/atslocation.rb'
@@ -74,7 +73,6 @@ module StackOne
       autoload :ActionsMetaPaginated, 'stack_one/models/shared/actionsmetapaginated.rb'
       autoload :ActionsRpcRequestDto, 'stack_one/models/shared/actionsrpcrequestdto.rb'
       autoload :ActionsRpcResponse, 'stack_one/models/shared/actionsrpcresponse.rb'
-      autoload :ActionsRpcResponse2, 'stack_one/models/shared/actionsrpcresponse_2.rb'
       autoload :ActionsRpcResponseData, 'stack_one/models/shared/actionsrpcresponse_data.rb'
       autoload :AdditionalData, 'stack_one/models/shared/additionaldata.rb'
       autoload :Answer, 'stack_one/models/shared/answer.rb'
@@ -601,6 +599,7 @@ module StackOne
       autoload :FoldersHasChildren, 'stack_one/models/shared/folders_has_children.rb'
       autoload :FoldersHasContent, 'stack_one/models/shared/folders_has_content.rb'
       autoload :HRISBankDetails, 'stack_one/models/shared/hrisbankdetails.rb'
+      autoload :HRISBankDetails2, 'stack_one/models/shared/hrisbankdetails_2.rb'
       autoload :HRISBankDetails4, 'stack_one/models/shared/hrisbankdetails_4.rb'
       autoload :HRISBankDetailsSchemas4, 'stack_one/models/shared/hrisbankdetails_schemas_4.rb'
       autoload :HRISBankDetailsSchemasCurrencyCode4, 'stack_one/models/shared/hrisbankdetails_schemas_currency_code_4.rb'
@@ -1266,6 +1265,8 @@ module StackOne
       autoload :ProviderErrorApiModelHeaders, 'stack_one/models/shared/providererrorapimodel_headers.rb'
       autoload :ProviderErrorApiModelRaw, 'stack_one/models/shared/providererrorapimodel_raw.rb'
       autoload :ProxyRequestBody, 'stack_one/models/shared/proxyrequestbody.rb'
+      autoload :ProxyResponseApiModel, 'stack_one/models/shared/proxyresponseapimodel.rb'
+      autoload :ProxyResponseApiModelData, 'stack_one/models/shared/proxyresponseapimodel_data.rb'
       autoload :PushMessageContentsSchemas, 'stack_one/models/shared/pushmessagecontents_schemas.rb'
       autoload :PushMessages, 'stack_one/models/shared/pushmessages.rb'
       autoload :PushMessages4, 'stack_one/models/shared/pushmessages_4.rb'
@@ -1639,6 +1640,7 @@ module StackOne
       autoload :InterviewStatus, 'stack_one/models/shared/interview_status.rb'
       autoload :IsBotUser, 'stack_one/models/shared/is_bot_user.rb'
       autoload :IsPaid, 'stack_one/models/shared/is_paid.rb'
+      autoload :IsPrimary, 'stack_one/models/shared/is_primary.rb'
       autoload :IsRoot, 'stack_one/models/shared/is_root.rb'
       autoload :IsUnlimited, 'stack_one/models/shared/is_unlimited.rb'
       autoload :IssuedBy, 'stack_one/models/shared/issued_by.rb'
@@ -1672,6 +1674,7 @@ module StackOne
       autoload :PreferredLanguage, 'stack_one/models/shared/preferred_language.rb'
       autoload :Priority, 'stack_one/models/shared/priority.rb'
       autoload :Private, 'stack_one/models/shared/private.rb'
+      autoload :Query, 'stack_one/models/shared/query.rb'
       autoload :Raw, 'stack_one/models/shared/raw.rb'
       autoload :RejectedReasonType, 'stack_one/models/shared/rejected_reason_type.rb'
       autoload :Request, 'stack_one/models/shared/request.rb'

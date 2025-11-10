@@ -14,11 +14,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The response data from the action RPC call
-        field :data, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::One, Crystalline::Array.new(Models::Shared::ActionsRpcResponse2))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(Symbol, ::Object), Crystalline::Array.new(Crystalline::Hash.new(Symbol, ::Object)))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
         # Cursor for fetching the next page of results
         field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
 
-        sig { params(data: T.nilable(T.any(Models::Shared::One, T::Array[Models::Shared::ActionsRpcResponse2])), next_: T.nilable(::String)).void }
+        sig { params(data: T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[T::Hash[Symbol, ::Object]])), next_: T.nilable(::String)).void }
         def initialize(data: nil, next_: nil)
           @data = data
           @next_ = next_

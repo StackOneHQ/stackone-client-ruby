@@ -21,13 +21,16 @@ module StackOne
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
+        # The proxy request was successful.
+        field :proxy_response_api_model, Crystalline::Nilable.new(Models::Shared::ProxyResponseApiModel)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, proxy_response_api_model: T.nilable(Models::Shared::ProxyResponseApiModel)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, proxy_response_api_model: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
+          @proxy_response_api_model = proxy_response_api_model
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -37,6 +40,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
+          return false unless @proxy_response_api_model == other.proxy_response_api_model
           true
         end
       end

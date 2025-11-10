@@ -1,25 +1,26 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 703bb5d315bf9406483f810480d1fe0f
+  docChecksum: 272ef01e59f8a902c5169c69c4e541ae
   docVersion: 1.0.0
-  speakeasyVersion: 1.639.2
-  generationVersion: 2.730.5
-  releaseVersion: 0.38.1
-  configChecksum: f3dd68130d071a70cacce3aebe1df535
+  speakeasyVersion: 1.651.0
+  generationVersion: 2.745.2
+  releaseVersion: 0.39.0
+  configChecksum: aab2cc2dbef9bb49c4c39fd5be033176
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 features:
   ruby:
+    additionalProperties: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.11.0
+    core: 3.11.2
     deprecations: 2.81.2
     examples: 2.81.6
     flattening: 2.81.1
     globalSecurity: 2.81.9
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.83.0
     groups: 2.81.3
     methodSecurity: 2.82.2
     nameOverrides: 2.81.2
@@ -827,7 +828,6 @@ generatedFiles:
   - docs/models/shared/actionsmetapaginated.md
   - docs/models/shared/actionsrpcrequestdto.md
   - docs/models/shared/actionsrpcresponse.md
-  - docs/models/shared/actionsrpcresponse2.md
   - docs/models/shared/actionsrpcresponsedata.md
   - docs/models/shared/active.md
   - docs/models/shared/actor.md
@@ -1401,6 +1401,7 @@ generatedFiles:
   - docs/models/shared/hierarchy.md
   - docs/models/shared/homelocation.md
   - docs/models/shared/hrisbankdetails.md
+  - docs/models/shared/hrisbankdetails2.md
   - docs/models/shared/hrisbankdetails4.md
   - docs/models/shared/hrisbankdetailscurrencycode.md
   - docs/models/shared/hrisbankdetailsschemas4.md
@@ -1874,6 +1875,7 @@ generatedFiles:
   - docs/models/shared/inviteemployeeresult.md
   - docs/models/shared/isbotuser.md
   - docs/models/shared/ispaid.md
+  - docs/models/shared/isprimary.md
   - docs/models/shared/isroot.md
   - docs/models/shared/issuedby.md
   - docs/models/shared/isunlimited.md
@@ -2073,7 +2075,6 @@ generatedFiles:
   - docs/models/shared/offersresult.md
   - docs/models/shared/offerstatus.md
   - docs/models/shared/offervalue.md
-  - docs/models/shared/one.md
   - docs/models/shared/organization.md
   - docs/models/shared/overallrecommendation.md
   - docs/models/shared/package.md
@@ -2106,6 +2107,8 @@ generatedFiles:
   - docs/models/shared/providererrorapimodelheaders.md
   - docs/models/shared/providererrorapimodelraw.md
   - docs/models/shared/proxyrequestbody.md
+  - docs/models/shared/proxyresponseapimodel.md
+  - docs/models/shared/proxyresponseapimodeldata.md
   - docs/models/shared/pushmessagecontentsschemas.md
   - docs/models/shared/pushmessages.md
   - docs/models/shared/pushmessages4.md
@@ -2116,6 +2119,7 @@ generatedFiles:
   - docs/models/shared/pushtemplate.md
   - docs/models/shared/pushtemplateresult.md
   - docs/models/shared/pushtemplatespaginated.md
+  - docs/models/shared/query.md
   - docs/models/shared/question.md
   - docs/models/shared/question2.md
   - docs/models/shared/question4.md
@@ -4083,8 +4087,6 @@ generatedFiles:
   - lib/stack_one/models/shared/actionsrpcrequestdto.rbi
   - lib/stack_one/models/shared/actionsrpcresponse.rb
   - lib/stack_one/models/shared/actionsrpcresponse.rbi
-  - lib/stack_one/models/shared/actionsrpcresponse_2.rb
-  - lib/stack_one/models/shared/actionsrpcresponse_2.rbi
   - lib/stack_one/models/shared/actionsrpcresponse_data.rb
   - lib/stack_one/models/shared/actionsrpcresponse_data.rbi
   - lib/stack_one/models/shared/active.rb
@@ -5231,6 +5233,8 @@ generatedFiles:
   - lib/stack_one/models/shared/home_location.rbi
   - lib/stack_one/models/shared/hrisbankdetails.rb
   - lib/stack_one/models/shared/hrisbankdetails.rbi
+  - lib/stack_one/models/shared/hrisbankdetails_2.rb
+  - lib/stack_one/models/shared/hrisbankdetails_2.rbi
   - lib/stack_one/models/shared/hrisbankdetails_4.rb
   - lib/stack_one/models/shared/hrisbankdetails_4.rbi
   - lib/stack_one/models/shared/hrisbankdetails_currency_code.rb
@@ -6177,6 +6181,8 @@ generatedFiles:
   - lib/stack_one/models/shared/is_bot_user.rbi
   - lib/stack_one/models/shared/is_paid.rb
   - lib/stack_one/models/shared/is_paid.rbi
+  - lib/stack_one/models/shared/is_primary.rb
+  - lib/stack_one/models/shared/is_primary.rbi
   - lib/stack_one/models/shared/is_root.rb
   - lib/stack_one/models/shared/is_root.rbi
   - lib/stack_one/models/shared/is_unlimited.rb
@@ -6575,8 +6581,6 @@ generatedFiles:
   - lib/stack_one/models/shared/offerspaginated.rbi
   - lib/stack_one/models/shared/offersresult.rb
   - lib/stack_one/models/shared/offersresult.rbi
-  - lib/stack_one/models/shared/one.rb
-  - lib/stack_one/models/shared/one.rbi
   - lib/stack_one/models/shared/organization.rb
   - lib/stack_one/models/shared/organization.rbi
   - lib/stack_one/models/shared/overall_recommendation.rb
@@ -6641,6 +6645,10 @@ generatedFiles:
   - lib/stack_one/models/shared/providererrorapimodel_raw.rbi
   - lib/stack_one/models/shared/proxyrequestbody.rb
   - lib/stack_one/models/shared/proxyrequestbody.rbi
+  - lib/stack_one/models/shared/proxyresponseapimodel.rb
+  - lib/stack_one/models/shared/proxyresponseapimodel.rbi
+  - lib/stack_one/models/shared/proxyresponseapimodel_data.rb
+  - lib/stack_one/models/shared/proxyresponseapimodel_data.rbi
   - lib/stack_one/models/shared/pushmessagecontents_schemas.rb
   - lib/stack_one/models/shared/pushmessagecontents_schemas.rbi
   - lib/stack_one/models/shared/pushmessages.rb
@@ -6661,6 +6669,8 @@ generatedFiles:
   - lib/stack_one/models/shared/pushtemplateresult.rbi
   - lib/stack_one/models/shared/pushtemplatespaginated.rb
   - lib/stack_one/models/shared/pushtemplatespaginated.rbi
+  - lib/stack_one/models/shared/query.rb
+  - lib/stack_one/models/shared/query.rbi
   - lib/stack_one/models/shared/question.rb
   - lib/stack_one/models/shared/question.rbi
   - lib/stack_one/models/shared/question_2.rb
@@ -8675,7 +8685,7 @@ examples:
           id: "<id>"
           subResourceId: "<id>"
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
         header:
           x-account-id: "<id>"
       responses:
@@ -9295,7 +9305,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
         header:
           x-account-id: "<id>"
       responses:
@@ -9658,7 +9668,7 @@ examples:
         path:
           id: "<id>"
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
         header:
           x-account-id: "<id>"
@@ -10227,7 +10237,7 @@ examples:
     speakeasy-default-ats-list-offers:
       parameters:
         query:
-          fields: "id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
+          fields: "id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields"
           filter: {"updated_after": "2020-01-01T00:00:00.000Z"}
         header:
           x-account-id: "<id>"
@@ -16602,6 +16612,8 @@ examples:
           application/json: {"message": "Not Implemented", "statusCode": 501, "timestamp": "2023-05-30T00:00:00.000Z"}
         "502":
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
+        "200":
+          application/json: {"data": {"id": "123", "name": "John Doe", "email": "john.doe@example.com"}, "headers": {"content-type": "application/json", "x-request-id": "123e4567-e89b-12d3-a456-426614174000"}, "provider_errors": [{"headers": {}, "raw": {}, "status": 400, "url": "https://api.someprovider.com/v1/endpoint"}], "status": 200}
   screening_create_screening_order:
     speakeasy-default-screening-create-screening-order:
       parameters:
@@ -17434,7 +17446,7 @@ examples:
         query:
           group_by: "[\"connector\"]"
           filter: {"account_ids": "account1,account2", "action_key": "action1", "connectors": "connector1,connector2"}
-          include: ["operation_details"]
+          include: ["action_details"]
       responses:
         "200":
           application/json: {}
@@ -17463,7 +17475,7 @@ examples:
   stackone_rpc_action:
     speakeasy-default-stackone-rpc-action:
       requestBody:
-        application/json: {"action": "create_employee", "body": {"data": "example"}, "headers": {"Content-Type": "application/json"}, "path": {"id": "123"}, "query": {"param1": "value1", "param2": "value2"}}
+        application/json: {"action": "create_employee", "body": {"data": "example"}, "headers": {"Content-Type": "application/json"}, "path": {"id": "123"}, "query": {"debug": false}}
       responses:
         "200":
           application/json: {}
@@ -17779,4 +17791,4 @@ examples:
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes Detected:\n* `stack_one.hris.create_employee()`: \n  *  `request.hris_create_employee_request_dto.employment_status.source_value` **Changed** **Breaking** :warning:\n* `stack_one.lms.create_user_assignment()`: \n  *  `request.lms_create_assignment_request_dto.learning_object_external_reference` **Changed** **Breaking** :warning:\n* `stack_one.accounts.list_linked_accounts()`:  `response.[].setup_information` **Changed** **Breaking** :warning:\n* `stack_one.accounts.update_account()`:  `response.setup_information` **Changed** **Breaking** :warning:\n* `stack_one.lms.upsert_content()`: \n  *  `request.lms_upsert_content_request_dto.external_reference` **Changed** **Breaking** :warning:\n* `stack_one.lms.update_content()`: \n  *  `request.lms_create_content_request_dto.external_reference` **Changed** **Breaking** :warning:\n* `stack_one.accounts.get_account()`:  `response.setup_information` **Changed** **Breaking** :warning:\n* `stack_one.lms.batch_upsert_content()`: \n  *  `request.lms_batch_upsert_content_request_dto.items.[].external_reference` **Changed** **Breaking** :warning:\n* `stack_one.accounts.delete_account()`:  `response.setup_information` **Changed** **Breaking** :warning:\n* `stack_one.hris.update_employee()`: \n  *  `request.hris_update_employee_request_dto.employment_status.source_value` **Changed** **Breaking** :warning:\n* `stack_one.lms.create_user_completion()`: \n  *  `request.lms_create_completion_request_dto.learning_object_external_reference` **Changed** **Breaking** :warning:\n* `stack_one.ats.get_candidate()`:  `response.data.tags` **Added**\n* `stack_one.hris.get_employee()`:  `response.data` **Changed**\n* `stack_one.ats.list_candidates()`:  `response.data.[].tags` **Added**\n* `stack_one.hris.list_employees()`:  `response.data.[]` **Changed**\n"
+releaseNotes: "## Ruby SDK Changes Detected:\n* `stack_one.actions.rpc_action()`: \n  *  `request.query` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed**\n* `stack_one.hris.get_employee()`:  `response.data.bank_details.[].is_primary` **Changed** **Breaking** :warning:\n* `stack_one.hris.list_employees()`:  `response.data.[].bank_details.[].is_primary` **Changed** **Breaking** :warning:\n* `stack_one.actions.list_actions_meta()`: \n  *  `request.include` **Changed**\n* `stack_one.mcp.mcp_delete()`:  `request` **Changed**\n* `stack_one.mcp.mcp_get()`:  `request` **Changed**\n* `stack_one.mcp.mcp_post()`:  `request` **Changed**\n* `stack_one.proxy.proxy_request()`:  `response` **Changed**\n"
