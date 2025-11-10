@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class StackOne::Models::Shared::One
+class StackOne::Models::Shared::IsPrimary
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class StackOne::Models::Shared::One
+class StackOne::Models::Shared::IsPrimary
 end

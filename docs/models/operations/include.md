@@ -3,6 +3,6 @@
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `OPERATION_DETAILS` | operation_details   |
+| Name             | Value            |
+| ---------------- | ---------------- |
+| `ACTION_DETAILS` | action_details   |

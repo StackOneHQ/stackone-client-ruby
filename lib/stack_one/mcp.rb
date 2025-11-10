@@ -39,19 +39,21 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpDeleteSecurity, mcp_session_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpDeleteResponse) }
-    def mcp_delete(security:, mcp_session_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(security: Models::Operations::StackoneMcpDeleteSecurity, mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpDeleteResponse) }
+    def mcp_delete(security:, mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil)
       # mcp_delete - Delete MCP session
       # Close an existing MCP session for the provided session id
       request = Models::Operations::StackoneMcpDeleteRequest.new(
         mcp_session_id: mcp_session_id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        x_account_id_query_parameter: x_account_id_query_parameter
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/mcp"
       headers = Utils.get_headers(request)
       headers = T.cast(headers, T::Hash[String, String])
+      query_params = Utils.get_query_params(Models::Operations::StackoneMcpDeleteRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
@@ -91,6 +93,7 @@ module StackOne
         http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -305,19 +308,21 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpGetSecurity, mcp_session_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpGetResponse) }
-    def mcp_get(security:, mcp_session_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(security: Models::Operations::StackoneMcpGetSecurity, mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpGetResponse) }
+    def mcp_get(security:, mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil)
       # mcp_get - Open MCP SSE stream
       # Open a dedicated Server-Sent Events stream for MCP notifications
       request = Models::Operations::StackoneMcpGetRequest.new(
         mcp_session_id: mcp_session_id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        x_account_id_query_parameter: x_account_id_query_parameter
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/mcp"
       headers = Utils.get_headers(request)
       headers = T.cast(headers, T::Hash[String, String])
+      query_params = Utils.get_query_params(Models::Operations::StackoneMcpGetRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
@@ -357,6 +362,7 @@ module StackOne
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -571,14 +577,15 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpPostSecurity, json_rpc_message_dto: Models::Shared::JsonRpcMessageDto, x_account_id: ::String, mcp_session_id: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpPostResponse) }
-    def mcp_post(security:, json_rpc_message_dto:, x_account_id:, mcp_session_id: nil, retries: nil, timeout_ms: nil)
+    sig { params(security: Models::Operations::StackoneMcpPostSecurity, json_rpc_message_dto: Models::Shared::JsonRpcMessageDto, mcp_session_id: T.nilable(::String), x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpPostResponse) }
+    def mcp_post(security:, json_rpc_message_dto:, mcp_session_id: nil, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil)
       # mcp_post - Send MCP JSON-RPC message
       # Send JSON-RPC request to the MCP server over HTTP streaming transport
       request = Models::Operations::StackoneMcpPostRequest.new(
         json_rpc_message_dto: json_rpc_message_dto,
+        mcp_session_id: mcp_session_id,
         x_account_id: x_account_id,
-        mcp_session_id: mcp_session_id
+        x_account_id_query_parameter: x_account_id_query_parameter
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -596,6 +603,7 @@ module StackOne
       else
         body = data
       end
+      query_params = Utils.get_query_params(Models::Operations::StackoneMcpPostRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
@@ -636,6 +644,7 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(

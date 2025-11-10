@@ -38,13 +38,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_list_actions_meta"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::StackoneListActionsMetaRequest.new(\n  group_by: '[\"connector\"]',\n  filter: Models::Operations::StackoneListActionsMetaQueryParamFilter.new(\n    connectors: 'connector1,connector2',\n    account_ids: 'account1,account2',\n    action_key: 'action1',\n  ),\n  include: [\n    Models::Operations::StackoneListActionsMetaQueryParamInclude::OPERATION_DETAILS,\n  ],\n)\n\nres = s.actions.list_actions_meta(request: req)\n\nunless res.actions_meta_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::StackoneListActionsMetaRequest.new(\n  group_by: '[\"connector\"]',\n  filter: Models::Operations::StackoneListActionsMetaQueryParamFilter.new(\n    connectors: 'connector1,connector2',\n    account_ids: 'account1,account2',\n    action_key: 'action1',\n  ),\n  include: [\n    Models::Operations::StackoneListActionsMetaQueryParamInclude::ACTION_DETAILS,\n  ],\n)\n\nres = s.actions.list_actions_meta(request: req)\n\nunless res.actions_meta_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/actions/rpc"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_rpc_action"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  path: {\n    \"id\": '123',\n  },\n  query: {\n    \"param1\": 'value1',\n    \"param2\": 'value2',\n  },\n  headers: {\n    \"Content-Type\": 'application/json',\n  },\n  body: {\n    \"data\": 'example',\n  },\n)\n\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  path: {\n    \"id\": '123',\n  },\n  query: Models::Shared::Query.new(\n    debug: false,\n  ),\n  headers: {\n    \"Content-Type\": 'application/json',\n  },\n  body: {\n    \"data\": 'example',\n  },\n)\n\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
   - target: $["paths"]["/connect_sessions"]["post"]
     update:
       "x-codeSamples":
@@ -74,19 +74,19 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_mcp_delete"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nres = s.mcp.mcp_delete(security: Models::Operations::StackoneMcpDeleteSecurity.new(\n    basic: Models::Shared::SchemeBasic.new(\n      username: '',\n      password: '',\n    ),\n  ), x_account_id: '<id>', mcp_session_id: '<id>')\n\nif res.status_code == 200\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nres = s.mcp.mcp_delete(security: Models::Operations::StackoneMcpDeleteSecurity.new(\n    basic: Models::Shared::SchemeBasic.new(\n      username: '',\n      password: '',\n    ),\n  ), mcp_session_id: '<id>')\n\nif res.status_code == 200\n  # handle response\nend"
   - target: $["paths"]["/mcp"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_mcp_get"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nres = s.mcp.mcp_get(security: Models::Operations::StackoneMcpGetSecurity.new(\n    basic: Models::Shared::SchemeBasic.new(\n      username: '',\n      password: '',\n    ),\n  ), x_account_id: '<id>', mcp_session_id: '<id>')\n\nif res.status_code == 200\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nres = s.mcp.mcp_get(security: Models::Operations::StackoneMcpGetSecurity.new(\n    basic: Models::Shared::SchemeBasic.new(\n      username: '',\n      password: '',\n    ),\n  ), mcp_session_id: '<id>')\n\nif res.status_code == 200\n  # handle response\nend"
   - target: $["paths"]["/mcp"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_mcp_post"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nres = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(\n    basic: Models::Shared::SchemeBasic.new(\n      username: '',\n      password: '',\n    ),\n  ), x_account_id: '<id>', json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(\n  jsonrpc: '2.0',\n  method: 'initialize',\n  params: Models::Shared::Params.new(),\n  id: Models::Shared::Id.new(),\n))\n\nif res.status_code == 200\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nres = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(\n    basic: Models::Shared::SchemeBasic.new(\n      username: '',\n      password: '',\n    ),\n  ), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(\n  jsonrpc: '2.0',\n  method: 'initialize',\n  params: Models::Shared::Params.new(),\n  id: Models::Shared::Id.new(),\n))\n\nif res.status_code == 200\n  # handle response\nend"
   - target: $["paths"]["/requests/logs"]["get"]
     update:
       "x-codeSamples":
@@ -272,13 +272,13 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_applications_offers"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsOffersRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: '<id>',\n)\n\nres = s.ats.list_applications_offers(request: req)\n\nunless res.offers_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsListApplicationsOffersRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: '<id>',\n)\n\nres = s.ats.list_applications_offers(request: req)\n\nunless res.offers_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/offers/{subResourceId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_get_application_offer"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsGetApplicationOfferRequest.new(\n  id: '<id>',\n  sub_resource_id: '<id>',\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  x_account_id: '<id>',\n)\n\nres = s.ats.get_application_offer(request: req)\n\nunless res.offers_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsGetApplicationOfferRequest.new(\n  id: '<id>',\n  sub_resource_id: '<id>',\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  x_account_id: '<id>',\n)\n\nres = s.ats.get_application_offer(request: req)\n\nunless res.offers_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/applications/{id}/reject"]["post"]
     update:
       "x-codeSamples":
@@ -566,7 +566,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_list_offers"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsListOffersRequest.new(\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  filter: Models::Operations::AtsListOffersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: '<id>',\n)\n\nres = s.ats.list_offers(request: req)\n\nunless res.offers_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsListOffersRequest.new(\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  filter: Models::Operations::AtsListOffersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),\n  ),\n  x_account_id: '<id>',\n)\n\nres = s.ats.list_offers(request: req)\n\nunless res.offers_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/offers"]["post"]
     update:
       "x-codeSamples":
@@ -578,7 +578,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "ats_get_offer"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsGetOfferRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  x_account_id: '<id>',\n)\n\nres = s.ats.get_offer(request: req)\n\nunless res.offers_result.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nreq = Models::Operations::AtsGetOfferRequest.new(\n  id: '<id>',\n  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',\n  x_account_id: '<id>',\n)\n\nres = s.ats.get_offer(request: req)\n\nunless res.offers_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/ats/rejected_reasons"]["get"]
     update:
       "x-codeSamples":
@@ -1550,7 +1550,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_proxy_request"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nres = s.proxy.proxy_request(x_account_id: '<id>', proxy_request_body: Models::Shared::ProxyRequestBody.new(\n  url: 'https://api.sample-integration.com/v1',\n  path: '/employees/directory',\n  headers: {\n    \"Content-Type\": 'application/json',\n  },\n))\n\nif res.status_code == 200\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n      security: Models::Shared::Security.new(\n        username: '',\n        password: '',\n      ),\n    )\n\nres = s.proxy.proxy_request(x_account_id: '<id>', proxy_request_body: Models::Shared::ProxyRequestBody.new(\n  url: 'https://api.sample-integration.com/v1',\n  path: '/employees/directory',\n  headers: {\n    \"Content-Type\": 'application/json',\n  },\n))\n\nunless res.proxy_response_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/screening/orders"]["post"]
     update:
       "x-codeSamples":

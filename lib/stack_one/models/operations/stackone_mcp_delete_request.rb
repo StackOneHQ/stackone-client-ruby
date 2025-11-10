@@ -15,13 +15,16 @@ module StackOne
 
         # Session id
         field :mcp_session_id, ::String, { 'header': { 'field_name': 'mcp-session-id', 'style': 'simple', 'explode': false } }
-        # Account secure id for the target provider account
-        field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Account secure id for the target provider account (optional if x-account-id query parameter is provided)
+        field :x_account_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Account secure id (alternative to x-account-id header)
+        field :x_account_id_query_parameter, Crystalline::Nilable.new(::Object), { 'query_param': { 'field_name': 'x-account-id', 'style': 'form', 'explode': true } }
 
-        sig { params(mcp_session_id: ::String, x_account_id: ::String).void }
-        def initialize(mcp_session_id:, x_account_id:)
+        sig { params(mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object)).void }
+        def initialize(mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil)
           @mcp_session_id = mcp_session_id
           @x_account_id = x_account_id
+          @x_account_id_query_parameter = x_account_id_query_parameter
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -29,6 +32,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @mcp_session_id == other.mcp_session_id
           return false unless @x_account_id == other.x_account_id
+          return false unless @x_account_id_query_parameter == other.x_account_id_query_parameter
           true
         end
       end

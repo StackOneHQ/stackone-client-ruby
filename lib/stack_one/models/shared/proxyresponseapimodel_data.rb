@@ -8,8 +8,8 @@ module StackOne
   module Models
     module Shared
     
-
-      class One
+      # The response data from the provider. Can be an object, array, or primitive value.
+      class ProxyResponseApiModelData
         extend T::Sig
         include Crystalline::MetadataFields
 

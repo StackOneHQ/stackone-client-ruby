@@ -1140,7 +1140,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationOfferRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -2236,7 +2236,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetOfferRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2917,7 +2917,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationsOffersRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3920,7 +3920,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListOffersRequest.new(
-  fields_: 'id,remote_id,application_id,remote_application_id,start_date,status,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
+  fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListOffersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

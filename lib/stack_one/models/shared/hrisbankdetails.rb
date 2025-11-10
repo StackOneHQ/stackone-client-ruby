@@ -30,7 +30,7 @@ module StackOne
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Whether this is the primary bank account
-        field :is_primary, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_primary') } }
+        field :is_primary, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::HRISBankDetails2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_primary') } }
         # Local account number (used when IBAN is not available)
         field :local_account_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('local_account_number') } }
         # Provider's unique identifier
@@ -38,7 +38,7 @@ module StackOne
         # SWIFT/BIC code for international transfers
         field :swift_bic, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('swift_bic') } }
 
-        sig { params(account_name: T.nilable(::String), account_type: T.nilable(Models::Shared::AccountType), bank_name: T.nilable(::String), clearing_codes: T.nilable(T::Array[Models::Shared::ClearingCode]), country_code: T.nilable(Models::Shared::CountryCode), currency_code: T.nilable(Models::Shared::HRISBankDetailsCurrencyCode), iban: T.nilable(::String), id: T.nilable(::String), is_primary: T.nilable(T::Boolean), local_account_number: T.nilable(::String), remote_id: T.nilable(::String), swift_bic: T.nilable(::String)).void }
+        sig { params(account_name: T.nilable(::String), account_type: T.nilable(Models::Shared::AccountType), bank_name: T.nilable(::String), clearing_codes: T.nilable(T::Array[Models::Shared::ClearingCode]), country_code: T.nilable(Models::Shared::CountryCode), currency_code: T.nilable(Models::Shared::HRISBankDetailsCurrencyCode), iban: T.nilable(::String), id: T.nilable(::String), is_primary: T.nilable(T.any(T::Boolean, Models::Shared::HRISBankDetails2)), local_account_number: T.nilable(::String), remote_id: T.nilable(::String), swift_bic: T.nilable(::String)).void }
         def initialize(account_name: nil, account_type: nil, bank_name: nil, clearing_codes: nil, country_code: nil, currency_code: nil, iban: nil, id: nil, is_primary: nil, local_account_number: nil, remote_id: nil, swift_bic: nil)
           @account_name = account_name
           @account_type = account_type

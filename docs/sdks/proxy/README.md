@@ -35,7 +35,7 @@ res = s.proxy.proxy_request(proxy_request_body: Models::Shared::ProxyRequestBody
   url: 'https://api.sample-integration.com/v1',
 ), x_account_id: '<id>')
 
-if res.status_code == 200
+unless res.proxy_response_api_model.nil?
   # handle response
 end
 

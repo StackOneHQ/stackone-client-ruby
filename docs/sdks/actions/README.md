@@ -36,7 +36,7 @@ req = Models::Operations::StackoneListActionsMetaRequest.new(
   ),
   group_by: '["connector"]',
   include: [
-    Models::Operations::Include::OPERATION_DETAILS,
+    Models::Operations::Include::ACTION_DETAILS,
   ],
 )
 
@@ -104,10 +104,9 @@ req = Models::Shared::ActionsRpcRequestDto.new(
   path: {
     "id": '123',
   },
-  query: {
-    "param1": 'value1',
-    "param2": 'value2',
-  },
+  query: Models::Shared::Query.new(
+    debug: false,
+  ),
 )
 
 res = s.actions.rpc_action(request: req)

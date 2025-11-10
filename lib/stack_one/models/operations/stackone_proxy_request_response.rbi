@@ -16,4 +16,6 @@ class StackOne::Models::Operations::StackoneProxyRequestResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
+  def proxy_response_api_model(); end
+  def proxy_response_api_model=(str_); end
 end
