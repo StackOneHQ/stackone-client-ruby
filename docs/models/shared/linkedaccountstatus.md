@@ -3,8 +3,11 @@
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `ACTIVE`   | active     |
-| `INACTIVE` | inactive   |
-| `ERROR`    | error      |
+| Name        | Value       |
+| ----------- | ----------- |
+| `ACTIVE`    | active      |
+| `INACTIVE`  | inactive    |
+| `SUSPENDED` | suspended   |
+| `ARCHIVED`  | archived    |
+| `EXPIRED`   | expired     |
+| `ERROR`     | error       |

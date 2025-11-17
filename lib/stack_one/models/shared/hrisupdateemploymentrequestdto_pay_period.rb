@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # The pay period
+      # The time period over which the pay rate is calculated
       class HrisUpdateEmploymentRequestDtoPayPeriod
         extend T::Sig
         include Crystalline::MetadataFields

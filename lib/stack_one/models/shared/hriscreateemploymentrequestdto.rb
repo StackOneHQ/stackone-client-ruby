@@ -37,11 +37,11 @@ module StackOne
         field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The currency used for pay
         field :pay_currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
-        # The pay frequency
+        # How often the employee is paid
         field :pay_frequency, Crystalline::Nilable.new(Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_frequency') } }
-        # The pay period
+        # The time period over which the pay rate is calculated
         field :pay_period, Crystalline::Nilable.new(Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_period') } }
-        # The pay rate for the employee
+        # The amount of compensation for the employee
         field :pay_rate, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_rate') } }
         # The payroll code of the employee
         field :payroll_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('payroll_code') } }

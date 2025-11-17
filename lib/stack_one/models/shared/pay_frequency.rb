@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Shared
     
-      # The pay frequency
+      # How often the employee is paid
       class PayFrequency
         extend T::Sig
         include Crystalline::MetadataFields
