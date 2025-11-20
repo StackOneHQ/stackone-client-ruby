@@ -15,6 +15,9 @@ module StackOne
         enums do
           ACTIVE = new('active')
           INACTIVE = new('inactive')
+          SUSPENDED = new('suspended')
+          ARCHIVED = new('archived')
+          EXPIRED = new('expired')
           ERROR = new('error')
         end
       end

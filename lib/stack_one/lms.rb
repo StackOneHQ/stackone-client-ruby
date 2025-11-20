@@ -42,7 +42,10 @@ module StackOne
 
     sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsBatchUpsertContentResponse) }
     def batch_upsert_content(lms_batch_upsert_content_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
-      # batch_upsert_content - Batch Upsert Content
+      # batch_upsert_content - Batch Upsert External Linking Learning Objects
+      # Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
+      # 
+      # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsBatchUpsertContentRequest.new(
         lms_batch_upsert_content_request_dto: lms_batch_upsert_content_request_dto,
         x_account_id: x_account_id
@@ -345,6 +348,11 @@ module StackOne
     sig { params(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserAssignmentResponse) }
     def create_user_assignment(lms_create_assignment_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
       # create_user_assignment - Create User Assignment
+      # Create an assignment type learning record for a user. 
+      # 
+      # This is the record linking a user to a learning object. 
+      # 
+      # It can be pending or in progress.
       request = Models::Operations::LmsCreateUserAssignmentRequest.new(
         lms_create_assignment_request_dto: lms_create_assignment_request_dto,
         id: id,
@@ -653,6 +661,9 @@ module StackOne
     sig { params(lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserCompletionResponse) }
     def create_user_completion(lms_create_completion_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
       # create_user_completion - Create User Completion
+      # Create a completed learning record for a user. 
+      # 
+      # This is the record of a user completing a learning object.
       request = Models::Operations::LmsCreateUserCompletionRequest.new(
         lms_create_completion_request_dto: lms_create_completion_request_dto,
         id: id,
@@ -961,6 +972,9 @@ module StackOne
     sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsDeleteUserCompletionResponse) }
     def delete_user_completion(id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
       # delete_user_completion - Delete User Completion
+      # Delete a completion type learning record for a user. 
+      # 
+      # This is a record of a user completing a learning object.
       request = Models::Operations::LmsDeleteUserCompletionRequest.new(
         id: id,
         sub_resource_id: sub_resource_id,
@@ -1270,6 +1284,11 @@ module StackOne
     sig { params(request: Models::Operations::LmsGetAssignmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetAssignmentResponse) }
     def get_assignment(request:, retries: nil, timeout_ms: nil)
       # get_assignment - Get Assignment
+      # Retrieve an assignment type learning record by its identifier. 
+      # 
+      # This is the record linking a user to a learning object. 
+      # 
+      # It can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1856,6 +1875,7 @@ module StackOne
     sig { params(request: Models::Operations::LmsGetCompletionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetCompletionResponse) }
     def get_completion(request:, retries: nil, timeout_ms: nil)
       # get_completion - Get Completion
+      # Retrieve a completed learning record by its identifier. This is the record of a user completing a learning object.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2149,6 +2169,11 @@ module StackOne
     sig { params(request: Models::Operations::LmsGetContentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetContentResponse) }
     def get_content(request:, retries: nil, timeout_ms: nil)
       # get_content - Get Content
+      # Retrieve a content type learning object by its identifier. 
+      # 
+      # These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+      # 
+      # Only content objects for which the platform supports progress and completion tracking are returned.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2442,6 +2467,9 @@ module StackOne
     sig { params(request: Models::Operations::LmsGetCourseRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetCourseResponse) }
     def get_course(request:, retries: nil, timeout_ms: nil)
       # get_course - Get Course
+      # Retrieve a course type learning object by its identifier. 
+      # 
+      # These are collections of content type learning objects that are grouped together for a specific learning purpose.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3321,6 +3349,11 @@ module StackOne
     sig { params(request: Models::Operations::LmsGetUserAssignmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetUserAssignmentResponse) }
     def get_user_assignment(request:, retries: nil, timeout_ms: nil)
       # get_user_assignment - Get User Assignment
+      # Retrieve an assignment type learning record for a user by its identifier. 
+      # 
+      # This is the record linking a user to a learning object. 
+      # 
+      # It can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3614,6 +3647,9 @@ module StackOne
     sig { params(request: Models::Operations::LmsGetUserCompletionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetUserCompletionResponse) }
     def get_user_completion(request:, retries: nil, timeout_ms: nil)
       # get_user_completion - Get User Completion
+      # Retrieve a completed learning record for a user by its identifier. 
+      # 
+      # This is the record of a user completing a learning object.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3907,6 +3943,11 @@ module StackOne
     sig { params(request: Models::Operations::LmsListAssignmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListAssignmentsResponse) }
     def list_assignments(request:, retries: nil, timeout_ms: nil)
       # list_assignments - List Assignments
+      # Retrieve a list of assignment type learning records. 
+      # 
+      # These are the records linking a user to a learning object. 
+      # 
+      # They can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/lms/assignments"
@@ -4541,6 +4582,7 @@ module StackOne
     sig { params(request: Models::Operations::LmsListCompletionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListCompletionsResponse) }
     def list_completions(request:, retries: nil, timeout_ms: nil)
       # list_completions - List Completions
+      # Retrieve a list of completed learning records. These are the records of a user completing learning objects.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/lms/completions"
@@ -4857,6 +4899,11 @@ module StackOne
     sig { params(request: Models::Operations::LmsListContentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListContentResponse) }
     def list_content(request:, retries: nil, timeout_ms: nil)
       # list_content - List Content
+      # Retrieve a list of content type learning objects. 
+      # 
+      # These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+      # 
+      # Only content objects for which the platform supports progress and completion tracking are returned.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/lms/content"
@@ -5173,6 +5220,9 @@ module StackOne
     sig { params(request: Models::Operations::LmsListCoursesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListCoursesResponse) }
     def list_courses(request:, retries: nil, timeout_ms: nil)
       # list_courses - List Courses
+      # Retrieve a list of course type learning objects. 
+      # 
+      # These are collections of content type learning objects that are grouped together for a specific learning purpose.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/lms/courses"
@@ -5805,6 +5855,11 @@ module StackOne
     sig { params(request: Models::Operations::LmsListUserAssignmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListUserAssignmentsResponse) }
     def list_user_assignments(request:, retries: nil, timeout_ms: nil)
       # list_user_assignments - List User Assignments
+      # Retrieve a list of assignment type learning records for a user. 
+      # 
+      # These are the records linking a user to learning objects. 
+      # 
+      # They can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -6129,6 +6184,9 @@ module StackOne
     sig { params(request: Models::Operations::LmsListUserCompletionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListUserCompletionsResponse) }
     def list_user_completions(request:, retries: nil, timeout_ms: nil)
       # list_user_completions - List User Completions
+      # Retrieve a list of completed learning records for a user. 
+      # 
+      # These are the records of a user completing learning objects.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -6766,7 +6824,10 @@ module StackOne
 
     sig { params(lms_create_content_request_dto: Models::Shared::LmsCreateContentRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsUpdateContentResponse) }
     def update_content(lms_create_content_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
-      # update_content - Update Content
+      # update_content - Update External Linking Learning Objects
+      # Update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+      # 
+      # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsUpdateContentRequest.new(
         lms_create_content_request_dto: lms_create_content_request_dto,
         id: id,
@@ -7074,7 +7135,10 @@ module StackOne
 
     sig { params(lms_upsert_content_request_dto: Models::Shared::LmsUpsertContentRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsUpsertContentResponse) }
     def upsert_content(lms_upsert_content_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
-      # upsert_content - Upsert Content
+      # upsert_content - Upsert External Linking Learning Objects
+      # Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+      # 
+      # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsUpsertContentRequest.new(
         lms_upsert_content_request_dto: lms_upsert_content_request_dto,
         x_account_id: x_account_id

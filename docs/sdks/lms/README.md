@@ -5,7 +5,7 @@
 
 ### Available Operations
 
-* [batch_upsert_content](#batch_upsert_content) - Batch Upsert Content
+* [batch_upsert_content](#batch_upsert_content) - Batch Upsert External Linking Learning Objects
 * [create_user_assignment](#create_user_assignment) - Create User Assignment
 * [create_user_completion](#create_user_completion) - Create User Completion
 * [delete_user_completion](#delete_user_completion) - Delete User Completion
@@ -27,12 +27,14 @@
 * [list_user_assignments](#list_user_assignments) - List User Assignments
 * [list_user_completions](#list_user_completions) - List User Completions
 * [list_users](#list_users) - List Users
-* [update_content](#update_content) - Update Content
-* [upsert_content](#upsert_content) - Upsert Content
+* [update_content](#update_content) - Update External Linking Learning Objects
+* [upsert_content](#upsert_content) - Upsert External Linking Learning Objects
 
 ## batch_upsert_content
 
-Batch Upsert Content
+Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
+
+See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
 
@@ -158,7 +160,11 @@ end
 
 ## create_user_assignment
 
-Create User Assignment
+Create an assignment type learning record for a user. 
+
+This is the record linking a user to a learning object. 
+
+It can be pending or in progress.
 
 ### Example Usage
 
@@ -226,7 +232,9 @@ end
 
 ## create_user_completion
 
-Create User Completion
+Create a completed learning record for a user. 
+
+This is the record of a user completing a learning object.
 
 ### Example Usage
 
@@ -290,7 +298,9 @@ end
 
 ## delete_user_completion
 
-Delete User Completion
+Delete a completion type learning record for a user. 
+
+This is a record of a user completing a learning object.
 
 ### Example Usage
 
@@ -346,7 +356,11 @@ end
 
 ## get_assignment
 
-Get Assignment
+Retrieve an assignment type learning record by its identifier. 
+
+This is the record linking a user to a learning object. 
+
+It can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -465,7 +479,7 @@ end
 
 ## get_completion
 
-Get Completion
+Retrieve a completed learning record by its identifier. This is the record of a user completing a learning object.
 
 ### Example Usage
 
@@ -524,7 +538,11 @@ end
 
 ## get_content
 
-Get Content
+Retrieve a content type learning object by its identifier. 
+
+These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+
+Only content objects for which the platform supports progress and completion tracking are returned.
 
 ### Example Usage
 
@@ -584,7 +602,9 @@ end
 
 ## get_course
 
-Get Course
+Retrieve a course type learning object by its identifier. 
+
+These are collections of content type learning objects that are grouped together for a specific learning purpose.
 
 ### Example Usage
 
@@ -764,7 +784,11 @@ end
 
 ## get_user_assignment
 
-Get User Assignment
+Retrieve an assignment type learning record for a user by its identifier. 
+
+This is the record linking a user to a learning object. 
+
+It can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -824,7 +848,9 @@ end
 
 ## get_user_completion
 
-Get User Completion
+Retrieve a completed learning record for a user by its identifier. 
+
+This is the record of a user completing a learning object.
 
 ### Example Usage
 
@@ -884,7 +910,11 @@ end
 
 ## list_assignments
 
-List Assignments
+Retrieve a list of assignment type learning records. 
+
+These are the records linking a user to a learning object. 
+
+They can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -1010,7 +1040,7 @@ end
 
 ## list_completions
 
-List Completions
+Retrieve a list of completed learning records. These are the records of a user completing learning objects.
 
 ### Example Usage
 
@@ -1072,7 +1102,11 @@ end
 
 ## list_content
 
-List Content
+Retrieve a list of content type learning objects. 
+
+These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
+
+Only content objects for which the platform supports progress and completion tracking are returned.
 
 ### Example Usage
 
@@ -1134,7 +1168,9 @@ end
 
 ## list_courses
 
-List Courses
+Retrieve a list of course type learning objects. 
+
+These are collections of content type learning objects that are grouped together for a specific learning purpose.
 
 ### Example Usage
 
@@ -1258,7 +1294,11 @@ end
 
 ## list_user_assignments
 
-List User Assignments
+Retrieve a list of assignment type learning records for a user. 
+
+These are the records linking a user to learning objects. 
+
+They can be pending, in progress, or completed.
 
 ### Example Usage
 
@@ -1323,7 +1363,9 @@ end
 
 ## list_user_completions
 
-List User Completions
+Retrieve a list of completed learning records for a user. 
+
+These are the records of a user completing learning objects.
 
 ### Example Usage
 
@@ -1446,7 +1488,9 @@ end
 
 ## update_content
 
-Update Content
+Update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+
+See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
 
@@ -1561,7 +1605,9 @@ end
 
 ## upsert_content
 
-Upsert Content
+Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+
+See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
 ### Example Usage
 

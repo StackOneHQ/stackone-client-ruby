@@ -361,7 +361,7 @@ end
 
 ### [lms](docs/sdks/lms/README.md)
 
-* [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert Content
+* [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert External Linking Learning Objects
 * [create_user_assignment](docs/sdks/lms/README.md#create_user_assignment) - Create User Assignment
 * [create_user_completion](docs/sdks/lms/README.md#create_user_completion) - Create User Completion
 * [delete_user_completion](docs/sdks/lms/README.md#delete_user_completion) - Delete User Completion
@@ -383,8 +383,8 @@ end
 * [list_user_assignments](docs/sdks/lms/README.md#list_user_assignments) - List User Assignments
 * [list_user_completions](docs/sdks/lms/README.md#list_user_completions) - List User Completions
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
-* [update_content](docs/sdks/lms/README.md#update_content) - Update Content
-* [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert Content
+* [update_content](docs/sdks/lms/README.md#update_content) - Update External Linking Learning Objects
+* [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert External Linking Learning Objects
 
 ### [marketing](docs/sdks/marketing/README.md)
 

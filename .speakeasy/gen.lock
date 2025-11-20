@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 272ef01e59f8a902c5169c69c4e541ae
+  docChecksum: fa52a05e0d6b48423e0cd3e02b51832e
   docVersion: 1.0.0
-  speakeasyVersion: 1.651.0
-  generationVersion: 2.745.2
-  releaseVersion: 0.39.0
-  configChecksum: aab2cc2dbef9bb49c4c39fd5be033176
+  speakeasyVersion: 1.658.1
+  generationVersion: 2.755.6
+  releaseVersion: 0.39.1
+  configChecksum: be2f7262cf33165c3e4b9c5731b2b03e
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
@@ -15,7 +15,7 @@ features:
   ruby:
     additionalProperties: 0.1.0
     constsAndDefaults: 0.1.1
-    core: 3.11.2
+    core: 3.11.3
     deprecations: 2.81.2
     examples: 2.81.6
     flattening: 2.81.1
@@ -17791,4 +17791,4 @@ examples:
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes Detected:\n* `stack_one.actions.rpc_action()`: \n  *  `request.query` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed**\n* `stack_one.hris.get_employee()`:  `response.data.bank_details.[].is_primary` **Changed** **Breaking** :warning:\n* `stack_one.hris.list_employees()`:  `response.data.[].bank_details.[].is_primary` **Changed** **Breaking** :warning:\n* `stack_one.actions.list_actions_meta()`: \n  *  `request.include` **Changed**\n* `stack_one.mcp.mcp_delete()`:  `request` **Changed**\n* `stack_one.mcp.mcp_get()`:  `request` **Changed**\n* `stack_one.mcp.mcp_post()`:  `request` **Changed**\n* `stack_one.proxy.proxy_request()`:  `response` **Changed**\n"
+releaseNotes: "## Ruby SDK Changes Detected:\n* `stack_one.mcp.mcp_post()`: \n  *  `request.json_rpc_message_dto.params` **Changed**\n"
