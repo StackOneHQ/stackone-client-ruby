@@ -100,6 +100,7 @@ req = Models::Shared::ConnectSessionCreate.new(
     Models::Shared::ConnectSessionCreateCategories::SCREENING,
     Models::Shared::ConnectSessionCreateCategories::MESSAGING,
     Models::Shared::ConnectSessionCreateCategories::ACCOUNTING,
+    Models::Shared::ConnectSessionCreateCategories::SCHEDULING,
   ],
   origin_owner_id: '<id>',
   origin_owner_name: '<value>',

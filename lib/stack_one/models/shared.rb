@@ -1654,6 +1654,7 @@ module StackOne
       autoload :Level, 'stack_one/models/shared/level.rb'
       autoload :Location, 'stack_one/models/shared/location.rb'
       autoload :LocationType, 'stack_one/models/shared/location_type.rb'
+      autoload :Manager, 'stack_one/models/shared/manager.rb'
       autoload :MaritalStatus, 'stack_one/models/shared/marital_status.rb'
       autoload :MaximumProficiency, 'stack_one/models/shared/maximum_proficiency.rb'
       autoload :MessageContent, 'stack_one/models/shared/message_content.rb'
