@@ -26,6 +26,7 @@ module StackOne
           SCREENING = new('screening')
           MESSAGING = new('messaging')
           ACCOUNTING = new('accounting')
+          SCHEDULING = new('scheduling')
         end
       end
     end

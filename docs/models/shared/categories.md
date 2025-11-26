@@ -18,3 +18,4 @@
 | `SCREENING`   | screening     |
 | `MESSAGING`   | messaging     |
 | `ACCOUNTING`  | accounting    |
+| `SCHEDULING`  | scheduling    |

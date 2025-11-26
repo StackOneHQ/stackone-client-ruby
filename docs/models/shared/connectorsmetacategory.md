@@ -20,3 +20,4 @@ The provider service category
 | `SCREENING`   | screening     |
 | `MESSAGING`   | messaging     |
 | `ACCOUNTING`  | accounting    |
+| `SCHEDULING`  | scheduling    |
