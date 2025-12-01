@@ -10,6 +10,7 @@
 * [create_background_check_package](#create_background_check_package) - Create Background Check Package
 * [create_candidate](#create_candidate) - Create Candidate
 * [create_candidate_note](#create_candidate_note) - Create Candidate Note
+* [create_interview_note](#create_interview_note) - Create Interview Note
 * [create_job](#create_job) - Create Job
 * [create_offer](#create_offer) - Create Offer
 * [delete_background_check_package](#delete_background_check_package) - Delete Background Check Package
@@ -77,6 +78,7 @@
 * [update_background_check_package](#update_background_check_package) - Update Background Check Package
 * [update_background_check_result](#update_background_check_result) - Update Background Check Result
 * [update_candidate](#update_candidate) - Update Candidate
+* [update_interview_note](#update_interview_note) - Update Interview Note
 * [update_job](#update_job) - Update Job
 * [upload_application_document](#upload_application_document) - Upload Application Document
 
@@ -497,6 +499,76 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsCreateCandidateNoteResponse)](../../models/operations/atscreatecandidatenoteresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## create_interview_note
+
+Create Interview Note
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="ats_create_interview_note" method="post" path="/unified/ats/interviews/{id}/notes" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+res = s.ats.create_interview_note(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto.new(
+  author_id: '1234567890',
+  content: [
+    Models::Shared::NoteContentApiModel.new(
+      body: 'This candidate seems like a good fit for the role',
+    ),
+  ],
+  passthrough: {
+    "other_known_names": 'John Doe',
+  },
+  visibility: Models::Shared::Visibility.new(
+    source_value: 'Public',
+    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
+  ),
+), id: '<id>', x_account_id: '<id>')
+
+unless res.create_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ats_create_notes_request_dto`                                                              | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsCreateInterviewNoteResponse)](../../models/operations/atscreateinterviewnoteresponse.md)**
 
 ### Errors
 
@@ -4904,6 +4976,77 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::AtsUpdateCandidateResponse)](../../models/operations/atsupdatecandidateresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## update_interview_note
+
+Update Interview Note
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="ats_update_interview_note" method="patch" path="/unified/ats/interviews/{id}/notes/{subResourceId}" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+res = s.ats.update_interview_note(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
+  author_id: '1234567890',
+  content: [
+    Models::Shared::NoteContentApiModel.new(
+      body: 'This candidate seems like a good fit for the role',
+    ),
+  ],
+  passthrough: {
+    "other_known_names": 'John Doe',
+  },
+  visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
+    source_value: 'Public',
+    value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
+  ),
+), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+
+unless res.update_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ats_update_notes_request_dto`                                                              | [Models::Shared::AtsUpdateNotesRequestDto](../../models/shared/atsupdatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `sub_resource_id`                                                                           | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+
+### Response
+
+**[T.nilable(Models::Operations::AtsUpdateInterviewNoteResponse)](../../models/operations/atsupdateinterviewnoteresponse.md)**
 
 ### Errors
 

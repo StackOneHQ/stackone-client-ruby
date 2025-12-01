@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Operations
     
-      # HRIS Shifts filters
+      # HRIS Employee Shifts filters
       class HrisListEmployeeShiftsQueryParamFilter
         extend T::Sig
         include Crystalline::MetadataFields

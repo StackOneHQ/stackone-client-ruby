@@ -16,6 +16,8 @@ class StackOne::Models::Shared::ConnectSessionCreate
   def account_id=(str_); end
   def categories(); end
   def categories=(str_); end
+  def integration_id(); end
+  def integration_id=(str_); end
   def label(); end
   def label=(str_); end
   def metadata(); end

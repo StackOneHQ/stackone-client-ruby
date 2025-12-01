@@ -30,6 +30,8 @@ class StackOne::Models::Shared::ConnectSessionTokenAuthLink
   def categories=(str_); end
   def external_trigger_token(); end
   def external_trigger_token=(str_); end
+  def integration_id(); end
+  def integration_id=(str_); end
   def label(); end
   def label=(str_); end
   def metadata(); end

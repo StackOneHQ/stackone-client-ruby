@@ -8,8 +8,12 @@ end
 
 
 class StackOne::Models::Shared::EmploymentManagerApiModel
+  def email(); end
+  def email=(str_); end
   def id(); end
   def id=(str_); end
+  def name(); end
+  def name=(str_); end
   def remote_id(); end
   def remote_id=(str_); end
   def role(); end

@@ -21,6 +21,8 @@ module StackOne
         field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The categories of the provider to connect to
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectSessionCreateCategories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        # The integration ID associated with this connect session
+        field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
         # The label to be applied to the account associated with this connect session.
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # The metadata for the connection
@@ -38,12 +40,13 @@ module StackOne
         # The connect session account type
         field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionCreateType, true) } }
 
-        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), expires_in: T.nilable(::Float), multiple: T.nilable(T::Boolean), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
-        def initialize(origin_owner_id:, origin_owner_name:, account_id: nil, categories: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, provider_version: nil, expires_in: 1800.0, multiple: false, type: Models::Shared::ConnectSessionCreateType::PRODUCTION)
+        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), expires_in: T.nilable(::Float), multiple: T.nilable(T::Boolean), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
+        def initialize(origin_owner_id:, origin_owner_name:, account_id: nil, categories: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, provider_version: nil, expires_in: 1800.0, multiple: false, type: Models::Shared::ConnectSessionCreateType::PRODUCTION)
           @origin_owner_id = origin_owner_id
           @origin_owner_name = origin_owner_name
           @account_id = account_id
           @categories = categories
+          @integration_id = integration_id
           @label = label
           @metadata = metadata
           @origin_username = origin_username
@@ -61,6 +64,7 @@ module StackOne
           return false unless @origin_owner_name == other.origin_owner_name
           return false unless @account_id == other.account_id
           return false unless @categories == other.categories
+          return false unless @integration_id == other.integration_id
           return false unless @label == other.label
           return false unless @metadata == other.metadata
           return false unless @origin_username == other.origin_username

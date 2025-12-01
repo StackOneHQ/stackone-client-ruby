@@ -57,8 +57,8 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeesRequest.new(
-  expand: 'company,employments,work_location,home_location,groups,skills,manager',
-  fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,manager,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
+  expand: 'company,employments,work_location,home_location,groups,skills',
+  fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -165,6 +165,7 @@ end
 * [create_background_check_package](docs/sdks/ats/README.md#create_background_check_package) - Create Background Check Package
 * [create_candidate](docs/sdks/ats/README.md#create_candidate) - Create Candidate
 * [create_candidate_note](docs/sdks/ats/README.md#create_candidate_note) - Create Candidate Note
+* [create_interview_note](docs/sdks/ats/README.md#create_interview_note) - Create Interview Note
 * [create_job](docs/sdks/ats/README.md#create_job) - Create Job
 * [create_offer](docs/sdks/ats/README.md#create_offer) - Create Offer
 * [delete_background_check_package](docs/sdks/ats/README.md#delete_background_check_package) - Delete Background Check Package
@@ -232,6 +233,7 @@ end
 * [update_background_check_package](docs/sdks/ats/README.md#update_background_check_package) - Update Background Check Package
 * [update_background_check_result](docs/sdks/ats/README.md#update_background_check_result) - Update Background Check Result
 * [update_candidate](docs/sdks/ats/README.md#update_candidate) - Update Candidate
+* [update_interview_note](docs/sdks/ats/README.md#update_interview_note) - Update Interview Note
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
@@ -383,7 +385,6 @@ end
 * [list_user_assignments](docs/sdks/lms/README.md#list_user_assignments) - List User Assignments
 * [list_user_completions](docs/sdks/lms/README.md#list_user_completions) - List User Completions
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
-* [update_content](docs/sdks/lms/README.md#update_content) - Update External Linking Learning Objects
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert External Linking Learning Objects
 
 ### [marketing](docs/sdks/marketing/README.md)
