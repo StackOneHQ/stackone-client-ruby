@@ -23,7 +23,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 ruby:
-  version: 0.39.2
+  version: 0.39.3
   additionalDependencies:
     development: {}
     runtime: {}
@@ -42,9 +42,11 @@ ruby:
       operations: models/operations
       shared: models/shared
       webhooks: models/webhooks
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 4
   module: StackOne
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: stackone_client
   typingStrategy: sorbet

@@ -72,8 +72,6 @@ class StackOne::Models::Shared::Employee
   def job_title=(str_); end
   def last_name(); end
   def last_name=(str_); end
-  def manager(); end
-  def manager=(str_); end
   def manager_id(); end
   def manager_id=(str_); end
   def marital_status(); end

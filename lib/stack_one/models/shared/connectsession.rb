@@ -31,6 +31,8 @@ module StackOne
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Categories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # External trigger token to be used to trigger actions on the account
         field :external_trigger_token, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_trigger_token') } }
+        # The integration ID (UUID) associated with this connect session
+        field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
 
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
         # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
@@ -42,8 +44,8 @@ module StackOne
         # The connect session account type
         field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionType, true) } }
 
-        sig { params(created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::Categories]), external_trigger_token: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::Metadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionType)).void }
-        def initialize(created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, account_id: nil, categories: nil, external_trigger_token: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
+        sig { params(created_at: ::DateTime, id: ::Float, organization_id: ::Float, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::Categories]), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::Metadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionType)).void }
+        def initialize(created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, account_id: nil, categories: nil, external_trigger_token: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
           @created_at = created_at
           @id = id
           @organization_id = organization_id
@@ -53,6 +55,7 @@ module StackOne
           @account_id = account_id
           @categories = categories
           @external_trigger_token = external_trigger_token
+          @integration_id = integration_id
           @label = label
           @metadata = metadata
           @origin_username = origin_username
@@ -72,6 +75,7 @@ module StackOne
           return false unless @account_id == other.account_id
           return false unless @categories == other.categories
           return false unless @external_trigger_token == other.external_trigger_token
+          return false unless @integration_id == other.integration_id
           return false unless @label == other.label
           return false unless @metadata == other.metadata
           return false unless @origin_username == other.origin_username

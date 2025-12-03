@@ -9,29 +9,33 @@ module StackOne
     module Operations
     
 
-      class LmsUpdateContentRequest
+      class AtsUpdateInterviewNoteRequest
         extend T::Sig
         include Crystalline::MetadataFields
 
 
-        field :lms_create_content_request_dto, Models::Shared::LmsCreateContentRequestDto, { 'request': { 'media_type': 'application/json' } }
+        field :ats_update_notes_request_dto, Models::Shared::AtsUpdateNotesRequestDto, { 'request': { 'media_type': 'application/json' } }
 
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
+
+        field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
 
-        sig { params(lms_create_content_request_dto: Models::Shared::LmsCreateContentRequestDto, id: ::String, x_account_id: ::String).void }
-        def initialize(lms_create_content_request_dto:, id:, x_account_id:)
-          @lms_create_content_request_dto = lms_create_content_request_dto
+        sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
+        def initialize(ats_update_notes_request_dto:, id:, sub_resource_id:, x_account_id:)
+          @ats_update_notes_request_dto = ats_update_notes_request_dto
           @id = id
+          @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @lms_create_content_request_dto == other.lms_create_content_request_dto
+          return false unless @ats_update_notes_request_dto == other.ats_update_notes_request_dto
           return false unless @id == other.id
+          return false unless @sub_resource_id == other.sub_resource_id
           return false unless @x_account_id == other.x_account_id
           true
         end

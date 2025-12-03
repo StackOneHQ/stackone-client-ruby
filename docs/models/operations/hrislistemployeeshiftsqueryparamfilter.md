@@ -1,6 +1,6 @@
 # HrisListEmployeeShiftsQueryParamFilter
 
-HRIS Shifts filters
+HRIS Employee Shifts filters
 
 
 ## Fields

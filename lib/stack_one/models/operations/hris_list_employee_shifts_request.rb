@@ -19,7 +19,7 @@ module StackOne
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields to return in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-        # HRIS Shifts filters
+        # HRIS Employee Shifts filters
         field :filter, Crystalline::Nilable.new(Models::Operations::HrisListEmployeeShiftsQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }

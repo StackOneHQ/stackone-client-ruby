@@ -13,16 +13,22 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The manager email
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('email') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # The manager name
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The role of manager
         field :role, Crystalline::Nilable.new(Models::Shared::Role), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('role') } }
 
-        sig { params(id: T.nilable(::String), remote_id: T.nilable(::String), role: T.nilable(Models::Shared::Role)).void }
-        def initialize(id: nil, remote_id: nil, role: nil)
+        sig { params(email: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), role: T.nilable(Models::Shared::Role)).void }
+        def initialize(email: nil, id: nil, name: nil, remote_id: nil, role: nil)
+          @email = email
           @id = id
+          @name = name
           @remote_id = remote_id
           @role = role
         end
@@ -30,7 +36,9 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @email == other.email
           return false unless @id == other.id
+          return false unless @name == other.name
           return false unless @remote_id == other.remote_id
           return false unless @role == other.role
           true

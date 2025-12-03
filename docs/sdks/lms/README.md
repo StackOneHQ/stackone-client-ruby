@@ -27,12 +27,13 @@
 * [list_user_assignments](#list_user_assignments) - List User Assignments
 * [list_user_completions](#list_user_completions) - List User Completions
 * [list_users](#list_users) - List Users
-* [update_content](#update_content) - Update External Linking Learning Objects
 * [upsert_content](#upsert_content) - Upsert External Linking Learning Objects
 
 ## batch_upsert_content
 
 Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
+
+**Note:** Partial updates are not supported. When updating content, you must provide all the same fields that are required when creating content. 
 
 See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 
@@ -1486,126 +1487,11 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## update_content
-
-Update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
-
-See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
-
-### Example Usage
-
-<!-- UsageSnippet language="ruby" operationID="lms_update_content" method="patch" path="/unified/lms/content/{id}" -->
-```ruby
-require 'stackone_client'
-
-Models = ::StackOne::Models
-s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
-res = s.lms.update_content(lms_create_content_request_dto: Models::Shared::LmsCreateContentRequestDto.new(
-  active: true,
-  additional_data: [
-    Models::Shared::AdditionalData.new(
-      id: 'learning_outcomes',
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-      value: 'This is additional data',
-    ),
-  ],
-  authors: [
-    Models::Shared::AuthorModel.new(
-      id: '123',
-      name: 'John Doe',
-    ),
-  ],
-  categories: [
-    Models::Shared::CreateCategoriesApiModel.new(
-      name: 'Technology',
-    ),
-  ],
-  content_url: 'https://www.youtube.com/watch?v=16873',
-  cover_url: 'https://www.googledrive.com/?v=16873',
-  created_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
-  description: 'This video acts as learning content for software engineers.',
-  duration: 'P3Y6M4DT12H30M5S',
-  external_reference: 'SOFTWARE-ENG-LV1-TRAINING-VIDEO-1',
-  languages: [
-    Models::Shared::LanguageEnum.new(
-      value: Models::Shared::LanguageEnumValue::EN_GB,
-    ),
-  ],
-  localizations: [
-    Models::Shared::LocalizationModel.new(
-      description: 'This course acts as learning resource for software engineers.',
-      title: 'Software Engineer Lv 1',
-    ),
-    Models::Shared::LocalizationModel.new(
-      description: 'This video acts as learning content for software engineers.',
-      title: 'Software Engineer Lv 1',
-    ),
-  ],
-  mobile_launch_content_url: 'https://www.mobile.youtube.com/watch?v=16873',
-  order: 1.0,
-  skills: [
-    Models::Shared::CreateSkillsApiModel.new(
-      id: '12345',
-      name: 'Sales Techniques',
-    ),
-  ],
-  tags: [
-    'Sales Techniques',
-    'Customer Service',
-  ],
-  title: 'Software Engineer Lv 1',
-  unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
-  updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
-), id: '<id>', x_account_id: '<id>')
-
-unless res.update_result.nil?
-  # handle response
-end
-
-```
-
-### Parameters
-
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `lms_create_content_request_dto`                                                                | [Models::Shared::LmsCreateContentRequestDto](../../models/shared/lmscreatecontentrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
-
-### Response
-
-**[T.nilable(Models::Operations::LmsUpdateContentResponse)](../../models/operations/lmsupdatecontentresponse.md)**
-
-### Errors
-
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
-| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
-| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
-| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
-| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
-| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
-| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
-| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
-| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
-| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
-| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
-| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
-| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
-
 ## upsert_content
 
 Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
+
+**Note:** Partial updates are not supported. When updating content, you must provide all the same fields that are required when creating content. 
 
 See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
 

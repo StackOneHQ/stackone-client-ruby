@@ -104,7 +104,7 @@ module StackOne
               end
               raise StandardError, 'invalid multipart/form-data file' if T.unsafe(file_name) == '' || T.unsafe(content).nil?
 
-              form.append([field_name, [file_name, content]])
+              form.append(["#{field_name}[]", [file_name, content]])
             end
           else
             # Handle single file

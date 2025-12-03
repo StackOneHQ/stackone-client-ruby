@@ -9,7 +9,7 @@ module StackOne
     module Operations
     
 
-      class LmsUpdateContentResponse
+      class AtsUpdateInterviewNoteResponse
         extend T::Sig
         include Crystalline::MetadataFields
 
@@ -21,7 +21,7 @@ module StackOne
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
-        # The content was updated successfully.
+        # Record updated successfully.
         field :update_result, Crystalline::Nilable.new(Models::Shared::UpdateResult)
 
         sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, update_result: T.nilable(Models::Shared::UpdateResult)).void }

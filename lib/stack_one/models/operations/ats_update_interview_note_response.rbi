@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class StackOne::Models::Operations::LmsUpdateContentResponse
+class StackOne::Models::Operations::AtsUpdateInterviewNoteResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class StackOne::Models::Operations::LmsUpdateContentResponse
+class StackOne::Models::Operations::AtsUpdateInterviewNoteResponse
   def content_type(); end
   def content_type=(str_); end
   def headers(); end
