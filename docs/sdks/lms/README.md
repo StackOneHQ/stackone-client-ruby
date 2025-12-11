@@ -1,5 +1,4 @@
 # Lms
-(*lms*)
 
 ## Overview
 
@@ -182,7 +181,7 @@ s = ::StackOne::StackOne.new(
     )
 
 res = s.lms.create_user_assignment(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto.new(
-  created_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
+  assigned_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
   due_date: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
   learning_object_external_reference: 'learning-content-123',
   learning_object_id: 'e3gd34-23tr21-er234-345er56',
@@ -258,6 +257,10 @@ res = s.lms.create_user_completion(lms_create_completion_request_dto: Models::Sh
   passthrough: {
     "other_known_names": 'John Doe',
   },
+  score: Models::Shared::LmsCreateCompletionRequestDtoScore.new(
+    percentage: 87.0,
+    raw_value: '87 / 100',
+  ),
   time_spent: 'PT1H30M45S',
 ), id: '<id>', x_account_id: '<id>')
 
@@ -932,7 +935,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListAssignmentsRequest.new(
-  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
+  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListAssignmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1058,7 +1061,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCompletionsRequest.new(
-  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,unified_custom_fields',
+  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
   filter: Models::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1316,7 +1319,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUserAssignmentsRequest.new(
-  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
+  fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListUserAssignmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -1383,7 +1386,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUserCompletionsRequest.new(
-  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,unified_custom_fields',
+  fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
   filter: Models::Operations::LmsListUserCompletionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),

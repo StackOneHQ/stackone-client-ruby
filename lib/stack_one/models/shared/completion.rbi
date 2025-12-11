@@ -46,6 +46,8 @@ class StackOne::Models::Shared::Completion
   def remote_user_id=(str_); end
   def result(); end
   def result=(str_); end
+  def score(); end
+  def score=(str_); end
   def time_spent(); end
   def time_spent=(str_); end
   def unified_custom_fields(); end

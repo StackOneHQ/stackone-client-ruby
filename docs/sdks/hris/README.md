@@ -1,5 +1,4 @@
 # Hris
-(*hris*)
 
 ## Overview
 
@@ -3372,6 +3371,7 @@ req = Models::Operations::HrisListEmployeeTasksRequest.new(
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(
+    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   id: '<id>',
@@ -4130,6 +4130,7 @@ req = Models::Operations::HrisListTasksRequest.new(
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListTasksQueryParamFilter.new(
+    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
   x_account_id: '<id>',

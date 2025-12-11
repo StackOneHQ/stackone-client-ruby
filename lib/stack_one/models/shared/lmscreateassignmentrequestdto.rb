@@ -15,8 +15,8 @@ module StackOne
 
         # The external reference of the learning object associated with this assignment, this is the main identifier for creating assignments.
         field :learning_object_external_reference, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference'), required: true } }
-        # The date the assignment was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        # The date the assignment was assigned
+        field :assigned_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The date the assignment is due to be completed
         field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this assignment
@@ -32,10 +32,10 @@ module StackOne
         # The status of the assignment
         field :status, Crystalline::Nilable.new(Models::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
-        sig { params(learning_object_external_reference: ::String, created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
-        def initialize(learning_object_external_reference:, created_at: nil, due_date: nil, external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
+        sig { params(learning_object_external_reference: ::String, assigned_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
+        def initialize(learning_object_external_reference:, assigned_at: nil, due_date: nil, external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
           @learning_object_external_reference = learning_object_external_reference
-          @created_at = created_at
+          @assigned_at = assigned_at
           @due_date = due_date
           @external_reference = external_reference
           @learning_object_id = learning_object_id
@@ -48,7 +48,7 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @learning_object_external_reference == other.learning_object_external_reference
-          return false unless @created_at == other.created_at
+          return false unless @assigned_at == other.assigned_at
           return false unless @due_date == other.due_date
           return false unless @external_reference == other.external_reference
           return false unless @learning_object_id == other.learning_object_id

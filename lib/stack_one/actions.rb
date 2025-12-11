@@ -164,7 +164,6 @@ module StackOne
                 group_by: request.group_by,
                 include: request.include,
                 next_: next_cursor,
-                page: request.page,
                 page_size: request.page_size
               )
             )

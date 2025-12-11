@@ -14,6 +14,7 @@ module StackOne
 
         enums do
           OPEN = new('open')
+          DRAFT = new('draft')
           CLOSED = new('closed')
           PAUSED = new('paused')
           UNMAPPED_VALUE = new('unmapped_value')

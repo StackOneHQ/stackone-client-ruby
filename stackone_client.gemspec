@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'stackone_client'
-  s.version     = '0.39.3'
+  s.version     = '0.39.4'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['Apache-2.0']
   s.summary     = ''
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 3.2'
 
-  s.add_dependency('base64', ['>= 0.2.0', '< 1.0'])
+  s.add_dependency('base64', '>= 0.2.0', '< 1.0')
   s.add_dependency('faraday')
   s.add_dependency('faraday-multipart')
   s.add_dependency('faraday-retry', '~> 2.2.1')

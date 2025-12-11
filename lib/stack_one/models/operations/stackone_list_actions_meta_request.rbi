@@ -14,8 +14,6 @@ class StackOne::Models::Operations::StackoneListActionsMetaRequest
   def include=(str_); end
   def next_(); end
   def next_=(str_); end
-  def page(); end
-  def page=(str_); end
   def page_size(); end
   def page_size=(str_); end
   def group_by(); end

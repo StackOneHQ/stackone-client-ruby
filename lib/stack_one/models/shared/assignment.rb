@@ -13,6 +13,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The date the assignment was assigned
+        field :assigned_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The certification URL associated with this assignment
         field :certificate_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('certificate_url') } }
         # The date the content was completed
@@ -60,8 +62,9 @@ module StackOne
         # The user ID associated with this assignment
         field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
-        sig { params(certificate_url: T.nilable(::String), completed_at: T.nilable(::DateTime), course_id: T.nilable(::String), created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::LearningObjectType), progress: T.nilable(::Float), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::Result), status: T.nilable(Models::Shared::AssignmentStatus), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
-        def initialize(certificate_url: nil, completed_at: nil, course_id: nil, created_at: nil, due_date: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, progress: nil, remote_course_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, status: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+        sig { params(assigned_at: T.nilable(::DateTime), certificate_url: T.nilable(::String), completed_at: T.nilable(::DateTime), course_id: T.nilable(::String), created_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::LearningObjectType), progress: T.nilable(::Float), remote_course_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::Result), status: T.nilable(Models::Shared::AssignmentStatus), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
+        def initialize(assigned_at: nil, certificate_url: nil, completed_at: nil, course_id: nil, created_at: nil, due_date: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, progress: nil, remote_course_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, status: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+          @assigned_at = assigned_at
           @certificate_url = certificate_url
           @completed_at = completed_at
           @course_id = course_id
@@ -87,6 +90,7 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @assigned_at == other.assigned_at
           return false unless @certificate_url == other.certificate_url
           return false unless @completed_at == other.completed_at
           return false unless @course_id == other.course_id

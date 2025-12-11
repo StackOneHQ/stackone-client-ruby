@@ -31,11 +31,13 @@ module StackOne
         field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The result of the completion
         field :result, Crystalline::Nilable.new(Models::Shared::LmsCreateCompletionRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+        # The score associated with this completion
+        field :score, Crystalline::Nilable.new(Models::Shared::LmsCreateCompletionRequestDtoScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
         # ISO 8601 duration format representing the time spent on completing the learning object
         field :time_spent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
 
-        sig { params(learning_object_external_reference: ::String, completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), time_spent: T.nilable(::String)).void }
-        def initialize(learning_object_external_reference:, completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_id: nil, passthrough: nil, result: nil, time_spent: nil)
+        sig { params(learning_object_external_reference: ::String, completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), score: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoScore), time_spent: T.nilable(::String)).void }
+        def initialize(learning_object_external_reference:, completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_id: nil, passthrough: nil, result: nil, score: nil, time_spent: nil)
           @learning_object_external_reference = learning_object_external_reference
           @completed_at = completed_at
           @content_external_reference = content_external_reference
@@ -43,6 +45,7 @@ module StackOne
           @learning_object_id = learning_object_id
           @passthrough = passthrough
           @result = result
+          @score = score
           @time_spent = time_spent
         end
 
@@ -56,6 +59,7 @@ module StackOne
           return false unless @learning_object_id == other.learning_object_id
           return false unless @passthrough == other.passthrough
           return false unless @result == other.result
+          return false unless @score == other.score
           return false unless @time_spent == other.time_spent
           true
         end
