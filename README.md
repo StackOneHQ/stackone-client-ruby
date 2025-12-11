@@ -132,7 +132,7 @@ end
 <details open>
 <summary>Available methods</summary>
 
-### [accounting](docs/sdks/accounting/README.md)
+### [Accounting](docs/sdks/accounting/README.md)
 
 * [batch_create_company_journals](docs/sdks/accounting/README.md#batch_create_company_journals) - Batch Create Journals
 * [create_company_journal](docs/sdks/accounting/README.md#create_company_journal) - Create Journal
@@ -145,7 +145,7 @@ end
 * [list_company_journals](docs/sdks/accounting/README.md#list_company_journals) - List Journals
 * [list_company_tax_rates](docs/sdks/accounting/README.md#list_company_tax_rates) - List Tax Rates
 
-### [accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [delete_account](docs/sdks/accounts/README.md#delete_account) - Delete Account
 * [get_account](docs/sdks/accounts/README.md#get_account) - Get Account
@@ -153,12 +153,12 @@ end
 * [list_linked_accounts](docs/sdks/accounts/README.md#list_linked_accounts) - List Accounts
 * [update_account](docs/sdks/accounts/README.md#update_account) - Update Account
 
-### [actions](docs/sdks/actions/README.md)
+### [Actions](docs/sdks/actions/README.md)
 
 * [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all actions metadata
 * [rpc_action](docs/sdks/actions/README.md#rpc_action) - Make an RPC call to an action
 
-### [ats](docs/sdks/ats/README.md)
+### [Ats](docs/sdks/ats/README.md)
 
 * [create_application](docs/sdks/ats/README.md#create_application) - Create Application
 * [create_application_note](docs/sdks/ats/README.md#create_application_note) - Create Application Note
@@ -237,17 +237,17 @@ end
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
-### [connect_sessions](docs/sdks/connectsessions/README.md)
+### [ConnectSessions](docs/sdks/connectsessions/README.md)
 
 * [authenticate_connect_session](docs/sdks/connectsessions/README.md#authenticate_connect_session) - Authenticate Connect Session
 * [create_connect_session](docs/sdks/connectsessions/README.md#create_connect_session) - Create Connect Session
 
-### [connectors](docs/sdks/connectors/README.md)
+### [Connectors](docs/sdks/connectors/README.md)
 
 * [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta Information
 * [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connector Meta Information
 
-### [crm](docs/sdks/crm/README.md)
+### [Crm](docs/sdks/crm/README.md)
 
 * [create_contact](docs/sdks/crm/README.md#create_contact) - Create Contact
 * [get_account](docs/sdks/crm/README.md#get_account) - Get Account
@@ -260,7 +260,7 @@ end
 * [list_lists](docs/sdks/crm/README.md#list_lists) - Get all Lists
 * [update_contact](docs/sdks/crm/README.md#update_contact) - Update Contact (early access)
 
-### [documents](docs/sdks/documents/README.md)
+### [Documents](docs/sdks/documents/README.md)
 
 * [download_file](docs/sdks/documents/README.md#download_file) - Download File
 * [get_drive](docs/sdks/documents/README.md#get_drive) - Get Drive
@@ -271,7 +271,7 @@ end
 * [list_folders](docs/sdks/documents/README.md#list_folders) - List Folders
 * [upload_file](docs/sdks/documents/README.md#upload_file) - Upload File
 
-### [hris](docs/sdks/hris/README.md)
+### [Hris](docs/sdks/hris/README.md)
 
 * [batch_upload_employee_document](docs/sdks/hris/README.md#batch_upload_employee_document) - Batch Upload Employee Document
 * [cancel_employee_time_off_request](docs/sdks/hris/README.md#cancel_employee_time_off_request) - Cancel Employee Time Off Request
@@ -348,7 +348,7 @@ end
 * [update_employee_work_eligibility_request](docs/sdks/hris/README.md#update_employee_work_eligibility_request) - Update Employee Work Eligibility Request
 * [upload_employee_document](docs/sdks/hris/README.md#upload_employee_document) - Upload Employee Document
 
-### [iam](docs/sdks/iam/README.md)
+### [Iam](docs/sdks/iam/README.md)
 
 * [delete_user](docs/sdks/iam/README.md#delete_user) - Delete User
 * [get_group](docs/sdks/iam/README.md#get_group) - Get Group
@@ -361,7 +361,7 @@ end
 * [list_users](docs/sdks/iam/README.md#list_users) - List Users
 * [update_user](docs/sdks/iam/README.md#update_user) - Update User
 
-### [lms](docs/sdks/lms/README.md)
+### [Lms](docs/sdks/lms/README.md)
 
 * [batch_upsert_content](docs/sdks/lms/README.md#batch_upsert_content) - Batch Upsert External Linking Learning Objects
 * [create_user_assignment](docs/sdks/lms/README.md#create_user_assignment) - Create User Assignment
@@ -387,7 +387,7 @@ end
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert External Linking Learning Objects
 
-### [marketing](docs/sdks/marketing/README.md)
+### [Marketing](docs/sdks/marketing/README.md)
 
 * [create_content_block](docs/sdks/marketing/README.md#create_content_block) - Create Content Block
 * [create_email_template](docs/sdks/marketing/README.md#create_email_template) - Create Email Templates
@@ -416,13 +416,13 @@ end
 * [update_push_template](docs/sdks/marketing/README.md#update_push_template) - Update Push Template
 * [update_sms_template](docs/sdks/marketing/README.md#update_sms_template) - Update SMS Template
 
-### [mcp](docs/sdks/mcp/README.md)
+### [Mcp](docs/sdks/mcp/README.md)
 
 * [mcp_delete](docs/sdks/mcp/README.md#mcp_delete) - Delete MCP session
 * [mcp_get](docs/sdks/mcp/README.md#mcp_get) - Open MCP SSE stream
 * [mcp_post](docs/sdks/mcp/README.md#mcp_post) - Send MCP JSON-RPC message
 
-### [messaging](docs/sdks/messaging/README.md)
+### [Messaging](docs/sdks/messaging/README.md)
 
 * [create_conversation](docs/sdks/messaging/README.md#create_conversation) - Create Conversation
 * [download_messaging_attachment](docs/sdks/messaging/README.md#download_messaging_attachment) - Download Attachment
@@ -436,25 +436,25 @@ end
 * [list_users](docs/sdks/messaging/README.md#list_users) - List Users
 * [send_message](docs/sdks/messaging/README.md#send_message) - Send Message
 
-### [proxy](docs/sdks/proxy/README.md)
+### [Proxy](docs/sdks/proxy/README.md)
 
 * [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
 
-### [request_logs](docs/sdks/requestlogs/README.md)
+### [RequestLogs](docs/sdks/requestlogs/README.md)
 
 * [get_log](docs/sdks/requestlogs/README.md#get_log) - Get Log
 * [list_logs](docs/sdks/requestlogs/README.md#list_logs) - List Logs
 * [list_platform_logs](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs
 * [list_step_logs](docs/sdks/requestlogs/README.md#list_step_logs) - List Step Logs
 
-### [screening](docs/sdks/screening/README.md)
+### [Screening](docs/sdks/screening/README.md)
 
 * [create_screening_order](docs/sdks/screening/README.md#create_screening_order) - Create Screening Order
 * [get_screening_package](docs/sdks/screening/README.md#get_screening_package) - Get Screening Package
 * [list_screening_packages](docs/sdks/screening/README.md#list_screening_packages) - List Screening Packages
 * [webhook_screening_result](docs/sdks/screening/README.md#webhook_screening_result) - Webhook Screening Result
 
-### [ticketing](docs/sdks/ticketing/README.md)
+### [Ticketing](docs/sdks/ticketing/README.md)
 
 * [create_ticket](docs/sdks/ticketing/README.md#create_ticket) - Create Ticket
 * [download_ticketing_attachment](docs/sdks/ticketing/README.md#download_ticketing_attachment) - Download Attachment

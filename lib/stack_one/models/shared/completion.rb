@@ -67,6 +67,8 @@ module StackOne
         field :remote_user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_user_id') } }
         # The result of the completion
         field :result, Crystalline::Nilable.new(Models::Shared::CompletionSchemasResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
+        # The score associated with this completion
+        field :score, Crystalline::Nilable.new(Models::Shared::CompletionScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
         # ISO 8601 duration format representing the time spent on completing the learning object
         field :time_spent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
         # Custom Unified Fields configured in your StackOne project
@@ -76,8 +78,8 @@ module StackOne
         # The user ID associated with this completion
         field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 
-        sig { params(certificate_url: T.nilable(::String), completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::DateTime), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::CompletionSchemasResult), time_spent: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
-        def initialize(certificate_url: nil, completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, time_spent: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
+        sig { params(certificate_url: T.nilable(::String), completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), course_id: T.nilable(::String), created_at: T.nilable(::DateTime), external_id: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), learning_object_external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), learning_object_type: T.nilable(Models::Shared::CompletionLearningObjectType), remote_content_id: T.nilable(::String), remote_course_id: T.nilable(::String), remote_external_id: T.nilable(::String), remote_id: T.nilable(::String), remote_learning_object_id: T.nilable(::String), remote_user_id: T.nilable(::String), result: T.nilable(Models::Shared::CompletionSchemasResult), score: T.nilable(Models::Shared::CompletionScore), time_spent: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
+        def initialize(certificate_url: nil, completed_at: nil, content_external_reference: nil, content_id: nil, course_id: nil, created_at: nil, external_id: nil, external_reference: nil, id: nil, learning_object_external_reference: nil, learning_object_id: nil, learning_object_type: nil, remote_content_id: nil, remote_course_id: nil, remote_external_id: nil, remote_id: nil, remote_learning_object_id: nil, remote_user_id: nil, result: nil, score: nil, time_spent: nil, unified_custom_fields: nil, updated_at: nil, user_id: nil)
           @certificate_url = certificate_url
           @completed_at = completed_at
           @content_external_reference = content_external_reference
@@ -97,6 +99,7 @@ module StackOne
           @remote_learning_object_id = remote_learning_object_id
           @remote_user_id = remote_user_id
           @result = result
+          @score = score
           @time_spent = time_spent
           @unified_custom_fields = unified_custom_fields
           @updated_at = updated_at
@@ -125,6 +128,7 @@ module StackOne
           return false unless @remote_learning_object_id == other.remote_learning_object_id
           return false unless @remote_user_id == other.remote_user_id
           return false unless @result == other.result
+          return false unless @score == other.score
           return false unless @time_spent == other.time_spent
           return false unless @unified_custom_fields == other.unified_custom_fields
           return false unless @updated_at == other.updated_at

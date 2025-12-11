@@ -1,5 +1,4 @@
 # Proxy
-(*proxy*)
 
 ## Overview
 

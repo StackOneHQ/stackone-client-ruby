@@ -34,8 +34,8 @@ class StackOne::Models::Shared::JobPosting
   def questionnaires=(str_); end
   def remote_id(); end
   def remote_id=(str_); end
-  def remote_job_posting_id(); end
-  def remote_job_posting_id=(str_); end
+  def remote_job_id(); end
+  def remote_job_id=(str_); end
   def start_date(); end
   def start_date=(str_); end
   def status(); end

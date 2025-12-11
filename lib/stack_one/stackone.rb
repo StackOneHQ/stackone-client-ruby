@@ -18,6 +18,16 @@ module StackOne
 
     attr_accessor :accounts, :actions, :connect_sessions, :connectors, :mcp, :request_logs, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
 
+    # Instantiates the SDK, configuring it with the provided parameters.
+    #
+    # @param client [Faraday::Connection, nil] The faraday HTTP client to use for all operations
+    # @param retry_config [::StackOne::Utils::RetryConfig, nil] The retry configuration to use for all operations
+    # @param timeout_ms [Integer, nil] Request timeout in milliseconds for all operations
+    # @param security [Models::Shared::Security, nil] The security details required for authentication
+    # @param security_source [Proc{|| Models::Shared::Security, nil}] A function that returns security details required for authentication
+    # @param server_idx [Integer, nil] The index of the server to use for all operations
+    # @param server_url [String, nil] The server URL to use for all operations
+    # @param url_params [Hash{Symbol => String}, nil] Parameters to optionally template the server URL with
     sig do
       params(
         client: T.nilable(Faraday::Connection),
@@ -31,15 +41,6 @@ module StackOne
       ).void
     end
     def initialize(client: nil, retry_config: nil, timeout_ms: nil, security: nil, security_source: nil, server_idx: nil, server_url: nil, url_params: nil)
-      ## Instantiates the SDK configuring it with the provided parameters.
-      # @param [T.nilable(Faraday::Connection)] client The faraday HTTP client to use for all operations
-      # @param [T.nilable(::StackOne::Utils::RetryConfig)] retry_config The retry configuration to use for all operations
-      # @param [T.nilable(Integer)] timeout_ms Request timeout in milliseconds for all operations
-      # @param [T.nilable(Models::Shared::Security)] security: The security details required for authentication
-      # @param [T.proc.returns(T.nilable(Models::Shared::Security))] security_source: A function that returns security details required for authentication
-      # @param [T.nilable(::Integer)] server_idx The index of the server to use for all operations
-      # @param [T.nilable(::String)] server_url The server URL to use for all operations
-      # @param [T.nilable(::Hash<::Symbol, ::String>)] url_params Parameters to optionally template the server URL with
 
       connection_options = {
         request: {

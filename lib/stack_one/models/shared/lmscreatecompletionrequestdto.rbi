@@ -22,6 +22,8 @@ class StackOne::Models::Shared::LmsCreateCompletionRequestDto
   def passthrough=(str_); end
   def result(); end
   def result=(str_); end
+  def score(); end
+  def score=(str_); end
   def time_spent(); end
   def time_spent=(str_); end
 end

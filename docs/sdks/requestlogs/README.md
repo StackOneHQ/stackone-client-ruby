@@ -1,5 +1,4 @@
 # RequestLogs
-(*request_logs*)
 
 ## Overview
 

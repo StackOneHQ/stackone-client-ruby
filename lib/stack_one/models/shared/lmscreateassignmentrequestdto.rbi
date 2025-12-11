@@ -10,8 +10,8 @@ end
 class StackOne::Models::Shared::LmsCreateAssignmentRequestDto
   def learning_object_external_reference(); end
   def learning_object_external_reference=(str_); end
-  def created_at(); end
-  def created_at=(str_); end
+  def assigned_at(); end
+  def assigned_at=(str_); end
   def due_date(); end
   def due_date=(str_); end
   def external_reference(); end

@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Shared::Assignment
+  def assigned_at(); end
+  def assigned_at=(str_); end
   def certificate_url(); end
   def certificate_url=(str_); end
   def completed_at(); end

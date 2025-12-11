@@ -1,5 +1,4 @@
 # Actions
-(*actions*)
 
 ## Overview
 

@@ -1,5 +1,4 @@
 # Marketing
-(*marketing*)
 
 ## Overview
 

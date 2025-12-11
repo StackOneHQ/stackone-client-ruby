@@ -1,5 +1,4 @@
 # Screening
-(*screening*)
 
 ## Overview
 
