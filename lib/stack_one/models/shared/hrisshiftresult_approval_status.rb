@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The approval status of the shift
       class HrisShiftResultApprovalStatus
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Candidate Properties. Provide this OR candidate_id, but not both. Providing this attempts to create a new candidate with the application.
       class AtsCreateApplicationRequestDtoCandidate
         extend T::Sig

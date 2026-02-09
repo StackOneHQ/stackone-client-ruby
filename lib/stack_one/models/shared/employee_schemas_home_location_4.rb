@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class EmployeeSchemasHomeLocation4
         extend T::Sig

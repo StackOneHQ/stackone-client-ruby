@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Status of the job
       class AtsJobJobStatus
         extend T::Sig

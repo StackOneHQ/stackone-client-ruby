@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # StackoneListStepLogsQueryParamOrderBy - The field to order the results by.
       class StackoneListStepLogsQueryParamOrderBy < T::Enum
 

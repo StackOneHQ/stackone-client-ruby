@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee employment status
       class HrisUpdateEmployeeRequestDtoEmploymentStatus
         extend T::Sig

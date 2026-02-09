@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # QueryParamInclude - The include parameter allows you to include additional data in the response.
       class QueryParamInclude < T::Enum
 

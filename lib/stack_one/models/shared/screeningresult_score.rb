@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Score information
       class ScreeningResultScore
         extend T::Sig

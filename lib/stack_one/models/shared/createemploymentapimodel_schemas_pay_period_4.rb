@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class CreateEmploymentApiModelSchemasPayPeriod4
         extend T::Sig

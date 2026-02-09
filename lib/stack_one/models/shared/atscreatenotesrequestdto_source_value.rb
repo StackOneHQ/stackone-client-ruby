@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the notes visibility.
       class AtsCreateNotesRequestDtoSourceValue
         extend T::Sig

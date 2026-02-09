@@ -14,6 +14,8 @@ class StackOne::Models::Operations::HrisGetEmployeeTaskRequest
   def sub_resource_id=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
   def expand(); end
   def expand=(str_); end
   def fields_(); end

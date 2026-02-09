@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Employee2
         extend T::Sig

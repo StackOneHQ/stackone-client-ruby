@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the comment is internal
       class TicketingCommentInternal
         extend T::Sig

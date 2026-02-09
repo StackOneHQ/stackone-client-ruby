@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the answer type.
       class CreateAnswerSourceValue
         extend T::Sig

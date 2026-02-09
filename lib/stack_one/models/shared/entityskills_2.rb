@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class EntitySkills2 < T::Enum
 

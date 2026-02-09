@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisDocumentsUploadRequestDtoSchemasValue - Whether the file is confidential or not
       class HrisDocumentsUploadRequestDtoSchemasValue < T::Enum
 

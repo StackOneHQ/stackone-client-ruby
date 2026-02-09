@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # FieldType - The type of the field
       class FieldType < T::Enum
 

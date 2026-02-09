@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of clearing code
       class ClearingCodeType
         extend T::Sig

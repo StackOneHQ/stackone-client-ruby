@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class StepLogsPaginated
         extend T::Sig

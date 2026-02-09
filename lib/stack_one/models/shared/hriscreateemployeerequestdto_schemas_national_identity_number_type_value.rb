@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue - The type of the national identity number
       class HrisCreateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue < T::Enum
 

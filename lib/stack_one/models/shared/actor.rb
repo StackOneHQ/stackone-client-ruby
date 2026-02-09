@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The actor who made the change
       class Actor
         extend T::Sig

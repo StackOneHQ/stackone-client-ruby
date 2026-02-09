@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
 
       class UnprocessableEntityResponse < StandardError
         extend T::Sig

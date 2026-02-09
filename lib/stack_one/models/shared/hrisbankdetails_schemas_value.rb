@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HRISBankDetailsSchemasValue - The ISO3166-1 Alpha2 Code of the Country
       class HRISBankDetailsSchemasValue < T::Enum
 

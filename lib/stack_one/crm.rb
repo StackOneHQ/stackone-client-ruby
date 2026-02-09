@@ -40,12 +40,13 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmCreateContactResponse) }
-    def create_contact(crm_create_contact_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmCreateContactResponse) }
+    def create_contact(crm_create_contact_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_contact - Create Contact
       request = Models::Operations::CrmCreateContactRequest.new(
         crm_create_contact_request_dto: crm_create_contact_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1633,6 +1634,7 @@ module StackOne
 
             sdk.list_accounts(
               request: Models::Operations::CrmListAccountsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -1949,6 +1951,7 @@ module StackOne
 
             sdk.list_contact_custom_field_definitions(
               request: Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -2265,6 +2268,7 @@ module StackOne
 
             sdk.list_contacts(
               request: Models::Operations::CrmListContactsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 include: request.include,
@@ -2582,6 +2586,7 @@ module StackOne
 
             sdk.list_lists(
               request: Models::Operations::CrmListListsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -2779,13 +2784,14 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmUpdateContactResponse) }
-    def update_contact(crm_create_contact_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmUpdateContactResponse) }
+    def update_contact(crm_create_contact_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_contact - Update Contact (early access)
       request = Models::Operations::CrmUpdateContactRequest.new(
         crm_create_contact_request_dto: crm_create_contact_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

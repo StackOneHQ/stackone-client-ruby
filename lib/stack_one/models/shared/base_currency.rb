@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Default currency for the company
       class BaseCurrency
         extend T::Sig

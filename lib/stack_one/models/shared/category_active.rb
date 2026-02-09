@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the category is active and therefore available for use
       class CategoryActive
         extend T::Sig

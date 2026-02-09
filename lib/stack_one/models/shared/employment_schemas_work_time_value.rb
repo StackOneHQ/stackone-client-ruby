@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # EmploymentSchemasWorkTimeValue - The unified value for the period.
       class EmploymentSchemasWorkTimeValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class MoveApplicationResult
         extend T::Sig

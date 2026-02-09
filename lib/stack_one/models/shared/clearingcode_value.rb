@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ClearingCodeValue - The type of clearing code
       class ClearingCodeValue < T::Enum
 

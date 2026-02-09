@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class AtsDocumentsUploadRequestDtoSchemas4
         extend T::Sig

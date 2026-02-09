@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # OverallRecommendation - The overall recommendation
       class OverallRecommendation < T::Enum
 

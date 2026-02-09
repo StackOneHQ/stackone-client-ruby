@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Status of the journal
       class Status
         extend T::Sig

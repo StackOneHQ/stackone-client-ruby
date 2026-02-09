@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ChannelsEnumValue - The Channels of the campaign.
       class ChannelsEnumValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
 
       class TooManyRequestsResponse < StandardError
         extend T::Sig

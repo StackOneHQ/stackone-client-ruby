@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the pay period.
       class HrisUpdateEmploymentRequestDtoSchemasPayPeriodSourceValue
         extend T::Sig

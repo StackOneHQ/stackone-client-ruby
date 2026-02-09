@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # HrisListPositionsQueryParamStatus - Filter positions by status
       class HrisListPositionsQueryParamStatus < T::Enum
 

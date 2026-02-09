@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsListApplicationDocumentsResponse
         extend T::Sig

@@ -41,7 +41,7 @@ res = s.messaging.create_conversation(messaging_create_conversation_request_dto:
     'c28xIQ2',
   ],
   private: true,
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -51,10 +51,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `messaging_create_conversation_request_dto`                                                                           | [Models::Shared::MessagingCreateConversationRequestDto](../../models/shared/messagingcreateconversationrequestdto.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
-| `x_account_id`                                                                                                        | *::String*                                                                                                            | :heavy_check_mark:                                                                                                    | The account identifier                                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `messaging_create_conversation_request_dto`                                                                                                                              | [Models::Shared::MessagingCreateConversationRequestDto](../../models/shared/messagingcreateconversationrequestdto.md)                                                    | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -97,6 +98,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingDownloadMessagingAttachmentRequest.new(
+  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
@@ -159,6 +161,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetAttachmentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -220,6 +223,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetConversationRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -280,6 +284,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetMessageRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -340,6 +345,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingGetUserRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -400,6 +406,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListAttachmentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
   filter: Models::Operations::MessagingListAttachmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -463,6 +470,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListConversationMessagesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::MessagingListConversationMessagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -526,6 +534,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListConversationsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
   filter: Models::Operations::MessagingListConversationsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -588,6 +597,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::MessagingListUsersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
   filter: Models::Operations::MessagingListUsersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -653,7 +663,7 @@ res = s.messaging.send_message(messaging_message_send_request_dto: Models::Share
   content: 'Hello, world!',
   recipient: 'c28xyrc55866bvuv',
   sender: '+34820398402',
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -663,10 +673,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `messaging_message_send_request_dto`                                                                    | [Models::Shared::MessagingMessageSendRequestDto](../../models/shared/messagingmessagesendrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `messaging_message_send_request_dto`                                                                                                                                     | [Models::Shared::MessagingMessageSendRequestDto](../../models/shared/messagingmessagesendrequestdto.md)                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The file format of the file
       class HrisDocumentsUploadRequestDtoFileFormat
         extend T::Sig

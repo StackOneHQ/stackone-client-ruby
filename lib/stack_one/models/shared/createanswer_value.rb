@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CreateAnswerValue - The type of the answer.
       class CreateAnswerValue < T::Enum
 

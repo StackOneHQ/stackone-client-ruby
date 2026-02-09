@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JobPostingCompensationValue - The pay frequency of the job postings.
       class JobPostingCompensationValue < T::Enum
 

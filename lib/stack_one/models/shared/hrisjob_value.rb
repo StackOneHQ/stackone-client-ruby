@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisJobValue - The status of the job.
       class HrisJobValue < T::Enum
 

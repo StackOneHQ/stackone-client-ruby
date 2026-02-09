@@ -120,9 +120,9 @@ end
 
 Send JSON-RPC request to the MCP server over HTTP streaming transport
 
-### Example Usage
+### Example Usage: initialize
 
-<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" -->
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="initialize" -->
 ```ruby
 require 'stackone_client'
 
@@ -135,6 +135,52 @@ res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
   id: Models::Shared::Id.new(),
   jsonrpc: '2.0',
   method: 'initialize',
+  params: Models::Shared::Params.new(),
+), x_account_id: '<id>')
+
+if res.status_code == 200
+  # handle response
+end
+
+```
+### Example Usage: toolsCall
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsCall" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
+    api_key: '<YOUR_API_KEY_HERE>',
+  ), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+  id: Models::Shared::Id.new(),
+  jsonrpc: '2.0',
+  method: 'tools/call',
+  params: Models::Shared::Params.new(),
+), x_account_id: '<id>')
+
+if res.status_code == 200
+  # handle response
+end
+
+```
+### Example Usage: toolsList
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsList" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
+    api_key: '<YOUR_API_KEY_HERE>',
+  ), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+  id: Models::Shared::Id.new(),
+  jsonrpc: '2.0',
+  method: 'tools/list',
   params: Models::Shared::Params.new(),
 ), x_account_id: '<id>')
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsUpdateCandidatesAssessmentsResultsRequestDtoValue - The result of the test.
       class AtsUpdateCandidatesAssessmentsResultsRequestDtoValue < T::Enum
 

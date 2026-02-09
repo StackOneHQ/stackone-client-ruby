@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The score associated with this completion
       class CompletionScore
         extend T::Sig

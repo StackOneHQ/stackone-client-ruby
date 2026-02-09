@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsCreateApplicationRequestDtoValue - The status of the application.
       class AtsCreateApplicationRequestDtoValue < T::Enum
 

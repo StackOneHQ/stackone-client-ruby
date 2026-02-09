@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class LmsListUserAssignmentsRequest
         extend T::Sig
@@ -17,6 +16,8 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # LMS Assignment Filter
@@ -42,10 +43,11 @@ module StackOne
         # The user ID associated with this assignment
         field :user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'user_id', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
-        def initialize(id:, x_account_id:, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, remote_user_id: nil, updated_after: nil, user_id: nil)
+        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
+        def initialize(id:, x_account_id:, prefer: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, remote_user_id: nil, updated_after: nil, user_id: nil)
           @id = id
           @x_account_id = x_account_id
+          @prefer = prefer
           @fields_ = fields_
           @filter = filter
           @next_ = next_
@@ -63,6 +65,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @fields_ == other.fields_
           return false unless @filter == other.filter
           return false unless @next_ == other.next_

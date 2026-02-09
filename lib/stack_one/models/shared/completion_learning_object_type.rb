@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The learning object type of the completion
       class CompletionLearningObjectType
         extend T::Sig

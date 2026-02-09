@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Type of the answer
       class CreateAnswerType
         extend T::Sig

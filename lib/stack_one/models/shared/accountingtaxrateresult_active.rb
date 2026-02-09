@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the tax rate is active
       class AccountingTaxRateResultActive
         extend T::Sig

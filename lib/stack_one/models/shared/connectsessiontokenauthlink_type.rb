@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ConnectSessionTokenAuthLinkType - The connect session account type
       class ConnectSessionTokenAuthLinkType < T::Enum
 

@@ -40,12 +40,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_application_request_dto: Models::Shared::AtsCreateApplicationRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateApplicationResponse) }
-    def create_application(ats_create_application_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_application_request_dto: Models::Shared::AtsCreateApplicationRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateApplicationResponse) }
+    def create_application(ats_create_application_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_application - Create Application
       request = Models::Operations::AtsCreateApplicationRequest.new(
         ats_create_application_request_dto: ats_create_application_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -342,13 +343,14 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateApplicationNoteResponse) }
-    def create_application_note(ats_create_notes_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateApplicationNoteResponse) }
+    def create_application_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_application_note - Create Application Note
       request = Models::Operations::AtsCreateApplicationNoteRequest.new(
         ats_create_notes_request_dto: ats_create_notes_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -650,12 +652,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_background_check_packages_request_dto: Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateBackgroundCheckPackageResponse) }
-    def create_background_check_package(ats_create_background_check_packages_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_background_check_packages_request_dto: Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateBackgroundCheckPackageResponse) }
+    def create_background_check_package(ats_create_background_check_packages_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_background_check_package - Create Background Check Package
       request = Models::Operations::AtsCreateBackgroundCheckPackageRequest.new(
         ats_create_background_check_packages_request_dto: ats_create_background_check_packages_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -952,12 +955,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_candidate_request_dto: Models::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateCandidateResponse) }
-    def create_candidate(ats_create_candidate_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_candidate_request_dto: Models::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateCandidateResponse) }
+    def create_candidate(ats_create_candidate_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_candidate - Create Candidate
       request = Models::Operations::AtsCreateCandidateRequest.new(
         ats_create_candidate_request_dto: ats_create_candidate_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1254,13 +1258,14 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateCandidateNoteResponse) }
-    def create_candidate_note(ats_create_notes_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateCandidateNoteResponse) }
+    def create_candidate_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_candidate_note - Create Candidate Note
       request = Models::Operations::AtsCreateCandidateNoteRequest.new(
         ats_create_notes_request_dto: ats_create_notes_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1562,13 +1567,14 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateInterviewNoteResponse) }
-    def create_interview_note(ats_create_notes_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateInterviewNoteResponse) }
+    def create_interview_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_interview_note - Create Interview Note
       request = Models::Operations::AtsCreateInterviewNoteRequest.new(
         ats_create_notes_request_dto: ats_create_notes_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1870,12 +1876,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_job_request_dto: Models::Shared::AtsCreateJobRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateJobResponse) }
-    def create_job(ats_create_job_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_job_request_dto: Models::Shared::AtsCreateJobRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateJobResponse) }
+    def create_job(ats_create_job_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_job - Create Job
       request = Models::Operations::AtsCreateJobRequest.new(
         ats_create_job_request_dto: ats_create_job_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2172,12 +2179,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_offer_request_dto: Models::Shared::AtsCreateOfferRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateOfferResponse) }
-    def create_offer(ats_create_offer_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_offer_request_dto: Models::Shared::AtsCreateOfferRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateOfferResponse) }
+    def create_offer(ats_create_offer_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_offer - Create Offer
       request = Models::Operations::AtsCreateOfferRequest.new(
         ats_create_offer_request_dto: ats_create_offer_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2474,12 +2482,13 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsDeleteBackgroundCheckPackageResponse) }
-    def delete_background_check_package(id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsDeleteBackgroundCheckPackageResponse) }
+    def delete_background_check_package(id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # delete_background_check_package - Delete Background Check Package
       request = Models::Operations::AtsDeleteBackgroundCheckPackageRequest.new(
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -11398,6 +11407,7 @@ module StackOne
 
             sdk.list_application_changes(
               request: Models::Operations::AtsListApplicationChangesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -11713,6 +11723,7 @@ module StackOne
 
             sdk.list_application_custom_field_definitions(
               request: Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -12029,6 +12040,7 @@ module StackOne
 
             sdk.list_application_document_categories(
               request: Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -12350,6 +12362,7 @@ module StackOne
 
             sdk.list_application_documents(
               request: Models::Operations::AtsListApplicationDocumentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -12673,6 +12686,7 @@ module StackOne
 
             sdk.list_application_notes(
               request: Models::Operations::AtsListApplicationNotesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -12996,6 +13010,7 @@ module StackOne
 
             sdk.list_application_scorecards(
               request: Models::Operations::AtsListApplicationScorecardsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -13314,6 +13329,7 @@ module StackOne
 
             sdk.list_application_stages(
               request: Models::Operations::AtsListApplicationStagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -13631,6 +13647,7 @@ module StackOne
 
             sdk.list_applications(
               request: Models::Operations::AtsListApplicationsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -13956,6 +13973,7 @@ module StackOne
 
             sdk.list_applications_offers(
               request: Models::Operations::AtsListApplicationsOffersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -14279,6 +14297,7 @@ module StackOne
 
             sdk.list_applications_scheduled_interviews(
               request: Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -14597,6 +14616,7 @@ module StackOne
 
             sdk.list_assessments_packages(
               request: Models::Operations::AtsListAssessmentsPackagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -14913,6 +14933,7 @@ module StackOne
 
             sdk.list_background_check_packages(
               request: Models::Operations::AtsListBackgroundCheckPackagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -15229,6 +15250,7 @@ module StackOne
 
             sdk.list_candidate_custom_field_definitions(
               request: Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -15550,6 +15572,7 @@ module StackOne
 
             sdk.list_candidate_notes(
               request: Models::Operations::AtsListCandidateNotesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -15868,6 +15891,7 @@ module StackOne
 
             sdk.list_candidates(
               request: Models::Operations::AtsListCandidatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 include: request.include,
@@ -16186,6 +16210,7 @@ module StackOne
 
             sdk.list_departments(
               request: Models::Operations::AtsListDepartmentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -16505,6 +16530,7 @@ module StackOne
 
             sdk.list_interview_stages(
               request: Models::Operations::AtsListInterviewStagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -16822,6 +16848,7 @@ module StackOne
 
             sdk.list_interviews(
               request: Models::Operations::AtsListInterviewsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -17144,6 +17171,7 @@ module StackOne
 
             sdk.list_job_application_stages(
               request: Models::Operations::AtsListJobApplicationStagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -17462,6 +17490,7 @@ module StackOne
 
             sdk.list_job_custom_field_definitions(
               request: Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -17778,6 +17807,7 @@ module StackOne
 
             sdk.list_job_postings(
               request: Models::Operations::AtsListJobPostingsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 include: request.include,
@@ -18096,6 +18126,7 @@ module StackOne
 
             sdk.list_jobs(
               request: Models::Operations::AtsListJobsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -18415,6 +18446,7 @@ module StackOne
 
             sdk.list_lists(
               request: Models::Operations::AtsListListsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -18731,6 +18763,7 @@ module StackOne
 
             sdk.list_locations(
               request: Models::Operations::AtsListLocationsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19048,6 +19081,7 @@ module StackOne
 
             sdk.list_offers(
               request: Models::Operations::AtsListOffersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19365,6 +19399,7 @@ module StackOne
 
             sdk.list_rejected_reasons(
               request: Models::Operations::AtsListRejectedReasonsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19682,6 +19717,7 @@ module StackOne
 
             sdk.list_users(
               request: Models::Operations::AtsListUsersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19880,13 +19916,14 @@ module StackOne
     end
 
 
-    sig { params(ats_move_application_request_dto: Models::Shared::AtsMoveApplicationRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsMoveApplicationResponse) }
-    def move_application(ats_move_application_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_move_application_request_dto: Models::Shared::AtsMoveApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsMoveApplicationResponse) }
+    def move_application(ats_move_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # move_application - Move Application
       request = Models::Operations::AtsMoveApplicationRequest.new(
         ats_move_application_request_dto: ats_move_application_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -20188,12 +20225,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_candidates_assessments_request_dto: Models::Shared::AtsCreateCandidatesAssessmentsRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsOrderAssessmentsRequestResponse) }
-    def order_assessments_request(ats_create_candidates_assessments_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_candidates_assessments_request_dto: Models::Shared::AtsCreateCandidatesAssessmentsRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsOrderAssessmentsRequestResponse) }
+    def order_assessments_request(ats_create_candidates_assessments_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # order_assessments_request - Order Assessments Request
       request = Models::Operations::AtsOrderAssessmentsRequestRequest.new(
         ats_create_candidates_assessments_request_dto: ats_create_candidates_assessments_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -20490,12 +20528,13 @@ module StackOne
     end
 
 
-    sig { params(ats_create_background_check_order_request_dto: Models::Shared::AtsCreateBackgroundCheckOrderRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsOrderBackgroundCheckRequestResponse) }
-    def order_background_check_request(ats_create_background_check_order_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_background_check_order_request_dto: Models::Shared::AtsCreateBackgroundCheckOrderRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsOrderBackgroundCheckRequestResponse) }
+    def order_background_check_request(ats_create_background_check_order_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # order_background_check_request - Order Background Check Request
       request = Models::Operations::AtsOrderBackgroundCheckRequestRequest.new(
         ats_create_background_check_order_request_dto: ats_create_background_check_order_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -20792,13 +20831,14 @@ module StackOne
     end
 
 
-    sig { params(ats_reject_application_request_dto: Models::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsRejectApplicationResponse) }
-    def reject_application(ats_reject_application_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_reject_application_request_dto: Models::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsRejectApplicationResponse) }
+    def reject_application(ats_reject_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # reject_application - Reject Application
       request = Models::Operations::AtsRejectApplicationRequest.new(
         ats_reject_application_request_dto: ats_reject_application_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -21100,13 +21140,14 @@ module StackOne
     end
 
 
-    sig { params(ats_update_application_request_dto: Models::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationResponse) }
-    def update_application(ats_update_application_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_application_request_dto: Models::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationResponse) }
+    def update_application(ats_update_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_application - Update Application
       request = Models::Operations::AtsUpdateApplicationRequest.new(
         ats_update_application_request_dto: ats_update_application_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -21408,15 +21449,9 @@ module StackOne
     end
 
 
-    sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationNoteResponse) }
-    def update_application_note(ats_update_notes_request_dto:, id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsUpdateApplicationNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationNoteResponse) }
+    def update_application_note(request:, retries: nil, timeout_ms: nil)
       # update_application_note - Update Application Note
-      request = Models::Operations::AtsUpdateApplicationNoteRequest.new(
-        ats_update_notes_request_dto: ats_update_notes_request_dto,
-        id: id,
-        sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -21717,13 +21752,14 @@ module StackOne
     end
 
 
-    sig { params(ats_update_candidates_assessments_results_request_dto: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateAssessmentsResultResponse) }
-    def update_assessments_result(ats_update_candidates_assessments_results_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_candidates_assessments_results_request_dto: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateAssessmentsResultResponse) }
+    def update_assessments_result(ats_update_candidates_assessments_results_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_assessments_result - Update Assessments Result
       request = Models::Operations::AtsUpdateAssessmentsResultRequest.new(
         ats_update_candidates_assessments_results_request_dto: ats_update_candidates_assessments_results_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -22025,13 +22061,14 @@ module StackOne
     end
 
 
-    sig { params(ats_update_background_check_packages_request_dto: Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateBackgroundCheckPackageResponse) }
-    def update_background_check_package(ats_update_background_check_packages_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_background_check_packages_request_dto: Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateBackgroundCheckPackageResponse) }
+    def update_background_check_package(ats_update_background_check_packages_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_background_check_package - Update Background Check Package
       request = Models::Operations::AtsUpdateBackgroundCheckPackageRequest.new(
         ats_update_background_check_packages_request_dto: ats_update_background_check_packages_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -22333,13 +22370,14 @@ module StackOne
     end
 
 
-    sig { params(ats_update_background_check_result_request_dto: Models::Shared::AtsUpdateBackgroundCheckResultRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateBackgroundCheckResultResponse) }
-    def update_background_check_result(ats_update_background_check_result_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_background_check_result_request_dto: Models::Shared::AtsUpdateBackgroundCheckResultRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateBackgroundCheckResultResponse) }
+    def update_background_check_result(ats_update_background_check_result_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_background_check_result - Update Background Check Result
       request = Models::Operations::AtsUpdateBackgroundCheckResultRequest.new(
         ats_update_background_check_result_request_dto: ats_update_background_check_result_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -22641,13 +22679,14 @@ module StackOne
     end
 
 
-    sig { params(ats_update_candidate_request_dto: Models::Shared::AtsUpdateCandidateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateCandidateResponse) }
-    def update_candidate(ats_update_candidate_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_candidate_request_dto: Models::Shared::AtsUpdateCandidateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateCandidateResponse) }
+    def update_candidate(ats_update_candidate_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_candidate - Update Candidate
       request = Models::Operations::AtsUpdateCandidateRequest.new(
         ats_update_candidate_request_dto: ats_update_candidate_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -22949,15 +22988,9 @@ module StackOne
     end
 
 
-    sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateInterviewNoteResponse) }
-    def update_interview_note(ats_update_notes_request_dto:, id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsUpdateInterviewNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateInterviewNoteResponse) }
+    def update_interview_note(request:, retries: nil, timeout_ms: nil)
       # update_interview_note - Update Interview Note
-      request = Models::Operations::AtsUpdateInterviewNoteRequest.new(
-        ats_update_notes_request_dto: ats_update_notes_request_dto,
-        id: id,
-        sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -23258,13 +23291,14 @@ module StackOne
     end
 
 
-    sig { params(ats_update_job_request_dto: Models::Shared::AtsUpdateJobRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateJobResponse) }
-    def update_job(ats_update_job_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_job_request_dto: Models::Shared::AtsUpdateJobRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateJobResponse) }
+    def update_job(ats_update_job_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_job - Update Job
       request = Models::Operations::AtsUpdateJobRequest.new(
         ats_update_job_request_dto: ats_update_job_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -23566,13 +23600,14 @@ module StackOne
     end
 
 
-    sig { params(ats_documents_upload_request_dto: Models::Shared::AtsDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUploadApplicationDocumentResponse) }
-    def upload_application_document(ats_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_documents_upload_request_dto: Models::Shared::AtsDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUploadApplicationDocumentResponse) }
+    def upload_application_document(ats_documents_upload_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # upload_application_document - Upload Application Document
       request = Models::Operations::AtsUploadApplicationDocumentRequest.new(
         ats_documents_upload_request_dto: ats_documents_upload_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class MessagingConversation2 < T::Enum
 

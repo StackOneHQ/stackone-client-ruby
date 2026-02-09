@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of employment (e.g., contractor, permanent)
       class HrisCreateEmployeeRequestDtoSchemasEmploymentTypeType
         extend T::Sig

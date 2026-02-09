@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class TicketingComponentsPaginated
         extend T::Sig

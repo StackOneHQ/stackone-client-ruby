@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # InterviewValue - The status of the interview.
       class InterviewValue < T::Enum
 

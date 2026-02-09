@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employment work schedule type (e.g., full-time, part-time)
       class HrisCreateEmployeeRequestDtoSchemasContractType
         extend T::Sig

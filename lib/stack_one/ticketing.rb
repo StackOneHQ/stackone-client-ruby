@@ -40,13 +40,14 @@ module StackOne
     end
 
 
-    sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingCreateTicketResponse) }
-    def create_ticket(ticketing_ticket_create_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingCreateTicketResponse) }
+    def create_ticket(ticketing_ticket_create_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_ticket - Create Ticket
       # Create a new ticket record.
       request = Models::Operations::TicketingCreateTicketRequest.new(
         ticketing_ticket_create_request_dto: ticketing_ticket_create_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2818,6 +2819,7 @@ module StackOne
 
             sdk.list_attachments(
               request: Models::Operations::TicketingListAttachmentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -3141,6 +3143,7 @@ module StackOne
 
             sdk.list_comments(
               request: Models::Operations::TicketingListCommentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -3464,6 +3467,7 @@ module StackOne
 
             sdk.list_project_components(
               request: Models::Operations::TicketingListProjectComponentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -3787,6 +3791,7 @@ module StackOne
 
             sdk.list_project_ticket_types(
               request: Models::Operations::TicketingListProjectTicketTypesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -4105,6 +4110,7 @@ module StackOne
 
             sdk.list_projects(
               request: Models::Operations::TicketingListProjectsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -4427,6 +4433,7 @@ module StackOne
 
             sdk.list_ticket_statuses(
               request: Models::Operations::TicketingListTicketStatusesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -4745,6 +4752,7 @@ module StackOne
 
             sdk.list_ticket_types(
               request: Models::Operations::TicketingListTicketTypesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5062,6 +5070,7 @@ module StackOne
 
             sdk.list_tickets(
               request: Models::Operations::TicketingListTicketsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5379,6 +5388,7 @@ module StackOne
 
             sdk.list_users(
               request: Models::Operations::TicketingListUsersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5576,14 +5586,15 @@ module StackOne
     end
 
 
-    sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingUpdateTicketResponse) }
-    def update_ticket(ticketing_ticket_update_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingUpdateTicketResponse) }
+    def update_ticket(ticketing_ticket_update_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_ticket - Update Ticket
       # Update an existing ticket record by its identifier.
       request = Models::Operations::TicketingUpdateTicketRequest.new(
         ticketing_ticket_update_request_dto: ticketing_ticket_update_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

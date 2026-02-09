@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsGetJobPostingResponse
         extend T::Sig

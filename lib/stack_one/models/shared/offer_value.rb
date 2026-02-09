@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # OfferValue - The status of the offer.
       class OfferValue < T::Enum
 

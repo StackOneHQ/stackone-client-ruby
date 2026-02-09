@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The proficiency level of the skill
       class EntitySkillsCreateRequestDtoMinimumProficiency
         extend T::Sig

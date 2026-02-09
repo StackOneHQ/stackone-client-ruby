@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Raw error response from the provider
       class Raw
         extend T::Sig

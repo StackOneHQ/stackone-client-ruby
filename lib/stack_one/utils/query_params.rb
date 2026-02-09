@@ -3,7 +3,6 @@
 # typed: true
 # frozen_string_literal: true
 
-require 'cgi'
 require 'date'
 require 'base64'
 require 'sorbet-runtime'
@@ -17,7 +16,10 @@ module StackOne
       parsed_params = T.let({}, T::Hash[T.any(String, Symbol), T::Array[String]])
       if !url_override.nil?
         parsed_url = URI.parse url_override
-        parsed_params = CGI.parse parsed_url.query
+        URI.decode_www_form(parsed_url.query.to_s).each do |key, value|
+          parsed_params[key] ||= []
+          T.must(parsed_params[key]) << value
+        end
       end
       params = T.let({}, T::Hash[T.any(String, Symbol), T::Array[String]])
       T.unsafe(clazz).fields.each do |f|

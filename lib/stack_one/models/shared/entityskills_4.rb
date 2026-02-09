@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class EntitySkills4
         extend T::Sig

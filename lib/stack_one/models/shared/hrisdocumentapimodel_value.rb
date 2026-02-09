@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisDocumentApiModelValue - The category of the file
       class HrisDocumentApiModelValue < T::Enum
 

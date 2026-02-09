@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Position
         extend T::Sig

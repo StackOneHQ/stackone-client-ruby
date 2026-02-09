@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee preferred language
       class HrisUpdateEmployeeRequestDtoPreferredLanguage
         extend T::Sig

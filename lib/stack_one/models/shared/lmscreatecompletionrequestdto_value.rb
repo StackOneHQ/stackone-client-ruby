@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # LmsCreateCompletionRequestDtoValue - The StackOne unified result status.
       class LmsCreateCompletionRequestDtoValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the user is a bot
       class MessagingUserResultBot
         extend T::Sig

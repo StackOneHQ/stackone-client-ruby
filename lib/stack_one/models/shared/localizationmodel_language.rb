@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The language associated with the localization details
       class LocalizationModelLanguage
         extend T::Sig

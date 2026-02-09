@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Stackone enum identifying the status of content block.
       class ContentBlockStatus
         extend T::Sig

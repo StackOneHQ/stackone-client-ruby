@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
       # Error details
       class Data
         extend T::Sig

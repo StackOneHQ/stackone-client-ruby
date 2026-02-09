@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Current status of the ticket
       class TicketingReadTicketStatus
         extend T::Sig

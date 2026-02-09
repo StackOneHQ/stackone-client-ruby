@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AccountAddressSchemasValue - The ISO 3166-1 alpha-2 code of the country.
       class AccountAddressSchemasValue < T::Enum
 

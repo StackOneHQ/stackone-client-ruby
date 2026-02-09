@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class ScheduledInterviewsResult
         extend T::Sig

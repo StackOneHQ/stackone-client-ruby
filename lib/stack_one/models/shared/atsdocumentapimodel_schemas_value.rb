@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsDocumentApiModelSchemasValue - The category of the file
       class AtsDocumentApiModelSchemasValue < T::Enum
 

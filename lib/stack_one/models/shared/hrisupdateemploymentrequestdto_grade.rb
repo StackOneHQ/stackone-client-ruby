@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Represents the employee’s position within the organizational hierarchy.
       class HrisUpdateEmploymentRequestDtoGrade
         extend T::Sig

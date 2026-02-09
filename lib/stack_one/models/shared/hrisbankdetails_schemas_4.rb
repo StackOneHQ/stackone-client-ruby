@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class HRISBankDetailsSchemas4
         extend T::Sig

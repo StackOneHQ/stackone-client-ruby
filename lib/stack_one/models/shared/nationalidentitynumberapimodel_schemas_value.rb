@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # NationalIdentityNumberApiModelSchemasValue - The type of the national identity number
       class NationalIdentityNumberApiModelSchemasValue < T::Enum
 

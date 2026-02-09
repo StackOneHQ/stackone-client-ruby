@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # How often the employee is paid
       class PayFrequency
         extend T::Sig

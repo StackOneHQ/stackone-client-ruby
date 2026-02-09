@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # EmploymentSchemasPayPeriodValue - The pay period of the job postings.
       class EmploymentSchemasPayPeriodValue < T::Enum
 

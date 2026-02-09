@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class EmployeeSchemasNationalIdentityNumberType4
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # Filter parameters for application changes (supports created_after and change_type)
       class AtsListApplicationChangesQueryParamFilter
         extend T::Sig

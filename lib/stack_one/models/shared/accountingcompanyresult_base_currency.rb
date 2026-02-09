@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Default currency for the company
       class AccountingCompanyResultBaseCurrency
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue - The unified value for the period.
       class HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue < T::Enum
 

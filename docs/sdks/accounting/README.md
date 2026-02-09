@@ -35,7 +35,7 @@ s = ::StackOne::StackOne.new(
 
 res = s.accounting.batch_create_company_journals(accounting_journal_batch_create_request_dto: Models::Shared::AccountingJournalBatchCreateRequestDto.new(
   items: [],
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.batch_result_api_model.nil?
   # handle response
@@ -45,11 +45,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `accounting_journal_batch_create_request_dto`                                                                           | [Models::Shared::AccountingJournalBatchCreateRequestDto](../../models/shared/accountingjournalbatchcreaterequestdto.md) | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `id`                                                                                                                    | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `x_account_id`                                                                                                          | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The account identifier                                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accounting_journal_batch_create_request_dto`                                                                                                                            | [Models::Shared::AccountingJournalBatchCreateRequestDto](../../models/shared/accountingjournalbatchcreaterequestdto.md)                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -109,7 +110,7 @@ res = s.accounting.create_company_journal(accounting_journal_create_request_dto:
   memo: 'Monthly closing entries',
   reference: 'JRN-2024-001',
   transaction_date: DateTime.iso8601('2024-03-20T10:00:00Z'),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -119,11 +120,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `accounting_journal_create_request_dto`                                                                       | [Models::Shared::AccountingJournalCreateRequestDto](../../models/shared/accountingjournalcreaterequestdto.md) | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
-| `id`                                                                                                          | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
-| `x_account_id`                                                                                                | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The account identifier                                                                                        |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accounting_journal_create_request_dto`                                                                                                                                  | [Models::Shared::AccountingJournalCreateRequestDto](../../models/shared/accountingjournalcreaterequestdto.md)                                                            | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -166,6 +168,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingGetCompanyRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,base_currency,fiscal_year_start_month,fiscal_year_start_day,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -226,6 +229,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingGetCompanyAccountRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,company_id,remote_company_id,code,name,type,active,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -287,6 +291,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingGetCompanyJournalRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,company_id,remote_company_id,reference,memo,transaction_date,status,lines,created_at,updated_at,posted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -348,6 +353,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingGetCompanyTaxRateRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,company_id,remote_company_id,name,code,percentage,active,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -409,6 +415,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingListCompaniesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,base_currency,fiscal_year_start_month,fiscal_year_start_day,unified_custom_fields',
   filter: Models::Operations::AccountingListCompaniesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -471,6 +478,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingListCompanyAccountsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,company_id,remote_company_id,code,name,type,active,unified_custom_fields',
   filter: nil,
   id: '<id>',
@@ -532,6 +540,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingListCompanyJournalsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,company_id,remote_company_id,reference,memo,transaction_date,status,lines,created_at,updated_at,posted_at,unified_custom_fields',
   filter: nil,
   id: '<id>',
@@ -593,6 +602,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AccountingListCompanyTaxRatesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,company_id,remote_company_id,name,code,percentage,active,unified_custom_fields',
   filter: Models::Operations::AccountingListCompanyTaxRatesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),

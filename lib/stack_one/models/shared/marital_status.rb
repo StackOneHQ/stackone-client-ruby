@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee marital status
       class MaritalStatus
         extend T::Sig

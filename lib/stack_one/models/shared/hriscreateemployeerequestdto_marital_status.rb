@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee marital status
       class HrisCreateEmployeeRequestDtoMaritalStatus
         extend T::Sig

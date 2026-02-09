@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # NationalIdentityNumberApiModelValue - The ISO3166-1 Alpha2 Code of the Country
       class NationalIdentityNumberApiModelValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Content of the message
       class MessagingMessageContent
         extend T::Sig

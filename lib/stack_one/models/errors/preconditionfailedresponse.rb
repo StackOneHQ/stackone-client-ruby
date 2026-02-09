@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
 
       class PreconditionFailedResponse < StandardError
         extend T::Sig

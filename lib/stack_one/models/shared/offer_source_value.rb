@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the offer status.
       class OfferSourceValue
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
 
       class InternalServerErrorResponse < StandardError
         extend T::Sig

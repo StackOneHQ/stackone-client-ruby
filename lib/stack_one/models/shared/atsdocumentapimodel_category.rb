@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The category of the the document
       class AtsDocumentApiModelCategory
         extend T::Sig

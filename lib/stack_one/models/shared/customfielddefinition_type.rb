@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of the custom field.
       class CustomFieldDefinitionType
         extend T::Sig

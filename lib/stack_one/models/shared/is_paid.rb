@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the break is paid
       class IsPaid
         extend T::Sig

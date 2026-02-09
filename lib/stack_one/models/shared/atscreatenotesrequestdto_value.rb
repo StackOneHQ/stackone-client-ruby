@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsCreateNotesRequestDtoValue - The visibility of the notes.
       class AtsCreateNotesRequestDtoValue < T::Enum
 

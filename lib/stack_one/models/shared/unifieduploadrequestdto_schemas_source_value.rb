@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class UnifiedUploadRequestDtoSchemasSourceValue
         extend T::Sig

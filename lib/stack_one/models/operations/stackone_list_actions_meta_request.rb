@@ -7,12 +7,13 @@
 module StackOne
   module Models
     module Operations
-    
 
       class StackoneListActionsMetaRequest
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Data to exclude from the response
+        field :exclude, Crystalline::Nilable.new(Crystalline::Array.new(Models::Operations::Exclude)), { 'query_param': { 'field_name': 'exclude', 'style': 'form', 'explode': true } }
         # Actions Metadata filters
         field :filter, Crystalline::Nilable.new(Models::Operations::Filter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # Additional data to include in the response
@@ -21,25 +22,31 @@ module StackOne
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
+        # Text search across provider names, action labels, and action descriptions
+        field :search, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'search', 'style': 'form', 'explode': true } }
         # The relation to group the results by
         field :group_by, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'group_by', 'style': 'form', 'explode': true } }
 
-        sig { params(filter: T.nilable(Models::Operations::Filter), include: T.nilable(T::Array[Models::Operations::Include]), next_: T.nilable(::String), page_size: T.nilable(::String), group_by: T.nilable(::String)).void }
-        def initialize(filter: nil, include: nil, next_: nil, page_size: nil, group_by: 'connector')
+        sig { params(exclude: T.nilable(T::Array[Models::Operations::Exclude]), filter: T.nilable(Models::Operations::Filter), include: T.nilable(T::Array[Models::Operations::Include]), next_: T.nilable(::String), page_size: T.nilable(::String), search: T.nilable(::String), group_by: T.nilable(::String)).void }
+        def initialize(exclude: nil, filter: nil, include: nil, next_: nil, page_size: nil, search: nil, group_by: 'connector')
+          @exclude = exclude
           @filter = filter
           @include = include
           @next_ = next_
           @page_size = page_size
+          @search = search
           @group_by = group_by
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @exclude == other.exclude
           return false unless @filter == other.filter
           return false unless @include == other.include
           return false unless @next_ == other.next_
           return false unless @page_size == other.page_size
+          return false unless @search == other.search
           return false unless @group_by == other.group_by
           true
         end

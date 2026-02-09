@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Stackone enum identifying the type of content block.
       class MarketingCreateContentBlocksRequestDtoType
         extend T::Sig

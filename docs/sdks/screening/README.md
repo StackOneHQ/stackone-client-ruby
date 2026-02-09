@@ -41,7 +41,7 @@ res = s.screening.create_screening_order(screening_create_order_request_dto: Mod
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -51,10 +51,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `screening_create_order_request_dto`                                                                    | [Models::Shared::ScreeningCreateOrderRequestDto](../../models/shared/screeningcreateorderrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `screening_create_order_request_dto`                                                                                                                                     | [Models::Shared::ScreeningCreateOrderRequestDto](../../models/shared/screeningcreateorderrequestdto.md)                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -97,6 +98,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::ScreeningGetScreeningPackageRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -157,6 +159,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::ScreeningListScreeningPackagesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,unified_custom_fields',
   filter: Models::Operations::ScreeningListScreeningPackagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -240,7 +243,7 @@ res = s.screening.webhook_screening_result(screening_result_webhook: Models::Sha
     },
   ),
   event: Models::Shared::Event::SCREENING_RESULTS_CANCELLED,
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.screening_result_webhook.nil?
   # handle response
@@ -250,10 +253,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `screening_result_webhook`                                                              | [Models::Shared::ScreeningResultWebhook](../../models/shared/screeningresultwebhook.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
-| `x_account_id`                                                                          | *::String*                                                                              | :heavy_check_mark:                                                                      | The account identifier                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `screening_result_webhook`                                                                                                                                               | [Models::Shared::ScreeningResultWebhook](../../models/shared/screeningresultwebhook.md)                                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

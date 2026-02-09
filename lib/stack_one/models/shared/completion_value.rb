@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CompletionValue - The StackOne unified learning object type.
       class CompletionValue < T::Enum
 

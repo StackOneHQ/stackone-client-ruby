@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The user's avatar data. This generally contains a URL within this property's 'contents' array.
       class IamUserAvatar
         extend T::Sig

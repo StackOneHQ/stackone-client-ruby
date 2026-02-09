@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The approval status of the shift
       class ApprovalStatus
         extend T::Sig

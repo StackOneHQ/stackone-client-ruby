@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsUpdateJobRequestDtoConfidential - Confidential status of the job
       class AtsUpdateJobRequestDtoConfidential < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # TicketingTicketResultValue - The priority of the ticket.
       class TicketingTicketResultValue < T::Enum
 

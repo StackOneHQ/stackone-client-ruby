@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class CreateEmploymentApiModelSchemasType4
         extend T::Sig

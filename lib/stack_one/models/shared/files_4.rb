@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Files4
         extend T::Sig

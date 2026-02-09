@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class SmsMessageContentsSchemas
         extend T::Sig

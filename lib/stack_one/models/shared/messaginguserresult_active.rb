@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the user is active
       class MessagingUserResultActive
         extend T::Sig

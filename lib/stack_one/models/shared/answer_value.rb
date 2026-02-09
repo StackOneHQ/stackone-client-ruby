@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AnswerValue - The type of the answer.
       class AnswerValue < T::Enum
 

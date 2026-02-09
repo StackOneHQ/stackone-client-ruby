@@ -39,12 +39,13 @@ module StackOne
     end
 
 
-    sig { params(proxy_request_body: Models::Shared::ProxyRequestBody, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneProxyRequestResponse) }
-    def proxy_request(proxy_request_body:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(proxy_request_body: Models::Shared::ProxyRequestBody, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneProxyRequestResponse) }
+    def proxy_request(proxy_request_body:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # proxy_request - Proxy Request
       request = Models::Operations::StackoneProxyRequestRequest.new(
         proxy_request_body: proxy_request_body,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

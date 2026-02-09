@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # ATS Interviews Filter
       class AtsListInterviewsQueryParamFilter
         extend T::Sig

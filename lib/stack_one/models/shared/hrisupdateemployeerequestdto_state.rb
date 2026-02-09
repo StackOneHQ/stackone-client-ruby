@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The ISO3166-2 sub division where the location is situated
       class HrisUpdateEmployeeRequestDtoState
         extend T::Sig

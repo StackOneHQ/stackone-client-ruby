@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee department
       class EmploymentDepartment
         extend T::Sig

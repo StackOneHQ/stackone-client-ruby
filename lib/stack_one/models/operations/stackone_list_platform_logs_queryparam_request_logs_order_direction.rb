@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # StackoneListPlatformLogsQueryParamRequestLogsOrderDirection - The direction to order the results by.
       class StackoneListPlatformLogsQueryParamRequestLogsOrderDirection < T::Enum
 

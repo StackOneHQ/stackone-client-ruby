@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JournalLineSchemasValue - Default currency for the company
       class JournalLineSchemasValue < T::Enum
 

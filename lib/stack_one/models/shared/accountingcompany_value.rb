@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AccountingCompanyValue - Default currency for the company
       class AccountingCompanyValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # LMS Courses Filter
       class LmsListContentQueryParamFilter
         extend T::Sig

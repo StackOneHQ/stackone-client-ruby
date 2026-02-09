@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employment work schedule type
       class ContractType
         extend T::Sig

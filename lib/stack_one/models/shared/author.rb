@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Author of the message
       class Author
         extend T::Sig

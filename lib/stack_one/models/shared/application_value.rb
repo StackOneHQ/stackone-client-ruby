@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ApplicationValue - The status of the application.
       class ApplicationValue < T::Enum
 

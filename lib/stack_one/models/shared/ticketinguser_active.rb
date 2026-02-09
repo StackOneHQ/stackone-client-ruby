@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # If the user is active
       class TicketingUserActive
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of this status
       class TicketingReadTicketSchemasType
         extend T::Sig

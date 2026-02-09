@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class CrmCreateContactResponse
         extend T::Sig

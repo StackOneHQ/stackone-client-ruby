@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The schedule type
       class ScheduleType
         extend T::Sig

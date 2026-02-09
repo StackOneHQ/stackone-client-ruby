@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Priority of the ticket
       class TicketingTicketResultPriority
         extend T::Sig

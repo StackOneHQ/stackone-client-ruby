@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class HrisUpdateEmployeeTaskResponse
         extend T::Sig

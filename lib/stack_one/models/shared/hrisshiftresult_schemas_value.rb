@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisShiftResultSchemasValue - The status of the shift
       class HrisShiftResultSchemasValue < T::Enum
 

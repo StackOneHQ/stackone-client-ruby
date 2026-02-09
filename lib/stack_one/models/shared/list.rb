@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class List
         extend T::Sig

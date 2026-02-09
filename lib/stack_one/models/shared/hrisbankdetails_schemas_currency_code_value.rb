@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HRISBankDetailsSchemasCurrencyCodeValue - ISO 4217 currency code
       class HRISBankDetailsSchemasCurrencyCodeValue < T::Enum
 

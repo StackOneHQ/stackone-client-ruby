@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class AccountingAccount
         extend T::Sig

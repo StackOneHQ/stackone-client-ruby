@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Stackone enum identifying the type of message associated with the content.
       class MessageMessageType
         extend T::Sig

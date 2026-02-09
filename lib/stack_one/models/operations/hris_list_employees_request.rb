@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class HrisListEmployeesRequest
         extend T::Sig
@@ -15,6 +14,8 @@ module StackOne
 
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be expanded in the response
         field :expand, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
@@ -40,9 +41,10 @@ module StackOne
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
-        sig { params(x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::HrisListEmployeesQueryParamFilter), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
-        def initialize(x_account_id:, expand: nil, fields_: nil, filter: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+        sig { params(x_account_id: ::String, prefer: T.nilable(::String), expand: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::HrisListEmployeesQueryParamFilter), include: T.nilable(::String), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
+        def initialize(x_account_id:, prefer: nil, expand: nil, fields_: nil, filter: nil, include: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
           @x_account_id = x_account_id
+          @prefer = prefer
           @expand = expand
           @fields_ = fields_
           @filter = filter
@@ -59,6 +61,7 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @expand == other.expand
           return false unless @fields_ == other.fields_
           return false unless @filter == other.filter

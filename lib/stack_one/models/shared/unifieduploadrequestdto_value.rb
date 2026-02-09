@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # UnifiedUploadRequestDtoValue - Whether the file is confidential or not
       class UnifiedUploadRequestDtoValue < T::Enum
 

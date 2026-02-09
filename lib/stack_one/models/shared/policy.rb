@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The time off policy associated with Time Off
       class Policy
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # PushMessagesValue - The unified message type.
       class PushMessagesValue < T::Enum
 

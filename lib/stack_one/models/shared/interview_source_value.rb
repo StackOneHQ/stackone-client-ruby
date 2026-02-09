@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the interview status.
       class InterviewSourceValue
         extend T::Sig

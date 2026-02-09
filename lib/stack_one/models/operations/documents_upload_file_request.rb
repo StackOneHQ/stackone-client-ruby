@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class DocumentsUploadFileRequest
         extend T::Sig
@@ -17,13 +16,16 @@ module StackOne
         field :unified_upload_request_dto, Models::Shared::UnifiedUploadRequestDto, { 'request': { 'media_type': 'application/json' } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The session token
         field :x_stackone_api_session_token, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-stackone-api-session-token', 'style': 'simple', 'explode': false } }
 
-        sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String)).void }
-        def initialize(unified_upload_request_dto:, x_account_id:, x_stackone_api_session_token: nil)
+        sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, prefer: T.nilable(::String), x_stackone_api_session_token: T.nilable(::String)).void }
+        def initialize(unified_upload_request_dto:, x_account_id:, prefer: nil, x_stackone_api_session_token: nil)
           @unified_upload_request_dto = unified_upload_request_dto
           @x_account_id = x_account_id
+          @prefer = prefer
           @x_stackone_api_session_token = x_stackone_api_session_token
         end
 
@@ -32,6 +34,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @unified_upload_request_dto == other.unified_upload_request_dto
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @x_stackone_api_session_token == other.x_stackone_api_session_token
           true
         end

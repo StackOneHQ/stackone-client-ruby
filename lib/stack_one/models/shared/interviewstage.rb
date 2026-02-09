@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class InterviewStage
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Query parameters for the action
       class Query
         extend T::Sig

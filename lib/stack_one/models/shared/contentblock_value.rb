@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ContentBlockValue - The Status of the content blocks.
       class ContentBlockValue < T::Enum
 

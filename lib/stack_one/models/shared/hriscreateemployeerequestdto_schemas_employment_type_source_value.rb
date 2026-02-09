@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the employment type.
       class HrisCreateEmployeeRequestDtoSchemasEmploymentTypeSourceValue
         extend T::Sig

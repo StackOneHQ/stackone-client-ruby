@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the employment contract type.
       class JobPostingSourceValue
         extend T::Sig

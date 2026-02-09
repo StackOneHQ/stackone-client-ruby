@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee division
       class Division
         extend T::Sig

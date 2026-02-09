@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # TicketingAttachmentResultValue - The file format of the file, expressed as a file extension
       class TicketingAttachmentResultValue < T::Enum
 

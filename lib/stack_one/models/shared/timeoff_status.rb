@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The status of the time off request
       class TimeOffStatus
         extend T::Sig

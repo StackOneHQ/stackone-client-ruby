@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ContentBlockSchemasValue - The type of the content blocks.
       class ContentBlockSchemasValue < T::Enum
 

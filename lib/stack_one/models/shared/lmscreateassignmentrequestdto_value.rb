@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # LmsCreateAssignmentRequestDtoValue - The StackOne unified assignment status.
       class LmsCreateAssignmentRequestDtoValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the list type.
       class ListSourceValue
         extend T::Sig

@@ -1,0 +1,11 @@
+# GuideSectionMeta
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `content`                                                                       | *::String*                                                                      | :heavy_check_mark:                                                              | The content of the section, includes markdown formatting                        |
+| `list`                                                                          | T::Array<*::String*>                                                            | :heavy_minus_sign:                                                              | List items for the section                                                      |
+| `steps`                                                                         | T::Array<[Models::Shared::GuideStepMeta](../../models/shared/guidestepmeta.md)> | :heavy_minus_sign:                                                              | Nested steps within the section                                                 |
+| `title`                                                                         | *::String*                                                                      | :heavy_check_mark:                                                              | The title of the section                                                        |

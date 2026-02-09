@@ -12,6 +12,8 @@ class StackOne::Models::Operations::MessagingGetMessageRequest
   def id=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
   def filter(); end
   def filter=(str_); end
   def fields_(); end

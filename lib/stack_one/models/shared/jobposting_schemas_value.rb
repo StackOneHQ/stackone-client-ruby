@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JobPostingSchemasValue - The type of the employment.
       class JobPostingSchemasValue < T::Enum
 

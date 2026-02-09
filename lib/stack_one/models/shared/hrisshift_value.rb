@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisShiftValue - The approval status of the shift
       class HrisShiftValue < T::Enum
 

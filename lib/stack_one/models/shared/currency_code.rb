@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Currency code for the journal and all lines
       class CurrencyCode
         extend T::Sig

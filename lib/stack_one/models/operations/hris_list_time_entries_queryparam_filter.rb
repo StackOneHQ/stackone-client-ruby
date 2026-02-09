@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # HRIS Time Entries filters
       class HrisListTimeEntriesQueryParamFilter
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the content is active and available for users.
       class LmsUpsertContentRequestDtoActive
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The status to apply to this Task
       class UpdateTaskRequestDtoStatus
         extend T::Sig

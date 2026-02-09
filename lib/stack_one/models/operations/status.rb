@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # Status - The status of the job
       # 
       # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.

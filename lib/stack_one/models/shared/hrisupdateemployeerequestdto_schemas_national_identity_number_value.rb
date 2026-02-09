@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberValue - The ISO3166-1 Alpha2 Code of the Country
       class HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberValue < T::Enum
 

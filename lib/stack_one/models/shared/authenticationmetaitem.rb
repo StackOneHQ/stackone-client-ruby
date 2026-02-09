@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class AuthenticationMetaItem
         extend T::Sig
@@ -17,13 +16,19 @@ module StackOne
         field :key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('key') } }
         # The authentication label
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # The required scopes for this authentication method
+        field :required_scopes, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required_scopes') } }
+        # The support information for this authentication method, including configuration and account linking guides
+        field :support, Crystalline::Nilable.new(Models::Shared::Support), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('support') } }
         # The authentication type
         field :type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        sig { params(key: T.nilable(::String), label: T.nilable(::String), type: T.nilable(::String)).void }
-        def initialize(key: nil, label: nil, type: nil)
+        sig { params(key: T.nilable(::String), label: T.nilable(::String), required_scopes: T.nilable(T::Array[::String]), support: T.nilable(Models::Shared::Support), type: T.nilable(::String)).void }
+        def initialize(key: nil, label: nil, required_scopes: nil, support: nil, type: nil)
           @key = key
           @label = label
+          @required_scopes = required_scopes
+          @support = support
           @type = type
         end
 
@@ -32,6 +37,8 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @key == other.key
           return false unless @label == other.label
+          return false unless @required_scopes == other.required_scopes
+          return false unless @support == other.support
           return false unless @type == other.type
           true
         end

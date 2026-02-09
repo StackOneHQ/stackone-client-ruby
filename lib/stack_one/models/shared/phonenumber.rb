@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class PhoneNumber
         extend T::Sig

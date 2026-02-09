@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of this status type
       class TicketingTicketStatusSourceValue
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Type of the account
       class JournalLineAccountType
         extend T::Sig

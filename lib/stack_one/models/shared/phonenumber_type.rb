@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # PhoneNumberType - Type of phone number
       class PhoneNumberType < T::Enum
 

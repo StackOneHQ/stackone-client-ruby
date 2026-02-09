@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of the team group
       class HRISTeamType
         extend T::Sig

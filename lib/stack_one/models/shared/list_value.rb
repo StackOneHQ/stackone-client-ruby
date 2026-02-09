@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ListValue - The type of the list.
       class ListValue < T::Enum
 

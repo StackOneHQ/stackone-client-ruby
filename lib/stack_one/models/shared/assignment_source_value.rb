@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The original learning object type from the provider before normalization.
       class AssignmentSourceValue
         extend T::Sig

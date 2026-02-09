@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The category of the file
       class FileCategory
         extend T::Sig

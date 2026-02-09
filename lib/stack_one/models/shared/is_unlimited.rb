@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Indicates if this time off balance represents unlimited leave
       class IsUnlimited
         extend T::Sig

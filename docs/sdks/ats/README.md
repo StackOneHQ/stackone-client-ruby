@@ -181,7 +181,7 @@ res = s.ats.create_application(ats_create_application_request_dto: Models::Share
     ),
   ],
   source: nil,
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -191,10 +191,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ats_create_application_request_dto`                                                                    | [Models::Shared::AtsCreateApplicationRequestDto](../../models/shared/atscreateapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_application_request_dto`                                                                                                                                     | [Models::Shared::AtsCreateApplicationRequestDto](../../models/shared/atscreateapplicationrequestdto.md)                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -250,7 +251,7 @@ res = s.ats.create_application_note(ats_create_notes_request_dto: Models::Shared
     source_value: 'Public',
     value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
   ),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -260,11 +261,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_create_notes_request_dto`                                                              | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_notes_request_dto`                                                                                                                                           | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md)                                                                              | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -318,7 +320,7 @@ res = s.ats.create_background_check_package(ats_create_background_check_packages
       name: 'Test 1',
     ),
   ],
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -328,10 +330,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_create_background_check_packages_request_dto`                                                                              | [Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto](../../models/shared/atscreatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_background_check_packages_request_dto`                                                                                                                       | [Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto](../../models/shared/atscreatebackgroundcheckpackagesrequestdto.md)                                          | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -410,7 +413,7 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto: Models::Shared::A
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -420,10 +423,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ats_create_candidate_request_dto`                                                                  | [Models::Shared::AtsCreateCandidateRequestDto](../../models/shared/atscreatecandidaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_candidate_request_dto`                                                                                                                                       | [Models::Shared::AtsCreateCandidateRequestDto](../../models/shared/atscreatecandidaterequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -479,7 +483,7 @@ res = s.ats.create_candidate_note(ats_create_notes_request_dto: Models::Shared::
     source_value: 'Public',
     value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
   ),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -489,11 +493,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_create_notes_request_dto`                                                              | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_notes_request_dto`                                                                                                                                           | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md)                                                                              | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -549,7 +554,7 @@ res = s.ats.create_interview_note(ats_create_notes_request_dto: Models::Shared::
     source_value: 'Public',
     value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
   ),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -559,11 +564,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_create_notes_request_dto`                                                              | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_notes_request_dto`                                                                                                                                           | [Models::Shared::AtsCreateNotesRequestDto](../../models/shared/atscreatenotesrequestdto.md)                                                                              | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -662,7 +668,7 @@ res = s.ats.create_job(ats_create_job_request_dto: Models::Shared::AtsCreateJobR
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -672,10 +678,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `ats_create_job_request_dto`                                                            | [Models::Shared::AtsCreateJobRequestDto](../../models/shared/atscreatejobrequestdto.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
-| `x_account_id`                                                                          | *::String*                                                                              | :heavy_check_mark:                                                                      | The account identifier                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_job_request_dto`                                                                                                                                             | [Models::Shared::AtsCreateJobRequestDto](../../models/shared/atscreatejobrequestdto.md)                                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -733,7 +740,7 @@ res = s.ats.create_offer(ats_create_offer_request_dto: Models::Shared::AtsCreate
     "other_known_names": 'John Doe',
   },
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -743,10 +750,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_create_offer_request_dto`                                                              | [Models::Shared::AtsCreateOfferRequestDto](../../models/shared/atscreateofferrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_offer_request_dto`                                                                                                                                           | [Models::Shared::AtsCreateOfferRequestDto](../../models/shared/atscreateofferrequestdto.md)                                                                              | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -788,7 +796,7 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.ats.delete_background_check_package(id: '<id>', x_account_id: '<id>')
+res = s.ats.delete_background_check_package(id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
   # handle response
@@ -798,10 +806,11 @@ end
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
-| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -844,6 +853,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsDownloadApplicationDocumentRequest.new(
+  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
@@ -906,6 +916,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationRequest.new(
+  prefer: 'heartbeat',
   expand: 'documents',
   fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   id: '<id>',
@@ -968,6 +979,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: nil,
   id: '<id>',
@@ -1029,6 +1041,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationDocumentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1090,6 +1103,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationDocumentCategoryRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1150,6 +1164,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationNoteRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1211,6 +1226,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationOfferRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1272,6 +1288,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationScheduledInterviewRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1333,6 +1350,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationScorecardRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1394,6 +1412,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetApplicationStageRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1454,6 +1473,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetAssessmentsPackageRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -1513,6 +1533,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetBackgroundCheckPackageRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,tests,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1573,6 +1594,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,tags,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
@@ -1634,6 +1656,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1697,6 +1720,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetCandidateNoteRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1758,6 +1782,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetDepartmentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1818,6 +1843,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetInterviewRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1880,6 +1906,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetInterviewStageRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1940,6 +1967,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobRequest.new(
+  prefer: 'heartbeat',
   expand: 'job_postings,interview_stages',
   fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
@@ -2002,6 +2030,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobApplicationStageRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -2063,6 +2092,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2126,6 +2156,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetJobPostingRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at,unified_custom_fields',
   id: '<id>',
   include: 'questionnaires',
@@ -2187,6 +2218,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetListRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2247,6 +2279,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetLocationRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2307,6 +2340,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetOfferRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2367,6 +2401,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetRejectedReasonRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,label,type,rejected_reason_type,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2427,6 +2462,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsGetUserRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2487,6 +2523,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationChangesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationChangesQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2550,6 +2587,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
@@ -2610,6 +2648,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2672,6 +2711,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationDocumentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2735,6 +2775,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationNotesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationNotesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2798,6 +2839,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationScorecardsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationScorecardsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2861,6 +2903,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationStagesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationStagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2923,6 +2966,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationsRequest.new(
+  prefer: 'heartbeat',
   expand: 'documents',
   fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsQueryParamFilter.new(
@@ -2988,6 +3032,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationsOffersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3051,6 +3096,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3114,6 +3160,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListAssessmentsPackagesRequest.new(
+  prefer: 'heartbeat',
   filter: Models::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -3175,6 +3222,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListBackgroundCheckPackagesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,tests,unified_custom_fields',
   filter: Models::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3237,6 +3285,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3299,6 +3348,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidateNotesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidateNotesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3362,6 +3412,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListCandidatesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,tags,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3426,6 +3477,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListDepartmentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   filter: Models::Operations::AtsListDepartmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3490,6 +3542,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListInterviewStagesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListInterviewStagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3552,6 +3605,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListInterviewsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListInterviewsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3615,6 +3669,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobApplicationStagesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobApplicationStagesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3678,6 +3733,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3740,6 +3796,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobPostingsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3804,6 +3861,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListJobsRequest.new(
+  prefer: 'heartbeat',
   expand: 'job_postings,interview_stages',
   fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobsQueryParamFilter.new(
@@ -3869,6 +3927,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListListsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
@@ -3929,6 +3988,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListLocationsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   filter: Models::Operations::AtsListLocationsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3991,6 +4051,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListOffersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListOffersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -4053,6 +4114,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListRejectedReasonsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,label,type,rejected_reason_type,unified_custom_fields',
   filter: Models::Operations::AtsListRejectedReasonsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -4115,6 +4177,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::AtsListUsersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
@@ -4179,7 +4242,7 @@ res = s.ats.move_application(ats_move_application_request_dto: Models::Shared::A
   passthrough: {
     "other_known_names": 'John Doe',
   },
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.move_application_result.nil?
   # handle response
@@ -4189,11 +4252,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ats_move_application_request_dto`                                                                  | [Models::Shared::AtsMoveApplicationRequestDto](../../models/shared/atsmoveapplicationrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_move_application_request_dto`                                                                                                                                       | [Models::Shared::AtsMoveApplicationRequestDto](../../models/shared/atsmoveapplicationrequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4300,7 +4364,7 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
     user_id: '123456',
   ),
   results_update_url: 'https://exmaple.com/integrations/results/update',
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_assessment_order_result.nil?
   # handle response
@@ -4310,10 +4374,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `ats_create_candidates_assessments_request_dto`                                                                             | [Models::Shared::AtsCreateCandidatesAssessmentsRequestDto](../../models/shared/atscreatecandidatesassessmentsrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_candidates_assessments_request_dto`                                                                                                                          | [Models::Shared::AtsCreateCandidatesAssessmentsRequestDto](../../models/shared/atscreatecandidatesassessmentsrequestdto.md)                                              | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4414,7 +4479,7 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     user_id: '123456',
   ),
   results_update_url: 'https://exmaple.com/integrations/results/update',
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_background_check_order_result.nil?
   # handle response
@@ -4424,10 +4489,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `ats_create_background_check_order_request_dto`                                                                           | [Models::Shared::AtsCreateBackgroundCheckOrderRequestDto](../../models/shared/atscreatebackgroundcheckorderrequestdto.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
-| `x_account_id`                                                                                                            | *::String*                                                                                                                | :heavy_check_mark:                                                                                                        | The account identifier                                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_create_background_check_order_request_dto`                                                                                                                          | [Models::Shared::AtsCreateBackgroundCheckOrderRequestDto](../../models/shared/atscreatebackgroundcheckorderrequestdto.md)                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4474,7 +4540,7 @@ res = s.ats.reject_application(ats_reject_application_request_dto: Models::Share
     "other_known_names": 'John Doe',
   },
   rejected_reason_id: 'f223d7f6-908b-48f0-9237-b201c307f609',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.reject_application_result.nil?
   # handle response
@@ -4484,11 +4550,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ats_reject_application_request_dto`                                                                    | [Models::Shared::AtsRejectApplicationRequestDto](../../models/shared/atsrejectapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_reject_application_request_dto`                                                                                                                                     | [Models::Shared::AtsRejectApplicationRequestDto](../../models/shared/atsrejectapplicationrequestdto.md)                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4552,7 +4619,7 @@ res = s.ats.update_application(ats_update_application_request_dto: Models::Share
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'LinkedIn',
   ),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -4562,11 +4629,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ats_update_application_request_dto`                                                                    | [Models::Shared::AtsUpdateApplicationRequestDto](../../models/shared/atsupdateapplicationrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_update_application_request_dto`                                                                                                                                     | [Models::Shared::AtsUpdateApplicationRequestDto](../../models/shared/atsupdateapplicationrequestdto.md)                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4608,21 +4676,29 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.ats.update_application_note(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
-  author_id: '1234567890',
-  content: [
-    Models::Shared::NoteContentApiModel.new(
-      body: 'This candidate seems like a good fit for the role',
+req = Models::Operations::AtsUpdateApplicationNoteRequest.new(
+  ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
+    author_id: '1234567890',
+    content: [
+      Models::Shared::NoteContentApiModel.new(
+        body: 'This candidate seems like a good fit for the role',
+      ),
+    ],
+    passthrough: {
+      "other_known_names": 'John Doe',
+    },
+    visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
+      source_value: 'Public',
+      value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
     ),
-  ],
-  passthrough: {
-    "other_known_names": 'John Doe',
-  },
-  visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
-    source_value: 'Public',
-    value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
   ),
-), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+  prefer: 'heartbeat',
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.ats.update_application_note(request: req)
 
 unless res.update_result.nil?
   # handle response
@@ -4632,12 +4708,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_update_notes_request_dto`                                                              | [Models::Shared::AtsUpdateNotesRequestDto](../../models/shared/atsupdatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `sub_resource_id`                                                                           | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [Models::Operations::AtsUpdateApplicationNoteRequest](../../models/operations/atsupdateapplicationnoterequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
@@ -4702,7 +4775,7 @@ res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   submission_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   summary: 'Test is passed',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -4712,11 +4785,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_update_candidates_assessments_results_request_dto`                                                                                   | [Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto](../../models/shared/atsupdatecandidatesassessmentsresultsrequestdto.md) | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |
-| `id`                                                                                                                                      | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |
-| `x_account_id`                                                                                                                            | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | The account identifier                                                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_update_candidates_assessments_results_request_dto`                                                                                                                  | [Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto](../../models/shared/atsupdatecandidatesassessmentsresultsrequestdto.md)                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4771,7 +4845,7 @@ res = s.ats.update_background_check_package(ats_update_background_check_packages
       name: 'Test 1',
     ),
   ],
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -4781,11 +4855,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `ats_update_background_check_packages_request_dto`                                                                              | [Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto](../../models/shared/atsupdatebackgroundcheckpackagesrequestdto.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `id`                                                                                                                            | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
-| `x_account_id`                                                                                                                  | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | The account identifier                                                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_update_background_check_packages_request_dto`                                                                                                                       | [Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto](../../models/shared/atsupdatebackgroundcheckpackagesrequestdto.md)                                          | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4858,7 +4933,7 @@ res = s.ats.update_background_check_result(ats_update_background_check_result_re
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   submission_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   summary: 'Test is passed',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -4868,11 +4943,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `ats_update_background_check_result_request_dto`                                                                            | [Models::Shared::AtsUpdateBackgroundCheckResultRequestDto](../../models/shared/atsupdatebackgroundcheckresultrequestdto.md) | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `id`                                                                                                                        | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
-| `x_account_id`                                                                                                              | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The account identifier                                                                                                      |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_update_background_check_result_request_dto`                                                                                                                         | [Models::Shared::AtsUpdateBackgroundCheckResultRequestDto](../../models/shared/atsupdatebackgroundcheckresultrequestdto.md)                                              | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4956,7 +5032,7 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto: Models::Shared::A
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -4966,11 +5042,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ats_update_candidate_request_dto`                                                                  | [Models::Shared::AtsUpdateCandidateRequestDto](../../models/shared/atsupdatecandidaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_update_candidate_request_dto`                                                                                                                                       | [Models::Shared::AtsUpdateCandidateRequestDto](../../models/shared/atsupdatecandidaterequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -5012,21 +5089,29 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.ats.update_interview_note(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
-  author_id: '1234567890',
-  content: [
-    Models::Shared::NoteContentApiModel.new(
-      body: 'This candidate seems like a good fit for the role',
+req = Models::Operations::AtsUpdateInterviewNoteRequest.new(
+  ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
+    author_id: '1234567890',
+    content: [
+      Models::Shared::NoteContentApiModel.new(
+        body: 'This candidate seems like a good fit for the role',
+      ),
+    ],
+    passthrough: {
+      "other_known_names": 'John Doe',
+    },
+    visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
+      source_value: 'Public',
+      value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
     ),
-  ],
-  passthrough: {
-    "other_known_names": 'John Doe',
-  },
-  visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
-    source_value: 'Public',
-    value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
   ),
-), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+  prefer: 'heartbeat',
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.ats.update_interview_note(request: req)
 
 unless res.update_result.nil?
   # handle response
@@ -5036,12 +5121,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `ats_update_notes_request_dto`                                                              | [Models::Shared::AtsUpdateNotesRequestDto](../../models/shared/atsupdatenotesrequestdto.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `id`                                                                                        | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `sub_resource_id`                                                                           | *::String*                                                                                  | :heavy_check_mark:                                                                          | N/A                                                                                         |
-| `x_account_id`                                                                              | *::String*                                                                                  | :heavy_check_mark:                                                                          | The account identifier                                                                      |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::AtsUpdateInterviewNoteRequest](../../models/operations/atsupdateinterviewnoterequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
@@ -5126,7 +5208,7 @@ res = s.ats.update_job(ats_update_job_request_dto: Models::Shared::AtsUpdateJobR
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -5136,11 +5218,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `ats_update_job_request_dto`                                                            | [Models::Shared::AtsUpdateJobRequestDto](../../models/shared/atsupdatejobrequestdto.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
-| `id`                                                                                    | *::String*                                                                              | :heavy_check_mark:                                                                      | N/A                                                                                     |
-| `x_account_id`                                                                          | *::String*                                                                              | :heavy_check_mark:                                                                      | The account identifier                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_update_job_request_dto`                                                                                                                                             | [Models::Shared::AtsUpdateJobRequestDto](../../models/shared/atsupdatejobrequestdto.md)                                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -5193,7 +5276,7 @@ res = s.ats.upload_application_document(ats_documents_upload_request_dto: Models
   ),
   name: 'weather-forecast',
   path: '/path/to/file',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.write_result_api_model.nil?
   # handle response
@@ -5203,11 +5286,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ats_documents_upload_request_dto`                                                                  | [Models::Shared::AtsDocumentsUploadRequestDto](../../models/shared/atsdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ats_documents_upload_request_dto`                                                                                                                                       | [Models::Shared::AtsDocumentsUploadRequestDto](../../models/shared/atsdocumentsuploadrequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

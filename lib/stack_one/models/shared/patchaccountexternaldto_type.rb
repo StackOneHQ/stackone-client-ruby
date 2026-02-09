@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # PatchAccountExternalDtoType - The account type
       class PatchAccountExternalDtoType < T::Enum
 

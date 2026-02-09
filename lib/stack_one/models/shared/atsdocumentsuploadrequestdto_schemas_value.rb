@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsDocumentsUploadRequestDtoSchemasValue - Whether the file is confidential or not
       class AtsDocumentsUploadRequestDtoSchemasValue < T::Enum
 

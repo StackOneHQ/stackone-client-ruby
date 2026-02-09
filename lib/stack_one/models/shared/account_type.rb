@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of bank account
       class AccountType
         extend T::Sig

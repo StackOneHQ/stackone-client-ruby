@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HRISBenefitValue - The type of the benefit
       class HRISBenefitValue < T::Enum
 

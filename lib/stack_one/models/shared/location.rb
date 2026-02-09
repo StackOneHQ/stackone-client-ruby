@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The location of the time entry
       class Location
         extend T::Sig

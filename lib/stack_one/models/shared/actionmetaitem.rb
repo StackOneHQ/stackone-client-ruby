@@ -7,12 +7,13 @@
 module StackOne
   module Models
     module Shared
-    
 
       class ActionMetaItem
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The action details for the action
+        field :action_details, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action_details') } }
         # The authentication methods supported by this action
         field :authentication, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AuthenticationMetaItem)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication') } }
         # The action description
@@ -21,20 +22,21 @@ module StackOne
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The action label
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
-        # The operation details for the action
-        field :operation_details, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('operation_details') } }
+        # The required scopes for the action
+        field :required_scopes, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required_scopes') } }
         # The schema type for the action
         field :schema_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('schema_type') } }
         # The tags associated with this action
         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
-        sig { params(authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), operation_details: T.nilable(T::Hash[Symbol, ::Object]), schema_type: T.nilable(::String), tags: T.nilable(T::Array[::String])).void }
-        def initialize(authentication: nil, description: nil, id: nil, label: nil, operation_details: nil, schema_type: nil, tags: nil)
+        sig { params(action_details: T.nilable(T::Hash[Symbol, ::Object]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), required_scopes: T.nilable(T::Array[::String]), schema_type: T.nilable(::String), tags: T.nilable(T::Array[::String])).void }
+        def initialize(action_details: nil, authentication: nil, description: nil, id: nil, label: nil, required_scopes: nil, schema_type: nil, tags: nil)
+          @action_details = action_details
           @authentication = authentication
           @description = description
           @id = id
           @label = label
-          @operation_details = operation_details
+          @required_scopes = required_scopes
           @schema_type = schema_type
           @tags = tags
         end
@@ -42,11 +44,12 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @action_details == other.action_details
           return false unless @authentication == other.authentication
           return false unless @description == other.description
           return false unless @id == other.id
           return false unless @label == other.label
-          return false unless @operation_details == other.operation_details
+          return false unless @required_scopes == other.required_scopes
           return false unless @schema_type == other.schema_type
           return false unless @tags == other.tags
           true

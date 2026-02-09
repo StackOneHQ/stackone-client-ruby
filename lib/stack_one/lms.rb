@@ -40,8 +40,8 @@ module StackOne
     end
 
 
-    sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsBatchUpsertContentResponse) }
-    def batch_upsert_content(lms_batch_upsert_content_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsBatchUpsertContentResponse) }
+    def batch_upsert_content(lms_batch_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # batch_upsert_content - Batch Upsert External Linking Learning Objects
       # Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
       # 
@@ -50,7 +50,8 @@ module StackOne
       # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsBatchUpsertContentRequest.new(
         lms_batch_upsert_content_request_dto: lms_batch_upsert_content_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -347,8 +348,8 @@ module StackOne
     end
 
 
-    sig { params(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserAssignmentResponse) }
-    def create_user_assignment(lms_create_assignment_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserAssignmentResponse) }
+    def create_user_assignment(lms_create_assignment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_user_assignment - Create User Assignment
       # Create an assignment type learning record for a user. 
       # 
@@ -358,7 +359,8 @@ module StackOne
       request = Models::Operations::LmsCreateUserAssignmentRequest.new(
         lms_create_assignment_request_dto: lms_create_assignment_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -660,8 +662,8 @@ module StackOne
     end
 
 
-    sig { params(lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserCompletionResponse) }
-    def create_user_completion(lms_create_completion_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserCompletionResponse) }
+    def create_user_completion(lms_create_completion_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_user_completion - Create User Completion
       # Create a completed learning record for a user. 
       # 
@@ -669,7 +671,8 @@ module StackOne
       request = Models::Operations::LmsCreateUserCompletionRequest.new(
         lms_create_completion_request_dto: lms_create_completion_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -971,8 +974,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsDeleteUserCompletionResponse) }
-    def delete_user_completion(id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsDeleteUserCompletionResponse) }
+    def delete_user_completion(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # delete_user_completion - Delete User Completion
       # Delete a completion type learning record for a user. 
       # 
@@ -980,7 +983,8 @@ module StackOne
       request = Models::Operations::LmsDeleteUserCompletionRequest.new(
         id: id,
         sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4066,6 +4070,7 @@ module StackOne
 
             sdk.list_assignments(
               request: Models::Operations::LmsListAssignmentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -4384,6 +4389,7 @@ module StackOne
 
             sdk.list_categories(
               request: Models::Operations::LmsListCategoriesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -4701,6 +4707,7 @@ module StackOne
 
             sdk.list_completions(
               request: Models::Operations::LmsListCompletionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5022,6 +5029,7 @@ module StackOne
 
             sdk.list_content(
               request: Models::Operations::LmsListContentRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5341,6 +5349,7 @@ module StackOne
 
             sdk.list_courses(
               request: Models::Operations::LmsListCoursesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5657,6 +5666,7 @@ module StackOne
 
             sdk.list_skills(
               request: Models::Operations::LmsListSkillsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5983,6 +5993,7 @@ module StackOne
 
             sdk.list_user_assignments(
               request: Models::Operations::LmsListUserAssignmentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -6310,6 +6321,7 @@ module StackOne
 
             sdk.list_user_completions(
               request: Models::Operations::LmsListUserCompletionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -6627,6 +6639,7 @@ module StackOne
 
             sdk.list_users(
               request: Models::Operations::LmsListUsersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -6824,8 +6837,8 @@ module StackOne
     end
 
 
-    sig { params(lms_upsert_content_request_dto: Models::Shared::LmsUpsertContentRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsUpsertContentResponse) }
-    def upsert_content(lms_upsert_content_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(lms_upsert_content_request_dto: Models::Shared::LmsUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsUpsertContentResponse) }
+    def upsert_content(lms_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # upsert_content - Upsert External Linking Learning Objects
       # Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
       # 
@@ -6834,7 +6847,8 @@ module StackOne
       # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsUpsertContentRequest.new(
         lms_upsert_content_request_dto: lms_upsert_content_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

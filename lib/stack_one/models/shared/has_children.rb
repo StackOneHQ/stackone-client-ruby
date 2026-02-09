@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the file has children
       class HasChildren
         extend T::Sig

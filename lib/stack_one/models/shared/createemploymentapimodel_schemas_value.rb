@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CreateEmploymentApiModelSchemasValue - The type of the employment.
       class CreateEmploymentApiModelSchemasValue < T::Enum
 

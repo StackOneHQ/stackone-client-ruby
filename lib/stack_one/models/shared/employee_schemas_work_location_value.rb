@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # EmployeeSchemasWorkLocationValue - The ISO3166-1 Alpha2 Code of the Country
       class EmployeeSchemasWorkLocationValue < T::Enum
 

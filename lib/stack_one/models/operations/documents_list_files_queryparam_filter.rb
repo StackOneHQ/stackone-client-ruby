@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # Documents Files Filter
       class DocumentsListFilesQueryParamFilter
         extend T::Sig

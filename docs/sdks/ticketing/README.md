@@ -77,7 +77,7 @@ res = s.ticketing.create_ticket(ticketing_ticket_create_request_dto: Models::Sha
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -87,10 +87,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `ticketing_ticket_create_request_dto`                                                                     | [Models::Shared::TicketingTicketCreateRequestDto](../../models/shared/ticketingticketcreaterequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ticketing_ticket_create_request_dto`                                                                                                                                    | [Models::Shared::TicketingTicketCreateRequestDto](../../models/shared/ticketingticketcreaterequestdto.md)                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -133,6 +134,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingDownloadTicketingAttachmentRequest.new(
+  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
@@ -195,6 +197,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetAttachmentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -256,6 +259,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetCommentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -317,6 +321,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetProjectRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -377,6 +382,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetProjectComponentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -438,6 +444,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetTicketRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -498,6 +505,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetTicketTypeRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -558,6 +566,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingGetUserRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -618,6 +627,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListAttachmentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListAttachmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -681,6 +691,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListCommentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListCommentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -744,6 +755,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListProjectComponentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
   filter: nil,
   id: '<id>',
@@ -805,6 +817,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListProjectTicketTypesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   filter: Models::Operations::TicketingListProjectTicketTypesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -868,6 +881,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListProjectsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListProjectsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -930,6 +944,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListTicketStatusesRequest.new(
+  prefer: 'heartbeat',
   filter: Models::Operations::TicketingListTicketStatusesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -992,6 +1007,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListTicketTypesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   filter: Models::Operations::TicketingListTicketTypesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1054,6 +1070,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListTicketsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListTicketsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1116,6 +1133,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::TicketingListUsersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListUsersQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1217,7 +1235,7 @@ res = s.ticketing.update_ticket(ticketing_ticket_update_request_dto: Models::Sha
     "my_project_custom_field_1": 'REF-1236',
     "my_project_custom_field_2": 'some other value',
   },
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -1227,11 +1245,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `ticketing_ticket_update_request_dto`                                                                     | [Models::Shared::TicketingTicketUpdateRequestDto](../../models/shared/ticketingticketupdaterequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `id`                                                                                                      | *::String*                                                                                                | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ticketing_ticket_update_request_dto`                                                                                                                                    | [Models::Shared::TicketingTicketUpdateRequestDto](../../models/shared/ticketingticketupdaterequestdto.md)                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

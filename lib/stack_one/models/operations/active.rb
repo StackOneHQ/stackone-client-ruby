@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # Filter to allow filtering of only active content
       class Active
         extend T::Sig

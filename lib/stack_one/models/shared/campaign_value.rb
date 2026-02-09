@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CampaignValue - The schedule type of the campaign.
       class CampaignValue < T::Enum
 

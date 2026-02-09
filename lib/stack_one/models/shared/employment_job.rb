@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The job of employee
       class EmploymentJob
         extend T::Sig

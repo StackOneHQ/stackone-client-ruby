@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The score associated with this completion
       class LmsCreateCompletionRequestDtoScore
         extend T::Sig

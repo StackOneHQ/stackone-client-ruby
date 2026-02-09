@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class HrisDocumentsUploadRequestDto4
         extend T::Sig

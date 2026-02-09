@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class IamPermissionSourceValue
         extend T::Sig

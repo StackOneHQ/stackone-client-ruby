@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The reference status
       class ReferenceActive
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class ApplicationChangesPaginated
         extend T::Sig

@@ -40,12 +40,13 @@ module StackOne
     end
 
 
-    sig { params(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningCreateScreeningOrderResponse) }
-    def create_screening_order(screening_create_order_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningCreateScreeningOrderResponse) }
+    def create_screening_order(screening_create_order_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_screening_order - Create Screening Order
       request = Models::Operations::ScreeningCreateScreeningOrderRequest.new(
         screening_create_order_request_dto: screening_create_order_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -754,6 +755,7 @@ module StackOne
 
             sdk.list_screening_packages(
               request: Models::Operations::ScreeningListScreeningPackagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -951,12 +953,13 @@ module StackOne
     end
 
 
-    sig { params(screening_result_webhook: Models::Shared::ScreeningResultWebhook, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningWebhookScreeningResultResponse) }
-    def webhook_screening_result(screening_result_webhook:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(screening_result_webhook: Models::Shared::ScreeningResultWebhook, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningWebhookScreeningResultResponse) }
+    def webhook_screening_result(screening_result_webhook:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # webhook_screening_result - Webhook Screening Result
       request = Models::Operations::ScreeningWebhookScreeningResultRequest.new(
         screening_result_webhook: screening_result_webhook,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

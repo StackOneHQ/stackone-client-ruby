@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # ATS Application Filter
       class AtsListApplicationsQueryParamFilter
         extend T::Sig

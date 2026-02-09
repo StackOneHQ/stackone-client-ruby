@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AccountAddressValue - The type of the location.
       class AccountAddressValue < T::Enum
 
