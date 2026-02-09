@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # LMS Users Filter
       class LmsListUsersQueryParamFilter
         extend T::Sig

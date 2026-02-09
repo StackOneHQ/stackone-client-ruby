@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The country code
       class HrisCreateEmployeeRequestDtoSchemasCountry
         extend T::Sig

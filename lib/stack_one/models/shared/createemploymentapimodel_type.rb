@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of employment
       class CreateEmploymentApiModelType
         extend T::Sig

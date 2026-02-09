@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ConnectorsMetaCategory - The provider service category
       class ConnectorsMetaCategory < T::Enum
 

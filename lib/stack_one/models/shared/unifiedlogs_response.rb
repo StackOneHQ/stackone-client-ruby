@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The advanced log response data
       class UnifiedLogsResponse
         extend T::Sig

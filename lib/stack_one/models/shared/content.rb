@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Content
         extend T::Sig

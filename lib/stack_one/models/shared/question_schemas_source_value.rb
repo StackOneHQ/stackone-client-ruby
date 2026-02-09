@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the question's condition type
       class QuestionSchemasSourceValue
         extend T::Sig

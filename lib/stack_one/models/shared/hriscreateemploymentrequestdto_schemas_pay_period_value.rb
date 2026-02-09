@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisCreateEmploymentRequestDtoSchemasPayPeriodValue - The pay period of the job postings.
       class HrisCreateEmploymentRequestDtoSchemasPayPeriodValue < T::Enum
 

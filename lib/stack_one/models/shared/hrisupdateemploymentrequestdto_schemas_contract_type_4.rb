@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class HrisUpdateEmploymentRequestDtoSchemasContractType4
         extend T::Sig

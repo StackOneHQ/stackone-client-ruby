@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AccountingJournalCreateRequestDtoValue - Default currency for the company
       class AccountingJournalCreateRequestDtoValue < T::Enum
 

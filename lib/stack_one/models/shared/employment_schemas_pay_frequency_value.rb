@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # EmploymentSchemasPayFrequencyValue - The pay frequency of the job postings.
       class EmploymentSchemasPayFrequencyValue < T::Enum
 

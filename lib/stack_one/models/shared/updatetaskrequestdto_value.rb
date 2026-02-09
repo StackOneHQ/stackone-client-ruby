@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # UpdateTaskRequestDtoValue - The unified value for the status of the task. If the provider does not specify this status, the value will be set to UnmappedValue
       class UpdateTaskRequestDtoValue < T::Enum
 

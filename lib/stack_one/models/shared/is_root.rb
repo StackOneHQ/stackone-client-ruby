@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the folder is at the root level of the drive
       class IsRoot
         extend T::Sig

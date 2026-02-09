@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AccountingJournalResultValue - The journal status
       class AccountingJournalResultValue < T::Enum
 

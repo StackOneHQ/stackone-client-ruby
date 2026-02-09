@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsDocumentsUploadRequestDtoValue - The category name to associate with the file
       class AtsDocumentsUploadRequestDtoValue < T::Enum
 

@@ -115,7 +115,7 @@ res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_d
       path: '/path/to/file',
     ),
   ],
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.batch_result_api_model.nil?
   # handle response
@@ -125,11 +125,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `hris_batch_document_upload_request_dto`                                                                      | [Models::Shared::HrisBatchDocumentUploadRequestDto](../../models/shared/hrisbatchdocumentuploadrequestdto.md) | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
-| `id`                                                                                                          | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
-| `x_account_id`                                                                                                | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The account identifier                                                                                        |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_batch_document_upload_request_dto`                                                                                                                                 | [Models::Shared::HrisBatchDocumentUploadRequestDto](../../models/shared/hrisbatchdocumentuploadrequestdto.md)                                                            | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -171,7 +172,7 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.hris.cancel_employee_time_off_request(id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+res = s.hris.cancel_employee_time_off_request(id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
   # handle response
@@ -181,11 +182,12 @@ end
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
-| `sub_resource_id`      | *::String*             | :heavy_check_mark:     | N/A                    |
-| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `sub_resource_id`                                                                                                                                                        | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -363,7 +365,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
     zip_code: 'NG33 5NR',
   ),
   work_phone_number: '+1234567890',
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -373,10 +375,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `hris_create_employee_request_dto`                                                                  | [Models::Shared::HrisCreateEmployeeRequestDto](../../models/shared/hriscreateemployeerequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_create_employee_request_dto`                                                                                                                                       | [Models::Shared::HrisCreateEmployeeRequestDto](../../models/shared/hriscreateemployeerequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -465,7 +468,7 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto: Mode
       value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
     ),
   ),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -475,11 +478,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_create_employment_request_dto`                                                                    | [Models::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_create_employment_request_dto`                                                                                                                                     | [Models::Shared::HrisCreateEmploymentRequestDto](../../models/shared/hriscreateemploymentrequestdto.md)                                                                  | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -530,7 +534,7 @@ res = s.hris.create_employee_skill(entity_skills_create_request_dto: Models::Sha
   ),
   minimum_proficiency: nil,
   name: 'Information-Technology',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -540,11 +544,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `entity_skills_create_request_dto`                                                                  | [Models::Shared::EntitySkillsCreateRequestDto](../../models/shared/entityskillscreaterequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_skills_create_request_dto`                                                                                                                                       | [Models::Shared::EntitySkillsCreateRequestDto](../../models/shared/entityskillscreaterequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -601,7 +606,7 @@ res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto: 
   start_date: '2021-01-01T01:01:01.000',
   start_half_day: true,
   time_off_policy_id: 'cx280928933',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -611,11 +616,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_create_time_off_request_dto`                                                                                                                                       | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md)                                                                        | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -680,7 +686,7 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
   type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
   valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -690,11 +696,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `hris_create_work_eligibility_request_dto`                                                                        | [Models::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_create_work_eligibility_request_dto`                                                                                                                               | [Models::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md)                                                        | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -737,6 +744,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisDownloadEmployeeDocumentRequest.new(
+  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
@@ -799,6 +807,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetBenefitRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -859,6 +868,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCompanyRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -919,6 +929,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCompanyGroupRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -979,6 +990,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetCostCenterGroupRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1039,6 +1051,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetDepartmentGroupRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1099,6 +1112,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetDivisionGroupRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1159,6 +1173,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeRequest.new(
+  prefer: 'heartbeat',
   expand: 'company,employments,work_location,home_location,groups,skills',
   fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
   id: '<id>',
@@ -1221,6 +1236,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1284,6 +1300,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeDocumentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1345,6 +1362,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1405,6 +1423,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
+  prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   id: '<id>',
@@ -1467,6 +1486,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeShiftRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -1527,6 +1547,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeSkillRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1588,6 +1609,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeTaskRequest.new(
+  prefer: 'heartbeat',
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   id: '<id>',
@@ -1650,6 +1672,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
+  prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,is_unlimited,updated_at,unified_custom_fields',
   id: '<id>',
@@ -1712,6 +1735,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
+  prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   id: '<id>',
@@ -1774,6 +1798,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
@@ -1835,6 +1860,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
+  prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   id: '<id>',
@@ -1896,6 +1922,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetGroupRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -1956,6 +1983,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetJobRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2016,6 +2044,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetLocationRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2076,6 +2105,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetPositionRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2135,6 +2165,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetShiftRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -2194,6 +2225,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTaskRequest.new(
+  prefer: 'heartbeat',
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   id: '<id>',
@@ -2255,6 +2287,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTeamGroupRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2315,6 +2348,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeEntriesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2375,6 +2409,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeOffPolicyRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2435,6 +2470,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeOffRequestRequest.new(
+  prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   id: '<id>',
@@ -2498,6 +2534,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisGetTimeOffTypeRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -2561,7 +2598,7 @@ res = s.hris.invite_employee(hris_invite_employee_request_dto: Models::Shared::H
   passthrough: {
     "other_known_names": 'John Doe',
   },
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.invite_employee_result.nil?
   # handle response
@@ -2571,11 +2608,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `hris_invite_employee_request_dto`                                                                  | [Models::Shared::HrisInviteEmployeeRequestDto](../../models/shared/hrisinviteemployeerequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_invite_employee_request_dto`                                                                                                                                       | [Models::Shared::HrisInviteEmployeeRequestDto](../../models/shared/hrisinviteemployeerequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -2618,6 +2656,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListBenefitsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2680,6 +2719,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCompaniesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2742,6 +2782,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCompaniesGroupsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2804,6 +2845,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListCostCenterGroupsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2866,6 +2908,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListDepartmentGroupsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2928,6 +2971,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListDivisionGroupsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -2990,6 +3034,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeCategoriesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3052,6 +3097,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3114,6 +3160,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeDocumentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3177,6 +3224,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
+  prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
@@ -3241,6 +3289,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeShiftsRequest.new(
+  prefer: 'heartbeat',
   filter: Models::Operations::HrisListEmployeeShiftsQueryParamFilter.new(
     ends_before: '2024-01-15T17:00',
     starts_after: '2024-01-15T09:00',
@@ -3305,6 +3354,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeSkillsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3368,6 +3418,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeTasksRequest.new(
+  prefer: 'heartbeat',
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(
@@ -3433,6 +3484,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
+  prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,is_unlimited,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
@@ -3497,6 +3549,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3560,6 +3613,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
+  prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
@@ -3626,6 +3680,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3689,6 +3744,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmployeesRequest.new(
+  prefer: 'heartbeat',
   expand: 'company,employments,work_location,home_location,groups,skills',
   fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
@@ -3753,6 +3809,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
+  prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
@@ -3816,6 +3873,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListGroupsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3878,6 +3936,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListJobsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListJobsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -3940,6 +3999,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListLocationsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListLocationsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -4002,6 +4062,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListPositionsRequest.new(
+  prefer: 'heartbeat',
   filter: Models::Operations::HrisListPositionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
   ),
@@ -4064,6 +4125,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListShiftsRequest.new(
+  prefer: 'heartbeat',
   filter: Models::Operations::HrisListShiftsQueryParamFilter.new(
     ends_before: '2024-01-15T17:00',
     starts_after: '2024-01-15T09:00',
@@ -4127,6 +4189,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTasksRequest.new(
+  prefer: 'heartbeat',
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListTasksQueryParamFilter.new(
@@ -4191,6 +4254,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTeamGroupsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
   filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -4253,6 +4317,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeEntriesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(
     end_time: '2020-01-01T00:00:00.000Z',
@@ -4317,6 +4382,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeOffPoliciesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -4379,6 +4445,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeOffRequestsRequest.new(
+  prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   filter: nil,
@@ -4442,6 +4509,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::HrisListTimeOffTypesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::HrisListTimeOffTypesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -4602,7 +4670,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto: Models::Shared::H
     zip_code: 'NG33 5NR',
   ),
   work_phone_number: '+1234567890',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -4612,11 +4680,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `hris_update_employee_request_dto`                                                                  | [Models::Shared::HrisUpdateEmployeeRequestDto](../../models/shared/hrisupdateemployeerequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
-| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_update_employee_request_dto`                                                                                                                                       | [Models::Shared::HrisUpdateEmployeeRequestDto](../../models/shared/hrisupdateemployeerequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -4658,53 +4727,61 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.hris.update_employee_employment(hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto.new(
-  contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoContractType.new(
-    contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasContractType.new(),
-    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    label: 'Full-Time',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-  ),
-  effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  grade: Models::Shared::HrisUpdateEmploymentRequestDtoGrade.new(
-    description: 'Mid-level employee demonstrating proficiency and autonomy.',
-    id: '1687-3',
-    name: '1687-4',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-  ),
-  job_title: 'Software Engineer',
-  passthrough: {
-    "other_known_names": 'John Doe',
-  },
-  pay_currency: 'USD',
-  pay_frequency: Models::Shared::HrisUpdateEmploymentRequestDtoPayFrequency.new(
-    source_value: 'Hourly',
-    value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
-  ),
-  pay_period: Models::Shared::HrisUpdateEmploymentRequestDtoPayPeriod.new(
-    source_value: 'Hour',
-    value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
-  ),
-  pay_rate: '40.00',
-  payroll_code: 'PC1',
-  type: Models::Shared::HrisUpdateEmploymentRequestDtoType.new(
-    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    label: 'Permanent',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasType.new(),
-  ),
-  unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
-  work_time: Models::Shared::HrisUpdateEmploymentRequestDtoWorkTime.new(
-    duration: 'P0Y0M0DT8H0M0S',
-    period: Models::Shared::HrisUpdateEmploymentRequestDtoPeriod.new(
-      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
+req = Models::Operations::HrisUpdateEmployeeEmploymentRequest.new(
+  hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto.new(
+    contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoContractType.new(
+      contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasContractType.new(),
+      id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      label: 'Full-Time',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    ),
+    effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+    grade: Models::Shared::HrisUpdateEmploymentRequestDtoGrade.new(
+      description: 'Mid-level employee demonstrating proficiency and autonomy.',
+      id: '1687-3',
+      name: '1687-4',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    ),
+    job_title: 'Software Engineer',
+    passthrough: {
+      "other_known_names": 'John Doe',
+    },
+    pay_currency: 'USD',
+    pay_frequency: Models::Shared::HrisUpdateEmploymentRequestDtoPayFrequency.new(
+      source_value: 'Hourly',
+      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
+    ),
+    pay_period: Models::Shared::HrisUpdateEmploymentRequestDtoPayPeriod.new(
+      source_value: 'Hour',
+      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
+    ),
+    pay_rate: '40.00',
+    payroll_code: 'PC1',
+    type: Models::Shared::HrisUpdateEmploymentRequestDtoType.new(
+      id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      label: 'Permanent',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasType.new(),
+    ),
+    unified_custom_fields: {
+      "my_project_custom_field_1": 'REF-1236',
+      "my_project_custom_field_2": 'some other value',
+    },
+    work_time: Models::Shared::HrisUpdateEmploymentRequestDtoWorkTime.new(
+      duration: 'P0Y0M0DT8H0M0S',
+      period: Models::Shared::HrisUpdateEmploymentRequestDtoPeriod.new(
+        value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
+      ),
     ),
   ),
-), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+  prefer: 'heartbeat',
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.hris.update_employee_employment(request: req)
 
 unless res.update_result.nil?
   # handle response
@@ -4714,12 +4791,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `hris_update_employment_request_dto`                                                                    | [Models::Shared::HrisUpdateEmploymentRequestDto](../../models/shared/hrisupdateemploymentrequestdto.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `sub_resource_id`                                                                                       | *::String*                                                                                              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `x_account_id`                                                                                          | *::String*                                                                                              | :heavy_check_mark:                                                                                      | The account identifier                                                                                  |
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                 | [Models::Operations::HrisUpdateEmployeeEmploymentRequest](../../models/operations/hrisupdateemployeeemploymentrequest.md) | :heavy_check_mark:                                                                                                        | The request object to use for the request.                                                                                |
 
 ### Response
 
@@ -4761,12 +4835,20 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.hris.update_employee_task(update_task_request_dto: Models::Shared::UpdateTaskRequestDto.new(
-  comment: 'All required documents have been submitted',
-  status: Models::Shared::UpdateTaskRequestDtoStatus.new(
-    value: Models::Shared::UpdateTaskRequestDtoValue::OPEN,
+req = Models::Operations::HrisUpdateEmployeeTaskRequest.new(
+  prefer: 'heartbeat',
+  update_task_request_dto: Models::Shared::UpdateTaskRequestDto.new(
+    comment: 'All required documents have been submitted',
+    status: Models::Shared::UpdateTaskRequestDtoStatus.new(
+      value: Models::Shared::UpdateTaskRequestDtoValue::OPEN,
+    ),
   ),
-), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.hris.update_employee_task(request: req)
 
 unless res.update_result.nil?
   # handle response
@@ -4776,12 +4858,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `update_task_request_dto`                                                           | [Models::Shared::UpdateTaskRequestDto](../../models/shared/updatetaskrequestdto.md) | :heavy_check_mark:                                                                  | N/A                                                                                 |
-| `id`                                                                                | *::String*                                                                          | :heavy_check_mark:                                                                  | N/A                                                                                 |
-| `sub_resource_id`                                                                   | *::String*                                                                          | :heavy_check_mark:                                                                  | N/A                                                                                 |
-| `x_account_id`                                                                      | *::String*                                                                          | :heavy_check_mark:                                                                  | The account identifier                                                              |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::HrisUpdateEmployeeTaskRequest](../../models/operations/hrisupdateemployeetaskrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
@@ -4823,22 +4902,30 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.hris.update_employee_time_off_request(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto.new(
-  approver_id: '1687-4',
-  comment: 'Taking a day off for personal reasons',
-  end_date: '2021-01-01T01:01:01.000',
-  end_half_day: true,
-  passthrough: {
-    "other_known_names": 'John Doe',
-  },
-  reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
-    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+req = Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest.new(
+  hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto.new(
+    approver_id: '1687-4',
+    comment: 'Taking a day off for personal reasons',
+    end_date: '2021-01-01T01:01:01.000',
+    end_half_day: true,
+    passthrough: {
+      "other_known_names": 'John Doe',
+    },
+    reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
+      id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    ),
+    start_date: '2021-01-01T01:01:01.000',
+    start_half_day: true,
+    time_off_policy_id: 'cx280928933',
   ),
-  start_date: '2021-01-01T01:01:01.000',
-  start_half_day: true,
-  time_off_policy_id: 'cx280928933',
-), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+  prefer: 'heartbeat',
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.hris.update_employee_time_off_request(request: req)
 
 unless res.create_result.nil?
   # handle response
@@ -4848,12 +4935,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `hris_create_time_off_request_dto`                                                                | [Models::Shared::HrisCreateTimeOffRequestDto](../../models/shared/hriscreatetimeoffrequestdto.md) | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `id`                                                                                              | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `sub_resource_id`                                                                                 | *::String*                                                                                        | :heavy_check_mark:                                                                                | N/A                                                                                               |
-| `x_account_id`                                                                                    | *::String*                                                                                        | :heavy_check_mark:                                                                                | The account identifier                                                                            |
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                         | [Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest](../../models/operations/hrisupdateemployeetimeoffrequestrequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
 
 ### Response
 
@@ -4895,33 +4979,41 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.hris.update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto.new(
-  document: Models::Shared::Document.new(
-    category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
-    category_id: '6530',
-    created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-    file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
-      source_value: 'application/pdf',
-      value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+req = Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest.new(
+  hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto.new(
+    document: Models::Shared::Document.new(
+      category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+      category_id: '6530',
+      created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
+        source_value: 'application/pdf',
+        value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+      ),
+      id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      name: 'My Document',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_url: 'https://example.com/file.pdf',
+      updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
     ),
-    id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    name: 'My Document',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    remote_url: 'https://example.com/file.pdf',
-    updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
+    issued_by: Models::Shared::IssuedBy.new(
+      value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+    ),
+    number: '1234567890',
+    passthrough: {
+      "other_known_names": 'John Doe',
+    },
+    sub_type: 'H1B',
+    type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+    valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
+    valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   ),
-  issued_by: Models::Shared::IssuedBy.new(
-    value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
-  ),
-  number: '1234567890',
-  passthrough: {
-    "other_known_names": 'John Doe',
-  },
-  sub_type: 'H1B',
-  type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
-  valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
-  valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
-), id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+  prefer: 'heartbeat',
+  id: '<id>',
+  sub_resource_id: '<id>',
+  x_account_id: '<id>',
+)
+
+res = s.hris.update_employee_work_eligibility_request(request: req)
 
 if res.status_code == 200
   # handle response
@@ -4931,12 +5023,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `hris_create_work_eligibility_request_dto`                                                                        | [Models::Shared::HrisCreateWorkEligibilityRequestDto](../../models/shared/hriscreateworkeligibilityrequestdto.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `id`                                                                                                              | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `sub_resource_id`                                                                                                 | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
-| `x_account_id`                                                                                                    | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | The account identifier                                                                                            |
+| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                         | [Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest](../../models/operations/hrisupdateemployeeworkeligibilityrequestrequest.md) | :heavy_check_mark:                                                                                                                                | The request object to use for the request.                                                                                                        |
 
 ### Response
 
@@ -4992,7 +5081,7 @@ res = s.hris.upload_employee_document(hris_documents_upload_request_dto: Models:
   ),
   name: 'weather-forecast',
   path: '/path/to/file',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.write_result_api_model.nil?
   # handle response
@@ -5002,11 +5091,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `hris_documents_upload_request_dto`                                                                   | [Models::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hris_documents_upload_request_dto`                                                                                                                                      | [Models::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md)                                                                    | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

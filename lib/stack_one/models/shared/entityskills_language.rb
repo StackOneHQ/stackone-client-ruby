@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The language associated with this skill
       class EntitySkillsLanguage
         extend T::Sig

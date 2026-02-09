@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class HrisListTimeEntriesResponse
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of content
       class LmsUpsertContentRequestDtoContentType
         extend T::Sig

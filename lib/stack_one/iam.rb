@@ -40,12 +40,13 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamDeleteUserResponse) }
-    def delete_user(id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamDeleteUserResponse) }
+    def delete_user(id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # delete_user - Delete User
       request = Models::Operations::IamDeleteUserRequest.new(
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1639,6 +1640,7 @@ module StackOne
 
             sdk.list_groups(
               request: Models::Operations::IamListGroupsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -1956,6 +1958,7 @@ module StackOne
 
             sdk.list_policies(
               request: Models::Operations::IamListPoliciesRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -2273,6 +2276,7 @@ module StackOne
 
             sdk.list_roles(
               request: Models::Operations::IamListRolesRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -2590,6 +2594,7 @@ module StackOne
 
             sdk.list_users(
               request: Models::Operations::IamListUsersRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -2788,13 +2793,14 @@ module StackOne
     end
 
 
-    sig { params(iam_update_user_request_dto: Models::Shared::IamUpdateUserRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamUpdateUserResponse) }
-    def update_user(iam_update_user_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(iam_update_user_request_dto: Models::Shared::IamUpdateUserRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamUpdateUserResponse) }
+    def update_user(iam_update_user_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_user - Update User
       request = Models::Operations::IamUpdateUserRequest.new(
         iam_update_user_request_dto: iam_update_user_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

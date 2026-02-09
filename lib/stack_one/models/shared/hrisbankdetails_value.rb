@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HRISBankDetailsValue - The type of bank account
       class HRISBankDetailsValue < T::Enum
 

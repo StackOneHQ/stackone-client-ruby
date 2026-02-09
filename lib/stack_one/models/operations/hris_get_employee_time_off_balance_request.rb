@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class HrisGetEmployeeTimeOffBalanceRequest
         extend T::Sig
@@ -19,6 +18,8 @@ module StackOne
         field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be expanded in the response
         field :expand, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
@@ -28,11 +29,12 @@ module StackOne
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, expand: T.nilable(::String), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
-        def initialize(id:, sub_resource_id:, x_account_id:, expand: nil, fields_: nil, proxy: nil, raw: nil)
+        sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), expand: T.nilable(::String), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+        def initialize(id:, sub_resource_id:, x_account_id:, prefer: nil, expand: nil, fields_: nil, proxy: nil, raw: nil)
           @id = id
           @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
+          @prefer = prefer
           @expand = expand
           @fields_ = fields_
           @proxy = proxy
@@ -45,6 +47,7 @@ module StackOne
           return false unless @id == other.id
           return false unless @sub_resource_id == other.sub_resource_id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @expand == other.expand
           return false unless @fields_ == other.fields_
           return false unless @proxy == other.proxy

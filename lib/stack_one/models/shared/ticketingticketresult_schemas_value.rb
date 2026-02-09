@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # TicketingTicketResultSchemasValue - The type of this status
       class TicketingTicketResultSchemasValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # QuestionValue - The type of the questions.
       class QuestionValue < T::Enum
 

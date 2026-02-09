@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class NationalIdentityNumberApiModelSourceValue
         extend T::Sig

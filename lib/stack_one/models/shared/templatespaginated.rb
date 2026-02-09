@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class TemplatesPaginated
         extend T::Sig

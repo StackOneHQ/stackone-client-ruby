@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # How often the employee is paid
       class HrisCreateEmploymentRequestDtoPayFrequency
         extend T::Sig

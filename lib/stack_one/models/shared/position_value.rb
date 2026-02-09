@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # PositionValue - The status of the position.
       class PositionValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The metadata for the connection
       class ConnectSessionCreateMetadata
         extend T::Sig

@@ -12,4 +12,6 @@ class StackOne::Models::Operations::AtsCreateOfferRequest
   def ats_create_offer_request_dto=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
 end

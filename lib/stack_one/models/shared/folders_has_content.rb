@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the folder has content
       class FoldersHasContent
         extend T::Sig

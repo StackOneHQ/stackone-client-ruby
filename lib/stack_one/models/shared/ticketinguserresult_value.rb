@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # TicketingUserResultValue - The type of the user.
       class TicketingUserResultValue < T::Enum
 

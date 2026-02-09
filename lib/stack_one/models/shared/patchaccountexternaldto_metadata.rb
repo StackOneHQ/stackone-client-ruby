@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class PatchAccountExternalDtoMetadata
         extend T::Sig

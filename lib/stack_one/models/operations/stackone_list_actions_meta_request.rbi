@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Operations::StackoneListActionsMetaRequest
+  def exclude(); end
+  def exclude=(str_); end
   def filter(); end
   def filter=(str_); end
   def include(); end
@@ -16,6 +18,8 @@ class StackOne::Models::Operations::StackoneListActionsMetaRequest
   def next_=(str_); end
   def page_size(); end
   def page_size=(str_); end
+  def search(); end
+  def search=(str_); end
   def group_by(); end
   def group_by=(str_); end
 end

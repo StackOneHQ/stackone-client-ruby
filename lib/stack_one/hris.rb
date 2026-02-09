@@ -40,13 +40,14 @@ module StackOne
     end
 
 
-    sig { params(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisBatchUploadEmployeeDocumentResponse) }
-    def batch_upload_employee_document(hris_batch_document_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisBatchUploadEmployeeDocumentResponse) }
+    def batch_upload_employee_document(hris_batch_document_upload_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # batch_upload_employee_document - Batch Upload Employee Document
       request = Models::Operations::HrisBatchUploadEmployeeDocumentRequest.new(
         hris_batch_document_upload_request_dto: hris_batch_document_upload_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -348,13 +349,14 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCancelEmployeeTimeOffRequestResponse) }
-    def cancel_employee_time_off_request(id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCancelEmployeeTimeOffRequestResponse) }
+    def cancel_employee_time_off_request(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # cancel_employee_time_off_request - Cancel Employee Time Off Request
       request = Models::Operations::HrisCancelEmployeeTimeOffRequestRequest.new(
         id: id,
         sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -657,12 +659,13 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employee_request_dto: Models::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeResponse) }
-    def create_employee(hris_create_employee_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_employee_request_dto: Models::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeResponse) }
+    def create_employee(hris_create_employee_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_employee - Create Employee
       request = Models::Operations::HrisCreateEmployeeRequest.new(
         hris_create_employee_request_dto: hris_create_employee_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -959,13 +962,14 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeEmploymentResponse) }
-    def create_employee_employment(hris_create_employment_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeEmploymentResponse) }
+    def create_employee_employment(hris_create_employment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_employee_employment - Create Employee Employment
       request = Models::Operations::HrisCreateEmployeeEmploymentRequest.new(
         hris_create_employment_request_dto: hris_create_employment_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1267,13 +1271,14 @@ module StackOne
     end
 
 
-    sig { params(entity_skills_create_request_dto: Models::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeSkillResponse) }
-    def create_employee_skill(entity_skills_create_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(entity_skills_create_request_dto: Models::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeSkillResponse) }
+    def create_employee_skill(entity_skills_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_employee_skill - Create Employee Skill
       request = Models::Operations::HrisCreateEmployeeSkillRequest.new(
         entity_skills_create_request_dto: entity_skills_create_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1575,13 +1580,14 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
-    def create_employee_time_off_request(hris_create_time_off_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
+    def create_employee_time_off_request(hris_create_time_off_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_employee_time_off_request - Create Employee Time Off Request
       request = Models::Operations::HrisCreateEmployeeTimeOffRequestRequest.new(
         hris_create_time_off_request_dto: hris_create_time_off_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1883,13 +1889,14 @@ module StackOne
     end
 
 
-    sig { params(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
-    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
+    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_employee_work_eligibility_request - Create Employee Work Eligibility Request
       request = Models::Operations::HrisCreateEmployeeWorkEligibilityRequestRequest.new(
         hris_create_work_eligibility_request_dto: hris_create_work_eligibility_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -11575,13 +11582,14 @@ module StackOne
     end
 
 
-    sig { params(hris_invite_employee_request_dto: Models::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisInviteEmployeeResponse) }
-    def invite_employee(hris_invite_employee_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_invite_employee_request_dto: Models::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisInviteEmployeeResponse) }
+    def invite_employee(hris_invite_employee_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # invite_employee - Invite Employee
       request = Models::Operations::HrisInviteEmployeeRequest.new(
         hris_invite_employee_request_dto: hris_invite_employee_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -12002,6 +12010,7 @@ module StackOne
 
             sdk.list_benefits(
               request: Models::Operations::HrisListBenefitsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -12318,6 +12327,7 @@ module StackOne
 
             sdk.list_companies(
               request: Models::Operations::HrisListCompaniesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -12634,6 +12644,7 @@ module StackOne
 
             sdk.list_companies_groups(
               request: Models::Operations::HrisListCompaniesGroupsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -12950,6 +12961,7 @@ module StackOne
 
             sdk.list_cost_center_groups(
               request: Models::Operations::HrisListCostCenterGroupsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -13266,6 +13278,7 @@ module StackOne
 
             sdk.list_department_groups(
               request: Models::Operations::HrisListDepartmentGroupsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -13582,6 +13595,7 @@ module StackOne
 
             sdk.list_division_groups(
               request: Models::Operations::HrisListDivisionGroupsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -13898,6 +13912,7 @@ module StackOne
 
             sdk.list_employee_categories(
               request: Models::Operations::HrisListEmployeeCategoriesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -14214,6 +14229,7 @@ module StackOne
 
             sdk.list_employee_custom_field_definitions(
               request: Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -14535,6 +14551,7 @@ module StackOne
 
             sdk.list_employee_documents(
               request: Models::Operations::HrisListEmployeeDocumentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -14857,6 +14874,7 @@ module StackOne
 
             sdk.list_employee_employments(
               request: Models::Operations::HrisListEmployeeEmploymentsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -15180,6 +15198,7 @@ module StackOne
 
             sdk.list_employee_shifts(
               request: Models::Operations::HrisListEmployeeShiftsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -15502,6 +15521,7 @@ module StackOne
 
             sdk.list_employee_skills(
               request: Models::Operations::HrisListEmployeeSkillsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -15824,6 +15844,7 @@ module StackOne
 
             sdk.list_employee_tasks(
               request: Models::Operations::HrisListEmployeeTasksRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -16147,6 +16168,7 @@ module StackOne
 
             sdk.list_employee_time_off_balances(
               request: Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -16470,6 +16492,7 @@ module StackOne
 
             sdk.list_employee_time_off_policies(
               request: Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -16792,6 +16815,7 @@ module StackOne
 
             sdk.list_employee_time_off_requests(
               request: Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -17115,6 +17139,7 @@ module StackOne
 
             sdk.list_employee_work_eligibility(
               request: Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -17432,6 +17457,7 @@ module StackOne
 
             sdk.list_employees(
               request: Models::Operations::HrisListEmployeesRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -17750,6 +17776,7 @@ module StackOne
 
             sdk.list_employments(
               request: Models::Operations::HrisListEmploymentsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -18067,6 +18094,7 @@ module StackOne
 
             sdk.list_groups(
               request: Models::Operations::HrisListGroupsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -18383,6 +18411,7 @@ module StackOne
 
             sdk.list_jobs(
               request: Models::Operations::HrisListJobsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -18699,6 +18728,7 @@ module StackOne
 
             sdk.list_locations(
               request: Models::Operations::HrisListLocationsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19015,6 +19045,7 @@ module StackOne
 
             sdk.list_positions(
               request: Models::Operations::HrisListPositionsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19332,6 +19363,7 @@ module StackOne
 
             sdk.list_shifts(
               request: Models::Operations::HrisListShiftsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -19648,6 +19680,7 @@ module StackOne
 
             sdk.list_tasks(
               request: Models::Operations::HrisListTasksRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -19965,6 +19998,7 @@ module StackOne
 
             sdk.list_team_groups(
               request: Models::Operations::HrisListTeamGroupsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -20281,6 +20315,7 @@ module StackOne
 
             sdk.list_time_entries(
               request: Models::Operations::HrisListTimeEntriesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -20597,6 +20632,7 @@ module StackOne
 
             sdk.list_time_off_policies(
               request: Models::Operations::HrisListTimeOffPoliciesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -20913,6 +20949,7 @@ module StackOne
 
             sdk.list_time_off_requests(
               request: Models::Operations::HrisListTimeOffRequestsRequest.new(
+                prefer: request.prefer,
                 expand: request.expand,
                 fields_: request.fields_,
                 filter: request.filter,
@@ -21232,6 +21269,7 @@ module StackOne
 
             sdk.list_time_off_types(
               request: Models::Operations::HrisListTimeOffTypesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -21429,13 +21467,14 @@ module StackOne
     end
 
 
-    sig { params(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeResponse) }
-    def update_employee(hris_update_employee_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeResponse) }
+    def update_employee(hris_update_employee_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_employee - Update Employee
       request = Models::Operations::HrisUpdateEmployeeRequest.new(
         hris_update_employee_request_dto: hris_update_employee_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -21737,15 +21776,9 @@ module StackOne
     end
 
 
-    sig { params(hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeEmploymentResponse) }
-    def update_employee_employment(hris_update_employment_request_dto:, id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeEmploymentResponse) }
+    def update_employee_employment(request:, retries: nil, timeout_ms: nil)
       # update_employee_employment - Update Employee Employment
-      request = Models::Operations::HrisUpdateEmployeeEmploymentRequest.new(
-        hris_update_employment_request_dto: hris_update_employment_request_dto,
-        id: id,
-        sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22046,15 +22079,9 @@ module StackOne
     end
 
 
-    sig { params(update_task_request_dto: Models::Shared::UpdateTaskRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeTaskResponse) }
-    def update_employee_task(update_task_request_dto:, id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeTaskResponse) }
+    def update_employee_task(request:, retries: nil, timeout_ms: nil)
       # update_employee_task - Update Employee Task
-      request = Models::Operations::HrisUpdateEmployeeTaskRequest.new(
-        update_task_request_dto: update_task_request_dto,
-        id: id,
-        sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22355,15 +22382,9 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeTimeOffRequestResponse) }
-    def update_employee_time_off_request(hris_create_time_off_request_dto:, id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeTimeOffRequestResponse) }
+    def update_employee_time_off_request(request:, retries: nil, timeout_ms: nil)
       # update_employee_time_off_request - Update Employee Time Off Request
-      request = Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest.new(
-        hris_create_time_off_request_dto: hris_create_time_off_request_dto,
-        id: id,
-        sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22664,15 +22685,9 @@ module StackOne
     end
 
 
-    sig { params(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
-    def update_employee_work_eligibility_request(hris_create_work_eligibility_request_dto:, id:, sub_resource_id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
+    def update_employee_work_eligibility_request(request:, retries: nil, timeout_ms: nil)
       # update_employee_work_eligibility_request - Update Employee Work Eligibility Request
-      request = Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest.new(
-        hris_create_work_eligibility_request_dto: hris_create_work_eligibility_request_dto,
-        id: id,
-        sub_resource_id: sub_resource_id,
-        x_account_id: x_account_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22964,13 +22979,14 @@ module StackOne
     end
 
 
-    sig { params(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUploadEmployeeDocumentResponse) }
-    def upload_employee_document(hris_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUploadEmployeeDocumentResponse) }
+    def upload_employee_document(hris_documents_upload_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # upload_employee_document - Upload Employee Document
       request = Models::Operations::HrisUploadEmployeeDocumentRequest.new(
         hris_documents_upload_request_dto: hris_documents_upload_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

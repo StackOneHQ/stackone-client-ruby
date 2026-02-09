@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue - The ISO639-2 Code of the language
       class HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue < T::Enum
 

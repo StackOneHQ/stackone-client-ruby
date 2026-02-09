@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ApplicationAttachmentValue - The content type of the attachment.
       class ApplicationAttachmentValue < T::Enum
 

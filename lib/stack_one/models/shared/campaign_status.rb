@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Status of the Campaign
       class CampaignStatus
         extend T::Sig

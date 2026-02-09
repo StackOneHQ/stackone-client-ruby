@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class ContentBlock4
         extend T::Sig

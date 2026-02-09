@@ -40,12 +40,13 @@ module StackOne
     end
 
 
-    sig { params(messaging_create_conversation_request_dto: Models::Shared::MessagingCreateConversationRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingCreateConversationResponse) }
-    def create_conversation(messaging_create_conversation_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(messaging_create_conversation_request_dto: Models::Shared::MessagingCreateConversationRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingCreateConversationResponse) }
+    def create_conversation(messaging_create_conversation_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_conversation - Create Conversation
       request = Models::Operations::MessagingCreateConversationRequest.new(
         messaging_create_conversation_request_dto: messaging_create_conversation_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1929,6 +1930,7 @@ module StackOne
 
             sdk.list_attachments(
               request: Models::Operations::MessagingListAttachmentsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -2251,6 +2253,7 @@ module StackOne
 
             sdk.list_conversation_messages(
               request: Models::Operations::MessagingListConversationMessagesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -2568,6 +2571,7 @@ module StackOne
 
             sdk.list_conversations(
               request: Models::Operations::MessagingListConversationsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -2884,6 +2888,7 @@ module StackOne
 
             sdk.list_users(
               request: Models::Operations::MessagingListUsersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -3081,12 +3086,13 @@ module StackOne
     end
 
 
-    sig { params(messaging_message_send_request_dto: Models::Shared::MessagingMessageSendRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingSendMessageResponse) }
-    def send_message(messaging_message_send_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(messaging_message_send_request_dto: Models::Shared::MessagingMessageSendRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingSendMessageResponse) }
+    def send_message(messaging_message_send_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # send_message - Send Message
       request = Models::Operations::MessagingSendMessageRequest.new(
         messaging_message_send_request_dto: messaging_message_send_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

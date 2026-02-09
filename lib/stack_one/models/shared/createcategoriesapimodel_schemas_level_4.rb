@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class CreateCategoriesApiModelSchemasLevel4
         extend T::Sig

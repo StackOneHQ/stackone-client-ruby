@@ -12,4 +12,6 @@ class StackOne::Models::Operations::ScreeningWebhookScreeningResultRequest
   def screening_result_webhook=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
 end

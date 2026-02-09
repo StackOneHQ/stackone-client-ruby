@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ApplicationChangesDataModelValue - The status of the application.
       class ApplicationChangesDataModelValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # InAppMessagesValue - The unified message type.
       class InAppMessagesValue < T::Enum
 

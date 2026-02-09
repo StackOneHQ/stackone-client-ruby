@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee work location
       class HrisUpdateEmployeeRequestDtoWorkLocation
         extend T::Sig

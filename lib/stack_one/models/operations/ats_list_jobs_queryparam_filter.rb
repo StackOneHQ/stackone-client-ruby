@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # ATS Jobs filters
       class AtsListJobsQueryParamFilter
         extend T::Sig

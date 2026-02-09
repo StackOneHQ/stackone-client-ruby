@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Type of account
       class AccountingAccountResultType
         extend T::Sig

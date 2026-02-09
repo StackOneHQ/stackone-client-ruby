@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsCreateOfferRequestDtoValue - The status of the offer.
       class AtsCreateOfferRequestDtoValue < T::Enum
 

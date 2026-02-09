@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class CrmGetContactCustomFieldDefinitionRequest
         extend T::Sig
@@ -17,6 +16,8 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # Filter parameters that allow greater customisation of the list response
@@ -38,10 +39,11 @@ module StackOne
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), filter: T.nilable(Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
-        def initialize(id:, x_account_id:, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
+        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
+        def initialize(id:, x_account_id:, prefer: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
           @id = id
           @x_account_id = x_account_id
+          @prefer = prefer
           @fields_ = fields_
           @filter = filter
           @next_ = next_
@@ -57,6 +59,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @fields_ == other.fields_
           return false unless @filter == other.filter
           return false unless @next_ == other.next_

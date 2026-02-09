@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The proficiency level of the skill
       class MaximumProficiency
         extend T::Sig

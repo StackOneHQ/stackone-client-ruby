@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee home location
       class HrisCreateEmployeeRequestDtoHomeLocation
         extend T::Sig

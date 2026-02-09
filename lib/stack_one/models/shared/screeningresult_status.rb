@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ScreeningResultStatus - Result status
       class ScreeningResultStatus < T::Enum
 

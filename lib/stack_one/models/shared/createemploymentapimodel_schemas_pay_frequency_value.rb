@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CreateEmploymentApiModelSchemasPayFrequencyValue - The pay frequency of the job postings.
       class CreateEmploymentApiModelSchemasPayFrequencyValue < T::Enum
 

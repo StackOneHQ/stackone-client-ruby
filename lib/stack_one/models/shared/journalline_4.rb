@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class JournalLine4
         extend T::Sig

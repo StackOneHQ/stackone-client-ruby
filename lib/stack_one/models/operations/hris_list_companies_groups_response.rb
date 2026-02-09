@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class HrisListCompaniesGroupsResponse
         extend T::Sig

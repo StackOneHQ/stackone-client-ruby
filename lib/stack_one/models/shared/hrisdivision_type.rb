@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of the division group
       class HRISDivisionType
         extend T::Sig

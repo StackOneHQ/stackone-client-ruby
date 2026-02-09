@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ApplicationChangesValue - The type of change that occurred to the application
       class ApplicationChangesValue < T::Enum
 

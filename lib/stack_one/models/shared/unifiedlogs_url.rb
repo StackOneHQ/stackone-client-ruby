@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The request URL data
       class UnifiedLogsUrl
         extend T::Sig

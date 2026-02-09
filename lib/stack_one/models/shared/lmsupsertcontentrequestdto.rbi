@@ -38,6 +38,8 @@ class StackOne::Models::Shared::LmsUpsertContentRequestDto
   def mobile_launch_content_url=(str_); end
   def order(); end
   def order=(str_); end
+  def passthrough(); end
+  def passthrough=(str_); end
   def short_description(); end
   def short_description=(str_); end
   def skills(); end

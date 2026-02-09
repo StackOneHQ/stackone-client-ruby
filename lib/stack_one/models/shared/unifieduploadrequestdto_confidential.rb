@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The confidentiality level of the file to be uploaded
       class UnifiedUploadRequestDtoConfidential
         extend T::Sig

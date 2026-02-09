@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # LmsListAssignmentsQueryParamStatus - Filter to select assignment by status
       class LmsListAssignmentsQueryParamStatus < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employment active status
       class EmploymentActive
         extend T::Sig

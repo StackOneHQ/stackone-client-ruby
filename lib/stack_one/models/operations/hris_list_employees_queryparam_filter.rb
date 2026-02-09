@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # HRIS Employees filters
       class HrisListEmployeesQueryParamFilter
         extend T::Sig

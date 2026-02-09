@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsUpdateJobRequestDtoValue - The status of the job.
       class AtsUpdateJobRequestDtoValue < T::Enum
 

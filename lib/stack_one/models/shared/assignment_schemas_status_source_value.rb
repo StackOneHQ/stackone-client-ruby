@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The original status value from the provider before normalization.
       class AssignmentSchemasStatusSourceValue
         extend T::Sig

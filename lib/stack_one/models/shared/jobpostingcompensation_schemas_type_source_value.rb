@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the compensation type.
       class JobPostingCompensationSchemasTypeSourceValue
         extend T::Sig

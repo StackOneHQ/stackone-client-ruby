@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class MarketingGetSmsTemplateResponse
         extend T::Sig

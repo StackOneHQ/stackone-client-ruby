@@ -33,7 +33,7 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.iam.delete_user(id: '<id>', x_account_id: '<id>')
+res = s.iam.delete_user(id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
   # handle response
@@ -43,10 +43,11 @@ end
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
-| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -89,6 +90,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamGetGroupRequest.new(
+  prefer: 'heartbeat',
   expand: 'roles',
   fields_: 'id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at,unified_custom_fields',
   id: '<id>',
@@ -150,6 +152,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamGetPolicyRequest.new(
+  prefer: 'heartbeat',
   expand: 'permissions',
   fields_: 'id,remote_id,name,permissions,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
@@ -211,6 +214,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamGetRoleRequest.new(
+  prefer: 'heartbeat',
   expand: 'policies',
   fields_: 'id,remote_id,name,type,policies,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
@@ -272,6 +276,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamGetUserRequest.new(
+  prefer: 'heartbeat',
   expand: 'roles,groups',
   fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',
   id: '<id>',
@@ -333,6 +338,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamListGroupsRequest.new(
+  prefer: 'heartbeat',
   expand: 'roles',
   fields_: 'id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at,unified_custom_fields',
   filter: nil,
@@ -394,6 +400,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamListPoliciesRequest.new(
+  prefer: 'heartbeat',
   expand: 'permissions',
   fields_: 'id,remote_id,name,permissions,description,created_at,updated_at,unified_custom_fields',
   filter: nil,
@@ -455,6 +462,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamListRolesRequest.new(
+  prefer: 'heartbeat',
   expand: 'policies',
   fields_: 'id,remote_id,name,type,policies,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::IamListRolesQueryParamFilter.new(
@@ -518,6 +526,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::IamListUsersRequest.new(
+  prefer: 'heartbeat',
   expand: 'roles,groups',
   fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',
   filter: Models::Operations::IamListUsersQueryParamFilter.new(
@@ -593,7 +602,7 @@ res = s.iam.update_user(iam_update_user_request_dto: Models::Shared::IamUpdateUs
     value: Models::Shared::IamUpdateUserRequestDtoValue::ENABLED,
   ),
   username: 'hansolo1977',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
   # handle response
@@ -603,11 +612,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `iam_update_user_request_dto`                                                             | [Models::Shared::IamUpdateUserRequestDto](../../models/shared/iamupdateuserrequestdto.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `id`                                                                                      | *::String*                                                                                | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `x_account_id`                                                                            | *::String*                                                                                | :heavy_check_mark:                                                                        | The account identifier                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `iam_update_user_request_dto`                                                                                                                                            | [Models::Shared::IamUpdateUserRequestDto](../../models/shared/iamupdateuserrequestdto.md)                                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

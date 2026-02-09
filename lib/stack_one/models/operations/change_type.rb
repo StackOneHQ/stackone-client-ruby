@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # ChangeType - Filter by the type of change that occurred to the application
       class ChangeType < T::Enum
 

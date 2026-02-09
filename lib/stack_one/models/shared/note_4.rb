@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Note4
         extend T::Sig

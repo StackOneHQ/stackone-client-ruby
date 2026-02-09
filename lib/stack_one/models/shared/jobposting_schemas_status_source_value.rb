@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the job postings status.
       class JobPostingSchemasStatusSourceValue
         extend T::Sig

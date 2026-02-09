@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Visibility of the note
       class NoteVisibility
         extend T::Sig

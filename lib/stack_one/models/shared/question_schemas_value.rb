@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # QuestionSchemasValue - The type of the question's condition
       class QuestionSchemasValue < T::Enum
 

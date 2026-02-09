@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Field2 < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # JobStatus - The job_status of the job
       class JobStatus < T::Enum
 

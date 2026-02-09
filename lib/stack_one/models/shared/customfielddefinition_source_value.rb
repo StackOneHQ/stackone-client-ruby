@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class CustomFieldDefinitionSourceValue
         extend T::Sig

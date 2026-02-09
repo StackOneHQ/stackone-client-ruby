@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Method parameters (arbitrary JSON)
       class Params
         extend T::Sig

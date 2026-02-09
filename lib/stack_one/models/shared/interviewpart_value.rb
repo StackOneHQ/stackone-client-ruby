@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # InterviewPartValue - The type of the interview.
       class InterviewPartValue < T::Enum
 

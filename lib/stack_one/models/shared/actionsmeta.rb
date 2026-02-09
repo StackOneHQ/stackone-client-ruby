@@ -7,12 +7,13 @@
 module StackOne
   module Models
     module Shared
-    
 
       class ActionsMeta
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The account ID this metadata applies to (only present when filtering by account_ids)
+        field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The list of actions available for this provider
         field :actions, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ActionMetaItem)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('actions') } }
         # The authentication methods supported by the provider
@@ -21,33 +22,47 @@ module StackOne
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The icon URL for the provider
         field :icon, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('icon') } }
+        # The integration ID this metadata applies to (only present when filtering by account_ids)
+        field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
         # The unique key for the provider
         field :key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('key') } }
         # The name of the provider
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The release stage of the connector (e.g., ga, beta, preview). By default, StackOne organizations only have access to connectors in the 'ga' stage. To get access to 'beta' or 'preview' stage connectors, please contact support.
+        field :release_stage, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('release_stage') } }
+        # The list of scope definitions available for this provider
+        field :scope_definitions, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ScopeDefinitionMetaItem)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('scope_definitions') } }
         # The version of the actions metadata
         field :version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('version') } }
 
-        sig { params(actions: T.nilable(T::Array[Models::Shared::ActionMetaItem]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), icon: T.nilable(::String), key: T.nilable(::String), name: T.nilable(::String), version: T.nilable(::String)).void }
-        def initialize(actions: nil, authentication: nil, description: nil, icon: nil, key: nil, name: nil, version: nil)
+        sig { params(account_id: T.nilable(::String), actions: T.nilable(T::Array[Models::Shared::ActionMetaItem]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), icon: T.nilable(::String), integration_id: T.nilable(::String), key: T.nilable(::String), name: T.nilable(::String), release_stage: T.nilable(::String), scope_definitions: T.nilable(T::Array[Models::Shared::ScopeDefinitionMetaItem]), version: T.nilable(::String)).void }
+        def initialize(account_id: nil, actions: nil, authentication: nil, description: nil, icon: nil, integration_id: nil, key: nil, name: nil, release_stage: nil, scope_definitions: nil, version: nil)
+          @account_id = account_id
           @actions = actions
           @authentication = authentication
           @description = description
           @icon = icon
+          @integration_id = integration_id
           @key = key
           @name = name
+          @release_stage = release_stage
+          @scope_definitions = scope_definitions
           @version = version
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @account_id == other.account_id
           return false unless @actions == other.actions
           return false unless @authentication == other.authentication
           return false unless @description == other.description
           return false unless @icon == other.icon
+          return false unless @integration_id == other.integration_id
           return false unless @key == other.key
           return false unless @name == other.name
+          return false unless @release_stage == other.release_stage
+          return false unless @scope_definitions == other.scope_definitions
           return false unless @version == other.version
           true
         end

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The period of the work time
       class Period
         extend T::Sig

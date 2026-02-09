@@ -14,6 +14,8 @@ class StackOne::Models::Operations::AtsGetApplicationDocumentRequest
   def sub_resource_id=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
   def fields_(); end
   def fields_=(str_); end
   def proxy(); end

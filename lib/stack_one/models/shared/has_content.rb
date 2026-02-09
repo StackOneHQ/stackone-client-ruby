@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the file has content
       class HasContent
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the account is active
       class AccountingAccountResultActive
         extend T::Sig

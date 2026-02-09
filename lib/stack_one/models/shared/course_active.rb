@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the course is active and available for users.
       class CourseActive
         extend T::Sig

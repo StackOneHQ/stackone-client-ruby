@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The country code where the bank is located
       class CountryCode
         extend T::Sig

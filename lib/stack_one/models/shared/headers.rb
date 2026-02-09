@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Response headers
       class Headers
         extend T::Sig

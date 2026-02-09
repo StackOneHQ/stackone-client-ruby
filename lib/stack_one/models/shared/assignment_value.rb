@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AssignmentValue - The StackOne unified learning object type.
       class AssignmentValue < T::Enum
 

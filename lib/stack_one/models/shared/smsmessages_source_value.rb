@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The original value from the provider used to derive the unified message type.
       class SmsMessagesSourceValue
         extend T::Sig

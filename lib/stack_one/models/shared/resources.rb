@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Resources for this provider, such as image assets
       class Resources
         extend T::Sig

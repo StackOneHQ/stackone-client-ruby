@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The human readable value of the option
       class CustomFieldOptionValue
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue - The ISO3166-1 Alpha2 Code of the Country
       class HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue < T::Enum
 

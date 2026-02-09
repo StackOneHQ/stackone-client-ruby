@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of the task
       class TaskType
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The result of the assignment
       class Result
         extend T::Sig

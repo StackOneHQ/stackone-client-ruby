@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether this is the primary bank account
       class IsPrimary
         extend T::Sig

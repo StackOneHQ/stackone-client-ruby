@@ -121,7 +121,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto: Models::S
       updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
     ),
   ],
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.batch_result_api_model.nil?
   # handle response
@@ -131,10 +131,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `lms_batch_upsert_content_request_dto`                                                                    | [Models::Shared::LmsBatchUpsertContentRequestDto](../../models/shared/lmsbatchupsertcontentrequestdto.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `lms_batch_upsert_content_request_dto`                                                                                                                                   | [Models::Shared::LmsBatchUpsertContentRequestDto](../../models/shared/lmsbatchupsertcontentrequestdto.md)                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -192,7 +193,7 @@ res = s.lms.create_user_assignment(lms_create_assignment_request_dto: Models::Sh
   status: Models::Shared::LmsCreateAssignmentRequestDtoStatus.new(
     value: Models::Shared::LmsCreateAssignmentRequestDtoValue::IN_PROGRESS,
   ),
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -202,11 +203,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `lms_create_assignment_request_dto`                                                                   | [Models::Shared::LmsCreateAssignmentRequestDto](../../models/shared/lmscreateassignmentrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `lms_create_assignment_request_dto`                                                                                                                                      | [Models::Shared::LmsCreateAssignmentRequestDto](../../models/shared/lmscreateassignmentrequestdto.md)                                                                    | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -262,7 +264,7 @@ res = s.lms.create_user_completion(lms_create_completion_request_dto: Models::Sh
     raw_value: '87 / 100',
   ),
   time_spent: 'PT1H30M45S',
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
   # handle response
@@ -272,11 +274,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `lms_create_completion_request_dto`                                                                   | [Models::Shared::LmsCreateCompletionRequestDto](../../models/shared/lmscreatecompletionrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `lms_create_completion_request_dto`                                                                                                                                      | [Models::Shared::LmsCreateCompletionRequestDto](../../models/shared/lmscreatecompletionrequestdto.md)                                                                    | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -320,7 +323,7 @@ s = ::StackOne::StackOne.new(
       ),
     )
 
-res = s.lms.delete_user_completion(id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>')
+res = s.lms.delete_user_completion(id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
   # handle response
@@ -330,11 +333,12 @@ end
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `id`                   | *::String*             | :heavy_check_mark:     | N/A                    |
-| `sub_resource_id`      | *::String*             | :heavy_check_mark:     | N/A                    |
-| `x_account_id`         | *::String*             | :heavy_check_mark:     | The account identifier |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `sub_resource_id`                                                                                                                                                        | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -381,6 +385,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetAssignmentRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -440,6 +445,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetCategoryRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -500,6 +506,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetCompletionRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   x_account_id: '<id>',
 )
@@ -563,6 +570,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetContentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -625,6 +633,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetCourseRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -685,6 +694,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetSkillRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -745,6 +755,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetUserRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -809,6 +820,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetUserAssignmentRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -871,6 +883,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsGetUserCompletionRequest.new(
+  prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
   x_account_id: '<id>',
@@ -935,6 +948,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListAssignmentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListAssignmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -999,6 +1013,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCategoriesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
   filter: Models::Operations::LmsListCategoriesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1061,6 +1076,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCompletionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
   filter: Models::Operations::LmsListCompletionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1127,6 +1143,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListContentRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
   filter: Models::Operations::LmsListContentQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1191,6 +1208,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListCoursesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
   filter: Models::Operations::LmsListCoursesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1253,6 +1271,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListSkillsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
   filter: Models::Operations::LmsListSkillsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1319,6 +1338,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUserAssignmentsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListUserAssignmentsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1386,6 +1406,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUserCompletionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
   filter: Models::Operations::LmsListUserCompletionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -1449,6 +1470,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::LmsListUsersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
   filter: nil,
   x_account_id: '<id>',
@@ -1563,6 +1585,9 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto: Models::Shared::LmsUp
   ],
   mobile_launch_content_url: 'https://www.mobile.youtube.com/watch?v=16873',
   order: 1.0,
+  passthrough: {
+    "other_known_names": 'John Doe',
+  },
   skills: [
     Models::Shared::CreateSkillsApiModel.new(
       id: '12345',
@@ -1579,7 +1604,7 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto: Models::Shared::LmsUp
     "my_project_custom_field_2": 'some other value',
   },
   updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.upsert_result.nil?
   # handle response
@@ -1589,10 +1614,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `lms_upsert_content_request_dto`                                                                | [Models::Shared::LmsUpsertContentRequestDto](../../models/shared/lmsupsertcontentrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `lms_upsert_content_request_dto`                                                                                                                                         | [Models::Shared::LmsUpsertContentRequestDto](../../models/shared/lmsupsertcontentrequestdto.md)                                                                          | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

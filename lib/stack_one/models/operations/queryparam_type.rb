@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # QueryParamType - Filter to select time-off policies by type
       class QueryParamType < T::Enum
 

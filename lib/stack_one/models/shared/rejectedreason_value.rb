@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # RejectedReasonValue - The type of the rejected reason.
       class RejectedReasonValue < T::Enum
 

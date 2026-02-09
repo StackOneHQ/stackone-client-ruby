@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The category object for associating uploaded files. If both an ID and a name are provided, the ID takes precedence.
       class UnifiedUploadRequestDtoCategory
         extend T::Sig

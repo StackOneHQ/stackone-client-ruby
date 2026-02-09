@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class AtsUpdateApplicationRequestDto4
         extend T::Sig

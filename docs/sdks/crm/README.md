@@ -64,7 +64,7 @@ res = s.crm.create_contact(crm_create_contact_request_dto: Models::Shared::CrmCr
   phone_numbers: [
     '123-456-7890',
   ],
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.contact_result.nil?
   # handle response
@@ -74,10 +74,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `crm_create_contact_request_dto`                                                                | [Models::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `crm_create_contact_request_dto`                                                                                                                                         | [Models::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md)                                                                          | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 
@@ -120,6 +121,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetAccountRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -180,6 +182,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetContactRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
@@ -241,6 +244,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -304,6 +308,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmGetListRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -364,6 +369,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListAccountsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::CrmListAccountsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -426,6 +432,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -488,6 +495,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListContactsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::CrmListContactsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -551,6 +559,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::CrmListListsRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   filter: Models::Operations::CrmListListsQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -643,7 +652,7 @@ res = s.crm.update_contact(crm_create_contact_request_dto: Models::Shared::CrmCr
   phone_numbers: [
     '123-456-7890',
   ],
-), id: '<id>', x_account_id: '<id>')
+), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.contact_result.nil?
   # handle response
@@ -653,11 +662,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `crm_create_contact_request_dto`                                                                | [Models::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `id`                                                                                            | *::String*                                                                                      | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `x_account_id`                                                                                  | *::String*                                                                                      | :heavy_check_mark:                                                                              | The account identifier                                                                          |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `crm_create_contact_request_dto`                                                                                                                                         | [Models::Shared::CrmCreateContactRequestDto](../../models/shared/crmcreatecontactrequestdto.md)                                                                          | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
 
 ### Response
 

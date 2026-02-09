@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class LmsBatchUpsertContentResponse
         extend T::Sig

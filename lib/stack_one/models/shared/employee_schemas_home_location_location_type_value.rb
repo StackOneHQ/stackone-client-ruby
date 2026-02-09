@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # EmployeeSchemasHomeLocationLocationTypeValue - The type of the location.
       class EmployeeSchemasHomeLocationLocationTypeValue < T::Enum
 

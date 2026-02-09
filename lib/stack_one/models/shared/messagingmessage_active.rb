@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The user active status
       class MessagingMessageActive
         extend T::Sig

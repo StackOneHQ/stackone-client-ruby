@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JobPostingCompensationSchemasTypeValue - The type of the compensation.
       class JobPostingCompensationSchemasTypeValue < T::Enum
 

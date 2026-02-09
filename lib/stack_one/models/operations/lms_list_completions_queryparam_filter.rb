@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # LMS Completions Filter
       class LmsListCompletionsQueryParamFilter
         extend T::Sig

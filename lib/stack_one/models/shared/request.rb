@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The advanced log request data
       class Request
         extend T::Sig

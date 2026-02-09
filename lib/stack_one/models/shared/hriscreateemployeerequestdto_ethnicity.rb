@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee ethnicity
       class HrisCreateEmployeeRequestDtoEthnicity
         extend T::Sig

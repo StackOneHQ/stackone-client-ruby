@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The country code of the issued by authority
       class IssuedBy
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The manager role type (e.g., admin, viewer)
       class RoleType
         extend T::Sig

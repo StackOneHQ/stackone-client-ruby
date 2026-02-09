@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Indicates if the user is a bot or service user
       class IamUserIsBotUser
         extend T::Sig

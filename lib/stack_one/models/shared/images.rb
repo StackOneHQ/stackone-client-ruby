@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Image assets for this provider
       class Images
         extend T::Sig

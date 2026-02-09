@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class HrisCreateEmploymentRequestDtoSchemasWorkTimeSourceValue
         extend T::Sig

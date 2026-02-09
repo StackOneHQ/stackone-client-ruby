@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
       class Metadata
         extend T::Sig

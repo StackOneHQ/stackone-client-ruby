@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # IamResourceValue - The type of the resource, e.g. user, group, permission, etc.
       class IamResourceValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The duration unit of the current policy
       class TimeOffDurationUnit
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisCreateEmployeeRequestDtoSchemasEmploymentEmploymentTypeValue - The type of the employment.
       class HrisCreateEmployeeRequestDtoSchemasEmploymentEmploymentTypeValue < T::Enum
 

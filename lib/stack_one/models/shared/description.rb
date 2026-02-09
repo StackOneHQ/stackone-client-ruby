@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee job description
       class Description
         extend T::Sig

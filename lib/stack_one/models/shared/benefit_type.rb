@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of the benefit
       class BenefitType
         extend T::Sig

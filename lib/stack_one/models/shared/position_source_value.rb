@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the position status.
       class PositionSourceValue
         extend T::Sig

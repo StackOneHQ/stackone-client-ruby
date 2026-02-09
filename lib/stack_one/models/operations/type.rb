@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # Type - Filter to select time-off policies by type
       class Type < T::Enum
 

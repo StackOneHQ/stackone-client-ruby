@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Event - The event type
       class Event < T::Enum
 

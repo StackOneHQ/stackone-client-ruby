@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # HrisListShiftsQueryParamStatus - Filter to select shifts by status
       class HrisListShiftsQueryParamStatus < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The location type
       class EmployeeLocationType
         extend T::Sig

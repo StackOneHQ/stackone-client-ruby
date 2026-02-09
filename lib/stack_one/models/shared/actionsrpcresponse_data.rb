@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The response data from the action RPC call
       class ActionsRpcResponseData
         extend T::Sig

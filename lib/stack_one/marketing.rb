@@ -40,12 +40,13 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateContentBlockResponse) }
-    def create_content_block(marketing_create_content_blocks_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateContentBlockResponse) }
+    def create_content_block(marketing_create_content_blocks_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_content_block - Create Content Block
       request = Models::Operations::MarketingCreateContentBlockRequest.new(
         marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -342,12 +343,13 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateEmailTemplateResponse) }
-    def create_email_template(marketing_create_email_template_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateEmailTemplateResponse) }
+    def create_email_template(marketing_create_email_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_email_template - Create Email Templates
       request = Models::Operations::MarketingCreateEmailTemplateRequest.new(
         marketing_create_email_template_request_dto: marketing_create_email_template_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -644,12 +646,13 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateInAppTemplateResponse) }
-    def create_in_app_template(marketing_create_in_app_template_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateInAppTemplateResponse) }
+    def create_in_app_template(marketing_create_in_app_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_in_app_template - Create In-App Template
       request = Models::Operations::MarketingCreateInAppTemplateRequest.new(
         marketing_create_in_app_template_request_dto: marketing_create_in_app_template_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -946,14 +949,15 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateOmniChannelTemplateResponse) }
-    def create_omni_channel_template(marketing_create_template_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateOmniChannelTemplateResponse) }
+    def create_omni_channel_template(marketing_create_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_omni_channel_template - Create Omni-Channel Template
       # 
       # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::MarketingCreateOmniChannelTemplateRequest.new(
         marketing_create_template_request_dto: marketing_create_template_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1250,12 +1254,13 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreatePushTemplateResponse) }
-    def create_push_template(marketing_create_push_template_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreatePushTemplateResponse) }
+    def create_push_template(marketing_create_push_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_push_template - Create Push Template
       request = Models::Operations::MarketingCreatePushTemplateRequest.new(
         marketing_create_push_template_request_dto: marketing_create_push_template_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1552,12 +1557,13 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateSmsTemplateResponse) }
-    def create_sms_template(marketing_create_sms_template_request_dto:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateSmsTemplateResponse) }
+    def create_sms_template(marketing_create_sms_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_sms_template - Create SMS Template
       request = Models::Operations::MarketingCreateSmsTemplateRequest.new(
         marketing_create_sms_template_request_dto: marketing_create_sms_template_request_dto,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4026,6 +4032,7 @@ module StackOne
 
             sdk.list_campaigns(
               request: Models::Operations::MarketingListCampaignsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -4342,6 +4349,7 @@ module StackOne
 
             sdk.list_content_blocks(
               request: Models::Operations::MarketingListContentBlocksRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -4658,6 +4666,7 @@ module StackOne
 
             sdk.list_email_templates(
               request: Models::Operations::MarketingListEmailTemplatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -4974,6 +4983,7 @@ module StackOne
 
             sdk.list_in_app_templates(
               request: Models::Operations::MarketingListInAppTemplatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5292,6 +5302,7 @@ module StackOne
 
             sdk.list_omni_channel_templates(
               request: Models::Operations::MarketingListOmniChannelTemplatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5608,6 +5619,7 @@ module StackOne
 
             sdk.list_push_templates(
               request: Models::Operations::MarketingListPushTemplatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -5924,6 +5936,7 @@ module StackOne
 
             sdk.list_sms_templates(
               request: Models::Operations::MarketingListSmsTemplatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -6121,13 +6134,14 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateContentBlockResponse) }
-    def update_content_block(marketing_create_content_blocks_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateContentBlockResponse) }
+    def update_content_block(marketing_create_content_blocks_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_content_block - Update Content Block
       request = Models::Operations::MarketingUpdateContentBlockRequest.new(
         marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6429,13 +6443,14 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateEmailTemplateResponse) }
-    def update_email_template(marketing_create_email_template_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateEmailTemplateResponse) }
+    def update_email_template(marketing_create_email_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_email_template - Update Email Templates
       request = Models::Operations::MarketingUpdateEmailTemplateRequest.new(
         marketing_create_email_template_request_dto: marketing_create_email_template_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6737,13 +6752,14 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateInAppTemplateResponse) }
-    def update_in_app_template(marketing_create_in_app_template_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateInAppTemplateResponse) }
+    def update_in_app_template(marketing_create_in_app_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_in_app_template - Update In-App Template
       request = Models::Operations::MarketingUpdateInAppTemplateRequest.new(
         marketing_create_in_app_template_request_dto: marketing_create_in_app_template_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -7045,15 +7061,16 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateOmniChannelTemplateResponse) }
-    def update_omni_channel_template(marketing_create_template_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateOmniChannelTemplateResponse) }
+    def update_omni_channel_template(marketing_create_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_omni_channel_template - Update Omni-Channel Template
       # 
       # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::MarketingUpdateOmniChannelTemplateRequest.new(
         marketing_create_template_request_dto: marketing_create_template_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -7355,13 +7372,14 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdatePushTemplateResponse) }
-    def update_push_template(marketing_create_push_template_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdatePushTemplateResponse) }
+    def update_push_template(marketing_create_push_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_push_template - Update Push Template
       request = Models::Operations::MarketingUpdatePushTemplateRequest.new(
         marketing_create_push_template_request_dto: marketing_create_push_template_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -7663,13 +7681,14 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateSmsTemplateResponse) }
-    def update_sms_template(marketing_create_sms_template_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateSmsTemplateResponse) }
+    def update_sms_template(marketing_create_sms_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # update_sms_template - Update SMS Template
       request = Models::Operations::MarketingUpdateSmsTemplateRequest.new(
         marketing_create_sms_template_request_dto: marketing_create_sms_template_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)

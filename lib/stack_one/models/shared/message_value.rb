@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # MessageValue - The unified message type.
       class MessageValue < T::Enum
 

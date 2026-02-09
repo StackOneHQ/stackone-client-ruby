@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AccountingAccountResultValue - Type of account
       class AccountingAccountResultValue < T::Enum
 

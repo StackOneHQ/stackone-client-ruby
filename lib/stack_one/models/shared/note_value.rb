@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # NoteValue - The visibility of the notes.
       class NoteValue < T::Enum
 

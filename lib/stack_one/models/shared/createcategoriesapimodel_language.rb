@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The language associated with this category
       class CreateCategoriesApiModelLanguage
         extend T::Sig

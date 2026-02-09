@@ -12,6 +12,10 @@ class StackOne::Models::Shared::AuthenticationMetaItem
   def key=(str_); end
   def label(); end
   def label=(str_); end
+  def required_scopes(); end
+  def required_scopes=(str_); end
+  def support(); end
+  def support=(str_); end
   def type(); end
   def type=(str_); end
 end

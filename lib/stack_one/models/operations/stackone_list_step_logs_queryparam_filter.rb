@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # Filter parameters that allow greater customisation of the list response
       class StackoneListStepLogsQueryParamFilter
         extend T::Sig

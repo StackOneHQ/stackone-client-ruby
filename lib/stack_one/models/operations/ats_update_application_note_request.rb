@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsUpdateApplicationNoteRequest
         extend T::Sig
@@ -21,13 +20,16 @@ module StackOne
         field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
 
-        sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String).void }
-        def initialize(ats_update_notes_request_dto:, id:, sub_resource_id:, x_account_id:)
+        sig { params(ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto, id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String)).void }
+        def initialize(ats_update_notes_request_dto:, id:, sub_resource_id:, x_account_id:, prefer: nil)
           @ats_update_notes_request_dto = ats_update_notes_request_dto
           @id = id
           @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
+          @prefer = prefer
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -37,6 +39,7 @@ module StackOne
           return false unless @id == other.id
           return false unless @sub_resource_id == other.sub_resource_id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           true
         end
       end

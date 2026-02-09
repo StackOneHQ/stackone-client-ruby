@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisDocumentsUploadRequestDtoValue - The category name to associate with the file
       class HrisDocumentsUploadRequestDtoValue < T::Enum
 

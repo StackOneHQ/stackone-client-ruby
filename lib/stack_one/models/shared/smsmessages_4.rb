@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class SmsMessages4
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the change type
       class ApplicationChangesSourceValue
         extend T::Sig

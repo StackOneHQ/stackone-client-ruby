@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
 
       class NotFoundResponse < StandardError
         extend T::Sig

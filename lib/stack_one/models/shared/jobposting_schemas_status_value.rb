@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JobPostingSchemasStatusValue - The status of the job postings.
       class JobPostingSchemasStatusValue < T::Enum
 

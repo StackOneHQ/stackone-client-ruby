@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsRejectApplicationResponse
         extend T::Sig

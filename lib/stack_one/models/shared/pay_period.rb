@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The time period over which the pay rate is calculated
       class PayPeriod
         extend T::Sig

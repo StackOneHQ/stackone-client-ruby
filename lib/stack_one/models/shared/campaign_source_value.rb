@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the schedule type.
       class CampaignSourceValue
         extend T::Sig

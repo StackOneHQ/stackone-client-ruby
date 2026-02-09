@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the skill is active and therefore available for use
       class SkillsActive
         extend T::Sig

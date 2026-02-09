@@ -32,6 +32,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsDownloadFileRequest.new(
+  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
@@ -93,6 +94,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsGetDriveRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   x_account_id: '<id>',
@@ -153,6 +155,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsGetFileRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   id: '<id>',
   include: 'all_parent_folder_ids',
@@ -214,6 +217,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsGetFolderRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   id: '<id>',
   include: 'all_parent_folder_ids',
@@ -275,6 +279,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsListDrivesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::DocumentsListDrivesQueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
@@ -337,6 +342,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsListFilesRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   filter: Models::Operations::DocumentsListFilesQueryParamFilter.new(
     content: 'FAQ of the project',
@@ -407,6 +413,7 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::DocumentsListFoldersRequest.new(
+  prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   filter: Models::Operations::DocumentsListFoldersQueryParamFilter.new(
     drive_id: '1234567890',
@@ -490,7 +497,7 @@ res = s.documents.upload_file(unified_upload_request_dto: Models::Shared::Unifie
   ),
   name: 'weather-forecast',
   path: '/path/to/file',
-), x_account_id: '<id>')
+), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.write_result_api_model.nil?
   # handle response
@@ -500,11 +507,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `unified_upload_request_dto`                                                              | [Models::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
-| `x_account_id`                                                                            | *::String*                                                                                | :heavy_check_mark:                                                                        | The account identifier                                                                    |
-| `x_stackone_api_session_token`                                                            | *T.nilable(::String)*                                                                     | :heavy_minus_sign:                                                                        | The session token                                                                         |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `unified_upload_request_dto`                                                                                                                                             | [Models::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md)                                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
+| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
+| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
+| `x_stackone_api_session_token`                                                                                                                                           | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | The session token                                                                                                                                                        |                                                                                                                                                                          |
 
 ### Response
 

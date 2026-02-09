@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The type of the group
       class EmploymentSchemasCostCenterType
         extend T::Sig

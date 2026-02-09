@@ -12,6 +12,8 @@ class StackOne::Models::Operations::DocumentsGetFileRequest
   def id=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
   def x_stackone_api_session_token(); end
   def x_stackone_api_session_token=(str_); end
   def fields_(); end

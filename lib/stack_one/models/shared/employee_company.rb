@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee company
       class EmployeeCompany
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class TicketingDownloadTicketingAttachmentRequest
         extend T::Sig
@@ -19,16 +18,19 @@ module StackOne
         field :sub_resource_id, ::String, { 'path_param': { 'field_name': 'subResourceId', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The export format of the file
         field :export_format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'export_format', 'style': 'form', 'explode': true } }
         # The format to download the file in
         field :format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'format', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, export_format: T.nilable(::String), format: T.nilable(::String)).void }
-        def initialize(id:, sub_resource_id:, x_account_id:, export_format: nil, format: nil)
+        sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), export_format: T.nilable(::String), format: T.nilable(::String)).void }
+        def initialize(id:, sub_resource_id:, x_account_id:, prefer: nil, export_format: nil, format: nil)
           @id = id
           @sub_resource_id = sub_resource_id
           @x_account_id = x_account_id
+          @prefer = prefer
           @export_format = export_format
           @format = format
         end
@@ -39,6 +41,7 @@ module StackOne
           return false unless @id == other.id
           return false unless @sub_resource_id == other.sub_resource_id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @export_format == other.export_format
           return false unless @format == other.format
           true

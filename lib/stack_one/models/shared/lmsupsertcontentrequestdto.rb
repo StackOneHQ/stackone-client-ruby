@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class LmsUpsertContentRequestDto
         extend T::Sig
@@ -43,6 +42,8 @@ module StackOne
         field :mobile_launch_content_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('mobile_launch_content_url') } }
         # The order of the individual content within a content grouping. This is not applicable for pushing individual content.
         field :order, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('order') } }
+        # Value to pass through to the provider
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # A short description or summary for the content
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -58,8 +59,8 @@ module StackOne
         # The date on which the content was last updated.
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
 
-        sig { params(external_reference: ::String, active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
-        def initialize(external_reference:, active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
+        sig { params(external_reference: ::String, active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), passthrough: T.nilable(T::Hash[Symbol, ::Object]), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        def initialize(external_reference:, active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, passthrough: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)
           @external_reference = external_reference
           @active = active
           @additional_data = additional_data
@@ -75,6 +76,7 @@ module StackOne
           @localizations = localizations
           @mobile_launch_content_url = mobile_launch_content_url
           @order = order
+          @passthrough = passthrough
           @short_description = short_description
           @skills = skills
           @tags = tags
@@ -101,6 +103,7 @@ module StackOne
           return false unless @localizations == other.localizations
           return false unless @mobile_launch_content_url == other.mobile_launch_content_url
           return false unless @order == other.order
+          return false unless @passthrough == other.passthrough
           return false unless @short_description == other.short_description
           return false unless @skills == other.skills
           return false unless @tags == other.tags

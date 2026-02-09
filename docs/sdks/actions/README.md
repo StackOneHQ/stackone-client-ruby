@@ -6,8 +6,67 @@ Retrieve Actions metadata and definitions.
 
 ### Available Operations
 
+* [build_action_embeddings](#build_action_embeddings) - Rebuild action embeddings for semantic search
 * [list_actions_meta](#list_actions_meta) - List all actions metadata
 * [rpc_action](#rpc_action) - Make an RPC call to an action
+* [search_actions](#search_actions) - Search connector actions by semantic similarity
+
+## build_action_embeddings
+
+Rebuild action embeddings for semantic search
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="stackone_build_action_embeddings" method="post" path="/actions/build" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+req = Models::Shared::ActionBuildDto.new(
+  connector_key: 'slack',
+)
+
+res = s.actions.build_action_embeddings(request: req)
+
+unless res.action_build_response_dto.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [Models::Shared::ActionBuildDto](../../models/shared/actionbuilddto.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+
+### Response
+
+**[T.nilable(Models::Operations::StackoneBuildActionEmbeddingsResponse)](../../models/operations/stackonebuildactionembeddingsresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
 ## list_actions_meta
 
@@ -28,6 +87,9 @@ s = ::StackOne::StackOne.new(
     )
 
 req = Models::Operations::StackoneListActionsMetaRequest.new(
+  exclude: [
+    Models::Operations::Exclude::ACTIONS,
+  ],
   filter: Models::Operations::Filter.new(
     account_ids: 'account1,account2',
     action_key: 'action1',
@@ -37,6 +99,7 @@ req = Models::Operations::StackoneListActionsMetaRequest.new(
   include: [
     Models::Operations::Include::ACTION_DETAILS,
   ],
+  search: 'employee',
 )
 
 res = s.actions.list_actions_meta(request: req)
@@ -125,6 +188,64 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::StackoneRpcActionResponse)](../../models/operations/stackonerpcactionresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## search_actions
+
+Search connector actions by semantic similarity
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="stackone_search_actions" method="post" path="/actions/search" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+      security: Models::Shared::Security.new(
+        password: '',
+        username: '',
+      ),
+    )
+
+req = Models::Shared::ActionSearchDto.new(
+  connector: 'slack',
+  query: 'send a message',
+)
+
+res = s.actions.search_actions(request: req)
+
+unless res.action_search_response_dto.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [Models::Shared::ActionSearchDto](../../models/shared/actionsearchdto.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+
+### Response
+
+**[T.nilable(Models::Operations::StackoneSearchActionsResponse)](../../models/operations/stackonesearchactionsresponse.md)**
 
 ### Errors
 

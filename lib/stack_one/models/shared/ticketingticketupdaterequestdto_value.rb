@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # TicketingTicketUpdateRequestDtoValue - The priority of the ticket.
       class TicketingTicketUpdateRequestDtoValue < T::Enum
 

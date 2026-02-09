@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # LMS Assignment Filter
       class LmsListAssignmentsQueryParamFilter
         extend T::Sig

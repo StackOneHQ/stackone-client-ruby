@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CampaignSchemasValue - The Status of the campaign.
       class CampaignSchemasValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the conversation is private
       class Private
         extend T::Sig

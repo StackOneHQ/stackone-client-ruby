@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The status of the shift
       class HrisShiftStatus
         extend T::Sig

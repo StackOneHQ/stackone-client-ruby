@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus
         extend T::Sig

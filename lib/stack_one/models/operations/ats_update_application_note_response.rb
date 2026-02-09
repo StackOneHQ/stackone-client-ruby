@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsUpdateApplicationNoteResponse
         extend T::Sig

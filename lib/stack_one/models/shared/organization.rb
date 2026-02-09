@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Organization associated with the ticket
       class Organization
         extend T::Sig

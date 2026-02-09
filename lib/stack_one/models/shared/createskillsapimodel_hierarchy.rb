@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The hierarchal level of the skill
       class CreateSkillsApiModelHierarchy
         extend T::Sig

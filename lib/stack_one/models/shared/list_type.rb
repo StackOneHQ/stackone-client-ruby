@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The list type
       class ListType
         extend T::Sig

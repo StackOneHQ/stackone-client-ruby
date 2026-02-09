@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The source value of the rejected reason type.
       class RejectedReasonSourceValue
         extend T::Sig

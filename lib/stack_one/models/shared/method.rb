@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Method - The method of the request
       class Method < T::Enum
 

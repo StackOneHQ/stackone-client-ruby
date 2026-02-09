@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # QueryParamOrderBy - The field to order the results by.
       class QueryParamOrderBy < T::Enum
 

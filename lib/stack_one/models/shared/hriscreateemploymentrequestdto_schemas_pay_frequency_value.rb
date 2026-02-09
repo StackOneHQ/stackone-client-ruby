@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue - The pay frequency of the job postings.
       class HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The category to be associated with the file to be uploaded. Id will take precedence over name.
       class HrisDocumentsUploadRequestDtoCategory
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsOrderAssessmentsRequestResponse
         extend T::Sig

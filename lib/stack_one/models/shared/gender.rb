@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee gender
       class Gender
         extend T::Sig

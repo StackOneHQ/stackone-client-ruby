@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # True if the start of the time off request begins half way through the day
       class TimeOffStartHalfDay
         extend T::Sig

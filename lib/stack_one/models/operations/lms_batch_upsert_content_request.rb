@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class LmsBatchUpsertContentRequest
         extend T::Sig
@@ -17,11 +16,14 @@ module StackOne
         field :lms_batch_upsert_content_request_dto, Models::Shared::LmsBatchUpsertContentRequestDto, { 'request': { 'media_type': 'application/json' } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
 
-        sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String).void }
-        def initialize(lms_batch_upsert_content_request_dto:, x_account_id:)
+        sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String)).void }
+        def initialize(lms_batch_upsert_content_request_dto:, x_account_id:, prefer: nil)
           @lms_batch_upsert_content_request_dto = lms_batch_upsert_content_request_dto
           @x_account_id = x_account_id
+          @prefer = prefer
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -29,6 +31,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @lms_batch_upsert_content_request_dto == other.lms_batch_upsert_content_request_dto
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           true
         end
       end

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class AtsGetLocationRequest
         extend T::Sig
@@ -17,6 +16,8 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
@@ -24,10 +25,11 @@ module StackOne
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, x_account_id: ::String, fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
-        def initialize(id:, x_account_id:, fields_: nil, proxy: nil, raw: nil)
+        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+        def initialize(id:, x_account_id:, prefer: nil, fields_: nil, proxy: nil, raw: nil)
           @id = id
           @x_account_id = x_account_id
+          @prefer = prefer
           @fields_ = fields_
           @proxy = proxy
           @raw = raw
@@ -38,6 +40,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           return false unless @fields_ == other.fields_
           return false unless @proxy == other.proxy
           return false unless @raw == other.raw

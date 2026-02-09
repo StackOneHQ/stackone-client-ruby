@@ -12,4 +12,6 @@ class StackOne::Models::Operations::MessagingSendMessageRequest
   def messaging_message_send_request_dto=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
 end

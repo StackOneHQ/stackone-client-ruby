@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # HRIS Time Off Balance filters
       class HrisListEmployeeTimeOffBalancesQueryParamFilter
         extend T::Sig

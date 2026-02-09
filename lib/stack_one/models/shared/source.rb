@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
 
       class Source
         extend T::Sig

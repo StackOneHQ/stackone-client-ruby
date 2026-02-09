@@ -40,13 +40,14 @@ module StackOne
     end
 
 
-    sig { params(accounting_journal_batch_create_request_dto: Models::Shared::AccountingJournalBatchCreateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingBatchCreateCompanyJournalsResponse) }
-    def batch_create_company_journals(accounting_journal_batch_create_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(accounting_journal_batch_create_request_dto: Models::Shared::AccountingJournalBatchCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingBatchCreateCompanyJournalsResponse) }
+    def batch_create_company_journals(accounting_journal_batch_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # batch_create_company_journals - Batch Create Journals
       request = Models::Operations::AccountingBatchCreateCompanyJournalsRequest.new(
         accounting_journal_batch_create_request_dto: accounting_journal_batch_create_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -348,13 +349,14 @@ module StackOne
     end
 
 
-    sig { params(accounting_journal_create_request_dto: Models::Shared::AccountingJournalCreateRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingCreateCompanyJournalResponse) }
-    def create_company_journal(accounting_journal_create_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(accounting_journal_create_request_dto: Models::Shared::AccountingJournalCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingCreateCompanyJournalResponse) }
+    def create_company_journal(accounting_journal_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_company_journal - Create Journal
       request = Models::Operations::AccountingCreateCompanyJournalRequest.new(
         accounting_journal_create_request_dto: accounting_journal_create_request_dto,
         id: id,
-        x_account_id: x_account_id
+        x_account_id: x_account_id,
+        prefer: prefer
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1947,6 +1949,7 @@ module StackOne
 
             sdk.list_companies(
               request: Models::Operations::AccountingListCompaniesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -2268,6 +2271,7 @@ module StackOne
 
             sdk.list_company_accounts(
               request: Models::Operations::AccountingListCompanyAccountsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -2590,6 +2594,7 @@ module StackOne
 
             sdk.list_company_journals(
               request: Models::Operations::AccountingListCompanyJournalsRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,
@@ -2912,6 +2917,7 @@ module StackOne
 
             sdk.list_company_tax_rates(
               request: Models::Operations::AccountingListCompanyTaxRatesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 id: request.id,

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # EmployeeSchemasPreferredLanguageValue - The ISO639-2 Code of the language
       class EmployeeSchemasPreferredLanguageValue < T::Enum
 

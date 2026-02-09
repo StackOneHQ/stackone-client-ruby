@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
       # OrderBy - The field to order the results by.
       class OrderBy < T::Enum
 

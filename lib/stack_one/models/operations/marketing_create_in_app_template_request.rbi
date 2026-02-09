@@ -12,4 +12,6 @@ class StackOne::Models::Operations::MarketingCreateInAppTemplateRequest
   def marketing_create_in_app_template_request_dto=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
+  def prefer(); end
+  def prefer=(str_); end
 end

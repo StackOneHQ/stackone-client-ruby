@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # ConnectSessionCreateType - The connect session account type
       class ConnectSessionCreateType < T::Enum
 

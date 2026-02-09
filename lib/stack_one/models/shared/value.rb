@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The value of the additional data
       class Value
         extend T::Sig

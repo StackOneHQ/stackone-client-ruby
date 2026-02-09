@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JournalLineValue - Type of account
       class JournalLineValue < T::Enum
 

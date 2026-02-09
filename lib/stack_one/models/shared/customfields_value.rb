@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The value associated with the custom field.
       class CustomFieldsValue
         extend T::Sig

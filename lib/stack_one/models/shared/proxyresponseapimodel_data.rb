@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The response data from the provider. Can be an object, array, or primitive value.
       class ProxyResponseApiModelData
         extend T::Sig

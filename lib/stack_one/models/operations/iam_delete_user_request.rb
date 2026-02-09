@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Operations
-    
 
       class IamDeleteUserRequest
         extend T::Sig
@@ -17,11 +16,14 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
+        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
 
-        sig { params(id: ::String, x_account_id: ::String).void }
-        def initialize(id:, x_account_id:)
+        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String)).void }
+        def initialize(id:, x_account_id:, prefer: nil)
           @id = id
           @x_account_id = x_account_id
+          @prefer = prefer
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -29,6 +31,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
+          return false unless @prefer == other.prefer
           true
         end
       end

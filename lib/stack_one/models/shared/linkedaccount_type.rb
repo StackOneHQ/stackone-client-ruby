@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # LinkedAccountType - The account type
       class LinkedAccountType < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee avatar
       class Avatar
         extend T::Sig

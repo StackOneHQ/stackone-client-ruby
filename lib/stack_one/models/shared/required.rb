@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Indicates if the field is required
       class Required
         extend T::Sig

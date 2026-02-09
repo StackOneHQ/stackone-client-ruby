@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The result of the completion
       class LmsCreateCompletionRequestDtoResult
         extend T::Sig

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # IamPermissionValue - The type of the permission, e.g. read, read_write, delete, etc.
       class IamPermissionValue < T::Enum
 

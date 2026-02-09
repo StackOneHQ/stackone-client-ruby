@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JobPostingContentSectionValue - The type of the description.
       class JobPostingContentSectionValue < T::Enum
 

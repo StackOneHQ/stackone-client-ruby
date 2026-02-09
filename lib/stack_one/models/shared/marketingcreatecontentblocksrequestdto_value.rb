@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # MarketingCreateContentBlocksRequestDtoValue - The type of the content blocks.
       class MarketingCreateContentBlocksRequestDtoValue < T::Enum
 

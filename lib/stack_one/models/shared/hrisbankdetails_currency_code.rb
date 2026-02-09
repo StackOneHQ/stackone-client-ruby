@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The currency code for the account
       class HRISBankDetailsCurrencyCode
         extend T::Sig

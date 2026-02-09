@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The status of the task
       class TaskStatus
         extend T::Sig

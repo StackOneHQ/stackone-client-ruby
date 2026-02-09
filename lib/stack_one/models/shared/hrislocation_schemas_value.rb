@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # HRISLocationSchemasValue - The type of the location.
       class HRISLocationSchemasValue < T::Enum
 

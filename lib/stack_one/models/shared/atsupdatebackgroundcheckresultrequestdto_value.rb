@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsUpdateBackgroundCheckResultRequestDtoValue - The result of the test.
       class AtsUpdateBackgroundCheckResultRequestDtoValue < T::Enum
 

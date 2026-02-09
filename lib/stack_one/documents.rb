@@ -1329,6 +1329,7 @@ module StackOne
 
             sdk.list_drives(
               request: Models::Operations::DocumentsListDrivesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 next_: next_cursor,
@@ -1645,6 +1646,7 @@ module StackOne
 
             sdk.list_files(
               request: Models::Operations::DocumentsListFilesRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 folder_id: request.folder_id,
@@ -1965,6 +1967,7 @@ module StackOne
 
             sdk.list_folders(
               request: Models::Operations::DocumentsListFoldersRequest.new(
+                prefer: request.prefer,
                 fields_: request.fields_,
                 filter: request.filter,
                 folder_id: request.folder_id,
@@ -2165,12 +2168,13 @@ module StackOne
     end
 
 
-    sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsUploadFileResponse) }
-    def upload_file(unified_upload_request_dto:, x_account_id:, x_stackone_api_session_token: nil, retries: nil, timeout_ms: nil)
+    sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, prefer: T.nilable(::String), x_stackone_api_session_token: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsUploadFileResponse) }
+    def upload_file(unified_upload_request_dto:, x_account_id:, prefer: nil, x_stackone_api_session_token: nil, retries: nil, timeout_ms: nil)
       # upload_file - Upload File
       request = Models::Operations::DocumentsUploadFileRequest.new(
         unified_upload_request_dto: unified_upload_request_dto,
         x_account_id: x_account_id,
+        prefer: prefer,
         x_stackone_api_session_token: x_stackone_api_session_token
       )
       url, params = @sdk_configuration.get_server_details

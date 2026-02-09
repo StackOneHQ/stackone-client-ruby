@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The employee avatar
       class HrisUpdateEmployeeRequestDtoAvatar
         extend T::Sig

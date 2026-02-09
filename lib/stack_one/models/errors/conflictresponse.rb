@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Errors
-    
 
       class ConflictResponse < StandardError
         extend T::Sig

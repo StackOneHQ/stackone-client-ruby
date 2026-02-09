@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # The labor type associated with this time entry
       class LaborType
         extend T::Sig

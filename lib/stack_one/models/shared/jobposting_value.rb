@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # JobPostingValue - The employment contract type.
       class JobPostingValue < T::Enum
 

@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # Whether the folder has children
       class FoldersHasChildren
         extend T::Sig

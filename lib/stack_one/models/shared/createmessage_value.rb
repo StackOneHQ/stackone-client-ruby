@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # CreateMessageValue - The unified message type.
       class CreateMessageValue < T::Enum
 

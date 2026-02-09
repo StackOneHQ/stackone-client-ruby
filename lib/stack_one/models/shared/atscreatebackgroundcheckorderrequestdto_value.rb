@@ -7,7 +7,6 @@
 module StackOne
   module Models
     module Shared
-    
       # AtsCreateBackgroundCheckOrderRequestDtoValue - The status of the application.
       class AtsCreateBackgroundCheckOrderRequestDtoValue < T::Enum
 
