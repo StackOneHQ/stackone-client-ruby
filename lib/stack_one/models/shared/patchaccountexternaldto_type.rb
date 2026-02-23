@@ -8,13 +8,13 @@ module StackOne
   module Models
     module Shared
       # PatchAccountExternalDtoType - The account type
-      class PatchAccountExternalDtoType < T::Enum
-
-
+      class PatchAccountExternalDtoType
+        include ::Crystalline::Enum
         enums do
           PRODUCTION = new('production')
           TEST = new('test')
         end
+        open!
       end
     end
   end

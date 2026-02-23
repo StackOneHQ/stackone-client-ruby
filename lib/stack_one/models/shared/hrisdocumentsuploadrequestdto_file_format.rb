@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HrisDocumentsUploadRequestDtoSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The file format of the file, expressed as a file extension
-        field :value, Crystalline::Nilable.new(Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisDocumentsUploadRequestDtoSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue)).void }
         def initialize(source_value: nil, value: nil)

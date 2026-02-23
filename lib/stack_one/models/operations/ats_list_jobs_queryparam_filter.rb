@@ -17,8 +17,8 @@ module StackOne
         # The job_status of the job
         field :job_status, Crystalline::Nilable.new(Models::Operations::JobStatus), { 'query_param': { 'field_name': 'job_status' } }
         # The status of the job
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :status, Crystalline::Nilable.new(Models::Operations::Status), { 'query_param': { 'field_name': 'status' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }

@@ -140,7 +140,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::DocumentsDownloadFileResponse.new(
             status_code: http_response.status,
@@ -2168,13 +2168,12 @@ module StackOne
     end
 
 
-    sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, prefer: T.nilable(::String), x_stackone_api_session_token: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsUploadFileResponse) }
-    def upload_file(unified_upload_request_dto:, x_account_id:, prefer: nil, x_stackone_api_session_token: nil, retries: nil, timeout_ms: nil)
+    sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsUploadFileResponse) }
+    def upload_file(unified_upload_request_dto:, x_account_id:, x_stackone_api_session_token: nil, retries: nil, timeout_ms: nil)
       # upload_file - Upload File
       request = Models::Operations::DocumentsUploadFileRequest.new(
         unified_upload_request_dto: unified_upload_request_dto,
         x_account_id: x_account_id,
-        prefer: prefer,
         x_stackone_api_session_token: x_stackone_api_session_token
       )
       url, params = @sdk_configuration.get_server_details
@@ -2186,7 +2185,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))

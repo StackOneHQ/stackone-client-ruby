@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::ClearingCode4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The type of clearing code
-        field :value, Crystalline::Nilable.new(Models::Shared::ClearingCodeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::ClearingCodeValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::ClearingCodeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ClearingCodeValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::ClearingCode4, T::Array[::Object])), value: T.nilable(Models::Shared::ClearingCodeValue)).void }
         def initialize(source_value: nil, value: nil)

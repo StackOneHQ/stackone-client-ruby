@@ -9,8 +9,6 @@ module StackOne
     module Shared
 
       class CampaignSchemas2 < T::Enum
-
-
         enums do
           TRUE = new('true')
           FALSE = new('false')

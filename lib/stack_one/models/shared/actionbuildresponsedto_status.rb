@@ -9,8 +9,6 @@ module StackOne
     module Shared
       # ActionBuildResponseDtoStatus - Build status
       class ActionBuildResponseDtoStatus < T::Enum
-
-
         enums do
           ACCEPTED = new('accepted')
           SUCCESS = new('success')

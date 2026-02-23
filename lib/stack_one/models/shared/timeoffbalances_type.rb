@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::TimeOffBalancesSchemasPolicy4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
-        field :value, Crystalline::Nilable.new(Models::Shared::TimeOffBalancesSchemasPolicyValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TimeOffBalancesSchemasPolicyValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::TimeOffBalancesSchemasPolicyValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::TimeOffBalancesSchemasPolicyValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TimeOffBalancesSchemasPolicy4, T::Array[::Object])), value: T.nilable(Models::Shared::TimeOffBalancesSchemasPolicyValue)).void }
         def initialize(source_value: nil, value: nil)

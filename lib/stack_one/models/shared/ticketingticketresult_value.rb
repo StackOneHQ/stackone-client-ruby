@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # TicketingTicketResultValue - The priority of the ticket.
-      class TicketingTicketResultValue < T::Enum
-
-
+      class TicketingTicketResultValue
+        include ::Crystalline::Enum
         enums do
           LOWEST = new('lowest')
           LOW = new('low')
@@ -19,6 +18,7 @@ module StackOne
           HIGHEST = new('highest')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

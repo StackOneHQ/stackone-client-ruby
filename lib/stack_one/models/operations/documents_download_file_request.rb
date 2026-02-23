@@ -16,8 +16,6 @@ module StackOne
         field :id, ::String, { 'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': false } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
-        # Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240)
-        field :prefer, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'Prefer', 'style': 'simple', 'explode': false } }
         # The session token
         field :x_stackone_api_session_token, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-stackone-api-session-token', 'style': 'simple', 'explode': false } }
         # The export format of the file
@@ -25,11 +23,10 @@ module StackOne
         # The format to download the file in
         field :format, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'format', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), x_stackone_api_session_token: T.nilable(::String), export_format: T.nilable(::String), format: T.nilable(::String)).void }
-        def initialize(id:, x_account_id:, prefer: nil, x_stackone_api_session_token: nil, export_format: nil, format: nil)
+        sig { params(id: ::String, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), export_format: T.nilable(::String), format: T.nilable(::String)).void }
+        def initialize(id:, x_account_id:, x_stackone_api_session_token: nil, export_format: nil, format: nil)
           @id = id
           @x_account_id = x_account_id
-          @prefer = prefer
           @x_stackone_api_session_token = x_stackone_api_session_token
           @export_format = export_format
           @format = format
@@ -40,7 +37,6 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @x_account_id == other.x_account_id
-          return false unless @prefer == other.prefer
           return false unless @x_stackone_api_session_token == other.x_stackone_api_session_token
           return false unless @export_format == other.export_format
           return false unless @format == other.format

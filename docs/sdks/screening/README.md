@@ -21,26 +21,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.screening.create_screening_order(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto.new(
   candidate: Models::Shared::ScreeningOrderCandidate.new(
     email: 'john.doe@example.com',
     first_name: 'John',
-    last_name: 'Doe',
+    last_name: 'Doe'
   ),
   package_id: '54321',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -91,19 +90,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::ScreeningGetScreeningPackageRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.screening.get_screening_package(request: req)
 
 unless res.screening_package_result.nil?
@@ -152,21 +150,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::ScreeningListScreeningPackagesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,unified_custom_fields',
   filter: Models::Operations::ScreeningListScreeningPackagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.screening.list_screening_packages(request: req)
 
 unless res.screening_packages_paginated.nil?
@@ -215,12 +212,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.screening.webhook_screening_result(screening_result_webhook: Models::Shared::ScreeningResultWebhook.new(
   data: Models::Shared::ScreeningResult.new(
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
@@ -231,18 +227,18 @@ res = s.screening.webhook_screening_result(screening_result_webhook: Models::Sha
       label: 'Overall Risk',
       max: '100',
       min: '0',
-      value: '75',
+      value: '75'
     ),
     start_date: DateTime.iso8601('2023-01-01T00:00:00Z'),
     status: Models::Shared::ScreeningResultStatus::COMPLETED,
     submission_date: DateTime.iso8601('2023-01-02T00:00:00Z'),
     summary: 'Background check completed successfully',
     unified_custom_fields: {
-      "my_project_custom_field_1": 'REF-1236',
-      "my_project_custom_field_2": 'some other value',
-    },
+      'my_project_custom_field_1' => 'REF-1236',
+      'my_project_custom_field_2' => 'some other value',
+    }
   ),
-  event: Models::Shared::Event::SCREENING_RESULTS_CANCELLED,
+  event: Models::Shared::Event::SCREENING_RESULTS_CANCELLED
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.screening_result_webhook.nil?

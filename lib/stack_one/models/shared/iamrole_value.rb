@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class IamRoleValue < T::Enum
-
-
+      class IamRoleValue
+        include ::Crystalline::Enum
         enums do
           ADMIN = new('admin')
           VIEWER = new('viewer')
@@ -21,6 +20,7 @@ module StackOne
           RESTRICTED = new('restricted')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

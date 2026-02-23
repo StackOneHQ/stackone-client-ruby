@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # MarketingCreateContentBlocksRequestDtoValue - The type of the content blocks.
-      class MarketingCreateContentBlocksRequestDtoValue < T::Enum
-
-
+      class MarketingCreateContentBlocksRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           TEXT = new('text')
           HTML = new('html')
@@ -18,6 +17,7 @@ module StackOne
           CODE_SNIPPET = new('code-snippet')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

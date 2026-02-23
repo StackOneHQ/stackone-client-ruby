@@ -9,8 +9,6 @@ module StackOne
     module Operations
 
       class Include < T::Enum
-
-
         enums do
           ACTION_DETAILS = new('action_details')
           AUTHENTICATION_GUIDES = new('authentication_guides')

@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # CampaignSchemasValue - The Status of the campaign.
-      class CampaignSchemasValue < T::Enum
-
-
+      class CampaignSchemasValue
+        include ::Crystalline::Enum
         enums do
           DRAFT = new('draft')
           ARCHIVED = new('archived')
           LIVE = new('live')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -15,9 +15,9 @@ module StackOne
 
         field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_id') } }
         # Interview created date
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Interview end date
-        field :end_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
@@ -43,11 +43,11 @@ module StackOne
         # Provider's unique identifiers of the interviewers
         field :remote_interviewer_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interviewer_ids') } }
         # Interview start date
-        field :start_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Interview updated date
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_id: T.nilable(::String), created_at: T.nilable(::DateTime), end_at: T.nilable(::DateTime), id: T.nilable(::String), interview_parts: T.nilable(T::Array[Models::Shared::InterviewPart]), interview_stage: T.nilable(Models::Shared::InterviewInterviewStage), interview_stage_id: T.nilable(::String), interview_status: T.nilable(Models::Shared::InterviewStatus), interviewer_ids: T.nilable(T::Array[::String]), interviewers: T.nilable(T::Array[Models::Shared::Interviewer]), meeting_url: T.nilable(::String), remote_application_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_interviewer_ids: T.nilable(T::Array[::String]), start_at: T.nilable(::DateTime), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(application_id: nil, created_at: nil, end_at: nil, id: nil, interview_parts: nil, interview_stage: nil, interview_stage_id: nil, interview_status: nil, interviewer_ids: nil, interviewers: nil, meeting_url: nil, remote_application_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_interviewer_ids: nil, start_at: nil, unified_custom_fields: nil, updated_at: nil)

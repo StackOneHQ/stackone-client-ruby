@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # EmployeeSchemasWorkLocationValue - The ISO3166-1 Alpha2 Code of the Country
-      class EmployeeSchemasWorkLocationValue < T::Enum
-
-
+      class EmployeeSchemasWorkLocationValue
+        include ::Crystalline::Enum
         enums do
           AF = new('AF')
           AL = new('AL')
@@ -262,6 +261,7 @@ module StackOne
           ZW = new('ZW')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

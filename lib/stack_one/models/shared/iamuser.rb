@@ -15,7 +15,7 @@ module StackOne
         # The user's avatar data. This generally contains a URL within this property's 'contents' array.
         field :avatar, Crystalline::Nilable.new(Models::Shared::IamUserAvatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
         # The date the user was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # List of groups the user is assigned to
@@ -25,9 +25,9 @@ module StackOne
         # Indicates if the user is a bot or service user
         field :is_bot_user, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::IamUser2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_bot_user') } }
         # The date this user was last active
-        field :last_active_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_active_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :last_active_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_active_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The date this user last logged in
-        field :last_login_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_login_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :last_login_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_login_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # The list of Multi-Factor Authentication (MFA) types enabled for the user.
@@ -45,7 +45,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The date the user was created
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 

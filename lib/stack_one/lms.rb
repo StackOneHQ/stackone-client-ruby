@@ -44,9 +44,9 @@ module StackOne
     def batch_upsert_content(lms_batch_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # batch_upsert_content - Batch Upsert External Linking Learning Objects
       # Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
-      # 
+      #
       # **Note:** Partial updates are not supported. When updating content, you must provide all the same fields that are required when creating content. 
-      # 
+      #
       # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsBatchUpsertContentRequest.new(
         lms_batch_upsert_content_request_dto: lms_batch_upsert_content_request_dto,
@@ -62,7 +62,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -352,9 +352,9 @@ module StackOne
     def create_user_assignment(lms_create_assignment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_user_assignment - Create User Assignment
       # Create an assignment type learning record for a user. 
-      # 
+      #
       # This is the record linking a user to a learning object. 
-      # 
+      #
       # It can be pending or in progress.
       request = Models::Operations::LmsCreateUserAssignmentRequest.new(
         lms_create_assignment_request_dto: lms_create_assignment_request_dto,
@@ -376,7 +376,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -666,7 +666,7 @@ module StackOne
     def create_user_completion(lms_create_completion_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # create_user_completion - Create User Completion
       # Create a completed learning record for a user. 
-      # 
+      #
       # This is the record of a user completing a learning object.
       request = Models::Operations::LmsCreateUserCompletionRequest.new(
         lms_create_completion_request_dto: lms_create_completion_request_dto,
@@ -688,7 +688,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -978,7 +978,7 @@ module StackOne
     def delete_user_completion(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # delete_user_completion - Delete User Completion
       # Delete a completion type learning record for a user. 
-      # 
+      #
       # This is a record of a user completing a learning object.
       request = Models::Operations::LmsDeleteUserCompletionRequest.new(
         id: id,
@@ -1291,9 +1291,9 @@ module StackOne
     def get_assignment(request:, retries: nil, timeout_ms: nil)
       # get_assignment - Get Assignment
       # Retrieve an assignment type learning record by its identifier. 
-      # 
+      #
       # This is the record linking a user to a learning object. 
-      # 
+      #
       # It can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2176,9 +2176,9 @@ module StackOne
     def get_content(request:, retries: nil, timeout_ms: nil)
       # get_content - Get Content
       # Retrieve a content type learning object by its identifier. 
-      # 
+      #
       # These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
-      # 
+      #
       # Only content objects for which the platform supports progress and completion tracking are returned.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2474,7 +2474,7 @@ module StackOne
     def get_course(request:, retries: nil, timeout_ms: nil)
       # get_course - Get Course
       # Retrieve a course type learning object by its identifier. 
-      # 
+      #
       # These are collections of content type learning objects that are grouped together for a specific learning purpose.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -3356,9 +3356,9 @@ module StackOne
     def get_user_assignment(request:, retries: nil, timeout_ms: nil)
       # get_user_assignment - Get User Assignment
       # Retrieve an assignment type learning record for a user by its identifier. 
-      # 
+      #
       # This is the record linking a user to a learning object. 
-      # 
+      #
       # It can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -3654,7 +3654,7 @@ module StackOne
     def get_user_completion(request:, retries: nil, timeout_ms: nil)
       # get_user_completion - Get User Completion
       # Retrieve a completed learning record for a user by its identifier. 
-      # 
+      #
       # This is the record of a user completing a learning object.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -3950,9 +3950,9 @@ module StackOne
     def list_assignments(request:, retries: nil, timeout_ms: nil)
       # list_assignments - List Assignments
       # Retrieve a list of assignment type learning records. 
-      # 
+      #
       # These are the records linking a user to a learning object. 
-      # 
+      #
       # They can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4909,9 +4909,9 @@ module StackOne
     def list_content(request:, retries: nil, timeout_ms: nil)
       # list_content - List Content
       # Retrieve a list of content type learning objects. 
-      # 
+      #
       # These are the most granular learning objects (e.g. video, document, podcast) on a platform. 
-      # 
+      #
       # Only content objects for which the platform supports progress and completion tracking are returned.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -5231,7 +5231,7 @@ module StackOne
     def list_courses(request:, retries: nil, timeout_ms: nil)
       # list_courses - List Courses
       # Retrieve a list of course type learning objects. 
-      # 
+      #
       # These are collections of content type learning objects that are grouped together for a specific learning purpose.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -5868,9 +5868,9 @@ module StackOne
     def list_user_assignments(request:, retries: nil, timeout_ms: nil)
       # list_user_assignments - List User Assignments
       # Retrieve a list of assignment type learning records for a user. 
-      # 
+      #
       # These are the records linking a user to learning objects. 
-      # 
+      #
       # They can be pending, in progress, or completed.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6198,7 +6198,7 @@ module StackOne
     def list_user_completions(request:, retries: nil, timeout_ms: nil)
       # list_user_completions - List User Completions
       # Retrieve a list of completed learning records for a user. 
-      # 
+      #
       # These are the records of a user completing learning objects.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6841,9 +6841,9 @@ module StackOne
     def upsert_content(lms_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
       # upsert_content - Upsert External Linking Learning Objects
       # Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
-      # 
+      #
       # **Note:** Partial updates are not supported. When updating content, you must provide all the same fields that are required when creating content. 
-      # 
+      #
       # See [here](https://docs.stackone.com/integration-guides/lms/external-content-providers/introduction) for more information about external linking learning objects.
       request = Models::Operations::LmsUpsertContentRequest.new(
         lms_upsert_content_request_dto: lms_upsert_content_request_dto,
@@ -6859,7 +6859,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))

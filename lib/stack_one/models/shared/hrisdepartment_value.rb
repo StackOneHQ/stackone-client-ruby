@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HRISDepartmentValue < T::Enum
-
-
+      class HRISDepartmentValue
+        include ::Crystalline::Enum
         enums do
           DEPARTMENT = new('department')
           COMPANY = new('company')
@@ -20,6 +19,7 @@ module StackOne
           TEAM = new('team')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

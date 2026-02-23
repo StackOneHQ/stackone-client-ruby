@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Build status
-        field :status, Models::Shared::ActionBuildResponseDtoStatus, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ActionBuildResponseDtoStatus, false) } }
+        field :status, Models::Shared::ActionBuildResponseDtoStatus, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), required: true, 'decoder': ::StackOne::Utils.enum_from_string(Models::Shared::ActionBuildResponseDtoStatus, false) } }
         # Number of actions indexed (only for synchronous builds)
         field :actions_indexed, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('actions_indexed') } }
         # Connector filter applied

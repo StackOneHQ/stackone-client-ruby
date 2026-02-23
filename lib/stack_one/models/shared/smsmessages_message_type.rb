@@ -15,7 +15,7 @@ module StackOne
         # The original value from the provider used to derive the unified message type.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::SmsMessages4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The unified message type.
-        field :value, Crystalline::Nilable.new(Models::Shared::SmsMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::SmsMessagesValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::SmsMessagesValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::SmsMessagesValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::SmsMessages4, T::Array[::Object])), value: T.nilable(Models::Shared::SmsMessagesValue)).void }
         def initialize(source_value: nil, value: nil)

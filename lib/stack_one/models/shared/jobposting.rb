@@ -17,7 +17,7 @@ module StackOne
 
         field :content, Crystalline::Nilable.new(Models::Shared::JobPostingContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Date of creation
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :employment_contract_type, Crystalline::Nilable.new(Models::Shared::JobPostingEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
 
@@ -29,7 +29,7 @@ module StackOne
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
-        field :internal, Crystalline::Nilable.new(Models::Shared::Internal), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal'), 'decoder': Utils.enum_from_string(Models::Shared::Internal, true) } }
+        field :internal, Crystalline::Nilable.new(Models::Shared::Internal), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('internal'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::Internal, true) } }
 
         field :job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
 
@@ -41,7 +41,7 @@ module StackOne
         # Provider's unique identifier of the job
         field :remote_job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
         # The posting start date
-        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :status, Crystalline::Nilable.new(Models::Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
@@ -49,7 +49,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Date of last update
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(compensation: T.nilable(T::Array[Models::Shared::JobPostingCompensation]), content: T.nilable(Models::Shared::JobPostingContent), created_at: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::JobPostingEmploymentContractType), employment_type: T.nilable(Models::Shared::JobPostingEmploymentType), external_apply_url: T.nilable(::String), external_url: T.nilable(::String), id: T.nilable(::String), internal: T.nilable(Models::Shared::Internal), job_id: T.nilable(::String), locations: T.nilable(T::Array[Models::Shared::JobPostingLocation]), questionnaires: T.nilable(T::Array[Models::Shared::JobPostingQuestionnaire]), remote_id: T.nilable(::String), remote_job_id: T.nilable(::String), start_date: T.nilable(::DateTime), status: T.nilable(Models::Shared::JobPostingStatus), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(compensation: nil, content: nil, created_at: nil, employment_contract_type: nil, employment_type: nil, external_apply_url: nil, external_url: nil, id: nil, internal: nil, job_id: nil, locations: nil, questionnaires: nil, remote_id: nil, remote_job_id: nil, start_date: nil, status: nil, title: nil, unified_custom_fields: nil, updated_at: nil)

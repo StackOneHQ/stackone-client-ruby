@@ -15,7 +15,7 @@ module StackOne
         # Phone number string
         field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
         # Type of phone number
-        field :type, Crystalline::Nilable.new(Models::Shared::PhoneNumberType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PhoneNumberType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::PhoneNumberType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::PhoneNumberType, true) } }
 
         sig { params(phone: T.nilable(::String), type: T.nilable(Models::Shared::PhoneNumberType)).void }
         def initialize(phone: nil, type: nil)

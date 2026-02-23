@@ -15,12 +15,12 @@ module StackOne
         # The external reference of the learning object associated with this assignment, this is the main identifier for creating assignments.
         field :learning_object_external_reference, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_external_reference'), required: true } }
         # The date the assignment was assigned
-        field :assigned_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :assigned_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('assigned_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The date the assignment is due to be completed
-        field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The external reference associated with this assignment
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :external_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_reference') } }
         # The learning_object_id associated with this assignment. This is not required unless specified in an integration.
         field :learning_object_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }

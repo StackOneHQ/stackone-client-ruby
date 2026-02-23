@@ -32,6 +32,8 @@ class StackOne::Models::Shared::LinkedAccount
   def provider_name=(str_); end
   def setup_information(); end
   def setup_information=(str_); end
+  def shared(); end
+  def shared=(str_); end
   def status_reasons(); end
   def status_reasons=(str_); end
   def type(); end

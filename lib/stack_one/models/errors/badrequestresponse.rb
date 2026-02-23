@@ -17,7 +17,7 @@ module StackOne
         # HTTP status code
         field :status_code, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode'), required: true } }
         # Timestamp when the error occurred
-        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': ::StackOne::Utils.datetime_from_iso_format(false) } }
         # Error details
         field :data, Crystalline::Nilable.new(Models::Errors::Data), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
         # List of provider-specific errors

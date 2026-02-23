@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # HrisListPositionsQueryParamStatus - Filter positions by status
       class HrisListPositionsQueryParamStatus < T::Enum
-
-
         enums do
           OPEN = new('open')
           DRAFT = new('draft')

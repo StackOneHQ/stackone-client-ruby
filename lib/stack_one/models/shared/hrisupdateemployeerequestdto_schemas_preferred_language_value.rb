@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue - The ISO639-2 Code of the language
-      class HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue < T::Enum
-
-
+      class HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue
+        include ::Crystalline::Enum
         enums do
           AAR = new('aar')
           AFR = new('afr')
@@ -132,6 +131,7 @@ module StackOne
           ZUL = new('zul')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

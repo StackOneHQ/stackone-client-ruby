@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # ListValue - The type of the list.
-      class ListValue < T::Enum
-
-
+      class ListValue
+        include ::Crystalline::Enum
         enums do
           CANDIDATES = new('candidates')
           CONTACTS = new('contacts')
           COMPANIES = new('companies')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

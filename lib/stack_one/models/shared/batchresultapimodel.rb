@@ -19,7 +19,7 @@ module StackOne
 
         field :status_code, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
 
-        field :timestamp, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :timestamp, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(errors: T.nilable(T::Array[T::Array[::String]]), message: T.nilable(::String), status_code: T.nilable(::Float), timestamp: T.nilable(::DateTime)).void }
         def initialize(errors: nil, message: nil, status_code: nil, timestamp: nil)

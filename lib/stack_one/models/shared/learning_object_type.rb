@@ -15,7 +15,7 @@ module StackOne
         # The original learning object type from the provider before normalization.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::Assignment4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The StackOne unified learning object type.
-        field :value, Crystalline::Nilable.new(Models::Shared::AssignmentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AssignmentValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::AssignmentValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AssignmentValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Assignment4, T::Array[::Object])), value: T.nilable(Models::Shared::AssignmentValue)).void }
         def initialize(source_value: nil, value: nil)

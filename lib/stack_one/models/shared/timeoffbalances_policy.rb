@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The created_at date of this policy
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The description of this policy
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The duration unit of the current policy
@@ -29,7 +29,7 @@ module StackOne
         # The type of this policy
         field :type, Crystalline::Nilable.new(Models::Shared::TimeOffBalancesType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # The updated_at date of this policy
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), duration_unit: T.nilable(Models::Shared::TimeOffBalancesDurationUnit), id: T.nilable(::String), name: T.nilable(::String), reasons: T.nilable(T::Array[Models::Shared::Reason]), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffBalancesType), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, description: nil, duration_unit: nil, id: nil, name: nil, reasons: nil, remote_id: nil, type: nil, updated_at: nil)

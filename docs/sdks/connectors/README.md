@@ -21,12 +21,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.connectors.get_connector_meta(provider: '<value>', include: 'field_path,unmapped_fields,resources,inactive,webhooks,static_fields')
 
 unless res.connectors_meta.nil?
@@ -75,12 +74,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.connectors.list_connectors_meta(include: 'field_path,unmapped_fields,resources,inactive,webhooks,static_fields')
 
 unless res.connectors_metas.nil?

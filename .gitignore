@@ -1,3 +1,4 @@
+sorbet/rbi
 .env
 .env.local
 bin/

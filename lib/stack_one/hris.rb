@@ -40,14 +40,13 @@ module StackOne
     end
 
 
-    sig { params(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisBatchUploadEmployeeDocumentResponse) }
-    def batch_upload_employee_document(hris_batch_document_upload_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisBatchUploadEmployeeDocumentResponse) }
+    def batch_upload_employee_document(hris_batch_document_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
       # batch_upload_employee_document - Batch Upload Employee Document
       request = Models::Operations::HrisBatchUploadEmployeeDocumentRequest.new(
         hris_batch_document_upload_request_dto: hris_batch_document_upload_request_dto,
         id: id,
-        x_account_id: x_account_id,
-        prefer: prefer
+        x_account_id: x_account_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -63,7 +62,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -676,7 +675,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -985,7 +984,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1294,7 +1293,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1603,7 +1602,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1912,7 +1911,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2198,8 +2197,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisDownloadEmployeeDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisDownloadEmployeeDocumentResponse) }
-    def download_employee_document(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisDownloadEmployeeDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String)).returns(Models::Operations::HrisDownloadEmployeeDocumentResponse) }
+    def download_employee_document(request:, retries: nil, timeout_ms: nil, accept_header_override: nil)
       # download_employee_document - Download Employee Document
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2212,7 +2211,7 @@ module StackOne
       headers = Utils.get_headers(request)
       headers = T.cast(headers, T::Hash[String, String])
       query_params = Utils.get_query_params(Models::Operations::HrisDownloadEmployeeDocumentRequest, request, nil)
-      headers['Accept'] = 'application/json;q=1, text/csv;q=0.97, text/plain;q=0.95, application/gzip;q=0.92, application/msword;q=0.89, application/octet-stream;q=0.87, application/pdf;q=0.84, application/rtf;q=0.82, application/vnd.ms-excel;q=0.79, application/vnd.ms-outlook;q=0.76, application/vnd.ms-powerpoint;q=0.74, application/vnd.oasis.opendocument.presentation;q=0.71, application/vnd.oasis.opendocument.spreadsheet;q=0.68, application/vnd.oasis.opendocument.text;q=0.66, application/vnd.openxmlformats-officedocument.presentationml.presentation;q=0.63, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;q=0.61, application/vnd.openxmlformats-officedocument.wordprocessingml.document;q=0.58, application/x-7z-compressed;q=0.55, application/x-rar-compressed;q=0.53, application/xml;q=0.50, application/zip;q=0.47, audio/mp4;q=0.45, audio/mpeg;q=0.42, audio/wav;q=0.39, image/bmp;q=0.37, image/gif;q=0.34, image/heic;q=0.32, image/jpeg;q=0.29, image/png;q=0.26, image/tiff;q=0.24, image/webp;q=0.21, message/rfc822;q=0.18, text/html;q=0.16, text/rtf;q=0.13, video/avi;q=0.11, video/mp4;q=0.08, video/quicktime;q=0.05, video/webm;q=0'
+      headers['Accept'] = accept_header_override || 'application/json;q=1, text/csv;q=0.97, text/plain;q=0.95, application/gzip;q=0.92, application/msword;q=0.89, application/octet-stream;q=0.87, application/pdf;q=0.84, application/rtf;q=0.82, application/vnd.ms-excel;q=0.79, application/vnd.ms-outlook;q=0.76, application/vnd.ms-powerpoint;q=0.74, application/vnd.oasis.opendocument.presentation;q=0.71, application/vnd.oasis.opendocument.spreadsheet;q=0.68, application/vnd.oasis.opendocument.text;q=0.66, application/vnd.openxmlformats-officedocument.presentationml.presentation;q=0.63, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;q=0.61, application/vnd.openxmlformats-officedocument.wordprocessingml.document;q=0.58, application/x-7z-compressed;q=0.55, application/x-rar-compressed;q=0.53, application/xml;q=0.50, application/zip;q=0.47, audio/mp4;q=0.45, audio/mpeg;q=0.42, audio/wav;q=0.39, image/bmp;q=0.37, image/gif;q=0.34, image/heic;q=0.32, image/jpeg;q=0.29, image/png;q=0.26, image/tiff;q=0.24, image/webp;q=0.21, message/rfc822;q=0.18, text/html;q=0.16, text/rtf;q=0.13, video/avi;q=0.11, video/mp4;q=0.08, video/quicktime;q=0.05, video/webm;q=0'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
       retries ||= Utils::RetryConfig.new(
@@ -2298,7 +2297,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2314,7 +2313,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2330,7 +2329,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2346,7 +2345,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2362,7 +2361,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2378,7 +2377,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2394,7 +2393,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2410,7 +2409,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2426,7 +2425,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2442,7 +2441,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2458,7 +2457,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2474,7 +2473,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2490,7 +2489,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2506,7 +2505,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2522,7 +2521,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2538,7 +2537,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2554,7 +2553,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2570,7 +2569,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2586,7 +2585,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2602,7 +2601,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2618,7 +2617,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2634,7 +2633,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2650,7 +2649,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2666,7 +2665,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2682,7 +2681,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2698,7 +2697,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2714,7 +2713,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2730,7 +2729,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2746,7 +2745,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2762,7 +2761,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2778,7 +2777,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2794,7 +2793,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2810,7 +2809,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2826,7 +2825,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2842,7 +2841,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2858,7 +2857,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -2892,7 +2891,7 @@ module StackOne
             ),
             response: http_response
           )
-          obj = http_response.env.body
+          obj = http_response.env.body.force_encoding('UTF-8')
 
           return Models::Operations::HrisDownloadEmployeeDocumentResponse.new(
             status_code: http_response.status,
@@ -11290,8 +11289,8 @@ module StackOne
     sig { params(request: Models::Operations::HrisGetTimeOffTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTimeOffTypeResponse) }
     def get_time_off_type(request:, retries: nil, timeout_ms: nil)
       # get_time_off_type - Get time off type
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -11605,7 +11604,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -21151,8 +21150,8 @@ module StackOne
     sig { params(request: Models::Operations::HrisListTimeOffTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTimeOffTypesResponse) }
     def list_time_off_types(request:, retries: nil, timeout_ms: nil)
       # list_time_off_types - List time off types
-      # 
-      # @deprecated  method: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/time_off_types"
@@ -21490,7 +21489,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -21793,7 +21792,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -22096,7 +22095,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -22399,7 +22398,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -22702,7 +22701,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -22979,14 +22978,13 @@ module StackOne
     end
 
 
-    sig { params(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUploadEmployeeDocumentResponse) }
-    def upload_employee_document(hris_documents_upload_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUploadEmployeeDocumentResponse) }
+    def upload_employee_document(hris_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
       # upload_employee_document - Upload Employee Document
       request = Models::Operations::HrisUploadEmployeeDocumentRequest.new(
         hris_documents_upload_request_dto: hris_documents_upload_request_dto,
         id: id,
-        x_account_id: x_account_id,
-        prefer: prefer
+        x_account_id: x_account_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -23002,7 +23000,7 @@ module StackOne
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))

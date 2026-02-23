@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # JournalLineValue - Type of account
-      class JournalLineValue < T::Enum
-
-
+      class JournalLineValue
+        include ::Crystalline::Enum
         enums do
           ASSET = new('asset')
           LIABILITY = new('liability')
@@ -19,6 +18,7 @@ module StackOne
           EXPENSE = new('expense')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

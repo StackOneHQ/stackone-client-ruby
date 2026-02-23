@@ -33,8 +33,8 @@ module StackOne
         # The time off policy id associated with this time off request
         field :time_off_policy_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_off_policy_id') } }
         # The type of the time off request
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), passthrough: T.nilable(T::Hash[Symbol, ::Object]), reason: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), status: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType)).void }

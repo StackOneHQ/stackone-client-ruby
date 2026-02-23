@@ -32,6 +32,8 @@ class StackOne::Models::Shared::PatchAccountExternalDto
   def secrets=(str_); end
   def setup_information(); end
   def setup_information=(str_); end
+  def shared(); end
+  def shared=(str_); end
   def type(); end
   def type=(str_); end
 end

@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # AtsUpdateNotesRequestDtoValue - The visibility of the notes.
-      class AtsUpdateNotesRequestDtoValue < T::Enum
-
-
+      class AtsUpdateNotesRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           PRIVATE = new('private')
           PUBLIC = new('public')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

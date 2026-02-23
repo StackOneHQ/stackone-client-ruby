@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # QueryParamStatus - Filter to select shifts by status
       class QueryParamStatus < T::Enum
-
-
         enums do
           DRAFT = new('draft')
           PUBLISHED = new('published')

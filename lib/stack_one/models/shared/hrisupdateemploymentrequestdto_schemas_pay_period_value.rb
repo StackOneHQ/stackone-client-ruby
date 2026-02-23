@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue - The pay period of the job postings.
-      class HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue < T::Enum
-
-
+      class HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue
+        include ::Crystalline::Enum
         enums do
           HOUR = new('hour')
           DAY = new('day')
@@ -26,6 +25,7 @@ module StackOne
           NONE = new('none')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

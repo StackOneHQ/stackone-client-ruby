@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # JobPostingCompensationSchemasTypeValue - The type of the compensation.
-      class JobPostingCompensationSchemasTypeValue < T::Enum
-
-
+      class JobPostingCompensationSchemasTypeValue
+        include ::Crystalline::Enum
         enums do
           SALARY = new('salary')
           HOURLY = new('hourly')
@@ -20,6 +19,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

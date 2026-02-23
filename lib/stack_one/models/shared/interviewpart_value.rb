@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # InterviewPartValue - The type of the interview.
-      class InterviewPartValue < T::Enum
-
-
+      class InterviewPartValue
+        include ::Crystalline::Enum
         enums do
           SCREENING = new('screening')
           LUNCH = new('lunch')
@@ -24,6 +23,7 @@ module StackOne
           VIDEO = new('video')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

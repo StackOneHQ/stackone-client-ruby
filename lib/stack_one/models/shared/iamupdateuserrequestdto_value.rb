@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # IamUpdateUserRequestDtoValue - The status of the user, e.g. whether the user is enabled, has been disabled (eg. by an admin), or is pending (ie: awaiting approval by the user or an admin).
-      class IamUpdateUserRequestDtoValue < T::Enum
-
-
+      class IamUpdateUserRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           ENABLED = new('enabled')
           DISABLED = new('disabled')
           PENDING = new('pending')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

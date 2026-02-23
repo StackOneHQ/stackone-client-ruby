@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # CompletionValue - The StackOne unified learning object type.
-      class CompletionValue < T::Enum
-
-
+      class CompletionValue
+        include ::Crystalline::Enum
         enums do
           CONTENT = new('content')
           COURSE = new('course')
           COLLECTION = new('collection')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

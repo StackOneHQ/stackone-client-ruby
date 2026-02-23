@@ -15,7 +15,7 @@ module StackOne
 
         field :auth_link_url, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('auth_link_url'), required: true } }
 
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': ::StackOne::Utils.datetime_from_iso_format(false) } }
 
         field :id, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
 
@@ -45,7 +45,7 @@ module StackOne
 
         field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
         # The connect session account type
-        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionTokenAuthLinkType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionTokenAuthLinkType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionTokenAuthLinkType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectSessionTokenAuthLinkType, true) } }
 
         sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType)).void }
         def initialize(auth_link_url:, created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, token:, account_id: nil, categories: nil, external_trigger_token: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)

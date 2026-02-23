@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HrisUpdateEmployeeRequestDtoSchemasMaritalStatusValue < T::Enum
-
-
+      class HrisUpdateEmployeeRequestDtoSchemasMaritalStatusValue
+        include ::Crystalline::Enum
         enums do
           SINGLE = new('single')
           MARRIED = new('married')
@@ -23,6 +22,7 @@ module StackOne
           NOT_DISCLOSED = new('not_disclosed')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

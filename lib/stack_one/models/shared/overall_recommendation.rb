@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # OverallRecommendation - The overall recommendation
-      class OverallRecommendation < T::Enum
-
-
+      class OverallRecommendation
+        include ::Crystalline::Enum
         enums do
           STRONG_YES = new('strong_yes')
           YES = new('yes')
@@ -19,6 +18,7 @@ module StackOne
           NO_DECISION = new('no_decision')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

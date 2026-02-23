@@ -12,6 +12,8 @@ class StackOne::Models::Operations::DocumentsListFoldersQueryParamFilter
   def drive_id=(str_); end
   def folder_id(); end
   def folder_id=(str_); end
+  def name(); end
+  def name=(str_); end
   def updated_after(); end
   def updated_after=(str_); end
 end

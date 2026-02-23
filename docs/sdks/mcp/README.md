@@ -22,10 +22,9 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-
 res = s.mcp.mcp_delete(security: Models::Operations::StackoneMcpDeleteSecurity.new(
-    api_key: '<YOUR_API_KEY_HERE>',
-  ), mcp_session_id: '<id>', x_account_id: '<id>')
+  api_key: '<YOUR_API_KEY_HERE>'
+), mcp_session_id: '<id>', x_account_id: '<id>')
 
 if res.status_code == 200
   # handle response
@@ -75,10 +74,9 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-
 res = s.mcp.mcp_get(security: Models::Operations::StackoneMcpGetSecurity.new(
-    api_key: '<YOUR_API_KEY_HERE>',
-  ), mcp_session_id: '<id>', x_account_id: '<id>')
+  api_key: '<YOUR_API_KEY_HERE>'
+), mcp_session_id: '<id>', x_account_id: '<id>')
 
 if res.status_code == 200
   # handle response
@@ -128,14 +126,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-
 res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
-    api_key: '<YOUR_API_KEY_HERE>',
-  ), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-  id: Models::Shared::Id.new(),
+  api_key: '<YOUR_API_KEY_HERE>'
+), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+  id: Models::Shared::Id.new,
   jsonrpc: '2.0',
   method: 'initialize',
-  params: Models::Shared::Params.new(),
+  params: Models::Shared::Params.new
 ), x_account_id: '<id>')
 
 if res.status_code == 200
@@ -151,14 +148,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-
 res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
-    api_key: '<YOUR_API_KEY_HERE>',
-  ), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-  id: Models::Shared::Id.new(),
+  api_key: '<YOUR_API_KEY_HERE>'
+), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+  id: Models::Shared::Id.new,
   jsonrpc: '2.0',
   method: 'tools/call',
-  params: Models::Shared::Params.new(),
+  params: Models::Shared::Params.new
 ), x_account_id: '<id>')
 
 if res.status_code == 200
@@ -174,14 +170,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-
 res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
-    api_key: '<YOUR_API_KEY_HERE>',
-  ), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-  id: Models::Shared::Id.new(),
+  api_key: '<YOUR_API_KEY_HERE>'
+), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+  id: Models::Shared::Id.new,
   jsonrpc: '2.0',
   method: 'tools/list',
-  params: Models::Shared::Params.new(),
+  params: Models::Shared::Params.new
 ), x_account_id: '<id>')
 
 if res.status_code == 200

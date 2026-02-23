@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # OrderBy - The field to order the results by.
       class OrderBy < T::Enum
-
-
         enums do
           PROVIDER = new('provider')
           SERVICE = new('service')

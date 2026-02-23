@@ -10,7 +10,18 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Accounting: The documentation for the StackOne Unified API - ACCOUNTING
+Accounting: The documentation for the StackOne API
+The documentation for the StackOne Unified API - HRIS
+The documentation for the StackOne Unified API - ATS
+The documentation for the StackOne Unified API - CRM
+The documentation for the StackOne Unified API - MARKETING
+The documentation for the StackOne Unified API - LMS
+The documentation for the StackOne Unified API - IAM
+The documentation for the StackOne Unified API - TICKETING
+The documentation for the StackOne Unified API - DOCUMENTS
+The documentation for the StackOne Unified API - SCREENING
+The documentation for the StackOne Unified API - MESSAGING
+The documentation for the StackOne Unified API - ACCOUNTING
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -50,23 +61,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeesRequest.new(
   prefer: 'heartbeat',
   expand: 'company,employments,work_location,home_location,groups,skills',
   fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employees(request: req)
 
 unless res.employees_paginated.nil?
@@ -93,12 +103,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.delete_account(id: '<id>')
 
 unless res.linked_account.nil?
@@ -115,10 +124,9 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-
 res = s.mcp.mcp_delete(security: Models::Operations::StackoneMcpDeleteSecurity.new(
-    api_key: '<YOUR_API_KEY_HERE>',
-  ), mcp_session_id: '<id>', x_account_id: '<id>')
+
+), mcp_session_id: '<id>', x_account_id: '<id>')
 
 if res.status_code == 200
   # handle response
@@ -493,12 +501,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.delete_account(id: '<id>')
 
 unless res.linked_account.nil?
@@ -513,7 +520,7 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      retry_config: Utils::RetryConfig.new(
+  retry_config: Utils::RetryConfig.new(
         backoff: Utils::BackoffStrategy.new(
           exponent: 1.1,
           initial_interval: 1,
@@ -523,12 +530,11 @@ s = ::StackOne::StackOne.new(
         retry_connection_errors: false,
         strategy: 'backoff'
       ),
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.delete_account(id: '<id>')
 
 unless res.linked_account.nil?
@@ -576,11 +582,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 begin
     res = s.accounts.delete_account(id: '<id>')
@@ -640,13 +646,12 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      server_url: 'https://api.stackone.com',
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  server_url: 'https://api.stackone.com',
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.delete_account(id: '<id>')
 
 unless res.linked_account.nil?

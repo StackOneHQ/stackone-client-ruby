@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::IamUpdateUserRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The status of the user, e.g. whether the user is enabled, has been disabled (eg. by an admin), or is pending (ie: awaiting approval by the user or an admin).
-        field :value, Crystalline::Nilable.new(Models::Shared::IamUpdateUserRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::IamUpdateUserRequestDtoValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::IamUpdateUserRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::IamUpdateUserRequestDtoValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::IamUpdateUserRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::IamUpdateUserRequestDtoValue)).void }
         def initialize(source_value: nil, value: nil)

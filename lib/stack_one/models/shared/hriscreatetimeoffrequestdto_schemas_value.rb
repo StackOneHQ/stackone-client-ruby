@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HrisCreateTimeOffRequestDtoSchemasValue < T::Enum
-
-
+      class HrisCreateTimeOffRequestDtoSchemasValue
+        include ::Crystalline::Enum
         enums do
           SICK = new('sick')
           UNMAPPED_VALUE = new('unmapped_value')
@@ -36,6 +35,7 @@ module StackOne
           BEREAVEMENT = new('bereavement')
           OTHER = new('other')
         end
+        open!
       end
     end
   end

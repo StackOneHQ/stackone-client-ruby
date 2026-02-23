@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # LinkedAccountType - The account type
-      class LinkedAccountType < T::Enum
-
-
+      class LinkedAccountType
+        include ::Crystalline::Enum
         enums do
           PRODUCTION = new('production')
           TEST = new('test')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

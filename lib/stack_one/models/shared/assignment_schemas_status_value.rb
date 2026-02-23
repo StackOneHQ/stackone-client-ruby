@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # AssignmentSchemasStatusValue - The StackOne unified assignment status.
-      class AssignmentSchemasStatusValue < T::Enum
-
-
+      class AssignmentSchemasStatusValue
+        include ::Crystalline::Enum
         enums do
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')
           COMPLETED = new('completed')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

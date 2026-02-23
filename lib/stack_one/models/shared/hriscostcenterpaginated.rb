@@ -16,7 +16,7 @@ module StackOne
         field :data, Crystalline::Array.new(Models::Shared::HRISCostCenter), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
 
         field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :next_page, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next_page') } }
 
         field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }

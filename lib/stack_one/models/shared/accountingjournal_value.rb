@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # AccountingJournalValue - The journal status
-      class AccountingJournalValue < T::Enum
-
-
+      class AccountingJournalValue
+        include ::Crystalline::Enum
         enums do
           DRAFT = new('draft')
           POSTED = new('posted')
           VOID = new('void')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

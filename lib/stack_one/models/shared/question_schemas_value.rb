@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # QuestionSchemasValue - The type of the question's condition
-      class QuestionSchemasValue < T::Enum
-
-
+      class QuestionSchemasValue
+        include ::Crystalline::Enum
         enums do
           EQUALS_TO = new('equals_to')
           CONTAINS = new('contains')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

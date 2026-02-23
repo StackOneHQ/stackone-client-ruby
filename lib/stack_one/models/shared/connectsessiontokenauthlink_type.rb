@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # ConnectSessionTokenAuthLinkType - The connect session account type
-      class ConnectSessionTokenAuthLinkType < T::Enum
-
-
+      class ConnectSessionTokenAuthLinkType
+        include ::Crystalline::Enum
         enums do
           PRODUCTION = new('production')
           TEST = new('test')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

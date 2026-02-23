@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # LmsCreateAssignmentRequestDtoValue - The StackOne unified assignment status.
-      class LmsCreateAssignmentRequestDtoValue < T::Enum
-
-
+      class LmsCreateAssignmentRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')
           COMPLETED = new('completed')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

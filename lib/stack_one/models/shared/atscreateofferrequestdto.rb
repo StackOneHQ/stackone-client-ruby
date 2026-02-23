@@ -25,7 +25,7 @@ module StackOne
 
         field :salary, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('salary') } }
         # Date of creation
-        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_id: T.nilable(::String), currency: T.nilable(::String), offer_history: T.nilable(T::Array[Models::Shared::OfferHistory]), offer_status: T.nilable(Models::Shared::OfferStatus), passthrough: T.nilable(T::Hash[Symbol, ::Object]), salary: T.nilable(::Float), start_date: T.nilable(::DateTime)).void }
         def initialize(application_id: nil, currency: nil, offer_history: nil, offer_status: nil, passthrough: nil, salary: nil, start_date: nil)

@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisUpdateEmployeeRequestDtoSchemasEmploymentWorkTimeValue - The unified value for the period.
-      class HrisUpdateEmployeeRequestDtoSchemasEmploymentWorkTimeValue < T::Enum
-
-
+      class HrisUpdateEmployeeRequestDtoSchemasEmploymentWorkTimeValue
+        include ::Crystalline::Enum
         enums do
           DAY = new('day')
           WEEK = new('week')
@@ -18,6 +17,7 @@ module StackOne
           YEAR = new('year')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

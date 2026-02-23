@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # LmsUpsertContentRequestDtoValue - The content type for write operations. Provide one of the listed enum values. If omitted or set to "unmapped_value", the source_value will be sent to the provider instead.
-      class LmsUpsertContentRequestDtoValue < T::Enum
-
-
+      class LmsUpsertContentRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           VIDEO = new('video')
           QUIZ = new('quiz')
@@ -24,6 +23,7 @@ module StackOne
           INTERACTIVE = new('interactive')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

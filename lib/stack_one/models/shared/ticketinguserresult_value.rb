@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # TicketingUserResultValue - The type of the user.
-      class TicketingUserResultValue < T::Enum
-
-
+      class TicketingUserResultValue
+        include ::Crystalline::Enum
         enums do
           AGENT = new('agent')
           CONTACT = new('contact')
           BOT = new('bot')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

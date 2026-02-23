@@ -23,12 +23,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.request_logs.get_log(id: '<id>', include: Models::Operations::QueryParamInclude::STEP_LOGS)
 
 unless res.unified_log_result.nil?
@@ -77,11 +76,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::StackoneListLogsRequest.new(
   filter: Models::Operations::QueryParamFilter.new(
@@ -100,13 +99,12 @@ req = Models::Operations::StackoneListLogsRequest.new(
     start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     status_codes: '200,400',
     sub_resources: 'documents,employees',
-    success: true,
+    success: true
   ),
   include: Models::Operations::StackoneListLogsQueryParamInclude::STEP_LOGS,
   order_by: Models::Operations::OrderBy::DURATION,
-  order_direction: Models::Operations::OrderDirection::ASC,
+  order_direction: Models::Operations::OrderDirection::ASC
 )
-
 res = s.request_logs.list_logs(request: req)
 
 unless res.unified_logs_paginated.nil?
@@ -154,11 +152,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::StackoneListPlatformLogsRequest.new(
   filter: Models::Operations::StackoneListPlatformLogsQueryParamFilter.new(
@@ -174,12 +172,11 @@ req = Models::Operations::StackoneListPlatformLogsRequest.new(
     source_types: 'DASHBOARD,SYNTHETIC_WEBHOOK',
     start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     status_codes: '200,400',
-    success: true,
+    success: true
   ),
   order_by: Models::Operations::StackoneListPlatformLogsQueryParamOrderBy::DURATION,
-  order_direction: Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection::ASC,
+  order_direction: Models::Operations::StackoneListPlatformLogsQueryParamOrderDirection::ASC
 )
-
 res = s.request_logs.list_platform_logs(request: req)
 
 unless res.platform_logs_paginated.nil?
@@ -227,11 +224,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::StackoneListStepLogsRequest.new(
   filter: Models::Operations::StackoneListStepLogsQueryParamFilter.new(
@@ -247,12 +244,11 @@ req = Models::Operations::StackoneListStepLogsRequest.new(
     start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     status_codes: '200,400',
     sub_resources: 'documents,employees',
-    success: true,
+    success: true
   ),
   order_by: Models::Operations::StackoneListStepLogsQueryParamOrderBy::EVENT_DATETIME,
-  order_direction: Models::Operations::StackoneListStepLogsQueryParamOrderDirection::ASC,
+  order_direction: Models::Operations::StackoneListStepLogsQueryParamOrderDirection::ASC
 )
-
 res = s.request_logs.list_step_logs(request: req)
 
 unless res.step_logs_paginated.nil?

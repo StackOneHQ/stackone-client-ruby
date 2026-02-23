@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # CreateHRISBenefitValue - The type of the benefit
-      class CreateHRISBenefitValue < T::Enum
-
-
+      class CreateHRISBenefitValue
+        include ::Crystalline::Enum
         enums do
           RETIREMENT_SAVINGS = new('retirement_savings')
           HEALTH_SAVINGS = new('health_savings')
@@ -19,6 +18,7 @@ module StackOne
           INSURANCE = new('insurance')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

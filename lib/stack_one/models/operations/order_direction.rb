@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # OrderDirection - The direction to order the results by.
       class OrderDirection < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

@@ -15,7 +15,7 @@ module StackOne
         # The result data
         field :data, Models::Shared::ScreeningResult, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
         # The event type
-        field :event, Models::Shared::Event, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Event, false) } }
+        field :event, Models::Shared::Event, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event'), required: true, 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::Event, false) } }
 
         field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 

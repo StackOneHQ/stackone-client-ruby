@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HrisUpdateEmployeeRequestDtoSchemasGenderValue < T::Enum
-
-
+      class HrisUpdateEmployeeRequestDtoSchemasGenderValue
+        include ::Crystalline::Enum
         enums do
           MALE = new('male')
           FEMALE = new('female')
@@ -20,6 +19,7 @@ module StackOne
           DIVERSE = new('diverse')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

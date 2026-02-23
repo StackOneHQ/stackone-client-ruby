@@ -19,7 +19,7 @@ module StackOne
         # Content of the message
         field :content, Crystalline::Nilable.new(Models::Shared::MessagingMessageResultContent), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Timestamp when the message was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # ID of the parent message if this is a reply
@@ -27,7 +27,7 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Timestamp when the message was last updated
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(attachments: T.nilable(T::Array[Models::Shared::MessagingAttachment]), author: T.nilable(Models::Shared::MessagingMessageResultAuthor), content: T.nilable(Models::Shared::MessagingMessageResultContent), created_at: T.nilable(::DateTime), id: T.nilable(::String), parent_message_id: T.nilable(::String), remote_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
         def initialize(attachments: nil, author: nil, content: nil, created_at: nil, id: nil, parent_message_id: nil, remote_id: nil, updated_at: nil)

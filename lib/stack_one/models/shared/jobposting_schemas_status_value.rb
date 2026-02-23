@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # JobPostingSchemasStatusValue - The status of the job postings.
-      class JobPostingSchemasStatusValue < T::Enum
-
-
+      class JobPostingSchemasStatusValue
+        include ::Crystalline::Enum
         enums do
           LIVE = new('live')
           DRAFT = new('draft')
@@ -21,6 +20,7 @@ module StackOne
           ARCHIVED = new('archived')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

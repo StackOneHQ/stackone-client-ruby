@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # NoteValue - The visibility of the notes.
-      class NoteValue < T::Enum
-
-
+      class NoteValue
+        include ::Crystalline::Enum
         enums do
           PRIVATE = new('private')
           PUBLIC = new('public')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

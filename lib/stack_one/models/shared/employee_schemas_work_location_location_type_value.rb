@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # EmployeeSchemasWorkLocationLocationTypeValue - The type of the location.
-      class EmployeeSchemasWorkLocationLocationTypeValue < T::Enum
-
-
+      class EmployeeSchemasWorkLocationLocationTypeValue
+        include ::Crystalline::Enum
         enums do
           HOME = new('home')
           WORK = new('work')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

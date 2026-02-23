@@ -36,12 +36,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ticketing.create_ticket(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto.new(
   assignees: [
     'user-001',
@@ -51,7 +50,7 @@ res = s.ticketing.create_ticket(ticketing_ticket_create_request_dto: Models::Sha
   content: [
     Models::Shared::TicketingContent.new(
       html: '<p>This is some content</p>',
-      plain: 'This is some content',
+      plain: 'This is some content'
     ),
   ],
   creator_id: 'user-001',
@@ -60,7 +59,7 @@ res = s.ticketing.create_ticket(ticketing_ticket_create_request_dto: Models::Sha
   priority: Models::Shared::TicketingTicketCreateRequestDtoPriority.new(
     id: '001',
     source_value: 'Normal',
-    value: Models::Shared::TicketingTicketCreateRequestDtoValue::MEDIUM,
+    value: Models::Shared::TicketingTicketCreateRequestDtoValue::MEDIUM
   ),
   project_id: 'project-001',
   reporters: [
@@ -74,9 +73,9 @@ res = s.ticketing.create_ticket(ticketing_ticket_create_request_dto: Models::Sha
   title: 'System outage in production environment',
   type: 'ticket-type-001',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -127,21 +126,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingDownloadTicketingAttachmentRequest.new(
-  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.download_ticketing_attachment(request: req)
 
 unless res.body.nil?
@@ -190,20 +187,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetAttachmentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_attachment(request: req)
 
 unless res.ticketing_attachment_result.nil?
@@ -252,20 +248,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetCommentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_comment(request: req)
 
 unless res.ticketing_comment_result.nil?
@@ -314,19 +309,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetProjectRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_project(request: req)
 
 unless res.ticketing_project_result.nil?
@@ -375,20 +369,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetProjectComponentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_project_component(request: req)
 
 unless res.ticketing_component_result.nil?
@@ -437,19 +430,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetTicketRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_ticket(request: req)
 
 unless res.ticketing_ticket_result.nil?
@@ -498,19 +490,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetTicketTypeRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_ticket_type(request: req)
 
 unless res.ticketing_ticket_type_result.nil?
@@ -559,19 +550,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingGetUserRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.get_user(request: req)
 
 unless res.ticketing_user_result.nil?
@@ -620,22 +610,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListAttachmentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,user_id,remote_user_id,file_name,file_format,file_url,size,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListAttachmentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_attachments(request: req)
 
 unless res.ticketing_attachments_paginated.nil?
@@ -684,22 +673,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListCommentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,ticket_id,remote_ticket_id,content,user_id,remote_user_id,internal,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListCommentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_comments(request: req)
 
 unless res.ticketing_comments_paginated.nil?
@@ -748,20 +736,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListProjectComponentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,project_id,remote_project_id,name,description,created_at,updated_at,unified_custom_fields',
   filter: nil,
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_project_components(request: req)
 
 unless res.ticketing_components_paginated.nil?
@@ -810,22 +797,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListProjectTicketTypesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   filter: Models::Operations::TicketingListProjectTicketTypesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_project_ticket_types(request: req)
 
 unless res.ticketing_ticket_type_paginated.nil?
@@ -874,21 +860,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListProjectsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,organization_id,remote_organization_id,name,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListProjectsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_projects(request: req)
 
 unless res.ticketing_projects_paginated.nil?
@@ -937,21 +922,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListTicketStatusesRequest.new(
   prefer: 'heartbeat',
   filter: Models::Operations::TicketingListTicketStatusesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_ticket_statuses(request: req)
 
 unless res.ticketing_ticket_statuses_paginated.nil?
@@ -1000,21 +984,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListTicketTypesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,project_id,remote_project_id,unified_custom_fields',
   filter: Models::Operations::TicketingListTicketTypesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_ticket_types(request: req)
 
 unless res.ticketing_ticket_type_paginated.nil?
@@ -1063,21 +1046,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListTicketsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,type,ticket_number,title,creator_id,remote_creator_id,reporters,assignees,content,parent_id,remote_parent_id,closed_at,ticket_url,status,priority,tags,projects,components,organization,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListTicketsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_tickets(request: req)
 
 unless res.ticketing_tickets_paginated.nil?
@@ -1126,21 +1108,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::TicketingListUsersRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,type,name,primary_email,primary_phone,username,active,first_name,last_name,customer_account_reference,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::TicketingListUsersQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ticketing.list_users(request: req)
 
 unless res.ticketing_users_paginated.nil?
@@ -1189,12 +1170,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ticketing.update_ticket(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto.new(
   assignees: [
     'user-001',
@@ -1204,14 +1184,14 @@ res = s.ticketing.update_ticket(ticketing_ticket_update_request_dto: Models::Sha
   content: [
     Models::Shared::TicketingContent.new(
       html: '<p>This is some content</p>',
-      plain: 'This is some content',
+      plain: 'This is some content'
     ),
   ],
   parent_id: 'ticket-002',
   priority: Models::Shared::TicketingTicketUpdateRequestDtoPriority.new(
     id: '001',
     source_value: 'Normal',
-    value: Models::Shared::TicketingTicketUpdateRequestDtoValue::MEDIUM,
+    value: Models::Shared::TicketingTicketUpdateRequestDtoValue::MEDIUM
   ),
   project_id: 'project-001',
   reporters: [
@@ -1223,8 +1203,8 @@ res = s.ticketing.update_ticket(ticketing_ticket_update_request_dto: Models::Sha
     name: 'Backlog',
     type: Models::Shared::TicketingTicketUpdateRequestDtoType.new(
       source_value: 'New',
-      value: Models::Shared::TicketingTicketUpdateRequestDtoSchemasValue::TO_DO,
-    ),
+      value: Models::Shared::TicketingTicketUpdateRequestDtoSchemasValue::TO_DO
+    )
   ),
   tags: [
     'tag-001',
@@ -1232,9 +1212,9 @@ res = s.ticketing.update_ticket(ticketing_ticket_update_request_dto: Models::Sha
   ],
   title: 'System outage in production environment',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?

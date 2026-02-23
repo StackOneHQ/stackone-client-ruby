@@ -15,9 +15,9 @@ module StackOne
         # Code of the job
         field :code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
         # Confidential status of the job
-        field :confidential, Crystalline::Nilable.new(Models::Shared::AtsJobConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Models::Shared::AtsJobConfidential, true) } }
+        field :confidential, Crystalline::Nilable.new(Models::Shared::AtsJobConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AtsJobConfidential, true) } }
         # Date of creation
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The job custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Department ids of the job
@@ -41,15 +41,15 @@ module StackOne
         # Provider's location ids of the job
         field :remote_location_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_ids') } }
         # Status of the job
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :status, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Title of the job
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Date of last update
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(code: T.nilable(::String), confidential: T.nilable(Models::Shared::AtsJobConfidential), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[Models::Shared::AtsJobHiringTeam]), id: T.nilable(::String), interview_stages: T.nilable(T::Array[Models::Shared::InterviewStage]), job_status: T.nilable(Models::Shared::AtsJobJobStatus), location_ids: T.nilable(T::Array[::String]), remote_department_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(code: nil, confidential: nil, created_at: nil, custom_fields: nil, department_ids: nil, description: nil, hiring_team: nil, id: nil, interview_stages: nil, job_status: nil, location_ids: nil, remote_department_ids: nil, remote_id: nil, remote_location_ids: nil, status: nil, title: nil, unified_custom_fields: nil, updated_at: nil)

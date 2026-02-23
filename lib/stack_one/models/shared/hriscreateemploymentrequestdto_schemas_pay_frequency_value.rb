@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue - The pay frequency of the job postings.
-      class HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue < T::Enum
-
-
+      class HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue
+        include ::Crystalline::Enum
         enums do
           HOURLY = new('hourly')
           WEEKLY = new('weekly')
@@ -28,6 +27,7 @@ module StackOne
           HALF_YEARLY = new('half_yearly')
           DAILY = new('daily')
         end
+        open!
       end
     end
   end

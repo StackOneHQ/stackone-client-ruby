@@ -21,7 +21,7 @@ module StackOne
         # Indicates if the field is required
         field :required, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Field2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required') } }
         # The type of the field
-        field :type, Crystalline::Nilable.new(Models::Shared::FieldType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::FieldType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::FieldType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::FieldType, true) } }
         # The possible values for the field
         field :values, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('values') } }
 

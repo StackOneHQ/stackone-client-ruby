@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # HrisDocumentsUploadRequestDtoSchemasValue - Whether the file is confidential or not
-      class HrisDocumentsUploadRequestDtoSchemasValue < T::Enum
-
-
+      class HrisDocumentsUploadRequestDtoSchemasValue
+        include ::Crystalline::Enum
         enums do
           TRUE = new('true')
           FALSE = new('false')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

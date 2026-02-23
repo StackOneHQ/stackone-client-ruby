@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The timestamp when the record was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The type of the file
         field :file_format, Crystalline::Nilable.new(Models::Shared::TicketingAttachmentResultFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
         # The name of the file
@@ -29,7 +29,7 @@ module StackOne
         # The reference ticket ID the attachment belongs to
         field :ticket_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ticket_id') } }
         # The timestamp when the record was last updated
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The user who uploaded the file
         field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_id') } }
 

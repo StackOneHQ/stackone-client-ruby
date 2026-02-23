@@ -21,13 +21,13 @@ module StackOne
         # The comments associated with this task
         field :comments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::TaskCommentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comments') } }
         # The completion date of the task
-        field :completion_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completion_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :completion_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('completion_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The creation date of this task
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The description of the task
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The due date of the task
-        field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :due_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('due_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employee ID associated with this task
         field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
         # List of extracted links from the task
@@ -49,7 +49,7 @@ module StackOne
         # The type of the task
         field :type, Crystalline::Nilable.new(Models::Shared::TaskResultType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # The last updated date of this task
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(assigned_by_employee_id: T.nilable(::String), assigned_by_employee_name: T.nilable(::String), attachments: T.nilable(T::Array[Models::Shared::File]), comments: T.nilable(T::Array[Models::Shared::TaskCommentApiModel]), completion_date: T.nilable(::DateTime), created_at: T.nilable(::DateTime), description: T.nilable(::String), due_date: T.nilable(::DateTime), employee_id: T.nilable(::String), extracted_links: T.nilable(T::Array[::String]), id: T.nilable(::String), link_to_task: T.nilable(::String), name: T.nilable(::String), next_task_id: T.nilable(::String), parent_process_name: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(Models::Shared::TaskResultStatus), type: T.nilable(Models::Shared::TaskResultType), updated_at: T.nilable(::DateTime)).void }
         def initialize(assigned_by_employee_id: nil, assigned_by_employee_name: nil, attachments: nil, comments: nil, completion_date: nil, created_at: nil, description: nil, due_date: nil, employee_id: nil, extracted_links: nil, id: nil, link_to_task: nil, name: nil, next_task_id: nil, parent_process_name: nil, remote_id: nil, status: nil, type: nil, updated_at: nil)

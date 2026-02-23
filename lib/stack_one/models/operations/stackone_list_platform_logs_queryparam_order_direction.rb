@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # StackoneListPlatformLogsQueryParamOrderDirection - The direction to order the results by.
       class StackoneListPlatformLogsQueryParamOrderDirection < T::Enum
-
-
         enums do
           ASC = new('asc')
           DESC = new('desc')

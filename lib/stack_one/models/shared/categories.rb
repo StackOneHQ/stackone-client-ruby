@@ -9,8 +9,6 @@ module StackOne
     module Shared
 
       class Categories < T::Enum
-
-
         enums do
           ATS = new('ats')
           HRIS = new('hris')

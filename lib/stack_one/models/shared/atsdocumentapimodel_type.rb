@@ -8,8 +8,8 @@ module StackOne
   module Models
     module Shared
       # The content type of the document
-      # 
-      # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
       class AtsDocumentApiModelType
         extend T::Sig
         include Crystalline::MetadataFields
@@ -17,7 +17,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::AtsDocumentApiModelSchemasType4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The category of the file
-        field :value, Crystalline::Nilable.new(Models::Shared::AtsDocumentApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::AtsDocumentApiModelSchemasValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::AtsDocumentApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AtsDocumentApiModelSchemasValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AtsDocumentApiModelSchemasType4, T::Array[::Object])), value: T.nilable(Models::Shared::AtsDocumentApiModelSchemasValue)).void }
         def initialize(source_value: nil, value: nil)

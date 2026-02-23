@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # Method - The method of the request
-      class Method < T::Enum
-
-
+      class Method
+        include ::Crystalline::Enum
         enums do
           GET = new('get')
           POST = new('post')
@@ -18,6 +17,7 @@ module StackOne
           DELETE = new('delete')
           PATCH = new('patch')
         end
+        open!
       end
     end
   end

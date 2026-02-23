@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AtsCreateJobRequestDtoValue - The status of the job.
-      class AtsCreateJobRequestDtoValue < T::Enum
-
-
+      class AtsCreateJobRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           PUBLISHED = new('published')
           DRAFT = new('draft')
@@ -23,6 +22,7 @@ module StackOne
           ON_HOLD = new('on_hold')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

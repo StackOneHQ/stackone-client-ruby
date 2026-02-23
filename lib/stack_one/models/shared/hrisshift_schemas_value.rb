@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisShiftSchemasValue - The status of the shift
-      class HrisShiftSchemasValue < T::Enum
-
-
+      class HrisShiftSchemasValue
+        include ::Crystalline::Enum
         enums do
           DRAFT = new('draft')
           PUBLISHED = new('published')
@@ -18,6 +17,7 @@ module StackOne
           CANCELLED = new('cancelled')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

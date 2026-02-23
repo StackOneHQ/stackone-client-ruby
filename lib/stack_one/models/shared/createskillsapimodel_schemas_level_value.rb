@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # CreateSkillsApiModelSchemasLevelValue - The unified skill level. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
-      class CreateSkillsApiModelSchemasLevelValue < T::Enum
-
-
+      class CreateSkillsApiModelSchemasLevelValue
+        include ::Crystalline::Enum
         enums do
           PRIMARY = new('primary')
           SECONDARY = new('secondary')
           TERTIARY = new('tertiary')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

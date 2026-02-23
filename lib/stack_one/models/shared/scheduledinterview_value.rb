@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ScheduledInterviewValue - The status of the interview.
-      class ScheduledInterviewValue < T::Enum
-
-
+      class ScheduledInterviewValue
+        include ::Crystalline::Enum
         enums do
           UNSCHEDULED = new('unscheduled')
           SCHEDULED = new('scheduled')
@@ -19,6 +18,7 @@ module StackOne
           PENDING_FEEDBACK = new('pending_feedback')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

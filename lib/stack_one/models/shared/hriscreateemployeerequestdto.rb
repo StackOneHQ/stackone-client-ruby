@@ -19,21 +19,21 @@ module StackOne
         # Current benefits of the employee
         field :benefits, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateHRISBenefit)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('benefits') } }
         # The next birthday of the employee (upcoming birthday)
-        field :birthday, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('birthday'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :birthday, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('birthday'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The citizenships of the Employee
         field :citizenships, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CountryCodeEnum)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('citizenships') } }
         # The employee company id
         field :company_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
         # The employee company name
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
         # The employee cost centers
         field :cost_centers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateCostCenterApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cost_centers') } }
         # The employee custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # The date when the employee was born
-        field :date_of_birth, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :date_of_birth, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('date_of_birth'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employee department
         field :department, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('department') } }
         # The employee department id
@@ -45,18 +45,18 @@ module StackOne
         # The employee employment
         field :employment, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoEmployment), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment') } }
         # The employment work schedule type (e.g., full-time, part-time)
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_contract_type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
         # The employee employment status
         field :employment_status, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_status') } }
         # The employee employment type
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
         # The employee employments
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateEmploymentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employments') } }
         # The employee ethnicity
         field :ethnicity, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoEthnicity), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('ethnicity') } }
@@ -65,12 +65,12 @@ module StackOne
         # The employee gender
         field :gender, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoGender), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('gender') } }
         # The employee hire date
-        field :hire_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hire_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :hire_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hire_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employee home location
         field :home_location, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoHomeLocation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('home_location') } }
         # The employee job id
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
         # If the source of the job_title is the Employee's current Employment, and that Employment pertains exclusively to this Employee, then the active Employment job_title will also be written
         field :job_title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
@@ -83,8 +83,8 @@ module StackOne
         # The employee name
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # The national identity number
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :national_identity_number, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoNationalIdentityNumber), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_number') } }
         # The national identity numbers
         field :national_identity_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::NationalIdentityNumberApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('national_identity_numbers') } }
@@ -97,11 +97,11 @@ module StackOne
         # The employee preferred language
         field :preferred_language, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('preferred_language') } }
         # The employee start date
-        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employee team id
         field :team_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('team_id') } }
         # The employee termination date
-        field :termination_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :termination_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('termination_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The prefix of the employee's name (e.g., Mr, Ms, Dr)
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # The employee work email

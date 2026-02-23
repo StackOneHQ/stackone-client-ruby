@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HRISBankDetailsValue - The type of bank account
-      class HRISBankDetailsValue < T::Enum
-
-
+      class HRISBankDetailsValue
+        include ::Crystalline::Enum
         enums do
           SAVINGS = new('savings')
           CHECKING = new('checking')
@@ -20,6 +19,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

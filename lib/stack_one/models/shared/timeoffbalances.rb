@@ -13,9 +13,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The date of when the current balance expires
-        field :balance_expiry_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('balance_expiry_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :balance_expiry_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('balance_expiry_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The date of when the initial balance quantity was set
-        field :balance_start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('balance_start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :balance_start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('balance_start_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The duration unit of the current balance
         field :balance_unit, Crystalline::Nilable.new(Models::Shared::BalanceUnit), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('balance_unit') } }
         # The current numeric balance for the associated employee and time off policy
@@ -39,7 +39,7 @@ module StackOne
         # Provider's unique identifier of the time off policy id associated with this balance
         field :remote_policy_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_policy_id') } }
         # The updated_at date of this time off balance
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(balance_expiry_date: T.nilable(::DateTime), balance_start_date: T.nilable(::DateTime), balance_unit: T.nilable(Models::Shared::BalanceUnit), current_balance: T.nilable(::Float), employee_id: T.nilable(::String), id: T.nilable(::String), initial_balance: T.nilable(::Float), is_unlimited: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffBalances2)), policy: T.nilable(Models::Shared::TimeOffBalancesPolicy), policy_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_policy_id: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
         def initialize(balance_expiry_date: nil, balance_start_date: nil, balance_unit: nil, current_balance: nil, employee_id: nil, id: nil, initial_balance: nil, is_unlimited: nil, policy: nil, policy_id: nil, remote_employee_id: nil, remote_id: nil, remote_policy_id: nil, updated_at: nil)

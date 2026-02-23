@@ -25,7 +25,7 @@ module StackOne
         # Location ID associated with the position
         field :location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
         # Date when the position was posted
-        field :posted_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('posted_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :posted_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('posted_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Status of the position

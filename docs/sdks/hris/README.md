@@ -91,31 +91,30 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.batch_upload_employee_document(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto.new(
   items: [
     Models::Shared::HrisDocumentsUploadRequestDto.new(
-      category: Models::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
+      category: Models::Shared::HrisDocumentsUploadRequestDtoCategory.new,
       category_id: '6530',
       confidential: Models::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
         source_value: 'public',
-        value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
+        value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE
       ),
       content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
       file_format: Models::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
         source_value: 'application/pdf',
-        value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
+        value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF
       ),
       name: 'weather-forecast',
-      path: '/path/to/file',
+      path: '/path/to/file'
     ),
-  ],
-), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
+  ]
+), id: '<id>', x_account_id: '<id>')
 
 unless res.batch_result_api_model.nil?
   # handle response
@@ -125,12 +124,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `hris_batch_document_upload_request_dto`                                                                                                                                 | [Models::Shared::HrisBatchDocumentUploadRequestDto](../../models/shared/hrisbatchdocumentuploadrequestdto.md)                                                            | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
-| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `hris_batch_document_upload_request_dto`                                                                      | [Models::Shared::HrisBatchDocumentUploadRequestDto](../../models/shared/hrisbatchdocumentuploadrequestdto.md) | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `id`                                                                                                          | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `x_account_id`                                                                                                | *::String*                                                                                                    | :heavy_check_mark:                                                                                            | The account identifier                                                                                        |
 
 ### Response
 
@@ -166,12 +164,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.cancel_employee_time_off_request(id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
@@ -223,14 +220,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::HrisCreateEmployeeRequestDto.new(
-  avatar: Models::Shared::HrisCreateEmployeeRequestDtoAvatar.new(),
+  avatar: Models::Shared::HrisCreateEmployeeRequestDtoAvatar.new,
   avatar_url: 'https://example.com/avatar.png',
   benefits: [
     Models::Shared::CreateHRISBenefit.new(
@@ -239,7 +235,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       name: 'Health Insurance',
       provider: 'Aetna',
-      updated_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
+      updated_at: DateTime.iso8601('2021-01-01T00:00:00Z')
     ),
   ],
   birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -249,7 +245,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
     Models::Shared::CreateCostCenterApiModel.new(
       distribution_percentage: 100.0,
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-      name: 'R&D',
+      name: 'R&D'
     ),
   ],
   custom_fields: [
@@ -259,7 +255,7 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   date_of_birth: DateTime.iso8601('1990-01-01T00:00:00.000Z'),
@@ -269,79 +265,79 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
   employee_number: '125',
   employment: Models::Shared::HrisCreateEmployeeRequestDtoEmployment.new(
     contract_type: Models::Shared::HrisCreateEmployeeRequestDtoContractType.new(
-      contract_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasContractType.new(),
+      contract_type: Models::Shared::HrisCreateEmployeeRequestDtoSchemasContractType.new,
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       label: 'Full-Time',
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     grade: Models::Shared::HrisCreateEmployeeRequestDtoGrade.new(
       description: 'Mid-level employee demonstrating proficiency and autonomy.',
       id: '1687-3',
       name: '1687-4',
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
     job_title: 'Software Engineer',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     pay_currency: 'USD',
     pay_frequency: Models::Shared::HrisCreateEmployeeRequestDtoPayFrequency.new(
       source_value: 'Hourly',
-      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentValue::HOURLY,
+      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentValue::HOURLY
     ),
     pay_period: Models::Shared::HrisCreateEmployeeRequestDtoPayPeriod.new(
       source_value: 'Hour',
-      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentPayPeriodValue::HOUR,
+      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentPayPeriodValue::HOUR
     ),
     pay_rate: '40.00',
     payroll_code: 'PC1',
     type: nil,
     unified_custom_fields: {
-      "my_project_custom_field_1": 'REF-1236',
-      "my_project_custom_field_2": 'some other value',
+      'my_project_custom_field_1' => 'REF-1236',
+      'my_project_custom_field_2' => 'some other value',
     },
     work_time: Models::Shared::HrisCreateEmployeeRequestDtoWorkTime.new(
       duration: 'P0Y0M0DT8H0M0S',
       period: Models::Shared::HrisCreateEmployeeRequestDtoPeriod.new(
-        value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue::MONTH,
-      ),
-    ),
+        value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue::MONTH
+      )
+    )
   ),
-  employment_status: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new(),
-  ethnicity: Models::Shared::HrisCreateEmployeeRequestDtoEthnicity.new(),
+  employment_status: Models::Shared::HrisCreateEmployeeRequestDtoEmploymentStatus.new,
+  ethnicity: Models::Shared::HrisCreateEmployeeRequestDtoEthnicity.new,
   first_name: 'Isaac',
-  gender: Models::Shared::HrisCreateEmployeeRequestDtoGender.new(),
+  gender: Models::Shared::HrisCreateEmployeeRequestDtoGender.new,
   hire_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   home_location: Models::Shared::HrisCreateEmployeeRequestDtoHomeLocation.new(
     city: 'Grantham',
     country: Models::Shared::HrisCreateEmployeeRequestDtoCountry.new(
-      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US,
+      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::US
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'Woolsthorpe Manor',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     phone_number: '+44 1476 860 364',
-    state: Models::Shared::State.new(),
+    state: Models::Shared::State.new,
     street_1: 'Water Lane',
     street_2: 'Woolsthorpe by Colsterworth',
-    zip_code: 'NG33 5NR',
+    zip_code: 'NG33 5NR'
   ),
   job_title: 'Physicist',
   last_name: 'Newton',
   manager_id: '67890',
-  marital_status: Models::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new(),
+  marital_status: Models::Shared::HrisCreateEmployeeRequestDtoMaritalStatus.new,
   name: 'Isaac Newton',
   national_identity_numbers: nil,
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   personal_email: 'isaac.newton@example.com',
   personal_phone_number: '+1234567890',
   preferred_language: Models::Shared::HrisCreateEmployeeRequestDtoPreferredLanguage.new(
-    value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG,
+    value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG
   ),
   start_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   team_id: '2913',
@@ -351,20 +347,20 @@ res = s.hris.create_employee(hris_create_employee_request_dto: Models::Shared::H
   work_location: Models::Shared::HrisCreateEmployeeRequestDtoWorkLocation.new(
     city: 'Grantham',
     country: Models::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationCountry.new(
-      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US,
+      value: Models::Shared::HrisCreateEmployeeRequestDtoSchemasWorkLocationValue::US
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'Woolsthorpe Manor',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     phone_number: '+44 1476 860 364',
-    state: Models::Shared::HrisCreateEmployeeRequestDtoState.new(),
+    state: Models::Shared::HrisCreateEmployeeRequestDtoState.new,
     street_1: 'Water Lane',
     street_2: 'Woolsthorpe by Colsterworth',
-    zip_code: 'NG33 5NR',
+    zip_code: 'NG33 5NR'
   ),
-  work_phone_number: '+1234567890',
+  work_phone_number: '+1234567890'
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -415,18 +411,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.create_employee_employment(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto.new(
   contract_type: Models::Shared::HrisCreateEmploymentRequestDtoContractType.new(
-    contract_type: Models::Shared::HrisCreateEmploymentRequestDtoSchemasContractType.new(),
+    contract_type: Models::Shared::HrisCreateEmploymentRequestDtoSchemasContractType.new,
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     label: 'Full-Time',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -434,21 +429,21 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto: Mode
     description: 'Mid-level employee demonstrating proficiency and autonomy.',
     id: '1687-3',
     name: '1687-4',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   job_id: '5290',
   job_title: 'Software Engineer',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   pay_currency: 'USD',
   pay_frequency: Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency.new(
     source_value: 'Hourly',
-    value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
+    value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY
   ),
   pay_period: Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod.new(
     source_value: 'Hour',
-    value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
+    value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR
   ),
   pay_rate: '40.00',
   payroll_code: 'PC1',
@@ -456,18 +451,18 @@ res = s.hris.create_employee_employment(hris_create_employment_request_dto: Mode
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     label: 'Permanent',
     remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    type: Models::Shared::HrisCreateEmploymentRequestDtoSchemasType.new(),
+    type: Models::Shared::HrisCreateEmploymentRequestDtoSchemasType.new
   ),
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
   },
   work_time: Models::Shared::HrisCreateEmploymentRequestDtoWorkTime.new(
     duration: 'P0Y0M0DT8H0M0S',
     period: Models::Shared::HrisCreateEmploymentRequestDtoPeriod.new(
-      value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
-    ),
-  ),
+      value: Models::Shared::HrisCreateEmploymentRequestDtoSchemasWorkTimeValue::MONTH
+    )
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -519,21 +514,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.create_employee_skill(entity_skills_create_request_dto: Models::Shared::EntitySkillsCreateRequestDto.new(
   id: '16873-IT345',
   maximum_proficiency: Models::Shared::EntitySkillsCreateRequestDtoMaximumProficiency.new(
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'Expert',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   minimum_proficiency: nil,
-  name: 'Information-Technology',
+  name: 'Information-Technology'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -585,27 +579,26 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.create_employee_time_off_request(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto.new(
   approver_id: '1687-4',
   comment: 'Taking a day off for personal reasons',
   end_date: '2021-01-01T01:01:01.000',
   end_half_day: true,
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   start_date: '2021-01-01T01:01:01.000',
   start_half_day: true,
-  time_off_policy_id: 'cx280928933',
+  time_off_policy_id: 'cx280928933'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -657,15 +650,14 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto.new(
   document: Models::Shared::Document.new(
-    category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+    category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new,
     category_id: '6530',
     created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     file_format: nil,
@@ -673,19 +665,19 @@ res = s.hris.create_employee_work_eligibility_request(hris_create_work_eligibili
     name: 'My Document',
     remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     remote_url: 'https://example.com/file.pdf',
-    updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
+    updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z')
   ),
   issued_by: Models::Shared::IssuedBy.new(
-    value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+    value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US
   ),
   number: '1234567890',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   sub_type: 'H1B',
-  type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+  type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new,
   valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
-  valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
+  valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z')
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -737,21 +729,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisDownloadEmployeeDocumentRequest.new(
-  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.download_employee_document(request: req)
 
 unless res.body.nil?
@@ -800,19 +790,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetBenefitRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_benefit(request: req)
 
 unless res.hris_benefit_result.nil?
@@ -861,19 +850,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetCompanyRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_company(request: req)
 
 unless res.company_result.nil?
@@ -922,19 +910,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetCompanyGroupRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_company_group(request: req)
 
 unless res.company_result.nil?
@@ -983,19 +970,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetCostCenterGroupRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_cost_center_group(request: req)
 
 unless res.hris_cost_center_result.nil?
@@ -1044,19 +1030,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetDepartmentGroupRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_department_group(request: req)
 
 unless res.hris_departments_result.nil?
@@ -1105,19 +1090,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetDivisionGroupRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_division_group(request: req)
 
 unless res.hris_divisions_result.nil?
@@ -1166,11 +1150,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeRequest.new(
   prefer: 'heartbeat',
@@ -1178,9 +1162,8 @@ req = Models::Operations::HrisGetEmployeeRequest.new(
   fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
   id: '<id>',
   include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee(request: req)
 
 unless res.employee_result.nil?
@@ -1229,22 +1212,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::HrisGetEmployeeCustomFieldDefinitionQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_custom_field_definition(request: req)
 
 unless res.custom_field_definition_result_api_model.nil?
@@ -1293,20 +1275,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeDocumentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_document(request: req)
 
 unless res.hris_document_result.nil?
@@ -1355,19 +1336,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeDocumentCategoryRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_document_category(request: req)
 
 unless res.reference_result.nil?
@@ -1416,11 +1396,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   prefer: 'heartbeat',
@@ -1428,9 +1408,8 @@ req = Models::Operations::HrisGetEmployeeEmploymentRequest.new(
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_employment(request: req)
 
 unless res.employment_result.nil?
@@ -1479,19 +1458,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeShiftRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_shift(request: req)
 
 unless res.hris_shift_result.nil?
@@ -1540,20 +1518,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeSkillRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_skill(request: req)
 
 unless res.entity_skill_result.nil?
@@ -1602,11 +1579,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeTaskRequest.new(
   prefer: 'heartbeat',
@@ -1614,9 +1591,8 @@ req = Models::Operations::HrisGetEmployeeTaskRequest.new(
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_task(request: req)
 
 unless res.task_result.nil?
@@ -1665,11 +1641,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
   prefer: 'heartbeat',
@@ -1677,9 +1653,8 @@ req = Models::Operations::HrisGetEmployeeTimeOffBalanceRequest.new(
   fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,is_unlimited,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employee_time_off_balance(request: req)
 
 unless res.time_off_balance_result.nil?
@@ -1728,11 +1703,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   prefer: 'heartbeat',
@@ -1740,9 +1715,8 @@ req = Models::Operations::HrisGetEmployeesTimeOffRequestRequest.new(
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employees_time_off_request(request: req)
 
 unless res.time_off_result.nil?
@@ -1791,20 +1765,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmployeesWorkEligibilityRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employees_work_eligibility(request: req)
 
 unless res.work_eligibility_result.nil?
@@ -1853,20 +1826,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetEmploymentRequest.new(
   prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_employment(request: req)
 
 unless res.employment_result.nil?
@@ -1915,19 +1887,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetGroupRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_group(request: req)
 
 unless res.hris_groups_result.nil?
@@ -1976,19 +1947,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetJobRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_job(request: req)
 
 unless res.hris_job_result.nil?
@@ -2037,19 +2007,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetLocationRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_location(request: req)
 
 unless res.hris_location_result.nil?
@@ -2098,18 +2067,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetPositionRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_position(request: req)
 
 unless res.position_result.nil?
@@ -2158,18 +2126,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetShiftRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_shift(request: req)
 
 unless res.hris_shift_result.nil?
@@ -2218,20 +2185,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetTaskRequest.new(
   prefer: 'heartbeat',
   expand: 'attachments',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_task(request: req)
 
 unless res.task_result.nil?
@@ -2280,19 +2246,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetTeamGroupRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_team_group(request: req)
 
 unless res.hris_teams_result.nil?
@@ -2341,19 +2306,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetTimeEntriesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,start_time,end_time,hours_worked,break_duration,labor_type,location,status,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_time_entries(request: req)
 
 unless res.time_entries_result.nil?
@@ -2402,19 +2366,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetTimeOffPolicyRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_time_off_policy(request: req)
 
 unless res.time_off_policy_result.nil?
@@ -2463,20 +2426,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetTimeOffRequestRequest.new(
   prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_time_off_request(request: req)
 
 unless res.time_off_result.nil?
@@ -2527,19 +2489,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisGetTimeOffTypeRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.get_time_off_type(request: req)
 
 unless res.reference_result.nil?
@@ -2588,16 +2549,15 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.invite_employee(hris_invite_employee_request_dto: Models::Shared::HrisInviteEmployeeRequestDto.new(
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.invite_employee_result.nil?
@@ -2649,21 +2609,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListBenefitsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,benefit_type,provider,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListBenefitsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_benefits(request: req)
 
 unless res.hris_benefits_paginated.nil?
@@ -2712,21 +2671,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListCompaniesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListCompaniesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_companies(request: req)
 
 unless res.companies_paginated.nil?
@@ -2775,21 +2733,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListCompaniesGroupsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,full_name,display_name,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListCompaniesGroupsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_companies_groups(request: req)
 
 unless res.companies_paginated.nil?
@@ -2838,21 +2795,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListCostCenterGroupsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,distribution_percentage,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListCostCenterGroupsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_cost_center_groups(request: req)
 
 unless res.hris_cost_center_paginated.nil?
@@ -2901,21 +2857,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListDepartmentGroupsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListDepartmentGroupsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_department_groups(request: req)
 
 unless res.hris_departments_paginated.nil?
@@ -2964,21 +2919,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListDivisionGroupsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListDivisionGroupsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_division_groups(request: req)
 
 unless res.hris_divisions_paginated.nil?
@@ -3027,21 +2981,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeCategoriesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeCategoriesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_categories(request: req)
 
 unless res.reference_paginated.nil?
@@ -3090,21 +3043,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeCustomFieldDefinitionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_custom_field_definitions(request: req)
 
 unless res.custom_field_definitions_paginated.nil?
@@ -3153,22 +3105,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeDocumentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeDocumentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_documents(request: req)
 
 unless res.hris_documents_paginated.nil?
@@ -3217,23 +3168,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeEmploymentsRequest.new(
   prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeEmploymentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_employments(request: req)
 
 unless res.employments_paginated.nil?
@@ -3282,23 +3232,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeShiftsRequest.new(
   prefer: 'heartbeat',
   filter: Models::Operations::HrisListEmployeeShiftsQueryParamFilter.new(
     ends_before: '2024-01-15T17:00',
     starts_after: '2024-01-15T09:00',
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_shifts(request: req)
 
 unless res.hris_shifts_paginated.nil?
@@ -3347,22 +3296,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeSkillsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,language,maximum_proficiency,minimum_proficiency,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeSkillsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_skills(request: req)
 
 unless res.entity_skills_paginated.nil?
@@ -3411,11 +3359,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeTasksRequest.new(
   prefer: 'heartbeat',
@@ -3423,12 +3371,11 @@ req = Models::Operations::HrisListEmployeeTasksRequest.new(
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTasksQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_tasks(request: req)
 
 unless res.tasks_paginated.nil?
@@ -3477,23 +3424,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeTimeOffBalancesRequest.new(
   prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,policy_id,remote_policy_id,policy,current_balance,initial_balance,balance_unit,balance_start_date,balance_expiry_date,is_unlimited,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffBalancesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_time_off_balances(request: req)
 
 unless res.time_off_balances_paginated.nil?
@@ -3542,22 +3488,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeTimeOffPoliciesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeTimeOffPoliciesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_time_off_policies(request: req)
 
 unless res.time_off_policies_paginated.nil?
@@ -3606,11 +3551,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   prefer: 'heartbeat',
@@ -3619,12 +3564,11 @@ req = Models::Operations::HrisListEmployeeTimeOffRequestsRequest.new(
   filter: Models::Operations::HrisListEmployeeTimeOffRequestsQueryParamFilter.new(
     end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     start_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_time_off_requests(request: req)
 
 unless res.time_off_paginated.nil?
@@ -3673,22 +3617,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeeWorkEligibilityRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,type,sub_type,document,valid_from,valid_to,issued_by,number,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeeWorkEligibilityQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employee_work_eligibility(request: req)
 
 unless res.work_eligibility_paginated.nil?
@@ -3737,23 +3680,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmployeesRequest.new(
   prefer: 'heartbeat',
   expand: 'company,employments,work_location,home_location,groups,skills',
   fields_: 'id,remote_id,title,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_id,remote_job_id,job_title,job_description,department_id,remote_department_id,department,cost_centers,company,manager_id,remote_manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_contract_type,employment_status,termination_date,company_name,company_id,remote_company_id,preferred_language,citizenships,home_location,work_location,employments,custom_fields,created_at,updated_at,benefits,employee_number,national_identity_number,national_identity_numbers,bank_details,skills,unified_custom_fields',
   filter: Models::Operations::HrisListEmployeesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'avatar_url,avatar,custom_fields,job_description,benefits,bank_details',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employees(request: req)
 
 unless res.employees_paginated.nil?
@@ -3802,22 +3744,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListEmploymentsRequest.new(
   prefer: 'heartbeat',
   expand: 'groups',
   fields_: 'id,remote_id,employee_id,remote_employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,end_date,employment_type,employment_contract_type,type,contract_type,change_reason,grade,work_time,payroll_code,fte,created_at,updated_at,start_date,active,department,team,cost_center,cost_centers,division,job,manager,groups,unified_custom_fields',
   filter: Models::Operations::HrisListEmploymentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_employments(request: req)
 
 unless res.employments_paginated.nil?
@@ -3866,21 +3807,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListGroupsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,company_id,remote_company_id,unified_custom_fields',
   filter: Models::Operations::HrisListGroupsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_groups(request: req)
 
 unless res.hris_groups_paginated.nil?
@@ -3929,21 +3869,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListJobsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,code,title,description,status,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListJobsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_jobs(request: req)
 
 unless res.hris_jobs_paginated.nil?
@@ -3992,21 +3931,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListLocationsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListLocationsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_locations(request: req)
 
 unless res.hris_locations_paginated.nil?
@@ -4055,21 +3993,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListPositionsRequest.new(
   prefer: 'heartbeat',
   filter: Models::Operations::HrisListPositionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   status: Models::Operations::HrisListPositionsQueryParamStatus::OPEN,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_positions(request: req)
 
 unless res.positions_paginated.nil?
@@ -4118,22 +4055,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListShiftsRequest.new(
   prefer: 'heartbeat',
   filter: Models::Operations::HrisListShiftsQueryParamFilter.new(
     ends_before: '2024-01-15T17:00',
     starts_after: '2024-01-15T09:00',
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_shifts(request: req)
 
 unless res.hris_shifts_paginated.nil?
@@ -4182,11 +4118,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListTasksRequest.new(
   prefer: 'heartbeat',
@@ -4194,11 +4130,10 @@ req = Models::Operations::HrisListTasksRequest.new(
   fields_: 'id,remote_id,employee_id,remote_employee_id,name,description,type,status,due_date,completion_date,assigned_by_employee_id,remote_assigned_by_employee_id,assigned_by_employee_name,link_to_task,extracted_links,next_task_id,remote_next_task_id,parent_process_name,comments,attachments,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::HrisListTasksQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_tasks(request: req)
 
 unless res.tasks_paginated.nil?
@@ -4247,21 +4182,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListTeamGroupsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,parent_ids,remote_parent_ids,owner_ids,remote_owner_ids,unified_custom_fields',
   filter: Models::Operations::HrisListTeamGroupsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_team_groups(request: req)
 
 unless res.hris_teams_paginated.nil?
@@ -4310,11 +4244,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListTimeEntriesRequest.new(
   prefer: 'heartbeat',
@@ -4322,11 +4256,10 @@ req = Models::Operations::HrisListTimeEntriesRequest.new(
   filter: Models::Operations::HrisListTimeEntriesQueryParamFilter.new(
     end_time: '2020-01-01T00:00:00.000Z',
     start_time: '2020-01-01T00:00:00.000Z',
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_time_entries(request: req)
 
 unless res.time_entries_paginated.nil?
@@ -4375,21 +4308,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListTimeOffPoliciesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,duration_unit,reasons,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::HrisListTimeOffPoliciesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_time_off_policies(request: req)
 
 unless res.time_off_policies_paginated.nil?
@@ -4438,20 +4370,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListTimeOffRequestsRequest.new(
   prefer: 'heartbeat',
   expand: 'policy',
   fields_: 'id,remote_id,employee_id,remote_employee_id,approver_id,remote_approver_id,status,type,start_date,end_date,start_half_day,end_half_day,time_off_policy_id,remote_time_off_policy_id,reason,comment,duration,created_at,updated_at,policy,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_time_off_requests(request: req)
 
 unless res.time_off_paginated.nil?
@@ -4502,21 +4433,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisListTimeOffTypesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::HrisListTimeOffTypesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.list_time_off_types(request: req)
 
 unless res.reference_paginated.nil?
@@ -4565,14 +4495,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.update_employee(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto.new(
-  avatar: Models::Shared::HrisUpdateEmployeeRequestDtoAvatar.new(),
+  avatar: Models::Shared::HrisUpdateEmployeeRequestDtoAvatar.new,
   avatar_url: 'https://example.com/avatar.png',
   benefits: [
     Models::Shared::CreateHRISBenefit.new(
@@ -4581,7 +4510,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto: Models::Shared::H
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       name: 'Health Insurance',
       provider: 'Aetna',
-      updated_at: DateTime.iso8601('2021-01-01T00:00:00Z'),
+      updated_at: DateTime.iso8601('2021-01-01T00:00:00Z')
     ),
   ],
   birthday: DateTime.iso8601('2021-01-01T00:00:00Z'),
@@ -4594,7 +4523,7 @@ res = s.hris.update_employee(hris_update_employee_request_dto: Models::Shared::H
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   date_of_birth: DateTime.iso8601('1990-01-01T00:00:00.000Z'),
@@ -4603,50 +4532,50 @@ res = s.hris.update_employee(hris_update_employee_request_dto: Models::Shared::H
   display_name: 'Sir Isaac Newton',
   employee_number: '125',
   employment: nil,
-  employment_status: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new(),
-  ethnicity: Models::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new(),
+  employment_status: Models::Shared::HrisUpdateEmployeeRequestDtoEmploymentStatus.new,
+  ethnicity: Models::Shared::HrisUpdateEmployeeRequestDtoEthnicity.new,
   first_name: 'Isaac',
-  gender: Models::Shared::HrisUpdateEmployeeRequestDtoGender.new(),
+  gender: Models::Shared::HrisUpdateEmployeeRequestDtoGender.new,
   hire_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   home_location: Models::Shared::HrisUpdateEmployeeRequestDtoHomeLocation.new(
     city: 'Grantham',
     country: Models::Shared::HrisUpdateEmployeeRequestDtoCountry.new(
-      value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue::US,
+      value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasHomeLocationValue::US
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'Woolsthorpe Manor',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     phone_number: '+44 1476 860 364',
-    state: Models::Shared::HrisUpdateEmployeeRequestDtoState.new(),
+    state: Models::Shared::HrisUpdateEmployeeRequestDtoState.new,
     street_1: 'Water Lane',
     street_2: 'Woolsthorpe by Colsterworth',
-    zip_code: 'NG33 5NR',
+    zip_code: 'NG33 5NR'
   ),
   job_title: 'Physicist',
   last_name: 'Newton',
   manager_id: '67890',
-  marital_status: Models::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new(),
+  marital_status: Models::Shared::HrisUpdateEmployeeRequestDtoMaritalStatus.new,
   name: 'Isaac Newton',
   national_identity_numbers: [
     Models::Shared::NationalIdentityNumberApiModel.new(
       country: Models::Shared::NationalIdentityNumberApiModelCountry.new(
-        value: Models::Shared::NationalIdentityNumberApiModelValue::US,
+        value: Models::Shared::NationalIdentityNumberApiModelValue::US
       ),
       type: Models::Shared::NationalIdentityNumberApiModelType.new(
-        value: Models::Shared::NationalIdentityNumberApiModelSchemasValue::SSN,
+        value: Models::Shared::NationalIdentityNumberApiModelSchemasValue::SSN
       ),
-      value: '123456789',
+      value: '123456789'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   personal_email: 'isaac.newton@example.com',
   personal_phone_number: '+1234567890',
   preferred_language: Models::Shared::HrisUpdateEmployeeRequestDtoPreferredLanguage.new(
-    value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG,
+    value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasPreferredLanguageValue::ENG
   ),
   start_date: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
   team_id: '2913',
@@ -4656,20 +4585,20 @@ res = s.hris.update_employee(hris_update_employee_request_dto: Models::Shared::H
   work_location: Models::Shared::HrisUpdateEmployeeRequestDtoWorkLocation.new(
     city: 'Grantham',
     country: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationCountry.new(
-      value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue::US,
+      value: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasWorkLocationValue::US
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'Woolsthorpe Manor',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     phone_number: '+44 1476 860 364',
-    state: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasState.new(),
+    state: Models::Shared::HrisUpdateEmployeeRequestDtoSchemasState.new,
     street_1: 'Water Lane',
     street_2: 'Woolsthorpe by Colsterworth',
-    zip_code: 'NG33 5NR',
+    zip_code: 'NG33 5NR'
   ),
-  work_phone_number: '+1234567890',
+  work_phone_number: '+1234567890'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
@@ -4721,19 +4650,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisUpdateEmployeeEmploymentRequest.new(
   hris_update_employment_request_dto: Models::Shared::HrisUpdateEmploymentRequestDto.new(
     contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoContractType.new(
-      contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasContractType.new(),
+      contract_type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasContractType.new,
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       label: 'Full-Time',
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
     effective_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
     end_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
@@ -4741,20 +4670,20 @@ req = Models::Operations::HrisUpdateEmployeeEmploymentRequest.new(
       description: 'Mid-level employee demonstrating proficiency and autonomy.',
       id: '1687-3',
       name: '1687-4',
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
     job_title: 'Software Engineer',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     pay_currency: 'USD',
     pay_frequency: Models::Shared::HrisUpdateEmploymentRequestDtoPayFrequency.new(
       source_value: 'Hourly',
-      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY,
+      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayFrequencyValue::HOURLY
     ),
     pay_period: Models::Shared::HrisUpdateEmploymentRequestDtoPayPeriod.new(
       source_value: 'Hour',
-      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue::HOUR,
+      value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasPayPeriodValue::HOUR
     ),
     pay_rate: '40.00',
     payroll_code: 'PC1',
@@ -4762,25 +4691,24 @@ req = Models::Operations::HrisUpdateEmployeeEmploymentRequest.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       label: 'Permanent',
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-      type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasType.new(),
+      type: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasType.new
     ),
     unified_custom_fields: {
-      "my_project_custom_field_1": 'REF-1236',
-      "my_project_custom_field_2": 'some other value',
+      'my_project_custom_field_1' => 'REF-1236',
+      'my_project_custom_field_2' => 'some other value',
     },
     work_time: Models::Shared::HrisUpdateEmploymentRequestDtoWorkTime.new(
       duration: 'P0Y0M0DT8H0M0S',
       period: Models::Shared::HrisUpdateEmploymentRequestDtoPeriod.new(
-        value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasWorkTimeValue::MONTH,
-      ),
-    ),
+        value: Models::Shared::HrisUpdateEmploymentRequestDtoSchemasWorkTimeValue::MONTH
+      )
+    )
   ),
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.update_employee_employment(request: req)
 
 unless res.update_result.nil?
@@ -4829,25 +4757,24 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisUpdateEmployeeTaskRequest.new(
   prefer: 'heartbeat',
   update_task_request_dto: Models::Shared::UpdateTaskRequestDto.new(
     comment: 'All required documents have been submitted',
     status: Models::Shared::UpdateTaskRequestDtoStatus.new(
-      value: Models::Shared::UpdateTaskRequestDtoValue::OPEN,
-    ),
+      value: Models::Shared::UpdateTaskRequestDtoValue::OPEN
+    )
   ),
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.update_employee_task(request: req)
 
 unless res.update_result.nil?
@@ -4896,11 +4823,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest.new(
   hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto.new(
@@ -4909,22 +4836,21 @@ req = Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest.new(
     end_date: '2021-01-01T01:01:01.000',
     end_half_day: true,
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     reason: Models::Shared::HrisCreateTimeOffRequestDtoReason.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
     start_date: '2021-01-01T01:01:01.000',
     start_half_day: true,
-    time_off_policy_id: 'cx280928933',
+    time_off_policy_id: 'cx280928933'
   ),
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.update_employee_time_off_request(request: req)
 
 unless res.create_result.nil?
@@ -4973,46 +4899,45 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest.new(
   hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto.new(
     document: Models::Shared::Document.new(
-      category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new(),
+      category: Models::Shared::HrisCreateWorkEligibilityRequestDtoCategory.new,
       category_id: '6530',
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       file_format: Models::Shared::HrisCreateWorkEligibilityRequestDtoFileFormat.new(
         source_value: 'application/pdf',
-        value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF,
+        value: Models::Shared::HrisCreateWorkEligibilityRequestDtoSchemasDocumentValue::PDF
       ),
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       name: 'My Document',
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_url: 'https://example.com/file.pdf',
-      updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z'),
+      updated_at: DateTime.iso8601('2021-01-02T01:01:01.000Z')
     ),
     issued_by: Models::Shared::IssuedBy.new(
-      value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US,
+      value: Models::Shared::HrisCreateWorkEligibilityRequestDtoValue::US
     ),
     number: '1234567890',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     sub_type: 'H1B',
-    type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new(),
+    type: Models::Shared::HrisCreateWorkEligibilityRequestDtoType.new,
     valid_from: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
-    valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z'),
+    valid_to: DateTime.iso8601('2021-01-01T00:00:00.000Z')
   ),
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.hris.update_employee_work_eligibility_request(request: req)
 
 if res.status_code == 200
@@ -5061,27 +4986,26 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.hris.upload_employee_document(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto.new(
-  category: Models::Shared::HrisDocumentsUploadRequestDtoCategory.new(),
+  category: Models::Shared::HrisDocumentsUploadRequestDtoCategory.new,
   category_id: '6530',
   confidential: Models::Shared::HrisDocumentsUploadRequestDtoConfidential.new(
     source_value: 'public',
-    value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE,
+    value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasValue::TRUE
   ),
   content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
   file_format: Models::Shared::HrisDocumentsUploadRequestDtoFileFormat.new(
     source_value: 'application/pdf',
-    value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
+    value: Models::Shared::HrisDocumentsUploadRequestDtoSchemasFileFormatValue::PDF
   ),
   name: 'weather-forecast',
-  path: '/path/to/file',
-), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
+  path: '/path/to/file'
+), id: '<id>', x_account_id: '<id>')
 
 unless res.write_result_api_model.nil?
   # handle response
@@ -5091,12 +5015,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `hris_documents_upload_request_dto`                                                                                                                                      | [Models::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md)                                                                    | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
-| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `hris_documents_upload_request_dto`                                                                   | [Models::Shared::HrisDocumentsUploadRequestDto](../../models/shared/hrisdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `x_account_id`                                                                                        | *::String*                                                                                            | :heavy_check_mark:                                                                                    | The account identifier                                                                                |
 
 ### Response
 

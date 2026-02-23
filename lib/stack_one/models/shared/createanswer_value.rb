@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # CreateAnswerValue - The type of the answer.
-      class CreateAnswerValue < T::Enum
-
-
+      class CreateAnswerValue
+        include ::Crystalline::Enum
         enums do
           SHORT_TEXT = new('short_text')
           LONG_TEXT = new('long_text')
@@ -25,6 +24,7 @@ module StackOne
           URL = new('url')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

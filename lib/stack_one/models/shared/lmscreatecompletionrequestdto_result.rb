@@ -15,7 +15,7 @@ module StackOne
         # The original result status from the provider before normalization.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::LmsCreateCompletionRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The StackOne unified result status.
-        field :value, Crystalline::Nilable.new(Models::Shared::LmsCreateCompletionRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::LmsCreateCompletionRequestDtoValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::LmsCreateCompletionRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::LmsCreateCompletionRequestDtoValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::LmsCreateCompletionRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoValue)).void }
         def initialize(source_value: nil, value: nil)

@@ -15,7 +15,7 @@ module StackOne
         # For read operations: the original language code from the provider. For write operations: fallback value used when value is omitted or "unmapped_value". You must ensure this matches the provider's format.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::CreateSkillsApiModelSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The unified locale code. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
-        field :value, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CreateSkillsApiModelSchemasValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::CreateSkillsApiModelSchemasValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CreateSkillsApiModelSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::CreateSkillsApiModelSchemasValue)).void }
         def initialize(source_value: nil, value: nil)
