@@ -15,7 +15,7 @@ module StackOne
 
         field :content, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Date of creation
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
@@ -29,7 +29,7 @@ module StackOne
         # Stackone enum identifying the type of content block.
         field :type, Crystalline::Nilable.new(Models::Shared::ContentBlockType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Date of last update
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(content: T.nilable(::String), created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), status: T.nilable(Models::Shared::ContentBlockStatus), tags: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::ContentBlockType), updated_at: T.nilable(::DateTime)).void }
         def initialize(content: nil, created_at: nil, id: nil, name: nil, remote_id: nil, status: nil, tags: nil, type: nil, updated_at: nil)

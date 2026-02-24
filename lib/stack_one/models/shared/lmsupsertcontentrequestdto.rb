@@ -29,7 +29,7 @@ module StackOne
         # The URL of the thumbnail image associated with the content.
         field :cover_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('cover_url') } }
         # The date on which the content was created.
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The description of the content
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The duration of the content following the ISO8601 standard. If duration_unit is applicable we will derive this from the smallest unit given in the duration string or the minimum unit accepted by the provider.
@@ -45,8 +45,8 @@ module StackOne
         # Value to pass through to the provider
         field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # A short description or summary for the content
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :short_description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('short_description') } }
         # The skills associated with this content
         field :skills, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateSkillsApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skills') } }
@@ -57,7 +57,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The date on which the content was last updated.
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(external_reference: ::String, active: T.nilable(T.any(T::Boolean, Models::Shared::LmsUpsertContentRequestDto2)), additional_data: T.nilable(T::Array[Models::Shared::AdditionalData]), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::CreateCategoriesApiModel]), content_type: T.nilable(Models::Shared::LmsUpsertContentRequestDtoContentType), content_url: T.nilable(::String), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), localizations: T.nilable(T::Array[Models::Shared::LocalizationModel]), mobile_launch_content_url: T.nilable(::String), order: T.nilable(::Float), passthrough: T.nilable(T::Hash[Symbol, ::Object]), short_description: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::CreateSkillsApiModel]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(external_reference:, active: nil, additional_data: nil, authors: nil, categories: nil, content_type: nil, content_url: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, languages: nil, localizations: nil, mobile_launch_content_url: nil, order: nil, passthrough: nil, short_description: nil, skills: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)

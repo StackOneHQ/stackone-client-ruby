@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AccountAddressSchemasValue - The ISO 3166-1 alpha-2 code of the country.
-      class AccountAddressSchemasValue < T::Enum
-
-
+      class AccountAddressSchemasValue
+        include ::Crystalline::Enum
         enums do
           AF = new('AF')
           AL = new('AL')
@@ -262,6 +261,7 @@ module StackOne
           ZW = new('ZW')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

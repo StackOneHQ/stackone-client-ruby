@@ -93,12 +93,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_application(ats_create_application_request_dto: Models::Shared::AtsCreateApplicationRequestDto.new(
   application_status: nil,
   candidate: Models::Shared::AtsCreateApplicationRequestDtoCandidate.new(
@@ -111,7 +110,7 @@ res = s.ats.create_application(ats_create_application_request_dto: Models::Share
         remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
         remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
         value: 'Completed',
-        value_id: 'value_456',
+        value_id: 'value_456'
       ),
     ],
     email: 'sestier.romain123@gmail.com',
@@ -120,48 +119,48 @@ res = s.ats.create_application(ats_create_application_request_dto: Models::Share
     last_name: 'Sestier',
     name: 'Romain Sestier',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     phone_numbers: [
       Models::Shared::PhoneNumber.new(
-        phone: '+447700112233',
+        phone: '+447700112233'
       ),
     ],
     social_links: [
       Models::Shared::SocialLink.new(
         type: 'linkedin',
-        url: 'https://www.linkedin.com/in/romainsestier/',
+        url: 'https://www.linkedin.com/in/romainsestier/'
       ),
     ],
     title: 'Software Engineer',
     unified_custom_fields: {
-      "my_project_custom_field_1": 'REF-1236',
-      "my_project_custom_field_2": 'some other value',
-    },
+      'my_project_custom_field_1' => 'REF-1236',
+      'my_project_custom_field_2' => 'some other value',
+    }
   ),
   candidate_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
   documents: [
     Models::Shared::AtsDocumentsUploadRequestDto.new(
-      category: Models::Shared::AtsDocumentsUploadRequestDtoCategory.new(),
+      category: Models::Shared::AtsDocumentsUploadRequestDtoCategory.new,
       category_id: '6530',
       confidential: Models::Shared::AtsDocumentsUploadRequestDtoConfidential.new(
         source_value: 'public',
-        value: Models::Shared::AtsDocumentsUploadRequestDtoSchemasValue::TRUE,
+        value: Models::Shared::AtsDocumentsUploadRequestDtoSchemasValue::TRUE
       ),
       content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
       file_format: Models::Shared::AtsDocumentsUploadRequestDtoFileFormat.new(
         source_value: 'application/pdf',
-        value: Models::Shared::AtsDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
+        value: Models::Shared::AtsDocumentsUploadRequestDtoSchemasFileFormatValue::PDF
       ),
       name: 'weather-forecast',
-      path: '/path/to/file',
+      path: '/path/to/file'
     ),
   ],
   job_id: '4071538b-3cac-4fbf-ac76-f78ed250ffdd',
   job_posting_id: '1c702a20-8de8-4d03-ac18-cbf4ac42eb51',
   location_id: 'dd8d41d1-5eb8-4408-9c87-9ba44604eae4',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   questionnaires: [
     Models::Shared::CreateQuestionnaire.new(
@@ -170,17 +169,17 @@ res = s.ats.create_application(ats_create_application_request_dto: Models::Share
           id: 'answer1',
           type: Models::Shared::CreateAnswerType.new(
             source_value: 'Short Text',
-            value: Models::Shared::CreateAnswerValue::SHORT_TEXT,
+            value: Models::Shared::CreateAnswerValue::SHORT_TEXT
           ),
           values: [
             'Yes',
-          ],
+          ]
         ),
       ],
-      id: 'right_to_work',
+      id: 'right_to_work'
     ),
   ],
-  source: nil,
+  source: nil
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -231,26 +230,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_application_note(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto.new(
   author_id: '1234567890',
   content: [
     Models::Shared::NoteContentApiModel.new(
-      body: 'This candidate seems like a good fit for the role',
+      body: 'This candidate seems like a good fit for the role'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   visibility: Models::Shared::Visibility.new(
     source_value: 'Public',
-    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
-  ),
+    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -302,24 +300,23 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_background_check_package(ats_create_background_check_packages_request_dto: Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto.new(
   description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
   name: 'Test 1',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   tests: [
     Models::Shared::CreatePackage.new(
       description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
-      name: 'Test 1',
+      name: 'Test 1'
     ),
-  ],
+  ]
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -370,12 +367,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_candidate(ats_create_candidate_request_dto: Models::Shared::AtsCreateCandidateRequestDto.new(
   company: 'Company Inc.',
   country: 'United States',
@@ -386,7 +382,7 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto: Models::Shared::A
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   email: 'sestier.romain123@gmail.com',
@@ -395,24 +391,24 @@ res = s.ats.create_candidate(ats_create_candidate_request_dto: Models::Shared::A
   last_name: 'Sestier',
   name: 'Romain Sestier',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   phone_numbers: [
     Models::Shared::PhoneNumber.new(
-      phone: '+447700112233',
+      phone: '+447700112233'
     ),
   ],
   social_links: [
     Models::Shared::SocialLink.new(
       type: 'linkedin',
-      url: 'https://www.linkedin.com/in/romainsestier/',
+      url: 'https://www.linkedin.com/in/romainsestier/'
     ),
   ],
   title: 'Software Engineer',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -463,26 +459,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_candidate_note(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto.new(
   author_id: '1234567890',
   content: [
     Models::Shared::NoteContentApiModel.new(
-      body: 'This candidate seems like a good fit for the role',
+      body: 'This candidate seems like a good fit for the role'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   visibility: Models::Shared::Visibility.new(
     source_value: 'Public',
-    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
-  ),
+    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -534,26 +529,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_interview_note(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto.new(
   author_id: '1234567890',
   content: [
     Models::Shared::NoteContentApiModel.new(
-      body: 'This candidate seems like a good fit for the role',
+      body: 'This candidate seems like a good fit for the role'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   visibility: Models::Shared::Visibility.new(
     source_value: 'Public',
-    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC,
-  ),
+    value: Models::Shared::AtsCreateNotesRequestDtoValue::PUBLIC
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -605,12 +599,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_job(ats_create_job_request_dto: Models::Shared::AtsCreateJobRequestDto.new(
   code: '184919',
   custom_fields: [
@@ -620,7 +613,7 @@ res = s.ats.create_job(ats_create_job_request_dto: Models::Shared::AtsCreateJobR
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   department_ids: [
@@ -636,7 +629,7 @@ res = s.ats.create_job(ats_create_job_request_dto: Models::Shared::AtsCreateJobR
       last_name: 'Doe',
       remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       role: 'Software Engineer',
-      user_id: '123456',
+      user_id: '123456'
     ),
   ],
   interview_stages: [
@@ -645,15 +638,15 @@ res = s.ats.create_job(ats_create_job_request_dto: Models::Shared::AtsCreateJobR
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       unified_custom_fields: {
-        "my_project_custom_field_1": 'REF-1236',
-        "my_project_custom_field_2": 'some other value',
+        'my_project_custom_field_1' => 'REF-1236',
+        'my_project_custom_field_2' => 'some other value',
       },
-      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z')
     ),
   ],
   job_status: Models::Shared::JobStatus.new(
     source_value: 'Published',
-    value: Models::Shared::AtsCreateJobRequestDtoValue::PUBLISHED,
+    value: Models::Shared::AtsCreateJobRequestDtoValue::PUBLISHED
   ),
   location_ids: [
     '668570',
@@ -661,13 +654,13 @@ res = s.ats.create_job(ats_create_job_request_dto: Models::Shared::AtsCreateJobR
     '688572',
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   title: 'Software Engineer',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -718,28 +711,27 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.create_offer(ats_create_offer_request_dto: Models::Shared::AtsCreateOfferRequestDto.new(
   offer_history: [
     Models::Shared::OfferHistory.new(
       created_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
       start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+      updated_at: DateTime.iso8601('2021-01-01T01:01:01.000Z')
     ),
   ],
   offer_status: Models::Shared::OfferStatus.new(
     source_value: 'Pending',
-    value: Models::Shared::AtsCreateOfferRequestDtoValue::PENDING,
+    value: Models::Shared::AtsCreateOfferRequestDtoValue::PENDING
   ),
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
-  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
+  start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z')
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -790,12 +782,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.delete_background_check_package(id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
@@ -846,21 +837,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsDownloadApplicationDocumentRequest.new(
-  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.download_application_document(request: req)
 
 unless res.body.nil?
@@ -909,11 +898,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationRequest.new(
   prefer: 'heartbeat',
@@ -921,9 +910,8 @@ req = Models::Operations::AtsGetApplicationRequest.new(
   fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   id: '<id>',
   include: 'attachments,custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application(request: req)
 
 unless res.application_result.nil?
@@ -972,20 +960,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: nil,
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_custom_field_definition(request: req)
 
 unless res.custom_field_definition_result_api_model.nil?
@@ -1034,20 +1021,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationDocumentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_document(request: req)
 
 unless res.ats_document_result.nil?
@@ -1096,19 +1082,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationDocumentCategoryRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_document_category(request: req)
 
 unless res.reference_result.nil?
@@ -1157,20 +1142,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationNoteRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_note(request: req)
 
 unless res.note_result.nil?
@@ -1219,20 +1203,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationOfferRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_offer(request: req)
 
 unless res.offers_result.nil?
@@ -1281,20 +1264,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationScheduledInterviewRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_scheduled_interview(request: req)
 
 unless res.scheduled_interviews_result.nil?
@@ -1343,20 +1325,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationScorecardRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_scorecard(request: req)
 
 unless res.scorecards_result.nil?
@@ -1405,19 +1386,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetApplicationStageRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_application_stage(request: req)
 
 unless res.interview_stage_result.nil?
@@ -1466,18 +1446,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetAssessmentsPackageRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_assessments_package(request: req)
 
 unless res.assessment_package_result.nil?
@@ -1526,19 +1505,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetBackgroundCheckPackageRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,tests,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_background_check_package(request: req)
 
 unless res.background_check_package_result.nil?
@@ -1587,20 +1565,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetCandidateRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,tags,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_candidate(request: req)
 
 unless res.candidate_result.nil?
@@ -1649,22 +1626,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsGetCandidateCustomFieldDefinitionQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_candidate_custom_field_definition(request: req)
 
 unless res.custom_field_definition_result_api_model.nil?
@@ -1713,20 +1689,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetCandidateNoteRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_candidate_note(request: req)
 
 unless res.note_result.nil?
@@ -1775,19 +1750,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetDepartmentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_department(request: req)
 
 unless res.department_result.nil?
@@ -1836,19 +1810,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetInterviewRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_interview(request: req)
 
 unless res.interviews_result.nil?
@@ -1899,19 +1872,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetInterviewStageRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_interview_stage(request: req)
 
 unless res.interview_stage_result.nil?
@@ -1960,11 +1932,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetJobRequest.new(
   prefer: 'heartbeat',
@@ -1972,9 +1944,8 @@ req = Models::Operations::AtsGetJobRequest.new(
   fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_job(request: req)
 
 unless res.ats_job_result.nil?
@@ -2023,20 +1994,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetJobApplicationStageRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_job_application_stage(request: req)
 
 unless res.application_stage_result.nil?
@@ -2085,22 +2055,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetJobCustomFieldDefinitionRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsGetJobCustomFieldDefinitionQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_job_custom_field_definition(request: req)
 
 unless res.custom_field_definition_result_api_model.nil?
@@ -2149,20 +2118,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetJobPostingRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at,unified_custom_fields',
   id: '<id>',
   include: 'questionnaires',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_job_posting(request: req)
 
 unless res.job_posting_result.nil?
@@ -2211,19 +2179,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetListRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_list(request: req)
 
 unless res.list_result.nil?
@@ -2272,19 +2239,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetLocationRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_location(request: req)
 
 unless res.ats_location_result.nil?
@@ -2333,19 +2299,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetOfferRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_offer(request: req)
 
 unless res.offers_result.nil?
@@ -2394,19 +2359,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetRejectedReasonRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,label,type,rejected_reason_type,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_rejected_reason(request: req)
 
 unless res.rejected_reason_result.nil?
@@ -2455,19 +2419,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsGetUserRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.get_user(request: req)
 
 unless res.user_result.nil?
@@ -2516,22 +2479,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationChangesRequest.new(
   prefer: 'heartbeat',
   fields_: 'event_id,remote_event_id,created_at,effective_at,change_type,actor,new_values,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationChangesQueryParamFilter.new(
-    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_changes(request: req)
 
 unless res.application_changes_paginated.nil?
@@ -2580,19 +2542,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_custom_field_definitions(request: req)
 
 unless res.custom_field_definitions_paginated.nil?
@@ -2641,21 +2602,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationDocumentCategoriesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationDocumentCategoriesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_document_categories(request: req)
 
 unless res.reference_paginated.nil?
@@ -2704,22 +2664,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationDocumentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,category,category_id,remote_category_id,contents,created_at,updated_at,remote_url,file_format,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationDocumentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_documents(request: req)
 
 unless res.ats_documents_paginated.nil?
@@ -2768,22 +2727,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationNotesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationNotesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_notes(request: req)
 
 unless res.notes_paginated.nil?
@@ -2832,22 +2790,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationScorecardsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,sections,label,candidate_id,remote_candidate_id,application_id,remote_application_id,interview_id,remote_interview_id,author_id,remote_author_id,overall_recommendation,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationScorecardsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_scorecards(request: req)
 
 unless res.scorecards_paginated.nil?
@@ -2896,21 +2853,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationStagesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationStagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_application_stages(request: req)
 
 unless res.interview_stages_paginated.nil?
@@ -2959,11 +2915,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationsRequest.new(
   prefer: 'heartbeat',
@@ -2971,12 +2927,11 @@ req = Models::Operations::AtsListApplicationsRequest.new(
   fields_: 'id,remote_id,candidate_id,remote_candidate_id,job_id,remote_job_id,job_posting_id,remote_job_posting_id,interview_stage,interview_stage_id,remote_interview_stage_id,application_stage,application_stage_id,remote_application_stage_id,rejected_reason,rejected_reason_id,remote_rejected_reason_id,rejected_reason_ids,remote_rejected_reason_ids,rejected_reasons,rejected_at,location_id,remote_location_id,location_ids,remote_location_ids,status,application_status,questionnaires,attachments,result_links,source,created_at,updated_at,documents,custom_fields,candidate,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'attachments,custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_applications(request: req)
 
 unless res.applications_paginated.nil?
@@ -3025,22 +2980,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationsOffersRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsOffersQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_applications_offers(request: req)
 
 unless res.offers_paginated.nil?
@@ -3089,22 +3043,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListApplicationsScheduledInterviewsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListApplicationsScheduledInterviewsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_applications_scheduled_interviews(request: req)
 
 unless res.scheduled_interviews_paginated.nil?
@@ -3153,20 +3106,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListAssessmentsPackagesRequest.new(
   prefer: 'heartbeat',
   filter: Models::Operations::AtsListAssessmentsPackagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_assessments_packages(request: req)
 
 unless res.assessment_package_paginated.nil?
@@ -3215,21 +3167,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListBackgroundCheckPackagesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,tests,unified_custom_fields',
   filter: Models::Operations::AtsListBackgroundCheckPackagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_background_check_packages(request: req)
 
 unless res.background_check_package_paginated.nil?
@@ -3278,21 +3229,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsListCandidateCustomFieldDefinitionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_candidate_custom_field_definitions(request: req)
 
 unless res.custom_field_definitions_paginated.nil?
@@ -3341,22 +3291,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListCandidateNotesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,content,author_id,remote_author_id,visibility,created_at,updated_at,deleted_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidateNotesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_candidate_notes(request: req)
 
 unless res.notes_paginated.nil?
@@ -3405,23 +3354,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListCandidatesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,first_name,last_name,email,emails,social_links,phone,phone_numbers,company,country,title,application_ids,remote_application_ids,hired_at,custom_fields,tags,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListCandidatesQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_candidates(request: req)
 
 unless res.candidates_paginated.nil?
@@ -3470,21 +3418,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListDepartmentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   filter: Models::Operations::AtsListDepartmentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_departments(request: req)
 
 unless res.departments_paginated.nil?
@@ -3535,21 +3482,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListInterviewStagesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListInterviewStagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_interview_stages(request: req)
 
 unless res.interview_stages_paginated.nil?
@@ -3598,22 +3544,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListInterviewsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,interview_stage_id,remote_interview_stage_id,interview_stage,status,interview_status,interviewer_ids,remote_interviewer_ids,interview_parts,interviewers,start_at,end_at,meeting_url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListInterviewsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_interviews(request: req)
 
 unless res.interviews_paginated.nil?
@@ -3662,22 +3607,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListJobApplicationStagesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,order,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobApplicationStagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_job_application_stages(request: req)
 
 unless res.application_stages_paginated.nil?
@@ -3726,21 +3670,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListJobCustomFieldDefinitionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::AtsListJobCustomFieldDefinitionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_job_custom_field_definitions(request: req)
 
 unless res.custom_field_definitions_paginated.nil?
@@ -3789,23 +3732,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListJobPostingsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,title,locations,internal,status,job_id,remote_job_id,content,compensation,employment_type,employment_contract_type,external_url,external_apply_url,questionnaires,start_date,updated_at,created_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobPostingsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'questionnaires',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_job_postings(request: req)
 
 unless res.job_postings_paginated.nil?
@@ -3854,11 +3796,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListJobsRequest.new(
   prefer: 'heartbeat',
@@ -3866,12 +3808,11 @@ req = Models::Operations::AtsListJobsRequest.new(
   fields_: 'id,remote_id,code,title,description,status,job_status,department_ids,remote_department_ids,location_ids,remote_location_ids,hiring_team,interview_stages,confidential,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::AtsListJobsQueryParamFilter.new(
     created_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_jobs(request: req)
 
 unless res.ats_jobs_paginated.nil?
@@ -3920,19 +3861,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListListsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_lists(request: req)
 
 unless res.lists_paginated.nil?
@@ -3981,21 +3921,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListLocationsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,unified_custom_fields',
   filter: Models::Operations::AtsListLocationsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_locations(request: req)
 
 unless res.ats_locations_paginated.nil?
@@ -4044,21 +3983,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListOffersRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,application_id,remote_application_id,start_date,offer_status,salary,currency,created_at,updated_at,offer_history,unified_custom_fields',
   filter: Models::Operations::AtsListOffersQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_offers(request: req)
 
 unless res.offers_paginated.nil?
@@ -4107,21 +4045,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListRejectedReasonsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,label,type,rejected_reason_type,unified_custom_fields',
   filter: Models::Operations::AtsListRejectedReasonsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_rejected_reasons(request: req)
 
 unless res.rejected_reasons_paginated.nil?
@@ -4170,19 +4107,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsListUsersRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.list_users(request: req)
 
 unless res.users_paginated.nil?
@@ -4231,17 +4167,16 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.move_application(ats_move_application_request_dto: Models::Shared::AtsMoveApplicationRequestDto.new(
   interview_stage_id: 'f223d7f6-908b-48f0-9237-b201c307f609',
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.move_application_result.nil?
@@ -4293,39 +4228,38 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_dto: Models::Shared::AtsCreateCandidatesAssessmentsRequestDto.new(
   application: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication.new(
     application_status: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus.new(
       source_value: 'Hired',
-      value: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoValue::HIRED,
+      value: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoValue::HIRED
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   candidate: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate.new(
     emails: [
       Models::Shared::CandidateEmail.new(
         type: 'personal',
-        value: 'sestier.romain123@gmail.com',
+        value: 'sestier.romain123@gmail.com'
       ),
     ],
     first_name: 'Romain',
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     last_name: 'Sestier',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     profile_url: 'https://exmaple.com/candidate?id=xyz',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
   job: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob.new(
@@ -4336,24 +4270,24 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
         last_name: 'Doe',
         remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
         role: 'Software Engineer',
-        user_id: '123456',
+        user_id: '123456'
       ),
     ],
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    title: 'Software Engineer',
+    title: 'Software Engineer'
   ),
   package: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage.new(
     description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     name: 'Test 1',
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   requester: Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester.new(
     email: 'john.doe@gmail.com',
@@ -4361,9 +4295,9 @@ res = s.ats.order_assessments_request(ats_create_candidates_assessments_request_
     last_name: 'Doe',
     remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
     role: 'Software Engineer',
-    user_id: '123456',
+    user_id: '123456'
   ),
-  results_update_url: 'https://exmaple.com/integrations/results/update',
+  results_update_url: 'https://exmaple.com/integrations/results/update'
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_assessment_order_result.nil?
@@ -4414,23 +4348,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.order_background_check_request(ats_create_background_check_order_request_dto: Models::Shared::AtsCreateBackgroundCheckOrderRequestDto.new(
   application: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication.new(
     application_status: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplicationStatus.new(
       source_value: 'Hired',
-      value: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue::HIRED,
+      value: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoValue::HIRED
     ),
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
-    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+    remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
   ),
   candidate: nil,
   id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
@@ -4442,15 +4375,15 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
         last_name: 'Doe',
         remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
         role: 'Software Engineer',
-        user_id: '123456',
+        user_id: '123456'
       ),
     ],
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    title: 'Software Engineer',
+    title: 'Software Engineer'
   ),
   package: Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage.new(
     description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
@@ -4462,12 +4395,12 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
         description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
         id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
         name: 'Test 1',
-        remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+        remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
       ),
-    ],
+    ]
   ),
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
   requester: Models::Shared::Requester.new(
@@ -4476,9 +4409,9 @@ res = s.ats.order_background_check_request(ats_create_background_check_order_req
     last_name: 'Doe',
     remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
     role: 'Software Engineer',
-    user_id: '123456',
+    user_id: '123456'
   ),
-  results_update_url: 'https://exmaple.com/integrations/results/update',
+  results_update_url: 'https://exmaple.com/integrations/results/update'
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_background_check_order_result.nil?
@@ -4529,17 +4462,16 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.reject_application(ats_reject_application_request_dto: Models::Shared::AtsRejectApplicationRequestDto.new(
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
-  rejected_reason_id: 'f223d7f6-908b-48f0-9237-b201c307f609',
+  rejected_reason_id: 'f223d7f6-908b-48f0-9237-b201c307f609'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.reject_application_result.nil?
@@ -4591,16 +4523,15 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.update_application(ats_update_application_request_dto: Models::Shared::AtsUpdateApplicationRequestDto.new(
   application_status: Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus.new(
     source_value: 'Hired',
-    value: Models::Shared::AtsUpdateApplicationRequestDtoValue::HIRED,
+    value: Models::Shared::AtsUpdateApplicationRequestDtoValue::HIRED
   ),
   custom_fields: [
     Models::Shared::CustomFields.new(
@@ -4609,16 +4540,16 @@ res = s.ats.update_application(ats_update_application_request_dto: Models::Share
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   source: Models::Shared::AtsUpdateApplicationRequestDtoSource.new(
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    name: 'LinkedIn',
-  ),
+    name: 'LinkedIn'
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
@@ -4670,34 +4601,33 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsUpdateApplicationNoteRequest.new(
   ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
     author_id: '1234567890',
     content: [
       Models::Shared::NoteContentApiModel.new(
-        body: 'This candidate seems like a good fit for the role',
+        body: 'This candidate seems like a good fit for the role'
       ),
     ],
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
       source_value: 'Public',
-      value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
-    ),
+      value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC
+    )
   ),
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.update_application_note(request: req)
 
 unless res.update_result.nil?
@@ -4746,35 +4676,34 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.update_assessments_result(ats_update_candidates_assessments_results_request_dto: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto.new(
   attachments: nil,
   candidate: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoCandidate.new(
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    profile_url: 'https://exmaple.com/candidate?id=xyz',
+    profile_url: 'https://exmaple.com/candidate?id=xyz'
   ),
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   result: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoResult.new(
     source_value: 'Passed',
-    value: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoValue::PASSED,
+    value: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoValue::PASSED
   ),
   result_url: 'https://exmaple.com/result?id=xyz',
   score: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoScore.new(
     label: 'Percentage',
     max: '100',
     min: '0',
-    value: '80',
+    value: '80'
   ),
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   submission_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  summary: 'Test is passed',
+  summary: 'Test is passed'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
@@ -4826,25 +4755,24 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.update_background_check_package(ats_update_background_check_packages_request_dto: Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto.new(
   description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
   name: 'Test 1',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   tests: [
     Models::Shared::UpdatePackage.new(
       description: 'Skills test to gauge a candidate\'s proficiency in job-specific skills',
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-      name: 'Test 1',
+      name: 'Test 1'
     ),
-  ],
+  ]
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
@@ -4896,43 +4824,42 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.update_background_check_result(ats_update_background_check_result_request_dto: Models::Shared::AtsUpdateBackgroundCheckResultRequestDto.new(
   attachments: [
     Models::Shared::Attachment.new(
       content_type: Models::Shared::AttachmentContentType.new(
         source_value: 'Text',
-        value: Models::Shared::AttachmentValue::TEXT,
+        value: Models::Shared::AttachmentValue::TEXT
       ),
-      url: 'http://example.com/resume.pdf',
+      url: 'http://example.com/resume.pdf'
     ),
   ],
   candidate: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate.new(
     id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-    profile_url: 'https://exmaple.com/candidate?id=xyz',
+    profile_url: 'https://exmaple.com/candidate?id=xyz'
   ),
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   result: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult.new(
     source_value: 'Passed',
-    value: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoValue::PASSED,
+    value: Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoValue::PASSED
   ),
   result_url: 'https://exmaple.com/result?id=xyz',
   score: Models::Shared::Score.new(
     label: 'Percentage',
     max: '100',
     min: '0',
-    value: '80',
+    value: '80'
   ),
   start_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
   submission_date: DateTime.iso8601('2021-01-01T01:01:01.000Z'),
-  summary: 'Test is passed',
+  summary: 'Test is passed'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?
@@ -4984,12 +4911,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.update_candidate(ats_update_candidate_request_dto: Models::Shared::AtsUpdateCandidateRequestDto.new(
   application_ids: [
     '123e4567-e89b-12d3-a456-426614174000',
@@ -5004,14 +4930,14 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto: Models::Shared::A
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   email: 'sestier.romain123@gmail.com',
   emails: [
     Models::Shared::CandidateEmail.new(
       type: 'personal',
-      value: 'sestier.romain123@gmail.com',
+      value: 'sestier.romain123@gmail.com'
     ),
   ],
   first_name: 'Romain',
@@ -5019,19 +4945,19 @@ res = s.ats.update_candidate(ats_update_candidate_request_dto: Models::Shared::A
   last_name: 'Sestier',
   name: 'Romain Sestier',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   phone_numbers: [
     Models::Shared::PhoneNumber.new(
-      phone: '+447700112233',
+      phone: '+447700112233'
     ),
   ],
   social_links: nil,
   title: 'Software Engineer',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -5083,34 +5009,33 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::AtsUpdateInterviewNoteRequest.new(
   ats_update_notes_request_dto: Models::Shared::AtsUpdateNotesRequestDto.new(
     author_id: '1234567890',
     content: [
       Models::Shared::NoteContentApiModel.new(
-        body: 'This candidate seems like a good fit for the role',
+        body: 'This candidate seems like a good fit for the role'
       ),
     ],
     passthrough: {
-      "other_known_names": 'John Doe',
+      'other_known_names' => 'John Doe',
     },
     visibility: Models::Shared::AtsUpdateNotesRequestDtoVisibility.new(
       source_value: 'Public',
-      value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC,
-    ),
+      value: Models::Shared::AtsUpdateNotesRequestDtoValue::PUBLIC
+    )
   ),
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.ats.update_interview_note(request: req)
 
 unless res.update_result.nil?
@@ -5159,12 +5084,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.update_job(ats_update_job_request_dto: Models::Shared::AtsUpdateJobRequestDto.new(
   code: '184919',
   custom_fields: [
@@ -5174,7 +5098,7 @@ res = s.ats.update_job(ats_update_job_request_dto: Models::Shared::AtsUpdateJobR
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   department_ids: [
@@ -5190,7 +5114,7 @@ res = s.ats.update_job(ats_update_job_request_dto: Models::Shared::AtsUpdateJobR
       last_name: 'Doe',
       remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       role: 'Software Engineer',
-      user_id: '123456',
+      user_id: '123456'
     ),
   ],
   interview_stages: nil,
@@ -5201,13 +5125,13 @@ res = s.ats.update_job(ats_update_job_request_dto: Models::Shared::AtsUpdateJobR
     '688572',
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   title: 'Software Engineer',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
-  },
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -5259,24 +5183,23 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.ats.upload_application_document(ats_documents_upload_request_dto: Models::Shared::AtsDocumentsUploadRequestDto.new(
-  category: Models::Shared::AtsDocumentsUploadRequestDtoCategory.new(),
+  category: Models::Shared::AtsDocumentsUploadRequestDtoCategory.new,
   category_id: '6530',
   confidential: nil,
   content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
   file_format: Models::Shared::AtsDocumentsUploadRequestDtoFileFormat.new(
     source_value: 'application/pdf',
-    value: Models::Shared::AtsDocumentsUploadRequestDtoSchemasFileFormatValue::PDF,
+    value: Models::Shared::AtsDocumentsUploadRequestDtoSchemasFileFormatValue::PDF
   ),
   name: 'weather-forecast',
-  path: '/path/to/file',
-), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
+  path: '/path/to/file'
+), id: '<id>', x_account_id: '<id>')
 
 unless res.write_result_api_model.nil?
   # handle response
@@ -5286,12 +5209,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ats_documents_upload_request_dto`                                                                                                                                       | [Models::Shared::AtsDocumentsUploadRequestDto](../../models/shared/atsdocumentsuploadrequestdto.md)                                                                      | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `id`                                                                                                                                                                     | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
-| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ats_documents_upload_request_dto`                                                                  | [Models::Shared::AtsDocumentsUploadRequestDto](../../models/shared/atsdocumentsuploadrequestdto.md) | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `id`                                                                                                | *::String*                                                                                          | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `x_account_id`                                                                                      | *::String*                                                                                          | :heavy_check_mark:                                                                                  | The account identifier                                                                              |
 
 ### Response
 

@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # PositionValue - The status of the position.
-      class PositionValue < T::Enum
-
-
+      class PositionValue
+        include ::Crystalline::Enum
         enums do
           OPEN = new('open')
           DRAFT = new('draft')
@@ -18,6 +17,7 @@ module StackOne
           PAUSED = new('paused')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

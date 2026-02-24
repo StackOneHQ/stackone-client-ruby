@@ -9,8 +9,6 @@ module StackOne
     module Operations
 
       class Exclude < T::Enum
-
-
         enums do
           ACTIONS = new('actions')
         end

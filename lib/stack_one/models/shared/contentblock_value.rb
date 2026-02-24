@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # ContentBlockValue - The Status of the content blocks.
-      class ContentBlockValue < T::Enum
-
-
+      class ContentBlockValue
+        include ::Crystalline::Enum
         enums do
           DRAFT = new('draft')
           LIVE = new('live')
           ARCHIVED = new('archived')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -15,7 +15,7 @@ module StackOne
         # Code of the job
         field :code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('code') } }
         # Confidential status of the job
-        field :confidential, Crystalline::Nilable.new(Models::Shared::AtsUpdateJobRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': Utils.enum_from_string(Models::Shared::AtsUpdateJobRequestDtoConfidential, true) } }
+        field :confidential, Crystalline::Nilable.new(Models::Shared::AtsUpdateJobRequestDtoConfidential), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('confidential'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AtsUpdateJobRequestDtoConfidential, true) } }
         # The job custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Department ids of the job
@@ -33,8 +33,8 @@ module StackOne
         # Value to pass through to the provider
         field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Status of the job
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :status, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Title of the job
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }

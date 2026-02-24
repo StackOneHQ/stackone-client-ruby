@@ -19,7 +19,7 @@ module StackOne
 
         field :status_code, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode'), required: true } }
 
-        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': ::StackOne::Utils.datetime_from_iso_format(false) } }
 
         sig { params(data: Models::Shared::CreateResultDataApiModel, message: ::String, status_code: ::Float, timestamp: ::DateTime).void }
         def initialize(data:, message:, status_code:, timestamp:)

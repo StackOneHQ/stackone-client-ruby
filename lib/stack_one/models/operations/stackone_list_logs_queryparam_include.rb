@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # StackoneListLogsQueryParamInclude - The include parameter allows you to include additional data in the response.
       class StackoneListLogsQueryParamInclude < T::Enum
-
-
         enums do
           STEP_LOGS = new('step_logs')
         end

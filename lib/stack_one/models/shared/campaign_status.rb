@@ -15,7 +15,7 @@ module StackOne
         # The source value of the Status.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::CampaignSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The Status of the campaign.
-        field :value, Crystalline::Nilable.new(Models::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::CampaignSchemasValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::CampaignSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::CampaignSchemasValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::CampaignSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::CampaignSchemasValue)).void }
         def initialize(source_value: nil, value: nil)

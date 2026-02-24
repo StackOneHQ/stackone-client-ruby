@@ -23,7 +23,7 @@ module StackOne
         # Reference number for the journal
         field :reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reference') } }
         # Date of the journal transaction
-        field :transaction_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('transaction_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :transaction_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('transaction_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(currency_code: T.nilable(Models::Shared::CurrencyCode), exchange_rate: T.nilable(::Float), lines: T.nilable(T::Array[Models::Shared::CreateJournalLine]), memo: T.nilable(::String), reference: T.nilable(::String), transaction_date: T.nilable(::DateTime)).void }
         def initialize(currency_code: nil, exchange_rate: nil, lines: nil, memo: nil, reference: nil, transaction_date: nil)

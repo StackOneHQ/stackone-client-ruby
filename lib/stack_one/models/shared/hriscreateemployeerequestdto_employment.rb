@@ -15,19 +15,19 @@ module StackOne
         # The employment work schedule type
         field :contract_type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contract_type') } }
         # The employee effective date
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :effective_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
+        field :effective_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employment work schedule type (e.g., full-time, part-time)
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_contract_type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentContractType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_contract_type') } }
         # The type of employment (e.g., contractor, permanent)
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :employment_type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employment_type') } }
         # The end date of employment
-        field :end_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Represents the employee’s position within the organizational hierarchy.
         field :grade, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoGrade), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('grade') } }
         # The job title of the employee

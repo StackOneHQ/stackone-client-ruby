@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AtsCreateOfferRequestDtoValue - The status of the offer.
-      class AtsCreateOfferRequestDtoValue < T::Enum
-
-
+      class AtsCreateOfferRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           PENDING = new('pending')
           RETRACTED = new('retracted')
@@ -21,6 +20,7 @@ module StackOne
           NOT_APPROVED = new('not_approved')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -25,20 +25,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsDownloadFileRequest.new(
-  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.download_file(request: req)
 
 unless res.body.nil?
@@ -87,19 +85,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsGetDriveRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.get_drive(request: req)
 
 unless res.drive_result.nil?
@@ -148,20 +145,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsGetFileRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,size,file_format,path,owner_id,remote_owner_id,folder_id,remote_folder_id,drive_id,remote_drive_id,export_formats,default_download_format,created_at,updated_at,has_content,has_children,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   id: '<id>',
   include: 'all_parent_folder_ids',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.get_file(request: req)
 
 unless res.file_result.nil?
@@ -210,20 +206,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsGetFolderRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,size,path,owner_id,remote_owner_id,parent_folder_id,remote_parent_folder_id,drive_id,remote_drive_id,created_at,updated_at,has_content,has_children,is_root,all_parent_folder_ids,remote_all_parent_folder_ids,unified_custom_fields',
   id: '<id>',
   include: 'all_parent_folder_ids',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.get_folder(request: req)
 
 unless res.folder_result.nil?
@@ -272,21 +267,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsListDrivesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,url,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::DocumentsListDrivesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.list_drives(request: req)
 
 unless res.drives_paginated.nil?
@@ -335,11 +329,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsListFilesRequest.new(
   prefer: 'heartbeat',
@@ -350,14 +344,13 @@ req = Models::Operations::DocumentsListFilesRequest.new(
     drive_id: '1234567890',
     folder_id: '1234567890',
     name: 'john_doe_resume.pdf',
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   folder_id: '1234567890',
   include: 'all_parent_folder_ids',
   nested_items: 'true',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.list_files(request: req)
 
 unless res.files_paginated.nil?
@@ -406,11 +399,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::DocumentsListFoldersRequest.new(
   prefer: 'heartbeat',
@@ -418,14 +411,14 @@ req = Models::Operations::DocumentsListFoldersRequest.new(
   filter: Models::Operations::DocumentsListFoldersQueryParamFilter.new(
     drive_id: '1234567890',
     folder_id: '1234567890',
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    name: 'Engineering',
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   folder_id: '1234567890',
   include: 'all_parent_folder_ids',
   nested_items: 'true',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.documents.list_folders(request: req)
 
 unless res.folders_paginated.nil?
@@ -474,30 +467,29 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.documents.upload_file(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto.new(
   category: Models::Shared::UnifiedUploadRequestDtoCategory.new(
     source_value: '550e8400-e29b-41d4-a716-446655440000, CUSTOM_CATEGORY_NAME',
-    value: 'reports, resumes',
+    value: 'reports, resumes'
   ),
   category_id: '6530',
   confidential: Models::Shared::UnifiedUploadRequestDtoConfidential.new(
     source_value: 'public',
-    value: Models::Shared::UnifiedUploadRequestDtoValue::TRUE,
+    value: Models::Shared::UnifiedUploadRequestDtoValue::TRUE
   ),
   content: 'VGhpcyBpc24ndCByZWFsbHkgYSBzYW1wbGUgZmlsZSwgYnV0IG5vIG9uZSB3aWxsIGV2ZXIga25vdyE',
   file_format: Models::Shared::UnifiedUploadRequestDtoFileFormat.new(
     source_value: 'application/pdf',
-    value: Models::Shared::UnifiedUploadRequestDtoSchemasValue::PDF,
+    value: Models::Shared::UnifiedUploadRequestDtoSchemasValue::PDF
   ),
   name: 'weather-forecast',
-  path: '/path/to/file',
-), x_account_id: '<id>', prefer: 'heartbeat')
+  path: '/path/to/file'
+), x_account_id: '<id>')
 
 unless res.write_result_api_model.nil?
   # handle response
@@ -507,12 +499,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              | Example                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `unified_upload_request_dto`                                                                                                                                             | [Models::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md)                                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |                                                                                                                                                                          |
-| `x_account_id`                                                                                                                                                           | *::String*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                       | The account identifier                                                                                                                                                   |                                                                                                                                                                          |
-| `prefer`                                                                                                                                                                 | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | Set to "heartbeat" to enable keep-alive newline heartbeats during long-running requests. Response includes Preference-Applied: heartbeat header when honored. (RFC 7240) | heartbeat                                                                                                                                                                |
-| `x_stackone_api_session_token`                                                                                                                                           | *T.nilable(::String)*                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | The session token                                                                                                                                                        |                                                                                                                                                                          |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `unified_upload_request_dto`                                                              | [Models::Shared::UnifiedUploadRequestDto](../../models/shared/unifieduploadrequestdto.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `x_account_id`                                                                            | *::String*                                                                                | :heavy_check_mark:                                                                        | The account identifier                                                                    |
+| `x_stackone_api_session_token`                                                            | *T.nilable(::String)*                                                                     | :heavy_minus_sign:                                                                        | The session token                                                                         |
 
 ### Response
 

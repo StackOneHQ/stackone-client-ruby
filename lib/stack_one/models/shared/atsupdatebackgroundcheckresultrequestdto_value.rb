@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AtsUpdateBackgroundCheckResultRequestDtoValue - The result of the test.
-      class AtsUpdateBackgroundCheckResultRequestDtoValue < T::Enum
-
-
+      class AtsUpdateBackgroundCheckResultRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           INITIATED = new('initiated')
           IN_PROGRESS = new('in_progress')
@@ -21,6 +20,7 @@ module StackOne
           PASSED = new('passed')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

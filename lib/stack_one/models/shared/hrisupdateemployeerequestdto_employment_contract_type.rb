@@ -8,8 +8,8 @@ module StackOne
   module Models
     module Shared
       # The employment work schedule type (e.g., full-time, part-time)
-      # 
-      # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
       class HrisUpdateEmployeeRequestDtoEmploymentContractType
         extend T::Sig
         include Crystalline::MetadataFields
@@ -17,7 +17,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HrisUpdateEmployeeRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-        field :value, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisUpdateEmployeeRequestDtoValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::HrisUpdateEmployeeRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::HrisUpdateEmployeeRequestDtoValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisUpdateEmployeeRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisUpdateEmployeeRequestDtoValue)).void }
         def initialize(source_value: nil, value: nil)

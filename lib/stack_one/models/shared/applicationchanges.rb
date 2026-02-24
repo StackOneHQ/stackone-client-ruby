@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Timestamp when the change was created
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': ::StackOne::Utils.datetime_from_iso_format(false) } }
         # The new values for changed application properties. Only includes fields that commonly change over the application lifecycle.
         field :new_values, Models::Shared::ApplicationChangesDataModel, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('new_values'), required: true } }
         # The actor who made the change
@@ -21,7 +21,7 @@ module StackOne
         # The type of change that occurred to the application
         field :change_type, Crystalline::Nilable.new(Models::Shared::ChangeType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('change_type') } }
         # Timestamp when the change became effective
-        field :effective_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :effective_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effective_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Provider's unique identifier

@@ -21,7 +21,7 @@ module StackOne
         # The company ID associated with this shift
         field :company_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_id') } }
         # The date and time the shift was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employee ID associated with this shift
         field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
         # The end time of the shift (ISO8601 date-time without timezone)
@@ -37,7 +37,7 @@ module StackOne
         # The status of the shift
         field :status, Crystalline::Nilable.new(Models::Shared::HrisShiftResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The date and time the shift was last updated
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(approval_status: T.nilable(Models::Shared::HrisShiftResultApprovalStatus), break_duration: T.nilable(::String), breaks: T.nilable(T::Array[Models::Shared::ShiftBreak]), company_id: T.nilable(::String), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), end_time: T.nilable(::String), id: T.nilable(::String), location_id: T.nilable(::String), remote_id: T.nilable(::String), start_time: T.nilable(::String), status: T.nilable(Models::Shared::HrisShiftResultStatus), updated_at: T.nilable(::DateTime)).void }
         def initialize(approval_status: nil, break_duration: nil, breaks: nil, company_id: nil, created_at: nil, employee_id: nil, end_time: nil, id: nil, location_id: nil, remote_id: nil, start_time: nil, status: nil, updated_at: nil)

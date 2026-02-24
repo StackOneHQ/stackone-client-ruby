@@ -19,7 +19,7 @@ module StackOne
         # Candidate country
         field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('country') } }
         # Candidate created date
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The candidate custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Candidate email
@@ -29,7 +29,7 @@ module StackOne
         # Candidate first name
         field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Candidate hired date
-        field :hired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :hired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Candidate last name
@@ -37,8 +37,8 @@ module StackOne
         # Candidate name
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Candidate phone number
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
         # List of candidate phone numbers including the type of the number when available
         field :phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PhoneNumber)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }
@@ -55,7 +55,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Candidate updated date
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_ids: T.nilable(T::Array[::String]), company: T.nilable(::String), country: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), email: T.nilable(::String), emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), id: T.nilable(::String), last_name: T.nilable(::String), name: T.nilable(::String), phone: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), remote_application_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), tags: T.nilable(T::Array[Models::Shared::Tag]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(application_ids: nil, company: nil, country: nil, created_at: nil, custom_fields: nil, email: nil, emails: nil, first_name: nil, hired_at: nil, id: nil, last_name: nil, name: nil, phone: nil, phone_numbers: nil, remote_application_ids: nil, remote_id: nil, social_links: nil, tags: nil, title: nil, unified_custom_fields: nil, updated_at: nil)

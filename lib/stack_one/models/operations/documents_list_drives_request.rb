@@ -23,8 +23,8 @@ module StackOne
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :page, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
@@ -33,8 +33,8 @@ module StackOne
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
         sig { params(x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::DocumentsListDrivesQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }

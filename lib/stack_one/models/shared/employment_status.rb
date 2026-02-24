@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Union.new(::Integer, ::Float), Crystalline::Boolean.new, Models::Shared::EmployeeSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-        field :value, Crystalline::Nilable.new(Models::Shared::EmployeeSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EmployeeSchemasValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::EmployeeSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::EmployeeSchemasValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, T.any(::Integer, ::Float), T::Boolean, Models::Shared::EmployeeSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::EmployeeSchemasValue)).void }
         def initialize(source_value: nil, value: nil)

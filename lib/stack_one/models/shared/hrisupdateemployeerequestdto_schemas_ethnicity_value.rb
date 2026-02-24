@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HrisUpdateEmployeeRequestDtoSchemasEthnicityValue < T::Enum
-
-
+      class HrisUpdateEmployeeRequestDtoSchemasEthnicityValue
+        include ::Crystalline::Enum
         enums do
           WHITE = new('white')
           BLACK_OR_AFRICAN_AMERICAN = new('black_or_african_american')
@@ -23,6 +22,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

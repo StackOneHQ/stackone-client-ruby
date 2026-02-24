@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AccountingCompanyResultValue - Default currency for the company
-      class AccountingCompanyResultValue < T::Enum
-
-
+      class AccountingCompanyResultValue
+        include ::Crystalline::Enum
         enums do
           AED = new('AED')
           AFN = new('AFN')
@@ -171,6 +170,7 @@ module StackOne
           ZWL = new('ZWL')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

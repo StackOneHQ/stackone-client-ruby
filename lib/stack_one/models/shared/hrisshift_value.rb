@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # HrisShiftValue - The approval status of the shift
-      class HrisShiftValue < T::Enum
-
-
+      class HrisShiftValue
+        include ::Crystalline::Enum
         enums do
           PENDING = new('pending')
           APPROVED = new('approved')
           REJECTED = new('rejected')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

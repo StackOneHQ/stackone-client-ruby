@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue - The type of the employment.
-      class HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue < T::Enum
-
-
+      class HrisCreateEmployeeRequestDtoSchemasEmploymentTypeValue
+        include ::Crystalline::Enum
         enums do
           CONTRACTOR = new('contractor')
           INTERN = new('intern')
@@ -30,6 +29,7 @@ module StackOne
           PROGRAMME = new('Programme')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

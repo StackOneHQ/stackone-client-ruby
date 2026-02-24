@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # CreateCategoriesApiModelSchemasValue - The unified locale code. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
-      class CreateCategoriesApiModelSchemasValue < T::Enum
-
-
+      class CreateCategoriesApiModelSchemasValue
+        include ::Crystalline::Enum
         enums do
           AR_AR = new('ar_AR')
           AA_ER = new('aa_ER')
@@ -424,6 +423,7 @@ module StackOne
           ZU_ZA = new('zu_ZA')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

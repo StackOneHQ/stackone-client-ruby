@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisJobValue - The status of the job.
-      class HrisJobValue < T::Enum
-
-
+      class HrisJobValue
+        include ::Crystalline::Enum
         enums do
           DRAFT = new('draft')
           PENDING = new('pending')
@@ -20,6 +19,7 @@ module StackOne
           DELETED = new('deleted')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # AssignmentSchemasValue - The StackOne unified result status.
-      class AssignmentSchemasValue < T::Enum
-
-
+      class AssignmentSchemasValue
+        include ::Crystalline::Enum
         enums do
           PASS = new('Pass')
           FAIL = new('Fail')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

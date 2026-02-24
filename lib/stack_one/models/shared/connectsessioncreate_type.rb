@@ -8,13 +8,13 @@ module StackOne
   module Models
     module Shared
       # ConnectSessionCreateType - The connect session account type
-      class ConnectSessionCreateType < T::Enum
-
-
+      class ConnectSessionCreateType
+        include ::Crystalline::Enum
         enums do
           PRODUCTION = new('production')
           TEST = new('test')
         end
+        open!
       end
     end
   end

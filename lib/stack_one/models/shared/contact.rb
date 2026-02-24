@@ -17,7 +17,7 @@ module StackOne
         # The contact company name
         field :company_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('company_name') } }
         # Timestamp when the contact was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Contact custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # List of associated deal IDs
@@ -41,7 +41,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Timestamp when the contact was last updated
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(account_ids: T.nilable(T::Array[::String]), company_name: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), deal_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), phone_numbers: T.nilable(T::Array[::String]), remote_account_ids: T.nilable(T::Array[::String]), remote_deal_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(account_ids: nil, company_name: nil, created_at: nil, custom_fields: nil, deal_ids: nil, emails: nil, first_name: nil, id: nil, last_name: nil, phone_numbers: nil, remote_account_ids: nil, remote_deal_ids: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)

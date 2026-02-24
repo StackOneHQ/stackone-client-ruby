@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # AccountAddressValue - The type of the location.
-      class AccountAddressValue < T::Enum
-
-
+      class AccountAddressValue
+        include ::Crystalline::Enum
         enums do
           HOME = new('home')
           WORK = new('work')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

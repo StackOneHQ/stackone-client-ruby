@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # TaskResultSchemasValue - The unified value for the type of the task. If the provider does not specify this type, the value will be set to UnmappedValue
-      class TaskResultSchemasValue < T::Enum
-
-
+      class TaskResultSchemasValue
+        include ::Crystalline::Enum
         enums do
           ACTION = new('action')
           REVIEW = new('review')
@@ -19,6 +18,7 @@ module StackOne
           APPROVE = new('approve')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

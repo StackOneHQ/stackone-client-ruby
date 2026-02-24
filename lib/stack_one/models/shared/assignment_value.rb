@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # AssignmentValue - The StackOne unified learning object type.
-      class AssignmentValue < T::Enum
-
-
+      class AssignmentValue
+        include ::Crystalline::Enum
         enums do
           CONTENT = new('content')
           COURSE = new('course')
           COLLECTION = new('collection')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

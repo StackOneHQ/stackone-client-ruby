@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HRISCostCenterValue < T::Enum
-
-
+      class HRISCostCenterValue
+        include ::Crystalline::Enum
         enums do
           WORKSPACE = new('workspace')
           TEAM = new('team')
@@ -20,6 +19,7 @@ module StackOne
           UNMAPPED_VALUE = new('unmapped_value')
           COST_CENTER = new('cost_center')
         end
+        open!
       end
     end
   end

@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # TicketingAttachmentResultValue - The file format of the file, expressed as a file extension
-      class TicketingAttachmentResultValue < T::Enum
-
-
+      class TicketingAttachmentResultValue
+        include ::Crystalline::Enum
         enums do
           UNMAPPED_VALUE = new('unmapped_value')
           EZ = new('ez')
@@ -1224,6 +1223,7 @@ module StackOne
           ICE = new('ice')
           MHT = new('mht')
         end
+        open!
       end
     end
   end

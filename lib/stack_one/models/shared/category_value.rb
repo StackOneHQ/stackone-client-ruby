@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # CategoryValue - The unified category level. For write operations: provide one of the listed enum values, or omit/set to "unmapped_value" to use source_value instead.
-      class CategoryValue < T::Enum
-
-
+      class CategoryValue
+        include ::Crystalline::Enum
         enums do
           PRIMARY = new('primary')
           SECONDARY = new('secondary')
           TERTIARY = new('tertiary')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

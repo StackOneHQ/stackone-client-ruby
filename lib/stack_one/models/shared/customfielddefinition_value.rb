@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class CustomFieldDefinitionValue < T::Enum
-
-
+      class CustomFieldDefinitionValue
+        include ::Crystalline::Enum
         enums do
           DATE = new('date')
           FLOAT = new('float')
@@ -25,6 +24,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

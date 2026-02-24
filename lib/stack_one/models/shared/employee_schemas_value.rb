@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class EmployeeSchemasValue < T::Enum
-
-
+      class EmployeeSchemasValue
+        include ::Crystalline::Enum
         enums do
           ACTIVE = new('active')
           PENDING = new('pending')
@@ -20,6 +19,7 @@ module StackOne
           UNKNOWN = new('unknown')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

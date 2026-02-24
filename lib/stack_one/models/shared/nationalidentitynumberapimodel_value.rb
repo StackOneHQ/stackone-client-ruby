@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # NationalIdentityNumberApiModelValue - The ISO3166-1 Alpha2 Code of the Country
-      class NationalIdentityNumberApiModelValue < T::Enum
-
-
+      class NationalIdentityNumberApiModelValue
+        include ::Crystalline::Enum
         enums do
           AF = new('AF')
           AL = new('AL')
@@ -262,6 +261,7 @@ module StackOne
           ZW = new('ZW')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

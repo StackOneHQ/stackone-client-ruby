@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), required: true, 'decoder': ::StackOne::Utils.datetime_from_iso_format(false) } }
 
         field :id, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
 
@@ -41,7 +41,7 @@ module StackOne
 
         field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
         # The connect session account type
-        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectSessionType, true) } }
 
         sig { params(created_at: ::DateTime, id: ::Float, organization_id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::Categories]), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::Metadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionType)).void }
         def initialize(created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, account_id: nil, categories: nil, external_trigger_token: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)

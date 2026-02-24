@@ -27,12 +27,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.iam.delete_user(id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
@@ -83,20 +82,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamGetGroupRequest.new(
   prefer: 'heartbeat',
   expand: 'roles',
   fields_: 'id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.get_group(request: req)
 
 unless res.iam_group_result.nil?
@@ -145,20 +143,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamGetPolicyRequest.new(
   prefer: 'heartbeat',
   expand: 'permissions',
   fields_: 'id,remote_id,name,permissions,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.get_policy(request: req)
 
 unless res.iam_policy_result.nil?
@@ -207,20 +204,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamGetRoleRequest.new(
   prefer: 'heartbeat',
   expand: 'policies',
   fields_: 'id,remote_id,name,type,policies,description,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.get_role(request: req)
 
 unless res.iam_role_result.nil?
@@ -269,20 +265,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamGetUserRequest.new(
   prefer: 'heartbeat',
   expand: 'roles,groups',
   fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.get_user(request: req)
 
 unless res.iam_user_result.nil?
@@ -331,20 +326,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamListGroupsRequest.new(
   prefer: 'heartbeat',
   expand: 'roles',
   fields_: 'id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.list_groups(request: req)
 
 unless res.iam_groups_paginated.nil?
@@ -393,20 +387,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamListPoliciesRequest.new(
   prefer: 'heartbeat',
   expand: 'permissions',
   fields_: 'id,remote_id,name,permissions,description,created_at,updated_at,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.list_policies(request: req)
 
 unless res.iam_policies_paginated.nil?
@@ -455,22 +448,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamListRolesRequest.new(
   prefer: 'heartbeat',
   expand: 'policies',
   fields_: 'id,remote_id,name,type,policies,description,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::IamListRolesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.list_roles(request: req)
 
 unless res.iam_roles_paginated.nil?
@@ -519,22 +511,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::IamListUsersRequest.new(
   prefer: 'heartbeat',
   expand: 'roles,groups',
   fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',
   filter: Models::Operations::IamListUsersQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.iam.list_users(request: req)
 
 unless res.iam_users_paginated.nil?
@@ -583,25 +574,24 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.iam.update_user(iam_update_user_request_dto: Models::Shared::IamUpdateUserRequestDto.new(
   first_name: 'Han',
   is_bot_user: true,
   last_name: 'Solo',
   name: 'Han Solo',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   primary_email_address: 'han@stackone.com',
   status: Models::Shared::IamUpdateUserRequestDtoStatus.new(
-    value: Models::Shared::IamUpdateUserRequestDtoValue::ENABLED,
+    value: Models::Shared::IamUpdateUserRequestDtoValue::ENABLED
   ),
-  username: 'hansolo1977',
+  username: 'hansolo1977'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.update_result.nil?

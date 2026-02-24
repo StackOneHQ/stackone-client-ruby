@@ -27,9 +27,9 @@ module StackOne
 
         field :type, Crystalline::Nilable.new(Models::Shared::WorkEligibilityType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        field :valid_from, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_from'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :valid_from, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_from'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        field :valid_to, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :valid_to, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(document: T.nilable(Models::Shared::WorkEligibilityDocument), id: T.nilable(::String), issued_by: T.nilable(Models::Shared::WorkEligibilityIssuedBy), number: T.nilable(::String), remote_id: T.nilable(::String), sub_type: T.nilable(::String), type: T.nilable(Models::Shared::WorkEligibilityType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
         def initialize(document: nil, id: nil, issued_by: nil, number: nil, remote_id: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)

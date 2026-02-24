@@ -23,8 +23,8 @@ module StackOne
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :page, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
@@ -35,8 +35,8 @@ module StackOne
         # Provider's unique identifier of the user related to the assignment
         field :remote_user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'remote_user_id', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # The user ID associated with this assignment
         field :user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'user_id', 'style': 'form', 'explode': true } }

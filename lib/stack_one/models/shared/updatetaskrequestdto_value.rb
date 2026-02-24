@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # UpdateTaskRequestDtoValue - The unified value for the status of the task. If the provider does not specify this status, the value will be set to UnmappedValue
-      class UpdateTaskRequestDtoValue < T::Enum
-
-
+      class UpdateTaskRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           OPEN = new('open')
           IN_PROGRESS = new('in_progress')
@@ -19,6 +18,7 @@ module StackOne
           CANCELLED = new('cancelled')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

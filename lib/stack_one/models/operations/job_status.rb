@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # JobStatus - The job_status of the job
       class JobStatus < T::Enum
-
-
         enums do
           OPEN = new('open')
           DRAFT = new('draft')

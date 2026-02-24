@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # RejectedReasonValue - The type of the rejected reason.
-      class RejectedReasonValue < T::Enum
-
-
+      class RejectedReasonValue
+        include ::Crystalline::Enum
         enums do
           REJECTED_BY_CANDIDATE = new('rejected_by_candidate')
           REJECTED_BY_ORGANIZATION = new('rejected_by_organization')
@@ -18,6 +17,7 @@ module StackOne
           UNKNOWN = new('unknown')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -28,19 +28,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.messaging.create_conversation(messaging_create_conversation_request_dto: Models::Shared::MessagingCreateConversationRequestDto.new(
   name: 'Project Discussion',
   participants: [
     'c28xIQ1',
     'c28xIQ2',
   ],
-  private: true,
+  private: true
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -91,21 +90,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingDownloadMessagingAttachmentRequest.new(
-  prefer: 'heartbeat',
   export_format: 'text/plain',
   format: 'base64',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.download_messaging_attachment(request: req)
 
 unless res.body.nil?
@@ -154,20 +151,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingGetAttachmentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.get_attachment(request: req)
 
 unless res.messaging_attachment_result.nil?
@@ -216,19 +212,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingGetConversationRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.get_conversation(request: req)
 
 unless res.messaging_conversation_result.nil?
@@ -277,19 +272,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingGetMessageRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.get_message(request: req)
 
 unless res.messaging_message_result.nil?
@@ -338,19 +332,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingGetUserRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.get_user(request: req)
 
 unless res.messaging_user_result.nil?
@@ -399,22 +392,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingListAttachmentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,file_name,file_size,file_type,unified_custom_fields',
   filter: Models::Operations::MessagingListAttachmentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.list_attachments(request: req)
 
 unless res.messaging_attachments_paginated.nil?
@@ -463,22 +455,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingListConversationMessagesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,content,parent_message_id,remote_parent_message_id,attachments,author,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::MessagingListConversationMessagesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.list_conversation_messages(request: req)
 
 unless res.messaging_messages_paginated.nil?
@@ -527,21 +518,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingListConversationsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,participants,name,private,created_at,last_message_at,unified_custom_fields',
   filter: Models::Operations::MessagingListConversationsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.list_conversations(request: req)
 
 unless res.messaging_conversations_paginated.nil?
@@ -590,21 +580,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MessagingListUsersRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',
   filter: Models::Operations::MessagingListUsersQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.messaging.list_users(request: req)
 
 unless res.messaging_users_paginated.nil?
@@ -653,16 +642,15 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.messaging.send_message(messaging_message_send_request_dto: Models::Shared::MessagingMessageSendRequestDto.new(
   content: 'Hello, world!',
   recipient: 'c28xyrc55866bvuv',
-  sender: '+34820398402',
+  sender: '+34820398402'
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?

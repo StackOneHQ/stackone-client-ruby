@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class HrisCreateWorkEligibilityRequestDtoSchemasValue < T::Enum
-
-
+      class HrisCreateWorkEligibilityRequestDtoSchemasValue
+        include ::Crystalline::Enum
         enums do
           VISA = new('visa')
           PASSPORT = new('passport')
@@ -19,6 +18,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

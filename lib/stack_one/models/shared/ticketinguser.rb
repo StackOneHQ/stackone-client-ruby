@@ -15,7 +15,7 @@ module StackOne
         # If the user is active
         field :active, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::TicketingUser2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('active') } }
         # The timestamp when the record was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The unique account reference assigned as an external user (e.g. the customer account identifier registered on the customer-facing site or portal)
         field :customer_account_reference, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('customer_account_reference') } }
         # The first name of the user
@@ -35,7 +35,7 @@ module StackOne
 
         field :type, Crystalline::Nilable.new(Models::Shared::TicketingUserType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # The timestamp when the record was last updated
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The username of the user in the provider system
         field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 

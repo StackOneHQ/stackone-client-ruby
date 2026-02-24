@@ -19,39 +19,39 @@ module StackOne
 
         field :application_status, Crystalline::Nilable.new(Models::Shared::ApplicationStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('application_status') } }
         # Use `documents` expand instead
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ApplicationAttachment)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('attachments') } }
 
         field :candidate, Crystalline::Nilable.new(Models::Shared::ApplicationCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
         # Unique identifier of the candidate
         field :candidate_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate_id') } }
         # Date of creation
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The application custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # The documents attached to this application (eg. resume, cover letter etc.)
         field :documents, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AtsDocumentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('documents') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :interview_stage, Crystalline::Nilable.new(Models::Shared::ApplicationInterviewStage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage') } }
         # Unique identifier of the interview stage
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('interview_stage_id') } }
         # Unique identifier of the job
         field :job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_id') } }
         # Unique identifier of the location
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
         # Unique identifiers of the locations
         field :location_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
         # Questionnaires associated with the application
         field :questionnaires, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Questionnaire)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
         # Date of rejection
-        field :rejected_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :rejected_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifiers of the rejection reasons
         field :rejected_reason_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('rejected_reason_ids') } }
 
@@ -63,14 +63,14 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Provider's unique identifier of the interview stage
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :remote_interview_stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_interview_stage_id') } }
         # Provider's unique identifier of the job
         field :remote_job_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_job_id') } }
         # Provider's unique identifier of the location
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :remote_location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_id') } }
         # Remote's unique identifiers of the locations
         field :remote_location_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_location_ids') } }
@@ -83,7 +83,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Date of last update
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(application_stage: T.nilable(Models::Shared::ApplicationApplicationStage), application_stage_id: T.nilable(::String), application_status: T.nilable(Models::Shared::ApplicationStatus), attachments: T.nilable(T::Array[Models::Shared::ApplicationAttachment]), candidate: T.nilable(Models::Shared::ApplicationCandidate), candidate_id: T.nilable(::String), created_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), documents: T.nilable(T::Array[Models::Shared::AtsDocumentApiModel]), id: T.nilable(::String), interview_stage: T.nilable(Models::Shared::ApplicationInterviewStage), interview_stage_id: T.nilable(::String), job_id: T.nilable(::String), location_id: T.nilable(::String), location_ids: T.nilable(T::Array[::String]), questionnaires: T.nilable(T::Array[Models::Shared::Questionnaire]), rejected_at: T.nilable(::DateTime), rejected_reason_ids: T.nilable(T::Array[::String]), rejected_reasons: T.nilable(T::Array[Models::Shared::RejectedReason]), remote_application_stage_id: T.nilable(::String), remote_candidate_id: T.nilable(::String), remote_id: T.nilable(::String), remote_interview_stage_id: T.nilable(::String), remote_job_id: T.nilable(::String), remote_location_id: T.nilable(::String), remote_location_ids: T.nilable(T::Array[::String]), remote_rejected_reason_ids: T.nilable(T::Array[::String]), result_links: T.nilable(T::Array[Models::Shared::ResultLink]), source: T.nilable(Models::Shared::Source), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(application_stage: nil, application_stage_id: nil, application_status: nil, attachments: nil, candidate: nil, candidate_id: nil, created_at: nil, custom_fields: nil, documents: nil, id: nil, interview_stage: nil, interview_stage_id: nil, job_id: nil, location_id: nil, location_ids: nil, questionnaires: nil, rejected_at: nil, rejected_reason_ids: nil, rejected_reasons: nil, remote_application_stage_id: nil, remote_candidate_id: nil, remote_id: nil, remote_interview_stage_id: nil, remote_job_id: nil, remote_location_id: nil, remote_location_ids: nil, remote_rejected_reason_ids: nil, result_links: nil, source: nil, unified_custom_fields: nil, updated_at: nil)

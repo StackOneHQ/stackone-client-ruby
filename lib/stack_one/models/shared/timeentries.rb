@@ -15,11 +15,11 @@ module StackOne
         # The duration of the break taken during time entry in hours
         field :break_duration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('break_duration') } }
         # The created_at date
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The employee ID associated with this time entry
         field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('employee_id') } }
         # The end time of the time entry
-        field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The hours worked in the time entry
         field :hours_worked, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hours_worked') } }
         # Unique identifier
@@ -33,13 +33,13 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The start time of the time entry
-        field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The status of the time entry
         field :status, Crystalline::Nilable.new(Models::Shared::TimeEntriesStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The updated_at date
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(break_duration: T.nilable(::Float), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), end_time: T.nilable(::DateTime), hours_worked: T.nilable(::Float), id: T.nilable(::String), labor_type: T.nilable(Models::Shared::LaborType), location: T.nilable(Models::Shared::Location), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(Models::Shared::TimeEntriesStatus), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(break_duration: nil, created_at: nil, employee_id: nil, end_time: nil, hours_worked: nil, id: nil, labor_type: nil, location: nil, remote_employee_id: nil, remote_id: nil, start_time: nil, status: nil, unified_custom_fields: nil, updated_at: nil)

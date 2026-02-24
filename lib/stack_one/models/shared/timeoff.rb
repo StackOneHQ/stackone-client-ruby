@@ -17,7 +17,7 @@ module StackOne
         # Allows users to provide additional context or notes for their time off request
         field :comment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comment') } }
         # Timestamp when the time off request was created
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The duration of the time off request
         field :duration, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The employee ID
@@ -49,11 +49,11 @@ module StackOne
         # The time off policy id associated with this time off request
         field :time_off_policy_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_off_policy_id') } }
         # The type of the time off request
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :type, Crystalline::Nilable.new(Models::Shared::TimeOffType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Timestamp when the time off request was last updated
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), created_at: T.nilable(::DateTime), duration: T.nilable(::String), employee_id: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOff2)), id: T.nilable(::String), policy: T.nilable(Models::Shared::Policy), reason: T.nilable(Models::Shared::TimeOffReason), remote_approver_id: T.nilable(::String), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), remote_time_off_policy_id: T.nilable(::String), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::TimeOffSchemas2)), status: T.nilable(Models::Shared::TimeOffStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::TimeOffType), updated_at: T.nilable(::DateTime)).void }
         def initialize(approver_id: nil, comment: nil, created_at: nil, duration: nil, employee_id: nil, end_date: nil, end_half_day: nil, id: nil, policy: nil, reason: nil, remote_approver_id: nil, remote_employee_id: nil, remote_id: nil, remote_time_off_policy_id: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil, updated_at: nil)

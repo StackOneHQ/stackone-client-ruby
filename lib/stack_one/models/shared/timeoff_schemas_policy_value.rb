@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # TimeOffSchemasPolicyValue - The unified value for the duration unit. If the provider does not specify this unit, the value will be set to unknown
-      class TimeOffSchemasPolicyValue < T::Enum
-
-
+      class TimeOffSchemasPolicyValue
+        include ::Crystalline::Enum
         enums do
           MINUTES = new('minutes')
           HOURS = new('hours')
@@ -21,6 +20,7 @@ module StackOne
           UNKNOWN = new('unknown')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

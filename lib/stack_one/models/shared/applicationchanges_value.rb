@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # ApplicationChangesValue - The type of change that occurred to the application
-      class ApplicationChangesValue < T::Enum
-
-
+      class ApplicationChangesValue
+        include ::Crystalline::Enum
         enums do
           APPLICATION_STATUS = new('application_status')
           INTERVIEW_STAGE = new('interview_stage')
           REJECTED_REASONS = new('rejected_reasons')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

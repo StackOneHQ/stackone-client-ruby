@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # FieldType - The type of the field
-      class FieldType < T::Enum
-
-
+      class FieldType
+        include ::Crystalline::Enum
         enums do
           SHORT_TEXT = new('short_text')
           LONG_TEXT = new('long_text')
@@ -25,6 +24,7 @@ module StackOne
           LOCATION = new('location')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

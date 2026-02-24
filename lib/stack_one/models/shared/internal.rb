@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
 
-      class Internal < T::Enum
-
-
+      class Internal
+        include ::Crystalline::Enum
         enums do
           TRUE = new('true')
           FALSE = new('false')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -9,8 +9,6 @@ module StackOne
     module Shared
 
       class MessagingMessage2 < T::Enum
-
-
         enums do
           TRUE = new('true')
           FALSE = new('false')

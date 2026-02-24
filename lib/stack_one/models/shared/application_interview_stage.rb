@@ -7,13 +7,13 @@
 module StackOne
   module Models
     module Shared
-      # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+      # @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
       class ApplicationInterviewStage
         extend T::Sig
         include Crystalline::MetadataFields
 
         # Interview Stage created date
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
@@ -25,7 +25,7 @@ module StackOne
         # Custom Unified Fields configured in your StackOne project
         field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # Interview Stage updated date
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(created_at: T.nilable(::DateTime), id: T.nilable(::String), name: T.nilable(::String), order: T.nilable(::Float), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, id: nil, name: nil, order: nil, remote_id: nil, unified_custom_fields: nil, updated_at: nil)

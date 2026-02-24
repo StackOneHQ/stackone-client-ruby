@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # CampaignValue - The schedule type of the campaign.
-      class CampaignValue < T::Enum
-
-
+      class CampaignValue
+        include ::Crystalline::Enum
         enums do
           IMMEDIATE = new('immediate')
           SCHEDULED = new('scheduled')
@@ -19,6 +18,7 @@ module StackOne
           TRIGGERED = new('triggered')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

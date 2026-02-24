@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The provider service category
-        field :category, Models::Shared::ConnectorsMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ConnectorsMetaCategory, false) } }
+        field :category, Models::Shared::ConnectorsMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), required: true, 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectorsMetaCategory, false) } }
 
         field :models, Crystalline::Hash.new(Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
         # The provider key

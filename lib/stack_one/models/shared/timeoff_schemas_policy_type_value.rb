@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # TimeOffSchemasPolicyTypeValue - The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
-      class TimeOffSchemasPolicyTypeValue < T::Enum
-
-
+      class TimeOffSchemasPolicyTypeValue
+        include ::Crystalline::Enum
         enums do
           SICK = new('sick')
           UNMAPPED_VALUE = new('unmapped_value')
@@ -36,6 +35,7 @@ module StackOne
           BEREAVEMENT = new('bereavement')
           OTHER = new('other')
         end
+        open!
       end
     end
   end

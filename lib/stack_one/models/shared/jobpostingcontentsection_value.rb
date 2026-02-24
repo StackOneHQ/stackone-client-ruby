@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # JobPostingContentSectionValue - The type of the description.
-      class JobPostingContentSectionValue < T::Enum
-
-
+      class JobPostingContentSectionValue
+        include ::Crystalline::Enum
         enums do
           RESPONSIBILITIES = new('responsibilities')
           SKILLS = new('skills')
@@ -20,6 +19,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

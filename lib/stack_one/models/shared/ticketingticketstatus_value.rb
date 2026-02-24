@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
       # TicketingTicketStatusValue - The type of this status
-      class TicketingTicketStatusValue < T::Enum
-
-
+      class TicketingTicketStatusValue
+        include ::Crystalline::Enum
         enums do
           TO_DO = new('to-do')
           IN_PROGRESS = new('in-progress')
           CLOSED = new('closed')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

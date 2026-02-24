@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ClearingCodeValue - The type of clearing code
-      class ClearingCodeValue < T::Enum
-
-
+      class ClearingCodeValue
+        include ::Crystalline::Enum
         enums do
           SORT_CODE = new('sort_code')
           BUILDING_SOCIETY_REFERENCE = new('building_society_reference')
@@ -34,6 +33,7 @@ module StackOne
           SE_BANKGIRO_CODE = new('se_bankgiro_code')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

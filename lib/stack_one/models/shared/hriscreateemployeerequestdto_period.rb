@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTime4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The unified value for the period.
-        field :value, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTime4, T::Array[::Object])), value: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoSchemasEmploymentWorkTimeValue)).void }
         def initialize(source_value: nil, value: nil)

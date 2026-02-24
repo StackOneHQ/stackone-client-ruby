@@ -29,8 +29,8 @@ module StackOne
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :page, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page', 'style': 'form', 'explode': true } }
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
@@ -39,8 +39,8 @@ module StackOne
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # When "true" and used with filter[folder_id], the response includes Files and Files within descendant Folders
         field :nested_items, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'nested_items', 'style': 'form', 'explode': true } }

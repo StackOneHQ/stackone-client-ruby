@@ -17,17 +17,17 @@ module StackOne
         # channels of the Campaign
         field :channels, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ChannelsEnum)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('channels') } }
         # The created_at date
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
 
         field :draft, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::CampaignSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('draft') } }
         # The first_sent_at date
-        field :first_sent_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :first_sent_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_sent_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The last_sent_at date
-        field :last_sent_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_sent_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :last_sent_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_sent_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :messages, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Message)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('messages') } }
 
@@ -41,7 +41,7 @@ module StackOne
 
         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
         # The updated_at date
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(archived: T.nilable(T.any(T::Boolean, Models::Shared::Campaign2)), channels: T.nilable(T::Array[Models::Shared::ChannelsEnum]), created_at: T.nilable(::DateTime), description: T.nilable(::String), draft: T.nilable(T.any(T::Boolean, Models::Shared::CampaignSchemas2)), first_sent_at: T.nilable(::DateTime), id: T.nilable(::String), last_sent_at: T.nilable(::DateTime), messages: T.nilable(T::Array[Models::Shared::Message]), name: T.nilable(::String), remote_id: T.nilable(::String), schedule_type: T.nilable(Models::Shared::ScheduleType), status: T.nilable(Models::Shared::CampaignStatus), tags: T.nilable(T::Array[::String]), updated_at: T.nilable(::DateTime)).void }
         def initialize(archived: nil, channels: nil, created_at: nil, description: nil, draft: nil, first_sent_at: nil, id: nil, last_sent_at: nil, messages: nil, name: nil, remote_id: nil, schedule_type: nil, status: nil, tags: nil, updated_at: nil)

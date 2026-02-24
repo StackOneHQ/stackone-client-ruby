@@ -13,7 +13,7 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # Unique identifier
@@ -31,7 +31,7 @@ module StackOne
 
         field :type, Crystalline::Nilable.new(Models::Shared::IamGroupType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), remote_parent_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), type: T.nilable(Models::Shared::IamGroupType), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, description: nil, id: nil, name: nil, parent_id: nil, remote_id: nil, remote_parent_id: nil, roles: nil, type: nil, updated_at: nil)

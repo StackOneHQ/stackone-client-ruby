@@ -43,20 +43,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.create_content_block(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto.new(
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   type: Models::Shared::MarketingCreateContentBlocksRequestDtoType.new(
     source_value: 'text',
-    value: Models::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
-  ),
+    value: Models::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML
+  )
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -107,23 +106,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.create_email_template(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto.new(
   messages: [
     Models::Shared::EmailMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: nil,
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -174,26 +172,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.create_in_app_template(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto.new(
   messages: [
     Models::Shared::InAppMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::InAppMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::InAppMessagesValue::EMAIL,
+        value: Models::Shared::InAppMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -246,25 +243,24 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.create_omni_channel_template(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
     Models::Shared::CreateMessage.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::MessageType.new(
         source_value: 'Email',
-        value: Models::Shared::CreateMessageValue::EMAIL,
-      ),
+        value: Models::Shared::CreateMessageValue::EMAIL
+      )
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -315,26 +311,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.create_push_template(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto.new(
   messages: [
     Models::Shared::PushMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::PushMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::PushMessagesValue::EMAIL,
+        value: Models::Shared::PushMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -385,26 +380,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.create_sms_template(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto.new(
   messages: [
     Models::Shared::SmsMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::SmsMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::SmsMessagesValue::EMAIL,
+        value: Models::Shared::SmsMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -455,19 +449,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetCampaignRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_campaign(request: req)
 
 unless res.campaign_result.nil?
@@ -516,19 +509,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetContentBlockRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,content,status,tags,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_content_block(request: req)
 
 unless res.content_block_result.nil?
@@ -577,19 +569,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetEmailTemplateRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_email_template(request: req)
 
 unless res.email_template_result.nil?
@@ -638,19 +629,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetInAppTemplateRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_in_app_template(request: req)
 
 unless res.in_app_template_result.nil?
@@ -701,19 +691,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetOmniChannelTemplateRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_omni_channel_template(request: req)
 
 unless res.template_result.nil?
@@ -762,19 +751,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetPushTemplateRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_push_template(request: req)
 
 unless res.push_template_result.nil?
@@ -823,19 +811,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingGetSmsTemplateRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.get_sms_template(request: req)
 
 unless res.sms_template_result.nil?
@@ -884,21 +871,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListCampaignsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,description,schedule_type,status,channels,first_sent_at,last_sent_at,tags,messages,unified_custom_fields',
   filter: Models::Operations::MarketingListCampaignsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_campaigns(request: req)
 
 unless res.campaigns_paginated.nil?
@@ -947,21 +933,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListContentBlocksRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,type,content,status,tags,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::MarketingListContentBlocksQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_content_blocks(request: req)
 
 unless res.content_blocks_paginated.nil?
@@ -1010,21 +995,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListEmailTemplatesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListEmailTemplatesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_email_templates(request: req)
 
 unless res.email_templates_paginated.nil?
@@ -1073,19 +1057,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListInAppTemplatesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_in_app_templates(request: req)
 
 unless res.in_app_templates_paginated.nil?
@@ -1136,21 +1119,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListOmniChannelTemplatesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListOmniChannelTemplatesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_omni_channel_templates(request: req)
 
 unless res.templates_paginated.nil?
@@ -1199,21 +1181,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListPushTemplatesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListPushTemplatesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_push_templates(request: req)
 
 unless res.push_templates_paginated.nil?
@@ -1262,21 +1243,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::MarketingListSmsTemplatesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,messages,created_at,updated_at,tags,unified_custom_fields',
   filter: Models::Operations::MarketingListSmsTemplatesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.marketing.list_sms_templates(request: req)
 
 unless res.sms_templates_paginated.nil?
@@ -1325,20 +1305,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.update_content_block(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto.new(
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   type: Models::Shared::MarketingCreateContentBlocksRequestDtoType.new(
     source_value: 'text',
-    value: Models::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML,
-  ),
+    value: Models::Shared::MarketingCreateContentBlocksRequestDtoValue::HTML
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -1390,26 +1369,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.update_email_template(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto.new(
   messages: [
     Models::Shared::EmailMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::EmailMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::EmailMessagesValue::EMAIL,
+        value: Models::Shared::EmailMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -1461,26 +1439,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.update_in_app_template(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto.new(
   messages: [
     Models::Shared::InAppMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::InAppMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::InAppMessagesValue::EMAIL,
+        value: Models::Shared::InAppMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -1534,25 +1511,24 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.update_omni_channel_template(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto.new(
   messages: [
     Models::Shared::CreateMessage.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::MessageType.new(
         source_value: 'Email',
-        value: Models::Shared::CreateMessageValue::EMAIL,
-      ),
+        value: Models::Shared::CreateMessageValue::EMAIL
+      )
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -1604,26 +1580,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.update_push_template(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto.new(
   messages: [
     Models::Shared::PushMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::PushMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::PushMessagesValue::EMAIL,
+        value: Models::Shared::PushMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -1675,26 +1650,25 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.marketing.update_sms_template(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto.new(
   messages: [
     Models::Shared::SmsMessages.new(
       id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       message_type: Models::Shared::SmsMessagesMessageType.new(
         source_value: 'Email',
-        value: Models::Shared::SmsMessagesValue::EMAIL,
+        value: Models::Shared::SmsMessagesValue::EMAIL
       ),
-      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
+      remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3'
     ),
   ],
   passthrough: {
-    "other_known_names": 'John Doe',
-  },
+    'other_known_names' => 'John Doe',
+  }
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?

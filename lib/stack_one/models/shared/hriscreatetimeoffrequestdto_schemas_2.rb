@@ -9,8 +9,6 @@ module StackOne
     module Shared
 
       class HrisCreateTimeOffRequestDtoSchemas2 < T::Enum
-
-
         enums do
           TRUE = new('true')
           FALSE = new('false')

@@ -36,11 +36,13 @@ module StackOne
         field :secrets, Crystalline::Nilable.new(Models::Shared::Secrets), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('secrets') } }
 
         field :setup_information, Crystalline::Nilable.new(Models::Shared::SetupInformation), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('setup_information') } }
-        # The account type
-        field :type, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
 
-        sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::SetupInformation), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
-        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, integration_id: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, type: nil)
+        field :shared, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('shared') } }
+        # The account type
+        field :type, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
+
+        sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::SetupInformation), shared: T.nilable(T::Boolean), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
+        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, integration_id: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, shared: nil, type: nil)
           @authentication_config_key = authentication_config_key
           @credentials = credentials
           @environment = environment
@@ -53,6 +55,7 @@ module StackOne
           @provider = provider
           @secrets = secrets
           @setup_information = setup_information
+          @shared = shared
           @type = type
         end
 
@@ -71,6 +74,7 @@ module StackOne
           return false unless @provider == other.provider
           return false unless @secrets == other.secrets
           return false unless @setup_information == other.setup_information
+          return false unless @shared == other.shared
           return false unless @type == other.type
           true
         end

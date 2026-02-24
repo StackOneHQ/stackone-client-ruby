@@ -9,8 +9,6 @@ module StackOne
     module Operations
       # HrisListShiftsQueryParamStatus - Filter to select shifts by status
       class HrisListShiftsQueryParamStatus < T::Enum
-
-
         enums do
           DRAFT = new('draft')
           PUBLISHED = new('published')

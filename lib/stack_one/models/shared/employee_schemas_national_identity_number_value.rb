@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # EmployeeSchemasNationalIdentityNumberValue - The ISO3166-1 Alpha2 Code of the Country
-      class EmployeeSchemasNationalIdentityNumberValue < T::Enum
-
-
+      class EmployeeSchemasNationalIdentityNumberValue
+        include ::Crystalline::Enum
         enums do
           AF = new('AF')
           AL = new('AL')
@@ -262,6 +261,7 @@ module StackOne
           ZW = new('ZW')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

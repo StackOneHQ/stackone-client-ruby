@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # Event - The event type
-      class Event < T::Enum
-
-
+      class Event
+        include ::Crystalline::Enum
         enums do
           SCREENING_RESULTS_CREATED = new('screening.results.created')
           SCREENING_RESULTS_UPDATED = new('screening.results.updated')
@@ -18,6 +17,7 @@ module StackOne
           SCREENING_RESULTS_FAILED = new('screening.results.failed')
           SCREENING_RESULTS_CANCELLED = new('screening.results.cancelled')
         end
+        open!
       end
     end
   end

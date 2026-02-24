@@ -25,9 +25,9 @@ module StackOne
 
         field :score, Crystalline::Nilable.new(Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDtoScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
         # The start date of the candidate test
-        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The submission date of the candidate test
-        field :submission_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :submission_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The summary about the result of the test
         field :summary, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
 

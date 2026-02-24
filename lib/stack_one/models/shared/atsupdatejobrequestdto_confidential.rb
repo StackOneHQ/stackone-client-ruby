@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # AtsUpdateJobRequestDtoConfidential - Confidential status of the job
-      class AtsUpdateJobRequestDtoConfidential < T::Enum
-
-
+      class AtsUpdateJobRequestDtoConfidential
+        include ::Crystalline::Enum
         enums do
           TRUE = new('true')
           FALSE = new('false')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

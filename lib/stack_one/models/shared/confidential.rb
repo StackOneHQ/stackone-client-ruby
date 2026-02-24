@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # Confidential - Confidential status of the job
-      class Confidential < T::Enum
-
-
+      class Confidential
+        include ::Crystalline::Enum
         enums do
           TRUE = new('true')
           FALSE = new('false')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

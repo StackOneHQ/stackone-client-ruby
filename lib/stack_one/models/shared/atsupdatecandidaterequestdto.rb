@@ -27,7 +27,7 @@ module StackOne
         # Candidate first name
         field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('first_name') } }
         # Candidate hired date
-        field :hired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :hired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('hired_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Candidate last name
         field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # Candidate name
@@ -35,8 +35,8 @@ module StackOne
         # Value to pass through to the provider
         field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Candidate phone number
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone') } }
         # List of candidate phone numbers including the type of the number when available
         field :phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PhoneNumber)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_numbers') } }

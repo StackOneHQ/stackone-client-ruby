@@ -21,7 +21,7 @@ module StackOne
         # The base url of the request
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
         # The method of the request
-        field :method, Crystalline::Nilable.new(Models::Shared::Method), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), 'decoder': Utils.enum_from_string(Models::Shared::Method, true) } }
+        field :method, Crystalline::Nilable.new(Models::Shared::Method), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::Method, true) } }
 
         sig { params(body: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(::String), url: T.nilable(::String), method: T.nilable(Models::Shared::Method)).void }
         def initialize(body: nil, headers: nil, path: nil, url: nil, method: Models::Shared::Method::GET)

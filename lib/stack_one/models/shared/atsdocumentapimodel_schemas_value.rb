@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AtsDocumentApiModelSchemasValue - The category of the file
-      class AtsDocumentApiModelSchemasValue < T::Enum
-
-
+      class AtsDocumentApiModelSchemasValue
+        include ::Crystalline::Enum
         enums do
           RESUME = new('resume')
           AVATAR = new('avatar')
@@ -28,6 +27,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

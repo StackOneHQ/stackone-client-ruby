@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class LinkedAccountStatus < T::Enum
-
-
+      class LinkedAccountStatus
+        include ::Crystalline::Enum
         enums do
           ACTIVE = new('active')
           INACTIVE = new('inactive')
@@ -19,6 +18,7 @@ module StackOne
           EXPIRED = new('expired')
           ERROR = new('error')
         end
+        open!
       end
     end
   end

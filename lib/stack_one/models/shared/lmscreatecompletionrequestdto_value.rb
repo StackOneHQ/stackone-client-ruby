@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # LmsCreateCompletionRequestDtoValue - The StackOne unified result status.
-      class LmsCreateCompletionRequestDtoValue < T::Enum
-
-
+      class LmsCreateCompletionRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           PASS = new('Pass')
           FAIL = new('Fail')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -16,13 +16,16 @@ module StackOne
         field :drive_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'drive_id' } }
         # Use to only include Folders within the specified Folder. Required when requesting nested items
         field :folder_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'folder_id' } }
+        # Search if the name of the folder contains the string
+        field :name, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'name' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
-        sig { params(drive_id: T.nilable(::String), folder_id: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
-        def initialize(drive_id: nil, folder_id: nil, updated_after: nil)
+        sig { params(drive_id: T.nilable(::String), folder_id: T.nilable(::String), name: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
+        def initialize(drive_id: nil, folder_id: nil, name: nil, updated_after: nil)
           @drive_id = drive_id
           @folder_id = folder_id
+          @name = name
           @updated_after = updated_after
         end
 
@@ -31,6 +34,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @drive_id == other.drive_id
           return false unless @folder_id == other.folder_id
+          return false unless @name == other.name
           return false unless @updated_after == other.updated_after
           true
         end

@@ -27,12 +27,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.crm.create_contact(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto.new(
   account_ids: [
     'account-123',
@@ -46,7 +45,7 @@ res = s.crm.create_contact(crm_create_contact_request_dto: Models::Shared::CrmCr
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   deal_ids: [
@@ -59,11 +58,11 @@ res = s.crm.create_contact(crm_create_contact_request_dto: Models::Shared::CrmCr
   first_name: 'Steve',
   last_name: 'Wozniak',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   phone_numbers: [
     '123-456-7890',
-  ],
+  ]
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.contact_result.nil?
@@ -114,19 +113,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmGetAccountRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.get_account(request: req)
 
 unless res.account_result.nil?
@@ -175,20 +173,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmGetContactRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
   id: '<id>',
   include: 'custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.get_contact(request: req)
 
 unless res.contact_result.nil?
@@ -237,22 +234,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmGetContactCustomFieldDefinitionRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::CrmGetContactCustomFieldDefinitionQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.get_contact_custom_field_definition(request: req)
 
 unless res.custom_field_definition_result_api_model.nil?
@@ -301,19 +297,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmGetListRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.get_list(request: req)
 
 unless res.list_result.nil?
@@ -362,21 +357,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmListAccountsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,owner_id,remote_owner_id,name,description,industries,annual_revenue,website,addresses,phone_numbers,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::CrmListAccountsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.list_accounts(request: req)
 
 unless res.accounts_paginated.nil?
@@ -425,21 +419,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmListContactCustomFieldDefinitionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,description,type,options,unified_custom_fields',
   filter: Models::Operations::CrmListContactCustomFieldDefinitionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.list_contact_custom_field_definitions(request: req)
 
 unless res.custom_field_definitions_paginated.nil?
@@ -488,22 +481,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmListContactsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,first_name,last_name,company_name,emails,phone_numbers,deal_ids,remote_deal_ids,account_ids,remote_account_ids,custom_fields,created_at,updated_at,unified_custom_fields',
   filter: Models::Operations::CrmListContactsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   include: 'custom_fields',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.list_contacts(request: req)
 
 unless res.contacts_paginated.nil?
@@ -552,21 +544,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::CrmListListsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,created_at,updated_at,items,type,unified_custom_fields',
   filter: Models::Operations::CrmListListsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.crm.list_lists(request: req)
 
 unless res.lists_paginated.nil?
@@ -615,12 +606,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.crm.update_contact(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto.new(
   account_ids: [
     'account-123',
@@ -634,7 +624,7 @@ res = s.crm.update_contact(crm_create_contact_request_dto: Models::Shared::CrmCr
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
       remote_value_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
       value: 'Completed',
-      value_id: 'value_456',
+      value_id: 'value_456'
     ),
   ],
   deal_ids: [
@@ -647,11 +637,11 @@ res = s.crm.update_contact(crm_create_contact_request_dto: Models::Shared::CrmCr
   first_name: 'Steve',
   last_name: 'Wozniak',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   phone_numbers: [
     '123-456-7890',
-  ],
+  ]
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.contact_result.nil?

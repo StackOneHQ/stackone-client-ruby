@@ -8,15 +8,15 @@ module StackOne
   module Models
     module Shared
 
-      class CreateEmploymentApiModelValue < T::Enum
-
-
+      class CreateEmploymentApiModelValue
+        include ::Crystalline::Enum
         enums do
           FULL_TIME = new('full_time')
           SHIFTS = new('shifts')
           PART_TIME = new('part_time')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

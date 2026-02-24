@@ -44,12 +44,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto.new(
   items: [
     Models::Shared::LmsUpsertContentRequestDto.new(
@@ -58,26 +57,26 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto: Models::S
         Models::Shared::AdditionalData.new(
           id: 'learning_outcomes',
           remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-          value: 'This is additional data',
+          value: 'This is additional data'
         ),
       ],
       authors: [
         Models::Shared::AuthorModel.new(
           id: '123',
-          name: 'John Doe',
+          name: 'John Doe'
         ),
       ],
       categories: [
         Models::Shared::CreateCategoriesApiModel.new(
           id: '16873-IT345',
           language: Models::Shared::CreateCategoriesApiModelLanguage.new(
-            value: Models::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
+            value: Models::Shared::CreateCategoriesApiModelSchemasValue::EN_GB
           ),
           name: 'Information-Technology',
           unified_custom_fields: {
-            "my_project_custom_field_1": 'REF-1236',
-            "my_project_custom_field_2": 'some other value',
-          },
+            'my_project_custom_field_1' => 'REF-1236',
+            'my_project_custom_field_2' => 'some other value',
+          }
         ),
       ],
       content_url: 'https://www.youtube.com/watch?v=16873',
@@ -88,17 +87,17 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto: Models::S
       external_reference: 'SOFTWARE-ENG-LV1-TRAINING-VIDEO-1',
       languages: [
         Models::Shared::LanguageEnum.new(
-          value: Models::Shared::LanguageEnumValue::EN_GB,
+          value: Models::Shared::LanguageEnumValue::EN_GB
         ),
       ],
       localizations: [
         Models::Shared::LocalizationModel.new(
           description: 'This course acts as learning resource for software engineers.',
-          title: 'Software Engineer Lv 1',
+          title: 'Software Engineer Lv 1'
         ),
         Models::Shared::LocalizationModel.new(
           description: 'This course acts as learning resource for software engineers.',
-          title: 'Software Engineer: A comprehensive guide',
+          title: 'Software Engineer: A comprehensive guide'
         ),
       ],
       mobile_launch_content_url: 'https://www.mobile.youtube.com/watch?v=16873',
@@ -106,7 +105,7 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto: Models::S
       skills: [
         Models::Shared::CreateSkillsApiModel.new(
           id: '12345',
-          name: 'Sales Techniques',
+          name: 'Sales Techniques'
         ),
       ],
       tags: [
@@ -115,12 +114,12 @@ res = s.lms.batch_upsert_content(lms_batch_upsert_content_request_dto: Models::S
       ],
       title: 'Software Engineer Lv 1',
       unified_custom_fields: {
-        "my_project_custom_field_1": 'REF-1236',
-        "my_project_custom_field_2": 'some other value',
+        'my_project_custom_field_1' => 'REF-1236',
+        'my_project_custom_field_2' => 'some other value',
       },
-      updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
+      updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z')
     ),
-  ],
+  ]
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.batch_result_api_model.nil?
@@ -175,24 +174,23 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.lms.create_user_assignment(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto.new(
   assigned_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
   due_date: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
   learning_object_external_reference: 'learning-content-123',
   learning_object_id: 'e3gd34-23tr21-er234-345er56',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   progress: 40.0,
   status: Models::Shared::LmsCreateAssignmentRequestDtoStatus.new(
-    value: Models::Shared::LmsCreateAssignmentRequestDtoValue::IN_PROGRESS,
-  ),
+    value: Models::Shared::LmsCreateAssignmentRequestDtoValue::IN_PROGRESS
+  )
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -246,24 +244,23 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.lms.create_user_completion(lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto.new(
   completed_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
   learning_object_external_reference: 'learning-content-123',
   learning_object_id: 'e3gd34-23tr21-er234-345er56',
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   score: Models::Shared::LmsCreateCompletionRequestDtoScore.new(
     percentage: 87.0,
-    raw_value: '87 / 100',
+    raw_value: '87 / 100'
   ),
-  time_spent: 'PT1H30M45S',
+  time_spent: 'PT1H30M45S'
 ), id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.create_result.nil?
@@ -317,12 +314,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.lms.delete_user_completion(id: '<id>', sub_resource_id: '<id>', x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.delete_result.nil?
@@ -378,18 +374,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetAssignmentRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_assignment(request: req)
 
 unless res.assignment_result.nil?
@@ -438,19 +433,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetCategoryRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_category(request: req)
 
 unless res.category_result.nil?
@@ -499,18 +493,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetCompletionRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_completion(request: req)
 
 unless res.completion_result.nil?
@@ -563,19 +556,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetContentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_content(request: req)
 
 unless res.content_result.nil?
@@ -626,19 +618,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetCourseRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_course(request: req)
 
 unless res.course_result.nil?
@@ -687,19 +678,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetSkillRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_skill(request: req)
 
 unless res.skill_result.nil?
@@ -748,19 +738,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetUserRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_user(request: req)
 
 unless res.user_result.nil?
@@ -813,19 +802,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetUserAssignmentRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_user_assignment(request: req)
 
 unless res.assignment_result.nil?
@@ -876,19 +864,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsGetUserCompletionRequest.new(
   prefer: 'heartbeat',
   id: '<id>',
   sub_resource_id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.get_user_completion(request: req)
 
 unless res.completion_result.nil?
@@ -941,23 +928,22 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListAssignmentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListAssignmentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
   user_id: 'c28xyrc55866bvuv',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_assignments(request: req)
 
 unless res.assignments_paginated.nil?
@@ -1006,21 +992,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListCategoriesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,level,language,unified_custom_fields',
   filter: Models::Operations::LmsListCategoriesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_categories(request: req)
 
 unless res.categories_paginated.nil?
@@ -1069,21 +1054,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListCompletionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
   filter: Models::Operations::LmsListCompletionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_completions(request: req)
 
 unless res.completions_paginated.nil?
@@ -1136,21 +1120,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListContentRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,course_ids,remote_course_ids,title,description,additional_data,languages,content_url,mobile_launch_content_url,content_type,cover_url,active,duration,order,categories,skills,updated_at,created_at,provider,localizations,tags,authors,unified_custom_fields',
   filter: Models::Operations::LmsListContentQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_content(request: req)
 
 unless res.content_paginated.nil?
@@ -1201,21 +1184,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListCoursesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,content_ids,remote_content_ids,title,description,languages,cover_url,url,active,duration,categories,skills,updated_at,created_at,content,provider,localizations,authors,unified_custom_fields',
   filter: Models::Operations::LmsListCoursesQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_courses(request: req)
 
 unless res.course_paginated.nil?
@@ -1264,21 +1246,20 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListSkillsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,active,hierarchy,language,unified_custom_fields',
   filter: Models::Operations::LmsListSkillsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_skills(request: req)
 
 unless res.skills_paginated.nil?
@@ -1331,24 +1312,23 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListUserAssignmentsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,user_id,remote_user_id,course_id,remote_course_id,updated_at,created_at,assigned_at,due_date,status,progress,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,certificate_url,result,completed_at,unified_custom_fields',
   filter: Models::Operations::LmsListUserAssignmentsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
   remote_user_id: 'e3cb75bf-aa84-466e-a6c1-b8322b257a48',
   user_id: 'c28xyrc55866bvuv',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_user_assignments(request: req)
 
 unless res.assignments_paginated.nil?
@@ -1399,22 +1379,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListUserCompletionsRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_id,remote_external_id,external_reference,content_id,remote_content_id,course_id,remote_course_id,user_id,remote_user_id,completed_at,updated_at,created_at,result,content_external_reference,learning_object_type,learning_object_id,remote_learning_object_id,learning_object_external_reference,time_spent,certificate_url,score,unified_custom_fields',
   filter: Models::Operations::LmsListUserCompletionsQueryParamFilter.new(
-    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   id: '<id>',
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_user_completions(request: req)
 
 unless res.completions_paginated.nil?
@@ -1463,19 +1442,18 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::LmsListUsersRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,external_reference,active,email,phone_number,created_at,updated_at,name,unified_custom_fields',
   filter: nil,
-  x_account_id: '<id>',
+  x_account_id: '<id>'
 )
-
 res = s.lms.list_users(request: req)
 
 unless res.users_paginated.nil?
@@ -1528,38 +1506,37 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.lms.upsert_content(lms_upsert_content_request_dto: Models::Shared::LmsUpsertContentRequestDto.new(
   active: true,
   additional_data: [
     Models::Shared::AdditionalData.new(
       id: 'learning_outcomes',
       remote_id: '8187e5da-dc77-475e-9949-af0f1fa4e4e3',
-      value: 'This is additional data',
+      value: 'This is additional data'
     ),
   ],
   authors: [
     Models::Shared::AuthorModel.new(
       id: '123',
-      name: 'John Doe',
+      name: 'John Doe'
     ),
   ],
   categories: [
     Models::Shared::CreateCategoriesApiModel.new(
       id: '16873-IT345',
       language: Models::Shared::CreateCategoriesApiModelLanguage.new(
-        value: Models::Shared::CreateCategoriesApiModelSchemasValue::EN_GB,
+        value: Models::Shared::CreateCategoriesApiModelSchemasValue::EN_GB
       ),
       name: 'Information-Technology',
       unified_custom_fields: {
-        "my_project_custom_field_1": 'REF-1236',
-        "my_project_custom_field_2": 'some other value',
-      },
+        'my_project_custom_field_1' => 'REF-1236',
+        'my_project_custom_field_2' => 'some other value',
+      }
     ),
   ],
   content_url: 'https://www.youtube.com/watch?v=16873',
@@ -1570,28 +1547,28 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto: Models::Shared::LmsUp
   external_reference: 'SOFTWARE-ENG-LV1-TRAINING-VIDEO-1',
   languages: [
     Models::Shared::LanguageEnum.new(
-      value: Models::Shared::LanguageEnumValue::EN_GB,
+      value: Models::Shared::LanguageEnumValue::EN_GB
     ),
   ],
   localizations: [
     Models::Shared::LocalizationModel.new(
       description: 'This course acts as learning resource for software engineers.',
-      title: 'Software Engineer Lv 1',
+      title: 'Software Engineer Lv 1'
     ),
     Models::Shared::LocalizationModel.new(
       description: 'This course acts as learning resource for software engineers.',
-      title: 'Software Engineer: A comprehensive guide',
+      title: 'Software Engineer: A comprehensive guide'
     ),
   ],
   mobile_launch_content_url: 'https://www.mobile.youtube.com/watch?v=16873',
   order: 1.0,
   passthrough: {
-    "other_known_names": 'John Doe',
+    'other_known_names' => 'John Doe',
   },
   skills: [
     Models::Shared::CreateSkillsApiModel.new(
       id: '12345',
-      name: 'Sales Techniques',
+      name: 'Sales Techniques'
     ),
   ],
   tags: [
@@ -1600,10 +1577,10 @@ res = s.lms.upsert_content(lms_upsert_content_request_dto: Models::Shared::LmsUp
   ],
   title: 'Software Engineer Lv 1',
   unified_custom_fields: {
-    "my_project_custom_field_1": 'REF-1236',
-    "my_project_custom_field_2": 'some other value',
+    'my_project_custom_field_1' => 'REF-1236',
+    'my_project_custom_field_2' => 'some other value',
   },
-  updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z'),
+  updated_at: DateTime.iso8601('2021-07-21T14:00:00.000Z')
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.upsert_result.nil?

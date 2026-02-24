@@ -9,8 +9,6 @@ module StackOne
     module Shared
 
       class ConnectSessionCreateCategories < T::Enum
-
-
         enums do
           ATS = new('ats')
           HRIS = new('hris')

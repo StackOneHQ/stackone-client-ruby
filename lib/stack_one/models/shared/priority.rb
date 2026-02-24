@@ -17,7 +17,7 @@ module StackOne
         # The source value of the ticket priority.
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::TicketingReadTicket4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The priority of the ticket.
-        field :value, Crystalline::Nilable.new(Models::Shared::TicketingReadTicketValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::TicketingReadTicketValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::TicketingReadTicketValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::TicketingReadTicketValue, true) } }
 
         sig { params(id: T.nilable(::String), source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::TicketingReadTicket4, T::Array[::Object])), value: T.nilable(Models::Shared::TicketingReadTicketValue)).void }
         def initialize(id: nil, source_value: nil, value: nil)

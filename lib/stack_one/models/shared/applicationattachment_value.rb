@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ApplicationAttachmentValue - The content type of the attachment.
-      class ApplicationAttachmentValue < T::Enum
-
-
+      class ApplicationAttachmentValue
+        include ::Crystalline::Enum
         enums do
           TEXT = new('text')
           PDF = new('pdf')
@@ -18,6 +17,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

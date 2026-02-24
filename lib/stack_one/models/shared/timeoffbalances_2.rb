@@ -9,8 +9,6 @@ module StackOne
     module Shared
 
       class TimeOffBalances2 < T::Enum
-
-
         enums do
           TRUE = new('true')
           FALSE = new('false')

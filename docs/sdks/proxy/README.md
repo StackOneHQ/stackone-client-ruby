@@ -20,18 +20,17 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.proxy.proxy_request(proxy_request_body: Models::Shared::ProxyRequestBody.new(
   headers: {
-    "Content-Type": 'application/json',
+    'Content-Type' => 'application/json',
   },
   path: '/employees/directory',
-  url: 'https://api.sample-integration.com/v1',
+  url: 'https://api.sample-integration.com/v1'
 ), x_account_id: '<id>', prefer: 'heartbeat')
 
 unless res.proxy_response_api_model.nil?

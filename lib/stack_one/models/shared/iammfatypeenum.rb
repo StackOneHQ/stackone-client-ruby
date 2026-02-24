@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::IamMfaTypeEnum4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The unified value for the type of multi-factor authentication. If the provider does not send back a type but does specify that MFA is set-up for this user, the value will be set to 'unknown'.'
-        field :value, Crystalline::Nilable.new(Models::Shared::IamMfaTypeEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::IamMfaTypeEnumValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::IamMfaTypeEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::IamMfaTypeEnumValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::IamMfaTypeEnum4, T::Array[::Object])), value: T.nilable(Models::Shared::IamMfaTypeEnumValue)).void }
         def initialize(source_value: nil, value: nil)

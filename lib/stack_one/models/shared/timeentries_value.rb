@@ -8,13 +8,13 @@ module StackOne
   module Models
     module Shared
 
-      class TimeEntriesValue < T::Enum
-
-
+      class TimeEntriesValue
+        include ::Crystalline::Enum
         enums do
           APPROVED = new('approved')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # HRISLocationSchemasValue - The type of the location.
-      class HRISLocationSchemasValue < T::Enum
-
-
+      class HRISLocationSchemasValue
+        include ::Crystalline::Enum
         enums do
           HOME = new('home')
           WORK = new('work')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

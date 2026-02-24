@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # IamResourceValue - The type of the resource, e.g. user, group, permission, etc.
-      class IamResourceValue < T::Enum
-
-
+      class IamResourceValue
+        include ::Crystalline::Enum
         enums do
           PROJECT = new('project')
           FILE = new('file')
@@ -20,6 +19,7 @@ module StackOne
           USER = new('user')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

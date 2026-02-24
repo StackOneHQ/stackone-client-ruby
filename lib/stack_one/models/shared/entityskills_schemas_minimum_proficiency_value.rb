@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class EntitySkillsSchemasMinimumProficiencyValue < T::Enum
-
-
+      class EntitySkillsSchemasMinimumProficiencyValue
+        include ::Crystalline::Enum
         enums do
           ONE = new('1')
           TWO = new('2')
@@ -19,6 +18,7 @@ module StackOne
           FIVE = new('5')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

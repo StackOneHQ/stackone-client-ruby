@@ -21,7 +21,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::EntitySkillsCreateRequestDto4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
 
-        field :value, Crystalline::Nilable.new(Models::Shared::EntitySkillsCreateRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EntitySkillsCreateRequestDtoValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::EntitySkillsCreateRequestDtoValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::EntitySkillsCreateRequestDtoValue, true) } }
 
         sig { params(id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::EntitySkillsCreateRequestDto4, T::Array[::Object])), value: T.nilable(Models::Shared::EntitySkillsCreateRequestDtoValue)).void }
         def initialize(id: nil, name: nil, remote_id: nil, source_value: nil, value: nil)

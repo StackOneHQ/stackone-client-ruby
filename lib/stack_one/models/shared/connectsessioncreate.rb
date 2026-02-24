@@ -37,7 +37,7 @@ module StackOne
         # If set, this connect session will allow creation of multiple accounts with the same origin owner id and provider. Has no effect if account_id is set.
         field :multiple, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multiple') } }
         # The connect session account type
-        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::ConnectSessionCreateType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectSessionCreateType, true) } }
 
         sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), expires_in: T.nilable(::Float), multiple: T.nilable(T::Boolean), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
         def initialize(origin_owner_id:, origin_owner_name:, account_id: nil, categories: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, provider_version: nil, expires_in: 1800.0, multiple: false, type: Models::Shared::ConnectSessionCreateType::PRODUCTION)

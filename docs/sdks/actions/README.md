@@ -23,16 +23,15 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
-req = Models::Shared::ActionBuildDto.new(
-  connector_key: 'slack',
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
 )
 
+req = Models::Shared::ActionBuildDto.new(
+  connector_key: 'slack'
+)
 res = s.actions.build_action_embeddings(request: req)
 
 unless res.action_build_response_dto.nil?
@@ -80,11 +79,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Operations::StackoneListActionsMetaRequest.new(
   exclude: [
@@ -93,15 +92,14 @@ req = Models::Operations::StackoneListActionsMetaRequest.new(
   filter: Models::Operations::Filter.new(
     account_ids: 'account1,account2',
     action_key: 'action1',
-    connectors: 'connector1,connector2',
+    connectors: 'connector1,connector2'
   ),
   group_by: '["connector"]',
   include: [
     Models::Operations::Include::ACTION_DETAILS,
   ],
-  search: 'employee',
+  search: 'employee'
 )
-
 res = s.actions.list_actions_meta(request: req)
 
 unless res.actions_meta_paginated.nil?
@@ -149,28 +147,27 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Shared::ActionsRpcRequestDto.new(
   action: 'create_employee',
   body: {
-    "data": 'example',
+    'data' => 'example',
   },
   headers: {
-    "Content-Type": 'application/json',
+    'Content-Type' => 'application/json',
   },
   path: {
-    "id": '123',
+    'id' => '123',
   },
   query: Models::Shared::Query.new(
-    debug: false,
-  ),
+    debug: false
+  )
 )
-
 res = s.actions.rpc_action(request: req)
 
 unless res.actions_rpc_response.nil?
@@ -218,17 +215,16 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Shared::ActionSearchDto.new(
   connector: 'slack',
-  query: 'send a message',
+  query: 'send a message'
 )
-
 res = s.actions.search_actions(request: req)
 
 unless res.action_search_response_dto.nil?

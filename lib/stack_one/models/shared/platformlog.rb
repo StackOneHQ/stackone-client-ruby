@@ -23,9 +23,9 @@ module StackOne
         # The request duration in milliseconds
         field :duration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
         # The request end time ISO8601 date string
-        field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The event ISO8601 date string
-        field :event_datetime, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event_datetime'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :event_datetime, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event_datetime'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The requested HTTP method
         field :http_method, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('http_method') } }
         # The requested path
@@ -45,7 +45,7 @@ module StackOne
         # The requests source value
         field :source_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The request start time ISO8601 date string
-        field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The requests response status code
         field :status, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # The requested sub resource

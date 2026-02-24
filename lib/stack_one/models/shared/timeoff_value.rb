@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
 
-      class TimeOffValue < T::Enum
-
-
+      class TimeOffValue
+        include ::Crystalline::Enum
         enums do
           APPROVED = new('approved')
           CANCELLED = new('cancelled')
@@ -20,6 +19,7 @@ module StackOne
           DRAFT = new('draft')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

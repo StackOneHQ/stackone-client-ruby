@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # AtsDocumentsUploadRequestDtoValue - The category name to associate with the file
-      class AtsDocumentsUploadRequestDtoValue < T::Enum
-
-
+      class AtsDocumentsUploadRequestDtoValue
+        include ::Crystalline::Enum
         enums do
           RESUME = new('resume')
           AVATAR = new('avatar')
@@ -28,6 +27,7 @@ module StackOne
           OTHER = new('other')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

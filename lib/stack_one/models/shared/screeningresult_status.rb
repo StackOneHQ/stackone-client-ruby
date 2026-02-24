@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ScreeningResultStatus - Result status
-      class ScreeningResultStatus < T::Enum
-
-
+      class ScreeningResultStatus
+        include ::Crystalline::Enum
         enums do
           PENDING = new('pending')
           IN_PROGRESS = new('in_progress')
@@ -19,6 +18,7 @@ module StackOne
           CANCELLED = new('cancelled')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

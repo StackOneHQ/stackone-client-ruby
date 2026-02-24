@@ -19,8 +19,8 @@ module StackOne
         # The language associated with this skill
         field :language, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelLanguage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('language') } }
         # The hierarchal level of the skill
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :level, Crystalline::Nilable.new(Models::Shared::CreateSkillsApiModelLevel), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('level') } }
         # The name associated with this skill
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }

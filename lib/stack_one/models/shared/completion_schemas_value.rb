@@ -8,14 +8,14 @@ module StackOne
   module Models
     module Shared
       # CompletionSchemasValue - The StackOne unified result status.
-      class CompletionSchemasValue < T::Enum
-
-
+      class CompletionSchemasValue
+        include ::Crystalline::Enum
         enums do
           PASS = new('Pass')
           FAIL = new('Fail')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

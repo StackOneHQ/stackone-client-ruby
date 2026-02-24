@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ConnectorsMetaCategory - The provider service category
-      class ConnectorsMetaCategory < T::Enum
-
-
+      class ConnectorsMetaCategory
+        include ::Crystalline::Enum
         enums do
           ATS = new('ats')
           HRIS = new('hris')
@@ -27,6 +26,7 @@ module StackOne
           ACCOUNTING = new('accounting')
           SCHEDULING = new('scheduling')
         end
+        open!
       end
     end
   end

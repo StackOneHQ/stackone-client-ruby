@@ -23,11 +23,11 @@ module StackOne
         # Score information
         field :score, Crystalline::Nilable.new(Models::Shared::ScreeningResultScore), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('score') } }
         # Start date of the screening
-        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Result status
-        field :status, Crystalline::Nilable.new(Models::Shared::ScreeningResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::ScreeningResultStatus, true) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::ScreeningResultStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ScreeningResultStatus, true) } }
         # Submission date of the screening
-        field :submission_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :submission_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submission_date'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # Summary of the screening result
         field :summary, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
         # Custom Unified Fields configured in your StackOne project

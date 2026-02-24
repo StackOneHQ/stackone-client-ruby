@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ChannelsEnumValue - The Channels of the campaign.
-      class ChannelsEnumValue < T::Enum
-
-
+      class ChannelsEnumValue
+        include ::Crystalline::Enum
         enums do
           EMAIL = new('email')
           SMS = new('sms')
@@ -20,6 +19,7 @@ module StackOne
           UNKNOWN = new('unknown')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

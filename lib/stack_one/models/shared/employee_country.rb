@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::EmployeeSchemasHomeLocation4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The ISO3166-1 Alpha2 Code of the Country
-        field :value, Crystalline::Nilable.new(Models::Shared::EmployeeSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::EmployeeSchemasHomeLocationValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::EmployeeSchemasHomeLocationValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::EmployeeSchemasHomeLocationValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::EmployeeSchemasHomeLocation4, T::Array[::Object])), value: T.nilable(Models::Shared::EmployeeSchemasHomeLocationValue)).void }
         def initialize(source_value: nil, value: nil)

@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # EmployeeSchemasNationalIdentityNumberTypeValue - The type of the national identity number
-      class EmployeeSchemasNationalIdentityNumberTypeValue < T::Enum
-
-
+      class EmployeeSchemasNationalIdentityNumberTypeValue
+        include ::Crystalline::Enum
         enums do
           SSN = new('ssn')
           NIN = new('nin')
@@ -157,6 +156,7 @@ module StackOne
           UNKNOWN = new('unknown')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

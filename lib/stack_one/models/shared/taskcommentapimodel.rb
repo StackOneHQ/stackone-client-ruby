@@ -17,7 +17,7 @@ module StackOne
         # The text of the comment
         field :comment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('comment') } }
         # The creation date of this comment
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         sig { params(author_employee_id: T.nilable(::String), comment: T.nilable(::String), created_at: T.nilable(::DateTime)).void }
         def initialize(author_employee_id: nil, comment: nil, created_at: nil)

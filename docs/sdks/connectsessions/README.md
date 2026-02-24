@@ -21,16 +21,15 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
-req = Models::Shared::ConnectSessionAuthenticate.new(
-  token: '<value>',
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
 )
 
+req = Models::Shared::ConnectSessionAuthenticate.new(
+  token: '<value>'
+)
 res = s.connect_sessions.authenticate_connect_session(request: req)
 
 unless res.connect_session.nil?
@@ -78,11 +77,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
 req = Models::Shared::ConnectSessionCreate.new(
   categories: [
@@ -102,9 +101,8 @@ req = Models::Shared::ConnectSessionCreate.new(
     Models::Shared::ConnectSessionCreateCategories::SCHEDULING,
   ],
   origin_owner_id: '<id>',
-  origin_owner_name: '<value>',
+  origin_owner_name: '<value>'
 )
-
 res = s.connect_sessions.create_connect_session(request: req)
 
 unless res.connect_session_token_auth_link.nil?

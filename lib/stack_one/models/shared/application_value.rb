@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # ApplicationValue - The status of the application.
-      class ApplicationValue < T::Enum
-
-
+      class ApplicationValue
+        include ::Crystalline::Enum
         enums do
           ACTIVE = new('active')
           ASSESSMENT = new('assessment')
@@ -33,6 +32,7 @@ module StackOne
           APPROVED = new('approved')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

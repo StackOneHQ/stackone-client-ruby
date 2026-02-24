@@ -14,8 +14,6 @@ class StackOne::Models::Operations::TicketingDownloadTicketingAttachmentRequest
   def sub_resource_id=(str_); end
   def x_account_id(); end
   def x_account_id=(str_); end
-  def prefer(); end
-  def prefer=(str_); end
   def export_format(); end
   def export_format=(str_); end
   def format(); end

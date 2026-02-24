@@ -19,7 +19,7 @@ module StackOne
 
         field :status_code, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('statusCode') } }
 
-        field :timestamp, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :timestamp, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
         field :unified_warnings, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::UnifiedWarningApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_warnings') } }
 

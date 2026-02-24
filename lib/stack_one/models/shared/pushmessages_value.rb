@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # PushMessagesValue - The unified message type.
-      class PushMessagesValue < T::Enum
-
-
+      class PushMessagesValue
+        include ::Crystalline::Enum
         enums do
           EMAIL = new('email')
           SMS = new('sms')
@@ -25,6 +24,7 @@ module StackOne
           UNKNOWN = new('unknown')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

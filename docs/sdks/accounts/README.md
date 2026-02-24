@@ -24,12 +24,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.delete_account(id: '<id>')
 
 unless res.linked_account.nil?
@@ -77,12 +76,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.get_account(id: '<id>')
 
 unless res.linked_account.nil?
@@ -130,12 +128,11 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.get_account_meta_info(id: '<id>')
 
 unless res.linked_account_meta.nil?
@@ -183,14 +180,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 
-req = Models::Operations::StackoneListLinkedAccountsRequest.new()
-
+req = Models::Operations::StackoneListLinkedAccountsRequest.new
 res = s.accounts.list_linked_accounts(request: req)
 
 unless res.linked_accounts.nil?
@@ -238,14 +234,13 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new(
-      security: Models::Shared::Security.new(
-        password: '',
-        username: '',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
 res = s.accounts.update_account(patch_account_external_dto: Models::Shared::PatchAccountExternalDto.new(
-  type: Models::Shared::PatchAccountExternalDtoType::TEST,
+  type: Models::Shared::PatchAccountExternalDtoType::TEST
 ), id: '<id>')
 
 unless res.linked_account.nil?

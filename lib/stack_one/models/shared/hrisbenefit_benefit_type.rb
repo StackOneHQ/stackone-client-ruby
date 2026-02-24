@@ -15,7 +15,7 @@ module StackOne
 
         field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::HRISBenefit4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The type of the benefit
-        field :value, Crystalline::Nilable.new(Models::Shared::HRISBenefitValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': Utils.enum_from_string(Models::Shared::HRISBenefitValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::HRISBenefitValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::HRISBenefitValue, true) } }
 
         sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::HRISBenefit4, T::Array[::Object])), value: T.nilable(Models::Shared::HRISBenefitValue)).void }
         def initialize(source_value: nil, value: nil)

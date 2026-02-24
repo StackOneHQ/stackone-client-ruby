@@ -8,9 +8,8 @@ module StackOne
   module Models
     module Shared
       # HrisDocumentApiModelSchemasTypeValue - The category of the file
-      class HrisDocumentApiModelSchemasTypeValue < T::Enum
-
-
+      class HrisDocumentApiModelSchemasTypeValue
+        include ::Crystalline::Enum
         enums do
           APPLICATION = new('application')
           ACADEMIC = new('academic')
@@ -38,6 +37,7 @@ module StackOne
           BACKGROUND_CHECK = new('background_check')
           UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end
