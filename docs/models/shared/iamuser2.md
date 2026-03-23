@@ -1,5 +1,13 @@
 # IamUser2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = IamUser2::TRUE
+```
+
 
 ## Values
 

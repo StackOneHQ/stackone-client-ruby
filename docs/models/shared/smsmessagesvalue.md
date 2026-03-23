@@ -2,6 +2,17 @@
 
 The unified message type.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = SmsMessagesValue::EMAIL
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = SmsMessagesValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -16,6 +16,8 @@ module StackOne
         field :action, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action'), required: true } }
         # Request body for the action
         field :body, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        # Override the account-level defender setting for this request
+        field :defender_enabled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('defender_enabled') } }
         # Headers for the action
         field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # Path parameters for the action
@@ -23,10 +25,11 @@ module StackOne
         # Query parameters for the action
         field :query, Crystalline::Nilable.new(Models::Shared::Query), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
 
-        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(Models::Shared::Query)).void }
-        def initialize(action:, body: nil, headers: nil, path: nil, query: nil)
+        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), defender_enabled: T.nilable(T::Boolean), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(Models::Shared::Query)).void }
+        def initialize(action:, body: nil, defender_enabled: nil, headers: nil, path: nil, query: nil)
           @action = action
           @body = body
+          @defender_enabled = defender_enabled
           @headers = headers
           @path = path
           @query = query
@@ -37,6 +40,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @action == other.action
           return false unless @body == other.body
+          return false unless @defender_enabled == other.defender_enabled
           return false unless @headers == other.headers
           return false unless @path == other.path
           return false unless @query == other.query

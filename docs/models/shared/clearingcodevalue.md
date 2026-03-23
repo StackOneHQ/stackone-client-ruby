@@ -2,6 +2,17 @@
 
 The type of clearing code
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ClearingCodeValue::SORT_CODE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = ClearingCodeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -2,6 +2,17 @@
 
 The pay frequency of the job postings.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = JobPostingCompensationValue::HOURLY
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = JobPostingCompensationValue.deserialize("custom_value")
+```
+
 
 ## Values
 

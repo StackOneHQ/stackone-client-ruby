@@ -2,6 +2,14 @@
 
 The field to order the results by.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = OrderBy::PROVIDER
+```
+
 
 ## Values
 

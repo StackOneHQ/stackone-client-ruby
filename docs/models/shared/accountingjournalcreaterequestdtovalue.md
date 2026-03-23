@@ -2,6 +2,17 @@
 
 Default currency for the company
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AccountingJournalCreateRequestDtoValue::AED
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AccountingJournalCreateRequestDtoValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -39,8 +39,10 @@ module StackOne
     end
 
 
-    sig { params(provider: ::String, include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetConnectorMetaResponse) }
-    def get_connector_meta(provider:, include: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(provider: ::String, include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneGetConnectorMetaResponse) }
+    def get_connector_meta(provider:, include: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_connector_meta - Get Connector Meta Information
       request = Models::Operations::StackoneGetConnectorMetaRequest.new(
         provider: provider,
@@ -100,6 +102,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -322,8 +327,8 @@ module StackOne
     end
 
 
-    sig { params(include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListConnectorsMetaResponse) }
-    def list_connectors_meta(include: nil, retries: nil, timeout_ms: nil)
+    sig { params(include: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListConnectorsMetaResponse) }
+    def list_connectors_meta(include: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_connectors_meta - List Connector Meta Information
       request = Models::Operations::StackoneListConnectorsMetaRequest.new(
         include: include
@@ -377,6 +382,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -597,5 +605,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

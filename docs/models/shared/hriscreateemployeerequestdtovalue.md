@@ -1,5 +1,16 @@
 # HrisCreateEmployeeRequestDtoValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisCreateEmployeeRequestDtoValue::FULL_TIME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisCreateEmployeeRequestDtoValue.deserialize("custom_value")
+```
+
 
 ## Values
 

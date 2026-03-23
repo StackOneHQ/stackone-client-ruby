@@ -2,6 +2,17 @@
 
 The category of the file
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisDocumentApiModelSchemasTypeValue::APPLICATION
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisDocumentApiModelSchemasTypeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

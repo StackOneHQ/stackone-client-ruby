@@ -158,6 +158,7 @@ req = Models::Shared::ActionsRpcRequestDto.new(
   body: {
     'data' => 'example',
   },
+  defender_enabled: true,
   headers: {
     'Content-Type' => 'application/json',
   },

@@ -39,8 +39,10 @@ module StackOne
     end
 
 
-    sig { params(proxy_request_body: Models::Shared::ProxyRequestBody, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneProxyRequestResponse) }
-    def proxy_request(proxy_request_body:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(proxy_request_body: Models::Shared::ProxyRequestBody, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneProxyRequestResponse) }
+    def proxy_request(proxy_request_body:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # proxy_request - Proxy Request
       request = Models::Operations::StackoneProxyRequestRequest.new(
         proxy_request_body: proxy_request_body,
@@ -106,6 +108,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -340,5 +345,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

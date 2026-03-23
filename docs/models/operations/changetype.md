@@ -2,6 +2,14 @@
 
 Filter by the type of change that occurred to the application
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ChangeType::APPLICATION_STATUS
+```
+
 
 ## Values
 

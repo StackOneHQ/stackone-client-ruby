@@ -1,5 +1,16 @@
 # EmployeeSchemasValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EmployeeSchemasValue::ACTIVE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmployeeSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

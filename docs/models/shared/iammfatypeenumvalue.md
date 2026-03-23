@@ -2,6 +2,17 @@
 
 The unified value for the type of multi-factor authentication. If the provider does not send back a type but does specify that MFA is set-up for this user, the value will be set to 'unknown'.'
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = IamMfaTypeEnumValue::SMS
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = IamMfaTypeEnumValue.deserialize("custom_value")
+```
+
 
 ## Values
 

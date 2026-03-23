@@ -1,5 +1,16 @@
 # EmploymentValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EmploymentValue::FULL_TIME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmploymentValue.deserialize("custom_value")
+```
+
 
 ## Values
 

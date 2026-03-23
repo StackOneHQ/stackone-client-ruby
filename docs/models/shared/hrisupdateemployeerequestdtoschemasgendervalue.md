@@ -1,5 +1,16 @@
 # HrisUpdateEmployeeRequestDtoSchemasGenderValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisUpdateEmployeeRequestDtoSchemasGenderValue::MALE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisUpdateEmployeeRequestDtoSchemasGenderValue.deserialize("custom_value")
+```
+
 
 ## Values
 

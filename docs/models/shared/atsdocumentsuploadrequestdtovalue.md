@@ -2,6 +2,17 @@
 
 The category name to associate with the file
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AtsDocumentsUploadRequestDtoValue::RESUME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AtsDocumentsUploadRequestDtoValue.deserialize("custom_value")
+```
+
 
 ## Values
 

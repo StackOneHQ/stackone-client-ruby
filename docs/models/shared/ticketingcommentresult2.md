@@ -1,5 +1,13 @@
 # TicketingCommentResult2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TicketingCommentResult2::TRUE
+```
+
 
 ## Values
 

@@ -16,13 +16,22 @@ module StackOne
         field :content, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content'), required: true } }
         # The title of the step
         field :title, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title'), required: true } }
+        # The scopes for which this step is applicable
+        field :applicable_scopes, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('applicableScopes') } }
+        # When true, the step should display scopes
+        field :display_scopes, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('displayScopes') } }
+        # An image for the step
+        field :image, Crystalline::Nilable.new(Models::Shared::GuideStepMetaImage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('image') } }
         # List items for the step
         field :list, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('list') } }
 
-        sig { params(content: ::String, title: ::String, list: T.nilable(T::Array[::String])).void }
-        def initialize(content:, title:, list: nil)
+        sig { params(content: ::String, title: ::String, applicable_scopes: T.nilable(T::Array[::String]), display_scopes: T.nilable(T::Boolean), image: T.nilable(Models::Shared::GuideStepMetaImage), list: T.nilable(T::Array[::String])).void }
+        def initialize(content:, title:, applicable_scopes: nil, display_scopes: nil, image: nil, list: nil)
           @content = content
           @title = title
+          @applicable_scopes = applicable_scopes
+          @display_scopes = display_scopes
+          @image = image
           @list = list
         end
 
@@ -31,6 +40,9 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @content == other.content
           return false unless @title == other.title
+          return false unless @applicable_scopes == other.applicable_scopes
+          return false unless @display_scopes == other.display_scopes
+          return false unless @image == other.image
           return false unless @list == other.list
           true
         end

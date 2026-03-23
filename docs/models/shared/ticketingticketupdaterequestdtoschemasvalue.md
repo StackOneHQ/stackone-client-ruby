@@ -2,6 +2,17 @@
 
 The type of this status
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TicketingTicketUpdateRequestDtoSchemasValue::TO_DO
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = TicketingTicketUpdateRequestDtoSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

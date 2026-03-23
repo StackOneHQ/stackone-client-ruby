@@ -1,5 +1,13 @@
 # AccountingTaxRate2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AccountingTaxRate2::TRUE
+```
+
 
 ## Values
 

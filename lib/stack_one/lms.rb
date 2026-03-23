@@ -40,8 +40,10 @@ module StackOne
     end
 
 
-    sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsBatchUpsertContentResponse) }
-    def batch_upsert_content(lms_batch_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(lms_batch_upsert_content_request_dto: Models::Shared::LmsBatchUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsBatchUpsertContentResponse) }
+    def batch_upsert_content(lms_batch_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # batch_upsert_content - Batch Upsert External Linking Learning Objects
       # Batch upsert multiple external linking learning objects that redirect users to a provider platform for consumption and progress tracking. 
       #
@@ -112,6 +114,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -348,8 +353,8 @@ module StackOne
     end
 
 
-    sig { params(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserAssignmentResponse) }
-    def create_user_assignment(lms_create_assignment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(lms_create_assignment_request_dto: Models::Shared::LmsCreateAssignmentRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsCreateUserAssignmentResponse) }
+    def create_user_assignment(lms_create_assignment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_user_assignment - Create User Assignment
       # Create an assignment type learning record for a user. 
       #
@@ -426,6 +431,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -662,8 +670,8 @@ module StackOne
     end
 
 
-    sig { params(lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsCreateUserCompletionResponse) }
-    def create_user_completion(lms_create_completion_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(lms_create_completion_request_dto: Models::Shared::LmsCreateCompletionRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsCreateUserCompletionResponse) }
+    def create_user_completion(lms_create_completion_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_user_completion - Create User Completion
       # Create a completed learning record for a user. 
       #
@@ -738,6 +746,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -974,8 +985,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsDeleteUserCompletionResponse) }
-    def delete_user_completion(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsDeleteUserCompletionResponse) }
+    def delete_user_completion(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # delete_user_completion - Delete User Completion
       # Delete a completion type learning record for a user. 
       #
@@ -1038,6 +1049,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1287,8 +1301,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetAssignmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetAssignmentResponse) }
-    def get_assignment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetAssignmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetAssignmentResponse) }
+    def get_assignment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_assignment - Get Assignment
       # Retrieve an assignment type learning record by its identifier. 
       #
@@ -1349,6 +1363,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1585,8 +1602,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetCategoryRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetCategoryResponse) }
-    def get_category(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetCategoryRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetCategoryResponse) }
+    def get_category(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_category - Get Category
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1642,6 +1659,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1878,8 +1898,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetCompletionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetCompletionResponse) }
-    def get_completion(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetCompletionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetCompletionResponse) }
+    def get_completion(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_completion - Get Completion
       # Retrieve a completed learning record by its identifier. This is the record of a user completing a learning object.
       url, params = @sdk_configuration.get_server_details
@@ -1936,6 +1956,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2172,8 +2195,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetContentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetContentResponse) }
-    def get_content(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetContentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetContentResponse) }
+    def get_content(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_content - Get Content
       # Retrieve a content type learning object by its identifier. 
       #
@@ -2234,6 +2257,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2470,8 +2496,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetCourseRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetCourseResponse) }
-    def get_course(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetCourseRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetCourseResponse) }
+    def get_course(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_course - Get Course
       # Retrieve a course type learning object by its identifier. 
       #
@@ -2530,6 +2556,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2766,8 +2795,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetSkillRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetSkillResponse) }
-    def get_skill(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetSkillRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetSkillResponse) }
+    def get_skill(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_skill - Get Skill
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2823,6 +2852,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3059,8 +3091,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetUserResponse) }
-    def get_user(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetUserResponse) }
+    def get_user(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user - Get User
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -3116,6 +3148,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3352,8 +3387,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetUserAssignmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetUserAssignmentResponse) }
-    def get_user_assignment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetUserAssignmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetUserAssignmentResponse) }
+    def get_user_assignment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user_assignment - Get User Assignment
       # Retrieve an assignment type learning record for a user by its identifier. 
       #
@@ -3414,6 +3449,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3650,8 +3688,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsGetUserCompletionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsGetUserCompletionResponse) }
-    def get_user_completion(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsGetUserCompletionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsGetUserCompletionResponse) }
+    def get_user_completion(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user_completion - Get User Completion
       # Retrieve a completed learning record for a user by its identifier. 
       #
@@ -3710,6 +3748,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3946,8 +3987,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListAssignmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListAssignmentsResponse) }
-    def list_assignments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListAssignmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListAssignmentsResponse) }
+    def list_assignments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_assignments - List Assignments
       # Retrieve a list of assignment type learning records. 
       #
@@ -4003,6 +4044,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4082,7 +4126,8 @@ module StackOne
                 updated_after: request.updated_after,
                 user_id: request.user_id,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4270,8 +4315,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListCategoriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListCategoriesResponse) }
-    def list_categories(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListCategoriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListCategoriesResponse) }
+    def list_categories(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_categories - List Categories
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4322,6 +4367,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4399,7 +4447,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4587,8 +4636,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListCompletionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListCompletionsResponse) }
-    def list_completions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListCompletionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListCompletionsResponse) }
+    def list_completions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_completions - List Completions
       # Retrieve a list of completed learning records. These are the records of a user completing learning objects.
       url, params = @sdk_configuration.get_server_details
@@ -4640,6 +4689,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4717,7 +4769,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4905,8 +4958,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListContentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListContentResponse) }
-    def list_content(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListContentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListContentResponse) }
+    def list_content(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_content - List Content
       # Retrieve a list of content type learning objects. 
       #
@@ -4962,6 +5015,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5039,7 +5095,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5227,8 +5284,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListCoursesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListCoursesResponse) }
-    def list_courses(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListCoursesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListCoursesResponse) }
+    def list_courses(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_courses - List Courses
       # Retrieve a list of course type learning objects. 
       #
@@ -5282,6 +5339,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5359,7 +5419,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5547,8 +5608,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListSkillsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListSkillsResponse) }
-    def list_skills(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListSkillsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListSkillsResponse) }
+    def list_skills(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_skills - List Skills
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -5599,6 +5660,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5676,7 +5740,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5864,8 +5929,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListUserAssignmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListUserAssignmentsResponse) }
-    def list_user_assignments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListUserAssignmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListUserAssignmentsResponse) }
+    def list_user_assignments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_user_assignments - List User Assignments
       # Retrieve a list of assignment type learning records for a user. 
       #
@@ -5926,6 +5991,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6006,7 +6074,8 @@ module StackOne
                 updated_after: request.updated_after,
                 user_id: request.user_id,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -6194,8 +6263,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListUserCompletionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListUserCompletionsResponse) }
-    def list_user_completions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListUserCompletionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListUserCompletionsResponse) }
+    def list_user_completions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_user_completions - List User Completions
       # Retrieve a list of completed learning records for a user. 
       #
@@ -6254,6 +6323,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6332,7 +6404,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -6520,8 +6593,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::LmsListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsListUsersResponse) }
-    def list_users(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::LmsListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsListUsersResponse) }
+    def list_users(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_users - List Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6572,6 +6645,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6649,7 +6725,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -6837,8 +6914,8 @@ module StackOne
     end
 
 
-    sig { params(lms_upsert_content_request_dto: Models::Shared::LmsUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::LmsUpsertContentResponse) }
-    def upsert_content(lms_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(lms_upsert_content_request_dto: Models::Shared::LmsUpsertContentRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::LmsUpsertContentResponse) }
+    def upsert_content(lms_upsert_content_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # upsert_content - Upsert External Linking Learning Objects
       # Create or update an external linking learning object that redirects users to a provider platform for consumption and progress tracking. 
       #
@@ -6909,6 +6986,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7143,5 +7223,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

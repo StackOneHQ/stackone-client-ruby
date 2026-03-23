@@ -2,6 +2,17 @@
 
 The status of the job.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisJobValue::DRAFT
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisJobValue.deserialize("custom_value")
+```
+
 
 ## Values
 

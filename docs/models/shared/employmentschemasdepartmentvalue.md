@@ -1,5 +1,16 @@
 # EmploymentSchemasDepartmentValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EmploymentSchemasDepartmentValue::WORKSPACE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmploymentSchemasDepartmentValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -2,6 +2,17 @@
 
 The priority of the ticket.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TicketingTicketResultValue::LOWEST
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = TicketingTicketResultValue.deserialize("custom_value")
+```
+
 
 ## Values
 

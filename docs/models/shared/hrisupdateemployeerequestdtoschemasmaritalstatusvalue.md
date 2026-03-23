@@ -1,5 +1,16 @@
 # HrisUpdateEmployeeRequestDtoSchemasMaritalStatusValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisUpdateEmployeeRequestDtoSchemasMaritalStatusValue::SINGLE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisUpdateEmployeeRequestDtoSchemasMaritalStatusValue.deserialize("custom_value")
+```
+
 
 ## Values
 

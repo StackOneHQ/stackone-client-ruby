@@ -1,5 +1,16 @@
 # HrisCreateTimeOffRequestDtoValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisCreateTimeOffRequestDtoValue::APPROVED
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisCreateTimeOffRequestDtoValue.deserialize("custom_value")
+```
+
 
 ## Values
 

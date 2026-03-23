@@ -2,6 +2,14 @@
 
 Filter to select shifts by status
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = QueryParamStatus::DRAFT
+```
+
 
 ## Values
 

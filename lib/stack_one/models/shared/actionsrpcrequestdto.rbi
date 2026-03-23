@@ -12,6 +12,8 @@ class StackOne::Models::Shared::ActionsRpcRequestDto
   def action=(str_); end
   def body(); end
   def body=(str_); end
+  def defender_enabled(); end
+  def defender_enabled=(str_); end
   def headers(); end
   def headers=(str_); end
   def path(); end

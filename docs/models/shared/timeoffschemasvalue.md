@@ -1,5 +1,16 @@
 # TimeOffSchemasValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TimeOffSchemasValue::SICK
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = TimeOffSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

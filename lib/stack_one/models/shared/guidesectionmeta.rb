@@ -16,15 +16,21 @@ module StackOne
         field :content, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content'), required: true } }
         # The title of the section
         field :title, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title'), required: true } }
+        # The scopes for which this section is applicable
+        field :applicable_scopes, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('applicableScopes') } }
+        # An image for the section
+        field :image, Crystalline::Nilable.new(Models::Shared::Image), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('image') } }
         # List items for the section
         field :list, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('list') } }
         # Nested steps within the section
         field :steps, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::GuideStepMeta)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('steps') } }
 
-        sig { params(content: ::String, title: ::String, list: T.nilable(T::Array[::String]), steps: T.nilable(T::Array[Models::Shared::GuideStepMeta])).void }
-        def initialize(content:, title:, list: nil, steps: nil)
+        sig { params(content: ::String, title: ::String, applicable_scopes: T.nilable(T::Array[::String]), image: T.nilable(Models::Shared::Image), list: T.nilable(T::Array[::String]), steps: T.nilable(T::Array[Models::Shared::GuideStepMeta])).void }
+        def initialize(content:, title:, applicable_scopes: nil, image: nil, list: nil, steps: nil)
           @content = content
           @title = title
+          @applicable_scopes = applicable_scopes
+          @image = image
           @list = list
           @steps = steps
         end
@@ -34,6 +40,8 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @content == other.content
           return false unless @title == other.title
+          return false unless @applicable_scopes == other.applicable_scopes
+          return false unless @image == other.image
           return false unless @list == other.list
           return false unless @steps == other.steps
           true

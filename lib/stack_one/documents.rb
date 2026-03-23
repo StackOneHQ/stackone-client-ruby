@@ -40,8 +40,10 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsDownloadFileRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsDownloadFileResponse) }
-    def download_file(request:, retries: nil, timeout_ms: nil)
+
+
+    sig { params(request: Models::Operations::DocumentsDownloadFileRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsDownloadFileResponse) }
+    def download_file(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # download_file - Download File
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -97,6 +99,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -331,8 +336,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsGetDriveRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsGetDriveResponse) }
-    def get_drive(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::DocumentsGetDriveRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsGetDriveResponse) }
+    def get_drive(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_drive - Get Drive
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -388,6 +393,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -624,8 +632,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsGetFileRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsGetFileResponse) }
-    def get_file(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::DocumentsGetFileRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsGetFileResponse) }
+    def get_file(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_file - Get File
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -681,6 +689,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -917,8 +928,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsGetFolderRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsGetFolderResponse) }
-    def get_folder(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::DocumentsGetFolderRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsGetFolderResponse) }
+    def get_folder(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_folder - Get Folder
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -974,6 +985,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1210,8 +1224,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsListDrivesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsListDrivesResponse) }
-    def list_drives(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::DocumentsListDrivesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsListDrivesResponse) }
+    def list_drives(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_drives - List Drives
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1262,6 +1276,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1339,7 +1356,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -1527,8 +1545,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsListFilesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsListFilesResponse) }
-    def list_files(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::DocumentsListFilesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsListFilesResponse) }
+    def list_files(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_files - List Files
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1579,6 +1597,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1660,7 +1681,8 @@ module StackOne
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id,
                 x_stackone_api_session_token: request.x_stackone_api_session_token
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -1848,8 +1870,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::DocumentsListFoldersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsListFoldersResponse) }
-    def list_folders(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::DocumentsListFoldersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsListFoldersResponse) }
+    def list_folders(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_folders - List Folders
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1900,6 +1922,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1980,7 +2005,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2168,8 +2194,8 @@ module StackOne
     end
 
 
-    sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DocumentsUploadFileResponse) }
-    def upload_file(unified_upload_request_dto:, x_account_id:, x_stackone_api_session_token: nil, retries: nil, timeout_ms: nil)
+    sig { params(unified_upload_request_dto: Models::Shared::UnifiedUploadRequestDto, x_account_id: ::String, x_stackone_api_session_token: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DocumentsUploadFileResponse) }
+    def upload_file(unified_upload_request_dto:, x_account_id:, x_stackone_api_session_token: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # upload_file - Upload File
       request = Models::Operations::DocumentsUploadFileRequest.new(
         unified_upload_request_dto: unified_upload_request_dto,
@@ -2235,6 +2261,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2469,5 +2498,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

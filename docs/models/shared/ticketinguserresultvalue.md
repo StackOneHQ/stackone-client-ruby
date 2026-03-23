@@ -2,6 +2,17 @@
 
 The type of the user.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TicketingUserResultValue::AGENT
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = TicketingUserResultValue.deserialize("custom_value")
+```
+
 
 ## Values
 

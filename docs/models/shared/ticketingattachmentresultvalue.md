@@ -2,6 +2,17 @@
 
 The file format of the file, expressed as a file extension
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TicketingAttachmentResultValue::UNMAPPED_VALUE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = TicketingAttachmentResultValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 The direction to order the results by.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = StackoneListPlatformLogsQueryParamOrderDirection::ASC
+```
+
 
 ## Values
 

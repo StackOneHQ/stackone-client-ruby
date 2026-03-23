@@ -2,6 +2,17 @@
 
 ISO 4217 currency code
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HRISBankDetailsSchemasCurrencyCodeValue::AED
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HRISBankDetailsSchemasCurrencyCodeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

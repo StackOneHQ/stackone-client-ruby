@@ -40,8 +40,10 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Shared::ActionBuildDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneBuildActionEmbeddingsResponse) }
-    def build_action_embeddings(request:, retries: nil, timeout_ms: nil)
+
+
+    sig { params(request: Models::Shared::ActionBuildDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneBuildActionEmbeddingsResponse) }
+    def build_action_embeddings(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # build_action_embeddings - Rebuild action embeddings for semantic search
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -102,6 +104,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -324,8 +329,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListActionsMetaRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListActionsMetaResponse) }
-    def list_actions_meta(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::StackoneListActionsMetaRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListActionsMetaResponse) }
+    def list_actions_meta(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_actions_meta - List all actions metadata
       # Retrieves a list of all actions metadata
       url, params = @sdk_configuration.get_server_details
@@ -377,6 +382,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -451,7 +459,8 @@ module StackOne
                 next_: next_cursor,
                 page_size: request.page_size,
                 search: request.search
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -625,8 +634,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Shared::ActionsRpcRequestDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneRpcActionResponse) }
-    def rpc_action(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Shared::ActionsRpcRequestDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneRpcActionResponse) }
+    def rpc_action(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # rpc_action - Make an RPC call to an action
       # Makes a remote procedure call to the specified action
       url, params = @sdk_configuration.get_server_details
@@ -688,6 +697,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -910,8 +922,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Shared::ActionSearchDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneSearchActionsResponse) }
-    def search_actions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Shared::ActionSearchDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneSearchActionsResponse) }
+    def search_actions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # search_actions - Search connector actions by semantic similarity
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -972,6 +984,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1192,5 +1207,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

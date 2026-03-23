@@ -40,8 +40,10 @@ module StackOne
     end
 
 
-    sig { params(ats_create_application_request_dto: Models::Shared::AtsCreateApplicationRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateApplicationResponse) }
-    def create_application(ats_create_application_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(ats_create_application_request_dto: Models::Shared::AtsCreateApplicationRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateApplicationResponse) }
+    def create_application(ats_create_application_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_application - Create Application
       request = Models::Operations::AtsCreateApplicationRequest.new(
         ats_create_application_request_dto: ats_create_application_request_dto,
@@ -107,6 +109,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -343,8 +348,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateApplicationNoteResponse) }
-    def create_application_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateApplicationNoteResponse) }
+    def create_application_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_application_note - Create Application Note
       request = Models::Operations::AtsCreateApplicationNoteRequest.new(
         ats_create_notes_request_dto: ats_create_notes_request_dto,
@@ -416,6 +421,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -652,8 +660,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_background_check_packages_request_dto: Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateBackgroundCheckPackageResponse) }
-    def create_background_check_package(ats_create_background_check_packages_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_background_check_packages_request_dto: Models::Shared::AtsCreateBackgroundCheckPackagesRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateBackgroundCheckPackageResponse) }
+    def create_background_check_package(ats_create_background_check_packages_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_background_check_package - Create Background Check Package
       request = Models::Operations::AtsCreateBackgroundCheckPackageRequest.new(
         ats_create_background_check_packages_request_dto: ats_create_background_check_packages_request_dto,
@@ -719,6 +727,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -955,8 +966,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_candidate_request_dto: Models::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateCandidateResponse) }
-    def create_candidate(ats_create_candidate_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_candidate_request_dto: Models::Shared::AtsCreateCandidateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateCandidateResponse) }
+    def create_candidate(ats_create_candidate_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_candidate - Create Candidate
       request = Models::Operations::AtsCreateCandidateRequest.new(
         ats_create_candidate_request_dto: ats_create_candidate_request_dto,
@@ -1022,6 +1033,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1258,8 +1272,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateCandidateNoteResponse) }
-    def create_candidate_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateCandidateNoteResponse) }
+    def create_candidate_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_candidate_note - Create Candidate Note
       request = Models::Operations::AtsCreateCandidateNoteRequest.new(
         ats_create_notes_request_dto: ats_create_notes_request_dto,
@@ -1331,6 +1345,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1567,8 +1584,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateInterviewNoteResponse) }
-    def create_interview_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_notes_request_dto: Models::Shared::AtsCreateNotesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateInterviewNoteResponse) }
+    def create_interview_note(ats_create_notes_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_interview_note - Create Interview Note
       request = Models::Operations::AtsCreateInterviewNoteRequest.new(
         ats_create_notes_request_dto: ats_create_notes_request_dto,
@@ -1640,6 +1657,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1876,8 +1896,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_job_request_dto: Models::Shared::AtsCreateJobRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateJobResponse) }
-    def create_job(ats_create_job_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_job_request_dto: Models::Shared::AtsCreateJobRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateJobResponse) }
+    def create_job(ats_create_job_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_job - Create Job
       request = Models::Operations::AtsCreateJobRequest.new(
         ats_create_job_request_dto: ats_create_job_request_dto,
@@ -1943,6 +1963,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2179,8 +2202,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_offer_request_dto: Models::Shared::AtsCreateOfferRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsCreateOfferResponse) }
-    def create_offer(ats_create_offer_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_offer_request_dto: Models::Shared::AtsCreateOfferRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsCreateOfferResponse) }
+    def create_offer(ats_create_offer_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_offer - Create Offer
       request = Models::Operations::AtsCreateOfferRequest.new(
         ats_create_offer_request_dto: ats_create_offer_request_dto,
@@ -2246,6 +2269,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2482,8 +2508,8 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsDeleteBackgroundCheckPackageResponse) }
-    def delete_background_check_package(id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsDeleteBackgroundCheckPackageResponse) }
+    def delete_background_check_package(id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # delete_background_check_package - Delete Background Check Package
       request = Models::Operations::AtsDeleteBackgroundCheckPackageRequest.new(
         id: id,
@@ -2542,6 +2568,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2778,8 +2807,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsDownloadApplicationDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String)).returns(Models::Operations::AtsDownloadApplicationDocumentResponse) }
-    def download_application_document(request:, retries: nil, timeout_ms: nil, accept_header_override: nil)
+    sig { params(request: Models::Operations::AtsDownloadApplicationDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsDownloadApplicationDocumentResponse) }
+    def download_application_document(request:, retries: nil, timeout_ms: nil, accept_header_override: nil, http_headers: nil)
       # download_application_document - Download Application Document
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2835,6 +2864,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3663,8 +3695,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationResponse) }
-    def get_application(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationResponse) }
+    def get_application(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application - Get Application
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -3720,6 +3752,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3956,8 +3991,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationCustomFieldDefinitionResponse) }
-    def get_application_custom_field_definition(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationCustomFieldDefinitionResponse) }
+    def get_application_custom_field_definition(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_custom_field_definition - Get Application Custom Field Definition
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4013,6 +4048,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4249,8 +4287,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationDocumentResponse) }
-    def get_application_document(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationDocumentResponse) }
+    def get_application_document(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_document - Get Application Document
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4306,6 +4344,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4542,8 +4583,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationDocumentCategoryRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationDocumentCategoryResponse) }
-    def get_application_document_category(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationDocumentCategoryRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationDocumentCategoryResponse) }
+    def get_application_document_category(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_document_category - Get Application Document Category
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4599,6 +4640,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4835,8 +4879,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationNoteResponse) }
-    def get_application_note(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationNoteResponse) }
+    def get_application_note(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_note - Get Application Note
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -4892,6 +4936,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5128,8 +5175,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationOfferRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationOfferResponse) }
-    def get_application_offer(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationOfferRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationOfferResponse) }
+    def get_application_offer(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_offer - Get Application Offer
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -5185,6 +5232,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5421,8 +5471,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationScheduledInterviewRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationScheduledInterviewResponse) }
-    def get_application_scheduled_interview(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationScheduledInterviewRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationScheduledInterviewResponse) }
+    def get_application_scheduled_interview(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_scheduled_interview - Get Applications scheduled interview
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -5478,6 +5528,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5714,8 +5767,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationScorecardRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationScorecardResponse) }
-    def get_application_scorecard(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationScorecardRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationScorecardResponse) }
+    def get_application_scorecard(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_scorecard - Get Application Scorecard
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -5771,6 +5824,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6007,8 +6063,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetApplicationStageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetApplicationStageResponse) }
-    def get_application_stage(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetApplicationStageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetApplicationStageResponse) }
+    def get_application_stage(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_application_stage - Get Application Stage
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6064,6 +6120,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6300,8 +6359,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetAssessmentsPackageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetAssessmentsPackageResponse) }
-    def get_assessments_package(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetAssessmentsPackageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetAssessmentsPackageResponse) }
+    def get_assessments_package(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_assessments_package - Get Assessments Package
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6357,6 +6416,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6593,8 +6655,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetBackgroundCheckPackageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetBackgroundCheckPackageResponse) }
-    def get_background_check_package(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetBackgroundCheckPackageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetBackgroundCheckPackageResponse) }
+    def get_background_check_package(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_background_check_package - Get Background Check Package
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6650,6 +6712,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6886,8 +6951,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetCandidateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetCandidateResponse) }
-    def get_candidate(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetCandidateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetCandidateResponse) }
+    def get_candidate(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_candidate - Get Candidate
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -6943,6 +7008,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7179,8 +7247,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetCandidateCustomFieldDefinitionResponse) }
-    def get_candidate_custom_field_definition(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetCandidateCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetCandidateCustomFieldDefinitionResponse) }
+    def get_candidate_custom_field_definition(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_candidate_custom_field_definition - Get Candidate Custom Field Definition
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -7236,6 +7304,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7472,8 +7543,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetCandidateNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetCandidateNoteResponse) }
-    def get_candidate_note(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetCandidateNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetCandidateNoteResponse) }
+    def get_candidate_note(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_candidate_note - Get Candidate Note
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -7529,6 +7600,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7765,8 +7839,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetDepartmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetDepartmentResponse) }
-    def get_department(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetDepartmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetDepartmentResponse) }
+    def get_department(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_department - Get Department
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -7822,6 +7896,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8058,8 +8135,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetInterviewRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetInterviewResponse) }
-    def get_interview(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetInterviewRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetInterviewResponse) }
+    def get_interview(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_interview - Get Interview
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -8115,6 +8192,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8351,8 +8431,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetInterviewStageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetInterviewStageResponse) }
-    def get_interview_stage(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetInterviewStageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetInterviewStageResponse) }
+    def get_interview_stage(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_interview_stage - Get Interview Stage
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -8410,6 +8490,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8646,8 +8729,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetJobRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetJobResponse) }
-    def get_job(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetJobRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetJobResponse) }
+    def get_job(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_job - Get Job
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -8703,6 +8786,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8939,8 +9025,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetJobApplicationStageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetJobApplicationStageResponse) }
-    def get_job_application_stage(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetJobApplicationStageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetJobApplicationStageResponse) }
+    def get_job_application_stage(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_job_application_stage - Get Job Application Stage
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -8996,6 +9082,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -9232,8 +9321,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetJobCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetJobCustomFieldDefinitionResponse) }
-    def get_job_custom_field_definition(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetJobCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetJobCustomFieldDefinitionResponse) }
+    def get_job_custom_field_definition(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_job_custom_field_definition - Get Job Custom Field Definition
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -9289,6 +9378,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -9525,8 +9617,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetJobPostingRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetJobPostingResponse) }
-    def get_job_posting(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetJobPostingRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetJobPostingResponse) }
+    def get_job_posting(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_job_posting - Get Job Posting
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -9582,6 +9674,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -9818,8 +9913,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetListRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetListResponse) }
-    def get_list(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetListRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetListResponse) }
+    def get_list(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_list - Get List
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -9875,6 +9970,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10111,8 +10209,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetLocationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetLocationResponse) }
-    def get_location(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetLocationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetLocationResponse) }
+    def get_location(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_location - Get Location
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -10168,6 +10266,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10404,8 +10505,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetOfferRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetOfferResponse) }
-    def get_offer(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetOfferRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetOfferResponse) }
+    def get_offer(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_offer - Get Offer
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -10461,6 +10562,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10697,8 +10801,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetRejectedReasonRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetRejectedReasonResponse) }
-    def get_rejected_reason(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetRejectedReasonRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetRejectedReasonResponse) }
+    def get_rejected_reason(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_rejected_reason - Get Rejected Reason
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -10754,6 +10858,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10990,8 +11097,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsGetUserResponse) }
-    def get_user(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsGetUserResponse) }
+    def get_user(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user - Get User
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -11047,6 +11154,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -11283,8 +11393,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationChangesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationChangesResponse) }
-    def list_application_changes(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationChangesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationChangesResponse) }
+    def list_application_changes(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_changes - List Application Changes
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -11340,6 +11450,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -11416,7 +11529,8 @@ module StackOne
                 proxy: request.proxy,
                 raw: request.raw,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -11604,8 +11718,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationCustomFieldDefinitionsResponse) }
-    def list_application_custom_field_definitions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationCustomFieldDefinitionsResponse) }
+    def list_application_custom_field_definitions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_custom_field_definitions - List Application Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -11656,6 +11770,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -11733,7 +11850,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -11921,8 +12039,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationDocumentCategoriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationDocumentCategoriesResponse) }
-    def list_application_document_categories(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationDocumentCategoriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationDocumentCategoriesResponse) }
+    def list_application_document_categories(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_document_categories - List Application Document Categories
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -11973,6 +12091,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12050,7 +12171,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -12238,8 +12360,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationDocumentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationDocumentsResponse) }
-    def list_application_documents(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationDocumentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationDocumentsResponse) }
+    def list_application_documents(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_documents - List Application Documents
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -12295,6 +12417,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12374,7 +12499,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -12562,8 +12688,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationNotesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationNotesResponse) }
-    def list_application_notes(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationNotesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationNotesResponse) }
+    def list_application_notes(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_notes - List Application Notes
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -12619,6 +12745,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12698,7 +12827,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -12886,8 +13016,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationScorecardsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationScorecardsResponse) }
-    def list_application_scorecards(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationScorecardsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationScorecardsResponse) }
+    def list_application_scorecards(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_scorecards - List Application Scorecards
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -12943,6 +13073,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13022,7 +13155,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -13210,8 +13344,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationStagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationStagesResponse) }
-    def list_application_stages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationStagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationStagesResponse) }
+    def list_application_stages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_application_stages - List Application Stages
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -13262,6 +13396,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13340,7 +13477,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -13528,8 +13666,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationsResponse) }
-    def list_applications(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationsResponse) }
+    def list_applications(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_applications - List Applications
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -13580,6 +13718,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13661,7 +13802,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -13849,8 +13991,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationsOffersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationsOffersResponse) }
-    def list_applications_offers(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationsOffersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationsOffersResponse) }
+    def list_applications_offers(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_applications_offers - List Application Offers
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -13906,6 +14048,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13985,7 +14130,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -14173,8 +14319,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListApplicationsScheduledInterviewsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListApplicationsScheduledInterviewsResponse) }
-    def list_applications_scheduled_interviews(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListApplicationsScheduledInterviewsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListApplicationsScheduledInterviewsResponse) }
+    def list_applications_scheduled_interviews(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_applications_scheduled_interviews - List Applications scheduled interviews
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -14230,6 +14376,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -14309,7 +14458,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -14497,8 +14647,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListAssessmentsPackagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListAssessmentsPackagesResponse) }
-    def list_assessments_packages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListAssessmentsPackagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListAssessmentsPackagesResponse) }
+    def list_assessments_packages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_assessments_packages - List Assessments Packages
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -14549,6 +14699,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -14626,7 +14779,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -14814,8 +14968,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListBackgroundCheckPackagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListBackgroundCheckPackagesResponse) }
-    def list_background_check_packages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListBackgroundCheckPackagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListBackgroundCheckPackagesResponse) }
+    def list_background_check_packages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_background_check_packages - List Background Check Packages
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -14866,6 +15020,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -14943,7 +15100,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -15131,8 +15289,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListCandidateCustomFieldDefinitionsResponse) }
-    def list_candidate_custom_field_definitions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListCandidateCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListCandidateCustomFieldDefinitionsResponse) }
+    def list_candidate_custom_field_definitions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_candidate_custom_field_definitions - List Candidate Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -15183,6 +15341,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -15260,7 +15421,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -15448,8 +15610,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListCandidateNotesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListCandidateNotesResponse) }
-    def list_candidate_notes(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListCandidateNotesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListCandidateNotesResponse) }
+    def list_candidate_notes(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_candidate_notes - List Candidate Notes
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -15505,6 +15667,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -15584,7 +15749,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -15772,8 +15938,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListCandidatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListCandidatesResponse) }
-    def list_candidates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListCandidatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListCandidatesResponse) }
+    def list_candidates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_candidates - List Candidates
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -15824,6 +15990,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -15903,7 +16072,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -16091,8 +16261,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListDepartmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListDepartmentsResponse) }
-    def list_departments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListDepartmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListDepartmentsResponse) }
+    def list_departments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_departments - List Departments
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -16143,6 +16313,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -16221,7 +16394,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -16409,8 +16583,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListInterviewStagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListInterviewStagesResponse) }
-    def list_interview_stages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListInterviewStagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListInterviewStagesResponse) }
+    def list_interview_stages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_interview_stages - List Interview Stages
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -16463,6 +16637,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -16541,7 +16718,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -16729,8 +16907,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListInterviewsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListInterviewsResponse) }
-    def list_interviews(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListInterviewsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListInterviewsResponse) }
+    def list_interviews(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_interviews - List Interviews
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -16781,6 +16959,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -16859,7 +17040,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17047,8 +17229,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListJobApplicationStagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListJobApplicationStagesResponse) }
-    def list_job_application_stages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListJobApplicationStagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListJobApplicationStagesResponse) }
+    def list_job_application_stages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_job_application_stages - List Job Application Stages
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -17104,6 +17286,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -17183,7 +17368,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17371,8 +17557,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListJobCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListJobCustomFieldDefinitionsResponse) }
-    def list_job_custom_field_definitions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListJobCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListJobCustomFieldDefinitionsResponse) }
+    def list_job_custom_field_definitions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_job_custom_field_definitions - List Job Custom Field Definitions
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -17423,6 +17609,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -17500,7 +17689,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17688,8 +17878,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListJobPostingsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListJobPostingsResponse) }
-    def list_job_postings(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListJobPostingsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListJobPostingsResponse) }
+    def list_job_postings(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_job_postings - List Job Postings
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -17740,6 +17930,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -17819,7 +18012,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18007,8 +18201,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListJobsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListJobsResponse) }
-    def list_jobs(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListJobsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListJobsResponse) }
+    def list_jobs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_jobs - List Jobs
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -18059,6 +18253,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -18139,7 +18336,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18327,8 +18525,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListListsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListListsResponse) }
-    def list_lists(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListListsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListListsResponse) }
+    def list_lists(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_lists - Get all Lists
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -18379,6 +18577,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -18456,7 +18657,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18644,8 +18846,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListLocationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListLocationsResponse) }
-    def list_locations(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListLocationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListLocationsResponse) }
+    def list_locations(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_locations - List locations
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -18696,6 +18898,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -18774,7 +18979,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18962,8 +19168,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListOffersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListOffersResponse) }
-    def list_offers(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListOffersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListOffersResponse) }
+    def list_offers(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_offers - List Offers
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -19014,6 +19220,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -19092,7 +19301,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -19280,8 +19490,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListRejectedReasonsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListRejectedReasonsResponse) }
-    def list_rejected_reasons(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListRejectedReasonsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListRejectedReasonsResponse) }
+    def list_rejected_reasons(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_rejected_reasons - List Rejected Reasons
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -19332,6 +19542,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -19410,7 +19623,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -19598,8 +19812,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsListUsersResponse) }
-    def list_users(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsListUsersResponse) }
+    def list_users(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_users - List Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -19650,6 +19864,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -19728,7 +19945,8 @@ module StackOne
                 sync_token: request.sync_token,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -19916,8 +20134,8 @@ module StackOne
     end
 
 
-    sig { params(ats_move_application_request_dto: Models::Shared::AtsMoveApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsMoveApplicationResponse) }
-    def move_application(ats_move_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_move_application_request_dto: Models::Shared::AtsMoveApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsMoveApplicationResponse) }
+    def move_application(ats_move_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # move_application - Move Application
       request = Models::Operations::AtsMoveApplicationRequest.new(
         ats_move_application_request_dto: ats_move_application_request_dto,
@@ -19989,6 +20207,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20225,8 +20446,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_candidates_assessments_request_dto: Models::Shared::AtsCreateCandidatesAssessmentsRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsOrderAssessmentsRequestResponse) }
-    def order_assessments_request(ats_create_candidates_assessments_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_candidates_assessments_request_dto: Models::Shared::AtsCreateCandidatesAssessmentsRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsOrderAssessmentsRequestResponse) }
+    def order_assessments_request(ats_create_candidates_assessments_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # order_assessments_request - Order Assessments Request
       request = Models::Operations::AtsOrderAssessmentsRequestRequest.new(
         ats_create_candidates_assessments_request_dto: ats_create_candidates_assessments_request_dto,
@@ -20292,6 +20513,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20528,8 +20752,8 @@ module StackOne
     end
 
 
-    sig { params(ats_create_background_check_order_request_dto: Models::Shared::AtsCreateBackgroundCheckOrderRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsOrderBackgroundCheckRequestResponse) }
-    def order_background_check_request(ats_create_background_check_order_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_create_background_check_order_request_dto: Models::Shared::AtsCreateBackgroundCheckOrderRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsOrderBackgroundCheckRequestResponse) }
+    def order_background_check_request(ats_create_background_check_order_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # order_background_check_request - Order Background Check Request
       request = Models::Operations::AtsOrderBackgroundCheckRequestRequest.new(
         ats_create_background_check_order_request_dto: ats_create_background_check_order_request_dto,
@@ -20595,6 +20819,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20831,8 +21058,8 @@ module StackOne
     end
 
 
-    sig { params(ats_reject_application_request_dto: Models::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsRejectApplicationResponse) }
-    def reject_application(ats_reject_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_reject_application_request_dto: Models::Shared::AtsRejectApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsRejectApplicationResponse) }
+    def reject_application(ats_reject_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # reject_application - Reject Application
       request = Models::Operations::AtsRejectApplicationRequest.new(
         ats_reject_application_request_dto: ats_reject_application_request_dto,
@@ -20904,6 +21131,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -21140,8 +21370,8 @@ module StackOne
     end
 
 
-    sig { params(ats_update_application_request_dto: Models::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationResponse) }
-    def update_application(ats_update_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_application_request_dto: Models::Shared::AtsUpdateApplicationRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateApplicationResponse) }
+    def update_application(ats_update_application_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_application - Update Application
       request = Models::Operations::AtsUpdateApplicationRequest.new(
         ats_update_application_request_dto: ats_update_application_request_dto,
@@ -21213,6 +21443,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -21449,8 +21682,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsUpdateApplicationNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateApplicationNoteResponse) }
-    def update_application_note(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsUpdateApplicationNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateApplicationNoteResponse) }
+    def update_application_note(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_application_note - Update Application Note
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -21516,6 +21749,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -21752,8 +21988,8 @@ module StackOne
     end
 
 
-    sig { params(ats_update_candidates_assessments_results_request_dto: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateAssessmentsResultResponse) }
-    def update_assessments_result(ats_update_candidates_assessments_results_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_candidates_assessments_results_request_dto: Models::Shared::AtsUpdateCandidatesAssessmentsResultsRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateAssessmentsResultResponse) }
+    def update_assessments_result(ats_update_candidates_assessments_results_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_assessments_result - Update Assessments Result
       request = Models::Operations::AtsUpdateAssessmentsResultRequest.new(
         ats_update_candidates_assessments_results_request_dto: ats_update_candidates_assessments_results_request_dto,
@@ -21825,6 +22061,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22061,8 +22300,8 @@ module StackOne
     end
 
 
-    sig { params(ats_update_background_check_packages_request_dto: Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateBackgroundCheckPackageResponse) }
-    def update_background_check_package(ats_update_background_check_packages_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_background_check_packages_request_dto: Models::Shared::AtsUpdateBackgroundCheckPackagesRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateBackgroundCheckPackageResponse) }
+    def update_background_check_package(ats_update_background_check_packages_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_background_check_package - Update Background Check Package
       request = Models::Operations::AtsUpdateBackgroundCheckPackageRequest.new(
         ats_update_background_check_packages_request_dto: ats_update_background_check_packages_request_dto,
@@ -22134,6 +22373,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22370,8 +22612,8 @@ module StackOne
     end
 
 
-    sig { params(ats_update_background_check_result_request_dto: Models::Shared::AtsUpdateBackgroundCheckResultRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateBackgroundCheckResultResponse) }
-    def update_background_check_result(ats_update_background_check_result_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_background_check_result_request_dto: Models::Shared::AtsUpdateBackgroundCheckResultRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateBackgroundCheckResultResponse) }
+    def update_background_check_result(ats_update_background_check_result_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_background_check_result - Update Background Check Result
       request = Models::Operations::AtsUpdateBackgroundCheckResultRequest.new(
         ats_update_background_check_result_request_dto: ats_update_background_check_result_request_dto,
@@ -22443,6 +22685,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22679,8 +22924,8 @@ module StackOne
     end
 
 
-    sig { params(ats_update_candidate_request_dto: Models::Shared::AtsUpdateCandidateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateCandidateResponse) }
-    def update_candidate(ats_update_candidate_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_candidate_request_dto: Models::Shared::AtsUpdateCandidateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateCandidateResponse) }
+    def update_candidate(ats_update_candidate_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_candidate - Update Candidate
       request = Models::Operations::AtsUpdateCandidateRequest.new(
         ats_update_candidate_request_dto: ats_update_candidate_request_dto,
@@ -22752,6 +22997,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22988,8 +23236,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AtsUpdateInterviewNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateInterviewNoteResponse) }
-    def update_interview_note(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AtsUpdateInterviewNoteRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateInterviewNoteResponse) }
+    def update_interview_note(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_interview_note - Update Interview Note
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -23055,6 +23303,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -23291,8 +23542,8 @@ module StackOne
     end
 
 
-    sig { params(ats_update_job_request_dto: Models::Shared::AtsUpdateJobRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUpdateJobResponse) }
-    def update_job(ats_update_job_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ats_update_job_request_dto: Models::Shared::AtsUpdateJobRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUpdateJobResponse) }
+    def update_job(ats_update_job_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_job - Update Job
       request = Models::Operations::AtsUpdateJobRequest.new(
         ats_update_job_request_dto: ats_update_job_request_dto,
@@ -23364,6 +23615,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -23600,8 +23854,8 @@ module StackOne
     end
 
 
-    sig { params(ats_documents_upload_request_dto: Models::Shared::AtsDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AtsUploadApplicationDocumentResponse) }
-    def upload_application_document(ats_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(ats_documents_upload_request_dto: Models::Shared::AtsDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AtsUploadApplicationDocumentResponse) }
+    def upload_application_document(ats_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # upload_application_document - Upload Application Document
       request = Models::Operations::AtsUploadApplicationDocumentRequest.new(
         ats_documents_upload_request_dto: ats_documents_upload_request_dto,
@@ -23672,6 +23926,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -23906,5 +24163,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

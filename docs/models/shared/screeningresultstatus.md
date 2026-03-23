@@ -2,6 +2,17 @@
 
 Result status
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ScreeningResultStatus::PENDING
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = ScreeningResultStatus.deserialize("custom_value")
+```
+
 
 ## Values
 

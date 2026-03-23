@@ -1,5 +1,13 @@
 # Skills2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = Skills2::TRUE
+```
+
 
 ## Values
 

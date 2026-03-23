@@ -40,8 +40,10 @@ module StackOne
     end
 
 
-    sig { params(messaging_create_conversation_request_dto: Models::Shared::MessagingCreateConversationRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingCreateConversationResponse) }
-    def create_conversation(messaging_create_conversation_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(messaging_create_conversation_request_dto: Models::Shared::MessagingCreateConversationRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingCreateConversationResponse) }
+    def create_conversation(messaging_create_conversation_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_conversation - Create Conversation
       request = Models::Operations::MessagingCreateConversationRequest.new(
         messaging_create_conversation_request_dto: messaging_create_conversation_request_dto,
@@ -107,6 +109,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -343,8 +348,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingDownloadMessagingAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingDownloadMessagingAttachmentResponse) }
-    def download_messaging_attachment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingDownloadMessagingAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingDownloadMessagingAttachmentResponse) }
+    def download_messaging_attachment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # download_messaging_attachment - Download Attachment
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -400,6 +405,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -634,8 +642,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingGetAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingGetAttachmentResponse) }
-    def get_attachment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingGetAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingGetAttachmentResponse) }
+    def get_attachment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_attachment - Get Attachment
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -691,6 +699,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -927,8 +938,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingGetConversationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingGetConversationResponse) }
-    def get_conversation(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingGetConversationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingGetConversationResponse) }
+    def get_conversation(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_conversation - Get Conversation
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -984,6 +995,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1220,8 +1234,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingGetMessageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingGetMessageResponse) }
-    def get_message(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingGetMessageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingGetMessageResponse) }
+    def get_message(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_message - Get Message
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1277,6 +1291,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1513,8 +1530,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingGetUserResponse) }
-    def get_user(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingGetUserResponse) }
+    def get_user(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user - Get User
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1570,6 +1587,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1806,8 +1826,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingListAttachmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingListAttachmentsResponse) }
-    def list_attachments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingListAttachmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingListAttachmentsResponse) }
+    def list_attachments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_attachments - List Attachments
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -1863,6 +1883,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1941,7 +1964,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2129,8 +2153,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingListConversationMessagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingListConversationMessagesResponse) }
-    def list_conversation_messages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingListConversationMessagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingListConversationMessagesResponse) }
+    def list_conversation_messages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_conversation_messages - List Conversation Messages
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2186,6 +2210,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2264,7 +2291,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2452,8 +2480,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingListConversationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingListConversationsResponse) }
-    def list_conversations(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingListConversationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingListConversationsResponse) }
+    def list_conversations(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_conversations - List Conversations
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2504,6 +2532,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2581,7 +2612,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2769,8 +2801,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MessagingListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingListUsersResponse) }
-    def list_users(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MessagingListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingListUsersResponse) }
+    def list_users(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_users - List Users
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -2821,6 +2853,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2898,7 +2933,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -3086,8 +3122,8 @@ module StackOne
     end
 
 
-    sig { params(messaging_message_send_request_dto: Models::Shared::MessagingMessageSendRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MessagingSendMessageResponse) }
-    def send_message(messaging_message_send_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(messaging_message_send_request_dto: Models::Shared::MessagingMessageSendRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MessagingSendMessageResponse) }
+    def send_message(messaging_message_send_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # send_message - Send Message
       request = Models::Operations::MessagingSendMessageRequest.new(
         messaging_message_send_request_dto: messaging_message_send_request_dto,
@@ -3153,6 +3189,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3387,5 +3426,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

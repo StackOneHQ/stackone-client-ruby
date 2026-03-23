@@ -1,5 +1,13 @@
 # ConnectSessionCreateCategories
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ConnectSessionCreateCategories::ATS
+```
+
 
 ## Values
 

@@ -16,13 +16,16 @@ module StackOne
         field :query, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query'), required: true } }
         # Filter by connector key
         field :connector, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector') } }
+        # Minimum similarity score threshold (0-1). Results below this score are filtered out.
+        field :min_similarity, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min_similarity') } }
         # Number of results to return
         field :top_k, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('top_k') } }
 
-        sig { params(query: ::String, connector: T.nilable(::String), top_k: T.nilable(::Float)).void }
-        def initialize(query:, connector: nil, top_k: 100.0)
+        sig { params(query: ::String, connector: T.nilable(::String), min_similarity: T.nilable(::Float), top_k: T.nilable(::Float)).void }
+        def initialize(query:, connector: nil, min_similarity: 0.4, top_k: 100.0)
           @query = query
           @connector = connector
+          @min_similarity = min_similarity
           @top_k = top_k
         end
 
@@ -31,6 +34,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @query == other.query
           return false unless @connector == other.connector
+          return false unless @min_similarity == other.min_similarity
           return false unless @top_k == other.top_k
           true
         end

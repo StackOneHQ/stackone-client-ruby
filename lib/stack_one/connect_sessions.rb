@@ -39,8 +39,10 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Shared::ConnectSessionAuthenticate, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneAuthenticateConnectSessionResponse) }
-    def authenticate_connect_session(request:, retries: nil, timeout_ms: nil)
+
+
+    sig { params(request: Models::Shared::ConnectSessionAuthenticate, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneAuthenticateConnectSessionResponse) }
+    def authenticate_connect_session(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # authenticate_connect_session - Authenticate Connect Session
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -101,6 +103,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -323,8 +328,8 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Shared::ConnectSessionCreate, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneCreateConnectSessionResponse) }
-    def create_connect_session(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Shared::ConnectSessionCreate, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneCreateConnectSessionResponse) }
+    def create_connect_session(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_connect_session - Create Connect Session
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
@@ -385,6 +390,9 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -605,5 +613,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

@@ -1,5 +1,13 @@
 # CampaignSchemas2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = CampaignSchemas2::TRUE
+```
+
 
 ## Values
 

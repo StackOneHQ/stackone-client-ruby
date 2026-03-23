@@ -50,7 +50,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_rpc_action"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  body: {\n    'data' => 'example',\n  },\n  headers: {\n    'Content-Type' => 'application/json',\n  },\n  path: {\n    'id' => '123',\n  },\n  query: Models::Shared::Query.new(\n    debug: false\n  )\n)\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  body: {\n    'data' => 'example',\n  },\n  defender_enabled: true,\n  headers: {\n    'Content-Type' => 'application/json',\n  },\n  path: {\n    'id' => '123',\n  },\n  query: Models::Shared::Query.new(\n    debug: false\n  )\n)\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
   - target: $["paths"]["/actions/search"]["post"]
     update:
       "x-codeSamples":

@@ -1,5 +1,16 @@
 # HRISCostCenterValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HRISCostCenterValue::WORKSPACE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HRISCostCenterValue.deserialize("custom_value")
+```
+
 
 ## Values
 
