@@ -9,4 +9,10 @@ actions:
         - integer
         - number
 
+  - target: "$.components.schemas.AssignmentStatusEnum.properties.source_value.oneOf[?(@.type=='number')]"
+    update:
+      type:
+        - integer
+        - number
+
 
