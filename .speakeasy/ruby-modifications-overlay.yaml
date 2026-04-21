@@ -12,11 +12,3 @@ actions:
     description: Add integer type option to allow Ruby SDK to accept integer values
     update:
       - type: integer
-
-  - target: "$.components.schemas.AssignmentStatusEnum.properties.source_value.oneOf[?(@.type=='number')]"
-    update:
-      type:
-        - integer
-        - number
-
-
