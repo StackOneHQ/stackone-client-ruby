@@ -3,16 +3,12 @@ info:
   title: Fix Number Types
   version: 1.0.0
 actions:
-  - target: "$.components.schemas.EmploymentStatusEnum.properties.source_value.oneOf[?(@.type=='number')]"
+  - target: "$.components.schemas.EmploymentStatusEnum.properties.source_value.oneOf"
+    description: Add integer type option to allow Ruby SDK to accept integer values
     update:
-      type:
-        - integer
-        - number
+      - type: integer
 
-  - target: "$.components.schemas.AssignmentStatusEnum.properties.source_value.oneOf[?(@.type=='number')]"
+  - target: "$.components.schemas.AssignmentStatusEnum.properties.source_value.oneOf"
+    description: Add integer type option to allow Ruby SDK to accept integer values
     update:
-      type:
-        - integer
-        - number
-
-
+      - type: integer
