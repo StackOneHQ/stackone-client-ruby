@@ -19,4 +19,11 @@ actions:
       ActionsRpcResponse:
         type: object
         description: Direct RPC response from an action execution
+        properties:
+          data:
+            description: Payload returned from the action execution
+            nullable: true
+          next:
+            description: Continuation token or next-page reference returned from the action execution
+            nullable: true
         additionalProperties: true
