@@ -1,6 +1,6 @@
 overlay: 1.0.0
 info:
-  title: Fix Number Types
+  title: Fix Number Types and Missing Schemas
   version: 1.0.0
 actions:
   - target: "$.components.schemas.EmploymentStatusEnum.properties.source_value.oneOf"
@@ -12,3 +12,18 @@ actions:
     description: Add integer type option to allow Ruby SDK to accept integer values
     update:
       - type: integer
+
+  - target: "$.components.schemas"
+    description: Add missing ActionsRpcResponse schema definition
+    update:
+      ActionsRpcResponse:
+        type: object
+        description: Direct RPC response from an action execution
+        properties:
+          data:
+            description: Payload returned from the action execution
+            nullable: true
+          next:
+            description: Continuation token or next-page reference returned from the action execution
+            nullable: true
+        additionalProperties: true
