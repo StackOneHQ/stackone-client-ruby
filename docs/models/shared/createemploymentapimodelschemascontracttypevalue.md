@@ -1,5 +1,16 @@
 # CreateEmploymentApiModelSchemasContractTypeValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = CreateEmploymentApiModelSchemasContractTypeValue::FULL_TIME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = CreateEmploymentApiModelSchemasContractTypeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

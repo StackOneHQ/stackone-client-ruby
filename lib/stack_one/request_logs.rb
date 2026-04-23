@@ -39,9 +39,13 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, include: T.nilable(Models::Operations::QueryParamInclude), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetLogResponse) }
-    def get_log(id:, include: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(id: ::String, include: T.nilable(Models::Operations::QueryParamInclude), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneGetLogResponse) }
+    def get_log(id:, include: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_log - Get Log
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneGetLogRequest.new(
         id: id,
         include: include
@@ -99,7 +103,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -322,9 +329,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListLogsResponse) }
-    def list_logs(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::StackoneListLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListLogsResponse) }
+    def list_logs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_logs - List Logs
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/requests/logs"
@@ -373,7 +382,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -596,9 +608,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListPlatformLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListPlatformLogsResponse) }
-    def list_platform_logs(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::StackoneListPlatformLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListPlatformLogsResponse) }
+    def list_platform_logs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_platform_logs - List Platform Logs
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/requests/platform-logs"
@@ -647,7 +661,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -870,9 +887,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListStepLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListStepLogsResponse) }
-    def list_step_logs(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::StackoneListStepLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListStepLogsResponse) }
+    def list_step_logs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_step_logs - List Step Logs
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/requests/logs/steps"
@@ -921,7 +940,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1142,5 +1164,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

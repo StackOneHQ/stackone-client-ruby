@@ -2,6 +2,17 @@
 
 The type of the benefit
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HRISBenefitValue::RETIREMENT_SAVINGS
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HRISBenefitValue.deserialize("custom_value")
+```
+
 
 ## Values
 

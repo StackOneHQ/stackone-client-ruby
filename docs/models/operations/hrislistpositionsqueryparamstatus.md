@@ -2,6 +2,14 @@
 
 Filter positions by status
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisListPositionsQueryParamStatus::OPEN
+```
+
 
 ## Values
 

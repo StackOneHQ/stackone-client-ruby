@@ -14,6 +14,8 @@ class StackOne::Models::Shared::ActionsMeta
   def actions=(str_); end
   def authentication(); end
   def authentication=(str_); end
+  def categories(); end
+  def categories=(str_); end
   def description(); end
   def description=(str_); end
   def icon(); end

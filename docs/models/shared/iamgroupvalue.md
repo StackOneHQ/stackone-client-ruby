@@ -1,5 +1,16 @@
 # IamGroupValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = IamGroupValue::WORKSPACE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = IamGroupValue.deserialize("custom_value")
+```
+
 
 ## Values
 

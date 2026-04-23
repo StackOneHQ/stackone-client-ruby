@@ -8,7 +8,7 @@ Chart of accounts.
 
 * [delete_account](#delete_account) - Delete Account
 * [get_account](#get_account) - Get Account
-* [get_account_meta_info](#get_account_meta_info) - Get Account Meta Information
+* [~~get_account_meta_info~~](#get_account_meta_info) - Get Account Meta Information (Legacy) :warning: **Deprecated**
 * [list_linked_accounts](#list_linked_accounts) - List Accounts
 * [update_account](#update_account) - Update Account
 
@@ -116,9 +116,11 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## get_account_meta_info
+## ~~get_account_meta_info~~
 
-Get Account Meta Information
+Get Account Meta Information (Legacy)
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

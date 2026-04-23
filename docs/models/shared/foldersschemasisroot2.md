@@ -1,5 +1,13 @@
 # FoldersSchemasIsRoot2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = FoldersSchemasIsRoot2::TRUE
+```
+
 
 ## Values
 

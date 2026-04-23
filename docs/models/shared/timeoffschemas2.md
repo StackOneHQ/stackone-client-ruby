@@ -1,5 +1,13 @@
 # TimeOffSchemas2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TimeOffSchemas2::TRUE
+```
+
 
 ## Values
 

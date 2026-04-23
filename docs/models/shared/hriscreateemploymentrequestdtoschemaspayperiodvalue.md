@@ -2,6 +2,17 @@
 
 The pay period of the job postings.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisCreateEmploymentRequestDtoSchemasPayPeriodValue::HOUR
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisCreateEmploymentRequestDtoSchemasPayPeriodValue.deserialize("custom_value")
+```
+
 
 ## Values
 

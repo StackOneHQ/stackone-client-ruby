@@ -16,6 +16,6 @@ class StackOne::Models::Operations::StackoneRpcActionResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
-  def actions_rpc_response(); end
-  def actions_rpc_response=(str_); end
+  def one_of(); end
+  def one_of=(str_); end
 end

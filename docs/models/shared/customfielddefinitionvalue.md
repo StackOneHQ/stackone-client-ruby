@@ -1,5 +1,16 @@
 # CustomFieldDefinitionValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = CustomFieldDefinitionValue::DATE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = CustomFieldDefinitionValue.deserialize("custom_value")
+```
+
 
 ## Values
 

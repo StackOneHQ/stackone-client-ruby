@@ -2,6 +2,17 @@
 
 The type of the questions.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = QuestionValue::SHORT_TEXT
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = QuestionValue.deserialize("custom_value")
+```
+
 
 ## Values
 

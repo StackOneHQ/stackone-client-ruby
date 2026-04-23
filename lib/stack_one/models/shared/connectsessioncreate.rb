@@ -20,7 +20,7 @@ module StackOne
         field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The categories of the provider to connect to
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectSessionCreateCategories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
-        # The integration ID associated with this connect session
+        # The ID of the specific Auth Config to use for this connect session. When provided, the hub will render on this specific auth config. This is an alternative to using provider and provider_version together.
         field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
         # The label to be applied to the account associated with this connect session.
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
@@ -28,9 +28,9 @@ module StackOne
         field :metadata, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
         # The origin username
         field :origin_username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
-        # The provider to connect to
+        # The provider to connect to. When used with provider_version, ensures the hub renders on the specific auth config required. Alternatively, use integration_id to target a specific auth config directly.
         field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
-        # The provider version to connect to
+        # The provider version to connect to. Must be used together with provider to target a specific auth config. Alternatively, use integration_id to target a specific auth config directly.
         field :provider_version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_version') } }
         # How long the session should be valid for in seconds
         field :expires_in, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('expires_in') } }

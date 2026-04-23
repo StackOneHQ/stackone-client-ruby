@@ -40,9 +40,13 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateContentBlockResponse) }
-    def create_content_block(marketing_create_content_blocks_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingCreateContentBlockResponse) }
+    def create_content_block(marketing_create_content_blocks_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_content_block - Create Content Block
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingCreateContentBlockRequest.new(
         marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
         x_account_id: x_account_id,
@@ -106,7 +110,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -343,9 +350,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateEmailTemplateResponse) }
-    def create_email_template(marketing_create_email_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingCreateEmailTemplateResponse) }
+    def create_email_template(marketing_create_email_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_email_template - Create Email Templates
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingCreateEmailTemplateRequest.new(
         marketing_create_email_template_request_dto: marketing_create_email_template_request_dto,
         x_account_id: x_account_id,
@@ -409,7 +418,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -646,9 +658,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateInAppTemplateResponse) }
-    def create_in_app_template(marketing_create_in_app_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingCreateInAppTemplateResponse) }
+    def create_in_app_template(marketing_create_in_app_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_in_app_template - Create In-App Template
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingCreateInAppTemplateRequest.new(
         marketing_create_in_app_template_request_dto: marketing_create_in_app_template_request_dto,
         x_account_id: x_account_id,
@@ -712,7 +726,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -949,9 +966,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateOmniChannelTemplateResponse) }
-    def create_omni_channel_template(marketing_create_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingCreateOmniChannelTemplateResponse) }
+    def create_omni_channel_template(marketing_create_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_omni_channel_template - Create Omni-Channel Template
+      #
+      # If set, this operation will use `password` from the global security.
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::MarketingCreateOmniChannelTemplateRequest.new(
@@ -1017,7 +1036,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1254,9 +1276,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreatePushTemplateResponse) }
-    def create_push_template(marketing_create_push_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingCreatePushTemplateResponse) }
+    def create_push_template(marketing_create_push_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_push_template - Create Push Template
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingCreatePushTemplateRequest.new(
         marketing_create_push_template_request_dto: marketing_create_push_template_request_dto,
         x_account_id: x_account_id,
@@ -1320,7 +1344,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1557,9 +1584,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingCreateSmsTemplateResponse) }
-    def create_sms_template(marketing_create_sms_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingCreateSmsTemplateResponse) }
+    def create_sms_template(marketing_create_sms_template_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_sms_template - Create SMS Template
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingCreateSmsTemplateRequest.new(
         marketing_create_sms_template_request_dto: marketing_create_sms_template_request_dto,
         x_account_id: x_account_id,
@@ -1623,7 +1652,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1860,9 +1892,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetCampaignRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetCampaignResponse) }
-    def get_campaign(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetCampaignRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetCampaignResponse) }
+    def get_campaign(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_campaign - Get campaign
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1916,7 +1950,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2153,9 +2190,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetContentBlockRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetContentBlockResponse) }
-    def get_content_block(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetContentBlockRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetContentBlockResponse) }
+    def get_content_block(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_content_block - Get Content Blocks
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2209,7 +2248,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2446,9 +2488,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetEmailTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetEmailTemplateResponse) }
-    def get_email_template(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetEmailTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetEmailTemplateResponse) }
+    def get_email_template(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_email_template - Get Email Templates
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2502,7 +2546,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2739,9 +2786,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetInAppTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetInAppTemplateResponse) }
-    def get_in_app_template(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetInAppTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetInAppTemplateResponse) }
+    def get_in_app_template(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_in_app_template - Get In-App Template
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2795,7 +2844,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3032,9 +3084,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetOmniChannelTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetOmniChannelTemplateResponse) }
-    def get_omni_channel_template(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetOmniChannelTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetOmniChannelTemplateResponse) }
+    def get_omni_channel_template(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_omni_channel_template - Get Omni-Channel Template
+      #
+      # If set, this operation will use `password` from the global security.
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
@@ -3090,7 +3144,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3327,9 +3384,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetPushTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetPushTemplateResponse) }
-    def get_push_template(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetPushTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetPushTemplateResponse) }
+    def get_push_template(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_push_template - Get Push Template
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3383,7 +3442,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3620,9 +3682,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingGetSmsTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingGetSmsTemplateResponse) }
-    def get_sms_template(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingGetSmsTemplateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingGetSmsTemplateResponse) }
+    def get_sms_template(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_sms_template - Get SMS Template
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3676,7 +3740,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3913,9 +3980,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListCampaignsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListCampaignsResponse) }
-    def list_campaigns(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListCampaignsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListCampaignsResponse) }
+    def list_campaigns(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_campaigns - List campaigns
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/campaigns"
@@ -3964,7 +4033,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4042,7 +4114,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4230,9 +4303,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListContentBlocksRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListContentBlocksResponse) }
-    def list_content_blocks(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListContentBlocksRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListContentBlocksResponse) }
+    def list_content_blocks(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_content_blocks - List Content Blocks
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/content_blocks"
@@ -4281,7 +4356,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4359,7 +4437,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4547,9 +4626,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListEmailTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListEmailTemplatesResponse) }
-    def list_email_templates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListEmailTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListEmailTemplatesResponse) }
+    def list_email_templates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_email_templates - List Email Templates
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/email"
@@ -4598,7 +4679,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4676,7 +4760,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4864,9 +4949,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListInAppTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListInAppTemplatesResponse) }
-    def list_in_app_templates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListInAppTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListInAppTemplatesResponse) }
+    def list_in_app_templates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_in_app_templates - List In-App Templates
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/in_app"
@@ -4915,7 +5002,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4993,7 +5083,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5181,9 +5272,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListOmniChannelTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListOmniChannelTemplatesResponse) }
-    def list_omni_channel_templates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListOmniChannelTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListOmniChannelTemplatesResponse) }
+    def list_omni_channel_templates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_omni_channel_templates - List Omni-Channel Templates
+      #
+      # If set, this operation will use `password` from the global security.
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
@@ -5234,7 +5327,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5312,7 +5408,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5500,9 +5597,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListPushTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListPushTemplatesResponse) }
-    def list_push_templates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListPushTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListPushTemplatesResponse) }
+    def list_push_templates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_push_templates - List Push Templates
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/push"
@@ -5551,7 +5650,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5629,7 +5731,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5817,9 +5920,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::MarketingListSmsTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingListSmsTemplatesResponse) }
-    def list_sms_templates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::MarketingListSmsTemplatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingListSmsTemplatesResponse) }
+    def list_sms_templates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_sms_templates - List SMS Templates
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/marketing/templates/sms"
@@ -5868,7 +5973,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5946,7 +6054,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -6134,9 +6243,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateContentBlockResponse) }
-    def update_content_block(marketing_create_content_blocks_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_content_blocks_request_dto: Models::Shared::MarketingCreateContentBlocksRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingUpdateContentBlockResponse) }
+    def update_content_block(marketing_create_content_blocks_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_content_block - Update Content Block
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingUpdateContentBlockRequest.new(
         marketing_create_content_blocks_request_dto: marketing_create_content_blocks_request_dto,
         id: id,
@@ -6206,7 +6317,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6443,9 +6557,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateEmailTemplateResponse) }
-    def update_email_template(marketing_create_email_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_email_template_request_dto: Models::Shared::MarketingCreateEmailTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingUpdateEmailTemplateResponse) }
+    def update_email_template(marketing_create_email_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_email_template - Update Email Templates
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingUpdateEmailTemplateRequest.new(
         marketing_create_email_template_request_dto: marketing_create_email_template_request_dto,
         id: id,
@@ -6515,7 +6631,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6752,9 +6871,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateInAppTemplateResponse) }
-    def update_in_app_template(marketing_create_in_app_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_in_app_template_request_dto: Models::Shared::MarketingCreateInAppTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingUpdateInAppTemplateResponse) }
+    def update_in_app_template(marketing_create_in_app_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_in_app_template - Update In-App Template
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingUpdateInAppTemplateRequest.new(
         marketing_create_in_app_template_request_dto: marketing_create_in_app_template_request_dto,
         id: id,
@@ -6824,7 +6945,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7061,9 +7185,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateOmniChannelTemplateResponse) }
-    def update_omni_channel_template(marketing_create_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_template_request_dto: Models::Shared::MarketingCreateTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingUpdateOmniChannelTemplateResponse) }
+    def update_omni_channel_template(marketing_create_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_omni_channel_template - Update Omni-Channel Template
+      #
+      # If set, this operation will use `password` from the global security.
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::MarketingUpdateOmniChannelTemplateRequest.new(
@@ -7135,7 +7261,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7372,9 +7501,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdatePushTemplateResponse) }
-    def update_push_template(marketing_create_push_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_push_template_request_dto: Models::Shared::MarketingCreatePushTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingUpdatePushTemplateResponse) }
+    def update_push_template(marketing_create_push_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_push_template - Update Push Template
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingUpdatePushTemplateRequest.new(
         marketing_create_push_template_request_dto: marketing_create_push_template_request_dto,
         id: id,
@@ -7444,7 +7575,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7681,9 +7815,11 @@ module StackOne
     end
 
 
-    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::MarketingUpdateSmsTemplateResponse) }
-    def update_sms_template(marketing_create_sms_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(marketing_create_sms_template_request_dto: Models::Shared::MarketingCreateSmsTemplateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::MarketingUpdateSmsTemplateResponse) }
+    def update_sms_template(marketing_create_sms_template_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_sms_template - Update SMS Template
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::MarketingUpdateSmsTemplateRequest.new(
         marketing_create_sms_template_request_dto: marketing_create_sms_template_request_dto,
         id: id,
@@ -7753,7 +7889,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7988,5 +8127,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

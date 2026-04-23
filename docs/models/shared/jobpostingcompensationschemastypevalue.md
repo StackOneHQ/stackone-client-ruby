@@ -2,6 +2,17 @@
 
 The type of the compensation.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = JobPostingCompensationSchemasTypeValue::SALARY
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = JobPostingCompensationSchemasTypeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

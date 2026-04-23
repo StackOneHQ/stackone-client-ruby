@@ -2,6 +2,14 @@
 
 Filter to select time-off policies by type
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = Type::SICK
+```
+
 
 ## Values
 

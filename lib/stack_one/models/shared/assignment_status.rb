@@ -13,11 +13,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The original status value from the provider before normalization.
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::AssignmentSchemasStatus4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::AssignmentSchemasStatus4, Crystalline::Array.new(::Object), ::Integer)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The StackOne unified assignment status.
         field :value, Crystalline::Nilable.new(Models::Shared::AssignmentSchemasStatusValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AssignmentSchemasStatusValue, true) } }
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssignmentSchemasStatus4, T::Array[::Object])), value: T.nilable(Models::Shared::AssignmentSchemasStatusValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AssignmentSchemasStatus4, T::Array[::Object], ::Integer)), value: T.nilable(Models::Shared::AssignmentSchemasStatusValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

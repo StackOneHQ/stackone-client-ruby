@@ -2,6 +2,17 @@
 
 The type of the permission, e.g. read, read_write, delete, etc.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = IamPermissionValue::READ
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = IamPermissionValue.deserialize("custom_value")
+```
+
 
 ## Values
 

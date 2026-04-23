@@ -2,6 +2,17 @@
 
 The event type
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = Event::SCREENING_RESULTS_CREATED
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = Event.deserialize("custom_value")
+```
+
 
 ## Values
 

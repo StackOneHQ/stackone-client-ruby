@@ -1,5 +1,13 @@
 # ConnectSessionTokenAuthLinkCategories
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ConnectSessionTokenAuthLinkCategories::ATS
+```
+
 
 ## Values
 

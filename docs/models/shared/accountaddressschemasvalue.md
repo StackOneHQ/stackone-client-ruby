@@ -2,6 +2,17 @@
 
 The ISO 3166-1 alpha-2 code of the country.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AccountAddressSchemasValue::AF
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AccountAddressSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

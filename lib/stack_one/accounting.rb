@@ -40,9 +40,13 @@ module StackOne
     end
 
 
-    sig { params(accounting_journal_batch_create_request_dto: Models::Shared::AccountingJournalBatchCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingBatchCreateCompanyJournalsResponse) }
-    def batch_create_company_journals(accounting_journal_batch_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(accounting_journal_batch_create_request_dto: Models::Shared::AccountingJournalBatchCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingBatchCreateCompanyJournalsResponse) }
+    def batch_create_company_journals(accounting_journal_batch_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # batch_create_company_journals - Batch Create Journals
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::AccountingBatchCreateCompanyJournalsRequest.new(
         accounting_journal_batch_create_request_dto: accounting_journal_batch_create_request_dto,
         id: id,
@@ -112,7 +116,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -349,9 +356,11 @@ module StackOne
     end
 
 
-    sig { params(accounting_journal_create_request_dto: Models::Shared::AccountingJournalCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingCreateCompanyJournalResponse) }
-    def create_company_journal(accounting_journal_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(accounting_journal_create_request_dto: Models::Shared::AccountingJournalCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingCreateCompanyJournalResponse) }
+    def create_company_journal(accounting_journal_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_company_journal - Create Journal
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::AccountingCreateCompanyJournalRequest.new(
         accounting_journal_create_request_dto: accounting_journal_create_request_dto,
         id: id,
@@ -421,7 +430,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -658,9 +670,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingGetCompanyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingGetCompanyResponse) }
-    def get_company(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingGetCompanyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingGetCompanyResponse) }
+    def get_company(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_company - Get Company
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -714,7 +728,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -951,9 +968,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingGetCompanyAccountRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingGetCompanyAccountResponse) }
-    def get_company_account(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingGetCompanyAccountRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingGetCompanyAccountResponse) }
+    def get_company_account(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_company_account - Get Account
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1007,7 +1026,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1244,9 +1266,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingGetCompanyJournalRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingGetCompanyJournalResponse) }
-    def get_company_journal(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingGetCompanyJournalRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingGetCompanyJournalResponse) }
+    def get_company_journal(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_company_journal - Get Journal
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1300,7 +1324,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1537,9 +1564,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingGetCompanyTaxRateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingGetCompanyTaxRateResponse) }
-    def get_company_tax_rate(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingGetCompanyTaxRateRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingGetCompanyTaxRateResponse) }
+    def get_company_tax_rate(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_company_tax_rate - Get Tax Rate
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1593,7 +1622,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1830,9 +1862,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingListCompaniesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingListCompaniesResponse) }
-    def list_companies(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingListCompaniesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingListCompaniesResponse) }
+    def list_companies(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_companies - List Companies
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/accounting/companies"
@@ -1881,7 +1915,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1959,7 +1996,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2147,9 +2185,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingListCompanyAccountsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingListCompanyAccountsResponse) }
-    def list_company_accounts(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingListCompanyAccountsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingListCompanyAccountsResponse) }
+    def list_company_accounts(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_company_accounts - List Accounts
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2203,7 +2243,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2282,7 +2325,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2470,9 +2514,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingListCompanyJournalsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingListCompanyJournalsResponse) }
-    def list_company_journals(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingListCompanyJournalsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingListCompanyJournalsResponse) }
+    def list_company_journals(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_company_journals - List Journals
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2526,7 +2572,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2605,7 +2654,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2793,9 +2843,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::AccountingListCompanyTaxRatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::AccountingListCompanyTaxRatesResponse) }
-    def list_company_tax_rates(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::AccountingListCompanyTaxRatesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::AccountingListCompanyTaxRatesResponse) }
+    def list_company_tax_rates(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_company_tax_rates - List Tax Rates
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2849,7 +2901,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2928,7 +2983,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -3114,5 +3170,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

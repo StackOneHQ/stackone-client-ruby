@@ -158,15 +158,17 @@ end
 
 * [delete_account](docs/sdks/accounts/README.md#delete_account) - Delete Account
 * [get_account](docs/sdks/accounts/README.md#get_account) - Get Account
-* [get_account_meta_info](docs/sdks/accounts/README.md#get_account_meta_info) - Get Account Meta Information
+* [~~get_account_meta_info~~](docs/sdks/accounts/README.md#get_account_meta_info) - Get Account Meta Information (Legacy) :warning: **Deprecated**
 * [list_linked_accounts](docs/sdks/accounts/README.md#list_linked_accounts) - List Accounts
 * [update_account](docs/sdks/accounts/README.md#update_account) - Update Account
 
 ### [Actions](docs/sdks/actions/README.md)
 
 * [build_action_embeddings](docs/sdks/actions/README.md#build_action_embeddings) - Rebuild action embeddings for semantic search
+* [check_permissions](docs/sdks/actions/README.md#check_permissions) - Check user permissions on a resource
 * [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all actions metadata
 * [rpc_action](docs/sdks/actions/README.md#rpc_action) - Make an RPC call to an action
+* [rpc_action_synced](docs/sdks/actions/README.md#rpc_action_synced) - Read synced action data from the datasync index
 * [search_actions](docs/sdks/actions/README.md#search_actions) - Search connector actions by semantic similarity
 
 ### [Ats](docs/sdks/ats/README.md)
@@ -248,15 +250,19 @@ end
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
+### [AuthConfigs](docs/sdks/authconfigs/README.md)
+
+* [list_auth_configs](docs/sdks/authconfigs/README.md#list_auth_configs) - List Auth Configs
+
 ### [ConnectSessions](docs/sdks/connectsessions/README.md)
 
 * [authenticate_connect_session](docs/sdks/connectsessions/README.md#authenticate_connect_session) - Authenticate Connect Session
 * [create_connect_session](docs/sdks/connectsessions/README.md#create_connect_session) - Create Connect Session
 
-### [Connectors](docs/sdks/connectors/README.md)
+### [~~Connectors~~](docs/sdks/connectors/README.md)
 
-* [get_connector_meta](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta Information
-* [list_connectors_meta](docs/sdks/connectors/README.md#list_connectors_meta) - List Connector Meta Information
+* [~~get_connector_meta~~](docs/sdks/connectors/README.md#get_connector_meta) - Get Connector Meta Information (Legacy) :warning: **Deprecated**
+* [~~list_connectors_meta~~](docs/sdks/connectors/README.md#list_connectors_meta) - List Connector Meta Information (Legacy) :warning: **Deprecated**
 
 ### [Crm](docs/sdks/crm/README.md)
 
@@ -447,9 +453,9 @@ end
 * [list_users](docs/sdks/messaging/README.md#list_users) - List Users
 * [send_message](docs/sdks/messaging/README.md#send_message) - Send Message
 
-### [Proxy](docs/sdks/proxy/README.md)
+### [~~Proxy~~](docs/sdks/proxy/README.md)
 
-* [proxy_request](docs/sdks/proxy/README.md#proxy_request) - Proxy Request
+* [~~proxy_request~~](docs/sdks/proxy/README.md#proxy_request) - Proxy Request (Legacy) :warning: **Deprecated**
 
 ### [RequestLogs](docs/sdks/requestlogs/README.md)
 

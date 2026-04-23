@@ -40,9 +40,13 @@ module StackOne
     end
 
 
-    sig { params(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningCreateScreeningOrderResponse) }
-    def create_screening_order(screening_create_order_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(screening_create_order_request_dto: Models::Shared::ScreeningCreateOrderRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ScreeningCreateScreeningOrderResponse) }
+    def create_screening_order(screening_create_order_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_screening_order - Create Screening Order
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::ScreeningCreateScreeningOrderRequest.new(
         screening_create_order_request_dto: screening_create_order_request_dto,
         x_account_id: x_account_id,
@@ -106,7 +110,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -343,9 +350,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::ScreeningGetScreeningPackageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningGetScreeningPackageResponse) }
-    def get_screening_package(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::ScreeningGetScreeningPackageRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ScreeningGetScreeningPackageResponse) }
+    def get_screening_package(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_screening_package - Get Screening Package
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -399,7 +408,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -636,9 +648,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::ScreeningListScreeningPackagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningListScreeningPackagesResponse) }
-    def list_screening_packages(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::ScreeningListScreeningPackagesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ScreeningListScreeningPackagesResponse) }
+    def list_screening_packages(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_screening_packages - List Screening Packages
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/screening/packages"
@@ -687,7 +701,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -765,7 +782,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -953,9 +971,11 @@ module StackOne
     end
 
 
-    sig { params(screening_result_webhook: Models::Shared::ScreeningResultWebhook, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::ScreeningWebhookScreeningResultResponse) }
-    def webhook_screening_result(screening_result_webhook:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(screening_result_webhook: Models::Shared::ScreeningResultWebhook, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::ScreeningWebhookScreeningResultResponse) }
+    def webhook_screening_result(screening_result_webhook:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # webhook_screening_result - Webhook Screening Result
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::ScreeningWebhookScreeningResultRequest.new(
         screening_result_webhook: screening_result_webhook,
         x_account_id: x_account_id,
@@ -1019,7 +1039,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1254,5 +1277,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

@@ -1,5 +1,16 @@
 # HrisUpdateEmployeeRequestDtoSchemasEthnicityValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisUpdateEmployeeRequestDtoSchemasEthnicityValue::WHITE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisUpdateEmployeeRequestDtoSchemasEthnicityValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -2,6 +2,17 @@
 
 The ISO3166-1 Alpha2 Code of the Country
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisCreateEmployeeRequestDtoSchemasHomeLocationValue::AF
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisCreateEmployeeRequestDtoSchemasHomeLocationValue.deserialize("custom_value")
+```
+
 
 ## Values
 

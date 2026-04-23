@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Shared::ActionsRpcResponse
+  def additional_properties(); end
+  def additional_properties=(str_); end
   def data(); end
   def data=(str_); end
   def next_(); end

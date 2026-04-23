@@ -2,6 +2,17 @@
 
 The provider service category
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ConnectorsMetaCategory::ATS
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = ConnectorsMetaCategory.deserialize("custom_value")
+```
+
 
 ## Values
 

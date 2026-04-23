@@ -4,7 +4,6 @@
 # frozen_string_literal: true
 
 require_relative './types'
-require_relative './registration'
 
 module StackOne
   module SDKHooks
@@ -17,7 +16,6 @@ module StackOne
         @before_request_hooks = T.let([], T::Array[AbstractSDKHook])
         @after_success_hooks = T.let([], T::Array[AbstractSDKHook])
         @after_error_hooks = T.let([], T::Array[AbstractSDKHook])
-        Registration.init_hooks self
       end
 
       sig { params(hook: AbstractSDKHook).void }

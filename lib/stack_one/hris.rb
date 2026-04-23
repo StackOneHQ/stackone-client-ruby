@@ -40,9 +40,13 @@ module StackOne
     end
 
 
-    sig { params(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisBatchUploadEmployeeDocumentResponse) }
-    def batch_upload_employee_document(hris_batch_document_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+
+
+    sig { params(hris_batch_document_upload_request_dto: Models::Shared::HrisBatchDocumentUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisBatchUploadEmployeeDocumentResponse) }
+    def batch_upload_employee_document(hris_batch_document_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # batch_upload_employee_document - Batch Upload Employee Document
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisBatchUploadEmployeeDocumentRequest.new(
         hris_batch_document_upload_request_dto: hris_batch_document_upload_request_dto,
         id: id,
@@ -111,7 +115,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -348,9 +355,11 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCancelEmployeeTimeOffRequestResponse) }
-    def cancel_employee_time_off_request(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, sub_resource_id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisCancelEmployeeTimeOffRequestResponse) }
+    def cancel_employee_time_off_request(id:, sub_resource_id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # cancel_employee_time_off_request - Cancel Employee Time Off Request
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisCancelEmployeeTimeOffRequestRequest.new(
         id: id,
         sub_resource_id: sub_resource_id,
@@ -408,7 +417,10 @@ module StackOne
         http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -658,9 +670,11 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employee_request_dto: Models::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeResponse) }
-    def create_employee(hris_create_employee_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_employee_request_dto: Models::Shared::HrisCreateEmployeeRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisCreateEmployeeResponse) }
+    def create_employee(hris_create_employee_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_employee - Create Employee
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisCreateEmployeeRequest.new(
         hris_create_employee_request_dto: hris_create_employee_request_dto,
         x_account_id: x_account_id,
@@ -724,7 +738,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -961,9 +978,11 @@ module StackOne
     end
 
 
-    sig { params(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeEmploymentResponse) }
-    def create_employee_employment(hris_create_employment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_employment_request_dto: Models::Shared::HrisCreateEmploymentRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisCreateEmployeeEmploymentResponse) }
+    def create_employee_employment(hris_create_employment_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_employee_employment - Create Employee Employment
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisCreateEmployeeEmploymentRequest.new(
         hris_create_employment_request_dto: hris_create_employment_request_dto,
         id: id,
@@ -1033,7 +1052,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1270,9 +1292,11 @@ module StackOne
     end
 
 
-    sig { params(entity_skills_create_request_dto: Models::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeSkillResponse) }
-    def create_employee_skill(entity_skills_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(entity_skills_create_request_dto: Models::Shared::EntitySkillsCreateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisCreateEmployeeSkillResponse) }
+    def create_employee_skill(entity_skills_create_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_employee_skill - Create Employee Skill
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisCreateEmployeeSkillRequest.new(
         entity_skills_create_request_dto: entity_skills_create_request_dto,
         id: id,
@@ -1342,7 +1366,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1579,9 +1606,11 @@ module StackOne
     end
 
 
-    sig { params(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
-    def create_employee_time_off_request(hris_create_time_off_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_time_off_request_dto: Models::Shared::HrisCreateTimeOffRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisCreateEmployeeTimeOffRequestResponse) }
+    def create_employee_time_off_request(hris_create_time_off_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_employee_time_off_request - Create Employee Time Off Request
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisCreateEmployeeTimeOffRequestRequest.new(
         hris_create_time_off_request_dto: hris_create_time_off_request_dto,
         id: id,
@@ -1651,7 +1680,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1888,9 +1920,11 @@ module StackOne
     end
 
 
-    sig { params(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
-    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_create_work_eligibility_request_dto: Models::Shared::HrisCreateWorkEligibilityRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisCreateEmployeeWorkEligibilityRequestResponse) }
+    def create_employee_work_eligibility_request(hris_create_work_eligibility_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_employee_work_eligibility_request - Create Employee Work Eligibility Request
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisCreateEmployeeWorkEligibilityRequestRequest.new(
         hris_create_work_eligibility_request_dto: hris_create_work_eligibility_request_dto,
         id: id,
@@ -1960,7 +1994,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2197,9 +2234,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisDownloadEmployeeDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String)).returns(Models::Operations::HrisDownloadEmployeeDocumentResponse) }
-    def download_employee_document(request:, retries: nil, timeout_ms: nil, accept_header_override: nil)
+    sig { params(request: Models::Operations::HrisDownloadEmployeeDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisDownloadEmployeeDocumentResponse) }
+    def download_employee_document(request:, retries: nil, timeout_ms: nil, accept_header_override: nil, http_headers: nil)
       # download_employee_document - Download Employee Document
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2253,7 +2292,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3082,9 +3124,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetBenefitRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetBenefitResponse) }
-    def get_benefit(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetBenefitRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetBenefitResponse) }
+    def get_benefit(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_benefit - Get Benefit
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3138,7 +3182,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3375,9 +3422,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetCompanyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetCompanyResponse) }
-    def get_company(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetCompanyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetCompanyResponse) }
+    def get_company(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_company - Get Company
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3431,7 +3480,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3668,9 +3720,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetCompanyGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetCompanyGroupResponse) }
-    def get_company_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetCompanyGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetCompanyGroupResponse) }
+    def get_company_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_company_group - Get Company Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3724,7 +3778,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3961,9 +4018,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetCostCenterGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetCostCenterGroupResponse) }
-    def get_cost_center_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetCostCenterGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetCostCenterGroupResponse) }
+    def get_cost_center_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_cost_center_group - Get Cost Center Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -4017,7 +4076,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4254,9 +4316,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetDepartmentGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetDepartmentGroupResponse) }
-    def get_department_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetDepartmentGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetDepartmentGroupResponse) }
+    def get_department_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_department_group - Get Department Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -4310,7 +4374,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4547,9 +4614,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetDivisionGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetDivisionGroupResponse) }
-    def get_division_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetDivisionGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetDivisionGroupResponse) }
+    def get_division_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_division_group - Get Division Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -4603,7 +4672,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4840,9 +4912,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeResponse) }
-    def get_employee(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeResponse) }
+    def get_employee(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee - Get Employee
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -4896,7 +4970,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5133,9 +5210,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeCustomFieldDefinitionResponse) }
-    def get_employee_custom_field_definition(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeCustomFieldDefinitionResponse) }
+    def get_employee_custom_field_definition(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_custom_field_definition - Get employee Custom Field Definition
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -5189,7 +5268,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5426,9 +5508,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeDocumentResponse) }
-    def get_employee_document(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeDocumentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeDocumentResponse) }
+    def get_employee_document(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_document - Get Employee Document
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -5482,7 +5566,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5719,9 +5806,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeDocumentCategoryRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeDocumentCategoryResponse) }
-    def get_employee_document_category(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeDocumentCategoryRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeDocumentCategoryResponse) }
+    def get_employee_document_category(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_document_category - Get Employee Document Category
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -5775,7 +5864,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6012,9 +6104,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeEmploymentResponse) }
-    def get_employee_employment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeEmploymentResponse) }
+    def get_employee_employment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_employment - Get Employee Employment
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -6068,7 +6162,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6305,9 +6402,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeShiftRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeShiftResponse) }
-    def get_employee_shift(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeShiftRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeShiftResponse) }
+    def get_employee_shift(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_shift - Get Employee Shift
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -6361,7 +6460,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6598,9 +6700,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeSkillRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeSkillResponse) }
-    def get_employee_skill(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeSkillRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeSkillResponse) }
+    def get_employee_skill(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_skill - Get Employee Skill
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -6654,7 +6758,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -6891,9 +6998,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeTaskResponse) }
-    def get_employee_task(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeTaskResponse) }
+    def get_employee_task(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_task - Get Employee Task
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -6947,7 +7056,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7184,9 +7296,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeeTimeOffBalanceRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeeTimeOffBalanceResponse) }
-    def get_employee_time_off_balance(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeeTimeOffBalanceRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeeTimeOffBalanceResponse) }
+    def get_employee_time_off_balance(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_time_off_balance - Get Employee Time Off Balance
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -7240,7 +7354,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7477,9 +7594,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeesTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeesTimeOffRequestResponse) }
-    def get_employees_time_off_request(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeesTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeesTimeOffRequestResponse) }
+    def get_employees_time_off_request(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employees_time_off_request - Get Employees Time Off Request
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -7533,7 +7652,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -7770,9 +7892,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmployeesWorkEligibilityRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmployeesWorkEligibilityResponse) }
-    def get_employees_work_eligibility(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmployeesWorkEligibilityRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmployeesWorkEligibilityResponse) }
+    def get_employees_work_eligibility(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employees_work_eligibility - Get Employees Work Eligibility
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -7826,7 +7950,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8063,9 +8190,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetEmploymentResponse) }
-    def get_employment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetEmploymentResponse) }
+    def get_employment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_employment - Get Employment
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -8119,7 +8248,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8356,9 +8488,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetGroupResponse) }
-    def get_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetGroupResponse) }
+    def get_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_group - Get Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -8412,7 +8546,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8649,9 +8786,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetJobRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetJobResponse) }
-    def get_job(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetJobRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetJobResponse) }
+    def get_job(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_job - Get Job
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -8705,7 +8844,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -8942,9 +9084,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetLocationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetLocationResponse) }
-    def get_location(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetLocationRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetLocationResponse) }
+    def get_location(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_location - Get Work Location
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -8998,7 +9142,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -9235,9 +9382,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetPositionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetPositionResponse) }
-    def get_position(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetPositionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetPositionResponse) }
+    def get_position(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_position - Get Position
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -9291,7 +9440,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -9528,9 +9680,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetShiftRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetShiftResponse) }
-    def get_shift(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetShiftRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetShiftResponse) }
+    def get_shift(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_shift - Get Shift
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -9584,7 +9738,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -9821,9 +9978,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTaskResponse) }
-    def get_task(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetTaskResponse) }
+    def get_task(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_task - Get Task
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -9877,7 +10036,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10114,9 +10276,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetTeamGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTeamGroupResponse) }
-    def get_team_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetTeamGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetTeamGroupResponse) }
+    def get_team_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_team_group - Get Team Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -10170,7 +10334,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10407,9 +10574,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetTimeEntriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTimeEntriesResponse) }
-    def get_time_entries(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetTimeEntriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetTimeEntriesResponse) }
+    def get_time_entries(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_time_entries - Get Time Entry
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -10463,7 +10632,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10700,9 +10872,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetTimeOffPolicyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTimeOffPolicyResponse) }
-    def get_time_off_policy(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetTimeOffPolicyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetTimeOffPolicyResponse) }
+    def get_time_off_policy(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_time_off_policy - Get Time Off Policy
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -10756,7 +10930,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -10993,9 +11170,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTimeOffRequestResponse) }
-    def get_time_off_request(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetTimeOffRequestResponse) }
+    def get_time_off_request(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_time_off_request - Get time off request
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -11049,7 +11228,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -11286,9 +11468,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisGetTimeOffTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisGetTimeOffTypeResponse) }
-    def get_time_off_type(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisGetTimeOffTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisGetTimeOffTypeResponse) }
+    def get_time_off_type(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_time_off_type - Get time off type
+      #
+      # If set, this operation will use `password` from the global security.
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
@@ -11344,7 +11528,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -11581,9 +11768,11 @@ module StackOne
     end
 
 
-    sig { params(hris_invite_employee_request_dto: Models::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisInviteEmployeeResponse) }
-    def invite_employee(hris_invite_employee_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_invite_employee_request_dto: Models::Shared::HrisInviteEmployeeRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisInviteEmployeeResponse) }
+    def invite_employee(hris_invite_employee_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # invite_employee - Invite Employee
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisInviteEmployeeRequest.new(
         hris_invite_employee_request_dto: hris_invite_employee_request_dto,
         id: id,
@@ -11653,7 +11842,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -11890,9 +12082,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListBenefitsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListBenefitsResponse) }
-    def list_benefits(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListBenefitsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListBenefitsResponse) }
+    def list_benefits(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_benefits - List benefits
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/benefits"
@@ -11941,7 +12135,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12019,7 +12216,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -12207,9 +12405,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListCompaniesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListCompaniesResponse) }
-    def list_companies(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListCompaniesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListCompaniesResponse) }
+    def list_companies(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_companies - List Companies
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/companies"
@@ -12258,7 +12458,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12336,7 +12539,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -12524,9 +12728,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListCompaniesGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListCompaniesGroupsResponse) }
-    def list_companies_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListCompaniesGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListCompaniesGroupsResponse) }
+    def list_companies_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_companies_groups - List Companies Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/groups/companies"
@@ -12575,7 +12781,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12653,7 +12862,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -12841,9 +13051,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListCostCenterGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListCostCenterGroupsResponse) }
-    def list_cost_center_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListCostCenterGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListCostCenterGroupsResponse) }
+    def list_cost_center_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_cost_center_groups - List Cost Center Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/groups/cost_centers"
@@ -12892,7 +13104,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -12970,7 +13185,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -13158,9 +13374,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListDepartmentGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListDepartmentGroupsResponse) }
-    def list_department_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListDepartmentGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListDepartmentGroupsResponse) }
+    def list_department_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_department_groups - List Department Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/groups/departments"
@@ -13209,7 +13427,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13287,7 +13508,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -13475,9 +13697,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListDivisionGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListDivisionGroupsResponse) }
-    def list_division_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListDivisionGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListDivisionGroupsResponse) }
+    def list_division_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_division_groups - List Division Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/groups/divisions"
@@ -13526,7 +13750,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13604,7 +13831,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -13792,9 +14020,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeCategoriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeCategoriesResponse) }
-    def list_employee_categories(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeCategoriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeCategoriesResponse) }
+    def list_employee_categories(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_categories - List Employee Document Categories
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/documents/employee_categories"
@@ -13843,7 +14073,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -13921,7 +14154,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -14109,9 +14343,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeCustomFieldDefinitionsResponse) }
-    def list_employee_custom_field_definitions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeCustomFieldDefinitionsResponse) }
+    def list_employee_custom_field_definitions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_custom_field_definitions - List employee Custom Field Definitions
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/custom_field_definitions/employees"
@@ -14160,7 +14396,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -14238,7 +14477,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -14426,9 +14666,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeDocumentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeDocumentsResponse) }
-    def list_employee_documents(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeDocumentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeDocumentsResponse) }
+    def list_employee_documents(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_documents - List Employee Documents
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -14482,7 +14724,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -14561,7 +14806,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -14749,9 +14995,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeEmploymentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeEmploymentsResponse) }
-    def list_employee_employments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeEmploymentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeEmploymentsResponse) }
+    def list_employee_employments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_employments - List Employee Employments
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -14805,7 +15053,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -14885,7 +15136,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -15073,9 +15325,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeShiftsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeShiftsResponse) }
-    def list_employee_shifts(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeShiftsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeShiftsResponse) }
+    def list_employee_shifts(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_shifts - List Employee Shifts
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -15129,7 +15383,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -15208,7 +15465,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -15396,9 +15654,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeSkillsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeSkillsResponse) }
-    def list_employee_skills(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeSkillsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeSkillsResponse) }
+    def list_employee_skills(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_skills - List Employee Skills
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -15452,7 +15712,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -15531,7 +15794,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -15719,9 +15983,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeTasksRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeTasksResponse) }
-    def list_employee_tasks(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeTasksRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeTasksResponse) }
+    def list_employee_tasks(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_tasks - List Employee Tasks
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -15775,7 +16041,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -15855,7 +16124,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -16043,9 +16313,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeTimeOffBalancesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeTimeOffBalancesResponse) }
-    def list_employee_time_off_balances(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeTimeOffBalancesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeTimeOffBalancesResponse) }
+    def list_employee_time_off_balances(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_time_off_balances - List Employee Time Off Balances
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -16099,7 +16371,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -16179,7 +16454,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -16367,9 +16643,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeTimeOffPoliciesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeTimeOffPoliciesResponse) }
-    def list_employee_time_off_policies(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeTimeOffPoliciesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeTimeOffPoliciesResponse) }
+    def list_employee_time_off_policies(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_time_off_policies - List Assigned Time Off Policies
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -16423,7 +16701,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -16502,7 +16783,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -16690,9 +16972,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeTimeOffRequestsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeTimeOffRequestsResponse) }
-    def list_employee_time_off_requests(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeTimeOffRequestsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeTimeOffRequestsResponse) }
+    def list_employee_time_off_requests(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_time_off_requests - List Employee Time Off Requests
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -16746,7 +17030,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -16826,7 +17113,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17014,9 +17302,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeeWorkEligibilityRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeeWorkEligibilityResponse) }
-    def list_employee_work_eligibility(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeeWorkEligibilityRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeeWorkEligibilityResponse) }
+    def list_employee_work_eligibility(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employee_work_eligibility - List Employee Work Eligibility
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -17070,7 +17360,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -17149,7 +17442,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17337,9 +17631,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmployeesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmployeesResponse) }
-    def list_employees(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmployeesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmployeesResponse) }
+    def list_employees(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employees - List Employees
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/employees"
@@ -17388,7 +17684,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -17468,7 +17767,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17656,9 +17956,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListEmploymentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListEmploymentsResponse) }
-    def list_employments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListEmploymentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListEmploymentsResponse) }
+    def list_employments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_employments - List Employments
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/employments"
@@ -17707,7 +18009,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -17786,7 +18091,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -17974,9 +18280,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListGroupsResponse) }
-    def list_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListGroupsResponse) }
+    def list_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_groups - List Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/groups"
@@ -18025,7 +18333,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -18103,7 +18414,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18291,9 +18603,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListJobsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListJobsResponse) }
-    def list_jobs(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListJobsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListJobsResponse) }
+    def list_jobs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_jobs - List Jobs
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/jobs"
@@ -18342,7 +18656,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -18420,7 +18737,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18608,9 +18926,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListLocationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListLocationsResponse) }
-    def list_locations(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListLocationsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListLocationsResponse) }
+    def list_locations(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_locations - List Work Locations
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/locations"
@@ -18659,7 +18979,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -18737,7 +19060,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -18925,9 +19249,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListPositionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListPositionsResponse) }
-    def list_positions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListPositionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListPositionsResponse) }
+    def list_positions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_positions - List Positions
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/positions"
@@ -18976,7 +19302,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -19055,7 +19384,8 @@ module StackOne
                 status: request.status,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -19243,9 +19573,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListShiftsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListShiftsResponse) }
-    def list_shifts(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListShiftsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListShiftsResponse) }
+    def list_shifts(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_shifts - List Shifts
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/shifts"
@@ -19294,7 +19626,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -19372,7 +19707,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -19560,9 +19896,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListTasksRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTasksResponse) }
-    def list_tasks(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListTasksRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListTasksResponse) }
+    def list_tasks(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_tasks - List Tasks
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/tasks"
@@ -19611,7 +19949,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -19690,7 +20031,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -19878,9 +20220,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListTeamGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTeamGroupsResponse) }
-    def list_team_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListTeamGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListTeamGroupsResponse) }
+    def list_team_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_team_groups - List Team Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/groups/teams"
@@ -19929,7 +20273,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20007,7 +20354,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -20195,9 +20543,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListTimeEntriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTimeEntriesResponse) }
-    def list_time_entries(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListTimeEntriesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListTimeEntriesResponse) }
+    def list_time_entries(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_time_entries - List Time Entries
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/time_entries"
@@ -20246,7 +20596,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20324,7 +20677,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -20512,9 +20866,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListTimeOffPoliciesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTimeOffPoliciesResponse) }
-    def list_time_off_policies(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListTimeOffPoliciesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListTimeOffPoliciesResponse) }
+    def list_time_off_policies(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_time_off_policies - List Time Off Policies
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/time_off_policies"
@@ -20563,7 +20919,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20641,7 +21000,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -20829,9 +21189,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListTimeOffRequestsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTimeOffRequestsResponse) }
-    def list_time_off_requests(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListTimeOffRequestsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListTimeOffRequestsResponse) }
+    def list_time_off_requests(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_time_off_requests - List time off requests
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/hris/time_off"
@@ -20880,7 +21242,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -20959,7 +21324,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -21147,9 +21513,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisListTimeOffTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisListTimeOffTypesResponse) }
-    def list_time_off_types(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisListTimeOffTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisListTimeOffTypesResponse) }
+    def list_time_off_types(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_time_off_types - List time off types
+      #
+      # If set, this operation will use `password` from the global security.
       #
       # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
@@ -21200,7 +21568,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -21278,7 +21649,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -21466,9 +21838,11 @@ module StackOne
     end
 
 
-    sig { params(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeResponse) }
-    def update_employee(hris_update_employee_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(hris_update_employee_request_dto: Models::Shared::HrisUpdateEmployeeRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisUpdateEmployeeResponse) }
+    def update_employee(hris_update_employee_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_employee - Update Employee
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisUpdateEmployeeRequest.new(
         hris_update_employee_request_dto: hris_update_employee_request_dto,
         id: id,
@@ -21538,7 +21912,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -21775,9 +22152,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisUpdateEmployeeEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeEmploymentResponse) }
-    def update_employee_employment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeEmploymentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisUpdateEmployeeEmploymentResponse) }
+    def update_employee_employment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_employee_employment - Update Employee Employment
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -21841,7 +22220,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22078,9 +22460,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisUpdateEmployeeTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeTaskResponse) }
-    def update_employee_task(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeTaskRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisUpdateEmployeeTaskResponse) }
+    def update_employee_task(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_employee_task - Update Employee Task
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22144,7 +22528,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22381,9 +22768,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeTimeOffRequestResponse) }
-    def update_employee_time_off_request(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeTimeOffRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisUpdateEmployeeTimeOffRequestResponse) }
+    def update_employee_time_off_request(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_employee_time_off_request - Update Employee Time Off Request
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22447,7 +22836,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22684,9 +23076,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
-    def update_employee_work_eligibility_request(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisUpdateEmployeeWorkEligibilityRequestResponse) }
+    def update_employee_work_eligibility_request(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_employee_work_eligibility_request - Update Employee Work Eligibility Request
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -22750,7 +23144,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -22978,9 +23375,11 @@ module StackOne
     end
 
 
-    sig { params(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::HrisUploadEmployeeDocumentResponse) }
-    def upload_employee_document(hris_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil)
+    sig { params(hris_documents_upload_request_dto: Models::Shared::HrisDocumentsUploadRequestDto, id: ::String, x_account_id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::HrisUploadEmployeeDocumentResponse) }
+    def upload_employee_document(hris_documents_upload_request_dto:, id:, x_account_id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # upload_employee_document - Upload Employee Document
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::HrisUploadEmployeeDocumentRequest.new(
         hris_documents_upload_request_dto: hris_documents_upload_request_dto,
         id: id,
@@ -23049,7 +23448,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -23284,5 +23686,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

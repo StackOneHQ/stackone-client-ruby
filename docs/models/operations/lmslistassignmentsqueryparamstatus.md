@@ -2,6 +2,14 @@
 
 Filter to select assignment by status
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = LmsListAssignmentsQueryParamStatus::PENDING
+```
+
 
 ## Values
 

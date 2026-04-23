@@ -2,6 +2,17 @@
 
 The ISO639-2 Code of the language
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EmployeeSchemasPreferredLanguageValue::AAR
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmployeeSchemasPreferredLanguageValue.deserialize("custom_value")
+```
+
 
 ## Values
 

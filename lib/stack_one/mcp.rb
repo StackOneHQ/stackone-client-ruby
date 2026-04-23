@@ -39,8 +39,10 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpDeleteSecurity, mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpDeleteResponse) }
-    def mcp_delete(security:, mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(security: Models::Operations::StackoneMcpDeleteSecurity, mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneMcpDeleteResponse) }
+    def mcp_delete(security:, mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # mcp_delete - Delete MCP session
       # Close an existing MCP session for the provided session id
       request = Models::Operations::StackoneMcpDeleteRequest.new(
@@ -95,6 +97,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -308,8 +313,8 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpGetSecurity, mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpGetResponse) }
-    def mcp_get(security:, mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil)
+    sig { params(security: Models::Operations::StackoneMcpGetSecurity, mcp_session_id: ::String, x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneMcpGetResponse) }
+    def mcp_get(security:, mcp_session_id:, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # mcp_get - Open MCP SSE stream
       # Open a dedicated Server-Sent Events stream for MCP notifications
       request = Models::Operations::StackoneMcpGetRequest.new(
@@ -364,6 +369,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -577,16 +585,10 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpPostSecurity, json_rpc_message_dto: Models::Shared::JsonRpcMessageDto, mcp_session_id: T.nilable(::String), x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneMcpPostResponse) }
-    def mcp_post(security:, json_rpc_message_dto:, mcp_session_id: nil, x_account_id: nil, x_account_id_query_parameter: nil, retries: nil, timeout_ms: nil)
+    sig { params(security: Models::Operations::StackoneMcpPostSecurity, request: Models::Operations::StackoneMcpPostRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneMcpPostResponse) }
+    def mcp_post(security:, request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # mcp_post - Send MCP JSON-RPC message
       # Send JSON-RPC request to the MCP server over HTTP streaming transport
-      request = Models::Operations::StackoneMcpPostRequest.new(
-        json_rpc_message_dto: json_rpc_message_dto,
-        mcp_session_id: mcp_session_id,
-        x_account_id: x_account_id,
-        x_account_id_query_parameter: x_account_id_query_parameter
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/mcp"
@@ -646,6 +648,9 @@ module StackOne
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -857,5 +862,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

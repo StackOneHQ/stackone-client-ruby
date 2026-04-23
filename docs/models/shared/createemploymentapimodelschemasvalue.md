@@ -2,6 +2,17 @@
 
 The type of the employment.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = CreateEmploymentApiModelSchemasValue::CONTRACTOR
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = CreateEmploymentApiModelSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

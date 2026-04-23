@@ -2,6 +2,17 @@
 
 The type of change that occurred to the application
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ApplicationChangesValue::APPLICATION_STATUS
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = ApplicationChangesValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -1,5 +1,16 @@
 # HRISDivisionValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HRISDivisionValue::DEPARTMENT
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HRISDivisionValue.deserialize("custom_value")
+```
+
 
 ## Values
 

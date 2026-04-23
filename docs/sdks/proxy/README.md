@@ -1,4 +1,7 @@
-# Proxy
+# ~~Proxy~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -6,11 +9,13 @@ Routing API requests through StackOne directly to the underlying provider.
 
 ### Available Operations
 
-* [proxy_request](#proxy_request) - Proxy Request
+* [~~proxy_request~~](#proxy_request) - Proxy Request (Legacy) :warning: **Deprecated**
 
-## proxy_request
+## ~~proxy_request~~
 
-Proxy Request
+Proxy Request (Legacy)
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

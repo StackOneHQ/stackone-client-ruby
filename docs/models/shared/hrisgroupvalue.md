@@ -1,5 +1,16 @@
 # HRISGroupValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HRISGroupValue::WORKSPACE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HRISGroupValue.deserialize("custom_value")
+```
+
 
 ## Values
 

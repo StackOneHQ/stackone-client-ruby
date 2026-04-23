@@ -126,14 +126,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    id: Models::Shared::Id.new,
+    jsonrpc: '2.0',
+    method: 'initialize',
+    params: Models::Shared::Params.new
+  ),
+  x_account_id: '<id>'
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
   api_key: '<YOUR_API_KEY_HERE>'
-), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-  id: Models::Shared::Id.new,
-  jsonrpc: '2.0',
-  method: 'initialize',
-  params: Models::Shared::Params.new
-), x_account_id: '<id>')
+))
 
 if res.status_code == 200
   # handle response
@@ -148,14 +153,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    id: Models::Shared::Id.new,
+    jsonrpc: '2.0',
+    method: 'tools/call',
+    params: Models::Shared::Params.new
+  ),
+  x_account_id: '<id>'
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
   api_key: '<YOUR_API_KEY_HERE>'
-), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-  id: Models::Shared::Id.new,
-  jsonrpc: '2.0',
-  method: 'tools/call',
-  params: Models::Shared::Params.new
-), x_account_id: '<id>')
+))
 
 if res.status_code == 200
   # handle response
@@ -170,14 +180,19 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-res = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    id: Models::Shared::Id.new,
+    jsonrpc: '2.0',
+    method: 'tools/list',
+    params: Models::Shared::Params.new
+  ),
+  x_account_id: '<id>'
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
   api_key: '<YOUR_API_KEY_HERE>'
-), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-  id: Models::Shared::Id.new,
-  jsonrpc: '2.0',
-  method: 'tools/list',
-  params: Models::Shared::Params.new
-), x_account_id: '<id>')
+))
 
 if res.status_code == 200
   # handle response
@@ -187,13 +202,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `security`                                                                                               | [Models::Operations::StackoneMcpPostSecurity](../../models/operations/stackonemcppostsecurity.md)        | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
-| `json_rpc_message_dto`                                                                                   | [Models::Shared::JsonRpcMessageDto](../../models/shared/jsonrpcmessagedto.md)                            | :heavy_check_mark:                                                                                       | JSON-RPC 2.0 message                                                                                     |
-| `mcp_session_id`                                                                                         | *T.nilable(::String)*                                                                                    | :heavy_minus_sign:                                                                                       | Session id; omit for initialize, include for subsequent calls                                            |
-| `x_account_id`                                                                                           | *T.nilable(::String)*                                                                                    | :heavy_minus_sign:                                                                                       | Account secure id for the target provider account (optional if x-account-id query parameter is provided) |
-| `x_account_id_query_parameter`                                                                           | *T.nilable(::Object)*                                                                                    | :heavy_minus_sign:                                                                                       | Account secure id (alternative to x-account-id header)                                                   |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [Models::Operations::StackoneMcpPostRequest](../../models/operations/stackonemcppostrequest.md)   | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| `security`                                                                                        | [Models::Operations::StackoneMcpPostSecurity](../../models/operations/stackonemcppostsecurity.md) | :heavy_check_mark:                                                                                | The security requirements to use for the request.                                                 |
 
 ### Response
 
