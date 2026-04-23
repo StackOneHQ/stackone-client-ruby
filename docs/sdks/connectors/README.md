@@ -1,4 +1,7 @@
-# Connectors
+# ~~Connectors~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -6,12 +9,14 @@ Retrieve metadata for connectors.
 
 ### Available Operations
 
-* [get_connector_meta](#get_connector_meta) - Get Connector Meta Information
-* [list_connectors_meta](#list_connectors_meta) - List Connector Meta Information
+* [~~get_connector_meta~~](#get_connector_meta) - Get Connector Meta Information (Legacy) :warning: **Deprecated**
+* [~~list_connectors_meta~~](#list_connectors_meta) - List Connector Meta Information (Legacy) :warning: **Deprecated**
 
-## get_connector_meta
+## ~~get_connector_meta~~
 
-Get Connector Meta Information
+Get Connector Meta Information (Legacy)
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -62,9 +67,11 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## list_connectors_meta
+## ~~list_connectors_meta~~
 
-List Connector Meta Information
+List Connector Meta Information (Legacy)
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

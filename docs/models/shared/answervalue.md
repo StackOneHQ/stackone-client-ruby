@@ -2,6 +2,17 @@
 
 The type of the answer.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AnswerValue::SHORT_TEXT
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AnswerValue.deserialize("custom_value")
+```
+
 
 ## Values
 

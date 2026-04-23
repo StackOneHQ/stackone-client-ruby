@@ -21,6 +21,9 @@ gem:
     # Test/toolchain
     - minitest
     - minitest-focus
+    - minitest-reporters
+    - ansi
+    - builder
     - prism
 
     # Rubocop toolchain

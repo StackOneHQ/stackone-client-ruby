@@ -40,9 +40,13 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmCreateContactResponse) }
-    def create_contact(crm_create_contact_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmCreateContactResponse) }
+    def create_contact(crm_create_contact_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_contact - Create Contact
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::CrmCreateContactRequest.new(
         crm_create_contact_request_dto: crm_create_contact_request_dto,
         x_account_id: x_account_id,
@@ -106,7 +110,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -343,9 +350,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmGetAccountRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmGetAccountResponse) }
-    def get_account(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmGetAccountRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmGetAccountResponse) }
+    def get_account(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_account - Get Account
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -399,7 +408,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -636,9 +648,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmGetContactRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmGetContactResponse) }
-    def get_contact(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmGetContactRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmGetContactResponse) }
+    def get_contact(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_contact - Get Contact
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -692,7 +706,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -929,9 +946,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmGetContactCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmGetContactCustomFieldDefinitionResponse) }
-    def get_contact_custom_field_definition(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmGetContactCustomFieldDefinitionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmGetContactCustomFieldDefinitionResponse) }
+    def get_contact_custom_field_definition(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_contact_custom_field_definition - Get Contact Custom Field Definition
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -985,7 +1004,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1222,9 +1244,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmGetListRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmGetListResponse) }
-    def get_list(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmGetListRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmGetListResponse) }
+    def get_list(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_list - Get List
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1278,7 +1302,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1515,9 +1542,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmListAccountsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmListAccountsResponse) }
-    def list_accounts(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmListAccountsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmListAccountsResponse) }
+    def list_accounts(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_accounts - List Accounts
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/crm/accounts"
@@ -1566,7 +1595,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1644,7 +1676,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -1832,9 +1865,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmListContactCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmListContactCustomFieldDefinitionsResponse) }
-    def list_contact_custom_field_definitions(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmListContactCustomFieldDefinitionsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmListContactCustomFieldDefinitionsResponse) }
+    def list_contact_custom_field_definitions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_contact_custom_field_definitions - List Contact Custom Field Definitions
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/crm/custom_field_definitions/contacts"
@@ -1883,7 +1918,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1961,7 +1999,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2149,9 +2188,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmListContactsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmListContactsResponse) }
-    def list_contacts(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmListContactsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmListContactsResponse) }
+    def list_contacts(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_contacts - List Contacts
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/crm/contacts"
@@ -2200,7 +2241,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2279,7 +2323,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2467,9 +2512,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::CrmListListsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmListListsResponse) }
-    def list_lists(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::CrmListListsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmListListsResponse) }
+    def list_lists(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_lists - Get all Lists
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/crm/lists"
@@ -2518,7 +2565,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2596,7 +2646,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2784,9 +2835,11 @@ module StackOne
     end
 
 
-    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::CrmUpdateContactResponse) }
-    def update_contact(crm_create_contact_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(crm_create_contact_request_dto: Models::Shared::CrmCreateContactRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::CrmUpdateContactResponse) }
+    def update_contact(crm_create_contact_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_contact - Update Contact (early access)
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::CrmUpdateContactRequest.new(
         crm_create_contact_request_dto: crm_create_contact_request_dto,
         id: id,
@@ -2856,7 +2909,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3091,5 +3147,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

@@ -40,10 +40,14 @@ module StackOne
     end
 
 
-    sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingCreateTicketResponse) }
-    def create_ticket(ticketing_ticket_create_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingCreateTicketResponse) }
+    def create_ticket(ticketing_ticket_create_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_ticket - Create Ticket
       # Create a new ticket record.
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::TicketingCreateTicketRequest.new(
         ticketing_ticket_create_request_dto: ticketing_ticket_create_request_dto,
         x_account_id: x_account_id,
@@ -107,7 +111,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -344,10 +351,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingDownloadTicketingAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingDownloadTicketingAttachmentResponse) }
-    def download_ticketing_attachment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingDownloadTicketingAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingDownloadTicketingAttachmentResponse) }
+    def download_ticketing_attachment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # download_ticketing_attachment - Download Attachment
       # Download the attachment file from a ticket.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -401,7 +410,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -636,10 +648,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetAttachmentResponse) }
-    def get_attachment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetAttachmentResponse) }
+    def get_attachment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_attachment - Get Attachment
       # Retrieve the details of a single attachment for a ticket.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -693,7 +707,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -930,10 +947,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetCommentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetCommentResponse) }
-    def get_comment(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetCommentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetCommentResponse) }
+    def get_comment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_comment - Get Comment
       # Retrieve a single comment by its identifier for a ticket.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -987,7 +1006,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1224,10 +1246,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetProjectRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetProjectResponse) }
-    def get_project(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetProjectRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetProjectResponse) }
+    def get_project(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_project - Get Project
       # Retrieve a single project by its identifier.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1281,7 +1305,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1518,10 +1545,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetProjectComponentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetProjectComponentResponse) }
-    def get_project_component(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetProjectComponentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetProjectComponentResponse) }
+    def get_project_component(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_project_component - Get Project Component
       # Retrieve a single project component by its identifier.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1575,7 +1604,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1812,10 +1844,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetTicketRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetTicketResponse) }
-    def get_ticket(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetTicketRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetTicketResponse) }
+    def get_ticket(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_ticket - Get Ticket
       # Retrieve a single ticket by its identifier.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1869,7 +1903,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2106,10 +2143,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetTicketTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetTicketTypeResponse) }
-    def get_ticket_type(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetTicketTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetTicketTypeResponse) }
+    def get_ticket_type(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_ticket_type - Get Ticket Type
       # Retrieve a single ticket type by its identifier.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2163,7 +2202,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2400,10 +2442,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingGetUserResponse) }
-    def get_user(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetUserResponse) }
+    def get_user(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user - Get User
       # Retrieve a single user by their identifier.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2457,7 +2501,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2694,10 +2741,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListAttachmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListAttachmentsResponse) }
-    def list_attachments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListAttachmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListAttachmentsResponse) }
+    def list_attachments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_attachments - List Attachments
       # Retrieve a paginated list of attachment details for a ticket.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -2751,7 +2800,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2830,7 +2882,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -3018,10 +3071,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListCommentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListCommentsResponse) }
-    def list_comments(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListCommentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListCommentsResponse) }
+    def list_comments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_comments - List Comments
       # Retrieve a paginated list of comments for a ticket.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3075,7 +3130,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3154,7 +3212,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -3342,10 +3401,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListProjectComponentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListProjectComponentsResponse) }
-    def list_project_components(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListProjectComponentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListProjectComponentsResponse) }
+    def list_project_components(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_project_components - List Project Components
       # Retrieve a paginated list of project components.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3399,7 +3460,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3478,7 +3542,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -3666,10 +3731,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListProjectTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListProjectTicketTypesResponse) }
-    def list_project_ticket_types(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListProjectTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListProjectTicketTypesResponse) }
+    def list_project_ticket_types(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_project_ticket_types - List Project Ticket Types
       # Retrieve a paginated list of ticket types for a project.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -3723,7 +3790,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3802,7 +3872,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -3990,10 +4061,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListProjectsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListProjectsResponse) }
-    def list_projects(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListProjectsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListProjectsResponse) }
+    def list_projects(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_projects - List Projects
       # Retrieve a paginated list of projects.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/projects"
@@ -4042,7 +4115,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4120,7 +4196,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4308,10 +4385,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListTicketStatusesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListTicketStatusesResponse) }
-    def list_ticket_statuses(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListTicketStatusesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListTicketStatusesResponse) }
+    def list_ticket_statuses(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_ticket_statuses - List Ticket Statuses
       # Retrieve a paginated list of statuses for a ticket.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -4365,7 +4444,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4444,7 +4526,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4632,10 +4715,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListTicketTypesResponse) }
-    def list_ticket_types(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListTicketTypesResponse) }
+    def list_ticket_types(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_ticket_types - List Ticket Types
       # Retrieve a paginated list of all ticket types.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/ticket_types"
@@ -4684,7 +4769,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -4762,7 +4850,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -4950,10 +5039,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListTicketsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListTicketsResponse) }
-    def list_tickets(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListTicketsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListTicketsResponse) }
+    def list_tickets(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_tickets - List Tickets
       # Retrieve a paginated list of tickets.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/tickets"
@@ -5002,7 +5093,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5080,7 +5174,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5268,10 +5363,12 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingListUsersResponse) }
-    def list_users(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::TicketingListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListUsersResponse) }
+    def list_users(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_users - List Users
       # Retrieve a paginated list of users.
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/users"
@@ -5320,7 +5417,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5398,7 +5498,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -5586,10 +5687,12 @@ module StackOne
     end
 
 
-    sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::TicketingUpdateTicketResponse) }
-    def update_ticket(ticketing_ticket_update_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingUpdateTicketResponse) }
+    def update_ticket(ticketing_ticket_update_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_ticket - Update Ticket
       # Update an existing ticket record by its identifier.
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::TicketingUpdateTicketRequest.new(
         ticketing_ticket_update_request_dto: ticketing_ticket_update_request_dto,
         id: id,
@@ -5659,7 +5762,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -5894,5 +6000,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

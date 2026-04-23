@@ -1,5 +1,13 @@
 # Field2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = Field2::TRUE
+```
+
 
 ## Values
 

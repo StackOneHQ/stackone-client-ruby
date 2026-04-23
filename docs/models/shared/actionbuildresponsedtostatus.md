@@ -2,6 +2,14 @@
 
 Build status
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = ActionBuildResponseDtoStatus::ACCEPTED
+```
+
 
 ## Values
 

@@ -40,9 +40,13 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamDeleteUserResponse) }
-    def delete_user(id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+
+
+    sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamDeleteUserResponse) }
+    def delete_user(id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # delete_user - Delete User
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::IamDeleteUserRequest.new(
         id: id,
         x_account_id: x_account_id,
@@ -99,7 +103,10 @@ module StackOne
         http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -349,9 +356,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamGetGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamGetGroupResponse) }
-    def get_group(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamGetGroupRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamGetGroupResponse) }
+    def get_group(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_group - Get Group
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -405,7 +414,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -642,9 +654,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamGetPolicyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamGetPolicyResponse) }
-    def get_policy(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamGetPolicyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamGetPolicyResponse) }
+    def get_policy(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_policy - Get Policy
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -698,7 +712,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -935,9 +952,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamGetRoleRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamGetRoleResponse) }
-    def get_role(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamGetRoleRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamGetRoleResponse) }
+    def get_role(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_role - Get Role
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -991,7 +1010,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1228,9 +1250,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamGetUserResponse) }
-    def get_user(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamGetUserResponse) }
+    def get_user(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user - Get User
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = Utils.generate_url(
@@ -1284,7 +1308,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1521,9 +1548,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamListGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamListGroupsResponse) }
-    def list_groups(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamListGroupsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamListGroupsResponse) }
+    def list_groups(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_groups - List Groups
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/iam/groups"
@@ -1572,7 +1601,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1651,7 +1683,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -1839,9 +1872,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamListPoliciesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamListPoliciesResponse) }
-    def list_policies(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamListPoliciesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamListPoliciesResponse) }
+    def list_policies(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_policies - List Policies
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/iam/policies"
@@ -1890,7 +1925,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1969,7 +2007,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2157,9 +2196,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamListRolesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamListRolesResponse) }
-    def list_roles(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamListRolesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamListRolesResponse) }
+    def list_roles(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_roles - List Roles
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/iam/roles"
@@ -2208,7 +2249,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2287,7 +2331,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2475,9 +2520,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::IamListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamListUsersResponse) }
-    def list_users(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::IamListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamListUsersResponse) }
+    def list_users(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_users - List Users
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/iam/users"
@@ -2526,7 +2573,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2605,7 +2655,8 @@ module StackOne
                 raw: request.raw,
                 updated_after: request.updated_after,
                 x_account_id: request.x_account_id
-              )
+              ),
+              http_headers: http_headers
             )
           end
 
@@ -2793,9 +2844,11 @@ module StackOne
     end
 
 
-    sig { params(iam_update_user_request_dto: Models::Shared::IamUpdateUserRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::IamUpdateUserResponse) }
-    def update_user(iam_update_user_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil)
+    sig { params(iam_update_user_request_dto: Models::Shared::IamUpdateUserRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::IamUpdateUserResponse) }
+    def update_user(iam_update_user_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_user - Update User
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::IamUpdateUserRequest.new(
         iam_update_user_request_dto: iam_update_user_request_dto,
         id: id,
@@ -2865,7 +2918,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3100,5 +3156,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

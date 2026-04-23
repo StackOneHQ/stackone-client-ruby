@@ -2,6 +2,17 @@
 
 The pay frequency of the job postings.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisUpdateEmployeeRequestDtoSchemasEmploymentValue::HOURLY
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisUpdateEmployeeRequestDtoSchemasEmploymentValue.deserialize("custom_value")
+```
+
 
 ## Values
 

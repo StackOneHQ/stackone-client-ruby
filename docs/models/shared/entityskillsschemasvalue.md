@@ -1,5 +1,16 @@
 # EntitySkillsSchemasValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EntitySkillsSchemasValue::ONE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EntitySkillsSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

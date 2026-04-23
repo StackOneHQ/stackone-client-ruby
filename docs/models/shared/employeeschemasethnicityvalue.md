@@ -1,5 +1,16 @@
 # EmployeeSchemasEthnicityValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EmployeeSchemasEthnicityValue::WHITE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmployeeSchemasEthnicityValue.deserialize("custom_value")
+```
+
 
 ## Values
 

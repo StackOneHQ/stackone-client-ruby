@@ -39,9 +39,13 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneDeleteAccountResponse) }
-    def delete_account(id:, retries: nil, timeout_ms: nil)
+
+
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneDeleteAccountResponse) }
+    def delete_account(id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # delete_account - Delete Account
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneDeleteAccountRequest.new(
         id: id
       )
@@ -96,7 +100,10 @@ module StackOne
         http_response = T.must(connection).delete(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -319,9 +326,11 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetAccountResponse) }
-    def get_account(id:, retries: nil, timeout_ms: nil)
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneGetAccountResponse) }
+    def get_account(id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_account - Get Account
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneGetAccountRequest.new(
         id: id
       )
@@ -376,7 +385,10 @@ module StackOne
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -599,9 +611,13 @@ module StackOne
     end
 
 
-    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneGetAccountMetaInfoResponse) }
-    def get_account_meta_info(id:, retries: nil, timeout_ms: nil)
-      # get_account_meta_info - Get Account Meta Information
+    sig { params(id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneGetAccountMetaInfoResponse) }
+    def get_account_meta_info(id:, retries: nil, timeout_ms: nil, http_headers: nil)
+      # get_account_meta_info - Get Account Meta Information (Legacy)
+      #
+      # If set, this operation will use `password` from the global security.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::StackoneGetAccountMetaInfoRequest.new(
         id: id
       )
@@ -656,7 +672,10 @@ module StackOne
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -879,9 +898,11 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListLinkedAccountsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneListLinkedAccountsResponse) }
-    def list_linked_accounts(request:, retries: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::StackoneListLinkedAccountsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListLinkedAccountsResponse) }
+    def list_linked_accounts(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_linked_accounts - List Accounts
+      #
+      # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/accounts"
@@ -930,7 +951,10 @@ module StackOne
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1153,9 +1177,11 @@ module StackOne
     end
 
 
-    sig { params(patch_account_external_dto: Models::Shared::PatchAccountExternalDto, id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer)).returns(Models::Operations::StackoneUpdateAccountResponse) }
-    def update_account(patch_account_external_dto:, id:, retries: nil, timeout_ms: nil)
+    sig { params(patch_account_external_dto: Models::Shared::PatchAccountExternalDto, id: ::String, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneUpdateAccountResponse) }
+    def update_account(patch_account_external_dto:, id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_account - Update Account
+      #
+      # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneUpdateAccountRequest.new(
         patch_account_external_dto: patch_account_external_dto,
         id: id
@@ -1223,7 +1249,10 @@ module StackOne
           req.body = body
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
-          Utils.configure_request_security(req, security)
+          Utils.configure_request_security(req, security, %i[password])
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1444,5 +1473,5 @@ module StackOne
 
       end
     end
-  end
+end
 end

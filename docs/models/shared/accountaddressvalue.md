@@ -2,6 +2,17 @@
 
 The type of the location.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AccountAddressValue::HOME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AccountAddressValue.deserialize("custom_value")
+```
+
 
 ## Values
 

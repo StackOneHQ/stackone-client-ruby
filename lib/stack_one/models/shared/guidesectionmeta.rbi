@@ -12,6 +12,10 @@ class StackOne::Models::Shared::GuideSectionMeta
   def content=(str_); end
   def title(); end
   def title=(str_); end
+  def applicable_scopes(); end
+  def applicable_scopes=(str_); end
+  def image(); end
+  def image=(str_); end
   def list(); end
   def list=(str_); end
   def steps(); end

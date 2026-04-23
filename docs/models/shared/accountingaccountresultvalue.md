@@ -2,6 +2,17 @@
 
 Type of account
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AccountingAccountResultValue::ASSET
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AccountingAccountResultValue.deserialize("custom_value")
+```
+
 
 ## Values
 

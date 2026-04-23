@@ -2,6 +2,17 @@
 
 The unified value for the type of the time off policy. If the provider does not specify this unit, the value will be set to unmapped_value
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = TimeOffPoliciesSchemasValue::SICK
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = TimeOffPoliciesSchemasValue.deserialize("custom_value")
+```
+
 
 ## Values
 

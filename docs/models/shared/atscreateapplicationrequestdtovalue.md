@@ -2,6 +2,17 @@
 
 The status of the application.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AtsCreateApplicationRequestDtoValue::ACTIVE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AtsCreateApplicationRequestDtoValue.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -16,7 +16,7 @@ module StackOne
   class StackOne
     extend T::Sig
 
-    attr_accessor :accounts, :actions, :connect_sessions, :connectors, :mcp, :request_logs, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
+    attr_accessor :accounts, :actions, :auth_configs, :connect_sessions, :connectors, :mcp, :request_logs, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
 
     # Instantiates the SDK, configuring it with the provided parameters.
     #
@@ -80,6 +80,7 @@ module StackOne
     def init_sdks
       @accounts = Accounts.new(@sdk_configuration)
       @actions = Actions.new(@sdk_configuration)
+      @auth_configs = AuthConfigs.new(@sdk_configuration)
       @connect_sessions = ConnectSessions.new(@sdk_configuration)
       @connectors = Connectors.new(@sdk_configuration)
       @mcp = Mcp.new(@sdk_configuration)
@@ -112,5 +113,6 @@ module StackOne
 
       return Utils.template_url base_url, url_variables
     end
-  end
+
+end
 end

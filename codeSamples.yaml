@@ -27,12 +27,6 @@ actions:
         - "lang": "ruby"
           "label": "stackone_update_account"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.accounts.update_account(patch_account_external_dto: Models::Shared::PatchAccountExternalDto.new(\n  type: Models::Shared::PatchAccountExternalDtoType::TEST\n), id: '<id>')\n\nunless res.linked_account.nil?\n  # handle response\nend"
-  - target: $["paths"]["/accounts/{id}/meta"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "stackone_get_account_meta_info"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.accounts.get_account_meta_info(id: '<id>')\n\nunless res.linked_account_meta.nil?\n  # handle response\nend"
   - target: $["paths"]["/actions"]["get"]
     update:
       "x-codeSamples":
@@ -50,13 +44,25 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_rpc_action"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  body: {\n    'data' => 'example',\n  },\n  headers: {\n    'Content-Type' => 'application/json',\n  },\n  path: {\n    'id' => '123',\n  },\n  query: Models::Shared::Query.new(\n    debug: false\n  )\n)\nres = s.actions.rpc_action(request: req)\n\nunless res.actions_rpc_response.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::StackoneRpcActionRequest.new(\n  actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto.new(\n    action: 'create_employee',\n    body: {\n      'data' => 'example',\n    },\n    defender_config: Models::Shared::DefenderConfig.new(\n      block_high_risk: false,\n      enabled: true,\n      use_tier1_classification: true,\n      use_tier2_classification: true\n    ),\n    headers: {\n      'Content-Type' => 'application/json',\n    },\n    path: {\n      'id' => '123',\n    },\n    query: Models::Shared::Query.new(\n      debug: false\n    )\n  ),\n  debug: false,\n  run_id: '550e8400-e29b-41d4-a716-446655440000',\n  sync: false,\n  x_account_id: '<id>'\n)\nres = s.actions.rpc_action(request: req)\n\nunless res.one_of.nil?\n  # handle response\nend"
+  - target: $["paths"]["/actions/rpc/synced"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_rpc_action_synced"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(\n  action: 'create_employee',\n  filter: {\n    'status' => 'active',\n  },\n  path: {\n    'id' => '123',\n  },\n  run_id: '550e8400-e29b-41d4-a716-446655440000'\n), page_size: 25.0, skip: 0.0)\n\nunless res.actions_synced_response.nil?\n  # handle response\nend"
   - target: $["paths"]["/actions/search"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_search_actions"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ActionSearchDto.new(\n  connector: 'slack',\n  query: 'send a message'\n)\nres = s.actions.search_actions(request: req)\n\nunless res.action_search_response_dto.nil?\n  # handle response\nend"
+  - target: $["paths"]["/auth_configs"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_list_auth_configs"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.auth_configs.list_auth_configs(connector_key: 'salesforce', enabled: true, page_size: 25.0)\n\nunless res.auth_configs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/connect_sessions"]["post"]
     update:
       "x-codeSamples":
@@ -69,18 +75,6 @@ actions:
         - "lang": "ruby"
           "label": "stackone_authenticate_connect_session"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ConnectSessionAuthenticate.new(\n  token: '<value>'\n)\nres = s.connect_sessions.authenticate_connect_session(request: req)\n\nunless res.connect_session.nil?\n  # handle response\nend"
-  - target: $["paths"]["/connectors/meta"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "stackone_list_connectors_meta"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connectors.list_connectors_meta(include: 'field_path,unmapped_fields,resources,inactive,webhooks,static_fields')\n\nunless res.connectors_metas.nil?\n  # handle response\nend"
-  - target: $["paths"]["/connectors/meta/{provider}"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "stackone_get_connector_meta"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connectors.get_connector_meta(provider: '<value>', include: 'field_path,unmapped_fields,resources,inactive,webhooks,static_fields')\n\nunless res.connectors_meta.nil?\n  # handle response\nend"
   - target: $["paths"]["/mcp"]["delete"]
     update:
       "x-codeSamples":
@@ -98,7 +92,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_mcp_post"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\nres = s.mcp.mcp_post(security: Models::Operations::StackoneMcpPostSecurity.new(\n  api_key: '<YOUR_API_KEY_HERE>'\n), json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(\n  id: Models::Shared::Id.new,\n  jsonrpc: '2.0',\n  method: 'initialize',\n  params: Models::Shared::Params.new\n), x_account_id: '<id>')\n\nif res.status_code == 200\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nreq = Models::Operations::StackoneMcpPostRequest.new(\n  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(\n    id: Models::Shared::Id.new,\n    jsonrpc: '2.0',\n    method: 'initialize',\n    params: Models::Shared::Params.new\n  ),\n  x_account_id: '<id>'\n)\nres = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(\n  api_key: '<YOUR_API_KEY_HERE>'\n))\n\nif res.status_code == 200\n  # handle response\nend"
   - target: $["paths"]["/requests/logs"]["get"]
     update:
       "x-codeSamples":
@@ -627,6 +621,12 @@ actions:
         - "lang": "ruby"
           "label": "ats_get_user"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::AtsGetUserRequest.new(\n  prefer: 'heartbeat',\n  fields_: 'id,remote_id,first_name,last_name,name,email,phone,unified_custom_fields',\n  id: '<id>',\n  x_account_id: '<id>'\n)\nres = s.ats.get_user(request: req)\n\nunless res.user_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/check_permissions"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_check_permissions"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.actions.check_permissions(check_permissions_request_dto: Models::Shared::CheckPermissionsRequestDto.new(\n  action: Models::Shared::Action::READ,\n  email: 'user@company.com',\n  resource_id: 'C08G6QB90LU',\n  resource_type: 'channel',\n  user_id: 'U08FW4R4N6S'\n), x_account_id: '<id>', prefer: 'heartbeat')\n\nunless res.check_permissions_response.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/crm/accounts"]["get"]
     update:
       "x-codeSamples":
@@ -1563,12 +1563,6 @@ actions:
         - "lang": "ruby"
           "label": "messaging_get_user"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::MessagingGetUserRequest.new(\n  prefer: 'heartbeat',\n  fields_: 'id,remote_id,email,username,name,first_name,last_name,bot,active,unified_custom_fields',\n  id: '<id>',\n  x_account_id: '<id>'\n)\nres = s.messaging.get_user(request: req)\n\nunless res.messaging_user_result.nil?\n  # handle response\nend"
-  - target: $["paths"]["/unified/proxy"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "stackone_proxy_request"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.proxy.proxy_request(proxy_request_body: Models::Shared::ProxyRequestBody.new(\n  headers: {\n    'Content-Type' => 'application/json',\n  },\n  path: '/employees/directory',\n  url: 'https://api.sample-integration.com/v1'\n), x_account_id: '<id>', prefer: 'heartbeat')\n\nunless res.proxy_response_api_model.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/screening/orders"]["post"]
     update:
       "x-codeSamples":

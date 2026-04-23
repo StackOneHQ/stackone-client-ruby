@@ -1,5 +1,13 @@
 # MessagingUserResult2
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = MessagingUserResult2::TRUE
+```
+
 
 ## Values
 

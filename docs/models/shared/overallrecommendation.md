@@ -2,6 +2,17 @@
 
 The overall recommendation
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = OverallRecommendation::STRONG_YES
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = OverallRecommendation.deserialize("custom_value")
+```
+
 
 ## Values
 

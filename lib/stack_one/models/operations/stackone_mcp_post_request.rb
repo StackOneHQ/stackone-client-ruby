@@ -16,15 +16,21 @@ module StackOne
         field :json_rpc_message_dto, Models::Shared::JsonRpcMessageDto, { 'request': { 'media_type': 'application/json' } }
         # Session id; omit for initialize, include for subsequent calls
         field :mcp_session_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'mcp-session-id', 'style': 'simple', 'explode': false } }
+        # Parameter schema style: "nested" (default) groups by location, "flat_prefixed" flattens with location prefix, "flat_smart" flattens and only prefixes on name collision
+        field :param_style, Crystalline::Nilable.new(Models::Operations::ParamStyle), { 'query_param': { 'field_name': 'param-style', 'style': 'form', 'explode': true } }
+        # Tool registration mode: "individual" (default) registers each action as a separate tool; "search_execute" registers two tools for search-and-execute flow
+        field :tool_mode, Crystalline::Nilable.new(Models::Operations::ToolMode), { 'query_param': { 'field_name': 'tool-mode', 'style': 'form', 'explode': true } }
         # Account secure id for the target provider account (optional if x-account-id query parameter is provided)
         field :x_account_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
         # Account secure id (alternative to x-account-id header)
         field :x_account_id_query_parameter, Crystalline::Nilable.new(::Object), { 'query_param': { 'field_name': 'x-account-id', 'style': 'form', 'explode': true } }
 
-        sig { params(json_rpc_message_dto: Models::Shared::JsonRpcMessageDto, mcp_session_id: T.nilable(::String), x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object)).void }
-        def initialize(json_rpc_message_dto:, mcp_session_id: nil, x_account_id: nil, x_account_id_query_parameter: nil)
+        sig { params(json_rpc_message_dto: Models::Shared::JsonRpcMessageDto, mcp_session_id: T.nilable(::String), param_style: T.nilable(Models::Operations::ParamStyle), tool_mode: T.nilable(Models::Operations::ToolMode), x_account_id: T.nilable(::String), x_account_id_query_parameter: T.nilable(::Object)).void }
+        def initialize(json_rpc_message_dto:, mcp_session_id: nil, param_style: nil, tool_mode: nil, x_account_id: nil, x_account_id_query_parameter: nil)
           @json_rpc_message_dto = json_rpc_message_dto
           @mcp_session_id = mcp_session_id
+          @param_style = param_style
+          @tool_mode = tool_mode
           @x_account_id = x_account_id
           @x_account_id_query_parameter = x_account_id_query_parameter
         end
@@ -34,6 +40,8 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @json_rpc_message_dto == other.json_rpc_message_dto
           return false unless @mcp_session_id == other.mcp_session_id
+          return false unless @param_style == other.param_style
+          return false unless @tool_mode == other.tool_mode
           return false unless @x_account_id == other.x_account_id
           return false unless @x_account_id_query_parameter == other.x_account_id_query_parameter
           true

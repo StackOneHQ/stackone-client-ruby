@@ -2,6 +2,17 @@
 
 The StackOne unified assignment status.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AssignmentSchemasStatusValue::PENDING
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AssignmentSchemasStatusValue.deserialize("custom_value")
+```
+
 
 ## Values
 

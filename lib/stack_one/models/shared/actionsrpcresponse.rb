@@ -7,18 +7,21 @@
 module StackOne
   module Models
     module Shared
-
+      # Direct RPC response from an action execution
       class ActionsRpcResponse
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The response data from the action RPC call
-        field :data, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(Symbol, ::Object), Crystalline::Array.new(Crystalline::Hash.new(Symbol, ::Object)))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
-        # Cursor for fetching the next page of results
-        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
 
-        sig { params(data: T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[T::Hash[Symbol, ::Object]])), next_: T.nilable(::String)).void }
-        def initialize(data: nil, next_: nil)
+        field :additional_properties, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_properties'), 'additional_properties': true } }
+        # Payload returned from the action execution
+        field :data, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        # Continuation token or next-page reference returned from the action execution
+        field :next_, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+
+        sig { params(additional_properties: T.nilable(T::Hash[Symbol, ::Object]), data: T.nilable(::Object), next_: T.nilable(::Object)).void }
+        def initialize(additional_properties: nil, data: nil, next_: nil)
+          @additional_properties = additional_properties
           @data = data
           @next_ = next_
         end
@@ -26,6 +29,7 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @additional_properties == other.additional_properties
           return false unless @data == other.data
           return false unless @next_ == other.next_
           true

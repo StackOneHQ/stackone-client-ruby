@@ -2,6 +2,17 @@
 
 The content type of the attachment.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = AttachmentValue::TEXT
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = AttachmentValue.deserialize("custom_value")
+```
+
 
 ## Values
 

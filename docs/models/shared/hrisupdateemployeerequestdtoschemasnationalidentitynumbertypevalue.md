@@ -2,6 +2,17 @@
 
 The type of the national identity number
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue::SSN
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisUpdateEmployeeRequestDtoSchemasNationalIdentityNumberTypeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

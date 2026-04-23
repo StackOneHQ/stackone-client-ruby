@@ -1,5 +1,13 @@
 # Categories
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = Categories::ATS
+```
+
 
 ## Values
 

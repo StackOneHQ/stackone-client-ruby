@@ -2,6 +2,17 @@
 
 The type of the employment.
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = EmployeeSchemasEmploymentTypeValue::CONTRACTOR
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmployeeSchemasEmploymentTypeValue.deserialize("custom_value")
+```
+
 
 ## Values
 

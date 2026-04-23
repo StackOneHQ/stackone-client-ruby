@@ -1,5 +1,16 @@
 # HrisCreateEmploymentRequestDtoSchemasTypeValue
 
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = HrisCreateEmploymentRequestDtoSchemasTypeValue::CONTRACTOR
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = HrisCreateEmploymentRequestDtoSchemasTypeValue.deserialize("custom_value")
+```
+
 
 ## Values
 
