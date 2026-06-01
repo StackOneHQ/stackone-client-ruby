@@ -8,6 +8,7 @@ Generate connection session tokens or auth URLs to allow your customers to conne
 
 * [authenticate_connect_session](#authenticate_connect_session) - Authenticate Connect Session
 * [create_connect_session](#create_connect_session) - Create Connect Session
+* [get_connect_session](#get_connect_session) - Get Connect Session
 
 ## authenticate_connect_session
 
@@ -120,6 +121,58 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::StackoneCreateConnectSessionResponse)](../../models/operations/stackonecreateconnectsessionresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## get_connect_session
+
+Get Connect Session
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="stackone_get_connect_session" method="get" path="/connect_sessions/{id}" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+res = s.connect_sessions.get_connect_session(id: 9637.9)
+
+unless res.connect_session.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *::Float*          | :heavy_check_mark: | N/A                |
+
+### Response
+
+**[T.nilable(Models::Operations::StackoneGetConnectSessionResponse)](../../models/operations/stackonegetconnectsessionresponse.md)**
 
 ### Errors
 

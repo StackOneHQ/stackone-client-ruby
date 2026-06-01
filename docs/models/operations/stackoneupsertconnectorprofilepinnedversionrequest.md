@@ -1,0 +1,9 @@
+# StackoneUpsertConnectorProfilePinnedVersionRequest
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `upsert_connector_profile_pinned_version`                                                                         | [Models::Shared::UpsertConnectorProfilePinnedVersion](../../models/shared/upsertconnectorprofilepinnedversion.md) | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `connector_profile_id`                                                                                            | *::String*                                                                                                        | :heavy_check_mark:                                                                                                | N/A                                                                                                               |

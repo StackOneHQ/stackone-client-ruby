@@ -7,27 +7,18 @@
 module StackOne
   module Models
     module Shared
-
+      # The resource type identifier. Falcon connectors emit a plain string from the connector-defined set returned by GET /unified/iam/resource_types (e.g. "file", "channel", "group"). Legacy V2 connectors emit the {value, source_value} envelope where value is from the IamResourceTypeEnum fixed set. Either shape validates.
       class IamResourceType
         extend T::Sig
         include Crystalline::MetadataFields
 
 
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::IamResource4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
-        # The type of the resource, e.g. user, group, permission, etc.
-        field :value, Crystalline::Nilable.new(Models::Shared::IamResourceValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::IamResourceValue, true) } }
-
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::IamResource4, T::Array[::Object])), value: T.nilable(Models::Shared::IamResourceValue)).void }
-        def initialize(source_value: nil, value: nil)
-          @source_value = source_value
-          @value = value
-        end
+        
+        def initialize; end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @source_value == other.source_value
-          return false unless @value == other.value
           true
         end
       end

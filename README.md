@@ -166,7 +166,7 @@ end
 
 * [build_action_embeddings](docs/sdks/actions/README.md#build_action_embeddings) - Rebuild action embeddings for semantic search
 * [check_permissions](docs/sdks/actions/README.md#check_permissions) - Check user permissions on a resource
-* [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all actions metadata
+* [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all connectors & actions metadata
 * [rpc_action](docs/sdks/actions/README.md#rpc_action) - Make an RPC call to an action
 * [rpc_action_synced](docs/sdks/actions/README.md#rpc_action_synced) - Read synced action data from the datasync index
 * [search_actions](docs/sdks/actions/README.md#search_actions) - Search connector actions by semantic similarity
@@ -250,14 +250,23 @@ end
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
-### [AuthConfigs](docs/sdks/authconfigs/README.md)
+### [~~AuthConfigs~~](docs/sdks/authconfigs/README.md)
 
-* [list_auth_configs](docs/sdks/authconfigs/README.md#list_auth_configs) - List Auth Configs
+* [~~list_auth_configs~~](docs/sdks/authconfigs/README.md#list_auth_configs) - List Auth Configs :warning: **Deprecated**
 
 ### [ConnectSessions](docs/sdks/connectsessions/README.md)
 
 * [authenticate_connect_session](docs/sdks/connectsessions/README.md#authenticate_connect_session) - Authenticate Connect Session
 * [create_connect_session](docs/sdks/connectsessions/README.md#create_connect_session) - Create Connect Session
+* [get_connect_session](docs/sdks/connectsessions/README.md#get_connect_session) - Get Connect Session
+
+### [ConnectorProfiles](docs/sdks/connectorprofiles/README.md)
+
+* [delete_connector_profile_pinned_version](docs/sdks/connectorprofiles/README.md#delete_connector_profile_pinned_version) - Delete Connector Profile Pinned Version
+* [get_connector_profile_pinned_version](docs/sdks/connectorprofiles/README.md#get_connector_profile_pinned_version) - Get Connector Profile Pinned Version
+* [list_connector_profile_versions](docs/sdks/connectorprofiles/README.md#list_connector_profile_versions) - List Connector Profile Versions
+* [list_connector_profiles](docs/sdks/connectorprofiles/README.md#list_connector_profiles) - List Connector Profiles
+* [upsert_connector_profile_pinned_version](docs/sdks/connectorprofiles/README.md#upsert_connector_profile_pinned_version) - Upsert Connector Profile Pinned Version
 
 ### [~~Connectors~~](docs/sdks/connectors/README.md)
 
@@ -369,11 +378,16 @@ end
 
 * [delete_user](docs/sdks/iam/README.md#delete_user) - Delete User
 * [get_group](docs/sdks/iam/README.md#get_group) - Get Group
+* [get_me](docs/sdks/iam/README.md#get_me) - Get Me
+* [get_organization](docs/sdks/iam/README.md#get_organization) - Get Organization
 * [get_policy](docs/sdks/iam/README.md#get_policy) - Get Policy
 * [get_role](docs/sdks/iam/README.md#get_role) - Get Role
 * [get_user](docs/sdks/iam/README.md#get_user) - Get User
 * [list_groups](docs/sdks/iam/README.md#list_groups) - List Groups
+* [list_organizations](docs/sdks/iam/README.md#list_organizations) - List Organizations
 * [list_policies](docs/sdks/iam/README.md#list_policies) - List Policies
+* [list_resource_types](docs/sdks/iam/README.md#list_resource_types) - List Resource Types
+* [list_resource_users](docs/sdks/iam/README.md#list_resource_users) - List Resource Users
 * [list_roles](docs/sdks/iam/README.md#list_roles) - List Roles
 * [list_users](docs/sdks/iam/README.md#list_users) - List Users
 * [update_user](docs/sdks/iam/README.md#update_user) - Update User

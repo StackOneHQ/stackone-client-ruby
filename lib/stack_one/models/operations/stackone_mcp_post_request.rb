@@ -18,7 +18,7 @@ module StackOne
         field :mcp_session_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'mcp-session-id', 'style': 'simple', 'explode': false } }
         # Parameter schema style: "nested" (default) groups by location, "flat_prefixed" flattens with location prefix, "flat_smart" flattens and only prefixes on name collision
         field :param_style, Crystalline::Nilable.new(Models::Operations::ParamStyle), { 'query_param': { 'field_name': 'param-style', 'style': 'form', 'explode': true } }
-        # Tool registration mode: "individual" (default) registers each action as a separate tool; "search_execute" registers two tools for search-and-execute flow
+        # Tool registration mode: "individual" (default) registers each action as a separate tool; "search_execute" registers two tools per linked account for a search-then-execute flow
         field :tool_mode, Crystalline::Nilable.new(Models::Operations::ToolMode), { 'query_param': { 'field_name': 'tool-mode', 'style': 'form', 'explode': true } }
         # Account secure id for the target provider account (optional if x-account-id query parameter is provided)
         field :x_account_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }

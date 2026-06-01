@@ -7,61 +7,18 @@
 module StackOne
   module Models
     module Shared
-      # The user's avatar data. This generally contains a URL within this property's 'contents' array.
+      # The user's avatar data. This generally contains a URL within this property's 'contents' array. May be either a single File object or an array of File objects depending on the connector — both forms are supported.
       class IamUserAvatar
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The category of the file
-        field :category, Crystalline::Nilable.new(Models::Shared::IamUserCategory), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
-        # The categoryId of the documents
-        field :category_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category_id') } }
-        # The content of the file. Deprecated, use `url` and `file_format` one level up instead
-        #
-        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :contents, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Content)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('contents') } }
-        # The creation date of the file
-        field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
-        # The file format of the file
-        field :file_format, Crystalline::Nilable.new(Models::Shared::IamUserFileFormat), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('file_format') } }
-        # Unique identifier
-        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-        # The name of the file
-        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
-        # Provider's unique identifier
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-        # URL where the file content is located
-        field :remote_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_url') } }
-        # The update date of the file
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(category: T.nilable(Models::Shared::IamUserCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::IamUserFileFormat), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), updated_at: T.nilable(::DateTime)).void }
-        def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, remote_id: nil, remote_url: nil, updated_at: nil)
-          @category = category
-          @category_id = category_id
-          @contents = contents
-          @created_at = created_at
-          @file_format = file_format
-          @id = id
-          @name = name
-          @remote_id = remote_id
-          @remote_url = remote_url
-          @updated_at = updated_at
-        end
+        
+        def initialize; end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @category == other.category
-          return false unless @category_id == other.category_id
-          return false unless @contents == other.contents
-          return false unless @created_at == other.created_at
-          return false unless @file_format == other.file_format
-          return false unless @id == other.id
-          return false unless @name == other.name
-          return false unless @remote_id == other.remote_id
-          return false unless @remote_url == other.remote_url
-          return false unless @updated_at == other.updated_at
           true
         end
       end

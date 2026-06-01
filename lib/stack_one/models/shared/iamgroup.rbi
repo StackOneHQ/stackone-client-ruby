@@ -8,6 +8,8 @@ end
 
 
 class StackOne::Models::Shared::IamGroup
+  def child_group_ids(); end
+  def child_group_ids=(str_); end
   def created_at(); end
   def created_at=(str_); end
   def description(); end
@@ -16,6 +18,8 @@ class StackOne::Models::Shared::IamGroup
   def id=(str_); end
   def name(); end
   def name=(str_); end
+  def organization_id(); end
+  def organization_id=(str_); end
   def parent_id(); end
   def parent_id=(str_); end
   def remote_id(); end
@@ -28,4 +32,6 @@ class StackOne::Models::Shared::IamGroup
   def type=(str_); end
   def updated_at(); end
   def updated_at=(str_); end
+  def users(); end
+  def users=(str_); end
 end

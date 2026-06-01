@@ -1,4 +1,7 @@
-# AuthConfigs
+# ~~AuthConfigs~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -6,11 +9,13 @@ View and manage connector auth configurations for the project.
 
 ### Available Operations
 
-* [list_auth_configs](#list_auth_configs) - List Auth Configs
+* [~~list_auth_configs~~](#list_auth_configs) - List Auth Configs :warning: **Deprecated**
 
-## list_auth_configs
+## ~~list_auth_configs~~
 
-List the auth configs available to the project.
+List the auth configs available to the project. Deprecated: use `GET /connector_profiles` instead.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

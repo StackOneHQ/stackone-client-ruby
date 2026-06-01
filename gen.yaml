@@ -27,7 +27,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 ruby:
-  version: 0.40.1
+  version: 0.41.0
   additionalDependencies:
     development: {}
     runtime: {}
@@ -51,6 +51,7 @@ ruby:
       webhooks: models/webhooks
   inferUnionDiscriminators: false
   inputModelSuffix: input
+  license: Apache-2.0
   maxMethodParams: 4
   module: StackOne
   multipartArrayFormat: legacy

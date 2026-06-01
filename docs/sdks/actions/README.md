@@ -8,7 +8,7 @@ Retrieve Actions metadata and definitions.
 
 * [build_action_embeddings](#build_action_embeddings) - Rebuild action embeddings for semantic search
 * [check_permissions](#check_permissions) - Check user permissions on a resource
-* [list_actions_meta](#list_actions_meta) - List all actions metadata
+* [list_actions_meta](#list_actions_meta) - List all connectors & actions metadata
 * [rpc_action](#rpc_action) - Make an RPC call to an action
 * [rpc_action_synced](#rpc_action_synced) - Read synced action data from the datasync index
 * [search_actions](#search_actions) - Search connector actions by semantic similarity
@@ -131,7 +131,7 @@ end
 
 ## list_actions_meta
 
-Retrieves a list of all actions metadata
+Retrieves metadata for all connectors and their actions available on the platform. Use this endpoint to discover which connectors and actions are available, including those that have not yet been configured, for example to display the full catalog of integrations and actions.
 
 ### Example Usage
 
@@ -214,35 +214,27 @@ s = ::StackOne::StackOne.new(
     username: ''
   )
 )
-
-req = Models::Operations::StackoneRpcActionRequest.new(
-  actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto.new(
-    action: 'create_employee',
-    body: {
-      'data' => 'example',
-    },
-    defender_config: Models::Shared::DefenderConfig.new(
-      block_high_risk: false,
-      enabled: true,
-      use_tier1_classification: true,
-      use_tier2_classification: true
-    ),
-    headers: {
-      'Content-Type' => 'application/json',
-    },
-    path: {
-      'id' => '123',
-    },
-    query: Models::Shared::Query.new(
-      debug: false
-    )
+res = s.actions.rpc_action(actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto.new(
+  action: 'create_employee',
+  body: {
+    'data' => 'example',
+  },
+  defender_config: Models::Shared::DefenderConfig.new(
+    block_high_risk: false,
+    enabled: true,
+    use_tier1_classification: true,
+    use_tier2_classification: true
   ),
-  debug: false,
-  run_id: '550e8400-e29b-41d4-a716-446655440000',
-  sync: false,
-  x_account_id: '<id>'
-)
-res = s.actions.rpc_action(request: req)
+  headers: {
+    'Content-Type' => 'application/json',
+  },
+  path: {
+    'id' => '123',
+  },
+  query: Models::Shared::Query.new(
+    debug: false
+  )
+), x_account_id: '<id>', debug: false, sync: false)
 
 unless res.one_of.nil?
   # handle response
@@ -252,9 +244,12 @@ end
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [Models::Operations::StackoneRpcActionRequest](../../models/operations/stackonerpcactionrequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               | Example                                                                                                   |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `actions_rpc_request_dto`                                                                                 | [Models::Shared::ActionsRpcRequestDto](../../models/shared/actionsrpcrequestdto.md)                       | :heavy_check_mark:                                                                                        | N/A                                                                                                       |                                                                                                           |
+| `x_account_id`                                                                                            | *::String*                                                                                                | :heavy_check_mark:                                                                                        | The account identifier                                                                                    |                                                                                                           |
+| `debug`                                                                                                   | *T.nilable(T::Boolean)*                                                                                   | :heavy_minus_sign:                                                                                        | Enable debug mode for the action execution                                                                | false                                                                                                     |
+| `sync`                                                                                                    | *T.nilable(T::Boolean)*                                                                                   | :heavy_minus_sign:                                                                                        | When true, the action result is written to the datasync index and the response includes datasync metadata | false                                                                                                     |
 
 ### Response
 
@@ -296,11 +291,20 @@ s = ::StackOne::StackOne.new(
 )
 res = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(
   action: 'create_employee',
+  body: {
+    'search' => 'John',
+  },
   filter: {
     'status' => 'active',
   },
+  headers: {
+    'x-custom-header' => 'value',
+  },
   path: {
     'id' => '123',
+  },
+  query: {
+    'account_id' => 'abc',
   },
   run_id: '550e8400-e29b-41d4-a716-446655440000'
 ), page_size: 25.0, skip: 0.0)

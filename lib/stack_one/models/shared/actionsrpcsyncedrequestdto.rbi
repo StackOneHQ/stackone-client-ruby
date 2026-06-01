@@ -10,10 +10,16 @@ end
 class StackOne::Models::Shared::ActionsRpcSyncedRequestDto
   def action(); end
   def action=(str_); end
+  def body(); end
+  def body=(str_); end
   def filter(); end
   def filter=(str_); end
+  def headers(); end
+  def headers=(str_); end
   def path(); end
   def path=(str_); end
+  def query(); end
+  def query=(str_); end
   def run_id(); end
   def run_id=(str_); end
 end

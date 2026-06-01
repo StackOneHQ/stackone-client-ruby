@@ -585,8 +585,8 @@ module StackOne
     end
 
 
-    sig { params(security: Models::Operations::StackoneMcpPostSecurity, request: Models::Operations::StackoneMcpPostRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneMcpPostResponse) }
-    def mcp_post(security:, request:, retries: nil, timeout_ms: nil, http_headers: nil)
+    sig { params(security: Models::Operations::StackoneMcpPostSecurity, request: Models::Operations::StackoneMcpPostRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), accept_header_override: T.nilable(String), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneMcpPostResponse) }
+    def mcp_post(security:, request:, retries: nil, timeout_ms: nil, accept_header_override: nil, http_headers: nil)
       # mcp_post - Send MCP JSON-RPC message
       # Send JSON-RPC request to the MCP server over HTTP streaming transport
       url, params = @sdk_configuration.get_server_details
@@ -606,7 +606,7 @@ module StackOne
         body = data
       end
       query_params = Utils.get_query_params(Models::Operations::StackoneMcpPostRequest, request, nil)
-      headers['Accept'] = 'application/json'
+      headers['Accept'] = accept_header_override || 'application/json;q=1, text/event-stream;q=0'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
       retries ||= Utils::RetryConfig.new(
@@ -687,18 +687,43 @@ module StackOne
       
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
-        http_response = @sdk_configuration.hooks.after_success(
-          hook_ctx: SDKHooks::AfterSuccessHookContext.new(
-            hook_ctx: hook_ctx
-          ),
-          response: http_response
-        )
-        return Models::Operations::StackoneMcpPostResponse.new(
-          status_code: http_response.status,
-          content_type: content_type,
-          raw_response: http_response,
-          headers: {}
-        )
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          response_data = http_response.env.response_body
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Operations::StackoneMcpPostResponseBody)
+          response = Models::Operations::StackoneMcpPostResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            headers: {},
+            object: T.unsafe(obj)
+          )
+
+          return response
+        elsif Utils.match_content_type(content_type, 'text/event-stream')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          obj = http_response.env.body.force_encoding('UTF-8')
+
+          return Models::Operations::StackoneMcpPostResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            headers: {},
+            res: T.unsafe(obj)
+          )
+        else
+          raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
       elsif Utils.match_status_code(http_response.status, ['400'])
         if Utils.match_content_type(content_type, 'application/json')
           http_response = @sdk_configuration.hooks.after_success(

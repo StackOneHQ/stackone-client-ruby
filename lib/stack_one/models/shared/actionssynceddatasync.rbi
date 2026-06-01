@@ -8,8 +8,8 @@ end
 
 
 class StackOne::Models::Shared::ActionsSyncedDatasync
-  def path_params_hash(); end
-  def path_params_hash=(str_); end
+  def params_hash(); end
+  def params_hash=(str_); end
   def request_id(); end
   def request_id=(str_); end
   def run_id(); end

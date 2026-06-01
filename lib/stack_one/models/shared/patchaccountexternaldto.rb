@@ -14,11 +14,15 @@ module StackOne
 
 
         field :authentication_config_key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication_config_key') } }
+        # The ID of the connector profile to associate the account with.
+        field :connector_profile_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
 
         field :credentials, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoCredentials), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('credentials') } }
 
         field :environment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('environment') } }
-
+        # Deprecated: use `connector_profile_id` instead.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
 
         field :label, Crystalline::Nilable.new(Models::Shared::Label), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
@@ -41,9 +45,10 @@ module StackOne
         # The account type
         field :type, Crystalline::Nilable.new(Models::Shared::PatchAccountExternalDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::PatchAccountExternalDtoType, true) } }
 
-        sig { params(authentication_config_key: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::SetupInformation), shared: T.nilable(T::Boolean), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
-        def initialize(authentication_config_key: nil, credentials: nil, environment: nil, integration_id: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, shared: nil, type: nil)
+        sig { params(authentication_config_key: T.nilable(::String), connector_profile_id: T.nilable(::String), credentials: T.nilable(Models::Shared::PatchAccountExternalDtoCredentials), environment: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(Models::Shared::Label), metadata: T.nilable(Models::Shared::PatchAccountExternalDtoMetadata), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), origin_username: T.nilable(::String), provider: T.nilable(::String), secrets: T.nilable(Models::Shared::Secrets), setup_information: T.nilable(Models::Shared::SetupInformation), shared: T.nilable(T::Boolean), type: T.nilable(Models::Shared::PatchAccountExternalDtoType)).void }
+        def initialize(authentication_config_key: nil, connector_profile_id: nil, credentials: nil, environment: nil, integration_id: nil, label: nil, metadata: nil, origin_owner_id: nil, origin_owner_name: nil, origin_username: nil, provider: nil, secrets: nil, setup_information: nil, shared: nil, type: nil)
           @authentication_config_key = authentication_config_key
+          @connector_profile_id = connector_profile_id
           @credentials = credentials
           @environment = environment
           @integration_id = integration_id
@@ -63,6 +68,7 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @authentication_config_key == other.authentication_config_key
+          return false unless @connector_profile_id == other.connector_profile_id
           return false unless @credentials == other.credentials
           return false unless @environment == other.environment
           return false unless @integration_id == other.integration_id
