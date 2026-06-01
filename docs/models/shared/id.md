@@ -1,9 +1,4 @@
 # Id
 
-Request id (arbitrary JSON scalar)
+Request id (string or number). Echoed back in the response.
 
-
-## Fields
-
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |

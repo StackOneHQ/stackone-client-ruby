@@ -20,11 +20,15 @@ module StackOne
         field :authentication, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AuthenticationMetaItem)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication') } }
         # The categories associated with this provider (e.g., hris, ats, crm)
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        # The connector profile ID this metadata applies to (only present when filtering by account_ids)
+        field :connector_profile_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
         # The description of the provider
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
         # The icon URL for the provider
         field :icon, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('icon') } }
-        # The integration ID this metadata applies to (only present when filtering by account_ids)
+        # Deprecated: use `connector_profile_id` instead. The integration ID this metadata applies to (only present when filtering by account_ids).
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
         # The unique key for the provider
         field :key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('key') } }
@@ -37,12 +41,13 @@ module StackOne
         # The version of the actions metadata
         field :version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('version') } }
 
-        sig { params(account_id: T.nilable(::String), actions: T.nilable(T::Array[Models::Shared::ActionMetaItem]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), categories: T.nilable(T::Array[::String]), description: T.nilable(::String), icon: T.nilable(::String), integration_id: T.nilable(::String), key: T.nilable(::String), name: T.nilable(::String), release_stage: T.nilable(::String), scope_definitions: T.nilable(T::Array[Models::Shared::ScopeDefinitionMetaItem]), version: T.nilable(::String)).void }
-        def initialize(account_id: nil, actions: nil, authentication: nil, categories: nil, description: nil, icon: nil, integration_id: nil, key: nil, name: nil, release_stage: nil, scope_definitions: nil, version: nil)
+        sig { params(account_id: T.nilable(::String), actions: T.nilable(T::Array[Models::Shared::ActionMetaItem]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), categories: T.nilable(T::Array[::String]), connector_profile_id: T.nilable(::String), description: T.nilable(::String), icon: T.nilable(::String), integration_id: T.nilable(::String), key: T.nilable(::String), name: T.nilable(::String), release_stage: T.nilable(::String), scope_definitions: T.nilable(T::Array[Models::Shared::ScopeDefinitionMetaItem]), version: T.nilable(::String)).void }
+        def initialize(account_id: nil, actions: nil, authentication: nil, categories: nil, connector_profile_id: nil, description: nil, icon: nil, integration_id: nil, key: nil, name: nil, release_stage: nil, scope_definitions: nil, version: nil)
           @account_id = account_id
           @actions = actions
           @authentication = authentication
           @categories = categories
+          @connector_profile_id = connector_profile_id
           @description = description
           @icon = icon
           @integration_id = integration_id
@@ -60,6 +65,7 @@ module StackOne
           return false unless @actions == other.actions
           return false unless @authentication == other.authentication
           return false unless @categories == other.categories
+          return false unless @connector_profile_id == other.connector_profile_id
           return false unless @description == other.description
           return false unless @icon == other.icon
           return false unless @integration_id == other.integration_id

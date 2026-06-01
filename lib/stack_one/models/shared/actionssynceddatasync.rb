@@ -12,8 +12,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # Hash of the path parameters used during sync
-        field :path_params_hash, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path_params_hash'), required: true } }
+        # Hash of the canonicalized sync parameters (pagination and undeclared keys stripped)
+        field :params_hash, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('params_hash'), required: true } }
         # The unique request ID for this sync read
         field :request_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id'), required: true } }
         # The run ID for this sync operation
@@ -23,9 +23,9 @@ module StackOne
         # ISO 8601 timestamp of when the data was synced
         field :synced_at, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('synced_at'), required: true } }
 
-        sig { params(path_params_hash: ::String, request_id: ::String, run_id: ::String, sync_expires_at: ::String, synced_at: ::String).void }
-        def initialize(path_params_hash:, request_id:, run_id:, sync_expires_at:, synced_at:)
-          @path_params_hash = path_params_hash
+        sig { params(params_hash: ::String, request_id: ::String, run_id: ::String, sync_expires_at: ::String, synced_at: ::String).void }
+        def initialize(params_hash:, request_id:, run_id:, sync_expires_at:, synced_at:)
+          @params_hash = params_hash
           @request_id = request_id
           @run_id = run_id
           @sync_expires_at = sync_expires_at
@@ -35,7 +35,7 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @path_params_hash == other.path_params_hash
+          return false unless @params_hash == other.params_hash
           return false unless @request_id == other.request_id
           return false unless @run_id == other.run_id
           return false unless @sync_expires_at == other.sync_expires_at

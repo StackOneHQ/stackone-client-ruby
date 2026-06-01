@@ -10,6 +10,8 @@ end
 class StackOne::Models::Shared::PatchAccountExternalDto
   def authentication_config_key(); end
   def authentication_config_key=(str_); end
+  def connector_profile_id(); end
+  def connector_profile_id=(str_); end
   def credentials(); end
   def credentials=(str_); end
   def environment(); end

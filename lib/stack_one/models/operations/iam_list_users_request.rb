@@ -20,7 +20,7 @@ module StackOne
         field :expand, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
-        # Filter parameters that allow greater customisation of the list response
+        # Filter parameters that allow greater customisation of the list response. Filter support varies per connector — unsupported keys are ignored.
         field :filter, Crystalline::Nilable.new(Models::Operations::IamListUsersQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }

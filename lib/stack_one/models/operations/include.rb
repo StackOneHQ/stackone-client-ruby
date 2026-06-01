@@ -12,6 +12,7 @@ module StackOne
         enums do
           ACTION_DETAILS = new('action_details')
           AUTHENTICATION_GUIDES = new('authentication_guides')
+          EVENT_GUIDES = new('event_guides')
         end
       end
     end

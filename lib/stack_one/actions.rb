@@ -628,8 +628,8 @@ module StackOne
 
     sig { params(request: Models::Operations::StackoneListActionsMetaRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListActionsMetaResponse) }
     def list_actions_meta(request:, retries: nil, timeout_ms: nil, http_headers: nil)
-      # list_actions_meta - List all actions metadata
-      # Retrieves a list of all actions metadata
+      # list_actions_meta - List all connectors & actions metadata
+      # Retrieves metadata for all connectors and their actions available on the platform. Use this endpoint to discover which connectors and actions are available, including those that have not yet been configured, for example to display the full catalog of integrations and actions.
       #
       # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
@@ -933,12 +933,18 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneRpcActionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneRpcActionResponse) }
-    def rpc_action(request:, retries: nil, timeout_ms: nil, http_headers: nil)
+    sig { params(actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto, x_account_id: ::String, debug: T.nilable(T::Boolean), sync: T.nilable(T::Boolean), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneRpcActionResponse) }
+    def rpc_action(actions_rpc_request_dto:, x_account_id:, debug: nil, sync: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # rpc_action - Make an RPC call to an action
       # Makes a remote procedure call to the specified action
       #
       # If set, this operation will use `password` from the global security.
+      request = Models::Operations::StackoneRpcActionRequest.new(
+        actions_rpc_request_dto: actions_rpc_request_dto,
+        x_account_id: x_account_id,
+        debug: debug,
+        sync: sync
+      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/actions/rpc"

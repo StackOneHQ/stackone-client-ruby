@@ -7,7 +7,7 @@
 module StackOne
   module Models
     module Shared
-      # The source value of the ISO 3166-1 alpha-2 code of the country.
+      # The source value of the location type.
       class AccountAddressSchemasSourceValue
         extend T::Sig
         include Crystalline::MetadataFields

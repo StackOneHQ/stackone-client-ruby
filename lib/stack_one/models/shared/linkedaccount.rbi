@@ -22,6 +22,8 @@ class StackOne::Models::Shared::LinkedAccount
   def status=(str_); end
   def updated_at(); end
   def updated_at=(str_); end
+  def categories(); end
+  def categories=(str_); end
   def credentials(); end
   def credentials=(str_); end
   def label(); end

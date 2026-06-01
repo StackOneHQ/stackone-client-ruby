@@ -28,12 +28,16 @@ class StackOne::Models::Shared::ConnectSessionTokenAuthLink
   def account_id=(str_); end
   def categories(); end
   def categories=(str_); end
+  def connector_profile_id(); end
+  def connector_profile_id=(str_); end
   def external_trigger_token(); end
   def external_trigger_token=(str_); end
   def integration_id(); end
   def integration_id=(str_); end
   def label(); end
   def label=(str_); end
+  def latest_connection_attempt(); end
+  def latest_connection_attempt=(str_); end
   def metadata(); end
   def metadata=(str_); end
   def origin_username(); end

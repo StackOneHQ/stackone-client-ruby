@@ -20,23 +20,31 @@ module StackOne
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # The permissions granted by this role.
+        field :permissions, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamPermission)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('permissions') } }
         # The set of policies associated with the role.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :policies, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamPolicy)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('policies') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
+        # Optional scope describing where this role applies (e.g. group, organization, department).
+        field :scope, Crystalline::Nilable.new(Models::Shared::Scope), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('scope') } }
 
         field :type, Crystalline::Nilable.new(Models::Shared::IamRoleType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), policies: T.nilable(T::Array[Models::Shared::IamPolicy]), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::IamRoleType), updated_at: T.nilable(::DateTime)).void }
-        def initialize(created_at: nil, description: nil, id: nil, name: nil, policies: nil, remote_id: nil, type: nil, updated_at: nil)
+        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), permissions: T.nilable(T::Array[Models::Shared::IamPermission]), policies: T.nilable(T::Array[Models::Shared::IamPolicy]), remote_id: T.nilable(::String), scope: T.nilable(Models::Shared::Scope), type: T.nilable(Models::Shared::IamRoleType), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, description: nil, id: nil, name: nil, permissions: nil, policies: nil, remote_id: nil, scope: nil, type: nil, updated_at: nil)
           @created_at = created_at
           @description = description
           @id = id
           @name = name
+          @permissions = permissions
           @policies = policies
           @remote_id = remote_id
+          @scope = scope
           @type = type
           @updated_at = updated_at
         end
@@ -48,8 +56,10 @@ module StackOne
           return false unless @description == other.description
           return false unless @id == other.id
           return false unless @name == other.name
+          return false unless @permissions == other.permissions
           return false unless @policies == other.policies
           return false unless @remote_id == other.remote_id
+          return false unless @scope == other.scope
           return false unless @type == other.type
           return false unless @updated_at == other.updated_at
           true

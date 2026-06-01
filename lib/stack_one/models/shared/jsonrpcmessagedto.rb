@@ -14,14 +14,14 @@ module StackOne
 
         # JSON-RPC protocol version
         field :jsonrpc, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('jsonrpc'), required: true } }
-        # JSON-RPC method name
+        # JSON-RPC method name. Supported values: initialize, tools/list, tools/call.
         field :method, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), required: true } }
-        # Request id (arbitrary JSON scalar)
-        field :id, Crystalline::Nilable.new(Models::Shared::Id), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-        # Method parameters (arbitrary JSON)
+        # Request id (string or number). Echoed back in the response.
+        field :id, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
+        # Method parameters. Shape varies by method — see the request body examples.
         field :params, Crystalline::Nilable.new(Models::Shared::Params), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('params') } }
 
-        sig { params(jsonrpc: ::String, method: ::String, id: T.nilable(Models::Shared::Id), params: T.nilable(Models::Shared::Params)).void }
+        sig { params(jsonrpc: ::String, method: ::String, id: T.nilable(T.any(::String, ::Float)), params: T.nilable(Models::Shared::Params)).void }
         def initialize(jsonrpc:, method:, id: nil, params: nil)
           @jsonrpc = jsonrpc
           @method = method

@@ -1,0 +1,9 @@
+# IamPermissionScope
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `resource_id`                                                                     | *T.nilable(::String)*                                                             | :heavy_minus_sign:                                                                | The id of the specific resource the permission applies to. Omitted = all of type. | C0123456789                                                                       |
+| `resource_type`                                                                   | *T.nilable(::String)*                                                             | :heavy_minus_sign:                                                                | The kind of resource the permission applies to (e.g. file, channel, user).        | channel                                                                           |

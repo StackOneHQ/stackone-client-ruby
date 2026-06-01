@@ -44,25 +44,19 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_rpc_action"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::StackoneRpcActionRequest.new(\n  actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto.new(\n    action: 'create_employee',\n    body: {\n      'data' => 'example',\n    },\n    defender_config: Models::Shared::DefenderConfig.new(\n      block_high_risk: false,\n      enabled: true,\n      use_tier1_classification: true,\n      use_tier2_classification: true\n    ),\n    headers: {\n      'Content-Type' => 'application/json',\n    },\n    path: {\n      'id' => '123',\n    },\n    query: Models::Shared::Query.new(\n      debug: false\n    )\n  ),\n  debug: false,\n  run_id: '550e8400-e29b-41d4-a716-446655440000',\n  sync: false,\n  x_account_id: '<id>'\n)\nres = s.actions.rpc_action(request: req)\n\nunless res.one_of.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.actions.rpc_action(actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto.new(\n  action: 'create_employee',\n  body: {\n    'data' => 'example',\n  },\n  defender_config: Models::Shared::DefenderConfig.new(\n    block_high_risk: false,\n    enabled: true,\n    use_tier1_classification: true,\n    use_tier2_classification: true\n  ),\n  headers: {\n    'Content-Type' => 'application/json',\n  },\n  path: {\n    'id' => '123',\n  },\n  query: Models::Shared::Query.new(\n    debug: false\n  )\n), x_account_id: '<id>', debug: false, sync: false)\n\nunless res.one_of.nil?\n  # handle response\nend"
   - target: $["paths"]["/actions/rpc/synced"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_rpc_action_synced"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(\n  action: 'create_employee',\n  filter: {\n    'status' => 'active',\n  },\n  path: {\n    'id' => '123',\n  },\n  run_id: '550e8400-e29b-41d4-a716-446655440000'\n), page_size: 25.0, skip: 0.0)\n\nunless res.actions_synced_response.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(\n  action: 'create_employee',\n  body: {\n    'search' => 'John',\n  },\n  filter: {\n    'status' => 'active',\n  },\n  headers: {\n    'x-custom-header' => 'value',\n  },\n  path: {\n    'id' => '123',\n  },\n  query: {\n    'account_id' => 'abc',\n  },\n  run_id: '550e8400-e29b-41d4-a716-446655440000'\n), page_size: 25.0, skip: 0.0)\n\nunless res.actions_synced_response.nil?\n  # handle response\nend"
   - target: $["paths"]["/actions/search"]["post"]
     update:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_search_actions"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ActionSearchDto.new(\n  connector: 'slack',\n  query: 'send a message'\n)\nres = s.actions.search_actions(request: req)\n\nunless res.action_search_response_dto.nil?\n  # handle response\nend"
-  - target: $["paths"]["/auth_configs"]["get"]
-    update:
-      "x-codeSamples":
-        - "lang": "ruby"
-          "label": "stackone_list_auth_configs"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.auth_configs.list_auth_configs(connector_key: 'salesforce', enabled: true, page_size: 25.0)\n\nunless res.auth_configs_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/connect_sessions"]["post"]
     update:
       "x-codeSamples":
@@ -75,6 +69,42 @@ actions:
         - "lang": "ruby"
           "label": "stackone_authenticate_connect_session"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Shared::ConnectSessionAuthenticate.new(\n  token: '<value>'\n)\nres = s.connect_sessions.authenticate_connect_session(request: req)\n\nunless res.connect_session.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connect_sessions/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_get_connect_session"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connect_sessions.get_connect_session(id: 9637.9)\n\nunless res.connect_session.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connector_profiles"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_list_connector_profiles"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connector_profiles.list_connector_profiles(connector_key: 'salesforce', enabled: true, page_size: 25.0)\n\nunless res.connector_profiles_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connector_profiles/{connectorProfileId}/pinned_version"]["delete"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_delete_connector_profile_pinned_version"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connector_profiles.delete_connector_profile_pinned_version(connector_profile_id: '<id>')\n\nif res.status_code == 200\n  # handle response\nend"
+  - target: $["paths"]["/connector_profiles/{connectorProfileId}/pinned_version"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_get_connector_profile_pinned_version"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connector_profiles.get_connector_profile_pinned_version(connector_profile_id: '<id>')\n\nunless res.connector_profile_pinned_version.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connector_profiles/{connectorProfileId}/pinned_version"]["put"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_upsert_connector_profile_pinned_version"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connector_profiles.upsert_connector_profile_pinned_version(upsert_connector_profile_pinned_version: Models::Shared::UpsertConnectorProfilePinnedVersion.new(\n  pinned_version: '<value>'\n), connector_profile_id: '<id>')\n\nunless res.connector_profile_pinned_version.nil?\n  # handle response\nend"
+  - target: $["paths"]["/connector_profiles/{connectorProfileId}/versions"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "stackone_list_connector_profile_versions"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\nres = s.connector_profiles.list_connector_profile_versions(connector_profile_id: '<id>')\n\nunless res.connector_profile_versions.nil?\n  # handle response\nend"
   - target: $["paths"]["/mcp"]["delete"]
     update:
       "x-codeSamples":
@@ -92,7 +122,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "stackone_mcp_post"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nreq = Models::Operations::StackoneMcpPostRequest.new(\n  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(\n    id: Models::Shared::Id.new,\n    jsonrpc: '2.0',\n    method: 'initialize',\n    params: Models::Shared::Params.new\n  ),\n  x_account_id: '<id>'\n)\nres = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(\n  api_key: '<YOUR_API_KEY_HERE>'\n))\n\nif res.status_code == 200\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new\n\nreq = Models::Operations::StackoneMcpPostRequest.new(\n  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(\n    id: 'init-1',\n    jsonrpc: '2.0',\n    method: 'initialize',\n    params: Models::Shared::Params.new\n  ),\n  x_account_id: '<id>'\n)\nres = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(\n  api_key: '<YOUR_API_KEY_HERE>'\n))\n\nunless res.object.nil?\n  # handle response\nend"
   - target: $["paths"]["/requests/logs"]["get"]
     update:
       "x-codeSamples":
@@ -1179,6 +1209,24 @@ actions:
         - "lang": "ruby"
           "label": "iam_get_group"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamGetGroupRequest.new(\n  prefer: 'heartbeat',\n  expand: 'roles',\n  fields_: 'id,remote_id,parent_id,remote_parent_id,name,description,roles,type,created_at,updated_at,unified_custom_fields',\n  id: '<id>',\n  x_account_id: '<id>'\n)\nres = s.iam.get_group(request: req)\n\nunless res.iam_group_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/iam/me"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "iam_get_me"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamGetMeRequest.new(\n  prefer: 'heartbeat',\n  fields_: 'name,auth_type,scopes,permissions,last_accessed_at,user,unified_custom_fields',\n  x_account_id: '<id>'\n)\nres = s.iam.get_me(request: req)\n\nunless res.iam_credentials_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/iam/organizations"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "iam_list_organizations"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamListOrganizationsRequest.new(\n  prefer: 'heartbeat',\n  fields_: 'id,remote_id,remote_remote_id,name,created_at,updated_at,unified_custom_fields',\n  filter: nil,\n  x_account_id: '<id>'\n)\nres = s.iam.list_organizations(request: req)\n\nunless res.iam_organizations_paginated.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/iam/organizations/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "iam_get_organization"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamGetOrganizationRequest.new(\n  prefer: 'heartbeat',\n  fields_: 'id,remote_id,remote_remote_id,name,created_at,updated_at,unified_custom_fields',\n  id: '<id>',\n  x_account_id: '<id>'\n)\nres = s.iam.get_organization(request: req)\n\nunless res.iam_organization_result.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/policies"]["get"]
     update:
       "x-codeSamples":
@@ -1191,6 +1239,18 @@ actions:
         - "lang": "ruby"
           "label": "iam_get_policy"
           "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamGetPolicyRequest.new(\n  prefer: 'heartbeat',\n  expand: 'permissions',\n  fields_: 'id,remote_id,name,permissions,description,created_at,updated_at,unified_custom_fields',\n  id: '<id>',\n  x_account_id: '<id>'\n)\nres = s.iam.get_policy(request: req)\n\nunless res.iam_policy_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/iam/resource_types"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "iam_list_resource_types"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamListResourceTypesRequest.new(\n  prefer: 'heartbeat',\n  x_account_id: '<id>'\n)\nres = s.iam.list_resource_types(request: req)\n\nunless res.iam_resource_types_result.nil?\n  # handle response\nend"
+  - target: $["paths"]["/unified/iam/resource_users"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "ruby"
+          "label": "iam_list_resource_users"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamListResourceUsersRequest.new(\n  prefer: 'heartbeat',\n  filter: Models::Operations::IamListResourceUsersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')\n  ),\n  resource_id: '02xcytpi2f2g0na',\n  resource_type: 'group',\n  x_account_id: '<id>'\n)\nres = s.iam.list_resource_users(request: req)\n\nunless res.iam_users_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/roles"]["get"]
     update:
       "x-codeSamples":
@@ -1208,7 +1268,7 @@ actions:
       "x-codeSamples":
         - "lang": "ruby"
           "label": "iam_list_users"
-          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamListUsersRequest.new(\n  prefer: 'heartbeat',\n  expand: 'roles,groups',\n  fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',\n  filter: Models::Operations::IamListUsersQueryParamFilter.new(\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')\n  ),\n  x_account_id: '<id>'\n)\nres = s.iam.list_users(request: req)\n\nunless res.iam_users_paginated.nil?\n  # handle response\nend"
+          "source": "require 'stackone_client'\n\nModels = ::StackOne::Models\ns = ::StackOne::StackOne.new(\n  security: Models::Shared::Security.new(\n    password: '',\n    username: ''\n  )\n)\n\nreq = Models::Operations::IamListUsersRequest.new(\n  prefer: 'heartbeat',\n  expand: 'roles,groups',\n  fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',\n  filter: Models::Operations::IamListUsersQueryParamFilter.new(\n    email: 'user@example.com',\n    group_id: 'group_123',\n    organization_id: 'org_456',\n    role_id: 'role_admin',\n    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')\n  ),\n  x_account_id: '<id>'\n)\nres = s.iam.list_users(request: req)\n\nunless res.iam_users_paginated.nil?\n  # handle response\nend"
   - target: $["paths"]["/unified/iam/users/{id}"]["delete"]
     update:
       "x-codeSamples":

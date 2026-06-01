@@ -12,6 +12,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Ids of groups whose parent_id is this group.
+        field :child_group_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('child_group_ids') } }
 
         field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
@@ -20,6 +22,8 @@ module StackOne
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
 
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Id of the organization this group belongs to.
+        field :organization_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('organization_id') } }
         # The parent group id for when a group belongs to another group.
         field :parent_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('parent_id') } }
         # Provider's unique identifier
@@ -32,34 +36,42 @@ module StackOne
         field :type, Crystalline::Nilable.new(Models::Shared::IamGroupType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
+        # Members of the group. Populated when expand=users is requested.
+        field :users, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamUser)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('users') } }
 
-        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), remote_parent_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), type: T.nilable(Models::Shared::IamGroupType), updated_at: T.nilable(::DateTime)).void }
-        def initialize(created_at: nil, description: nil, id: nil, name: nil, parent_id: nil, remote_id: nil, remote_parent_id: nil, roles: nil, type: nil, updated_at: nil)
+        sig { params(child_group_ids: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), organization_id: T.nilable(::String), parent_id: T.nilable(::String), remote_id: T.nilable(::String), remote_parent_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), type: T.nilable(Models::Shared::IamGroupType), updated_at: T.nilable(::DateTime), users: T.nilable(T::Array[Models::Shared::IamUser])).void }
+        def initialize(child_group_ids: nil, created_at: nil, description: nil, id: nil, name: nil, organization_id: nil, parent_id: nil, remote_id: nil, remote_parent_id: nil, roles: nil, type: nil, updated_at: nil, users: nil)
+          @child_group_ids = child_group_ids
           @created_at = created_at
           @description = description
           @id = id
           @name = name
+          @organization_id = organization_id
           @parent_id = parent_id
           @remote_id = remote_id
           @remote_parent_id = remote_parent_id
           @roles = roles
           @type = type
           @updated_at = updated_at
+          @users = users
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @child_group_ids == other.child_group_ids
           return false unless @created_at == other.created_at
           return false unless @description == other.description
           return false unless @id == other.id
           return false unless @name == other.name
+          return false unless @organization_id == other.organization_id
           return false unless @parent_id == other.parent_id
           return false unless @remote_id == other.remote_id
           return false unless @remote_parent_id == other.remote_parent_id
           return false unless @roles == other.roles
           return false unless @type == other.type
           return false unless @updated_at == other.updated_at
+          return false unless @users == other.users
           true
         end
       end

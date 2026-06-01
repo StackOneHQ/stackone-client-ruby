@@ -16,10 +16,14 @@ class StackOne::Models::Shared::IamRole
   def id=(str_); end
   def name(); end
   def name=(str_); end
+  def permissions(); end
+  def permissions=(str_); end
   def policies(); end
   def policies=(str_); end
   def remote_id(); end
   def remote_id=(str_); end
+  def scope(); end
+  def scope=(str_); end
   def type(); end
   def type=(str_); end
   def updated_at(); end

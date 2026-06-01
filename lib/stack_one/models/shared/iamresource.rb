@@ -24,12 +24,12 @@ module StackOne
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
-
-        field :type, Crystalline::Nilable.new(Models::Shared::IamResourceType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
+        # The resource type identifier. Falcon connectors emit a plain string from the connector-defined set returned by GET /unified/iam/resource_types (e.g. "file", "channel", "group"). Legacy V2 connectors emit the {value, source_value} envelope where value is from the IamResourceTypeEnum fixed set. Either shape validates.
+        field :type, Crystalline::Nilable.new(Crystalline::Union.new(::String, Models::Shared::IamResourceTypeEnumSchemas)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), location: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(Models::Shared::IamResourceType), updated_at: T.nilable(::DateTime)).void }
+        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), location: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), type: T.nilable(T.any(::String, Models::Shared::IamResourceTypeEnumSchemas)), updated_at: T.nilable(::DateTime)).void }
         def initialize(created_at: nil, description: nil, id: nil, location: nil, name: nil, remote_id: nil, type: nil, updated_at: nil)
           @created_at = created_at
           @description = description
