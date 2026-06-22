@@ -14,28 +14,36 @@ module StackOne
 
         # The action to execute
         field :action, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action'), required: true } }
+        # Request body for the action. Must match the body used when the run was written so the params_hash resolves to the same synced run.
+        field :body, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
         # Filter parameters to scope the synced action
         field :filter, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('filter') } }
+        # Headers for the action. Must match the headers used when the run was written so the params_hash resolves to the same synced run.
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # Path parameters for the action
         field :path, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
-        # The sync run ID to associate with this action execution
-        field :run_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('run_id') } }
+        # Query parameters for the action. Must match the query params used when the run was written so the params_hash resolves to the same synced run.
+        field :query, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
 
-        sig { params(action: ::String, filter: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), run_id: T.nilable(::String)).void }
-        def initialize(action:, filter: nil, path: nil, run_id: nil)
+        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), filter: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(action:, body: nil, filter: nil, headers: nil, path: nil, query: nil)
           @action = action
+          @body = body
           @filter = filter
+          @headers = headers
           @path = path
-          @run_id = run_id
+          @query = query
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @action == other.action
+          return false unless @body == other.body
           return false unless @filter == other.filter
+          return false unless @headers == other.headers
           return false unless @path == other.path
-          return false unless @run_id == other.run_id
+          return false unless @query == other.query
           true
         end
       end

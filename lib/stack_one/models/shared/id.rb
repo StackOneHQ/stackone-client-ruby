@@ -7,7 +7,7 @@
 module StackOne
   module Models
     module Shared
-      # Request id (arbitrary JSON scalar)
+      # Request id (string or number). Echoed back in the response.
       class Id
         extend T::Sig
         include Crystalline::MetadataFields

@@ -1,0 +1,11 @@
+# ConnectorProfilesPaginated
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `data`                                                                                | T::Array<[Models::Shared::ConnectorProfile](../../models/shared/connectorprofile.md)> | :heavy_check_mark:                                                                    | The list of connector profiles                                                        |
+| `page`                                                                                | *::Float*                                                                             | :heavy_check_mark:                                                                    | The current page number                                                               |
+| `page_size`                                                                           | *::Float*                                                                             | :heavy_check_mark:                                                                    | The number of results per page                                                        |
+| `total`                                                                               | *::Float*                                                                             | :heavy_check_mark:                                                                    | The total number of connector profiles matching the query                             |

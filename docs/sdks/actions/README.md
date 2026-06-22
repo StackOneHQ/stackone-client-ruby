@@ -8,7 +8,7 @@ Retrieve Actions metadata and definitions.
 
 * [build_action_embeddings](#build_action_embeddings) - Rebuild action embeddings for semantic search
 * [check_permissions](#check_permissions) - Check user permissions on a resource
-* [list_actions_meta](#list_actions_meta) - List all actions metadata
+* [list_actions_meta](#list_actions_meta) - List all connectors & actions metadata
 * [rpc_action](#rpc_action) - Make an RPC call to an action
 * [rpc_action_synced](#rpc_action_synced) - Read synced action data from the datasync index
 * [search_actions](#search_actions) - Search connector actions by semantic similarity
@@ -131,7 +131,7 @@ end
 
 ## list_actions_meta
 
-Retrieves a list of all actions metadata
+Retrieves metadata for all connectors and their actions available on the platform. Use this endpoint to discover which connectors and actions are available, including those that have not yet been configured, for example to display the full catalog of integrations and actions.
 
 ### Example Usage
 
@@ -238,7 +238,6 @@ req = Models::Operations::StackoneRpcActionRequest.new(
     )
   ),
   debug: false,
-  run_id: '550e8400-e29b-41d4-a716-446655440000',
   sync: false,
   x_account_id: '<id>'
 )
@@ -296,13 +295,21 @@ s = ::StackOne::StackOne.new(
 )
 res = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(
   action: 'create_employee',
+  body: {
+    'search' => 'John',
+  },
   filter: {
     'status' => 'active',
+  },
+  headers: {
+    'x-custom-header' => 'value',
   },
   path: {
     'id' => '123',
   },
-  run_id: '550e8400-e29b-41d4-a716-446655440000'
+  query: {
+    'account_id' => 'abc',
+  }
 ), page_size: 25.0, skip: 0.0)
 
 unless res.actions_synced_response.nil?

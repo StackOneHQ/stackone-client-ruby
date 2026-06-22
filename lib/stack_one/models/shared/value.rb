@@ -7,20 +7,19 @@
 module StackOne
   module Models
     module Shared
-      # The value of the additional data
+      # Value - The type of the resource, e.g. user, group, permission, etc.
       class Value
-        extend T::Sig
-        include Crystalline::MetadataFields
-
-
-        
-        def initialize; end
-
-        sig { params(other: T.untyped).returns(T::Boolean) }
-        def ==(other)
-          return false unless other.is_a? self.class
-          true
+        include ::Crystalline::Enum
+        enums do
+          PROJECT = new('project')
+          FILE = new('file')
+          FOLDER = new('folder')
+          PRODUCT = new('product')
+          PROPERTY = new('property')
+          USER = new('user')
+          UNMAPPED_VALUE = new('unmapped_value')
         end
+        open!
       end
     end
   end

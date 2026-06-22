@@ -9,6 +9,7 @@ module StackOne
   autoload :Actions, 'stack_one/actions'
   autoload :AuthConfigs, 'stack_one/auth_configs'
   autoload :ConnectSessions, 'stack_one/connect_sessions'
+  autoload :ConnectorProfiles, 'stack_one/connector_profiles'
   autoload :Connectors, 'stack_one/connectors'
   autoload :Mcp, 'stack_one/mcp'
   autoload :RequestLogs, 'stack_one/request_logs'
