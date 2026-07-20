@@ -13,6 +13,13 @@ actions:
     update:
       - type: integer
 
+  - target: "$.components.schemas.UnifiedLogsPartialLegacy.properties.step_requests.items"
+    description: >-
+      Retarget dangling $ref. Upstream renamed StepLogPartial -> StepLogPartialLegacy
+      but missed this reference, leaving it unresolvable.
+    update:
+      $ref: "#/components/schemas/StepLogPartialLegacy"
+
   - target: "$.components.schemas"
     description: Add missing ActionsRpcResponse schema definition
     update:
