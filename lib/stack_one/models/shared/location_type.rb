@@ -13,11 +13,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The source value of the location type.
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::AccountAddress4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::AccountAddressSchemas4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The type of the location.
-        field :value, Crystalline::Nilable.new(Models::Shared::AccountAddressValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AccountAddressValue, true) } }
+        field :value, Crystalline::Nilable.new(Models::Shared::AccountAddressSchemasValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::AccountAddressSchemasValue, true) } }
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountAddress4, T::Array[::Object])), value: T.nilable(Models::Shared::AccountAddressValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::AccountAddressSchemas4, T::Array[::Object])), value: T.nilable(Models::Shared::AccountAddressSchemasValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

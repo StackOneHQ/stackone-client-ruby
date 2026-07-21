@@ -1,0 +1,10 @@
+# ActionLogsPaginated
+
+
+## Fields
+
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             | Example                                                                 |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `data`                                                                  | T::Array<[Models::Shared::ActionLog](../../models/shared/actionlog.md)> | :heavy_check_mark:                                                      | The list of action logs                                                 |                                                                         |
+| `query`                                                                 | [T.nilable(Models::Shared::Query)](../../models/shared/query.md)        | :heavy_minus_sign:                                                      | Pagination metadata                                                     | {<br/>"page": 1,<br/>"page_size": 25<br/>}                              |
+| `total`                                                                 | *T.nilable(::Float)*                                                    | :heavy_minus_sign:                                                      | Total number of logs                                                    | 100                                                                     |

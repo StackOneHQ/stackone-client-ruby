@@ -21,15 +21,15 @@ module StackOne
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # The list of accounts was retrieved.
-        field :linked_accounts, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LinkedAccount))
+        field :one_of, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::LinkedAccountsPaginated, Crystalline::Array.new(Models::Shared::LinkedAccount)))
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, linked_accounts: T.nilable(T::Array[Models::Shared::LinkedAccount])).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:, linked_accounts: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, one_of: T.nilable(T.any(Models::Shared::LinkedAccountsPaginated, T::Array[Models::Shared::LinkedAccount]))).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, one_of: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
-          @linked_accounts = linked_accounts
+          @one_of = one_of
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -39,7 +39,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
-          return false unless @linked_accounts == other.linked_accounts
+          return false unless @one_of == other.one_of
           true
         end
       end

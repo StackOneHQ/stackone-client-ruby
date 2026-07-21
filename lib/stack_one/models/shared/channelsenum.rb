@@ -13,11 +13,11 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The source value of the Channels.
-        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::Four, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
+        field :source_value, Crystalline::Nilable.new(Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Models::Shared::ChannelsEnum4, Crystalline::Array.new(::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_value') } }
         # The Channels of the campaign.
         field :value, Crystalline::Nilable.new(Models::Shared::ChannelsEnumValue), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('value'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ChannelsEnumValue, true) } }
 
-        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::Four, T::Array[::Object])), value: T.nilable(Models::Shared::ChannelsEnumValue)).void }
+        sig { params(source_value: T.nilable(T.any(::String, ::Float, T::Boolean, Models::Shared::ChannelsEnum4, T::Array[::Object])), value: T.nilable(Models::Shared::ChannelsEnumValue)).void }
         def initialize(source_value: nil, value: nil)
           @source_value = source_value
           @value = value

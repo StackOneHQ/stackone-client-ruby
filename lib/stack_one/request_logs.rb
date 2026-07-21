@@ -46,6 +46,8 @@ module StackOne
       # get_log - Get Log
       #
       # If set, this operation will use `password` from the global security.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::StackoneGetLogRequest.new(
         id: id,
         include: include
@@ -81,7 +83,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -97,7 +99,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
@@ -134,13 +136,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -151,13 +153,13 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::UnifiedLogResult)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::UnifiedLogResultLegacy)
           response = Models::Operations::StackoneGetLogResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            unified_log_result: T.unsafe(obj)
+            unified_log_result_legacy: T.unsafe(obj)
           )
 
           return response
@@ -329,17 +331,19 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListLogsResponse) }
-    def list_logs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
-      # list_logs - List Logs
+    sig { params(request: Models::Operations::StackoneListLogsLegacyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListLogsLegacyResponse) }
+    def list_logs_legacy(request:, retries: nil, timeout_ms: nil, http_headers: nil)
+      # list_logs_legacy - List Logs
       #
       # If set, this operation will use `password` from the global security.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/requests/logs"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      query_params = Utils.get_query_params(Models::Operations::StackoneListLogsRequest, request, nil)
+      query_params = Utils.get_query_params(Models::Operations::StackoneListLogsLegacyRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
@@ -360,7 +364,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -369,14 +373,14 @@ module StackOne
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'stackone_list_logs',
+        operation_id: 'stackone_list_logs_legacy',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
@@ -413,13 +417,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -430,13 +434,13 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::UnifiedLogsPaginated)
-          response = Models::Operations::StackoneListLogsResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::UnifiedLogsPaginatedLegacy)
+          response = Models::Operations::StackoneListLogsLegacyResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            unified_logs_paginated: T.unsafe(obj)
+            unified_logs_paginated_legacy: T.unsafe(obj)
           )
 
           return response
@@ -613,6 +617,8 @@ module StackOne
       # list_platform_logs - List Platform Logs
       #
       # If set, this operation will use `password` from the global security.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/requests/platform-logs"
@@ -639,7 +645,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -655,7 +661,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
@@ -692,13 +698,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -709,13 +715,13 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PlatformLogsPaginated)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PlatformLogsPaginatedLegacy)
           response = Models::Operations::StackoneListPlatformLogsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            platform_logs_paginated: T.unsafe(obj)
+            platform_logs_paginated_legacy: T.unsafe(obj)
           )
 
           return response
@@ -887,17 +893,19 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneListStepLogsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListStepLogsResponse) }
-    def list_step_logs(request:, retries: nil, timeout_ms: nil, http_headers: nil)
-      # list_step_logs - List Step Logs
+    sig { params(request: Models::Operations::StackoneListStepLogsLegacyRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListStepLogsLegacyResponse) }
+    def list_step_logs_legacy(request:, retries: nil, timeout_ms: nil, http_headers: nil)
+      # list_step_logs_legacy - List Step Logs
       #
       # If set, this operation will use `password` from the global security.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/requests/logs/steps"
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      query_params = Utils.get_query_params(Models::Operations::StackoneListStepLogsRequest, request, nil)
+      query_params = Utils.get_query_params(Models::Operations::StackoneListStepLogsLegacyRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
       retries ||= @sdk_configuration.retry_config
@@ -918,7 +926,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -927,14 +935,14 @@ module StackOne
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'stackone_list_step_logs',
+        operation_id: 'stackone_list_step_logs_legacy',
         security_source: @sdk_configuration.security_source
       )
 
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
@@ -971,13 +979,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -988,13 +996,13 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::StepLogsPaginated)
-          response = Models::Operations::StackoneListStepLogsResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::StepLogsPaginatedLegacy)
+          response = Models::Operations::StackoneListStepLogsLegacyResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            step_logs_paginated: T.unsafe(obj)
+            step_logs_paginated_legacy: T.unsafe(obj)
           )
 
           return response

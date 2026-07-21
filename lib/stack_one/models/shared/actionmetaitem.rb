@@ -26,11 +26,15 @@ module StackOne
         field :required_scopes, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required_scopes') } }
         # The schema type for the action
         field :schema_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('schema_type') } }
+        # Whether this action supports incremental syncs (has an incremental strategy).
+        field :supports_incremental, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('supports_incremental') } }
+        # Whether this action can be synced with the datasync v2 sync engine.
+        field :syncable, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('syncable') } }
         # The tags associated with this action
         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
-        sig { params(action_details: T.nilable(T::Hash[Symbol, ::Object]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), required_scopes: T.nilable(T::Array[::String]), schema_type: T.nilable(::String), tags: T.nilable(T::Array[::String])).void }
-        def initialize(action_details: nil, authentication: nil, description: nil, id: nil, label: nil, required_scopes: nil, schema_type: nil, tags: nil)
+        sig { params(action_details: T.nilable(T::Hash[Symbol, ::Object]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), required_scopes: T.nilable(T::Array[::String]), schema_type: T.nilable(::String), supports_incremental: T.nilable(T::Boolean), syncable: T.nilable(T::Boolean), tags: T.nilable(T::Array[::String])).void }
+        def initialize(action_details: nil, authentication: nil, description: nil, id: nil, label: nil, required_scopes: nil, schema_type: nil, supports_incremental: nil, syncable: nil, tags: nil)
           @action_details = action_details
           @authentication = authentication
           @description = description
@@ -38,6 +42,8 @@ module StackOne
           @label = label
           @required_scopes = required_scopes
           @schema_type = schema_type
+          @supports_incremental = supports_incremental
+          @syncable = syncable
           @tags = tags
         end
 
@@ -51,6 +57,8 @@ module StackOne
           return false unless @label == other.label
           return false unless @required_scopes == other.required_scopes
           return false unless @schema_type == other.schema_type
+          return false unless @supports_incremental == other.supports_incremental
+          return false unless @syncable == other.syncable
           return false unless @tags == other.tags
           true
         end

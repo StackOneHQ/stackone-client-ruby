@@ -7,7 +7,7 @@
 module StackOne
   module Models
     module Operations
-      # ToolMode - Tool registration mode: "individual" (default) registers each action as a separate tool; "search_execute" registers two tools for search-and-execute flow
+      # ToolMode - Tool registration mode: "individual" (default) registers each action as a separate tool; "search_execute" registers two tools per linked account for a search-then-execute flow
       class ToolMode < T::Enum
         enums do
           INDIVIDUAL = new('individual')

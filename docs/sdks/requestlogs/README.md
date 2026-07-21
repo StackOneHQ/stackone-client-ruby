@@ -1,4 +1,7 @@
-# RequestLogs
+# ~~RequestLogs~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -6,14 +9,16 @@ API requests and response logs.
 
 ### Available Operations
 
-* [get_log](#get_log) - Get Log
-* [list_logs](#list_logs) - List Logs
-* [list_platform_logs](#list_platform_logs) - List Platform Logs
-* [list_step_logs](#list_step_logs) - List Step Logs
+* [~~get_log~~](#get_log) - Get Log :warning: **Deprecated**
+* [~~list_logs_legacy~~](#list_logs_legacy) - List Logs :warning: **Deprecated**
+* [~~list_platform_logs~~](#list_platform_logs) - List Platform Logs :warning: **Deprecated**
+* [~~list_step_logs_legacy~~](#list_step_logs_legacy) - List Step Logs :warning: **Deprecated**
 
-## get_log
+## ~~get_log~~
 
 Get Log
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -30,7 +35,7 @@ s = ::StackOne::StackOne.new(
 )
 res = s.request_logs.get_log(id: '<id>', include: Models::Operations::QueryParamInclude::STEP_LOGS)
 
-unless res.unified_log_result.nil?
+unless res.unified_log_result_legacy.nil?
   # handle response
 end
 
@@ -64,13 +69,15 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## list_logs
+## ~~list_logs_legacy~~
 
 List Logs
 
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="stackone_list_logs" method="get" path="/requests/logs" -->
+<!-- UsageSnippet language="ruby" operationID="stackone_list_logs_legacy" method="get" path="/requests/logs" -->
 ```ruby
 require 'stackone_client'
 
@@ -82,14 +89,14 @@ s = ::StackOne::StackOne.new(
   )
 )
 
-req = Models::Operations::StackoneListLogsRequest.new(
+req = Models::Operations::StackoneListLogsLegacyRequest.new(
   filter: Models::Operations::QueryParamFilter.new(
     account_ids: '45355976281015164504,45355976281015164505',
     actions: 'download,upload',
     child_resources: 'documents,time-off',
     end_date: DateTime.iso8601('2020-01-01T00:00:00.000Z'),
     http_methods: 'GET,POST',
-    order_by: Models::Operations::QueryParamOrderBy::DURATION,
+    order_by: Models::Operations::QueryParamOrderBy::PROVIDER,
     order_direction: Models::Operations::QueryParamOrderDirection::ASC,
     providers: 'ashby,greenhouse',
     request_ids: 'adbf752f-6457-4ddd-89b3-98ae2252b83b,adbf752f-6457-4ddd-89b3-98ae2252b83c',
@@ -101,13 +108,13 @@ req = Models::Operations::StackoneListLogsRequest.new(
     sub_resources: 'documents,employees',
     success: true
   ),
-  include: Models::Operations::StackoneListLogsQueryParamInclude::STEP_LOGS,
-  order_by: Models::Operations::OrderBy::DURATION,
+  include: Models::Operations::StackoneListLogsLegacyQueryParamInclude::STEP_LOGS,
+  order_by: Models::Operations::OrderBy::SERVICE,
   order_direction: Models::Operations::OrderDirection::ASC
 )
-res = s.request_logs.list_logs(request: req)
+res = s.request_logs.list_logs_legacy(request: req)
 
-unless res.unified_logs_paginated.nil?
+unless res.unified_logs_paginated_legacy.nil?
   # handle response
 end
 
@@ -115,13 +122,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [Models::Operations::StackoneListLogsRequest](../../models/operations/stackonelistlogsrequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [Models::Operations::StackoneListLogsLegacyRequest](../../models/operations/stackonelistlogslegacyrequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[T.nilable(Models::Operations::StackoneListLogsResponse)](../../models/operations/stackonelistlogsresponse.md)**
+**[T.nilable(Models::Operations::StackoneListLogsLegacyResponse)](../../models/operations/stackonelistlogslegacyresponse.md)**
 
 ### Errors
 
@@ -140,9 +147,11 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## list_platform_logs
+## ~~list_platform_logs~~
 
 List Platform Logs
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -179,7 +188,7 @@ req = Models::Operations::StackoneListPlatformLogsRequest.new(
 )
 res = s.request_logs.list_platform_logs(request: req)
 
-unless res.platform_logs_paginated.nil?
+unless res.platform_logs_paginated_legacy.nil?
   # handle response
 end
 
@@ -212,13 +221,15 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
-## list_step_logs
+## ~~list_step_logs_legacy~~
 
 List Step Logs
 
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="stackone_list_step_logs" method="get" path="/requests/logs/steps" -->
+<!-- UsageSnippet language="ruby" operationID="stackone_list_step_logs_legacy" method="get" path="/requests/logs/steps" -->
 ```ruby
 require 'stackone_client'
 
@@ -230,8 +241,8 @@ s = ::StackOne::StackOne.new(
   )
 )
 
-req = Models::Operations::StackoneListStepLogsRequest.new(
-  filter: Models::Operations::StackoneListStepLogsQueryParamFilter.new(
+req = Models::Operations::StackoneListStepLogsLegacyRequest.new(
+  filter: Models::Operations::StackoneListStepLogsLegacyQueryParamFilter.new(
     account_ids: '45355976281015164504,45355976281015164505',
     actions: 'download,upload',
     child_resources: 'documents,time-off',
@@ -246,12 +257,12 @@ req = Models::Operations::StackoneListStepLogsRequest.new(
     sub_resources: 'documents,employees',
     success: true
   ),
-  order_by: Models::Operations::StackoneListStepLogsQueryParamOrderBy::EVENT_DATETIME,
-  order_direction: Models::Operations::StackoneListStepLogsQueryParamOrderDirection::ASC
+  order_by: Models::Operations::StackoneListStepLogsLegacyQueryParamOrderBy::STATUS,
+  order_direction: Models::Operations::StackoneListStepLogsLegacyQueryParamOrderDirection::ASC
 )
-res = s.request_logs.list_step_logs(request: req)
+res = s.request_logs.list_step_logs_legacy(request: req)
 
-unless res.step_logs_paginated.nil?
+unless res.step_logs_paginated_legacy.nil?
   # handle response
 end
 
@@ -259,13 +270,13 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [Models::Operations::StackoneListStepLogsRequest](../../models/operations/stackoneliststeplogsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [Models::Operations::StackoneListStepLogsLegacyRequest](../../models/operations/stackoneliststeplogslegacyrequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[T.nilable(Models::Operations::StackoneListStepLogsResponse)](../../models/operations/stackoneliststeplogsresponse.md)**
+**[T.nilable(Models::Operations::StackoneListStepLogsLegacyResponse)](../../models/operations/stackoneliststeplogslegacyresponse.md)**
 
 ### Errors
 

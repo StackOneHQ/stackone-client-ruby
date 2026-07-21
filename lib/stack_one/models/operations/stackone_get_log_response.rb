@@ -21,15 +21,15 @@ module StackOne
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # The log was retrieved.
-        field :unified_log_result, Crystalline::Nilable.new(Models::Shared::UnifiedLogResult)
+        field :unified_log_result_legacy, Crystalline::Nilable.new(Models::Shared::UnifiedLogResultLegacy)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, unified_log_result: T.nilable(Models::Shared::UnifiedLogResult)).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:, unified_log_result: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, unified_log_result_legacy: T.nilable(Models::Shared::UnifiedLogResultLegacy)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, unified_log_result_legacy: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
-          @unified_log_result = unified_log_result
+          @unified_log_result_legacy = unified_log_result_legacy
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -39,7 +39,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
-          return false unless @unified_log_result == other.unified_log_result
+          return false unless @unified_log_result_legacy == other.unified_log_result_legacy
           true
         end
       end

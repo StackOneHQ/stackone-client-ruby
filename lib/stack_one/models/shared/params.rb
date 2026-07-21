@@ -7,7 +7,7 @@
 module StackOne
   module Models
     module Shared
-      # Method parameters (arbitrary JSON)
+      # Method parameters. Shape varies by method — see the request body examples.
       class Params
         extend T::Sig
         include Crystalline::MetadataFields

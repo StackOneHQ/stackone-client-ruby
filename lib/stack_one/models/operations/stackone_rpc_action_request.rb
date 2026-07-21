@@ -16,20 +16,17 @@ module StackOne
         field :actions_rpc_request_dto, Models::Shared::ActionsRpcRequestDto, { 'request': { 'media_type': 'application/json' } }
         # The account identifier
         field :x_account_id, ::String, { 'header': { 'field_name': 'x-account-id', 'style': 'simple', 'explode': false } }
+        # Overrides the connector profile associated with the account for this request. The profile must exist in the same project and belong to the same connector as the account, otherwise the request is rejected with a 400 Bad Request.
+        field :x_connector_profile_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'x-connector-profile-id', 'style': 'simple', 'explode': false } }
         # Enable debug mode for the action execution
         field :debug, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'debug', 'style': 'form', 'explode': true } }
-        # Run ID to associate with the sync operation. Only relevant when sync=true.
-        field :run_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'run_id', 'style': 'form', 'explode': true } }
-        # When true, the action result is written to the datasync index and the response includes datasync metadata
-        field :sync, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'sync', 'style': 'form', 'explode': true } }
 
-        sig { params(actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto, x_account_id: ::String, debug: T.nilable(T::Boolean), run_id: T.nilable(::String), sync: T.nilable(T::Boolean)).void }
-        def initialize(actions_rpc_request_dto:, x_account_id:, debug: nil, run_id: nil, sync: nil)
+        sig { params(actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto, x_account_id: ::String, x_connector_profile_id: T.nilable(::String), debug: T.nilable(T::Boolean)).void }
+        def initialize(actions_rpc_request_dto:, x_account_id:, x_connector_profile_id: nil, debug: nil)
           @actions_rpc_request_dto = actions_rpc_request_dto
           @x_account_id = x_account_id
+          @x_connector_profile_id = x_connector_profile_id
           @debug = debug
-          @run_id = run_id
-          @sync = sync
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -37,9 +34,8 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @actions_rpc_request_dto == other.actions_rpc_request_dto
           return false unless @x_account_id == other.x_account_id
+          return false unless @x_connector_profile_id == other.x_connector_profile_id
           return false unless @debug == other.debug
-          return false unless @run_id == other.run_id
-          return false unless @sync == other.sync
           true
         end
       end

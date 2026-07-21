@@ -83,7 +83,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -99,7 +99,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).post(url) do |req|
           req.body = body
@@ -136,13 +136,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -378,7 +378,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -394,7 +394,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).post(url) do |req|
           req.body = body
@@ -431,13 +431,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -628,8 +628,8 @@ module StackOne
 
     sig { params(request: Models::Operations::StackoneListActionsMetaRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListActionsMetaResponse) }
     def list_actions_meta(request:, retries: nil, timeout_ms: nil, http_headers: nil)
-      # list_actions_meta - List all actions metadata
-      # Retrieves a list of all actions metadata
+      # list_actions_meta - List all connectors & actions metadata
+      # Retrieves metadata for all connectors and their actions available on the platform. Use this endpoint to discover which connectors and actions are available, including those that have not yet been configured, for example to display the full catalog of integrations and actions.
       #
       # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
@@ -658,7 +658,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -674,7 +674,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
@@ -711,13 +711,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -933,12 +933,18 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::StackoneRpcActionRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneRpcActionResponse) }
-    def rpc_action(request:, retries: nil, timeout_ms: nil, http_headers: nil)
+    sig { params(actions_rpc_request_dto: Models::Shared::ActionsRpcRequestDto, x_account_id: ::String, debug: T.nilable(T::Boolean), x_connector_profile_id: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneRpcActionResponse) }
+    def rpc_action(actions_rpc_request_dto:, x_account_id:, debug: nil, x_connector_profile_id: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # rpc_action - Make an RPC call to an action
       # Makes a remote procedure call to the specified action
       #
       # If set, this operation will use `password` from the global security.
+      request = Models::Operations::StackoneRpcActionRequest.new(
+        actions_rpc_request_dto: actions_rpc_request_dto,
+        x_account_id: x_account_id,
+        debug: debug,
+        x_connector_profile_id: x_connector_profile_id
+      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/actions/rpc"
@@ -976,7 +982,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -992,7 +998,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).post(url) do |req|
           req.body = body
@@ -1030,13 +1036,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -1047,13 +1053,13 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Union.new(Models::Shared::ActionsRpcResponse, Models::Shared::ActionsSyncedResponse))
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ActionsRpcResponse)
           response = Models::Operations::StackoneRpcActionResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            one_of: T.unsafe(obj)
+            actions_rpc_response: T.unsafe(obj)
           )
 
           return response
@@ -1273,7 +1279,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -1289,7 +1295,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).post(url) do |req|
           req.body = body
@@ -1327,13 +1333,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')
@@ -1563,7 +1569,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -1579,7 +1585,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).post(url) do |req|
           req.body = body
@@ -1616,13 +1622,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')

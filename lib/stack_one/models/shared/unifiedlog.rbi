@@ -1,0 +1,93 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class StackOne::Models::Shared::UnifiedLog
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class StackOne::Models::Shared::UnifiedLog
+  def log_id(); end
+  def log_id=(str_); end
+  def log_type(); end
+  def log_type=(str_); end
+  def request_id(); end
+  def request_id=(str_); end
+  def account_id(); end
+  def account_id=(str_); end
+  def action(); end
+  def action=(str_); end
+  def agent_id(); end
+  def agent_id=(str_); end
+  def auth_id(); end
+  def auth_id=(str_); end
+  def auth_type(); end
+  def auth_type=(str_); end
+  def child_resource(); end
+  def child_resource=(str_); end
+  def connector_key(); end
+  def connector_key=(str_); end
+  def connector_owner(); end
+  def connector_owner=(str_); end
+  def connector_version(); end
+  def connector_version=(str_); end
+  def duration(); end
+  def duration=(str_); end
+  def duration_ms(); end
+  def duration_ms=(str_); end
+  def end_time(); end
+  def end_time=(str_); end
+  def event_time(); end
+  def event_time=(str_); end
+  def http_method(); end
+  def http_method=(str_); end
+  def ip_address(); end
+  def ip_address=(str_); end
+  def is_background(); end
+  def is_background=(str_); end
+  def is_worker(); end
+  def is_worker=(str_); end
+  def mode(); end
+  def mode=(str_); end
+  def origin_owner_id(); end
+  def origin_owner_id=(str_); end
+  def origin_owner_name(); end
+  def origin_owner_name=(str_); end
+  def path(); end
+  def path=(str_); end
+  def project_id(); end
+  def project_id=(str_); end
+  def provider(); end
+  def provider=(str_); end
+  def resource(); end
+  def resource=(str_); end
+  def service(); end
+  def service=(str_); end
+  def session_id(); end
+  def session_id=(str_); end
+  def source_id(); end
+  def source_id=(str_); end
+  def source_type(); end
+  def source_type=(str_); end
+  def source_value(); end
+  def source_value=(str_); end
+  def start_time(); end
+  def start_time=(str_); end
+  def status(); end
+  def status=(str_); end
+  def status_code(); end
+  def status_code=(str_); end
+  def stream_type(); end
+  def stream_type=(str_); end
+  def sub_resource(); end
+  def sub_resource=(str_); end
+  def success(); end
+  def success=(str_); end
+  def transport_type(); end
+  def transport_type=(str_); end
+  def url(); end
+  def url=(str_); end
+  def user_agent(); end
+  def user_agent=(str_); end
+end

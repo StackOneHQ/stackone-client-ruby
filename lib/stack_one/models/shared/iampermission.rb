@@ -23,20 +23,25 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # The resources that the permission applies to.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :resources, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamResource)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resources') } }
+        # Resource-type / resource-id targets for this permission. Omitted resource_id = all of type.
+        field :scopes, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamPermissionScope)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('scopes') } }
 
         field :type, Crystalline::Nilable.new(Models::Shared::IamPermissionType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), resources: T.nilable(T::Array[Models::Shared::IamResource]), type: T.nilable(Models::Shared::IamPermissionType), updated_at: T.nilable(::DateTime)).void }
-        def initialize(created_at: nil, description: nil, id: nil, name: nil, remote_id: nil, resources: nil, type: nil, updated_at: nil)
+        sig { params(created_at: T.nilable(::DateTime), description: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), resources: T.nilable(T::Array[Models::Shared::IamResource]), scopes: T.nilable(T::Array[Models::Shared::IamPermissionScope]), type: T.nilable(Models::Shared::IamPermissionType), updated_at: T.nilable(::DateTime)).void }
+        def initialize(created_at: nil, description: nil, id: nil, name: nil, remote_id: nil, resources: nil, scopes: nil, type: nil, updated_at: nil)
           @created_at = created_at
           @description = description
           @id = id
           @name = name
           @remote_id = remote_id
           @resources = resources
+          @scopes = scopes
           @type = type
           @updated_at = updated_at
         end
@@ -50,6 +55,7 @@ module StackOne
           return false unless @name == other.name
           return false unless @remote_id == other.remote_id
           return false unless @resources == other.resources
+          return false unless @scopes == other.scopes
           return false unless @type == other.type
           return false unless @updated_at == other.updated_at
           true

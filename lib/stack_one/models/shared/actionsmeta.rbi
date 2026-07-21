@@ -16,8 +16,12 @@ class StackOne::Models::Shared::ActionsMeta
   def authentication=(str_); end
   def categories(); end
   def categories=(str_); end
+  def connector_profile_id(); end
+  def connector_profile_id=(str_); end
   def description(); end
   def description=(str_); end
+  def event_actions(); end
+  def event_actions=(str_); end
   def icon(); end
   def icon=(str_); end
   def integration_id(); end

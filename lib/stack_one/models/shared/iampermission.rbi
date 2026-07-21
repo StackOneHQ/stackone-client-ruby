@@ -20,6 +20,8 @@ class StackOne::Models::Shared::IamPermission
   def remote_id=(str_); end
   def resources(); end
   def resources=(str_); end
+  def scopes(); end
+  def scopes=(str_); end
   def type(); end
   def type=(str_); end
   def updated_at(); end

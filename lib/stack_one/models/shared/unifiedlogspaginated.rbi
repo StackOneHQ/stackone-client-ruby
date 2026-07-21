@@ -10,6 +10,8 @@ end
 class StackOne::Models::Shared::UnifiedLogsPaginated
   def data(); end
   def data=(str_); end
-  def next_(); end
-  def next_=(str_); end
+  def query(); end
+  def query=(str_); end
+  def total(); end
+  def total=(str_); end
 end

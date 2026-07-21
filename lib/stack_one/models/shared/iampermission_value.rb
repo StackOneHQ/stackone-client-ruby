@@ -12,11 +12,15 @@ module StackOne
         include ::Crystalline::Enum
         enums do
           READ = new('read')
+          DELETE = new('delete')
+          EXPORT = new('export')
           READ_WRITE = new('read_write')
           APPROVE = new('approve')
-          DELETE = new('delete')
           USE = new('use')
-          EXPORT = new('export')
+          WRITE = new('write')
+          COMMENT = new('comment')
+          CREATE = new('create')
+          EDIT = new('edit')
           UNMAPPED_VALUE = new('unmapped_value')
         end
         open!

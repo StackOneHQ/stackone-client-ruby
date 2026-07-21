@@ -129,7 +129,7 @@ s = ::StackOne::StackOne.new
 
 req = Models::Operations::StackoneMcpPostRequest.new(
   json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-    id: Models::Shared::Id.new,
+    id: 'init-1',
     jsonrpc: '2.0',
     method: 'initialize',
     params: Models::Shared::Params.new
@@ -140,7 +140,31 @@ res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPost
   api_key: '<YOUR_API_KEY_HERE>'
 ))
 
-if res.status_code == 200
+unless res.object.nil?
+  # handle response
+end
+
+```
+### Example Usage: protocolError
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="protocolError" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    jsonrpc: '2.0',
+    method: 'initialize'
+  )
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
+  api_key: '<YOUR_API_KEY_HERE>'
+))
+
+unless res.object.nil?
   # handle response
 end
 
@@ -156,7 +180,7 @@ s = ::StackOne::StackOne.new
 
 req = Models::Operations::StackoneMcpPostRequest.new(
   json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-    id: Models::Shared::Id.new,
+    id: 'call-1',
     jsonrpc: '2.0',
     method: 'tools/call',
     params: Models::Shared::Params.new
@@ -167,7 +191,107 @@ res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPost
   api_key: '<YOUR_API_KEY_HERE>'
 ))
 
-if res.status_code == 200
+unless res.object.nil?
+  # handle response
+end
+
+```
+### Example Usage: toolsCallError
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsCallError" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    jsonrpc: '2.0',
+    method: 'initialize'
+  )
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
+  api_key: '<YOUR_API_KEY_HERE>'
+))
+
+unless res.object.nil?
+  # handle response
+end
+
+```
+### Example Usage: toolsCallExecuteAction
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsCallExecuteAction" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    id: 'execute-1',
+    jsonrpc: '2.0',
+    method: 'tools/call',
+    params: Models::Shared::Params.new
+  )
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
+  api_key: '<YOUR_API_KEY_HERE>'
+))
+
+unless res.object.nil?
+  # handle response
+end
+
+```
+### Example Usage: toolsCallSearchExecute
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsCallSearchExecute" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    id: 'search-1',
+    jsonrpc: '2.0',
+    method: 'tools/call',
+    params: Models::Shared::Params.new
+  )
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
+  api_key: '<YOUR_API_KEY_HERE>'
+))
+
+unless res.object.nil?
+  # handle response
+end
+
+```
+### Example Usage: toolsCallSuccess
+
+<!-- UsageSnippet language="ruby" operationID="stackone_mcp_post" method="post" path="/mcp" example="toolsCallSuccess" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new
+
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    jsonrpc: '2.0',
+    method: 'initialize'
+  )
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
+  api_key: '<YOUR_API_KEY_HERE>'
+))
+
+unless res.object.nil?
   # handle response
 end
 
@@ -183,7 +307,7 @@ s = ::StackOne::StackOne.new
 
 req = Models::Operations::StackoneMcpPostRequest.new(
   json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
-    id: Models::Shared::Id.new,
+    id: 'list-1',
     jsonrpc: '2.0',
     method: 'tools/list',
     params: Models::Shared::Params.new
@@ -194,7 +318,7 @@ res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPost
   api_key: '<YOUR_API_KEY_HERE>'
 ))
 
-if res.status_code == 200
+unless res.object.nil?
   # handle response
 end
 

@@ -1,0 +1,11 @@
+# ConnectorProfileVersion
+
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `builtin`                                                                            | *T::Boolean*                                                                         | :heavy_check_mark:                                                                   | Whether this version is a built-in StackOne connector (true) or a custom one (false) |
+| `owner`                                                                              | *::String*                                                                           | :heavy_check_mark:                                                                   | The owner of this connector version. "stackone" for built-in connectors.             |
+| `pinned`                                                                             | *T::Boolean*                                                                         | :heavy_check_mark:                                                                   | Whether this version is the one currently pinned for the connector profile           |
+| `version`                                                                            | *::String*                                                                           | :heavy_check_mark:                                                                   | The connector version                                                                |

@@ -19,9 +19,13 @@ custom = IamPermissionValue.deserialize("custom_value")
 | Name             | Value            |
 | ---------------- | ---------------- |
 | `READ`           | read             |
+| `DELETE`         | delete           |
+| `EXPORT`         | export           |
 | `READ_WRITE`     | read_write       |
 | `APPROVE`        | approve          |
-| `DELETE`         | delete           |
 | `USE`            | use              |
-| `EXPORT`         | export           |
+| `WRITE`          | write            |
+| `COMMENT`        | comment          |
+| `CREATE`         | create           |
+| `EDIT`           | edit             |
 | `UNMAPPED_VALUE` | unmapped_value   |
