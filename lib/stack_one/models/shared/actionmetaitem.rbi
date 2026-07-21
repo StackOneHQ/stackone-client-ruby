@@ -22,6 +22,10 @@ class StackOne::Models::Shared::ActionMetaItem
   def required_scopes=(str_); end
   def schema_type(); end
   def schema_type=(str_); end
+  def supports_incremental(); end
+  def supports_incremental=(str_); end
+  def syncable(); end
+  def syncable=(str_); end
   def tags(); end
   def tags=(str_); end
 end

@@ -166,7 +166,7 @@ end
 
 * [build_action_embeddings](docs/sdks/actions/README.md#build_action_embeddings) - Rebuild action embeddings for semantic search
 * [check_permissions](docs/sdks/actions/README.md#check_permissions) - Check user permissions on a resource
-* [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all actions metadata
+* [list_actions_meta](docs/sdks/actions/README.md#list_actions_meta) - List all connectors & actions metadata
 * [rpc_action](docs/sdks/actions/README.md#rpc_action) - Make an RPC call to an action
 * [rpc_action_synced](docs/sdks/actions/README.md#rpc_action_synced) - Read synced action data from the datasync index
 * [search_actions](docs/sdks/actions/README.md#search_actions) - Search connector actions by semantic similarity
@@ -250,14 +250,23 @@ end
 * [update_job](docs/sdks/ats/README.md#update_job) - Update Job
 * [upload_application_document](docs/sdks/ats/README.md#upload_application_document) - Upload Application Document
 
-### [AuthConfigs](docs/sdks/authconfigs/README.md)
+### [~~AuthConfigs~~](docs/sdks/authconfigs/README.md)
 
-* [list_auth_configs](docs/sdks/authconfigs/README.md#list_auth_configs) - List Auth Configs
+* [~~list_auth_configs~~](docs/sdks/authconfigs/README.md#list_auth_configs) - List Auth Configs :warning: **Deprecated**
 
 ### [ConnectSessions](docs/sdks/connectsessions/README.md)
 
 * [authenticate_connect_session](docs/sdks/connectsessions/README.md#authenticate_connect_session) - Authenticate Connect Session
 * [create_connect_session](docs/sdks/connectsessions/README.md#create_connect_session) - Create Connect Session
+* [get_connect_session](docs/sdks/connectsessions/README.md#get_connect_session) - Get Connect Session
+
+### [ConnectorProfiles](docs/sdks/connectorprofiles/README.md)
+
+* [delete_connector_profile_pinned_version](docs/sdks/connectorprofiles/README.md#delete_connector_profile_pinned_version) - Delete Connector Profile Pinned Version
+* [get_connector_profile_pinned_version](docs/sdks/connectorprofiles/README.md#get_connector_profile_pinned_version) - Get Connector Profile Pinned Version
+* [list_connector_profile_versions](docs/sdks/connectorprofiles/README.md#list_connector_profile_versions) - List Connector Profile Versions
+* [list_connector_profiles](docs/sdks/connectorprofiles/README.md#list_connector_profiles) - List Connector Profiles
+* [upsert_connector_profile_pinned_version](docs/sdks/connectorprofiles/README.md#upsert_connector_profile_pinned_version) - Upsert Connector Profile Pinned Version
 
 ### [~~Connectors~~](docs/sdks/connectors/README.md)
 
@@ -369,11 +378,16 @@ end
 
 * [delete_user](docs/sdks/iam/README.md#delete_user) - Delete User
 * [get_group](docs/sdks/iam/README.md#get_group) - Get Group
+* [get_me](docs/sdks/iam/README.md#get_me) - Get Me
+* [get_organization](docs/sdks/iam/README.md#get_organization) - Get Organization
 * [get_policy](docs/sdks/iam/README.md#get_policy) - Get Policy
 * [get_role](docs/sdks/iam/README.md#get_role) - Get Role
 * [get_user](docs/sdks/iam/README.md#get_user) - Get User
 * [list_groups](docs/sdks/iam/README.md#list_groups) - List Groups
+* [list_organizations](docs/sdks/iam/README.md#list_organizations) - List Organizations
 * [list_policies](docs/sdks/iam/README.md#list_policies) - List Policies
+* [list_resource_types](docs/sdks/iam/README.md#list_resource_types) - List Resource Types
+* [list_resource_users](docs/sdks/iam/README.md#list_resource_users) - List Resource Users
 * [list_roles](docs/sdks/iam/README.md#list_roles) - List Roles
 * [list_users](docs/sdks/iam/README.md#list_users) - List Users
 * [update_user](docs/sdks/iam/README.md#update_user) - Update User
@@ -403,6 +417,27 @@ end
 * [list_user_completions](docs/sdks/lms/README.md#list_user_completions) - List User Completions
 * [list_users](docs/sdks/lms/README.md#list_users) - List Users
 * [upsert_content](docs/sdks/lms/README.md#upsert_content) - Upsert External Linking Learning Objects
+
+### [Logs](docs/sdks/logs/README.md)
+
+* [get_action_advanced_log](docs/sdks/logs/README.md#get_action_advanced_log) - Get Action Advanced Log
+* [get_action_defender_log](docs/sdks/logs/README.md#get_action_defender_log) - Get Action Defender Log
+* [get_action_log](docs/sdks/logs/README.md#get_action_log) - Get Action Log
+* [get_logs_stats_aggregate](docs/sdks/logs/README.md#get_logs_stats_aggregate) - Get Logs Stats Aggregate
+* [get_logs_stats_dimensions](docs/sdks/logs/README.md#get_logs_stats_dimensions) - Get Logs Stats Dimensions
+* [get_provider_advanced_log](docs/sdks/logs/README.md#get_provider_advanced_log) - Get Provider Advanced Log
+* [get_provider_log](docs/sdks/logs/README.md#get_provider_log) - Get Provider Log
+* [get_step_advanced_log](docs/sdks/logs/README.md#get_step_advanced_log) - Get Step Advanced Log
+* [get_step_log](docs/sdks/logs/README.md#get_step_log) - Get Step Log
+* [get_unified_advanced_log](docs/sdks/logs/README.md#get_unified_advanced_log) - Get Unified Advanced Log
+* [get_unified_log](docs/sdks/logs/README.md#get_unified_log) - Get Unified Log
+* [list_action_logs](docs/sdks/logs/README.md#list_action_logs) - List Action Logs
+* [list_action_step_logs](docs/sdks/logs/README.md#list_action_step_logs) - List Action Step Logs
+* [list_logs](docs/sdks/logs/README.md#list_logs) - List Logs
+* [list_provider_logs](docs/sdks/logs/README.md#list_provider_logs) - List Provider Logs
+* [list_step_logs](docs/sdks/logs/README.md#list_step_logs) - List Step Logs
+* [list_unified_logs](docs/sdks/logs/README.md#list_unified_logs) - List Unified Logs
+* [list_unified_provider_logs](docs/sdks/logs/README.md#list_unified_provider_logs) - List Unified Provider Logs
 
 ### [Marketing](docs/sdks/marketing/README.md)
 
@@ -457,12 +492,12 @@ end
 
 * [~~proxy_request~~](docs/sdks/proxy/README.md#proxy_request) - Proxy Request (Legacy) :warning: **Deprecated**
 
-### [RequestLogs](docs/sdks/requestlogs/README.md)
+### [~~RequestLogs~~](docs/sdks/requestlogs/README.md)
 
-* [get_log](docs/sdks/requestlogs/README.md#get_log) - Get Log
-* [list_logs](docs/sdks/requestlogs/README.md#list_logs) - List Logs
-* [list_platform_logs](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs
-* [list_step_logs](docs/sdks/requestlogs/README.md#list_step_logs) - List Step Logs
+* [~~get_log~~](docs/sdks/requestlogs/README.md#get_log) - Get Log :warning: **Deprecated**
+* [~~list_logs_legacy~~](docs/sdks/requestlogs/README.md#list_logs_legacy) - List Logs :warning: **Deprecated**
+* [~~list_platform_logs~~](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs :warning: **Deprecated**
+* [~~list_step_logs_legacy~~](docs/sdks/requestlogs/README.md#list_step_logs_legacy) - List Step Logs :warning: **Deprecated**
 
 ### [Screening](docs/sdks/screening/README.md)
 

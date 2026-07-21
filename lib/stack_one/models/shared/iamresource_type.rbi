@@ -8,8 +8,4 @@ end
 
 
 class StackOne::Models::Shared::IamResourceType
-  def source_value(); end
-  def source_value=(str_); end
-  def value(); end
-  def value=(str_); end
 end

@@ -80,12 +80,15 @@ module StackOne
         if @strategy == 'backoff' && @backoff
           retry_options[:backoff_factor] = @backoff.exponent unless @backoff.exponent.nil?
           retry_options[:interval] = (@backoff.initial_interval.to_f / 1000) unless @backoff.initial_interval.nil?
-          retry_options[:max_interval] = @backoff.max_interval unless @backoff.max_interval.nil?
+          retry_options[:max_interval] = (@backoff.max_interval.to_f / 1000) unless @backoff.max_interval.nil?
 
           unless @backoff.max_elapsed_time.nil?
             stop_time = initial_time + (@backoff.max_elapsed_time.to_f / 1000)
             retry_options[:retry_if] = ->(_env, _exc) { Time.now < stop_time }
           end
+
+          retry_options[:rate_limit_retry_header] = 'retry-after-ms'
+          retry_options[:header_parser_block] = ->(value) { value.to_f / 1000 }
         end
 
         retry_options

@@ -13,11 +13,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :data, Models::Shared::IamUser, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
+        field :data, Models::Shared::IamUserInput, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
 
         field :raw, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RawResponse)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('raw') } }
 
-        sig { params(data: Models::Shared::IamUser, raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
+        sig { params(data: Models::Shared::IamUserInput, raw: T.nilable(T::Array[Models::Shared::RawResponse])).void }
         def initialize(data:, raw: nil)
           @data = data
           @raw = raw

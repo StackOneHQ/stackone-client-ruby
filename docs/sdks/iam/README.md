@@ -6,11 +6,16 @@
 
 * [delete_user](#delete_user) - Delete User
 * [get_group](#get_group) - Get Group
+* [get_me](#get_me) - Get Me
+* [get_organization](#get_organization) - Get Organization
 * [get_policy](#get_policy) - Get Policy
 * [get_role](#get_role) - Get Role
 * [get_user](#get_user) - Get User
 * [list_groups](#list_groups) - List Groups
+* [list_organizations](#list_organizations) - List Organizations
 * [list_policies](#list_policies) - List Policies
+* [list_resource_types](#list_resource_types) - List Resource Types
+* [list_resource_users](#list_resource_users) - List Resource Users
 * [list_roles](#list_roles) - List Roles
 * [list_users](#list_users) - List Users
 * [update_user](#update_user) - Update User
@@ -112,6 +117,125 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::IamGetGroupResponse)](../../models/operations/iamgetgroupresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## get_me
+
+Get Me
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="iam_get_me" method="get" path="/unified/iam/me" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+
+req = Models::Operations::IamGetMeRequest.new(
+  prefer: 'heartbeat',
+  fields_: 'name,auth_type,scopes,permissions,last_accessed_at,user,unified_custom_fields',
+  x_account_id: '<id>'
+)
+res = s.iam.get_me(request: req)
+
+unless res.iam_credentials_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [Models::Operations::IamGetMeRequest](../../models/operations/iamgetmerequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::IamGetMeResponse)](../../models/operations/iamgetmeresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## get_organization
+
+Get Organization
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="iam_get_organization" method="get" path="/unified/iam/organizations/{id}" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+
+req = Models::Operations::IamGetOrganizationRequest.new(
+  prefer: 'heartbeat',
+  fields_: 'id,remote_id,remote_remote_id,name,created_at,updated_at,unified_custom_fields',
+  id: '<id>',
+  x_account_id: '<id>'
+)
+res = s.iam.get_organization(request: req)
+
+unless res.iam_organization_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [Models::Operations::IamGetOrganizationRequest](../../models/operations/iamgetorganizationrequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+### Response
+
+**[T.nilable(Models::Operations::IamGetOrganizationResponse)](../../models/operations/iamgetorganizationresponse.md)**
 
 ### Errors
 
@@ -375,6 +499,66 @@ end
 | Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
 | Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
 
+## list_organizations
+
+List Organizations
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="iam_list_organizations" method="get" path="/unified/iam/organizations" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+
+req = Models::Operations::IamListOrganizationsRequest.new(
+  prefer: 'heartbeat',
+  fields_: 'id,remote_id,remote_remote_id,name,created_at,updated_at,unified_custom_fields',
+  filter: nil,
+  x_account_id: '<id>'
+)
+res = s.iam.list_organizations(request: req)
+
+unless res.iam_organizations_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::IamListOrganizationsRequest](../../models/operations/iamlistorganizationsrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::IamListOrganizationsResponse)](../../models/operations/iamlistorganizationsresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
 ## list_policies
 
 List Policies
@@ -417,6 +601,127 @@ end
 ### Response
 
 **[T.nilable(Models::Operations::IamListPoliciesResponse)](../../models/operations/iamlistpoliciesresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## list_resource_types
+
+List Resource Types
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="iam_list_resource_types" method="get" path="/unified/iam/resource_types" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+
+req = Models::Operations::IamListResourceTypesRequest.new(
+  prefer: 'heartbeat',
+  x_account_id: '<id>'
+)
+res = s.iam.list_resource_types(request: req)
+
+unless res.iam_resource_types_result.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::IamListResourceTypesRequest](../../models/operations/iamlistresourcetypesrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::IamListResourceTypesResponse)](../../models/operations/iamlistresourcetypesresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## list_resource_users
+
+List Resource Users
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="iam_list_resource_users" method="get" path="/unified/iam/resource_users" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+
+req = Models::Operations::IamListResourceUsersRequest.new(
+  prefer: 'heartbeat',
+  filter: Models::Operations::IamListResourceUsersQueryParamFilter.new(
+    updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
+  ),
+  resource_id: '02xcytpi2f2g0na',
+  resource_type: 'group',
+  x_account_id: '<id>'
+)
+res = s.iam.list_resource_users(request: req)
+
+unless res.iam_users_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [Models::Operations::IamListResourceUsersRequest](../../models/operations/iamlistresourceusersrequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[T.nilable(Models::Operations::IamListResourceUsersResponse)](../../models/operations/iamlistresourceusersresponse.md)**
 
 ### Errors
 
@@ -522,6 +827,10 @@ req = Models::Operations::IamListUsersRequest.new(
   expand: 'roles,groups',
   fields_: 'id,remote_id,first_name,last_name,name,primary_email_address,username,roles,groups,status,avatar,is_bot_user,last_active_at,last_login_at,created_at,updated_at,multi_factor_enabled,unified_custom_fields',
   filter: Models::Operations::IamListUsersQueryParamFilter.new(
+    email: 'user@example.com',
+    group_id: 'group_123',
+    organization_id: 'org_456',
+    role_id: 'role_admin',
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   x_account_id: '<id>'

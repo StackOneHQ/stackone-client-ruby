@@ -1,0 +1,11 @@
+# LinkedAccountsPaginated
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `data`                                                                          | T::Array<[Models::Shared::LinkedAccount](../../models/shared/linkedaccount.md)> | :heavy_check_mark:                                                              | The accounts on this page.                                                      |
+| `page`                                                                          | *::Float*                                                                       | :heavy_check_mark:                                                              | The current page number.                                                        |
+| `page_size`                                                                     | *::Float*                                                                       | :heavy_check_mark:                                                              | The number of accounts per page.                                                |
+| `total`                                                                         | *::Float*                                                                       | :heavy_check_mark:                                                              | The total number of accounts matching the request.                              |

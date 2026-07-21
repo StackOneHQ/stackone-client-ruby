@@ -44,9 +44,11 @@ module StackOne
     sig { params(connector_key: T.nilable(::String), enabled: T.nilable(T::Boolean), page: T.nilable(::Float), page_size: T.nilable(::Float), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneListAuthConfigsResponse) }
     def list_auth_configs(connector_key: nil, enabled: nil, page: nil, page_size: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_auth_configs - List Auth Configs
-      # List the auth configs available to the project.
+      # List the auth configs available to the project. Deprecated: use `GET /connector_profiles` instead.
       #
       # If set, this operation will use `password` from the global security.
+      #
+      # @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
       request = Models::Operations::StackoneListAuthConfigsRequest.new(
         connector_key: connector_key,
         enabled: enabled,
@@ -79,7 +81,7 @@ module StackOne
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       timeout ||= @sdk_configuration.timeout
-      
+
 
       connection = @sdk_configuration.client.dup
       connection.request :retry, retry_options
@@ -95,7 +97,7 @@ module StackOne
       error = T.let(nil, T.nilable(StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
-      
+
       begin
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
@@ -132,13 +134,13 @@ module StackOne
             response: http_response
           )
         end
-        
+
         if http_response.nil?
           raise error if !error.nil?
           raise 'no response'
         end
       end
-      
+
       content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
       if Utils.match_status_code(http_response.status, ['200'])
         if Utils.match_content_type(content_type, 'application/json')

@@ -12,22 +12,26 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # The list of step logs
+        field :data, Crystalline::Array.new(Models::Shared::StepLog), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
+        # Pagination metadata
+        field :query, Crystalline::Nilable.new(Models::Shared::StepLogsPaginatedQuery), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
+        # Total number of logs
+        field :total, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('total') } }
 
-        field :data, Crystalline::Array.new(Models::Shared::StepLogPartial), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
-
-        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
-
-        sig { params(data: T::Array[Models::Shared::StepLogPartial], next_: T.nilable(::String)).void }
-        def initialize(data:, next_: nil)
+        sig { params(data: T::Array[Models::Shared::StepLog], query: T.nilable(Models::Shared::StepLogsPaginatedQuery), total: T.nilable(::Float)).void }
+        def initialize(data:, query: nil, total: nil)
           @data = data
-          @next_ = next_
+          @query = query
+          @total = total
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data
-          return false unless @next_ == other.next_
+          return false unless @query == other.query
+          return false unless @total == other.total
           true
         end
       end

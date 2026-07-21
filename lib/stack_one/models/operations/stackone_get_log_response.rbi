@@ -16,6 +16,6 @@ class StackOne::Models::Operations::StackoneGetLogResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
-  def unified_log_result(); end
-  def unified_log_result=(str_); end
+  def unified_log_result_legacy(); end
+  def unified_log_result_legacy=(str_); end
 end

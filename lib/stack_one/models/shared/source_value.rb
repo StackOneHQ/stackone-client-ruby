@@ -7,7 +7,7 @@
 module StackOne
   module Models
     module Shared
-      # The source value of the Channels.
+
       class SourceValue
         extend T::Sig
         include Crystalline::MetadataFields

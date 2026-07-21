@@ -12,102 +12,82 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The account ID of the request
+        # The action run ID
+        field :action_run_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action_run_id'), required: true } }
+        # The type of log
+        field :log_type, Models::Shared::StepLogLogType, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('log_type'), required: true, 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::StepLogLogType, false) } }
+        # The step index
+        field :step_index, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_index'), required: true } }
+        # The account ID
         field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
-        # The requested action
-        field :action, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action') } }
-        # The requested child resource
-        field :child_resource, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('child_resource') } }
-        # The request duration in milliseconds
-        field :duration, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration') } }
+        # The duration in milliseconds
+        field :duration_ms, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_ms') } }
         # The request end time ISO8601 date string
         field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
-        # The requested HTTP method
-        field :http_method, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('http_method') } }
-        # The provider request ID
-        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
-        # The asynchronous worker flag
-        field :is_worker, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('is_worker') } }
-        # The requested path
-        field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
-        # The project ID of the request
+        # The event ISO8601 date string
+        field :event_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('event_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
+        # The message
+        field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
+        # The project ID
         field :project_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_id') } }
-        # The requested provider
-        field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
-        # The advanced log request data
-        field :request, Crystalline::Nilable.new(Models::Shared::Request), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request') } }
-        # The request ID
-        field :request_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id') } }
-        # The requested resource
-        field :resource, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resource') } }
-        # The advanced log response data
-        field :response, Crystalline::Nilable.new(Models::Shared::StepLogResponse), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
-        # The requested service
-        field :service, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
-        # The requests source IPV4 ip address
-        field :source_ip, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source_ip') } }
+        # Whether the step was skipped
+        field :skipped, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('skipped') } }
         # The request start time ISO8601 date string
         field :start_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('start_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
-        # The requests response status code
-        field :status, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
-        # The requested sub resource
-        field :sub_resource, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_resource') } }
-        # The request success flag
+        # The HTTP status code
+        field :status_code, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status_code') } }
+        # The step function name
+        field :step_function_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_function_name') } }
+        # The step function version
+        field :step_function_version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_function_version') } }
+        # The step ID
+        field :step_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_id') } }
+        # The number of iterations
+        field :step_iterations, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('step_iterations') } }
+        # The success flag
         field :success, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('success') } }
-        # The requested URL
-        field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
-        sig { params(account_id: T.nilable(::String), action: T.nilable(::String), child_resource: T.nilable(::String), duration: T.nilable(::Float), end_time: T.nilable(::DateTime), http_method: T.nilable(::String), id: T.nilable(::String), is_worker: T.nilable(T::Boolean), path: T.nilable(::String), project_id: T.nilable(::String), provider: T.nilable(::String), request: T.nilable(Models::Shared::Request), request_id: T.nilable(::String), resource: T.nilable(::String), response: T.nilable(Models::Shared::StepLogResponse), service: T.nilable(::String), source_ip: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(::Float), sub_resource: T.nilable(::String), success: T.nilable(T::Boolean), url: T.nilable(::String)).void }
-        def initialize(account_id: nil, action: nil, child_resource: nil, duration: nil, end_time: nil, http_method: nil, id: nil, is_worker: nil, path: nil, project_id: nil, provider: nil, request: nil, request_id: nil, resource: nil, response: nil, service: nil, source_ip: nil, start_time: nil, status: nil, sub_resource: nil, success: nil, url: nil)
+        sig { params(action_run_id: ::String, log_type: Models::Shared::StepLogLogType, step_index: ::Float, account_id: T.nilable(::String), duration_ms: T.nilable(::Float), end_time: T.nilable(::DateTime), event_time: T.nilable(::DateTime), message: T.nilable(::String), project_id: T.nilable(::String), skipped: T.nilable(T::Boolean), start_time: T.nilable(::DateTime), status_code: T.nilable(::Float), step_function_name: T.nilable(::String), step_function_version: T.nilable(::String), step_id: T.nilable(::String), step_iterations: T.nilable(::Float), success: T.nilable(T::Boolean)).void }
+        def initialize(action_run_id:, log_type:, step_index:, account_id: nil, duration_ms: nil, end_time: nil, event_time: nil, message: nil, project_id: nil, skipped: nil, start_time: nil, status_code: nil, step_function_name: nil, step_function_version: nil, step_id: nil, step_iterations: nil, success: nil)
+          @action_run_id = action_run_id
+          @log_type = log_type
+          @step_index = step_index
           @account_id = account_id
-          @action = action
-          @child_resource = child_resource
-          @duration = duration
+          @duration_ms = duration_ms
           @end_time = end_time
-          @http_method = http_method
-          @id = id
-          @is_worker = is_worker
-          @path = path
+          @event_time = event_time
+          @message = message
           @project_id = project_id
-          @provider = provider
-          @request = request
-          @request_id = request_id
-          @resource = resource
-          @response = response
-          @service = service
-          @source_ip = source_ip
+          @skipped = skipped
           @start_time = start_time
-          @status = status
-          @sub_resource = sub_resource
+          @status_code = status_code
+          @step_function_name = step_function_name
+          @step_function_version = step_function_version
+          @step_id = step_id
+          @step_iterations = step_iterations
           @success = success
-          @url = url
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @action_run_id == other.action_run_id
+          return false unless @log_type == other.log_type
+          return false unless @step_index == other.step_index
           return false unless @account_id == other.account_id
-          return false unless @action == other.action
-          return false unless @child_resource == other.child_resource
-          return false unless @duration == other.duration
+          return false unless @duration_ms == other.duration_ms
           return false unless @end_time == other.end_time
-          return false unless @http_method == other.http_method
-          return false unless @id == other.id
-          return false unless @is_worker == other.is_worker
-          return false unless @path == other.path
+          return false unless @event_time == other.event_time
+          return false unless @message == other.message
           return false unless @project_id == other.project_id
-          return false unless @provider == other.provider
-          return false unless @request == other.request
-          return false unless @request_id == other.request_id
-          return false unless @resource == other.resource
-          return false unless @response == other.response
-          return false unless @service == other.service
-          return false unless @source_ip == other.source_ip
+          return false unless @skipped == other.skipped
           return false unless @start_time == other.start_time
-          return false unless @status == other.status
-          return false unless @sub_resource == other.sub_resource
+          return false unless @status_code == other.status_code
+          return false unless @step_function_name == other.step_function_name
+          return false unless @step_function_version == other.step_function_version
+          return false unless @step_id == other.step_id
+          return false unless @step_iterations == other.step_iterations
           return false unless @success == other.success
-          return false unless @url == other.url
           true
         end
       end

@@ -21,15 +21,15 @@ module StackOne
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # The list of platform logs was retrieved.
-        field :platform_logs_paginated, Crystalline::Nilable.new(Models::Shared::PlatformLogsPaginated)
+        field :platform_logs_paginated_legacy, Crystalline::Nilable.new(Models::Shared::PlatformLogsPaginatedLegacy)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, platform_logs_paginated: T.nilable(Models::Shared::PlatformLogsPaginated)).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:, platform_logs_paginated: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, platform_logs_paginated_legacy: T.nilable(Models::Shared::PlatformLogsPaginatedLegacy)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, platform_logs_paginated_legacy: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
-          @platform_logs_paginated = platform_logs_paginated
+          @platform_logs_paginated_legacy = platform_logs_paginated_legacy
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -39,7 +39,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
-          return false unless @platform_logs_paginated == other.platform_logs_paginated
+          return false unless @platform_logs_paginated_legacy == other.platform_logs_paginated_legacy
           true
         end
       end

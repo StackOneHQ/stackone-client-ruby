@@ -12,22 +12,25 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # Hash of the path parameters used during sync
-        field :path_params_hash, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path_params_hash'), required: true } }
+        # Run ID of the last successful full sync — the generation that produced the currently-readable data. Informational.
+        field :last_full_run_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_full_run_id'), required: true } }
+        # Run ID of the most recent run that produced or refreshed data for this scope. Informational.
+        field :last_run_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_run_id'), required: true } }
+        # Hash of the canonicalized sync parameters (pagination and undeclared keys stripped)
+        field :params_hash, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('params_hash'), required: true } }
         # The unique request ID for this sync read
         field :request_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id'), required: true } }
-        # The run ID for this sync operation
-        field :run_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('run_id'), required: true } }
         # ISO 8601 timestamp of when the synced data expires
         field :sync_expires_at, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sync_expires_at'), required: true } }
         # ISO 8601 timestamp of when the data was synced
         field :synced_at, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('synced_at'), required: true } }
 
-        sig { params(path_params_hash: ::String, request_id: ::String, run_id: ::String, sync_expires_at: ::String, synced_at: ::String).void }
-        def initialize(path_params_hash:, request_id:, run_id:, sync_expires_at:, synced_at:)
-          @path_params_hash = path_params_hash
+        sig { params(last_full_run_id: ::String, last_run_id: ::String, params_hash: ::String, request_id: ::String, sync_expires_at: ::String, synced_at: ::String).void }
+        def initialize(last_full_run_id:, last_run_id:, params_hash:, request_id:, sync_expires_at:, synced_at:)
+          @last_full_run_id = last_full_run_id
+          @last_run_id = last_run_id
+          @params_hash = params_hash
           @request_id = request_id
-          @run_id = run_id
           @sync_expires_at = sync_expires_at
           @synced_at = synced_at
         end
@@ -35,9 +38,10 @@ module StackOne
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @path_params_hash == other.path_params_hash
+          return false unless @last_full_run_id == other.last_full_run_id
+          return false unless @last_run_id == other.last_run_id
+          return false unless @params_hash == other.params_hash
           return false unless @request_id == other.request_id
-          return false unless @run_id == other.run_id
           return false unless @sync_expires_at == other.sync_expires_at
           return false unless @synced_at == other.synced_at
           true

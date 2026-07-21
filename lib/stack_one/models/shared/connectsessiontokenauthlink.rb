@@ -32,12 +32,18 @@ module StackOne
         field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
 
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectSessionTokenAuthLinkCategories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
+        # The connector profile ID associated with this connect session
+        field :connector_profile_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
         # External trigger token to be used to trigger actions on the account
         field :external_trigger_token, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_trigger_token') } }
-        # The integration ID (UUID) associated with this connect session
+        # Deprecated: use `connector_profile_id` instead. The integration ID (UUID) associated with this connect session.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
 
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # The most recent connection attempt initiated against this session, if any. Use this to poll for OAuth completion: when status is "authenticated", the resulting account is at account_secure_id.
+        field :latest_connection_attempt, Crystalline::Nilable.new(Models::Shared::ConnectSessionTokenAuthLinkLatestConnectionAttempt), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('latest_connection_attempt') } }
         # Arbitrary set of key and values defined during the session token creation. This can be used to tag an account (eg. based on their pricing plan)
         field :metadata, Crystalline::Nilable.new(Models::Shared::ConnectSessionTokenAuthLinkMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
 
@@ -47,8 +53,8 @@ module StackOne
         # The connect session account type
         field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionTokenAuthLinkType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectSessionTokenAuthLinkType, true) } }
 
-        sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType)).void }
-        def initialize(auth_link_url:, created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, token:, account_id: nil, categories: nil, external_trigger_token: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
+        sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), connector_profile_id: T.nilable(::String), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), latest_connection_attempt: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkLatestConnectionAttempt), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType)).void }
+        def initialize(auth_link_url:, created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, token:, account_id: nil, categories: nil, connector_profile_id: nil, external_trigger_token: nil, integration_id: nil, label: nil, latest_connection_attempt: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
           @auth_link_url = auth_link_url
           @created_at = created_at
           @id = id
@@ -59,9 +65,11 @@ module StackOne
           @token = token
           @account_id = account_id
           @categories = categories
+          @connector_profile_id = connector_profile_id
           @external_trigger_token = external_trigger_token
           @integration_id = integration_id
           @label = label
+          @latest_connection_attempt = latest_connection_attempt
           @metadata = metadata
           @origin_username = origin_username
           @provider = provider
@@ -81,9 +89,11 @@ module StackOne
           return false unless @token == other.token
           return false unless @account_id == other.account_id
           return false unless @categories == other.categories
+          return false unless @connector_profile_id == other.connector_profile_id
           return false unless @external_trigger_token == other.external_trigger_token
           return false unless @integration_id == other.integration_id
           return false unless @label == other.label
+          return false unless @latest_connection_attempt == other.latest_connection_attempt
           return false unless @metadata == other.metadata
           return false unless @origin_username == other.origin_username
           return false unless @provider == other.provider

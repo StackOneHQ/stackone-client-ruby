@@ -30,6 +30,8 @@ class StackOne::Models::Shared::IamUser
   def multi_factor_enabled=(str_); end
   def name(); end
   def name=(str_); end
+  def permissions(); end
+  def permissions=(str_); end
   def primary_email_address(); end
   def primary_email_address=(str_); end
   def remote_id(); end

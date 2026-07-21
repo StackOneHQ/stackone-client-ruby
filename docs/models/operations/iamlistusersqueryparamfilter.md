@@ -1,10 +1,14 @@
 # IamListUsersQueryParamFilter
 
-Filter parameters that allow greater customisation of the list response
+Filter parameters that allow greater customisation of the list response. Filter support varies per connector — unsupported keys are ignored.
 
 
 ## Fields
 
 | Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `email`                                                                       | *T.nilable(::String)*                                                         | :heavy_minus_sign:                                                            | Filter users by primary email address.                                        | user@example.com                                                              |
+| `group_id`                                                                    | *T.nilable(::String)*                                                         | :heavy_minus_sign:                                                            | Filter users by group membership.                                             | group_123                                                                     |
+| `organization_id`                                                             | *T.nilable(::String)*                                                         | :heavy_minus_sign:                                                            | Filter users by owning organization / tenant.                                 | org_456                                                                       |
+| `role_id`                                                                     | *T.nilable(::String)*                                                         | :heavy_minus_sign:                                                            | Filter users by role assignment.                                              | role_admin                                                                    |
 | `updated_after`                                                               | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)          | :heavy_minus_sign:                                                            | Use a string with a date to only select results updated after that given date | 2020-01-01T00:00:00.000Z                                                      |

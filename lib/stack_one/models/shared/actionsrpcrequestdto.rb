@@ -27,9 +27,9 @@ module StackOne
         # Path parameters for the action
         field :path, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # Query parameters for the action
-        field :query, Crystalline::Nilable.new(Models::Shared::Query), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
+        field :query, Crystalline::Nilable.new(Models::Shared::ActionsRpcRequestDtoQuery), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
 
-        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), defender_config: T.nilable(Models::Shared::DefenderConfig), defender_enabled: T.nilable(T::Boolean), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(Models::Shared::Query)).void }
+        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), defender_config: T.nilable(Models::Shared::DefenderConfig), defender_enabled: T.nilable(T::Boolean), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(Models::Shared::ActionsRpcRequestDtoQuery)).void }
         def initialize(action:, body: nil, defender_config: nil, defender_enabled: nil, headers: nil, path: nil, query: nil)
           @action = action
           @body = body

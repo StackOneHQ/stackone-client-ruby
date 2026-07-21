@@ -191,7 +191,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::StackoneListLinkedAccountsRequest.new
 res = s.accounts.list_linked_accounts(request: req)
 
-unless res.linked_accounts.nil?
+unless res.one_of.nil?
   # handle response
 end
 

@@ -16,6 +16,6 @@ class StackOne::Models::Operations::StackoneListLogsResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
-  def unified_logs_paginated(); end
-  def unified_logs_paginated=(str_); end
+  def logs_paginated(); end
+  def logs_paginated=(str_); end
 end

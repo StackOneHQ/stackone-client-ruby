@@ -1,0 +1,22 @@
+# UnifiedLogsPostDtoOrderDirection
+
+The direction to order the results by
+
+## Example Usage
+
+```ruby
+require "stackone_client"
+
+value = UnifiedLogsPostDtoOrderDirection::ASC
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = UnifiedLogsPostDtoOrderDirection.deserialize("custom_value")
+```
+
+
+## Values
+
+| Name   | Value  |
+| ------ | ------ |
+| `ASC`  | asc    |
+| `DESC` | desc   |

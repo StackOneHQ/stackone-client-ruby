@@ -15,3 +15,4 @@ value = Include::ACTION_DETAILS
 | ----------------------- | ----------------------- |
 | `ACTION_DETAILS`        | action_details          |
 | `AUTHENTICATION_GUIDES` | authentication_guides   |
+| `EVENT_GUIDES`          | event_guides            |

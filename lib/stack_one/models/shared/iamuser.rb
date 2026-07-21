@@ -12,8 +12,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The user's avatar data. This generally contains a URL within this property's 'contents' array.
-        field :avatar, Crystalline::Nilable.new(Models::Shared::IamUserAvatar), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
+        # The user's avatar data. This generally contains a URL within this property's 'contents' array. May be either a single File object or an array of File objects depending on the connector — both forms are supported.
+        field :avatar, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::FileSchemas, Crystalline::Array.new(Models::Shared::File))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('avatar') } }
         # The date the user was created
         field :created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('created_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
@@ -34,6 +34,8 @@ module StackOne
         field :multi_factor_enabled, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamMfaTypeEnum)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('multi_factor_enabled') } }
         # User's name which (can be a full name or display name)
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
+        # Direct permissions granted to the user (not inherited via roles or groups).
+        field :permissions, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::IamPermission)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('permissions') } }
         # Primary email address of the user. This is generally a work email address.
         field :primary_email_address, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email_address') } }
         # Provider's unique identifier
@@ -49,8 +51,8 @@ module StackOne
 
         field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 
-        sig { params(avatar: T.nilable(Models::Shared::IamUserAvatar), created_at: T.nilable(::DateTime), first_name: T.nilable(::String), groups: T.nilable(T::Array[Models::Shared::IamGroup]), id: T.nilable(::String), is_bot_user: T.nilable(T.any(T::Boolean, Models::Shared::IamUser2)), last_active_at: T.nilable(::DateTime), last_login_at: T.nilable(::DateTime), last_name: T.nilable(::String), multi_factor_enabled: T.nilable(T::Array[Models::Shared::IamMfaTypeEnum]), name: T.nilable(::String), primary_email_address: T.nilable(::String), remote_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), status: T.nilable(Models::Shared::IamUserStatus), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), username: T.nilable(::String)).void }
-        def initialize(avatar: nil, created_at: nil, first_name: nil, groups: nil, id: nil, is_bot_user: nil, last_active_at: nil, last_login_at: nil, last_name: nil, multi_factor_enabled: nil, name: nil, primary_email_address: nil, remote_id: nil, roles: nil, status: nil, unified_custom_fields: nil, updated_at: nil, username: nil)
+        sig { params(avatar: T.nilable(T.any(Models::Shared::FileSchemas, T::Array[Models::Shared::File])), created_at: T.nilable(::DateTime), first_name: T.nilable(::String), groups: T.nilable(T::Array[Models::Shared::IamGroup]), id: T.nilable(::String), is_bot_user: T.nilable(T.any(T::Boolean, Models::Shared::IamUser2)), last_active_at: T.nilable(::DateTime), last_login_at: T.nilable(::DateTime), last_name: T.nilable(::String), multi_factor_enabled: T.nilable(T::Array[Models::Shared::IamMfaTypeEnum]), name: T.nilable(::String), permissions: T.nilable(T::Array[Models::Shared::IamPermission]), primary_email_address: T.nilable(::String), remote_id: T.nilable(::String), roles: T.nilable(T::Array[Models::Shared::IamRole]), status: T.nilable(Models::Shared::IamUserStatus), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), username: T.nilable(::String)).void }
+        def initialize(avatar: nil, created_at: nil, first_name: nil, groups: nil, id: nil, is_bot_user: nil, last_active_at: nil, last_login_at: nil, last_name: nil, multi_factor_enabled: nil, name: nil, permissions: nil, primary_email_address: nil, remote_id: nil, roles: nil, status: nil, unified_custom_fields: nil, updated_at: nil, username: nil)
           @avatar = avatar
           @created_at = created_at
           @first_name = first_name
@@ -62,6 +64,7 @@ module StackOne
           @last_name = last_name
           @multi_factor_enabled = multi_factor_enabled
           @name = name
+          @permissions = permissions
           @primary_email_address = primary_email_address
           @remote_id = remote_id
           @roles = roles
@@ -85,6 +88,7 @@ module StackOne
           return false unless @last_name == other.last_name
           return false unless @multi_factor_enabled == other.multi_factor_enabled
           return false unless @name == other.name
+          return false unless @permissions == other.permissions
           return false unless @primary_email_address == other.primary_email_address
           return false unless @remote_id == other.remote_id
           return false unless @roles == other.roles

@@ -7,22 +7,38 @@
 module StackOne
   module Models
     module Operations
-      # Filter parameters that allow greater customisation of the list response
+      # Filter parameters that allow greater customisation of the list response. Filter support varies per connector — unsupported keys are ignored.
       class IamListUsersQueryParamFilter
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Filter users by primary email address.
+        field :email, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'email' } }
+        # Filter users by group membership.
+        field :group_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'group_id' } }
+        # Filter users by owning organization / tenant.
+        field :organization_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'organization_id' } }
+        # Filter users by role assignment.
+        field :role_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'role_id' } }
         # Use a string with a date to only select results updated after that given date
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after' } }
 
-        sig { params(updated_after: T.nilable(::DateTime)).void }
-        def initialize(updated_after: nil)
+        sig { params(email: T.nilable(::String), group_id: T.nilable(::String), organization_id: T.nilable(::String), role_id: T.nilable(::String), updated_after: T.nilable(::DateTime)).void }
+        def initialize(email: nil, group_id: nil, organization_id: nil, role_id: nil, updated_after: nil)
+          @email = email
+          @group_id = group_id
+          @organization_id = organization_id
+          @role_id = role_id
           @updated_after = updated_after
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @email == other.email
+          return false unless @group_id == other.group_id
+          return false unless @organization_id == other.organization_id
+          return false unless @role_id == other.role_id
           return false unless @updated_after == other.updated_after
           true
         end
