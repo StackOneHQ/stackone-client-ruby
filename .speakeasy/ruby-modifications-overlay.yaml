@@ -20,6 +20,36 @@ actions:
     update:
       $ref: "#/components/schemas/StepLogPartialLegacy"
 
+  # The live GET /accounts response omits created_at/updated_at for some providers
+  # (e.g. linkedin_lms), but the spec marks them required + non-nullable. Crystalline's
+  # strict from_dict then raises KeyError on the missing key, and because the /accounts
+  # 200 oneOf branches both wrap LinkedAccount, the whole paginated response fails to
+  # deserialize (returns nil). Make the two timestamps nullable AND drop them from
+  # required so the generated model tolerates their absence.
+  - target: "$.components.schemas.LinkedAccount.properties.created_at"
+    description: Allow created_at to be absent/null in LinkedAccount responses
+    update:
+      nullable: true
+
+  - target: "$.components.schemas.LinkedAccount.properties.updated_at"
+    description: Allow updated_at to be absent/null in LinkedAccount responses
+    update:
+      nullable: true
+
+  - target: "$.components.schemas.LinkedAccount.required"
+    description: Remove created_at/updated_at from required (API omits them for some providers)
+    remove: true
+
+  - target: "$.components.schemas.LinkedAccount"
+    description: Re-add LinkedAccount.required without the two optional timestamps
+    update:
+      required:
+        - id
+        - provider
+        - status
+        - origin_owner_id
+        - origin_owner_name
+
   - target: "$.components.schemas"
     description: Add missing ActionsRpcResponse schema definition
     update:
