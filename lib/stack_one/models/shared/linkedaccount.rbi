@@ -8,8 +8,6 @@ end
 
 
 class StackOne::Models::Shared::LinkedAccount
-  def created_at(); end
-  def created_at=(str_); end
   def id(); end
   def id=(str_); end
   def origin_owner_id(); end
@@ -20,10 +18,10 @@ class StackOne::Models::Shared::LinkedAccount
   def provider=(str_); end
   def status(); end
   def status=(str_); end
-  def updated_at(); end
-  def updated_at=(str_); end
   def categories(); end
   def categories=(str_); end
+  def created_at(); end
+  def created_at=(str_); end
   def credentials(); end
   def credentials=(str_); end
   def label(); end
@@ -40,4 +38,6 @@ class StackOne::Models::Shared::LinkedAccount
   def status_reasons=(str_); end
   def type(); end
   def type=(str_); end
+  def updated_at(); end
+  def updated_at=(str_); end
 end

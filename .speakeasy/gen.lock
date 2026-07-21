@@ -1,20 +1,20 @@
 lockVersion: 2.0.0
 id: 482384cc-3b98-4ced-bd0b-14aa8b3e0053
 management:
-  docChecksum: 966c26b0d7f77a40e13b68959e8a9cf7
+  docChecksum: 33527700549d0c6fd064530f36d2892b
   docVersion: 1.0.0
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 0.41.0
-  configChecksum: 433aea910ac8f18f79206fc69272ee95
+  releaseVersion: 0.41.1
+  configChecksum: 825800d6c48f6b1308af01fe8766a912
   repoURL: https://github.com/StackOneHQ/stackone-client-ruby.git
   repoSubDirectory: .
   installationURL: https://github.com/StackOneHQ/stackone-client-ruby
   published: true
 persistentEdits:
-  generation_id: b8cbf235-ed54-4e2a-8104-b34bad263fb5
-  pristine_commit_hash: b636510c8ed5d53c0daafee5836b7c7401b02fd4
-  pristine_tree_hash: 507dc7957df174faf7988d3aa257e7d477d90d2e
+  generation_id: 48f272f0-071a-4c0b-acb7-8de72f465648
+  pristine_commit_hash: 91fbb9f8212de53a05775fd9193d1887cd2ef66e
+  pristine_tree_hash: 83210972ee8e091bed563d25c2bff79b7c8dcbd2
 features:
   ruby:
     additionalProperties: 0.1.1
@@ -54,8 +54,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:bbe9a487ec642a1db986e197403b4780ced65daa
-    pristine_git_object: 4b2a542bdbe93e93eccaf9e91346ebbdad8dd9c7
+    last_write_checksum: sha1:32b9a2301819795b75d200f0f879e6f16864f41d
+    pristine_git_object: d1b84e5e8d65e1ea9260b8cf3db12d8386c5f016
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:c572639efdae8c7b24141ee5c02d8f009e101ed8
@@ -8230,8 +8230,8 @@ trackedFiles:
     pristine_git_object: 46deb2e6ca206eafa6a2ead8903a80e111c8448b
   docs/models/shared/linkedaccount.md:
     id: 88c6f212c747
-    last_write_checksum: sha1:a92482bff0801995403d7f1c1a689176ae6e3734
-    pristine_git_object: ef33737405808fb0fbc5bea6da366039ef2ac909
+    last_write_checksum: sha1:a397daa2c59e6cfff46a6cbe0bffbe5b45432977
+    pristine_git_object: 2d5b6340d17b72ce73d8af1d2fc243d2776ca464
   docs/models/shared/linkedaccountmeta.md:
     id: a1b133489cf0
     last_write_checksum: sha1:073fa91c4b3643621eb8749522c55cb0fa95fc45
@@ -26986,12 +26986,12 @@ trackedFiles:
     pristine_git_object: 5d053eb87da203caef24e12a3f6a1d3f5450b0e9
   lib/stack_one/models/shared/linkedaccount.rb:
     id: 2c0b6ed98d97
-    last_write_checksum: sha1:224268f12b1f47d18b429eeebee5511497c69606
-    pristine_git_object: f7af0c4708f17fce2e58a5740761b40a2fd1a034
+    last_write_checksum: sha1:661141ce91df73d7fb13f93444a51f3783d08bc8
+    pristine_git_object: a6eb813572a479894d04b5ebaad03beac1aa9413
   lib/stack_one/models/shared/linkedaccount.rbi:
     id: 9705f2a39cdc
-    last_write_checksum: sha1:d69105ae80538145cf24db100f0f7823a93323e5
-    pristine_git_object: 82bc8bbed506d04bf2385d8d1d20173afb72154d
+    last_write_checksum: sha1:ebc313250559cfc54de962ddaae5af186b200d25
+    pristine_git_object: 7d3b5799cc8f224b4198b995558c7bab87e7451a
   lib/stack_one/models/shared/linkedaccount_status.rb:
     id: 628236e35f39
     last_write_checksum: sha1:0f5348861485081c14e9454c7ee9b40d2a9eea24
@@ -31462,8 +31462,8 @@ trackedFiles:
     pristine_git_object: 639acd413c3c7dda15d946d388661dad3fd97837
   lib/stack_one/sdkconfiguration.rb:
     id: 073fab24bd77
-    last_write_checksum: sha1:2a933a73a083c948089e5843b4456a76c1501d54
-    pristine_git_object: f0fd4b268b64cf6ca86ea62ceeb8e0afb974e65e
+    last_write_checksum: sha1:777c521eb44cffffa351defaa3d18ff9e24477db
+    pristine_git_object: 7d1db86bc4d9d7ff6aace61774085ad303988562
   lib/stack_one/sdkconfiguration.rbi:
     id: b14272994fad
     last_write_checksum: sha1:10f1877c55e4df6d6b8ee7d75f4d0cd9f23c06cb
@@ -31534,8 +31534,8 @@ trackedFiles:
     pristine_git_object: fd79b01b9f6c3054247d35f984063b0d70a76bd6
   stackone_client.gemspec:
     id: 441a330b877d
-    last_write_checksum: sha1:b97b5cdcf827fa30314dd34116cf0464e8b390a5
-    pristine_git_object: 0629abf9da165899fba099d463e632c045627540
+    last_write_checksum: sha1:2b9dd46c93a96488e27ce706f61ca9fbf8cb15d9
+    pristine_git_object: bb62d2f391c6106dc0a566c709df8c0f6c13441a
 examples:
   stackone_delete_account:
     speakeasy-default-stackone-delete-account:
@@ -31544,7 +31544,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"categories": ["hris", "ats"], "created_at": "2025-01-30T21:22:02.040Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "production", "updated_at": "2024-01-10T01:05:41.203Z"}
+          application/json: {"categories": ["hris", "ats"], "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "production"}
         "400":
           application/json: {"data": {"headers": {}, "message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"headers": {}, "raw": {}, "status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -31574,7 +31574,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"categories": ["hris", "ats"], "created_at": "2025-10-07T17:30:47.570Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "test", "updated_at": "2023-07-13T17:14:17.764Z"}
+          application/json: {"categories": ["hris", "ats"], "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "test"}
         "400":
           application/json: {"data": {"headers": {}, "message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"headers": {}, "raw": {}, "status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -31666,7 +31666,7 @@ examples:
         application/json: {"type": "test"}
       responses:
         "200":
-          application/json: {"categories": ["hris", "ats"], "created_at": "2025-04-07T14:23:42.615Z", "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "production", "updated_at": "2025-12-20T06:06:31.847Z"}
+          application/json: {"categories": ["hris", "ats"], "id": "<id>", "origin_owner_id": "<id>", "origin_owner_name": "<value>", "provider": "<value>", "status": "error", "type": "production"}
         "400":
           application/json: {"data": {"headers": {}, "message": "Bad Request", "statusCode": 400}, "message": "Bad Request", "provider_errors": [{"headers": {}, "raw": {}, "status": 400, "url": "https://api.provider.com/v1/resource"}], "statusCode": 400, "timestamp": "2023-05-30T00:00:00.000Z"}
         "401":
@@ -43463,7 +43463,12 @@ examples:
           application/json: {"message": "Bad Gateway", "statusCode": 502, "timestamp": "2023-05-30T00:00:00.000Z"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Ruby SDK Changes:\n* `stack_one.accounts.list_linked_accounts()`:  `response` **Changed** (Breaking ⚠️)\n* `stack_one.iam.list_users()`: \n  *  `request.filter` **Changed**\n  *  `response.data[]` **Changed** (Breaking ⚠️)\n* `stack_one.iam.list_roles()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `stack_one.iam.list_policies()`:  `response.data[].permissions[]` **Changed** (Breaking ⚠️)\n* `stack_one.iam.list_groups()`:  `response.data[]` **Changed** (Breaking ⚠️)\n* `stack_one.iam.get_user()`:  `response.data` **Changed** (Breaking ⚠️)\n* `stack_one.iam.get_role()`:  `response.data` **Changed** (Breaking ⚠️)\n* `stack_one.iam.get_policy()`:  `response.data.permissions[]` **Changed** (Breaking ⚠️)\n* `stack_one.iam.get_group()`:  `response.data` **Changed** (Breaking ⚠️)\n* `stack_one.request_logs.get_log()`:  `response.data.step_requests[]` **Changed** (Breaking ⚠️)\n* `stack_one.mcp.mcp_post()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.status[200]` **Changed**\n* `stack_one.actions.rpc_action_synced()`: \n  *  `request.actions_rpc_synced_request_dto` **Changed** (Breaking ⚠️)\n  *  `response.datasync` **Changed** (Breaking ⚠️)\n* `stack_one.actions.rpc_action()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `stack_one.logs.get_step_advanced_log()`: **Added**\n* `stack_one.accounts.get_account()`:  `response.categories` **Added**\n* `stack_one.logs.get_unified_advanced_log()`: **Added**\n* `stack_one.logs.get_unified_log()`: **Added**\n* `stack_one.logs.list_action_logs()`: **Added**\n* `stack_one.logs.list_action_step_logs()`: **Added**\n* `stack_one.logs.list_logs()`: **Added**\n* `stack_one.logs.list_provider_logs()`: **Added**\n* `stack_one.logs.list_step_logs()`: **Added**\n* `stack_one.logs.list_unified_logs()`: **Added**\n* `stack_one.logs.list_unified_provider_logs()`: **Added**\n* `stack_one.request_logs.list_logs_legacy()`: **Added**\n* `stack_one.request_logs.list_step_logs_legacy()`: **Added**\n* `stack_one.iam.get_me()`: **Added**\n* `stack_one.iam.get_organization()`: **Added**\n* `stack_one.iam.list_organizations()`: **Added**\n* `stack_one.iam.list_resource_types()`: **Added**\n* `stack_one.iam.list_resource_users()`: **Added**\n* `stack_one.request_logs.list_logs()`: **Removed** (Breaking ⚠️)\n* `stack_one.request_logs.list_step_logs()`: **Removed** (Breaking ⚠️)\n* `stack_one.accounts.delete_account()`:  `response.categories` **Added**\n* `stack_one.logs.get_step_log()`: **Added**\n* `stack_one.connect_sessions.get_connect_session()`: **Added**\n* `stack_one.accounts.update_account()`: \n  *  `request.patch_account_external_dto.connector_profile_id` **Added**\n  *  `response.categories` **Added**\n* `stack_one.actions.list_actions_meta()`: \n  *  `request.include` **Changed**\n  *  `response.data[]` **Changed**\n* `stack_one.logs.get_provider_log()`: **Added**\n* `stack_one.logs.get_provider_advanced_log()`: **Added**\n* `stack_one.auth_configs.list_auth_configs()`: **Deprecated**\n* `stack_one.connect_sessions.authenticate_connect_session()`:  `response` **Changed**\n* `stack_one.connect_sessions.create_connect_session()`: \n  *  `request.connector_profile_id` **Added**\n  *  `response` **Changed**\n* `stack_one.logs.get_logs_stats_dimensions()`: **Added**\n* `stack_one.request_logs.get_log()`: **Deprecated**\n* `stack_one.logs.get_logs_stats_aggregate()`: **Added**\n* `stack_one.request_logs.list_platform_logs()`: **Deprecated**\n* `stack_one.logs.get_action_log()`: **Added**\n* `stack_one.logs.get_action_defender_log()`: **Added**\n* `stack_one.logs.get_action_advanced_log()`: **Added**\n* `stack_one.connector_profiles.upsert_connector_profile_pinned_version()`: **Added**\n* `stack_one.connector_profiles.list_connector_profiles()`: **Added**\n* `stack_one.connector_profiles.list_connector_profile_versions()`: **Added**\n* `stack_one.connector_profiles.get_connector_profile_pinned_version()`: **Added**\n* `stack_one.connector_profiles.delete_connector_profile_pinned_version()`: **Added**\n"
+releaseNotes: |
+  ## Ruby SDK Changes:
+  * `stack_one.accounts.delete_account()`:  `response` **Changed** (Breaking ⚠️)
+  * `stack_one.accounts.get_account()`:  `response` **Changed** (Breaking ⚠️)
+  * `stack_one.accounts.list_linked_accounts()`:  `response.union(LinkedAccountsPaginated).data[]` **Changed** (Breaking ⚠️)
+  * `stack_one.accounts.update_account()`:  `response` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .gitattributes
   - .rubocop.yml
