@@ -16,11 +16,17 @@ module StackOne
         field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
         # Cosine similarity score (0-1)
         field :similarity_score, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('similarity_score'), required: true } }
+        # Prerequisite action IDs that should be run first to obtain IDs this action needs
+        field :prerequisite_actions, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('prerequisite_actions') } }
+        # Human-readable tool name
+        field :tool_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tool_name') } }
 
-        sig { params(id: ::String, similarity_score: ::Float).void }
-        def initialize(id:, similarity_score:)
+        sig { params(id: ::String, similarity_score: ::Float, prerequisite_actions: T.nilable(T::Array[::String]), tool_name: T.nilable(::String)).void }
+        def initialize(id:, similarity_score:, prerequisite_actions: nil, tool_name: nil)
           @id = id
           @similarity_score = similarity_score
+          @prerequisite_actions = prerequisite_actions
+          @tool_name = tool_name
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -28,6 +34,8 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @similarity_score == other.similarity_score
+          return false unless @prerequisite_actions == other.prerequisite_actions
+          return false unless @tool_name == other.tool_name
           true
         end
       end

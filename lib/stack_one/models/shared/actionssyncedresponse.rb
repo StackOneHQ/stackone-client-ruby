@@ -14,12 +14,15 @@ module StackOne
 
         # Metadata about the datasync operation
         field :datasync, Models::Shared::ActionsSyncedDatasync, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('datasync'), required: true } }
+        # Present instead of `data` when the request set `aggs`: the OpenSearch aggregation results, keyed the same as the requested `aggs`.
+        field :aggregations, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('aggregations') } }
         # The synced records for the requested action
         field :data, Crystalline::Nilable.new(Crystalline::Array.new(Crystalline::Hash.new(Symbol, ::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
 
-        sig { params(datasync: Models::Shared::ActionsSyncedDatasync, data: T.nilable(T::Array[T::Hash[Symbol, ::Object]])).void }
-        def initialize(datasync:, data: nil)
+        sig { params(datasync: Models::Shared::ActionsSyncedDatasync, aggregations: T.nilable(T::Hash[Symbol, ::Object]), data: T.nilable(T::Array[T::Hash[Symbol, ::Object]])).void }
+        def initialize(datasync:, aggregations: nil, data: nil)
           @datasync = datasync
+          @aggregations = aggregations
           @data = data
         end
 
@@ -27,6 +30,7 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @datasync == other.datasync
+          return false unless @aggregations == other.aggregations
           return false unless @data == other.data
           true
         end

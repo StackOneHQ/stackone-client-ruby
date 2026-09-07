@@ -16,4 +16,6 @@ class StackOne::Models::Operations::StackoneGetLogsStatsDimensionsResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
+  def logs_dimensions(); end
+  def logs_dimensions=(str_); end
 end
