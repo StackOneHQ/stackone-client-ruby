@@ -86,7 +86,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -334,7 +334,7 @@ module StackOne
     sig { params(check_permissions_request_dto: Models::Shared::CheckPermissionsRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneCheckPermissionsResponse) }
     def check_permissions(check_permissions_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # check_permissions - Check user permissions on a resource
-      # Checks what permissions a user has on a given resource. Delegates to the connected provider's unified_check_permissions action.
+      # Checks what permissions a user has on a given resource. Delegates to the connected provider's `unified_check_permissions` action.
       #
       # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneCheckPermissionsRequest.new(
@@ -381,7 +381,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -661,7 +661,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -985,7 +985,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -1234,7 +1234,7 @@ module StackOne
     sig { params(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto, page_size: T.nilable(::Float), skip: T.nilable(::Float), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneRpcActionSyncedResponse) }
     def rpc_action_synced(actions_rpc_synced_request_dto:, page_size: nil, skip: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # rpc_action_synced - Read synced action data from the datasync index
-      # Returns previously synced data for the specified action from the OpenSearch index
+      # Returns previously synced data for an action, read from the Data Sync index rather than the provider. Responds with a refusal when no sync can be selected to serve the read.
       #
       # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneRpcActionSyncedRequest.new(
@@ -1282,7 +1282,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -1350,13 +1350,13 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ActionsSyncedResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Crystalline::Union.new(Models::Shared::ActionsSyncedResponse, Models::Shared::ActionsSyncedRefusal))
           response = Models::Operations::StackoneRpcActionSyncedResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
             headers: {},
-            actions_synced_response: T.unsafe(obj)
+            one_of: T.unsafe(obj)
           )
 
           return response
@@ -1531,6 +1531,7 @@ module StackOne
     sig { params(request: Models::Shared::ActionSearchDto, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneSearchActionsResponse) }
     def search_actions(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # search_actions - Search connector actions by semantic similarity
+      # Ranks the project's connector actions by how closely they match a natural-language query, so an agent can find the right action without reading the whole catalog.
       #
       # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
@@ -1572,7 +1573,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,

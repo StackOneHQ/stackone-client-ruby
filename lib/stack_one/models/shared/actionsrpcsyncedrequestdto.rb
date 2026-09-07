@@ -14,36 +14,64 @@ module StackOne
 
         # The action to execute
         field :action, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action'), required: true } }
-        # Request body for the action. Must match the body used when the run was written so the params_hash resolves to the same synced run.
+        # OpenSearch aggregations object. When set, aggregation results are returned instead of records, and `source`, `sort`, `page_size` and `skip` are ignored (`filter` still applies).
+        field :aggs, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('aggs') } }
+        # Accepted for backwards compatibility but ignored on this endpoint: synced reads no longer select the run by request body. Use `sync_id` to choose which sync to read.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :body, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
-        # Filter parameters to scope the synced action
+        # OpenSearch-style filter (Query DSL) (term / terms / range / wildcard / match / match_phrase / exists / bool) over synced fields. match / match_phrase do word-level search (string fields only, case-insensitive); wildcard matches patterns (case-sensitive). Use field names exactly as returned in the action's "queryable_fields".
         field :filter, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('filter') } }
-        # Headers for the action. Must match the headers used when the run was written so the params_hash resolves to the same synced run.
+        # Accepted for backwards compatibility but ignored on this endpoint: synced reads no longer select the run by headers. Use `sync_id` to choose which sync to read.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
-        # Path parameters for the action
+        # Accepted for backwards compatibility but ignored on this endpoint: synced reads no longer select the run by path parameters. Use `sync_id` to choose which sync to read.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :path, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
-        # Query parameters for the action. Must match the query params used when the run was written so the params_hash resolves to the same synced run.
+        # Accepted for backwards compatibility but ignored on this endpoint: synced reads no longer select the run by query parameters. Use `sync_id` to choose which sync to read.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :query, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
+        # Free-text search over the record's text fields, ranked by relevance. Supports "quoted phrases", +required / -excluded terms, and prefix* — lenient (never errors). Combine with `filter` to narrow; results are relevance-ranked unless an explicit sort is given.
+        field :search, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('search') } }
+        # OpenSearch-style sort. Each entry is either a field name (ascending) or an object keyed by field name: `{"last_name": "desc"}`, or the nested form `{"last_name": {"order": "desc"}}`. Earlier entries take priority.
+        field :sort, Crystalline::Nilable.new(Crystalline::Array.new(::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sort') } }
+        # Field names to return (projection) — omit to return all fields. Shrinks the response.
+        field :source, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
+        # Which sync to read, when the account has more than one sync of this action. Omit when there is only one. A named sync is never substituted if it is gone. Naming one that no longer exists is rejected with a `400`.
+        field :sync_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sync_id') } }
 
-        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), filter: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(action:, body: nil, filter: nil, headers: nil, path: nil, query: nil)
+        sig { params(action: ::String, aggs: T.nilable(T::Hash[Symbol, ::Object]), body: T.nilable(T::Hash[Symbol, ::Object]), filter: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(T::Hash[Symbol, ::Object]), search: T.nilable(::String), sort: T.nilable(T::Array[::Object]), source: T.nilable(T::Array[::String]), sync_id: T.nilable(::String)).void }
+        def initialize(action:, aggs: nil, body: nil, filter: nil, headers: nil, path: nil, query: nil, search: nil, sort: nil, source: nil, sync_id: nil)
           @action = action
+          @aggs = aggs
           @body = body
           @filter = filter
           @headers = headers
           @path = path
           @query = query
+          @search = search
+          @sort = sort
+          @source = source
+          @sync_id = sync_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @action == other.action
+          return false unless @aggs == other.aggs
           return false unless @body == other.body
           return false unless @filter == other.filter
           return false unless @headers == other.headers
           return false unless @path == other.path
           return false unless @query == other.query
+          return false unless @search == other.search
+          return false unless @sort == other.sort
+          return false unless @source == other.source
+          return false unless @sync_id == other.sync_id
           true
         end
       end

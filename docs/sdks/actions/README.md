@@ -71,7 +71,7 @@ end
 
 ## check_permissions
 
-Checks what permissions a user has on a given resource. Delegates to the connected provider's unified_check_permissions action.
+Checks what permissions a user has on a given resource. Delegates to the connected provider's `unified_check_permissions` action.
 
 ### Example Usage
 
@@ -274,7 +274,7 @@ end
 
 ## rpc_action_synced
 
-Returns previously synced data for the specified action from the OpenSearch index
+Returns previously synced data for an action, read from the Data Sync index rather than the provider. Responds with a refusal when no sync can be selected to serve the read.
 
 ### Example Usage
 
@@ -291,24 +291,30 @@ s = ::StackOne::StackOne.new(
 )
 res = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(
   action: 'create_employee',
-  body: {
-    'search' => 'John',
+  aggs: {
+    'by_status' => {
+      'terms' => {
+        'field' => 'employment_status',
+      },
+    },
   },
   filter: {
     'status' => 'active',
   },
-  headers: {
-    'x-custom-header' => 'value',
-  },
-  path: {
-    'id' => '123',
-  },
-  query: {
-    'account_id' => 'abc',
-  }
+  search: 'onboarding safety',
+  sort: [
+    {
+      'last_name' => 'desc',
+    },
+  ],
+  source: [
+    'first_name',
+    'email',
+  ],
+  sync_id: 'sch_01J8Z3Q4'
 ), page_size: 25.0, skip: 0.0)
 
-unless res.actions_synced_response.nil?
+unless res.one_of.nil?
   # handle response
 end
 
@@ -345,7 +351,7 @@ end
 
 ## search_actions
 
-Search connector actions by semantic similarity
+Ranks the project's connector actions by how closely they match a natural-language query, so an agent can find the right action without reading the whole catalog.
 
 ### Example Usage
 
