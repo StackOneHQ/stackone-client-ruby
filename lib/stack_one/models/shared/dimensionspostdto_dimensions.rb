@@ -23,6 +23,8 @@ module StackOne
           STATUS_CODE = new('status_code')
           ORIGIN_OWNER_ID = new('origin_owner_id')
           SOURCE_ID = new('source_id')
+          AUTH_TYPE = new('auth_type')
+          AUTH_ID = new('auth_id')
           IS_BACKGROUND = new('is_background')
         end
       end

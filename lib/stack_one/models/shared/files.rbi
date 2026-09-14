@@ -28,6 +28,8 @@ class StackOne::Models::Shared::Files
   def has_children=(str_); end
   def has_content(); end
   def has_content=(str_); end
+  def icon(); end
+  def icon=(str_); end
   def id(); end
   def id=(str_); end
   def name(); end

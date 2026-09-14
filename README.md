@@ -124,11 +124,21 @@ require 'stackone_client'
 
 Models = ::StackOne::Models
 s = ::StackOne::StackOne.new
-res = s.mcp.mcp_delete(security: Models::Operations::StackoneMcpDeleteSecurity.new(
 
-), mcp_session_id: '<id>', x_account_id: '<id>')
+req = Models::Operations::StackoneMcpPostRequest.new(
+  json_rpc_message_dto: Models::Shared::JsonRpcMessageDto.new(
+    id: 'init-1',
+    jsonrpc: '2.0',
+    method: 'initialize',
+    params: Models::Shared::Params.new
+  ),
+  x_account_id: '<id>'
+)
+res = s.mcp.mcp_post(request: req, security: Models::Operations::StackoneMcpPostSecurity.new(
 
-if res.status_code == 200
+))
+
+unless res.object.nil?
   # handle response
 end
 
@@ -434,6 +444,7 @@ end
 * [list_action_logs](docs/sdks/logs/README.md#list_action_logs) - List Action Logs
 * [list_action_step_logs](docs/sdks/logs/README.md#list_action_step_logs) - List Action Step Logs
 * [list_logs](docs/sdks/logs/README.md#list_logs) - List Logs
+* [list_platform_logs](docs/sdks/logs/README.md#list_platform_logs) - List Platform Logs
 * [list_provider_logs](docs/sdks/logs/README.md#list_provider_logs) - List Provider Logs
 * [list_step_logs](docs/sdks/logs/README.md#list_step_logs) - List Step Logs
 * [list_unified_logs](docs/sdks/logs/README.md#list_unified_logs) - List Unified Logs
@@ -470,8 +481,6 @@ end
 
 ### [Mcp](docs/sdks/mcp/README.md)
 
-* [mcp_delete](docs/sdks/mcp/README.md#mcp_delete) - Delete MCP session
-* [mcp_get](docs/sdks/mcp/README.md#mcp_get) - Open MCP SSE stream
 * [mcp_post](docs/sdks/mcp/README.md#mcp_post) - Send MCP JSON-RPC message
 
 ### [Messaging](docs/sdks/messaging/README.md)
@@ -491,13 +500,6 @@ end
 ### [~~Proxy~~](docs/sdks/proxy/README.md)
 
 * [~~proxy_request~~](docs/sdks/proxy/README.md#proxy_request) - Proxy Request (Legacy) :warning: **Deprecated**
-
-### [~~RequestLogs~~](docs/sdks/requestlogs/README.md)
-
-* [~~get_log~~](docs/sdks/requestlogs/README.md#get_log) - Get Log :warning: **Deprecated**
-* [~~list_logs_legacy~~](docs/sdks/requestlogs/README.md#list_logs_legacy) - List Logs :warning: **Deprecated**
-* [~~list_platform_logs~~](docs/sdks/requestlogs/README.md#list_platform_logs) - List Platform Logs :warning: **Deprecated**
-* [~~list_step_logs_legacy~~](docs/sdks/requestlogs/README.md#list_step_logs_legacy) - List Step Logs :warning: **Deprecated**
 
 ### [Screening](docs/sdks/screening/README.md)
 

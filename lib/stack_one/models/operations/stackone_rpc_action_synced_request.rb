@@ -14,9 +14,9 @@ module StackOne
 
 
         field :actions_rpc_synced_request_dto, Models::Shared::ActionsRpcSyncedRequestDto, { 'request': { 'media_type': 'application/json' } }
-        # The number of results to return per page
+        # The number of results to return per page (minimum 1, maximum 200, default 100)
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
-        # The number of results to skip before returning results
+        # The number of results to skip before returning results. skip + page_size cannot exceed 10000 (page_size defaulting to 100 when omitted); narrow the filter to reach records beyond that.
         field :skip, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'skip', 'style': 'form', 'explode': true } }
 
         sig { params(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto, page_size: T.nilable(::Float), skip: T.nilable(::Float)).void }

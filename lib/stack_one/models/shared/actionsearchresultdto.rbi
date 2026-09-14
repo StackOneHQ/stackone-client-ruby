@@ -12,4 +12,6 @@ class StackOne::Models::Shared::ActionSearchResultDto
   def id=(str_); end
   def similarity_score(); end
   def similarity_score=(str_); end
+  def prerequisite_actions(); end
+  def prerequisite_actions=(str_); end
 end

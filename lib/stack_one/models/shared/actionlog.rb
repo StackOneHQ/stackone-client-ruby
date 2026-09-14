@@ -32,6 +32,8 @@ module StackOne
         field :auth_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('auth_type') } }
         # The category
         field :category, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+        # The connector display data — name, logo and categories. Only present when requested via `?expand=connector`; `connector_key`, `connector_version` and `connector_owner` are always returned regardless.
+        field :connector, Crystalline::Nilable.new(Models::Shared::Connector), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector') } }
         # The connector key
         field :connector_key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_key') } }
         # The connector owner
@@ -87,8 +89,8 @@ module StackOne
         # The user agent
         field :user_agent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_agent') } }
 
-        sig { params(action_run_id: ::String, log_id: ::String, log_type: Models::Shared::LogType, account_id: T.nilable(::String), action_id: T.nilable(::String), action_type: T.nilable(::String), agent_id: T.nilable(::String), auth_id: T.nilable(::String), auth_type: T.nilable(::String), category: T.nilable(::String), connector_key: T.nilable(::String), connector_owner: T.nilable(::String), connector_profile_id: T.nilable(::String), connector_version: T.nilable(::String), duration_ms: T.nilable(::Float), end_time: T.nilable(::DateTime), event_time: T.nilable(::DateTime), http_method: T.nilable(::String), ip_address: T.nilable(::String), is_background: T.nilable(T::Boolean), mode: T.nilable(::String), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), project_id: T.nilable(::String), risk_level: T.nilable(::String), session_id: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status_code: T.nilable(::Float), stream_type: T.nilable(::String), success: T.nilable(T::Boolean), tier2_score: T.nilable(::Float), transport_type: T.nilable(::String), url: T.nilable(::String), user_agent: T.nilable(::String)).void }
-        def initialize(action_run_id:, log_id:, log_type:, account_id: nil, action_id: nil, action_type: nil, agent_id: nil, auth_id: nil, auth_type: nil, category: nil, connector_key: nil, connector_owner: nil, connector_profile_id: nil, connector_version: nil, duration_ms: nil, end_time: nil, event_time: nil, http_method: nil, ip_address: nil, is_background: nil, mode: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, risk_level: nil, session_id: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status_code: nil, stream_type: nil, success: nil, tier2_score: nil, transport_type: nil, url: nil, user_agent: nil)
+        sig { params(action_run_id: ::String, log_id: ::String, log_type: Models::Shared::LogType, account_id: T.nilable(::String), action_id: T.nilable(::String), action_type: T.nilable(::String), agent_id: T.nilable(::String), auth_id: T.nilable(::String), auth_type: T.nilable(::String), category: T.nilable(::String), connector: T.nilable(Models::Shared::Connector), connector_key: T.nilable(::String), connector_owner: T.nilable(::String), connector_profile_id: T.nilable(::String), connector_version: T.nilable(::String), duration_ms: T.nilable(::Float), end_time: T.nilable(::DateTime), event_time: T.nilable(::DateTime), http_method: T.nilable(::String), ip_address: T.nilable(::String), is_background: T.nilable(T::Boolean), mode: T.nilable(::String), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), project_id: T.nilable(::String), risk_level: T.nilable(::String), session_id: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status_code: T.nilable(::Float), stream_type: T.nilable(::String), success: T.nilable(T::Boolean), tier2_score: T.nilable(::Float), transport_type: T.nilable(::String), url: T.nilable(::String), user_agent: T.nilable(::String)).void }
+        def initialize(action_run_id:, log_id:, log_type:, account_id: nil, action_id: nil, action_type: nil, agent_id: nil, auth_id: nil, auth_type: nil, category: nil, connector: nil, connector_key: nil, connector_owner: nil, connector_profile_id: nil, connector_version: nil, duration_ms: nil, end_time: nil, event_time: nil, http_method: nil, ip_address: nil, is_background: nil, mode: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, risk_level: nil, session_id: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status_code: nil, stream_type: nil, success: nil, tier2_score: nil, transport_type: nil, url: nil, user_agent: nil)
           @action_run_id = action_run_id
           @log_id = log_id
           @log_type = log_type
@@ -99,6 +101,7 @@ module StackOne
           @auth_id = auth_id
           @auth_type = auth_type
           @category = category
+          @connector = connector
           @connector_key = connector_key
           @connector_owner = connector_owner
           @connector_profile_id = connector_profile_id
@@ -141,6 +144,7 @@ module StackOne
           return false unless @auth_id == other.auth_id
           return false unless @auth_type == other.auth_type
           return false unless @category == other.category
+          return false unless @connector == other.connector
           return false unless @connector_key == other.connector_key
           return false unless @connector_owner == other.connector_owner
           return false unless @connector_profile_id == other.connector_profile_id
