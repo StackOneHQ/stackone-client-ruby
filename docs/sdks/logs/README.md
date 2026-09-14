@@ -20,6 +20,7 @@ API request logs and analytics.
 * [list_action_logs](#list_action_logs) - List Action Logs
 * [list_action_step_logs](#list_action_step_logs) - List Action Step Logs
 * [list_logs](#list_logs) - List Logs
+* [list_platform_logs](#list_platform_logs) - List Platform Logs
 * [list_provider_logs](#list_provider_logs) - List Provider Logs
 * [list_step_logs](#list_step_logs) - List Step Logs
 * [list_unified_logs](#list_unified_logs) - List Unified Logs
@@ -240,7 +241,7 @@ end
 
 ## get_logs_stats_dimensions
 
-Returns the distinct values available for the requested dimensions (for example connector, account, or status code). Use to populate filter controls and build breakdowns.
+Returns the distinct values available for the requested dimensions (for example connector, account, or status code). Use to populate filter controls and build breakdowns. Values of the `connector_key` dimension also carry a `label` holding the connector display name.
 
 ### Example Usage
 
@@ -323,7 +324,7 @@ req = Models::Shared::DimensionsPostDto.new(
 )
 res = s.logs.get_logs_stats_dimensions(request: req)
 
-if res.status_code == 200
+unless res.logs_dimensions.nil?
   # handle response
 end
 
@@ -841,8 +842,7 @@ s = ::StackOne::StackOne.new(
     username: ''
   )
 )
-
-req = Models::Shared::LogsPostDto.new(
+res = s.logs.list_logs(logs_post_dto: Models::Shared::LogsPostDto.new(
   filters: Models::Shared::LogsPostDtoFilters.new(
     account_secure_id: [
       '45355976281015164504',
@@ -907,8 +907,7 @@ req = Models::Shared::LogsPostDto.new(
   ),
   page: 1.0,
   page_size: 25.0
-)
-res = s.logs.list_logs(request: req)
+), expand: 'connector')
 
 unless res.logs_paginated.nil?
   # handle response
@@ -918,13 +917,99 @@ end
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [Models::Shared::LogsPostDto](../../models/shared/logspostdto.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| Parameter                                                                                                                                                                                                                                                                                                          | Type                                                                                                                                                                                                                                                                                                               | Required                                                                                                                                                                                                                                                                                                           | Description                                                                                                                                                                                                                                                                                                        | Example                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `logs_post_dto`                                                                                                                                                                                                                                                                                                    | [Models::Shared::LogsPostDto](../../models/shared/logspostdto.md)                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                    |
+| `expand`                                                                                                                                                                                                                                                                                                           | *T.nilable(::String)*                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                 | A comma-separated list of additional fields to expand. Supported values: `connector` (the connector display data — name, logo, categories — for each row). Omitted unless requested, as resolving it is more expensive. `connector_key`, `connector_version` and `connector_owner` are always returned regardless. | connector                                                                                                                                                                                                                                                                                                          |
 
 ### Response
 
 **[T.nilable(Models::Operations::StackoneListLogsResponse)](../../models/operations/stackonelistlogsresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## list_platform_logs
+
+Returns a paginated list of platform logs — the audit trail of operations on StackOne itself, such as creating an account or deleting an integration, as opposed to requests proxied to a provider. Filter `resource` for everything that happened to a kind of thing (`account`), `resource_id` for everything that happened to one of them, and `action` for a kind of operation (`create`). `event_type` carries the pair as one value (`account_create`) and remains filterable. A few operations are not tied to a resource — the AI and playground routes — and their `event_type` is the bare action (`check`, `playground_build`) with `resource` unset. Requires access to every account in the project: a member restricted to a subset of accounts is refused, because the trail cannot be meaningfully filtered to their accounts and its rows can reveal activity on accounts they cannot read.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="stackone_list_platform_logs" method="post" path="/logs/platform" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+
+req = Models::Shared::PlatformLogsPostDto.new(
+  filters: Models::Shared::PlatformLogsPostDtoFilters.new(
+    action: [
+      'create',
+      'delete',
+    ],
+    end_time: '2025-01-31T23:59:59.999Z',
+    event_type: [
+      'account_create',
+      'account_delete',
+    ],
+    is_read: false,
+    resource: [
+      'account',
+      'webhook',
+    ],
+    resource_id: [
+      '45355976281015164504',
+    ],
+    start_time: '2025-01-01T00:00:00.000Z',
+    status_code: [
+      '200',
+      '404',
+    ],
+    success: true,
+    user_email: [
+      'person@example.com',
+    ]
+  ),
+  page: 1.0,
+  page_size: 25.0
+)
+res = s.logs.list_platform_logs(request: req)
+
+unless res.platform_logs_paginated.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [Models::Shared::PlatformLogsPostDto](../../models/shared/platformlogspostdto.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::StackoneListPlatformLogsResponse)](../../models/operations/stackonelistplatformlogsresponse.md)**
 
 ### Errors
 

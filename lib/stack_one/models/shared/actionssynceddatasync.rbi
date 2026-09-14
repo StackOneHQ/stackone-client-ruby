@@ -18,6 +18,10 @@ class StackOne::Models::Shared::ActionsSyncedDatasync
   def request_id=(str_); end
   def sync_expires_at(); end
   def sync_expires_at=(str_); end
+  def sync_id(); end
+  def sync_id=(str_); end
+  def sync_name(); end
+  def sync_name=(str_); end
   def synced_at(); end
   def synced_at=(str_); end
 end
