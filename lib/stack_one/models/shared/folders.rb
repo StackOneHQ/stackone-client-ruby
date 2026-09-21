@@ -24,6 +24,8 @@ module StackOne
         field :has_children, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Folders2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_children') } }
         # Whether the folder has content
         field :has_content, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::FoldersSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_content') } }
+        # The icon of the folder, either an emoji character or an image url
+        field :icon, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('icon') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Whether the folder is at the root level of the drive
@@ -51,14 +53,15 @@ module StackOne
         # The url of the folder
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
-        sig { params(all_parent_folder_ids: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), description: T.nilable(::String), drive_id: T.nilable(::String), has_children: T.nilable(T.any(T::Boolean, Models::Shared::Folders2)), has_content: T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemas2)), id: T.nilable(::String), is_root: T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemasIsRoot2)), name: T.nilable(::String), owner_id: T.nilable(::String), parent_folder_id: T.nilable(::String), path: T.nilable(::String), remote_drive_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), remote_parent_folder_id: T.nilable(::String), size: T.nilable(::Float), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
-        def initialize(all_parent_folder_ids: nil, created_at: nil, description: nil, drive_id: nil, has_children: nil, has_content: nil, id: nil, is_root: nil, name: nil, owner_id: nil, parent_folder_id: nil, path: nil, remote_drive_id: nil, remote_id: nil, remote_owner_id: nil, remote_parent_folder_id: nil, size: nil, updated_at: nil, url: nil)
+        sig { params(all_parent_folder_ids: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), description: T.nilable(::String), drive_id: T.nilable(::String), has_children: T.nilable(T.any(T::Boolean, Models::Shared::Folders2)), has_content: T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemas2)), icon: T.nilable(::String), id: T.nilable(::String), is_root: T.nilable(T.any(T::Boolean, Models::Shared::FoldersSchemasIsRoot2)), name: T.nilable(::String), owner_id: T.nilable(::String), parent_folder_id: T.nilable(::String), path: T.nilable(::String), remote_drive_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), remote_parent_folder_id: T.nilable(::String), size: T.nilable(::Float), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
+        def initialize(all_parent_folder_ids: nil, created_at: nil, description: nil, drive_id: nil, has_children: nil, has_content: nil, icon: nil, id: nil, is_root: nil, name: nil, owner_id: nil, parent_folder_id: nil, path: nil, remote_drive_id: nil, remote_id: nil, remote_owner_id: nil, remote_parent_folder_id: nil, size: nil, updated_at: nil, url: nil)
           @all_parent_folder_ids = all_parent_folder_ids
           @created_at = created_at
           @description = description
           @drive_id = drive_id
           @has_children = has_children
           @has_content = has_content
+          @icon = icon
           @id = id
           @is_root = is_root
           @name = name
@@ -83,6 +86,7 @@ module StackOne
           return false unless @drive_id == other.drive_id
           return false unless @has_children == other.has_children
           return false unless @has_content == other.has_content
+          return false unless @icon == other.icon
           return false unless @id == other.id
           return false unless @is_root == other.is_root
           return false unless @name == other.name

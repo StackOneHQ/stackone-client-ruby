@@ -44,6 +44,7 @@ module StackOne
     sig { params(request: Models::Shared::ConnectSessionAuthenticate, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneAuthenticateConnectSessionResponse) }
     def authenticate_connect_session(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # authenticate_connect_session - Authenticate Connect Session
+      # Exchanges a connect session token for the session it belongs to.
       #
       # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
@@ -85,7 +86,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -333,6 +334,7 @@ module StackOne
     sig { params(request: Models::Shared::ConnectSessionCreate, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneCreateConnectSessionResponse) }
     def create_connect_session(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_connect_session - Create Connect Session
+      # Creates a short-lived connect session and returns the token and auth link that open the account-linking flow for one end-user.
       #
       # If set, this operation will use `password` from the global security.
       url, params = @sdk_configuration.get_server_details
@@ -374,7 +376,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -622,6 +624,7 @@ module StackOne
     sig { params(id: ::Float, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::StackoneGetConnectSessionResponse) }
     def get_connect_session(id:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_connect_session - Get Connect Session
+      # Returns a connect session and the state of its most recent connection attempt.
       #
       # If set, this operation will use `password` from the global security.
       request = Models::Operations::StackoneGetConnectSessionRequest.new(
@@ -660,7 +663,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,

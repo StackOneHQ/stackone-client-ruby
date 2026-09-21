@@ -19,7 +19,7 @@ module StackOne
         # The comma separated list of fields that will be returned in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # Filter parameters that allow greater customisation of the list response
-        field :filter, Crystalline::Nilable.new(Models::Operations::AccountingListCompaniesQueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
+        field :filter, Crystalline::Nilable.new(Models::Operations::QueryParamFilter), { 'query_param': { 'field_name': 'filter', 'style': 'deepObject', 'explode': true } }
         # The unified cursor
         field :next_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'next', 'style': 'form', 'explode': true } }
         # The page number of the results to fetch
@@ -37,7 +37,7 @@ module StackOne
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
-        sig { params(x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::AccountingListCompaniesQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
+        sig { params(x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::QueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
         def initialize(x_account_id:, prefer: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
           @x_account_id = x_account_id
           @prefer = prefer

@@ -14,17 +14,20 @@ module StackOne
 
         # Search query for finding connector actions
         field :query, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query'), required: true } }
-        # Filter by connector key
+        # Filter by connector key, at any version. Shorthand for `connector_versions: { "<key>": ["*"] }`, which takes priority when both are sent.
         field :connector, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector') } }
+        # Connector versions to search, keyed by connector key. Takes priority over `connector`. At most 100 connector keys and 500 versions in total. `latest` is not accepted — pass resolved versions such as `1.2.0`, or `*` for any version of that connector. `*` cannot be mixed with explicit versions in the same list. Explicit versions are returned as-is; `*` is deduplicated to the highest semver per action, and one map may mix the two forms across connectors.
+        field :connector_versions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_versions') } }
         # Minimum similarity score threshold (0-1). Results below this score are filtered out.
         field :min_similarity, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('min_similarity') } }
         # Number of results to return
         field :top_k, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('top_k') } }
 
-        sig { params(query: ::String, connector: T.nilable(::String), min_similarity: T.nilable(::Float), top_k: T.nilable(::Float)).void }
-        def initialize(query:, connector: nil, min_similarity: 0.4, top_k: 100.0)
+        sig { params(query: ::String, connector: T.nilable(::String), connector_versions: T.nilable(T::Hash[Symbol, T::Array[::String]]), min_similarity: T.nilable(::Float), top_k: T.nilable(::Float)).void }
+        def initialize(query:, connector: nil, connector_versions: nil, min_similarity: 0.2, top_k: 100.0)
           @query = query
           @connector = connector
+          @connector_versions = connector_versions
           @min_similarity = min_similarity
           @top_k = top_k
         end
@@ -34,6 +37,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @query == other.query
           return false unless @connector == other.connector
+          return false unless @connector_versions == other.connector_versions
           return false unless @min_similarity == other.min_similarity
           return false unless @top_k == other.top_k
           true
