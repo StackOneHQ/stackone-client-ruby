@@ -1,0 +1,12 @@
+# StackoneGetPlatformLogDimensionsResponse
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `content_type`                                                                     | *::String*                                                                         | :heavy_check_mark:                                                                 | HTTP response content type for this operation                                      |
+| `headers`                                                                          | T::Hash[Symbol, T::Array<*::String*>]                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `logs_dimensions`                                                                  | [T.nilable(Models::Shared::LogsDimensions)](../../models/shared/logsdimensions.md) | :heavy_minus_sign:                                                                 | The platform log dimension values were retrieved.                                  |
+| `status_code`                                                                      | *::Integer*                                                                        | :heavy_check_mark:                                                                 | HTTP response status code for this operation                                       |
+| `raw_response`                                                                     | [Faraday::Response](https://www.rubydoc.info/gems/faraday/Faraday/Response)        | :heavy_check_mark:                                                                 | Raw HTTP response; suitable for custom response parsing                            |

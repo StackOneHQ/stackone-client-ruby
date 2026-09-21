@@ -20,13 +20,16 @@ module StackOne
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
+        # The dimension values were retrieved.
+        field :logs_dimensions, Crystalline::Nilable.new(Models::Shared::LogsDimensions)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, logs_dimensions: T.nilable(Models::Shared::LogsDimensions)).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, logs_dimensions: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
+          @logs_dimensions = logs_dimensions
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -36,6 +39,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
+          return false unless @logs_dimensions == other.logs_dimensions
           true
         end
       end

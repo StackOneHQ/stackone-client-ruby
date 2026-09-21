@@ -12,15 +12,18 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # Action identifier in Lambda format: {connector}_{version}_{connector}_{action}_{scope}
+        # Opaque action identifier. Do not parse it: a connector key and an action id may both contain "_" and a scope may contain "/", so it does not split into fixed parts. Resolve it against the connector registry instead.
         field :id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id'), required: true } }
         # Cosine similarity score (0-1)
         field :similarity_score, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('similarity_score'), required: true } }
+        # Prerequisite action IDs that should be run first to obtain IDs this action needs
+        field :prerequisite_actions, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('prerequisite_actions') } }
 
-        sig { params(id: ::String, similarity_score: ::Float).void }
-        def initialize(id:, similarity_score:)
+        sig { params(id: ::String, similarity_score: ::Float, prerequisite_actions: T.nilable(T::Array[::String])).void }
+        def initialize(id:, similarity_score:, prerequisite_actions: nil)
           @id = id
           @similarity_score = similarity_score
+          @prerequisite_actions = prerequisite_actions
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -28,6 +31,7 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @similarity_score == other.similarity_score
+          return false unless @prerequisite_actions == other.prerequisite_actions
           true
         end
       end
