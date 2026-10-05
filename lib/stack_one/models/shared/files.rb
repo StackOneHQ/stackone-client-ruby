@@ -32,6 +32,8 @@ module StackOne
         field :has_children, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::Files2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_children') } }
         # Whether the file has content
         field :has_content, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::FilesSchemas2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_content') } }
+        # The icon of the file, either an emoji character or an image url
+        field :icon, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('icon') } }
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The name associated with this file
@@ -55,8 +57,8 @@ module StackOne
         # The url of the file
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
-        sig { params(all_parent_folder_ids: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), default_download_format: T.nilable(::String), description: T.nilable(::String), drive_id: T.nilable(::String), export_formats: T.nilable(T::Array[::String]), file_format: T.nilable(Models::Shared::FilesFileFormat), folder_id: T.nilable(::String), has_children: T.nilable(T.any(T::Boolean, Models::Shared::Files2)), has_content: T.nilable(T.any(T::Boolean, Models::Shared::FilesSchemas2)), id: T.nilable(::String), name: T.nilable(::String), owner_id: T.nilable(::String), path: T.nilable(::String), remote_drive_id: T.nilable(::String), remote_folder_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), size: T.nilable(::Float), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
-        def initialize(all_parent_folder_ids: nil, created_at: nil, default_download_format: nil, description: nil, drive_id: nil, export_formats: nil, file_format: nil, folder_id: nil, has_children: nil, has_content: nil, id: nil, name: nil, owner_id: nil, path: nil, remote_drive_id: nil, remote_folder_id: nil, remote_id: nil, remote_owner_id: nil, size: nil, updated_at: nil, url: nil)
+        sig { params(all_parent_folder_ids: T.nilable(T::Array[::String]), created_at: T.nilable(::DateTime), default_download_format: T.nilable(::String), description: T.nilable(::String), drive_id: T.nilable(::String), export_formats: T.nilable(T::Array[::String]), file_format: T.nilable(Models::Shared::FilesFileFormat), folder_id: T.nilable(::String), has_children: T.nilable(T.any(T::Boolean, Models::Shared::Files2)), has_content: T.nilable(T.any(T::Boolean, Models::Shared::FilesSchemas2)), icon: T.nilable(::String), id: T.nilable(::String), name: T.nilable(::String), owner_id: T.nilable(::String), path: T.nilable(::String), remote_drive_id: T.nilable(::String), remote_folder_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_id: T.nilable(::String), size: T.nilable(::Float), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
+        def initialize(all_parent_folder_ids: nil, created_at: nil, default_download_format: nil, description: nil, drive_id: nil, export_formats: nil, file_format: nil, folder_id: nil, has_children: nil, has_content: nil, icon: nil, id: nil, name: nil, owner_id: nil, path: nil, remote_drive_id: nil, remote_folder_id: nil, remote_id: nil, remote_owner_id: nil, size: nil, updated_at: nil, url: nil)
           @all_parent_folder_ids = all_parent_folder_ids
           @created_at = created_at
           @default_download_format = default_download_format
@@ -67,6 +69,7 @@ module StackOne
           @folder_id = folder_id
           @has_children = has_children
           @has_content = has_content
+          @icon = icon
           @id = id
           @name = name
           @owner_id = owner_id
@@ -93,6 +96,7 @@ module StackOne
           return false unless @folder_id == other.folder_id
           return false unless @has_children == other.has_children
           return false unless @has_content == other.has_content
+          return false unless @icon == other.icon
           return false unless @id == other.id
           return false unless @name == other.name
           return false unless @owner_id == other.owner_id
