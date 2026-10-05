@@ -22,16 +22,22 @@ module StackOne
         field :request_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id'), required: true } }
         # ISO 8601 timestamp of when the synced data expires
         field :sync_expires_at, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sync_expires_at'), required: true } }
+        # Which sync served this read.
+        field :sync_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sync_id'), required: true } }
+        # The served sync's raw name. Not unique, and may be the bare action id.
+        field :sync_name, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sync_name'), required: true } }
         # ISO 8601 timestamp of when the data was synced
         field :synced_at, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('synced_at'), required: true } }
 
-        sig { params(last_full_run_id: ::String, last_run_id: ::String, params_hash: ::String, request_id: ::String, sync_expires_at: ::String, synced_at: ::String).void }
-        def initialize(last_full_run_id:, last_run_id:, params_hash:, request_id:, sync_expires_at:, synced_at:)
+        sig { params(last_full_run_id: ::String, last_run_id: ::String, params_hash: ::String, request_id: ::String, sync_expires_at: ::String, sync_id: ::String, sync_name: ::String, synced_at: ::String).void }
+        def initialize(last_full_run_id:, last_run_id:, params_hash:, request_id:, sync_expires_at:, sync_id:, sync_name:, synced_at:)
           @last_full_run_id = last_full_run_id
           @last_run_id = last_run_id
           @params_hash = params_hash
           @request_id = request_id
           @sync_expires_at = sync_expires_at
+          @sync_id = sync_id
+          @sync_name = sync_name
           @synced_at = synced_at
         end
 
@@ -43,6 +49,8 @@ module StackOne
           return false unless @params_hash == other.params_hash
           return false unless @request_id == other.request_id
           return false unless @sync_expires_at == other.sync_expires_at
+          return false unless @sync_id == other.sync_id
+          return false unless @sync_name == other.sync_name
           return false unless @synced_at == other.synced_at
           true
         end

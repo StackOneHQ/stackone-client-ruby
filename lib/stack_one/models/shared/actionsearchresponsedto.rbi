@@ -18,4 +18,8 @@ class StackOne::Models::Shared::ActionSearchResponseDto
   def connector_filter=(str_); end
   def project_filter(); end
   def project_filter=(str_); end
+  def returned_by_connector(); end
+  def returned_by_connector=(str_); end
+  def truncated(); end
+  def truncated=(str_); end
 end
