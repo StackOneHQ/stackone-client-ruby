@@ -26,4 +26,8 @@ value = DimensionsPostDtoDimensions::CONNECTOR_KEY
 | `STATUS_CODE`       | status_code         |
 | `ORIGIN_OWNER_ID`   | origin_owner_id     |
 | `SOURCE_ID`         | source_id           |
+| `AUTH_TYPE`         | auth_type           |
+| `AUTH_ID`           | auth_id             |
 | `IS_BACKGROUND`     | is_background       |
+| `POLICY_RESULT`     | policy_result       |
+| `RISK_LEVEL`        | risk_level          |

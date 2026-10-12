@@ -22,14 +22,20 @@ module StackOne
         field :connector_filter, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_filter') } }
         # Project filter applied
         field :project_filter, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('project_filter') } }
+        # Per connector key, the number of rows returned in this result window, seeded to 0 for every connector key the caller asked for. This is a window count, not a match count: read 0 as "not indexed yet" only when `truncated` is false, since a full window can crowd out a connector that is fully indexed.
+        field :returned_by_connector, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Float)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('returned_by_connector') } }
+        # Whether the vector store filled the entire top_k budget, so results were cut off.
+        field :truncated, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('truncated') } }
 
-        sig { params(query: ::String, results: T::Array[Models::Shared::ActionSearchResultDto], total_count: ::Float, connector_filter: T.nilable(::String), project_filter: T.nilable(::String)).void }
-        def initialize(query:, results:, total_count:, connector_filter: nil, project_filter: nil)
+        sig { params(query: ::String, results: T::Array[Models::Shared::ActionSearchResultDto], total_count: ::Float, connector_filter: T.nilable(::String), project_filter: T.nilable(::String), returned_by_connector: T.nilable(T::Hash[Symbol, ::Float]), truncated: T.nilable(T::Boolean)).void }
+        def initialize(query:, results:, total_count:, connector_filter: nil, project_filter: nil, returned_by_connector: nil, truncated: nil)
           @query = query
           @results = results
           @total_count = total_count
           @connector_filter = connector_filter
           @project_filter = project_filter
+          @returned_by_connector = returned_by_connector
+          @truncated = truncated
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -40,6 +46,8 @@ module StackOne
           return false unless @total_count == other.total_count
           return false unless @connector_filter == other.connector_filter
           return false unless @project_filter == other.project_filter
+          return false unless @returned_by_connector == other.returned_by_connector
+          return false unless @truncated == other.truncated
           true
         end
       end
