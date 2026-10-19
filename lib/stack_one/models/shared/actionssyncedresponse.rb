@@ -14,20 +14,28 @@ module StackOne
 
         # Metadata about the datasync operation
         field :datasync, Models::Shared::ActionsSyncedDatasync, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('datasync'), required: true } }
+        # Present when the request set a non-empty `aggs`: the OpenSearch aggregation results, keyed the same as the requested `aggs`. `data` is empty unless `page_size` was also set.
+        field :aggregations, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('aggregations') } }
         # The synced records for the requested action
         field :data, Crystalline::Nilable.new(Crystalline::Array.new(Crystalline::Hash.new(Symbol, ::Object))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        # Present and `true` when the page was cut short to stay under the response size limit, so `data` holds fewer records than `page_size`. Continue from `skip` plus the number of records returned.
+        field :truncated, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('truncated') } }
 
-        sig { params(datasync: Models::Shared::ActionsSyncedDatasync, data: T.nilable(T::Array[T::Hash[Symbol, ::Object]])).void }
-        def initialize(datasync:, data: nil)
+        sig { params(datasync: Models::Shared::ActionsSyncedDatasync, aggregations: T.nilable(T::Hash[Symbol, ::Object]), data: T.nilable(T::Array[T::Hash[Symbol, ::Object]]), truncated: T.nilable(T::Boolean)).void }
+        def initialize(datasync:, aggregations: nil, data: nil, truncated: nil)
           @datasync = datasync
+          @aggregations = aggregations
           @data = data
+          @truncated = truncated
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @datasync == other.datasync
+          return false unless @aggregations == other.aggregations
           return false unless @data == other.data
+          return false unless @truncated == other.truncated
           true
         end
       end

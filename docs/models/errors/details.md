@@ -1,0 +1,10 @@
+# Details
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `expires_at`                                                                  | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)          | :heavy_minus_sign:                                                            | When the test account expired. Present when status is expired                 |                                                                               |
+| `status`                                                                      | [Models::Errors::Status](../../models/errors/status.md)                       | :heavy_check_mark:                                                            | The account status that blocked the request                                   | suspended                                                                     |
+| `status_reasons`                                                              | T::Array<[Models::Shared::StatusReason](../../models/shared/statusreason.md)> | :heavy_minus_sign:                                                            | Why the account is in an error state. Present when status is error            |                                                                               |

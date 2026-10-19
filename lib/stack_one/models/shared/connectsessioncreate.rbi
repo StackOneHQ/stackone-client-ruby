@@ -18,6 +18,8 @@ class StackOne::Models::Shared::ConnectSessionCreate
   def categories=(str_); end
   def connector_profile_id(); end
   def connector_profile_id=(str_); end
+  def connector_profile_ids(); end
+  def connector_profile_ids=(str_); end
   def integration_id(); end
   def integration_id=(str_); end
   def label(); end
