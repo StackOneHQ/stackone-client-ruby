@@ -14,6 +14,8 @@ class StackOne::Models::Shared::ActionMetaItem
   def authentication=(str_); end
   def description(); end
   def description=(str_); end
+  def has_required_parameters(); end
+  def has_required_parameters=(str_); end
   def id(); end
   def id=(str_); end
   def label(); end

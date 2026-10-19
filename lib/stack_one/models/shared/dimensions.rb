@@ -23,7 +23,11 @@ module StackOne
           STATUS_CODE = new('status_code')
           ORIGIN_OWNER_ID = new('origin_owner_id')
           SOURCE_ID = new('source_id')
+          AUTH_TYPE = new('auth_type')
+          AUTH_ID = new('auth_id')
           IS_BACKGROUND = new('is_background')
+          POLICY_RESULT = new('policy_result')
+          RISK_LEVEL = new('risk_level')
         end
       end
     end

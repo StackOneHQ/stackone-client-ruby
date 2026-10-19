@@ -16,7 +16,7 @@ module StackOne
   class StackOne
     extend T::Sig
 
-    attr_accessor :accounts, :actions, :auth_configs, :connect_sessions, :connector_profiles, :connectors, :logs, :mcp, :request_logs, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
+    attr_accessor :accounts, :actions, :auth_configs, :connect_sessions, :connector_profiles, :connectors, :logs, :mcp, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
 
     # Instantiates the SDK, configuring it with the provided parameters.
     #
@@ -86,7 +86,6 @@ module StackOne
       @connectors = Connectors.new(@sdk_configuration)
       @logs = Logs.new(@sdk_configuration)
       @mcp = Mcp.new(@sdk_configuration)
-      @request_logs = RequestLogs.new(@sdk_configuration)
       @accounting = Accounting.new(@sdk_configuration)
       @ats = Ats.new(@sdk_configuration)
       @crm = Crm.new(@sdk_configuration)
