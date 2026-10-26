@@ -11,6 +11,7 @@ Retrieve Actions metadata and definitions.
 * [list_actions_meta](#list_actions_meta) - List all connectors & actions metadata
 * [rpc_action](#rpc_action) - Make an RPC call to an action
 * [rpc_action_synced](#rpc_action_synced) - Read synced action data from the datasync index
+* [rpc_action_synced_queryable_fields](#rpc_action_synced_queryable_fields) - List the fields a synced action's data can be queried by
 * [search_actions](#search_actions) - Search connector actions by semantic similarity
 
 ## build_action_embeddings
@@ -71,7 +72,7 @@ end
 
 ## check_permissions
 
-Checks what permissions a user has on a given resource. Delegates to the connected provider's unified_check_permissions action.
+Checks what permissions a user has on a given resource. Delegates to the connected provider's `unified_check_permissions` action.
 
 ### Example Usage
 
@@ -265,6 +266,7 @@ end
 | Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
 | Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
 | Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
 | Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
 | Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
 | Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
@@ -274,7 +276,7 @@ end
 
 ## rpc_action_synced
 
-Returns previously synced data for the specified action from the OpenSearch index
+Returns previously synced data for an action, read from the Data Sync index rather than the provider. Responds with a refusal when no sync can be selected to serve the read.
 
 ### Example Usage
 
@@ -291,24 +293,30 @@ s = ::StackOne::StackOne.new(
 )
 res = s.actions.rpc_action_synced(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto.new(
   action: 'create_employee',
-  body: {
-    'search' => 'John',
+  aggs: {
+    'by_status' => {
+      'terms' => {
+        'field' => 'employment_status',
+      },
+    },
   },
   filter: {
     'status' => 'active',
   },
-  headers: {
-    'x-custom-header' => 'value',
-  },
-  path: {
-    'id' => '123',
-  },
-  query: {
-    'account_id' => 'abc',
-  }
+  search: 'onboarding safety',
+  sort: [
+    {
+      'last_name' => 'desc',
+    },
+  ],
+  source: [
+    'first_name',
+    'email',
+  ],
+  sync_id: 'sch_01J8Z3Q4'
 ), page_size: 25.0, skip: 0.0)
 
-unless res.actions_synced_response.nil?
+unless res.one_of.nil?
   # handle response
 end
 
@@ -316,11 +324,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `actions_rpc_synced_request_dto`                                                                | [Models::Shared::ActionsRpcSyncedRequestDto](../../models/shared/actionsrpcsyncedrequestdto.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |                                                                                                 |
-| `page_size`                                                                                     | *T.nilable(::Float)*                                                                            | :heavy_minus_sign:                                                                              | The number of results to return per page                                                        | 25                                                                                              |
-| `skip`                                                                                          | *T.nilable(::Float)*                                                                            | :heavy_minus_sign:                                                                              | The number of results to skip before returning results                                          | 0                                                                                               |
+| Parameter                                                                                                                                                                                                                                                                                    | Type                                                                                                                                                                                                                                                                                         | Required                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                  | Example                                                                                                                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `actions_rpc_synced_request_dto`                                                                                                                                                                                                                                                             | [Models::Shared::ActionsRpcSyncedRequestDto](../../models/shared/actionsrpcsyncedrequestdto.md)                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                                                           | N/A                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                              |
+| `page_size`                                                                                                                                                                                                                                                                                  | *T.nilable(::Float)*                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                           | The number of results to return per page (minimum 1, maximum 200, default 100). With a non-empty `aggs` there is no default: omit it to get aggregations only, or set it to also get that page of records. A page of large records can hold fewer, marked `truncated: true` in the response. | 25                                                                                                                                                                                                                                                                                           |
+| `skip`                                                                                                                                                                                                                                                                                       | *T.nilable(::Float)*                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                           | The number of results to skip before returning results. skip + page_size cannot exceed 10000 (page_size defaulting to 100 when omitted); narrow the filter to reach records beyond that. After a `truncated` page, continue from skip plus the number of records returned.                   | 0                                                                                                                                                                                                                                                                                            |
 
 ### Response
 
@@ -336,6 +344,63 @@ end
 | Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
 | Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
 | Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
+| Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
+| Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
+| Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
+| Models::Errors::NotImplementedResponse      | 501                                         | application/json                            |
+| Models::Errors::BadGatewayResponse          | 502                                         | application/json                            |
+| Errors::APIError                            | 4XX, 5XX                                    | \*/\*                                       |
+
+## rpc_action_synced_queryable_fields
+
+Returns the field names and types accepted by `filter`, `sort`, `source` and `aggs` on `POST /actions/rpc/synced`, discovered from this account's synced records. Returns an empty `fields` list when the action is not sync-enabled for the account or has no readable sync yet.
+
+### Example Usage
+
+<!-- UsageSnippet language="ruby" operationID="stackone_rpc_action_synced_queryable_fields" method="post" path="/actions/rpc/synced/queryable_fields" -->
+```ruby
+require 'stackone_client'
+
+Models = ::StackOne::Models
+s = ::StackOne::StackOne.new(
+  security: Models::Shared::Security.new(
+    password: '',
+    username: ''
+  )
+)
+res = s.actions.rpc_action_synced_queryable_fields(actions_rpc_synced_queryable_fields_request_dto: Models::Shared::ActionsRpcSyncedQueryableFieldsRequestDto.new(
+  action: 'hris_list_employees'
+), x_account_id: '<id>')
+
+unless res.actions_synced_queryable_fields_response.nil?
+  # handle response
+end
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `actions_rpc_synced_queryable_fields_request_dto`                                                                             | [Models::Shared::ActionsRpcSyncedQueryableFieldsRequestDto](../../models/shared/actionsrpcsyncedqueryablefieldsrequestdto.md) | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `x_account_id`                                                                                                                | *::String*                                                                                                                    | :heavy_check_mark:                                                                                                            | The account identifier                                                                                                        |
+
+### Response
+
+**[T.nilable(Models::Operations::StackoneRpcActionSyncedQueryableFieldsResponse)](../../models/operations/stackonerpcactionsyncedqueryablefieldsresponse.md)**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Models::Errors::BadRequestResponse          | 400                                         | application/json                            |
+| Models::Errors::UnauthorizedResponse        | 401                                         | application/json                            |
+| Models::Errors::ForbiddenResponse           | 403                                         | application/json                            |
+| Models::Errors::NotFoundResponse            | 404                                         | application/json                            |
+| Models::Errors::RequestTimedOutResponse     | 408                                         | application/json                            |
+| Models::Errors::ConflictResponse            | 409                                         | application/json                            |
+| Models::Errors::PreconditionFailedResponse  | 412                                         | application/json                            |
 | Models::Errors::UnprocessableEntityResponse | 422                                         | application/json                            |
 | Models::Errors::TooManyRequestsResponse     | 429                                         | application/json                            |
 | Models::Errors::InternalServerErrorResponse | 500                                         | application/json                            |
@@ -345,7 +410,7 @@ end
 
 ## search_actions
 
-Search connector actions by semantic similarity
+Ranks the project's connector actions by how closely they match a natural-language query, so an agent can find the right action without reading the whole catalog.
 
 ### Example Usage
 
@@ -363,6 +428,16 @@ s = ::StackOne::StackOne.new(
 
 req = Models::Shared::ActionSearchDto.new(
   connector: 'slack',
+  connector_versions: {
+    'hubspot' => [
+      '*',
+    ],
+    'slack' => [
+      '1.2.0',
+      '1.3.1',
+    ],
+  },
+  min_similarity: 0.4,
   query: 'send a message'
 )
 res = s.actions.search_actions(request: req)
