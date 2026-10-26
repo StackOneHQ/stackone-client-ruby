@@ -12,7 +12,7 @@ Generate connection session tokens or auth URLs to allow your customers to conne
 
 ## authenticate_connect_session
 
-Authenticate Connect Session
+Exchanges a connect session token for the session it belongs to.
 
 ### Example Usage
 
@@ -68,7 +68,7 @@ end
 
 ## create_connect_session
 
-Create Connect Session
+Creates a short-lived connect session and returns the token and auth link that open the account-linking flow for one end-user.
 
 ### Example Usage
 
@@ -141,7 +141,7 @@ end
 
 ## get_connect_session
 
-Get Connect Session
+Returns a connect session and the state of its most recent connection attempt.
 
 ### Example Usage
 

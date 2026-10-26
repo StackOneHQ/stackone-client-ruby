@@ -12,6 +12,8 @@ module StackOne
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Identifies which account status blocked the request
+        field :error_code, Models::Errors::ErrorCode, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('errorCode'), required: true, 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Errors::ErrorCode, false) } }
         # Error message
         field :message, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message'), required: true } }
         # HTTP status code
@@ -19,19 +21,25 @@ module StackOne
         # Timestamp when the error occurred
         field :timestamp, ::DateTime, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('timestamp'), required: true, 'decoder': ::StackOne::Utils.datetime_from_iso_format(false) } }
 
-        sig { params(message: ::String, status_code: ::Float, timestamp: ::DateTime).void }
-        def initialize(message:, status_code:, timestamp:)
+        field :details, Crystalline::Nilable.new(Models::Errors::Details), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('details') } }
+
+        sig { params(error_code: Models::Errors::ErrorCode, message: ::String, status_code: ::Float, timestamp: ::DateTime, details: T.nilable(Models::Errors::Details)).void }
+        def initialize(error_code:, message:, status_code:, timestamp:, details: nil)
+          @error_code = error_code
           @message = message
           @status_code = status_code
           @timestamp = timestamp
+          @details = details
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @error_code == other.error_code
           return false unless @message == other.message
           return false unless @status_code == other.status_code
           return false unless @timestamp == other.timestamp
+          return false unless @details == other.details
           true
         end
       end

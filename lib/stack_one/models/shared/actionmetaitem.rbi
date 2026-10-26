@@ -14,10 +14,14 @@ class StackOne::Models::Shared::ActionMetaItem
   def authentication=(str_); end
   def description(); end
   def description=(str_); end
+  def has_required_parameters(); end
+  def has_required_parameters=(str_); end
   def id(); end
   def id=(str_); end
   def label(); end
   def label=(str_); end
+  def lookback_default_window(); end
+  def lookback_default_window=(str_); end
   def required_scopes(); end
   def required_scopes=(str_); end
   def schema_type(); end
