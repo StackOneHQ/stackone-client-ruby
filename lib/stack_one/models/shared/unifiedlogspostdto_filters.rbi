@@ -14,6 +14,8 @@ class StackOne::Models::Shared::UnifiedLogsPostDtoFilters
   def action=(str_); end
   def connector_key(); end
   def connector_key=(str_); end
+  def connector_profile_id(); end
+  def connector_profile_id=(str_); end
   def end_time(); end
   def end_time=(str_); end
   def http_method(); end

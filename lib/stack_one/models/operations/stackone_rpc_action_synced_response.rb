@@ -20,16 +20,16 @@ module StackOne
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
-        # Synced action data
-        field :actions_synced_response, Crystalline::Nilable.new(Models::Shared::ActionsSyncedResponse)
+        # Synced action data, or a refusal payload explaining why none was returned.
+        field :one_of, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::ActionsSyncedResponse, Models::Shared::ActionsSyncedRefusal))
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, actions_synced_response: T.nilable(Models::Shared::ActionsSyncedResponse)).void }
-        def initialize(content_type:, headers:, status_code:, raw_response:, actions_synced_response: nil)
+        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, one_of: T.nilable(T.any(Models::Shared::ActionsSyncedResponse, Models::Shared::ActionsSyncedRefusal))).void }
+        def initialize(content_type:, headers:, status_code:, raw_response:, one_of: nil)
           @content_type = content_type
           @headers = headers
           @status_code = status_code
           @raw_response = raw_response
-          @actions_synced_response = actions_synced_response
+          @one_of = one_of
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -39,7 +39,7 @@ module StackOne
           return false unless @headers == other.headers
           return false unless @status_code == other.status_code
           return false unless @raw_response == other.raw_response
-          return false unless @actions_synced_response == other.actions_synced_response
+          return false unless @one_of == other.one_of
           true
         end
       end

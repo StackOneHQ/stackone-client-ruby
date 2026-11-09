@@ -14,9 +14,9 @@ module StackOne
 
 
         field :actions_rpc_synced_request_dto, Models::Shared::ActionsRpcSyncedRequestDto, { 'request': { 'media_type': 'application/json' } }
-        # The number of results to return per page
+        # The number of results to return per page (minimum 1, maximum 200, default 100). With a non-empty `aggs` there is no default: omit it to get aggregations only, or set it to also get that page of records. A page of large records can hold fewer, marked `truncated: true` in the response.
         field :page_size, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
-        # The number of results to skip before returning results
+        # The number of results to skip before returning results. skip + page_size cannot exceed 10000 (page_size defaulting to 100 when omitted); narrow the filter to reach records beyond that. After a `truncated` page, continue from skip plus the number of records returned.
         field :skip, Crystalline::Nilable.new(::Float), { 'query_param': { 'field_name': 'skip', 'style': 'form', 'explode': true } }
 
         sig { params(actions_rpc_synced_request_dto: Models::Shared::ActionsRpcSyncedRequestDto, page_size: T.nilable(::Float), skip: T.nilable(::Float)).void }

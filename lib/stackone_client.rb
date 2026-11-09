@@ -13,7 +13,6 @@ module StackOne
   autoload :Connectors, 'stack_one/connectors'
   autoload :Logs, 'stack_one/logs'
   autoload :Mcp, 'stack_one/mcp'
-  autoload :RequestLogs, 'stack_one/request_logs'
   autoload :Accounting, 'stack_one/accounting'
   autoload :Ats, 'stack_one/ats'
   autoload :Crm, 'stack_one/crm'

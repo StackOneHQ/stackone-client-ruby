@@ -18,31 +18,40 @@ module StackOne
         field :authentication, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::AuthenticationMetaItem)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('authentication') } }
         # The action description
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('description') } }
+        # Whether this action requires parameters to be supplied when it is synced. Such actions cannot be linked automatically for every account — each schedule must be created with its parameter values.
+        field :has_required_parameters, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('has_required_parameters') } }
         # The action ID
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # The action label
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('label') } }
+        # The default lookback window for this action, as an ISO 8601 duration (e.g. `P2Y`). A new sync config starts its `lookback_start` this far before today. `null` when the action does not support lookback.
+        field :lookback_default_window, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('lookback_default_window') } }
         # The required scopes for the action
         field :required_scopes, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('required_scopes') } }
         # The schema type for the action
         field :schema_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('schema_type') } }
         # Whether this action supports incremental syncs (has an incremental strategy).
         field :supports_incremental, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('supports_incremental') } }
+        # Whether the action supports deletion verification, so its sync config can set `verify_deletions`.
+        field :supports_verify_deletions, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('supports_verify_deletions') } }
         # Whether this action can be synced with the datasync v2 sync engine.
         field :syncable, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('syncable') } }
         # The tags associated with this action
         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
-        sig { params(action_details: T.nilable(T::Hash[Symbol, ::Object]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), id: T.nilable(::String), label: T.nilable(::String), required_scopes: T.nilable(T::Array[::String]), schema_type: T.nilable(::String), supports_incremental: T.nilable(T::Boolean), syncable: T.nilable(T::Boolean), tags: T.nilable(T::Array[::String])).void }
-        def initialize(action_details: nil, authentication: nil, description: nil, id: nil, label: nil, required_scopes: nil, schema_type: nil, supports_incremental: nil, syncable: nil, tags: nil)
+        sig { params(action_details: T.nilable(T::Hash[Symbol, ::Object]), authentication: T.nilable(T::Array[Models::Shared::AuthenticationMetaItem]), description: T.nilable(::String), has_required_parameters: T.nilable(T::Boolean), id: T.nilable(::String), label: T.nilable(::String), lookback_default_window: T.nilable(::String), required_scopes: T.nilable(T::Array[::String]), schema_type: T.nilable(::String), supports_incremental: T.nilable(T::Boolean), supports_verify_deletions: T.nilable(T::Boolean), syncable: T.nilable(T::Boolean), tags: T.nilable(T::Array[::String])).void }
+        def initialize(action_details: nil, authentication: nil, description: nil, has_required_parameters: nil, id: nil, label: nil, lookback_default_window: nil, required_scopes: nil, schema_type: nil, supports_incremental: nil, supports_verify_deletions: nil, syncable: nil, tags: nil)
           @action_details = action_details
           @authentication = authentication
           @description = description
+          @has_required_parameters = has_required_parameters
           @id = id
           @label = label
+          @lookback_default_window = lookback_default_window
           @required_scopes = required_scopes
           @schema_type = schema_type
           @supports_incremental = supports_incremental
+          @supports_verify_deletions = supports_verify_deletions
           @syncable = syncable
           @tags = tags
         end
@@ -53,11 +62,14 @@ module StackOne
           return false unless @action_details == other.action_details
           return false unless @authentication == other.authentication
           return false unless @description == other.description
+          return false unless @has_required_parameters == other.has_required_parameters
           return false unless @id == other.id
           return false unless @label == other.label
+          return false unless @lookback_default_window == other.lookback_default_window
           return false unless @required_scopes == other.required_scopes
           return false unless @schema_type == other.schema_type
           return false unless @supports_incremental == other.supports_incremental
+          return false unless @supports_verify_deletions == other.supports_verify_deletions
           return false unless @syncable == other.syncable
           return false unless @tags == other.tags
           true

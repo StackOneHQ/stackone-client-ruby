@@ -20,7 +20,10 @@ module StackOne
       autoload :UnauthorizedResponse, 'stack_one/models/errors/unauthorizedresponse.rb'
       autoload :UnprocessableEntityResponse, 'stack_one/models/errors/unprocessableentityresponse.rb'
       autoload :Data, 'stack_one/models/errors/data.rb'
+      autoload :Details, 'stack_one/models/errors/details.rb'
+      autoload :ErrorCode, 'stack_one/models/errors/errorcode.rb'
       autoload :Headers, 'stack_one/models/errors/headers.rb'
+      autoload :Status, 'stack_one/models/errors/status.rb'
     end
   end
 end

@@ -2,7 +2,7 @@
 
 ## Overview
 
-View and manage connector profiles for the project.
+View and manage connector profiles for the project: the authentication, enabled actions, data sync and events of each configured connector.
 
 ### Available Operations
 

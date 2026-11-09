@@ -10,10 +10,10 @@ end
 class StackOne::Models::Operations::StackoneMcpPostRequest
   def json_rpc_message_dto(); end
   def json_rpc_message_dto=(str_); end
+  def apps(); end
+  def apps=(str_); end
   def instructions(); end
   def instructions=(str_); end
-  def mcp_session_id(); end
-  def mcp_session_id=(str_); end
   def param_style(); end
   def param_style=(str_); end
   def tool_mode(); end

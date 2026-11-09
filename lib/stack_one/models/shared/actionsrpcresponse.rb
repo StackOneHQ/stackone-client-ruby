@@ -15,15 +15,24 @@ module StackOne
 
         field :additional_properties, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_properties'), 'additional_properties': true } }
         # Payload returned from the action execution
-        field :data, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(Symbol, ::Object), Crystalline::Array.new(Crystalline::Hash.new(Symbol, ::Object)))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        # Success message. Only set by the `stackone_submit_feedback` action
+        field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
         # Continuation token or next-page reference returned from the action execution
-        field :next_, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('next') } }
+        # Session id the feedback was attached to (join key); null when none was resolved. Only set by the `stackone_submit_feedback` action
+        field :session_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('session_id') } }
+        # ISO 8601 timestamp of submission. Only set by the `stackone_submit_feedback` action
+        field :submitted_at, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('submitted_at') } }
 
-        sig { params(additional_properties: T.nilable(T::Hash[Symbol, ::Object]), data: T.nilable(::Object), next_: T.nilable(::Object)).void }
-        def initialize(additional_properties: nil, data: nil, next_: nil)
+        sig { params(additional_properties: T.nilable(T::Hash[Symbol, ::Object]), data: T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[T::Hash[Symbol, ::Object]])), message: T.nilable(::String), next_: T.nilable(::String), session_id: T.nilable(::String), submitted_at: T.nilable(::String)).void }
+        def initialize(additional_properties: nil, data: nil, message: nil, next_: nil, session_id: nil, submitted_at: nil)
           @additional_properties = additional_properties
           @data = data
+          @message = message
           @next_ = next_
+          @session_id = session_id
+          @submitted_at = submitted_at
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -31,7 +40,10 @@ module StackOne
           return false unless other.is_a? self.class
           return false unless @additional_properties == other.additional_properties
           return false unless @data == other.data
+          return false unless @message == other.message
           return false unless @next_ == other.next_
+          return false unless @session_id == other.session_id
+          return false unless @submitted_at == other.submitted_at
           true
         end
       end

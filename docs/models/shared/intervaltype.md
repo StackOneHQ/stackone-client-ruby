@@ -23,3 +23,4 @@ custom = IntervalType.deserialize("custom_value")
 | `DAY`    | day      |
 | `WEEK`   | week     |
 | `MONTH`  | month    |
+| `NONE`   | none     |

@@ -20,9 +20,11 @@ module StackOne
         field :account_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('account_id') } }
         # The categories of the provider to connect to
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectSessionCreateCategories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
-        # The ID of the connector profile to use for this connect session. Use this to route to a non-default connector profile — for example when you have multiple profiles for the same provider, or when migrating end users to a new connector major version. Retrieve the ID from GET /connector_profiles. When omitted, the session uses the project default connector profile for the given provider.
+        # The ID of the connector profile to use for this connect session. Use this to route to a non-default connector profile — for example when you have multiple profiles for the same provider, or when migrating end users to a new connector major version. Retrieve the ID from GET /connector_profiles. When omitted, the session binds to the project default connector profile when the caller may use it, otherwise to another connector profile for the provider that the caller may use.
         field :connector_profile_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
-        # Deprecated: use `connector_profile_id` instead. The ID of the auth config to use for this connect session. Use this to route to a non-default auth config — for example when you have multiple configs for the same provider, or when migrating end users to a new connector major version. Retrieve the ID from GET /auth_configs. When omitted, the session uses the project default auth config for the given provider.
+        # An ordered list of connector profile IDs the hub should offer for this connect session, so end users can only link through these profiles. Each ID must belong to an active connector profile in the project; retrieve them from GET /connector_profiles. Duplicates are ignored and an empty list means no restriction. Accepts at most 50 IDs. Cannot be combined with connector_profile_id, integration_id, provider, provider_version or categories. When account_id is set, every profile must belong to the account's connector.
+        field :connector_profile_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_ids') } }
+        # Deprecated: use `connector_profile_id` instead (this is an alias for it). The ID of the connector profile to use for this connect session. Use this to route to a non-default connector profile — for example when you have multiple profiles for the same provider, or when migrating end users to a new connector major version. Retrieve the ID from GET /connector_profiles. When omitted, the session binds to the project default connector profile when the caller may use it, otherwise to another connector profile for the provider that the caller may use.
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :integration_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('integration_id') } }
@@ -32,9 +34,9 @@ module StackOne
         field :metadata, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateMetadata), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('metadata') } }
         # The origin username
         field :origin_username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('origin_username') } }
-        # The provider key to connect to (e.g. "salesforce", "bamboohr"). When provided, the hub opens directly at the credential entry step for this provider using the project default auth config. Omit to show the full provider selection screen. To use a non-default auth config, use integration_id instead.
+        # The provider key to connect to (e.g. "salesforce", "bamboohr"). When provided, the hub opens directly at the credential entry step for this provider. The session binds to the project default connector profile when the caller may use it, otherwise to another connector profile for the provider that the caller may use; if none is usable the request is refused. Omit to show the full provider selection screen. To target a specific connector profile, use connector_profile_id instead.
         field :provider, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider') } }
-        # Deprecated. provider_version no longer determines which connector version is used for the session and can cause session creation to fail. Omit this field — passing provider alone will create a session using the default auth config. To target a specific auth config, use integration_id.
+        # Deprecated. When supplied, provider_version restricts binding to connector profiles of that version, so a version with no usable profile causes session creation to fail. Omit it to bind the default connector profile (or another the caller may use). To target a specific connector profile, use connector_profile_id.
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :provider_version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_version') } }
@@ -45,13 +47,14 @@ module StackOne
         # The connect session account type
         field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionCreateType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectSessionCreateType, true) } }
 
-        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), connector_profile_id: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), expires_in: T.nilable(::Float), multiple: T.nilable(T::Boolean), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
-        def initialize(origin_owner_id:, origin_owner_name:, account_id: nil, categories: nil, connector_profile_id: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, provider_version: nil, expires_in: 1800.0, multiple: false, type: Models::Shared::ConnectSessionCreateType::PRODUCTION)
+        sig { params(origin_owner_id: ::String, origin_owner_name: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionCreateCategories]), connector_profile_id: T.nilable(::String), connector_profile_ids: T.nilable(T::Array[::String]), integration_id: T.nilable(::String), label: T.nilable(::String), metadata: T.nilable(Models::Shared::ConnectSessionCreateMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), provider_version: T.nilable(::String), expires_in: T.nilable(::Float), multiple: T.nilable(T::Boolean), type: T.nilable(Models::Shared::ConnectSessionCreateType)).void }
+        def initialize(origin_owner_id:, origin_owner_name:, account_id: nil, categories: nil, connector_profile_id: nil, connector_profile_ids: nil, integration_id: nil, label: nil, metadata: nil, origin_username: nil, provider: nil, provider_version: nil, expires_in: 1800.0, multiple: false, type: Models::Shared::ConnectSessionCreateType::PRODUCTION)
           @origin_owner_id = origin_owner_id
           @origin_owner_name = origin_owner_name
           @account_id = account_id
           @categories = categories
           @connector_profile_id = connector_profile_id
+          @connector_profile_ids = connector_profile_ids
           @integration_id = integration_id
           @label = label
           @metadata = metadata
@@ -71,6 +74,7 @@ module StackOne
           return false unless @account_id == other.account_id
           return false unless @categories == other.categories
           return false unless @connector_profile_id == other.connector_profile_id
+          return false unless @connector_profile_ids == other.connector_profile_ids
           return false unless @integration_id == other.integration_id
           return false unless @label == other.label
           return false unless @metadata == other.metadata
