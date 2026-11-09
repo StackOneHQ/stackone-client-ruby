@@ -1,6 +1,6 @@
 # ParamStyle
 
-Parameter schema style: "nested" (default) groups by location, "flat_prefixed" flattens with location prefix, "flat_smart" flattens and only prefixes on name collision
+Parameter schema style: "flat_prefixed" (default) flattens with location prefix, "nested" groups by location, "flat_smart" flattens and only prefixes on name collision
 
 ## Example Usage
 

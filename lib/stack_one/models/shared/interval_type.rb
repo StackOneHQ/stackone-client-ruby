@@ -16,6 +16,7 @@ module StackOne
           DAY = new('day')
           WEEK = new('week')
           MONTH = new('month')
+          NONE = new('none')
         end
         open!
       end
