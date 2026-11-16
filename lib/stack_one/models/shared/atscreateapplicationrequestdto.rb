@@ -27,13 +27,13 @@ module StackOne
         # Unique identifier of the location
         field :location_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_id') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Questionnaires associated with the application
         field :questionnaires, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CreateQuestionnaire)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('questionnaires') } }
 
         field :source, Crystalline::Nilable.new(Models::Shared::AtsCreateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
-        sig { params(application_status: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), documents: T.nilable(T::Array[Models::Shared::AtsDocumentsUploadRequestDto]), job_id: T.nilable(::String), job_posting_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), questionnaires: T.nilable(T::Array[Models::Shared::CreateQuestionnaire]), source: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoSource)).void }
+        sig { params(application_status: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoApplicationStatus), candidate: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoCandidate), candidate_id: T.nilable(::String), documents: T.nilable(T::Array[Models::Shared::AtsDocumentsUploadRequestDto]), job_id: T.nilable(::String), job_posting_id: T.nilable(::String), location_id: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), questionnaires: T.nilable(T::Array[Models::Shared::CreateQuestionnaire]), source: T.nilable(Models::Shared::AtsCreateApplicationRequestDtoSource)).void }
         def initialize(application_status: nil, candidate: nil, candidate_id: nil, documents: nil, job_id: nil, job_posting_id: nil, location_id: nil, passthrough: nil, questionnaires: nil, source: nil)
           @application_status = application_status
           @candidate = candidate

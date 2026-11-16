@@ -16,6 +16,6 @@ class StackOne::Models::Operations::StackoneListPlatformLogsResponse
   def status_code=(str_); end
   def raw_response(); end
   def raw_response=(str_); end
-  def platform_logs_paginated_legacy(); end
-  def platform_logs_paginated_legacy=(str_); end
+  def platform_logs_paginated(); end
+  def platform_logs_paginated=(str_); end
 end

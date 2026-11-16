@@ -14,16 +14,20 @@ module StackOne
 
 
         field :action_run_id, ::String, { 'path_param': { 'field_name': 'actionRunId', 'style': 'simple', 'explode': false } }
+        # A comma-separated list of additional fields to expand. Supported values: `connector` (the connector display data — name, logo, categories — for each row) and `effects` (what each action row's action does to the external system, such as `read` or `write`). Both are returned only when requested. `connector_key`, `connector_version` and `connector_owner` are always returned regardless.
+        field :expand, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'expand', 'style': 'form', 'explode': true } }
 
-        sig { params(action_run_id: ::String).void }
-        def initialize(action_run_id:)
+        sig { params(action_run_id: ::String, expand: T.nilable(::String)).void }
+        def initialize(action_run_id:, expand: nil)
           @action_run_id = action_run_id
+          @expand = expand
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @action_run_id == other.action_run_id
+          return false unless @expand == other.expand
           true
         end
       end

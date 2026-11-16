@@ -24,7 +24,7 @@ module StackOne
       
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 
@@ -42,7 +42,7 @@ module StackOne
 
 
 
-    sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingCreateTicketResponse) }
+    sig { params(ticketing_ticket_create_request_dto: Models::Shared::TicketingTicketCreateRequestDto, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingCreateTicketResponse) }
     def create_ticket(ticketing_ticket_create_request_dto:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # create_ticket - Create Ticket
       # Create a new ticket record.
@@ -57,15 +57,15 @@ module StackOne
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/tickets"
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :ticketing_ticket_create_request_dto, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -82,7 +82,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -92,7 +92,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -102,7 +102,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -123,7 +123,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -159,7 +159,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::CreateResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::CreateResult)
           response = Models::Operations::TicketingCreateTicketResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -181,7 +181,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -195,7 +195,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -209,7 +209,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -223,7 +223,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -237,7 +237,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -251,7 +251,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -265,7 +265,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -279,7 +279,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -293,7 +293,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -307,7 +307,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -321,7 +321,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -335,7 +335,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -351,7 +351,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingDownloadTicketingAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingDownloadTicketingAttachmentResponse) }
+    sig { params(request: Models::Operations::TicketingDownloadTicketingAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingDownloadTicketingAttachmentResponse) }
     def download_ticketing_attachment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # download_ticketing_attachment - Download Attachment
       # Download the attachment file from a ticket.
@@ -366,7 +366,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingDownloadTicketingAttachmentRequest, request, nil)
       headers['Accept'] = '*/*'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -381,7 +381,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -391,7 +391,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -401,7 +401,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -422,7 +422,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -478,7 +478,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -492,7 +492,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -506,7 +506,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -520,7 +520,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -534,7 +534,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -548,7 +548,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -562,7 +562,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -576,7 +576,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -590,7 +590,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -604,7 +604,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -618,7 +618,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -632,7 +632,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -648,7 +648,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetAttachmentResponse) }
+    sig { params(request: Models::Operations::TicketingGetAttachmentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetAttachmentResponse) }
     def get_attachment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_attachment - Get Attachment
       # Retrieve the details of a single attachment for a ticket.
@@ -663,7 +663,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetAttachmentRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -678,7 +678,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -688,7 +688,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -698,7 +698,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -719,7 +719,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -755,7 +755,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingAttachmentResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingAttachmentResult)
           response = Models::Operations::TicketingGetAttachmentResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -777,7 +777,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -791,7 +791,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -805,7 +805,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -819,7 +819,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -833,7 +833,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -847,7 +847,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -861,7 +861,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -875,7 +875,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -889,7 +889,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -903,7 +903,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -917,7 +917,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -931,7 +931,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -947,7 +947,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetCommentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetCommentResponse) }
+    sig { params(request: Models::Operations::TicketingGetCommentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetCommentResponse) }
     def get_comment(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_comment - Get Comment
       # Retrieve a single comment by its identifier for a ticket.
@@ -962,7 +962,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetCommentRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -977,7 +977,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -987,7 +987,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -997,7 +997,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1018,7 +1018,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1054,7 +1054,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingCommentResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingCommentResult)
           response = Models::Operations::TicketingGetCommentResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1076,7 +1076,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1090,7 +1090,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1104,7 +1104,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1118,7 +1118,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1132,7 +1132,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1146,7 +1146,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1160,7 +1160,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1174,7 +1174,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1188,7 +1188,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1202,7 +1202,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1216,7 +1216,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1230,7 +1230,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1246,7 +1246,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetProjectRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetProjectResponse) }
+    sig { params(request: Models::Operations::TicketingGetProjectRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetProjectResponse) }
     def get_project(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_project - Get Project
       # Retrieve a single project by its identifier.
@@ -1261,7 +1261,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetProjectRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1276,7 +1276,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -1286,7 +1286,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -1296,7 +1296,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1317,7 +1317,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1353,7 +1353,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingProjectResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingProjectResult)
           response = Models::Operations::TicketingGetProjectResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1375,7 +1375,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1389,7 +1389,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1403,7 +1403,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1417,7 +1417,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1431,7 +1431,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1445,7 +1445,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1459,7 +1459,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1473,7 +1473,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1487,7 +1487,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1501,7 +1501,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1515,7 +1515,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1529,7 +1529,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1545,7 +1545,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetProjectComponentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetProjectComponentResponse) }
+    sig { params(request: Models::Operations::TicketingGetProjectComponentRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetProjectComponentResponse) }
     def get_project_component(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_project_component - Get Project Component
       # Retrieve a single project component by its identifier.
@@ -1560,7 +1560,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetProjectComponentRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1575,7 +1575,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -1585,7 +1585,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -1595,7 +1595,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1616,7 +1616,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1652,7 +1652,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingComponentResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingComponentResult)
           response = Models::Operations::TicketingGetProjectComponentResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1674,7 +1674,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1688,7 +1688,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1702,7 +1702,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1716,7 +1716,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1730,7 +1730,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1744,7 +1744,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1758,7 +1758,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1772,7 +1772,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1786,7 +1786,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1800,7 +1800,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1814,7 +1814,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1828,7 +1828,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1844,7 +1844,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetTicketRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetTicketResponse) }
+    sig { params(request: Models::Operations::TicketingGetTicketRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetTicketResponse) }
     def get_ticket(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_ticket - Get Ticket
       # Retrieve a single ticket by its identifier.
@@ -1859,7 +1859,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetTicketRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1874,7 +1874,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -1884,7 +1884,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -1894,7 +1894,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1915,7 +1915,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1951,7 +1951,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingTicketResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingTicketResult)
           response = Models::Operations::TicketingGetTicketResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1973,7 +1973,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -1987,7 +1987,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2001,7 +2001,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2015,7 +2015,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2029,7 +2029,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2043,7 +2043,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2057,7 +2057,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2071,7 +2071,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2085,7 +2085,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2099,7 +2099,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2113,7 +2113,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2127,7 +2127,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2143,7 +2143,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetTicketTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetTicketTypeResponse) }
+    sig { params(request: Models::Operations::TicketingGetTicketTypeRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetTicketTypeResponse) }
     def get_ticket_type(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_ticket_type - Get Ticket Type
       # Retrieve a single ticket type by its identifier.
@@ -2158,7 +2158,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetTicketTypeRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2173,7 +2173,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -2183,7 +2183,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -2193,7 +2193,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2214,7 +2214,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2250,7 +2250,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingTicketTypeResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingTicketTypeResult)
           response = Models::Operations::TicketingGetTicketTypeResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2272,7 +2272,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2286,7 +2286,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2300,7 +2300,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2314,7 +2314,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2328,7 +2328,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2342,7 +2342,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2356,7 +2356,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2370,7 +2370,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2384,7 +2384,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2398,7 +2398,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2412,7 +2412,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2426,7 +2426,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2442,7 +2442,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingGetUserResponse) }
+    sig { params(request: Models::Operations::TicketingGetUserRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingGetUserResponse) }
     def get_user(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # get_user - Get User
       # Retrieve a single user by their identifier.
@@ -2457,7 +2457,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingGetUserRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2472,7 +2472,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -2482,7 +2482,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -2492,7 +2492,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2513,7 +2513,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2549,7 +2549,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingUserResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingUserResult)
           response = Models::Operations::TicketingGetUserResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2571,7 +2571,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2585,7 +2585,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2599,7 +2599,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2613,7 +2613,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2627,7 +2627,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2641,7 +2641,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2655,7 +2655,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2669,7 +2669,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2683,7 +2683,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2697,7 +2697,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2711,7 +2711,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2725,7 +2725,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2741,7 +2741,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListAttachmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListAttachmentsResponse) }
+    sig { params(request: Models::Operations::TicketingListAttachmentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListAttachmentsResponse) }
     def list_attachments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_attachments - List Attachments
       # Retrieve a paginated list of attachment details for a ticket.
@@ -2756,7 +2756,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListAttachmentsRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2771,7 +2771,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -2781,7 +2781,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -2791,7 +2791,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2812,7 +2812,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2848,7 +2848,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingAttachmentsPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingAttachmentsPaginated)
           response = Models::Operations::TicketingListAttachmentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2859,7 +2859,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -2901,7 +2901,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2915,7 +2915,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2929,7 +2929,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2943,7 +2943,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2957,7 +2957,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2971,7 +2971,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2985,7 +2985,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -2999,7 +2999,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3013,7 +3013,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3027,7 +3027,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3041,7 +3041,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3055,7 +3055,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3071,7 +3071,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListCommentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListCommentsResponse) }
+    sig { params(request: Models::Operations::TicketingListCommentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListCommentsResponse) }
     def list_comments(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_comments - List Comments
       # Retrieve a paginated list of comments for a ticket.
@@ -3086,7 +3086,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListCommentsRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -3101,7 +3101,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -3111,7 +3111,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -3121,7 +3121,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -3142,7 +3142,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -3178,7 +3178,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingCommentsPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingCommentsPaginated)
           response = Models::Operations::TicketingListCommentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3189,7 +3189,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -3231,7 +3231,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3245,7 +3245,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3259,7 +3259,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3273,7 +3273,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3287,7 +3287,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3301,7 +3301,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3315,7 +3315,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3329,7 +3329,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3343,7 +3343,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3357,7 +3357,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3371,7 +3371,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3385,7 +3385,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3401,7 +3401,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListProjectComponentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListProjectComponentsResponse) }
+    sig { params(request: Models::Operations::TicketingListProjectComponentsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListProjectComponentsResponse) }
     def list_project_components(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_project_components - List Project Components
       # Retrieve a paginated list of project components.
@@ -3416,7 +3416,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListProjectComponentsRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -3431,7 +3431,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -3441,7 +3441,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -3451,7 +3451,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -3472,7 +3472,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -3508,7 +3508,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingComponentsPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingComponentsPaginated)
           response = Models::Operations::TicketingListProjectComponentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3519,7 +3519,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -3561,7 +3561,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3575,7 +3575,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3589,7 +3589,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3603,7 +3603,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3617,7 +3617,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3631,7 +3631,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3645,7 +3645,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3659,7 +3659,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3673,7 +3673,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3687,7 +3687,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3701,7 +3701,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3715,7 +3715,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3731,7 +3731,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListProjectTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListProjectTicketTypesResponse) }
+    sig { params(request: Models::Operations::TicketingListProjectTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListProjectTicketTypesResponse) }
     def list_project_ticket_types(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_project_ticket_types - List Project Ticket Types
       # Retrieve a paginated list of ticket types for a project.
@@ -3746,7 +3746,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListProjectTicketTypesRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -3761,7 +3761,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -3771,7 +3771,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -3781,7 +3781,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -3802,7 +3802,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -3838,7 +3838,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingTicketTypePaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingTicketTypePaginated)
           response = Models::Operations::TicketingListProjectTicketTypesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3849,7 +3849,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -3891,7 +3891,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3905,7 +3905,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3919,7 +3919,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3933,7 +3933,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3947,7 +3947,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3961,7 +3961,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3975,7 +3975,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -3989,7 +3989,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4003,7 +4003,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4017,7 +4017,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4031,7 +4031,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4045,7 +4045,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4061,7 +4061,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListProjectsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListProjectsResponse) }
+    sig { params(request: Models::Operations::TicketingListProjectsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListProjectsResponse) }
     def list_projects(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_projects - List Projects
       # Retrieve a paginated list of projects.
@@ -4071,7 +4071,7 @@ module StackOne
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/projects"
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListProjectsRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -4086,7 +4086,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -4096,7 +4096,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -4106,7 +4106,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -4127,7 +4127,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -4163,7 +4163,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingProjectsPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingProjectsPaginated)
           response = Models::Operations::TicketingListProjectsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -4174,7 +4174,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -4215,7 +4215,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4229,7 +4229,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4243,7 +4243,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4257,7 +4257,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4271,7 +4271,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4285,7 +4285,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4299,7 +4299,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4313,7 +4313,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4327,7 +4327,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4341,7 +4341,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4355,7 +4355,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4369,7 +4369,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4385,7 +4385,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListTicketStatusesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListTicketStatusesResponse) }
+    sig { params(request: Models::Operations::TicketingListTicketStatusesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListTicketStatusesResponse) }
     def list_ticket_statuses(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_ticket_statuses - List Ticket Statuses
       # Retrieve a paginated list of statuses for a ticket.
@@ -4400,7 +4400,7 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListTicketStatusesRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -4415,7 +4415,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -4425,7 +4425,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -4435,7 +4435,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -4456,7 +4456,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -4492,7 +4492,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingTicketStatusesPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingTicketStatusesPaginated)
           response = Models::Operations::TicketingListTicketStatusesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -4503,7 +4503,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -4545,7 +4545,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4559,7 +4559,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4573,7 +4573,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4587,7 +4587,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4601,7 +4601,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4615,7 +4615,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4629,7 +4629,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4643,7 +4643,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4657,7 +4657,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4671,7 +4671,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4685,7 +4685,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4699,7 +4699,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4715,7 +4715,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListTicketTypesResponse) }
+    sig { params(request: Models::Operations::TicketingListTicketTypesRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListTicketTypesResponse) }
     def list_ticket_types(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_ticket_types - List Ticket Types
       # Retrieve a paginated list of all ticket types.
@@ -4725,7 +4725,7 @@ module StackOne
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/ticket_types"
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListTicketTypesRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -4740,7 +4740,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -4750,7 +4750,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -4760,7 +4760,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -4781,7 +4781,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -4817,7 +4817,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingTicketTypePaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingTicketTypePaginated)
           response = Models::Operations::TicketingListTicketTypesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -4828,7 +4828,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -4869,7 +4869,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4883,7 +4883,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4897,7 +4897,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4911,7 +4911,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4925,7 +4925,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4939,7 +4939,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4953,7 +4953,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4967,7 +4967,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4981,7 +4981,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -4995,7 +4995,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5009,7 +5009,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5023,7 +5023,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5039,7 +5039,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListTicketsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListTicketsResponse) }
+    sig { params(request: Models::Operations::TicketingListTicketsRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListTicketsResponse) }
     def list_tickets(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_tickets - List Tickets
       # Retrieve a paginated list of tickets.
@@ -5049,7 +5049,7 @@ module StackOne
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/tickets"
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListTicketsRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -5064,7 +5064,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -5074,7 +5074,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -5084,7 +5084,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -5105,7 +5105,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -5141,7 +5141,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingTicketsPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingTicketsPaginated)
           response = Models::Operations::TicketingListTicketsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -5152,7 +5152,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -5193,7 +5193,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5207,7 +5207,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5221,7 +5221,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5235,7 +5235,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5249,7 +5249,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5263,7 +5263,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5277,7 +5277,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5291,7 +5291,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5305,7 +5305,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5319,7 +5319,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5333,7 +5333,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5347,7 +5347,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5363,7 +5363,7 @@ module StackOne
     end
 
 
-    sig { params(request: Models::Operations::TicketingListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingListUsersResponse) }
+    sig { params(request: Models::Operations::TicketingListUsersRequest, retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingListUsersResponse) }
     def list_users(request:, retries: nil, timeout_ms: nil, http_headers: nil)
       # list_users - List Users
       # Retrieve a paginated list of users.
@@ -5373,7 +5373,7 @@ module StackOne
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/unified/ticketing/users"
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::TicketingListUsersRequest, request, nil)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -5388,7 +5388,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -5398,7 +5398,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -5408,7 +5408,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -5429,7 +5429,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -5465,7 +5465,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::TicketingUsersPaginated)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::TicketingUsersPaginated)
           response = Models::Operations::TicketingListUsersResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -5476,7 +5476,7 @@ module StackOne
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -5517,7 +5517,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5531,7 +5531,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5545,7 +5545,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5559,7 +5559,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5573,7 +5573,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5587,7 +5587,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5601,7 +5601,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5615,7 +5615,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5629,7 +5629,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5643,7 +5643,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5657,7 +5657,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5671,7 +5671,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5687,7 +5687,7 @@ module StackOne
     end
 
 
-    sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::TicketingUpdateTicketResponse) }
+    sig { params(ticketing_ticket_update_request_dto: Models::Shared::TicketingTicketUpdateRequestDto, id: ::String, x_account_id: ::String, prefer: T.nilable(::String), retries: T.nilable(Utils::RetryConfig), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::TicketingUpdateTicketResponse) }
     def update_ticket(ticketing_ticket_update_request_dto:, id:, x_account_id:, prefer: nil, retries: nil, timeout_ms: nil, http_headers: nil)
       # update_ticket - Update Ticket
       # Update an existing ticket record by its identifier.
@@ -5708,15 +5708,15 @@ module StackOne
         request
       )
       headers = Utils.get_headers(request)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :ticketing_ticket_update_request_dto, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -5733,7 +5733,7 @@ module StackOne
         retry_connection_errors: true,
         strategy: 'backoff'
       )
-      retry_options = retries.to_faraday_retry_options(initial_time: Time.now)
+      retry_options = retries.to_faraday_retry_options(initial_time: ::Time.now)
       retry_options[:retry_statuses] = [429, 408]
 
       security = @sdk_configuration.security_source&.call
@@ -5743,7 +5743,7 @@ module StackOne
 
 
       connection = @sdk_configuration.client.dup
-      connection.request :retry, retry_options
+      connection.use Utils::RetryMiddleware, retry_options
 
       hook_ctx = SDKHooks::HookContext.new(
         config: @sdk_configuration,
@@ -5753,7 +5753,7 @@ module StackOne
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -5774,7 +5774,7 @@ module StackOne
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -5810,7 +5810,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::UpdateResult)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::UpdateResult)
           response = Models::Operations::TicketingUpdateTicketResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -5832,7 +5832,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadRequestResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadRequestResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5846,7 +5846,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnauthorizedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5860,7 +5860,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ForbiddenResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ForbiddenResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5874,7 +5874,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotFoundResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotFoundResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5888,7 +5888,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::RequestTimedOutResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5902,7 +5902,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ConflictResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::ConflictResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5916,7 +5916,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::PreconditionFailedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5930,7 +5930,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::UnprocessableEntityResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5944,7 +5944,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::TooManyRequestsResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5958,7 +5958,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::InternalServerErrorResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5972,7 +5972,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::NotImplementedResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::NotImplementedResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
@@ -5986,7 +5986,7 @@ module StackOne
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::BadGatewayResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::BadGatewayResponse)
           raise obj
         else
           raise ::StackOne::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'

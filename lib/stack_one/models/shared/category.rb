@@ -29,9 +29,9 @@ module StackOne
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Category2)), hierarchy: T.nilable(Models::Shared::Hierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::Language), level: T.nilable(Models::Shared::Level), name: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Category2)), hierarchy: T.nilable(Models::Shared::Hierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::Language), level: T.nilable(Models::Shared::Level), name: T.nilable(::String), remote_id: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(active: nil, hierarchy: nil, id: nil, language: nil, level: nil, name: nil, remote_id: nil, unified_custom_fields: nil)
           @active = active
           @hierarchy = hierarchy

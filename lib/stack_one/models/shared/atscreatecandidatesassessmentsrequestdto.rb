@@ -23,13 +23,13 @@ module StackOne
 
         field :package, Crystalline::Nilable.new(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :requester, Crystalline::Nilable.new(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('requester') } }
         # Results update url
         field :results_update_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
 
-        sig { params(application: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob), package: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), requester: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), results_update_url: T.nilable(::String)).void }
+        sig { params(application: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoJob), package: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoPackage), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), requester: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoRequester), results_update_url: T.nilable(::String)).void }
         def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, passthrough: nil, requester: nil, results_update_url: nil)
           @application = application
           @candidate = candidate

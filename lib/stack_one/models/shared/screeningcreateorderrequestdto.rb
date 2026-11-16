@@ -17,11 +17,11 @@ module StackOne
         # Package ID
         field :package_id, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package_id'), required: true } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(candidate: Models::Shared::ScreeningOrderCandidate, package_id: ::String, passthrough: T.nilable(T::Hash[Symbol, ::Object]), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(candidate: Models::Shared::ScreeningOrderCandidate, package_id: ::String, passthrough: T.nilable(T::Hash[::Symbol, ::Object]), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(candidate:, package_id:, passthrough: nil, unified_custom_fields: nil)
           @candidate = candidate
           @package_id = package_id

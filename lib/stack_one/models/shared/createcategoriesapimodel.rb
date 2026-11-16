@@ -25,9 +25,9 @@ module StackOne
         # The name associated with this category
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(hierarchy: T.nilable(Models::Shared::CreateCategoriesApiModelHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::CreateCategoriesApiModelLanguage), level: T.nilable(Models::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(hierarchy: T.nilable(Models::Shared::CreateCategoriesApiModelHierarchy), id: T.nilable(::String), language: T.nilable(Models::Shared::CreateCategoriesApiModelLanguage), level: T.nilable(Models::Shared::CreateCategoriesApiModelLevel), name: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(hierarchy: nil, id: nil, language: nil, level: nil, name: nil, unified_custom_fields: nil)
           @hierarchy = hierarchy
           @id = id

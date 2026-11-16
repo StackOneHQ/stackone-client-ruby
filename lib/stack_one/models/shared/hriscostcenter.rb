@@ -35,9 +35,9 @@ module StackOne
         # The type of the group
         field :type, Crystalline::Nilable.new(Models::Shared::HRISCostCenterType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(company_id: T.nilable(::String), distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_company_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::HRISCostCenterType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(company_id: T.nilable(::String), distribution_percentage: T.nilable(::Float), id: T.nilable(::String), name: T.nilable(::String), owner_ids: T.nilable(T::Array[::String]), parent_ids: T.nilable(T::Array[::String]), remote_company_id: T.nilable(::String), remote_id: T.nilable(::String), remote_owner_ids: T.nilable(T::Array[::String]), remote_parent_ids: T.nilable(T::Array[::String]), type: T.nilable(Models::Shared::HRISCostCenterType), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(company_id: nil, distribution_percentage: nil, id: nil, name: nil, owner_ids: nil, parent_ids: nil, remote_company_id: nil, remote_id: nil, remote_owner_ids: nil, remote_parent_ids: nil, type: nil, unified_custom_fields: nil)
           @company_id = company_id
           @distribution_percentage = distribution_percentage

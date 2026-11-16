@@ -32,6 +32,8 @@ module StackOne
         field :auth_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('auth_type') } }
         # The category
         field :category, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
+        # The connector display data — name, logo and categories. Only present when requested via `?expand=connector`; `connector_key`, `connector_version` and `connector_owner` are always returned regardless.
+        field :connector, Crystalline::Nilable.new(Models::Shared::Connector), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector') } }
         # The connector key
         field :connector_key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_key') } }
         # The connector owner
@@ -42,6 +44,8 @@ module StackOne
         field :connector_version, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_version') } }
         # The duration in milliseconds
         field :duration_ms, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('duration_ms') } }
+        # What the action does to the external system, as declared by the connector version the call ran on. Returned only with `?expand=effects`, and `null` otherwise. Empty when the action declares none. `null` when the effects can't be determined: a legacy connector version, or a connector or action that's no longer available to the project.
+        field :effects, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Effects)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('effects') } }
         # The request end time ISO8601 date string
         field :end_time, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The event ISO8601 date string
@@ -87,8 +91,8 @@ module StackOne
         # The user agent
         field :user_agent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_agent') } }
 
-        sig { params(action_run_id: ::String, log_id: ::String, log_type: Models::Shared::LogType, account_id: T.nilable(::String), action_id: T.nilable(::String), action_type: T.nilable(::String), agent_id: T.nilable(::String), auth_id: T.nilable(::String), auth_type: T.nilable(::String), category: T.nilable(::String), connector_key: T.nilable(::String), connector_owner: T.nilable(::String), connector_profile_id: T.nilable(::String), connector_version: T.nilable(::String), duration_ms: T.nilable(::Float), end_time: T.nilable(::DateTime), event_time: T.nilable(::DateTime), http_method: T.nilable(::String), ip_address: T.nilable(::String), is_background: T.nilable(T::Boolean), mode: T.nilable(::String), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), project_id: T.nilable(::String), risk_level: T.nilable(::String), session_id: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status_code: T.nilable(::Float), stream_type: T.nilable(::String), success: T.nilable(T::Boolean), tier2_score: T.nilable(::Float), transport_type: T.nilable(::String), url: T.nilable(::String), user_agent: T.nilable(::String)).void }
-        def initialize(action_run_id:, log_id:, log_type:, account_id: nil, action_id: nil, action_type: nil, agent_id: nil, auth_id: nil, auth_type: nil, category: nil, connector_key: nil, connector_owner: nil, connector_profile_id: nil, connector_version: nil, duration_ms: nil, end_time: nil, event_time: nil, http_method: nil, ip_address: nil, is_background: nil, mode: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, risk_level: nil, session_id: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status_code: nil, stream_type: nil, success: nil, tier2_score: nil, transport_type: nil, url: nil, user_agent: nil)
+        sig { params(action_run_id: ::String, log_id: ::String, log_type: Models::Shared::LogType, account_id: T.nilable(::String), action_id: T.nilable(::String), action_type: T.nilable(::String), agent_id: T.nilable(::String), auth_id: T.nilable(::String), auth_type: T.nilable(::String), category: T.nilable(::String), connector: T.nilable(Models::Shared::Connector), connector_key: T.nilable(::String), connector_owner: T.nilable(::String), connector_profile_id: T.nilable(::String), connector_version: T.nilable(::String), duration_ms: T.nilable(::Float), effects: T.nilable(T::Array[Models::Shared::Effects]), end_time: T.nilable(::DateTime), event_time: T.nilable(::DateTime), http_method: T.nilable(::String), ip_address: T.nilable(::String), is_background: T.nilable(T::Boolean), mode: T.nilable(::String), origin_owner_id: T.nilable(::String), origin_owner_name: T.nilable(::String), project_id: T.nilable(::String), risk_level: T.nilable(::String), session_id: T.nilable(::String), source_id: T.nilable(::String), source_type: T.nilable(::String), source_value: T.nilable(::String), start_time: T.nilable(::DateTime), status_code: T.nilable(::Float), stream_type: T.nilable(::String), success: T.nilable(T::Boolean), tier2_score: T.nilable(::Float), transport_type: T.nilable(::String), url: T.nilable(::String), user_agent: T.nilable(::String)).void }
+        def initialize(action_run_id:, log_id:, log_type:, account_id: nil, action_id: nil, action_type: nil, agent_id: nil, auth_id: nil, auth_type: nil, category: nil, connector: nil, connector_key: nil, connector_owner: nil, connector_profile_id: nil, connector_version: nil, duration_ms: nil, effects: nil, end_time: nil, event_time: nil, http_method: nil, ip_address: nil, is_background: nil, mode: nil, origin_owner_id: nil, origin_owner_name: nil, project_id: nil, risk_level: nil, session_id: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status_code: nil, stream_type: nil, success: nil, tier2_score: nil, transport_type: nil, url: nil, user_agent: nil)
           @action_run_id = action_run_id
           @log_id = log_id
           @log_type = log_type
@@ -99,11 +103,13 @@ module StackOne
           @auth_id = auth_id
           @auth_type = auth_type
           @category = category
+          @connector = connector
           @connector_key = connector_key
           @connector_owner = connector_owner
           @connector_profile_id = connector_profile_id
           @connector_version = connector_version
           @duration_ms = duration_ms
+          @effects = effects
           @end_time = end_time
           @event_time = event_time
           @http_method = http_method
@@ -141,11 +147,13 @@ module StackOne
           return false unless @auth_id == other.auth_id
           return false unless @auth_type == other.auth_type
           return false unless @category == other.category
+          return false unless @connector == other.connector
           return false unless @connector_key == other.connector_key
           return false unless @connector_owner == other.connector_owner
           return false unless @connector_profile_id == other.connector_profile_id
           return false unless @connector_version == other.connector_version
           return false unless @duration_ms == other.duration_ms
+          return false unless @effects == other.effects
           return false unless @end_time == other.end_time
           return false unless @event_time == other.event_time
           return false unless @http_method == other.http_method

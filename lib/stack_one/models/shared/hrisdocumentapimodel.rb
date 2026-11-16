@@ -37,11 +37,11 @@ module StackOne
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :type, Crystalline::Nilable.new(Models::Shared::HrisDocumentApiModelType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The update date of the file
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(category: T.nilable(Models::Shared::HrisDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::HrisDocumentApiModelFileFormat), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(Models::Shared::HrisDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        sig { params(category: T.nilable(Models::Shared::HrisDocumentApiModelCategory), category_id: T.nilable(::String), contents: T.nilable(T::Array[Models::Shared::Content]), created_at: T.nilable(::DateTime), file_format: T.nilable(Models::Shared::HrisDocumentApiModelFileFormat), id: T.nilable(::String), name: T.nilable(::String), remote_id: T.nilable(::String), remote_url: T.nilable(::String), type: T.nilable(Models::Shared::HrisDocumentApiModelType), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(category: nil, category_id: nil, contents: nil, created_at: nil, file_format: nil, id: nil, name: nil, remote_id: nil, remote_url: nil, type: nil, unified_custom_fields: nil, updated_at: nil)
           @category = category
           @category_id = category_id

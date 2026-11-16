@@ -31,7 +31,7 @@ module StackOne
         # Location ids of the job
         field :location_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('location_ids') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Status of the job
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -39,9 +39,9 @@ module StackOne
         # Title of the job
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(code: T.nilable(::String), confidential: T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[Models::Shared::AtsJobHiringTeam]), interview_stages: T.nilable(T::Array[Models::Shared::InterviewStage]), job_status: T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(code: T.nilable(::String), confidential: T.nilable(Models::Shared::AtsUpdateJobRequestDtoConfidential), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), department_ids: T.nilable(T::Array[::String]), description: T.nilable(::String), hiring_team: T.nilable(T::Array[Models::Shared::AtsJobHiringTeam]), interview_stages: T.nilable(T::Array[Models::Shared::InterviewStage]), job_status: T.nilable(Models::Shared::AtsUpdateJobRequestDtoJobStatus), location_ids: T.nilable(T::Array[::String]), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), status: T.nilable(::String), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(code: nil, confidential: nil, custom_fields: nil, department_ids: nil, description: nil, hiring_team: nil, interview_stages: nil, job_status: nil, location_ids: nil, passthrough: nil, status: nil, title: nil, unified_custom_fields: nil)
           @code = code
           @confidential = confidential

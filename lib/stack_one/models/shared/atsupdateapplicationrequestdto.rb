@@ -17,11 +17,11 @@ module StackOne
         # The application custom fields
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::CustomFields)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('custom_fields') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :source, Crystalline::Nilable.new(Models::Shared::AtsUpdateApplicationRequestDtoSource), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('source') } }
 
-        sig { params(application_status: T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), source: T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoSource)).void }
+        sig { params(application_status: T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoApplicationStatus), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), source: T.nilable(Models::Shared::AtsUpdateApplicationRequestDtoSource)).void }
         def initialize(application_status: nil, custom_fields: nil, passthrough: nil, source: nil)
           @application_status = application_status
           @custom_fields = custom_fields

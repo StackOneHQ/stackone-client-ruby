@@ -15,11 +15,11 @@ module StackOne
 
         field :category, Models::Shared::LinkedAccountMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), required: true, 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::LinkedAccountMetaCategory, false) } }
 
-        field :models, Crystalline::Hash.new(Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
+        field :models, Crystalline::Hash.new(::Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
 
         field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider'), required: true } }
 
-        sig { params(category: Models::Shared::LinkedAccountMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String).void }
+        sig { params(category: Models::Shared::LinkedAccountMetaCategory, models: T::Hash[::Symbol, ::Object], provider: ::String).void }
         def initialize(category:, models:, provider:)
           @category = category
           @models = models

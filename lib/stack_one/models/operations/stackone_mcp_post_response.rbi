@@ -18,6 +18,4 @@ class StackOne::Models::Operations::StackoneMcpPostResponse
   def raw_response=(str_); end
   def object(); end
   def object=(str_); end
-  def res(); end
-  def res=(str_); end
 end

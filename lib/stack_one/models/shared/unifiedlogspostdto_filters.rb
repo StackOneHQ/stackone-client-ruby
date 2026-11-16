@@ -18,6 +18,8 @@ module StackOne
         field :action, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action') } }
         # Filter by connector keys
         field :connector_key, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_key') } }
+        # Filter by connector profile IDs
+        field :connector_profile_id, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
         # The end of the time range to filter by (ISO 8601 timestamp)
         field :end_time, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_time') } }
         # Filter by HTTP methods
@@ -47,11 +49,12 @@ module StackOne
         # Filter by success status
         field :success, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('success') } }
 
-        sig { params(account_secure_id: T.nilable(T::Array[::String]), action: T.nilable(T::Array[::String]), connector_key: T.nilable(T::Array[::String]), end_time: T.nilable(::String), http_method: T.nilable(T::Array[Models::Shared::UnifiedLogsPostDtoHttpMethod]), mode: T.nilable(T::Array[::String]), order_by: T.nilable(Models::Shared::UnifiedLogsPostDtoOrderBy), order_direction: T.nilable(Models::Shared::UnifiedLogsPostDtoOrderDirection), origin_owner_id: T.nilable(T::Array[::String]), request_id: T.nilable(T::Array[::String]), resource: T.nilable(T::Array[::String]), service: T.nilable(T::Array[::String]), source_id: T.nilable(T::Array[::String]), source_type: T.nilable(T::Array[::String]), start_time: T.nilable(::String), status_code: T.nilable(T::Array[::String]), success: T.nilable(T::Boolean)).void }
-        def initialize(account_secure_id: nil, action: nil, connector_key: nil, end_time: nil, http_method: nil, mode: nil, order_by: nil, order_direction: nil, origin_owner_id: nil, request_id: nil, resource: nil, service: nil, source_id: nil, source_type: nil, start_time: nil, status_code: nil, success: nil)
+        sig { params(account_secure_id: T.nilable(T::Array[::String]), action: T.nilable(T::Array[::String]), connector_key: T.nilable(T::Array[::String]), connector_profile_id: T.nilable(T::Array[::String]), end_time: T.nilable(::String), http_method: T.nilable(T::Array[Models::Shared::UnifiedLogsPostDtoHttpMethod]), mode: T.nilable(T::Array[::String]), order_by: T.nilable(Models::Shared::UnifiedLogsPostDtoOrderBy), order_direction: T.nilable(Models::Shared::UnifiedLogsPostDtoOrderDirection), origin_owner_id: T.nilable(T::Array[::String]), request_id: T.nilable(T::Array[::String]), resource: T.nilable(T::Array[::String]), service: T.nilable(T::Array[::String]), source_id: T.nilable(T::Array[::String]), source_type: T.nilable(T::Array[::String]), start_time: T.nilable(::String), status_code: T.nilable(T::Array[::String]), success: T.nilable(T::Boolean)).void }
+        def initialize(account_secure_id: nil, action: nil, connector_key: nil, connector_profile_id: nil, end_time: nil, http_method: nil, mode: nil, order_by: nil, order_direction: nil, origin_owner_id: nil, request_id: nil, resource: nil, service: nil, source_id: nil, source_type: nil, start_time: nil, status_code: nil, success: nil)
           @account_secure_id = account_secure_id
           @action = action
           @connector_key = connector_key
+          @connector_profile_id = connector_profile_id
           @end_time = end_time
           @http_method = http_method
           @mode = mode
@@ -74,6 +77,7 @@ module StackOne
           return false unless @account_secure_id == other.account_secure_id
           return false unless @action == other.action
           return false unless @connector_key == other.connector_key
+          return false unless @connector_profile_id == other.connector_profile_id
           return false unless @end_time == other.end_time
           return false unless @http_method == other.http_method
           return false unless @mode == other.mode

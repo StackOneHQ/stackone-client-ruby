@@ -26,10 +26,14 @@ class StackOne::Models::Shared::UnifiedLog
   def auth_type=(str_); end
   def child_resource(); end
   def child_resource=(str_); end
+  def connector(); end
+  def connector=(str_); end
   def connector_key(); end
   def connector_key=(str_); end
   def connector_owner(); end
   def connector_owner=(str_); end
+  def connector_profile_id(); end
+  def connector_profile_id=(str_); end
   def connector_version(); end
   def connector_version=(str_); end
   def duration(); end

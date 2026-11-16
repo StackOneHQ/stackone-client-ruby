@@ -21,7 +21,7 @@ module StackOne
         # The name of the location
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The phone number of the location
         field :phone_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('phone_number') } }
         # The ISO3166-2 sub division where the location is situated
@@ -33,7 +33,7 @@ module StackOne
         # The ZIP code/Postal code of the location
         field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('zip_code') } }
 
-        sig { params(city: T.nilable(::String), country: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoCountry), id: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), state: T.nilable(Models::Shared::State), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
+        sig { params(city: T.nilable(::String), country: T.nilable(Models::Shared::HrisCreateEmployeeRequestDtoCountry), id: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), phone_number: T.nilable(::String), state: T.nilable(Models::Shared::State), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
         def initialize(city: nil, country: nil, id: nil, name: nil, passthrough: nil, phone_number: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
           @city = city
           @country = country

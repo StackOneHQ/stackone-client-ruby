@@ -15,7 +15,7 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
+        field :headers, Crystalline::Hash.new(::Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
@@ -23,7 +23,7 @@ module StackOne
         # The list of accounts was retrieved.
         field :one_of, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::LinkedAccountsPaginated, Crystalline::Array.new(Models::Shared::LinkedAccount)))
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, one_of: T.nilable(T.any(Models::Shared::LinkedAccountsPaginated, T::Array[Models::Shared::LinkedAccount]))).void }
+        sig { params(content_type: ::String, headers: T::Hash[::Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, one_of: T.nilable(T.any(Models::Shared::LinkedAccountsPaginated, T::Array[Models::Shared::LinkedAccount]))).void }
         def initialize(content_type:, headers:, status_code:, raw_response:, one_of: nil)
           @content_type = content_type
           @headers = headers

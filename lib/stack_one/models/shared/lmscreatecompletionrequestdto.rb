@@ -27,7 +27,7 @@ module StackOne
         # The id of the learning object associated with this completion. This is not required unless specified in an integration.
         field :learning_object_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The result of the completion
         field :result, Crystalline::Nilable.new(Models::Shared::LmsCreateCompletionRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
         # The score associated with this completion
@@ -35,7 +35,7 @@ module StackOne
         # ISO 8601 duration format representing the time spent on completing the learning object
         field :time_spent, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('time_spent') } }
 
-        sig { params(learning_object_external_reference: ::String, completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), score: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoScore), time_spent: T.nilable(::String)).void }
+        sig { params(learning_object_external_reference: ::String, completed_at: T.nilable(::DateTime), content_external_reference: T.nilable(::String), content_id: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), result: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoResult), score: T.nilable(Models::Shared::LmsCreateCompletionRequestDtoScore), time_spent: T.nilable(::String)).void }
         def initialize(learning_object_external_reference:, completed_at: nil, content_external_reference: nil, content_id: nil, learning_object_id: nil, passthrough: nil, result: nil, score: nil, time_spent: nil)
           @learning_object_external_reference = learning_object_external_reference
           @completed_at = completed_at

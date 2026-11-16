@@ -25,13 +25,13 @@ module StackOne
         # The learning_object_id associated with this assignment. This is not required unless specified in an integration.
         field :learning_object_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('learning_object_id') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The progress associated with this assigment
         field :progress, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('progress') } }
         # The status of the assignment
         field :status, Crystalline::Nilable.new(Models::Shared::LmsCreateAssignmentRequestDtoStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
 
-        sig { params(learning_object_external_reference: ::String, assigned_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
+        sig { params(learning_object_external_reference: ::String, assigned_at: T.nilable(::DateTime), due_date: T.nilable(::DateTime), external_reference: T.nilable(::String), learning_object_id: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), progress: T.nilable(::Float), status: T.nilable(Models::Shared::LmsCreateAssignmentRequestDtoStatus)).void }
         def initialize(learning_object_external_reference:, assigned_at: nil, due_date: nil, external_reference: nil, learning_object_id: nil, passthrough: nil, progress: nil, status: nil)
           @learning_object_external_reference = learning_object_external_reference
           @assigned_at = assigned_at
