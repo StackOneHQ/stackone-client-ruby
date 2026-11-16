@@ -18,16 +18,19 @@ module StackOne
         field :actions_indexed, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('actions_indexed') } }
         # Connector filter applied
         field :connector_filter, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_filter') } }
+        # Connector keys the build fanned out to, when no `connector_key` was given. Absent for a single-connector build.
+        field :connectors_dispatched, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connectors_dispatched') } }
         # Error message if status is error
         field :error, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('error') } }
         # Status message
         field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('message') } }
 
-        sig { params(status: Models::Shared::ActionBuildResponseDtoStatus, actions_indexed: T.nilable(::Float), connector_filter: T.nilable(::String), error: T.nilable(::String), message: T.nilable(::String)).void }
-        def initialize(status:, actions_indexed: nil, connector_filter: nil, error: nil, message: nil)
+        sig { params(status: Models::Shared::ActionBuildResponseDtoStatus, actions_indexed: T.nilable(::Float), connector_filter: T.nilable(::String), connectors_dispatched: T.nilable(T::Array[::String]), error: T.nilable(::String), message: T.nilable(::String)).void }
+        def initialize(status:, actions_indexed: nil, connector_filter: nil, connectors_dispatched: nil, error: nil, message: nil)
           @status = status
           @actions_indexed = actions_indexed
           @connector_filter = connector_filter
+          @connectors_dispatched = connectors_dispatched
           @error = error
           @message = message
         end
@@ -38,6 +41,7 @@ module StackOne
           return false unless @status == other.status
           return false unless @actions_indexed == other.actions_indexed
           return false unless @connector_filter == other.connector_filter
+          return false unless @connectors_dispatched == other.connectors_dispatched
           return false unless @error == other.error
           return false unless @message == other.message
           true

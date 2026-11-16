@@ -35,7 +35,7 @@ module StackOne
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # Use a string with a date to only select results updated after that given date
@@ -43,7 +43,7 @@ module StackOne
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
 
-        sig { params(resource_id: ::String, resource_type: ::String, x_account_id: ::String, prefer: T.nilable(::String), cursor: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::IamListResourceUsersQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
+        sig { params(resource_id: ::String, resource_type: ::String, x_account_id: ::String, prefer: T.nilable(::String), cursor: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::IamListResourceUsersQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[::Symbol, ::Object]), raw: T.nilable(T::Boolean), updated_after: T.nilable(::DateTime)).void }
         def initialize(resource_id:, resource_type:, x_account_id:, prefer: nil, cursor: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, updated_after: nil)
           @resource_id = resource_id
           @resource_type = resource_type

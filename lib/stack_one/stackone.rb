@@ -16,7 +16,7 @@ module StackOne
   class StackOne
     extend T::Sig
 
-    attr_accessor :accounts, :actions, :auth_configs, :connect_sessions, :connector_profiles, :connectors, :logs, :mcp, :request_logs, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
+    attr_accessor :accounts, :actions, :auth_configs, :connect_sessions, :connector_profiles, :connectors, :logs, :mcp, :accounting, :ats, :crm, :documents, :hris, :iam, :lms, :marketing, :messaging, :proxy, :screening, :ticketing
 
     # Instantiates the SDK, configuring it with the provided parameters.
     #
@@ -32,12 +32,12 @@ module StackOne
       params(
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::StackOne::Utils::RetryConfig),
-        timeout_ms: T.nilable(Integer),
+        timeout_ms: T.nilable(::Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
-        server_idx: T.nilable(Integer),
-        server_url: T.nilable(String),
-        url_params: T.nilable(T::Hash[Symbol, String])
+        server_idx: T.nilable(::Integer),
+        server_url: T.nilable(::String),
+        url_params: T.nilable(T::Hash[::Symbol, ::String])
       ).void
     end
     def initialize(client: nil, retry_config: nil, timeout_ms: nil, security: nil, security_source: nil, server_idx: nil, server_url: nil, url_params: nil)
@@ -86,7 +86,6 @@ module StackOne
       @connectors = Connectors.new(@sdk_configuration)
       @logs = Logs.new(@sdk_configuration)
       @mcp = Mcp.new(@sdk_configuration)
-      @request_logs = RequestLogs.new(@sdk_configuration)
       @accounting = Accounting.new(@sdk_configuration)
       @ats = Ats.new(@sdk_configuration)
       @crm = Crm.new(@sdk_configuration)
@@ -101,7 +100,7 @@ module StackOne
       @ticketing = Ticketing.new(@sdk_configuration)
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 

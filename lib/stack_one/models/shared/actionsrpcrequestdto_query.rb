@@ -13,11 +13,11 @@ module StackOne
         include Crystalline::MetadataFields
 
 
-        field :additional_properties, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_properties'), 'additional_properties': true } }
+        field :additional_properties, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('additional_properties'), 'additional_properties': true } }
         # Enable debug mode for the action execution
         field :debug, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('debug') } }
 
-        sig { params(additional_properties: T.nilable(T::Hash[Symbol, ::Object]), debug: T.nilable(T::Boolean)).void }
+        sig { params(additional_properties: T.nilable(T::Hash[::Symbol, ::Object]), debug: T.nilable(T::Boolean)).void }
         def initialize(additional_properties: nil, debug: nil)
           @additional_properties = additional_properties
           @debug = debug

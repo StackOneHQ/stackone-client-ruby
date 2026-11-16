@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class NotImplementedResponse < StandardError
+      class NotImplementedResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

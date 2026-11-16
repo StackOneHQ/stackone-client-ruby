@@ -37,9 +37,9 @@ module StackOne
         # The type of the ticket
         field :type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(assignees: T.nilable(T::Array[::String]), component_ids: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::TicketingContent]), creator_id: T.nilable(::String), organization_id: T.nilable(::String), parent_id: T.nilable(::String), priority: T.nilable(Models::Shared::TicketingTicketCreateRequestDtoPriority), project_id: T.nilable(::String), reporters: T.nilable(T::Array[::String]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), type: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(assignees: T.nilable(T::Array[::String]), component_ids: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::TicketingContent]), creator_id: T.nilable(::String), organization_id: T.nilable(::String), parent_id: T.nilable(::String), priority: T.nilable(Models::Shared::TicketingTicketCreateRequestDtoPriority), project_id: T.nilable(::String), reporters: T.nilable(T::Array[::String]), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), type: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(assignees: nil, component_ids: nil, content: nil, creator_id: nil, organization_id: nil, parent_id: nil, priority: nil, project_id: nil, reporters: nil, tags: nil, title: nil, type: nil, unified_custom_fields: nil)
           @assignees = assignees
           @component_ids = component_ids

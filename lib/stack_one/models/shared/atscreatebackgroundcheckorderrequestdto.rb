@@ -23,7 +23,7 @@ module StackOne
 
         field :package, Crystalline::Nilable.new(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('package') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
@@ -31,7 +31,7 @@ module StackOne
         # Results update url
         field :results_update_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('results_update_url') } }
 
-        sig { params(application: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::Job), package: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::Requester), results_update_url: T.nilable(::String)).void }
+        sig { params(application: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoApplication), candidate: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoCandidate), id: T.nilable(::String), job: T.nilable(Models::Shared::Job), package: T.nilable(Models::Shared::AtsCreateBackgroundCheckOrderRequestDtoPackage), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), remote_id: T.nilable(::String), requester: T.nilable(Models::Shared::Requester), results_update_url: T.nilable(::String)).void }
         def initialize(application: nil, candidate: nil, id: nil, job: nil, package: nil, passthrough: nil, remote_id: nil, requester: nil, results_update_url: nil)
           @application = application
           @candidate = candidate

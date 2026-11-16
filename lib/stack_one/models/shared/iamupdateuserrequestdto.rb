@@ -21,7 +21,7 @@ module StackOne
         # User's name which (can be a full name or display name)
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Primary email address of the user. This is generally a work email address.
         field :primary_email_address, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('primary_email_address') } }
 
@@ -29,7 +29,7 @@ module StackOne
 
         field :username, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('username') } }
 
-        sig { params(first_name: T.nilable(::String), is_bot_user: T.nilable(T.any(T::Boolean, Models::Shared::IamUpdateUserRequestDto2)), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), primary_email_address: T.nilable(::String), status: T.nilable(Models::Shared::IamUpdateUserRequestDtoStatus), username: T.nilable(::String)).void }
+        sig { params(first_name: T.nilable(::String), is_bot_user: T.nilable(T.any(T::Boolean, Models::Shared::IamUpdateUserRequestDto2)), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), primary_email_address: T.nilable(::String), status: T.nilable(Models::Shared::IamUpdateUserRequestDtoStatus), username: T.nilable(::String)).void }
         def initialize(first_name: nil, is_bot_user: nil, last_name: nil, name: nil, passthrough: nil, primary_email_address: nil, status: nil, username: nil)
           @first_name = first_name
           @is_bot_user = is_bot_user

@@ -64,6 +64,8 @@ class StackOne::Models::Shared::DimensionsPostDtoFilters
   def request_id=(str_); end
   def resource(); end
   def resource=(str_); end
+  def risk_level(); end
+  def risk_level=(str_); end
   def service(); end
   def service=(str_); end
   def session_id(); end

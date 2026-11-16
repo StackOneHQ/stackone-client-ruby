@@ -10,6 +10,10 @@ end
 class StackOne::Models::Shared::ActionsSyncedResponse
   def datasync(); end
   def datasync=(str_); end
+  def aggregations(); end
+  def aggregations=(str_); end
   def data(); end
   def data=(str_); end
+  def truncated(); end
+  def truncated=(str_); end
 end

@@ -31,7 +31,7 @@ module StackOne
         # The number of results per page (default value is 25)
         field :page_size, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'form', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
         # Provider's unique identifier of the user related to the assignment
@@ -43,7 +43,7 @@ module StackOne
         # The user ID associated with this assignment
         field :user_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'user_id', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
+        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), filter: T.nilable(Models::Operations::LmsListUserAssignmentsQueryParamFilter), next_: T.nilable(::String), page: T.nilable(::String), page_size: T.nilable(::String), proxy: T.nilable(T::Hash[::Symbol, ::Object]), raw: T.nilable(T::Boolean), remote_user_id: T.nilable(::String), updated_after: T.nilable(::DateTime), user_id: T.nilable(::String)).void }
         def initialize(id:, x_account_id:, prefer: nil, fields_: nil, filter: nil, next_: nil, page: nil, page_size: nil, proxy: nil, raw: nil, remote_user_id: nil, updated_after: nil, user_id: nil)
           @id = id
           @x_account_id = x_account_id

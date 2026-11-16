@@ -17,11 +17,11 @@ module StackOne
 
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :tags, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('tags') } }
 
-        sig { params(messages: T.nilable(T::Array[Models::Shared::SmsMessages]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
+        sig { params(messages: T.nilable(T::Array[Models::Shared::SmsMessages]), name: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), tags: T.nilable(T::Array[::String])).void }
         def initialize(messages: nil, name: nil, passthrough: nil, tags: nil)
           @messages = messages
           @name = name

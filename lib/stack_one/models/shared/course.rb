@@ -45,13 +45,13 @@ module StackOne
         # The title of the course
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The date on which the course was last updated.
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
         # The redirect URL of the course.
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url') } }
 
-        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Course2)), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::Category]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), provider: T.nilable(::String), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::Skills]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
+        sig { params(active: T.nilable(T.any(T::Boolean, Models::Shared::Course2)), authors: T.nilable(T::Array[Models::Shared::AuthorModel]), categories: T.nilable(T::Array[Models::Shared::Category]), content_ids: T.nilable(T::Array[::String]), cover_url: T.nilable(::String), created_at: T.nilable(::DateTime), description: T.nilable(::String), duration: T.nilable(::String), external_reference: T.nilable(::String), id: T.nilable(::String), languages: T.nilable(T::Array[Models::Shared::LanguageEnum]), provider: T.nilable(::String), remote_content_ids: T.nilable(T::Array[::String]), remote_id: T.nilable(::String), skills: T.nilable(T::Array[Models::Shared::Skills]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), updated_at: T.nilable(::DateTime), url: T.nilable(::String)).void }
         def initialize(active: nil, authors: nil, categories: nil, content_ids: nil, cover_url: nil, created_at: nil, description: nil, duration: nil, external_reference: nil, id: nil, languages: nil, provider: nil, remote_content_ids: nil, remote_id: nil, skills: nil, title: nil, unified_custom_fields: nil, updated_at: nil, url: nil)
           @active = active
           @authors = authors

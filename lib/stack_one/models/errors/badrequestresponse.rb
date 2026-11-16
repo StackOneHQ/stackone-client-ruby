@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class BadRequestResponse < StandardError
+      class BadRequestResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

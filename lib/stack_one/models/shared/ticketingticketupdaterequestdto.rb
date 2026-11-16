@@ -33,9 +33,9 @@ module StackOne
         # The title or subject of the ticket
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(assignees: T.nilable(T::Array[::String]), component_ids: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::TicketingContent]), parent_id: T.nilable(::String), priority: T.nilable(Models::Shared::TicketingTicketUpdateRequestDtoPriority), project_id: T.nilable(::String), reporters: T.nilable(T::Array[::String]), status: T.nilable(Models::Shared::TicketingTicketUpdateRequestDtoStatus), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(assignees: T.nilable(T::Array[::String]), component_ids: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::TicketingContent]), parent_id: T.nilable(::String), priority: T.nilable(Models::Shared::TicketingTicketUpdateRequestDtoPriority), project_id: T.nilable(::String), reporters: T.nilable(T::Array[::String]), status: T.nilable(Models::Shared::TicketingTicketUpdateRequestDtoStatus), tags: T.nilable(T::Array[::String]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(assignees: nil, component_ids: nil, content: nil, parent_id: nil, priority: nil, project_id: nil, reporters: nil, status: nil, tags: nil, title: nil, unified_custom_fields: nil)
           @assignees = assignees
           @component_ids = component_ids

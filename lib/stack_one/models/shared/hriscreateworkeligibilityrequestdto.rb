@@ -19,7 +19,7 @@ module StackOne
 
         field :number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('number') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :sub_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('sub_type') } }
 
@@ -29,7 +29,7 @@ module StackOne
 
         field :valid_to, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('valid_to'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(document: T.nilable(Models::Shared::Document), issued_by: T.nilable(Models::Shared::IssuedBy), number: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), sub_type: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateWorkEligibilityRequestDtoType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
+        sig { params(document: T.nilable(Models::Shared::Document), issued_by: T.nilable(Models::Shared::IssuedBy), number: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), sub_type: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateWorkEligibilityRequestDtoType), valid_from: T.nilable(::DateTime), valid_to: T.nilable(::DateTime)).void }
         def initialize(document: nil, issued_by: nil, number: nil, passthrough: nil, sub_type: nil, type: nil, valid_from: nil, valid_to: nil)
           @document = document
           @issued_by = issued_by

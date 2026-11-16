@@ -17,7 +17,7 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
+        field :headers, Crystalline::Hash.new(::Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
@@ -25,7 +25,7 @@ module StackOne
         # The list of background check packages was retrieved.
         field :background_check_package_paginated, Crystalline::Nilable.new(Models::Shared::BackgroundCheckPackagePaginated)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, background_check_package_paginated: T.nilable(Models::Shared::BackgroundCheckPackagePaginated)).void }
+        sig { params(content_type: ::String, headers: T::Hash[::Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, background_check_package_paginated: T.nilable(Models::Shared::BackgroundCheckPackagePaginated)).void }
         def initialize(content_type:, headers:, status_code:, raw_response:, background_check_package_paginated: nil)
           @content_type = content_type
           @headers = headers

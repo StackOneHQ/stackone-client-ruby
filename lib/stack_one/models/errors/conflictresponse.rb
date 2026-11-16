@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class ConflictResponse < StandardError
+      class ConflictResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

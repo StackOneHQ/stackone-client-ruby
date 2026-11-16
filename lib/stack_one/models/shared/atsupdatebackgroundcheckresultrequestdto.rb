@@ -17,7 +17,7 @@ module StackOne
 
         field :candidate, Crystalline::Nilable.new(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('candidate') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :result, Crystalline::Nilable.new(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('result') } }
         # The test`s result url
@@ -31,7 +31,7 @@ module StackOne
         # The summary about the result of the test
         field :summary, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
 
-        sig { params(attachments: T.nilable(T::Array[Models::Shared::Attachment]), candidate: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), passthrough: T.nilable(T::Hash[Symbol, ::Object]), result: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), result_url: T.nilable(::String), score: T.nilable(Models::Shared::Score), start_date: T.nilable(::DateTime), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
+        sig { params(attachments: T.nilable(T::Array[Models::Shared::Attachment]), candidate: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoCandidate), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), result: T.nilable(Models::Shared::AtsUpdateBackgroundCheckResultRequestDtoResult), result_url: T.nilable(::String), score: T.nilable(Models::Shared::Score), start_date: T.nilable(::DateTime), submission_date: T.nilable(::DateTime), summary: T.nilable(::String)).void }
         def initialize(attachments: nil, candidate: nil, passthrough: nil, result: nil, result_url: nil, score: nil, start_date: nil, submission_date: nil, summary: nil)
           @attachments = attachments
           @candidate = candidate
