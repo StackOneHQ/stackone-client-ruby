@@ -13,9 +13,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # The body of the request
-        field :body, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
         # The headers to send in the request
-        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # The path of the request including any query parameters
         field :path, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # The base url of the request
@@ -23,7 +23,7 @@ module StackOne
         # The method of the request
         field :method, Crystalline::Nilable.new(Models::Shared::Method), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('method'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::Method, true) } }
 
-        sig { params(body: T.nilable(T::Hash[Symbol, ::Object]), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(::String), url: T.nilable(::String), method: T.nilable(Models::Shared::Method)).void }
+        sig { params(body: T.nilable(T::Hash[::Symbol, ::Object]), headers: T.nilable(T::Hash[::Symbol, ::Object]), path: T.nilable(::String), url: T.nilable(::String), method: T.nilable(Models::Shared::Method)).void }
         def initialize(body: nil, headers: nil, path: nil, url: nil, method: Models::Shared::Method::GET)
           @body = body
           @headers = headers

@@ -15,7 +15,7 @@ module StackOne
         # The action to execute
         field :action, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('action'), required: true } }
         # Request body for the action
-        field :body, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
         # Per-request defender configuration. Takes precedence over defender_enabled and project settings.
         field :defender_config, Crystalline::Nilable.new(Models::Shared::DefenderConfig), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('defender_config') } }
         # Override the account-level defender enabled setting for this request. Deprecated: use defender_config instead.
@@ -23,13 +23,13 @@ module StackOne
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :defender_enabled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('defender_enabled') } }
         # Headers for the action
-        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # Path parameters for the action
-        field :path, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
+        field :path, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('path') } }
         # Query parameters for the action
-        field :query, Crystalline::Nilable.new(Models::Shared::ActionsRpcRequestDtoQuery), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
+        field :query, Crystalline::Nilable.new(Models::Shared::Query), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
 
-        sig { params(action: ::String, body: T.nilable(T::Hash[Symbol, ::Object]), defender_config: T.nilable(Models::Shared::DefenderConfig), defender_enabled: T.nilable(T::Boolean), headers: T.nilable(T::Hash[Symbol, ::Object]), path: T.nilable(T::Hash[Symbol, ::Object]), query: T.nilable(Models::Shared::ActionsRpcRequestDtoQuery)).void }
+        sig { params(action: ::String, body: T.nilable(T::Hash[::Symbol, ::Object]), defender_config: T.nilable(Models::Shared::DefenderConfig), defender_enabled: T.nilable(T::Boolean), headers: T.nilable(T::Hash[::Symbol, ::Object]), path: T.nilable(T::Hash[::Symbol, ::Object]), query: T.nilable(Models::Shared::Query)).void }
         def initialize(action:, body: nil, defender_config: nil, defender_enabled: nil, headers: nil, path: nil, query: nil)
           @action = action
           @body = body

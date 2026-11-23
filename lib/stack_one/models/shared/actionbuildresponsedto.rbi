@@ -14,6 +14,8 @@ class StackOne::Models::Shared::ActionBuildResponseDto
   def actions_indexed=(str_); end
   def connector_filter(); end
   def connector_filter=(str_); end
+  def connectors_dispatched(); end
+  def connectors_dispatched=(str_); end
   def error(); end
   def error=(str_); end
   def message(); end

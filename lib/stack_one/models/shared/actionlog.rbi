@@ -28,6 +28,8 @@ class StackOne::Models::Shared::ActionLog
   def auth_type=(str_); end
   def category(); end
   def category=(str_); end
+  def connector(); end
+  def connector=(str_); end
   def connector_key(); end
   def connector_key=(str_); end
   def connector_owner(); end
@@ -38,6 +40,8 @@ class StackOne::Models::Shared::ActionLog
   def connector_version=(str_); end
   def duration_ms(); end
   def duration_ms=(str_); end
+  def effects(); end
+  def effects=(str_); end
   def end_time(); end
   def end_time=(str_); end
   def event_time(); end

@@ -8,7 +8,7 @@ require 'sorbet-runtime'
 
 module StackOne
   module Utils
-    sig { params(clazz: Object, server_url: String, path: String, path_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
+    sig { params(clazz: ::Object, server_url: ::String, path: ::String, path_params: ::Object, gbls: T.nilable(T::Hash[::Symbol, T::Hash[::Symbol, T::Hash[::Symbol, ::Object]]])).returns(::String) }
     def self.generate_url(clazz, server_url, path, path_params, gbls = nil)
       T.unsafe(clazz).fields.each do |f|
         param_metadata = f.metadata[:path_param]
@@ -27,13 +27,13 @@ module StackOne
             path = path.gsub("{#{k}}", v.join(', '))
           end
         else
-          if param.is_a? Array
+          if param.is_a? ::Array
             pp_vals = []
             param.each do |pp_val|
               pp_vals.append(pp_val.to_s)
             end
             path = path.gsub("{#{param_metadata.fetch(:field_name, f.name)}}", pp_vals.join(','))
-          elsif param.is_a? Hash
+          elsif param.is_a? ::Hash
             pp_vals = []
             param.each do |pp_key, pp_val|
               value = val_to_string(pp_val)
@@ -61,7 +61,7 @@ module StackOne
 
               if param_field_val.class.respond_to?(:enums)
                 param_field_val = param_field_val.serialize
-              elsif param_field_val.is_a? DateTime
+              elsif param_field_val.is_a? ::DateTime
                 param_field_val = param_field_val.strftime('%Y-%m-%dT%H:%M:%S.%NZ')
               end
               if !field.nil? && ::Crystalline::Utils.nilable?(field.type) && param_field_val.nil?
@@ -83,12 +83,12 @@ module StackOne
     end
 
     # Percent-encode characters that are invalid in URI path segments
-    sig { params(value: String).returns(String) }
+    sig { params(value: ::String).returns(::String) }
     def self._encode_path_param(value)
       value.gsub(/[<>{}\[\]|\\^`\s?#%]/) { |c| format('%%%02X', c.ord) }
     end
 
-    sig { params(url_with_params: String, params: T::Hash[Symbol, T.any(String, T::Enum)]).returns(String) }
+    sig { params(url_with_params: ::String, params: T::Hash[::Symbol, T.any(::String, T::Enum)]).returns(::String) }
     def self.template_url(url_with_params, params)
       params.each do |key, value|
         if value.class.respond_to? :enums

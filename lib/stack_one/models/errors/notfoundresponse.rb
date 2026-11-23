@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class NotFoundResponse < StandardError
+      class NotFoundResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

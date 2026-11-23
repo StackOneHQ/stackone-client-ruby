@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class ForbiddenResponse < StandardError
+      class ForbiddenResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

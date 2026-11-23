@@ -15,7 +15,7 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
+        field :headers, Crystalline::Hash.new(::Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
@@ -27,7 +27,7 @@ module StackOne
         # The document related to the application with the given identifiers was retrieved.
         field :download_api_model1, Crystalline::Nilable.new(::String)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, body: T.nilable(::String), download_api_model: T.nilable(Models::Shared::DownloadApiModel), download_api_model1: T.nilable(::String)).void }
+        sig { params(content_type: ::String, headers: T::Hash[::Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, body: T.nilable(::String), download_api_model: T.nilable(Models::Shared::DownloadApiModel), download_api_model1: T.nilable(::String)).void }
         def initialize(content_type:, headers:, status_code:, raw_response:, body: nil, download_api_model: nil, download_api_model1: nil)
           @content_type = content_type
           @headers = headers

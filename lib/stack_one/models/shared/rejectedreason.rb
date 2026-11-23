@@ -25,9 +25,9 @@ module StackOne
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(id: T.nilable(::String), label: T.nilable(::String), rejected_reason_type: T.nilable(Models::Shared::RejectedReasonType), remote_id: T.nilable(::String), type: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(id: T.nilable(::String), label: T.nilable(::String), rejected_reason_type: T.nilable(Models::Shared::RejectedReasonType), remote_id: T.nilable(::String), type: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(id: nil, label: nil, rejected_reason_type: nil, remote_id: nil, type: nil, unified_custom_fields: nil)
           @id = id
           @label = label

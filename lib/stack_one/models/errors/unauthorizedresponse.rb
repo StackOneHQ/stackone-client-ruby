@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class UnauthorizedResponse < StandardError
+      class UnauthorizedResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

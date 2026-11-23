@@ -17,11 +17,11 @@ module StackOne
 
         field :url, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('url'), required: true } }
 
-        field :body, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Hash.new(Symbol, ::Object), Crystalline::Array.new(::Integer))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
+        field :body, Crystalline::Nilable.new(Crystalline::Union.new(::String, Crystalline::Hash.new(::Symbol, ::Object), Crystalline::Array.new(::Integer))), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('body') } }
 
-        field :response, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(Symbol, ::Object), Crystalline::Array.new(::Object), ::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
+        field :response, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(::Symbol, ::Object), Crystalline::Array.new(::Object), ::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('response') } }
 
-        sig { params(method: ::String, url: ::String, body: T.nilable(T.any(::String, T::Hash[Symbol, ::Object], T::Array[::Integer])), response: T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[::Object], ::String))).void }
+        sig { params(method: ::String, url: ::String, body: T.nilable(T.any(::String, T::Hash[::Symbol, ::Object], T::Array[::Integer])), response: T.nilable(T.any(T::Hash[::Symbol, ::Object], T::Array[::Object], ::String))).void }
         def initialize(method:, url:, body: nil, response: nil)
           @method = method
           @url = url

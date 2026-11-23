@@ -13,9 +13,9 @@ module StackOne
         include Crystalline::MetadataFields
 
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
-        sig { params(passthrough: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(passthrough: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(passthrough: nil)
           @passthrough = passthrough
         end

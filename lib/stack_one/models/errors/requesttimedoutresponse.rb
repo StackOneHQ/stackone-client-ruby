@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class RequestTimedOutResponse < StandardError
+      class RequestTimedOutResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

@@ -17,11 +17,11 @@ module StackOne
         # Unique identifier
         field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('id') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        sig { params(application_status: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus), id: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), remote_id: T.nilable(::String)).void }
+        sig { params(application_status: T.nilable(Models::Shared::AtsCreateCandidatesAssessmentsRequestDtoApplicationStatus), id: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), remote_id: T.nilable(::String)).void }
         def initialize(application_status: nil, id: nil, passthrough: nil, remote_id: nil)
           @application_status = application_status
           @id = id

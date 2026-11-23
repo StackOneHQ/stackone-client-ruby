@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class InternalServerErrorResponse < StandardError
+      class InternalServerErrorResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

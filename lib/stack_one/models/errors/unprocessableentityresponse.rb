@@ -8,7 +8,7 @@ module StackOne
   module Models
     module Errors
 
-      class UnprocessableEntityResponse < StandardError
+      class UnprocessableEntityResponse < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

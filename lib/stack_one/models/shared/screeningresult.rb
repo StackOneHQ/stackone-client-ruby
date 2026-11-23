@@ -31,9 +31,9 @@ module StackOne
         # Summary of the screening result
         field :summary, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('summary') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(id: T.nilable(::String), order_id: T.nilable(::String), remote_id: T.nilable(::String), result_url: T.nilable(::String), score: T.nilable(Models::Shared::ScreeningResultScore), start_date: T.nilable(::DateTime), status: T.nilable(Models::Shared::ScreeningResultStatus), submission_date: T.nilable(::DateTime), summary: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(id: T.nilable(::String), order_id: T.nilable(::String), remote_id: T.nilable(::String), result_url: T.nilable(::String), score: T.nilable(Models::Shared::ScreeningResultScore), start_date: T.nilable(::DateTime), status: T.nilable(Models::Shared::ScreeningResultStatus), submission_date: T.nilable(::DateTime), summary: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(id: nil, order_id: nil, remote_id: nil, result_url: nil, score: nil, start_date: nil, status: nil, submission_date: nil, summary: nil, unified_custom_fields: nil)
           @id = id
           @order_id = order_id

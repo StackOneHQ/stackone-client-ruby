@@ -21,11 +21,11 @@ module StackOne
         # The comma separated list of fields to return in the response (if empty, all fields are returned)
         field :fields_, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'fields', 'style': 'form', 'explode': true } }
         # Query parameters that can be used to pass through parameters to the underlying provider request by surrounding them with 'proxy' key
-        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
+        field :proxy, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'query_param': { 'field_name': 'proxy', 'style': 'deepObject', 'explode': true } }
         # Indicates that the raw request result should be returned in addition to the mapped result (default value is false)
         field :raw, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'query_param': { 'field_name': 'raw', 'style': 'form', 'explode': true } }
 
-        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
+        sig { params(id: ::String, x_account_id: ::String, prefer: T.nilable(::String), fields_: T.nilable(::String), proxy: T.nilable(T::Hash[::Symbol, ::Object]), raw: T.nilable(T::Boolean)).void }
         def initialize(id:, x_account_id:, prefer: nil, fields_: nil, proxy: nil, raw: nil)
           @id = id
           @x_account_id = x_account_id

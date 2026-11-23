@@ -15,7 +15,7 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
+        field :headers, Crystalline::Hash.new(::Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
@@ -23,7 +23,7 @@ module StackOne
         # The cost center group with the given identifier was retrieved.
         field :hris_cost_center_result, Crystalline::Nilable.new(Models::Shared::HRISCostCenterResult)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, hris_cost_center_result: T.nilable(Models::Shared::HRISCostCenterResult)).void }
+        sig { params(content_type: ::String, headers: T::Hash[::Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, hris_cost_center_result: T.nilable(Models::Shared::HRISCostCenterResult)).void }
         def initialize(content_type:, headers:, status_code:, raw_response:, hris_cost_center_result: nil)
           @content_type = content_type
           @headers = headers

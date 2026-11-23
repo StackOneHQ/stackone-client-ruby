@@ -15,7 +15,7 @@ module StackOne
         # The provider service category
         field :category, Models::Shared::ConnectorsMetaCategory, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category'), required: true, 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectorsMetaCategory, false) } }
 
-        field :models, Crystalline::Hash.new(Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
+        field :models, Crystalline::Hash.new(::Symbol, ::Object), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('models'), required: true } }
         # The provider key
         field :provider, ::String, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider'), required: true } }
         # The provider human-readable label
@@ -25,7 +25,7 @@ module StackOne
         # Resources for this provider, such as image assets
         field :resources, Crystalline::Nilable.new(Models::Shared::Resources), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resources') } }
 
-        sig { params(category: Models::Shared::ConnectorsMetaCategory, models: T::Hash[Symbol, ::Object], provider: ::String, provider_name: ::String, active: T.nilable(T::Boolean), resources: T.nilable(Models::Shared::Resources)).void }
+        sig { params(category: Models::Shared::ConnectorsMetaCategory, models: T::Hash[::Symbol, ::Object], provider: ::String, provider_name: ::String, active: T.nilable(T::Boolean), resources: T.nilable(Models::Shared::Resources)).void }
         def initialize(category:, models:, provider:, provider_name:, active: nil, resources: nil)
           @category = category
           @models = models
